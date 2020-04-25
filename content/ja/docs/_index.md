@@ -1,24 +1,29 @@
-
 ---
-title: "Documentation"
-linkTitle: "Documentation"
+title: "Contents"
+linkTitle: "Contents"
 weight: 20
 menu:
   main:
     weight: 20
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+## progrhyme's Tech Notes
 
+主に自分用のWikiですが、閲覧自由です。
 
-This section is where the user documentation for your project lives - all the information your users need to understand and successfully use your project. 
+{{% alert title="NOTE" %}}[progrhyme's Tech Wiki](https://sites.google.com/site/progrhymetechwiki/)の後継となるサイトです。{{% /alert %}}
 
-For large documentation sets we recommend adding content under the headings in this section, though if some or all of them don’t apply to your project feel free to remove them or add your own. You can see an example of a smaller Docsy documentation site in the [Docsy User Guide](https://docsy.dev/docs/), which lives in the [Docsy theme repo](https://github.com/google/docsy/tree/master/userguide) if you'd like to copy its docs section. 
+雑なメモは[Memorandum](./memo/)の下に置いています。  
+それ以外も雑で気まぐれですが、なんとなく分類しています（予定）。
+ときどきページ構成を工事することもあります。
 
-Other content such as marketing material, case studies, and community updates should live in the [About](/about/) and [Community](/community/) pages.
+### About Me
 
-Find out how to use the Docsy theme in the [Docsy User Guide](https://docsy.dev/docs/). You can learn more about how to organize your documentation (and how we organized this site) in [Organizing Your Content](https://docsy.dev/docs/best-practices/organizing-content/).
+- [Profile Site](https://progrhy.me/)
+- Twitter: [@progrhyme](https://twitter.com/progrhyme)
+- GitHub: [@progrhyme](https://github.com/progrhyme)
+- [progrhyme's tech blog](https://tech-progrhyme.hatenablog.com/ "progrhyme's tech blog")
 
+### 姉妹サイト
 
+- [progrhyme's Wiki](https://sites.google.com/site/progrhymewiki/) ... こちらもゆくゆくはGoogleサイト外に移行するかもしれませんが、2020-04-25現在は未定です。

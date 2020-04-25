@@ -2,7 +2,7 @@
 ---
 title: "Examples"
 linkTitle: "Examples"
-weight: 3
+weight: 3000
 date: 2017-01-05
 description: >
   See your project in action!
