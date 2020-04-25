@@ -1,12 +1,10 @@
 ---
 title: "GitBook"
 linkTitle: "GitBook"
+description: >
+  https://www.gitbook.com/
 date: 2020-04-25T23:52:08+09:00
 ---
-
-## GitBook
-
-https://www.gitbook.com/
 
 Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。  
 ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。
