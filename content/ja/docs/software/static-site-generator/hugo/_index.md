@@ -17,9 +17,40 @@ https://gohugo.io/documentation/
   - [Front Matter](https://gohugo.io/content-management/front-matter/) ... ページに対して付けることができるメタデータ
 - :
 
-## Quickstart
+## [Getting Started](https://gohugo.io/getting-started/)
 
-https://gohugo.io/getting-started/quick-start/
+### [Install](https://gohugo.io/getting-started/installing/)
+
+#### 拡張版のインストール
+
+通常版では、SASS/SCSSサポートがついていないので、必要であれば明示的に拡張版をインストールしないといけない。
+
+参考:
+
+- [Themes > Docsy](./themes/docsy/#getting-started)
+- [\[Hugo\]Hugoの通常バージョンとExtendedバージョンとの違い\[memo\] | 鈍色スイッチ](https://donsyoku.com/software/hugo-what-is-extended-version.html)
+
+##### バイナリをインストール
+
+[GitHub Releases](https://github.com/gohugoio/hugo/releases)から `_extended` 付きのバイナリを取得する。
+
+##### ソースからインストール
+
+```sh
+git clone https://github.com/gohugoio/hugo.git
+cd hugo
+go install --tags extended
+```
+
+##### Linux
+
+Snapの場合:
+
+```sh
+snap install hugo --channel=extended
+```
+
+### [Quickstart](https://gohugo.io/getting-started/quick-start/)
 
 ```sh
 # 新しくサイトを作る
