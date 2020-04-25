@@ -24,9 +24,7 @@
       <description>
         
         
-        &lt;h2 id=&#34;gitbook&#34;&gt;GitBook&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.gitbook.com/&#34;&gt;https://www.gitbook.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br&gt;
+        &lt;p&gt;Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br&gt;
 ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/GitbookIO/gitbook&#34;&gt;https://github.com/GitbookIO/gitbook&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
