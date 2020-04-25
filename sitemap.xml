@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/memo/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/static-site-generator/hugo/themes/docsy/</loc>
+    <lastmod>2020-04-26T01:00:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/gitbook/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/static-site-generator/hugo/themes/learn/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/static-site-generator/hugo/themes/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/static-site-generator/hugo/</loc>
+    <lastmod>2020-04-26T01:00:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/software/static-site-generator/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/docs/memo/20200425/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://progrhy.me/tech-notes/search/</loc>
+    <lastmod>2020-04-26T00:06:27+09:00</lastmod>
+  </url>
+  
+</urlset>
