@@ -23,23 +23,23 @@
 <title>言語仕様 | progrhyme&#39;s Tech Notes</title><meta property="og:title" content="言語仕様" />
 <meta property="og:description" content="リファレンス https://golang.org/ref/spec
 変数 https://golang.org/ref/spec#Variables
-パッケージ変数 package foo var privateVar string = &#34;this is private&#34; // 外部から見えない var publicVar string = &#34;this is public&#34; // 外部から見える 参考:
+パッケージ変数 package foo var privateVar string = &#34;this is private&#34; // 外部から見えない var PublicVar string = &#34;this is public&#34; // 外部から見える 参考:
  Go言語のスコープについて - ryochack.clipboard  データ型 https://golang.org/ref/spec#Types
 配列・スライス 配列は固定長。スライスは可変長。
 a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []int{5, 6, 7} // スライスの結合 s1 = append(s1, 4) s1 = append(s1, s2...) // スライス同士の結合では &#34;...&#34; が必要 &ldquo;Slicing&quot;というテクニックで配列をスライスに変換できる。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://progrhy.me/tech-notes/docs/program/langs/go/spec/" />
 <meta property="article:published_time" content="2020-04-26T08:10:52+09:00" />
-<meta property="article:modified_time" content="2020-04-26T08:28:00+09:00" /><meta property="og:site_name" content="progrhyme&#39;s Tech Notes" />
+<meta property="article:modified_time" content="2020-04-26T08:45:33+09:00" /><meta property="og:site_name" content="progrhyme&#39;s Tech Notes" />
 <meta itemprop="name" content="言語仕様">
 <meta itemprop="description" content="リファレンス https://golang.org/ref/spec
 変数 https://golang.org/ref/spec#Variables
-パッケージ変数 package foo var privateVar string = &#34;this is private&#34; // 外部から見えない var publicVar string = &#34;this is public&#34; // 外部から見える 参考:
+パッケージ変数 package foo var privateVar string = &#34;this is private&#34; // 外部から見えない var PublicVar string = &#34;this is public&#34; // 外部から見える 参考:
  Go言語のスコープについて - ryochack.clipboard  データ型 https://golang.org/ref/spec#Types
 配列・スライス 配列は固定長。スライスは可変長。
 a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []int{5, 6, 7} // スライスの結合 s1 = append(s1, 4) s1 = append(s1, s2...) // スライス同士の結合では &#34;...&#34; が必要 &ldquo;Slicing&quot;というテクニックで配列をスライスに変換できる。">
 <meta itemprop="datePublished" content="2020-04-26T08:10:52&#43;09:00" />
-<meta itemprop="dateModified" content="2020-04-26T08:28:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-04-26T08:45:33&#43;09:00" />
 <meta itemprop="wordCount" content="389">
 
 
@@ -48,7 +48,7 @@ a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []i
 <meta name="twitter:title" content="言語仕様"/>
 <meta name="twitter:description" content="リファレンス https://golang.org/ref/spec
 変数 https://golang.org/ref/spec#Variables
-パッケージ変数 package foo var privateVar string = &#34;this is private&#34; // 外部から見えない var publicVar string = &#34;this is public&#34; // 外部から見える 参考:
+パッケージ変数 package foo var privateVar string = &#34;this is private&#34; // 外部から見えない var PublicVar string = &#34;this is public&#34; // 外部から見える 参考:
  Go言語のスコープについて - ryochack.clipboard  データ型 https://golang.org/ref/spec#Types
 配列・スライス 配列は固定長。スライスは可変長。
 a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []int{5, 6, 7} // スライスの結合 s1 = append(s1, 4) s1 = append(s1, s2...) // スライス同士の結合では &#34;...&#34; が必要 &ldquo;Slicing&quot;というテクニックで配列をスライスに変換できる。"/>
@@ -116,7 +116,7 @@ a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []i
   aria-label="サイトを検索..."
   autocomplete="off"
   
-  data-offline-search-index-json-src="/tech-notes/offline-search-index.a8a763c4d4000c5a9ce0274fcbfb7918d984ebe93391912f35c112e3a7029968f423fbb3fcf6c9171ec9a8c0513d924b23a75747eb44f5c46562897719edf1e8.json"
+  data-offline-search-index-json-src="/tech-notes/offline-search-index.ce0186c2b678e4db6b3a419c0607661b7c1d6980b8289e25a3ccd642b9631e6a1f09ac94aa1717f86f46508bebd45394875942fe16ec8a033f1b66487313b2b9.json"
   data-offline-search-base-href="/"
 >
 
@@ -146,7 +146,7 @@ a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []i
   aria-label="サイトを検索..."
   autocomplete="off"
   
-  data-offline-search-index-json-src="/tech-notes/offline-search-index.a8a763c4d4000c5a9ce0274fcbfb7918d984ebe93391912f35c112e3a7029968f423fbb3fcf6c9171ec9a8c0513d924b23a75747eb44f5c46562897719edf1e8.json"
+  data-offline-search-index-json-src="/tech-notes/offline-search-index.ce0186c2b678e4db6b3a419c0607661b7c1d6980b8289e25a3ccd642b9631e6a1f09ac94aa1717f86f46508bebd45394875942fe16ec8a033f1b66487313b2b9.json"
   data-offline-search-base-href="/"
 >
 
@@ -413,7 +413,7 @@ a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []i
 
 
 <a href="https://github.com/progrhyme/tech-notes/edit/master/content/ja/docs/program/langs/go/spec.md" target="_blank"><i class="fa fa-edit fa-fw"></i> ページの編集</a>
-<a href="https://github.com/progrhyme/tech-notes/issues/new?title=%e8%a8%80%e8%aa%9e%e4%bb%95%e6%a7%98" target="_blank"><i class="fab fa-github fa-fw"></i> ドキュメントのissueを作成</a>
+
 
 </div>
 
@@ -534,7 +534,7 @@ a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []i
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">foo</span>
 
 <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">privateVar</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;this is private&#34;</span> <span style="color:#8f5902;font-style:italic">// 外部から見えない
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">publicVar</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;this is public&#34;</span> <span style="color:#8f5902;font-style:italic">// 外部から見える
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">PublicVar</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;this is public&#34;</span>   <span style="color:#8f5902;font-style:italic">// 外部から見える
 </span></code></pre></div><p>参考:</p>
 <ul>
 <li><a href="http://d.hatena.ne.jp/ryochack/20120115/1326567659" title="Go言語のスコープについて - ryochack.clipboard">Go言語のスコープについて - ryochack.clipboard</a></li>
@@ -722,7 +722,7 @@ a := [...]int{1, 2, 3} // 配列  s1 := []int{1, 2, 3} // スライス s2 := []i
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">最終更新 2020-04-26: <a  href="https://github.com/progrhyme/tech-notes/commit/7548dd67460a6596f0cb9d23112362dcf2c4e31a">[program/go] Add notes about time Format (7548dd6)</a>
+	<div class="text-muted mt-5 pt-3 border-top">最終更新 2020-04-26: <a  href="https://github.com/progrhyme/tech-notes/commit/b1774b311eeac1f9e409fa4cf18c64650a67d604">[program/go] Fix variable scope (b1774b3)</a>
 </div>
 </div>
 
