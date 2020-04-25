@@ -16,7 +16,7 @@ https://golang.org/ref/spec#Variables
 package foo
 
 var privateVar string = "this is private" // 外部から見えない
-var publicVar string = "this is public" // 外部から見える
+var PublicVar string = "this is public"   // 外部から見える
 ```
 
 参考:
