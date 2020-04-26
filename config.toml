@@ -166,6 +166,11 @@ enable = false
 
 # External links on site header navigation
 [[menu.main]]
+	name = "Repository"
+	weight = 40
+	url = "https://github.com/progrhyme/tech-notes"
+
+[[menu.main]]
 	name = "progrhyme's Site"
 	weight = 50
 	url = "https://progrhy.me"
