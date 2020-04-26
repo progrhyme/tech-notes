@@ -1,0 +1,304 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Providers</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/</link><description>Recent content in Providers on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 23:19:47 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/terraform/provider/index.xml" rel="self" type="application/rss+xml"/><item><title>A: AWS</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/aws/</link><pubDate>Sun, 26 Apr 2020 23:20:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/aws/</guid><description>
+&lt;h2 id="provider-configuration">Provider Configuration&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>max_retries&lt;/code> &amp;hellip; APIのリトライ回数を指定できる&lt;/li>
+&lt;/ul>
+&lt;h2 id="data-sources">Data Sources&lt;/h2>
+&lt;h3 id="acm_certificate">acm_certificate&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/acm_certificate.html">https://www.terraform.io/docs/providers/aws/d/acm_certificate.html&lt;/a>&lt;/p>
+&lt;p>ACM証明書の情報取得&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/cloud/aws/terraform-supports-acm-data-source-in-v-0-7-9/" title="Terraform v0.7.9 でACMのデータソースが導入されました ｜ Developers.IO">Terraform v0.7.9 でACMのデータソースが導入されました ｜ Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://cross-black777.hatenablog.com/entry/2016/11/17/231733" title="ACMで取得した証明書をterraformで配置する - tjinjin's blog">ACMで取得した証明書をterraformで配置する - tjinjin&amp;rsquo;s blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="caller_identity">caller_identity&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/caller_identity.html">https://www.terraform.io/docs/providers/aws/d/caller_identity.html&lt;/a>&lt;/p>
+&lt;p>Terraform実行中のAWSアカウントのID等の情報を取得する。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/gongo/items/a2b83d7402b97ef43574" title="*.tf 内で AWS アカウント ID を自動参照(取得)する aws_caller_identity Data Source - Qiita">*.tf 内で AWS アカウント ID を自動参照(取得)する aws_caller_identity Data Source - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="iam_policy_document">iam_policy_document&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html">https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html&lt;/a>&lt;/p>
+&lt;p>IAM PolicyのJSONをHCLっぽく定義できる。&lt;br>
+JSONテンプレートより融通が効くし、syntax checkも掛かるので、便利なことがある。&lt;/p>
+&lt;h3 id="region">region&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/region.html">https://www.terraform.io/docs/providers/aws/d/region.html&lt;/a>&lt;/p>
+&lt;p>&lt;code>provider&lt;/code> で設定したリージョンを取得できる。&lt;/p>
+&lt;h3 id="sns_topic">sns_topic&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/sns_topic.html">https://www.terraform.io/docs/providers/aws/d/sns_topic.html&lt;/a>&lt;/p>
+&lt;p>SNS TopicのARNを取得できる。&lt;/p>
+&lt;h3 id="ssm_parameter">ssm_parameter&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/d/ssm_parameter.html&lt;/a>&lt;/p>
+&lt;p>EC2 Parameter Storeからデータ取得&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#8f5902;font-style:italic"># &amp;#34;foo&amp;#34;という名前のパラメータストアを取得
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_ssm_parameter&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>SecureString&lt;/code> であっても特にKSM keyを指定する必要はない。内部的にdecryptしてくれるみたい。
+&lt;ul>
+&lt;li>&amp;ldquo;terraformのstateの中ではraw textで保存されるから気をつけてね&amp;quot;って書いてある。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://ymmtmsys.hatenablog.com/entry/2017/06/28/000822" title="terraform と パラメータストア - yBlog">terraform と パラメータストア - yBlog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/ec2/systems-manager/parameter-store/">https://aws.amazon.com/jp/ec2/systems-manager/parameter-store/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h3 id="appautoscaling関連">appautoscaling関連&lt;/h3>
+&lt;p>Application AutoScaling.&lt;br>
+ECS Serviceなどのオートスケール設定。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html">https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/appautoscaling_target.html">https://www.terraform.io/docs/providers/aws/r/appautoscaling_target.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="autoscaling関連">autoscaling関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html">https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/launch_configuration.html">https://www.terraform.io/docs/providers/aws/r/launch_configuration.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="cloudwatch関連">cloudwatch関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html">https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>retention_in_days&lt;/code> &amp;hellip; ログの保持期間。とり得る値は &lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">http://docs.aws.amazon.com/ja_jp/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html&lt;/a> に示されている。 &lt;code>0&lt;/code> を指定すると無期限になる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_subscription_filter.html">https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_subscription_filter.html&lt;/a>
+&lt;ul>
+&lt;li>ElasticsearchやKinesisにサブスクライブするやつ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_alarm.html">https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_alarm.html&lt;/a>
+&lt;ul>
+&lt;li>CloudWatch Alarmによる監視の作成&lt;/li>
+&lt;li>namespaceに指定する値は &lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/aws-namespaces.html">https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/aws-namespaces.html&lt;/a> を参照。&lt;/li>
+&lt;li>各namespaceで有効なmetric_nameやdimentionsフィールドの名前もAWSドキュメントを参照する。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/cloudwatch_event_rule.html">https://www.terraform.io/docs/providers/aws/r/cloudwatch_event_rule.html&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>schedule_expression&lt;/code> の書式は &lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/events/ScheduledEvents.html">http://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/events/ScheduledEvents.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/cloudwatch_event_target.html">https://www.terraform.io/docs/providers/aws/r/cloudwatch_event_target.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ec2関連">ec2関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ami.html">https://www.terraform.io/docs/providers/aws/r/ami.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ebs_volume.html">https://www.terraform.io/docs/providers/aws/r/ebs_volume.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/eip.html">https://www.terraform.io/docs/providers/aws/r/eip.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/instance.html">https://www.terraform.io/docs/providers/aws/r/instance.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ecs関連">ecs関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ecr_repository.html">https://www.terraform.io/docs/providers/aws/r/ecr_repository.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html">https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ecs_cluster.html">https://www.terraform.io/docs/providers/aws/r/ecs_cluster.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ecs_service.html">https://www.terraform.io/docs/providers/aws/r/ecs_service.html&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>placement_strategy&lt;/code> &amp;hellip; ECSタスク配置戦略。See &lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task-placement-strategies.html">https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task-placement-strategies.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ecs_task_definition.html">https://www.terraform.io/docs/providers/aws/r/ecs_task_definition.html&lt;/a>
+&lt;ul>
+&lt;li>指定可能なパラメーターについては、&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task_definition_parameters.html" title="タスク定義パラメーター - Amazon Elastic Container Service">タスク定義パラメーター - Amazon Elastic Container Service&lt;/a> を参照。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>動的ポートマッピングをする場合、task_definitionでhostPortを0にする:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># ecs_task_definition.tf
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_ecs_task_definition&amp;#34; &amp;#34;service&amp;#34;&lt;/span> {
+&lt;span style="color:#a40000">:&lt;/span>
+&lt;span style="color:#000"> container_definitions&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;task-definitions/service.json&amp;#34;)}&amp;#34;&lt;/span>
+&lt;span style="color:#a40000">:&lt;/span>
+}&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># task_definitions/service.json
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>
+{
+&lt;span style="color:#a40000">:&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;portMappings&amp;#34;&lt;/span>&lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+{
+&lt;span style="color:#4e9a06">&amp;#34;containerPort&amp;#34;&lt;/span>&lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3000&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;hostPort&amp;#34;&lt;/span>&lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+}&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#a40000">:&lt;/span>
+&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/joker1007/items/c44a443036439ce535b4" title="terraformで開発者個人別に自由にECSにコンテナをデプロイできる開発環境を用意する - Qiita">terraformで開発者個人別に自由にECSにコンテナをデプロイできる開発環境を用意する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.slideshare.net/SatoshiHirayama/terraformecsecr" title="TerraformでECS+ECRする話">TerraformでECS+ECRする話&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="elasticsearch関連">elasticsearch関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html">https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html&lt;/a>
+&lt;ul>
+&lt;li>Exported Attributes:
+&lt;ul>
+&lt;li>&lt;code>domain_id&lt;/code> &amp;hellip; &lt;code>${AWSアカウントID}/${クラスタ名}&lt;/code> . 監視のdimentionとしてはそのままでは使えない。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html">https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="iam関連">iam関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_access_key.html">https://www.terraform.io/docs/providers/aws/r/iam_access_key.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_group.html">https://www.terraform.io/docs/providers/aws/r/iam_group.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_group_policy_attachment.html">https://www.terraform.io/docs/providers/aws/r/iam_group_policy_attachment.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_instance_profile.html">https://www.terraform.io/docs/providers/aws/r/iam_instance_profile.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_policy.html">https://www.terraform.io/docs/providers/aws/r/iam_policy.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_role.html">https://www.terraform.io/docs/providers/aws/r/iam_role.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html">https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_user.html">https://www.terraform.io/docs/providers/aws/r/iam_user.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_user_policy.html">https://www.terraform.io/docs/providers/aws/r/iam_user_policy.html&lt;/a> &amp;hellip; 当該IAM Userにだけつけるインラインポリシー&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html">https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html&lt;/a>&lt;/li>
+&lt;li>policyとroleの紐付け
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html">https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html&lt;/a>
+&lt;ul>
+&lt;li>policy : roleが1対多。コード化されていないroleへの紐付けは削除される。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html">https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html&lt;/a>
+&lt;ul>
+&lt;li>policy : roleが1対1.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="kms関連">kms関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/kms_alias.html">https://www.terraform.io/docs/providers/aws/r/kms_alias.html&lt;/a> &amp;hellip; alias for KMS key&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/kms_key.html">https://www.terraform.io/docs/providers/aws/r/kms_key.html&lt;/a> &amp;hellip; KMS master keyの作成・管理&lt;/li>
+&lt;/ul>
+&lt;h3 id="lambda関連">lambda関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/lambda_function.html">https://www.terraform.io/docs/providers/aws/r/lambda_function.html&lt;/a>
+&lt;ul>
+&lt;li>runtime &amp;hellip; 利用できるruntimeについては &lt;a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime" title="CreateFunction - AWS Lambda">CreateFunction - AWS Lambda&lt;/a> を見る。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/lambda_permission.html">https://www.terraform.io/docs/providers/aws/r/lambda_permission.html&lt;/a>
+&lt;ul>
+&lt;li>マネジメントコンソールだと&amp;quot;Triggers&amp;quot;のタブ&lt;/li>
+&lt;li>許可したリソースからLambdaを実行することができる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="lb関連">lb関連&lt;/h3>
+&lt;p>ALB等の作成・管理:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/lb.html">https://www.terraform.io/docs/providers/aws/r/lb.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/lb_listener.html">https://www.terraform.io/docs/providers/aws/r/lb_listener.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/lb_target_group.html">https://www.terraform.io/docs/providers/aws/r/lb_target_group.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>CLB:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/elb.html">https://www.terraform.io/docs/providers/aws/r/elb.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="rds関連">rds関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_event_subscription.html">https://www.terraform.io/docs/providers/aws/r/db_event_subscription.html&lt;/a> &amp;hellip; RDSイベント通知&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/rds_cluster.html">https://www.terraform.io/docs/providers/aws/r/rds_cluster.html&lt;/a> &amp;hellip; Aurora用(?)&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html">https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html&lt;/a> &amp;hellip; Aurora用(?)&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_instance.html">https://www.terraform.io/docs/providers/aws/r/db_instance.html&lt;/a>&lt;/li>
+&lt;li>~~&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html~~">https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html~~&lt;/a> &amp;hellip; これはEC2 Classic用でもう使うことはなさそう。&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_security_group.html">https://www.terraform.io/docs/providers/aws/r/db_security_group.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/rds_cluster_parameter_group.html">https://www.terraform.io/docs/providers/aws/r/rds_cluster_parameter_group.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_parameter_group.html">https://www.terraform.io/docs/providers/aws/r/db_parameter_group.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="route53関連">route53関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/route53_zone.html">https://www.terraform.io/docs/providers/aws/r/route53_zone.html&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>vpc_id&lt;/code> を指定するとPrivate Hosted Zoneになる。&lt;/li>
+&lt;li>&lt;code>delegation_set_id&lt;/code> を指定するとPublic Hosted Zoneになる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/route53_record.html">https://www.terraform.io/docs/providers/aws/r/route53_record.html&lt;/a>
+&lt;ul>
+&lt;li>Route53のDNSレコード作成・管理&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="s3関連">s3関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html">https://www.terraform.io/docs/providers/aws/r/s3_bucket.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html">https://www.terraform.io/docs/providers/aws/r/s3_bucket_policy.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="sns関連">sns関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/sns_topic.html">https://www.terraform.io/docs/providers/aws/r/sns_topic.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/sns_topic_policy.html">https://www.terraform.io/docs/providers/aws/r/sns_topic_policy.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/sns_topic_subscription.html">https://www.terraform.io/docs/providers/aws/r/sns_topic_subscription.html&lt;/a>
+&lt;ul>
+&lt;li>※emailのサブスクリプションは作成できない。メール認証が必要なので。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="vpc関連">vpc関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/default_route_table.html">https://www.terraform.io/docs/providers/aws/r/default_route_table.html&lt;/a>
+&lt;ul>
+&lt;li>これはimportに対応していない&lt;/li>
+&lt;li>route_table + main_route_table_associationで代替できそう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html">https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/route.html">https://www.terraform.io/docs/providers/aws/r/route.html&lt;/a>
+&lt;ul>
+&lt;li>route_tableと一緒に使うとまずそう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/route_table.html">https://www.terraform.io/docs/providers/aws/r/route_table.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/subnet.html">https://www.terraform.io/docs/providers/aws/r/subnet.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/vpc.html">https://www.terraform.io/docs/providers/aws/r/vpc.html&lt;/a>
+&lt;ul>
+&lt;li>Route 53のPrivate DNSを使うには、 &lt;code>enable_dns_hostnames&lt;/code>, &lt;code>enable_dns_support&lt;/code> を &lt;code>true&lt;/code> にする。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="budgets_budget">budgets_budget&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/budgets_budget.html">https://www.terraform.io/docs/providers/aws/r/budgets_budget.html&lt;/a>&lt;/p>
+&lt;p>Budgetにコストアラートを設定できたり。&lt;/p>
+&lt;h3 id="dynamodb_table">dynamodb_table&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/dynamodb_table.html">https://www.terraform.io/docs/providers/aws/r/dynamodb_table.html&lt;/a>&lt;/p>
+&lt;p>DynamoDB table作成&lt;/p>
+&lt;h3 id="security_group">security_group&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/security_group.html">https://www.terraform.io/docs/providers/aws/r/security_group.html&lt;/a>&lt;/p>
+&lt;p>Security Groupの作成・管理&lt;/p>
+&lt;h3 id="sqs_queue">sqs_queue&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/sqs_queue.html">https://www.terraform.io/docs/providers/aws/r/sqs_queue.html&lt;/a>&lt;/p>
+&lt;p>SQS Queueの作成・管理&lt;/p>
+&lt;h3 id="ssm_parameter-1">ssm_parameter&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html&lt;/a>&lt;/p>
+&lt;p>EC2 Parameter Storeにデータを保存する。&lt;/p></description></item><item><title>A: Google</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</link><pubDate>Sun, 26 Apr 2020 23:20:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</guid><description>
+&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h3 id="compute系">compute系&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_service.html">google_compute_backend_service&lt;/a> &amp;hellip; GCLBのバックエンドになるサービスの設定&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_health_check.html">google_compute_health_check&lt;/a> &amp;hellip; ヘルスチェック&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html">google_compute_managed_ssl_certificate&lt;/a> &amp;hellip; β (2020-03-18) HTTPS LBのためのマネージドTLS証明書&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_security_policy.html">google_compute_security_policy&lt;/a> &amp;hellip; Cloud Armorのセキュリティポリシー&lt;/li>
+&lt;/ul>
+&lt;h3 id="storage-gcs-系">storage (GCS) 系&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket.html">google_storage_bucket&lt;/a> &amp;hellip; GCS (Cloud Storage) バケット&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html">google_storage_bucket_object&lt;/a> &amp;hellip; GCSオブジェクト。ローカルのファイルからアップロードできる&lt;/li>
+&lt;/ul>
+&lt;h3 id="google_cloudfunctions_function">google_cloudfunctions_function&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html">https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html&lt;/a>&lt;/p>
+&lt;p>Cloud Function作成・管理&lt;/p>
+&lt;h3 id="google_project_service">google_project_service&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_service.html">https://www.terraform.io/docs/providers/google/r/google_project_service.html&lt;/a>&lt;/p>
+&lt;p>APIサービスの有効化&lt;/p></description></item></channel></rss>

@@ -1,0 +1,284 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><description>Recent content in Terraform on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 22:59:20 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/terraform/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Configuration</title><link>https://progrhy.me/tech-notes/a/software/terraform/config/</link><pubDate>Sun, 26 Apr 2020 23:06:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/config/</guid><description>
+&lt;p>設定ファイルの記法等。&lt;/p>
+&lt;p>v0.12以降に対応。&lt;br>
+v0.11以前は子ページを見よ。&lt;/p>
+&lt;h2 id="基本文法">基本文法&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/configuration/syntax.html">https://www.terraform.io/docs/configuration/syntax.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="文字列">文字列&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>$&lt;/code> をそのまま文字列内で扱いたいときは &lt;code>&amp;quot;$$&amp;quot;&lt;/code> とエスケープする。&lt;/li>
+&lt;/ul>
+&lt;h2 id="変数管理">変数管理&lt;/h2>
+&lt;h3 id="variables">Variables&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/variables.html">https://www.terraform.io/docs/configuration/variables.html&lt;/a>&lt;/p>
+&lt;p>terraformで使用する変数は &lt;code>.tf&lt;/code> ファイル内に &lt;code>variable&lt;/code> ブロックで定義する。&lt;br>
+定義ブロック内で &lt;code>default&lt;/code> 値を設定することもできるが、以下のいくつかの方法で値を注入できる。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>.tfvars&lt;/code> ファイルに HCL or JSON で記述し、terraform実行時に &lt;code>-var-file &amp;lt;FILE&amp;gt;&lt;/code> という引数で渡す
+&lt;ul>
+&lt;li>カレントディレクトリ直下の &lt;code>terraform.tfvars&lt;/code> ファイルまたはsuffixが &lt;code>.auto.tfvars&lt;/code> のファイルは自動的に読み込まれる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>terraform実行時に &lt;code>-var 'key=value'&lt;/code> という引数で渡す&lt;/li>
+&lt;li>環境変数 &lt;code>TF_VAR_keyname&lt;/code> を設定すると &lt;code>keyname&lt;/code> 変数がセットされる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ringo/items/3af1735cd833fb80da75" title="Terraform で変数を使う - Qiita">Terraform で変数を使う - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="local-values">Local Values&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/locals.html">https://www.terraform.io/docs/configuration/locals.html&lt;/a>&lt;/p>
+&lt;p>module内などのスコープで使える変数を定義する。&lt;br>
+variableで定義した変数を参照したり、演算結果を使ったり出来るので便利。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://febc-yamamoto.hatenablog.jp/entry/2018/01/30/185416">【モダンTerraform】VariableとLocal Valuesの使い分けについて - febc技術メモ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="expressionsv012">Expressions(v0.12〜)&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/expressions.html">https://www.terraform.io/docs/configuration/expressions.html&lt;/a>&lt;/p>
+&lt;h3 id="splat">Splat&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/expressions.html#splat-expressions">https://www.terraform.io/docs/configuration/expressions.html#splat-expressions&lt;/a>&lt;/p>
+&lt;p>&lt;code>[*]&lt;/code> によるリストの展開&lt;/p>
+&lt;p>Examples&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># 1
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">*&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">id&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">## for式による↑と等価な構文
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">id&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 2
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">*&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interfaces&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">## for式による↑と等価な構文
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interfaces&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dynamic-blocks">Dynamic blocks&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/expressions.html#dynamic-blocks">https://www.terraform.io/docs/configuration/expressions.html#dynamic-blocks&lt;/a>&lt;/p>
+&lt;p>resource内のブロックの繰り返し記述をDRYに書けるようになった。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_elastic_beanstalk_environment&amp;#34; &amp;#34;tfenvtest&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tf-test-name&amp;#34;&lt;/span>
+&lt;span style="color:#000"> application&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${aws_elastic_beanstalk_application.tftest.name}&amp;#34;&lt;/span>
+&lt;span style="color:#000"> solution_stack_name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;64bit Amazon Linux 2018.03 v2.11.4 running Go 1.12.6&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">dynamic&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;setting&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> for_each&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">settings&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">content&lt;/span> {
+&lt;span style="color:#000"> namespace&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;namespace&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000"> value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;value&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※あまり使いすぎない方がいいと書いてある。&lt;/p>
+&lt;h2 id="functionsv012">Functions(v0.12〜)&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions.html">https://www.terraform.io/docs/configuration/functions.html&lt;/a>&lt;/p>
+&lt;p>v0.11以前は &lt;code>Interpolation Syntax&lt;/code> だったもの。&lt;/p>
+&lt;h3 id="collection">Collection&lt;/h3>
+&lt;h4 id="concat">concat&lt;/h4>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions/concat.html">https://www.terraform.io/docs/configuration/functions/concat.html&lt;/a>&lt;/p>
+&lt;p>listの結合&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">concat&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;, &amp;#34;&amp;#34;], [&amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="encoding">Encoding&lt;/h3>
+&lt;h4 id="jsondecode">jsondecode&lt;/h4>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions/jsondecode.html">https://www.terraform.io/docs/configuration/functions/jsondecode.html&lt;/a>&lt;/p>
+&lt;p>JSONをデコードしてobject(map), tuple(list), stringなどを作る。&lt;br>
+逆の操作をする関数は &lt;code>jsonencode&lt;/code>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">jsondecode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{\&amp;#34;hello\&amp;#34;: \&amp;#34;world\&amp;#34;}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+{
+&lt;span style="color:#000"> &amp;#34;hello&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;world&amp;#34;&lt;/span>
+}
+&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">jsondecode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;true&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="メタパラメータ">メタパラメータ&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/resources.html#meta-parameters">https://www.terraform.io/docs/configuration/resources.html#meta-parameters&lt;/a>&lt;/p>
+&lt;p>全てのresourceで使えるパラメータ。&lt;/p>
+&lt;ul>
+&lt;li>count (int) &amp;hellip; リソースを作成する件数。&lt;/li>
+&lt;li>depends_on (list of strings) &amp;hellip; リソースやmoduleの依存関係を指定する。&lt;/li>
+&lt;li>lifecycle (block)&lt;/li>
+&lt;/ul>
+&lt;h3 id="lifecycle">lifecycle&lt;/h3>
+&lt;p>このブロックは以下のキーを取る:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>create_before_destroy&lt;/code> (bool) &amp;hellip; リソースを作り直すときに、元のを削除する前に
+新しいリソースを作っておく。&lt;/li>
+&lt;li>&lt;code>prevent_destroy&lt;/code> (bool) &amp;hellip; リソースの削除を防ぐ&lt;/li>
+&lt;li>&lt;code>ignore_changes&lt;/code> (list of strings) &amp;hellip; リソースの特定のパラメータの変化を無視する
+&lt;ul>
+&lt;li>例えば、AWS AutoScalinGroupで下のように設定しておくと、スケールアウトしたときにterraformを適用してもインスタンス数をリセットして事故になることを防ぐことができる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_autoscaling_group&amp;#34; &amp;#34;my_cluster&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> min_size&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#000"> max_size&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
+&lt;span style="color:#000"> desired_capacity&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">lifecycle&lt;/span> {
+&lt;span style="color:#000"> ignore_changes&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;desired_capacity&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1f57c62bed781ab8f4d7#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B" title="Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita">Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita#リソースの差分を無視する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="workspaces">Workspaces&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/state/workspaces.html">https://www.terraform.io/docs/state/workspaces.html&lt;/a>&lt;/p>
+&lt;p>&lt;code>.tf&lt;/code> ファイル内で &lt;code>${terraform.workspace}&lt;/code> でworkspace名を参照できる。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34; &amp;#34;example&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> count&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;${terraform.workspace&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34; ? 5 : 1}&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ... other arguments
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://future-architect.github.io/articles/20190819/">はじめてのTerraform 0.12 ～実践編～ | Future Tech Blog - フューチャーアーキテクト&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="terraform">Terraform&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/terraform.html">https://www.terraform.io/docs/configuration/terraform.html&lt;/a>&lt;/p>
+&lt;p>Terraformの設定。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
+&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;s3&amp;#34;&lt;/span> {
+&lt;span style="color:#a40000">:&lt;/span>
+}
+&lt;span style="color:#000"> required_version &amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0.12.0&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="backends">Backends&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/backends/">https://www.terraform.io/docs/backends/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/types/s3.html">S3&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">GCS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="partial-configuration">Partial Configuration&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/backends/config.html#partial-configuration">https://www.terraform.io/docs/backends/config.html#partial-configuration&lt;/a>&lt;/p>
+&lt;p>一部の設定を &lt;code>.tf&lt;/code> ファイルではなくコマンドラインや外部ファイルで渡す方式。&lt;/p>
+&lt;h2 id="module">Module&lt;/h2>
+&lt;p>レシピを module という単位にまとめて再利用性を高めることができる。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/modules/usage.html">https://www.terraform.io/docs/modules/usage.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/configuration/modules.html">https://www.terraform.io/docs/configuration/modules.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>module内では &lt;code>${module.path}&lt;/code> によってmoduleのルートパスを取得できる
+&lt;ul>
+&lt;li>相対パス &lt;code>.&lt;/code> などでは上手く行かないケースがありそう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mh4gf/items/0590038ed41a698b7623">terraform module内でtemplatefile関数を実行した際に、ファイルが見つけられなくて困った - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="data-source">Data Source&lt;/h2>
+&lt;p>データを既存インフラや他のTerraform被管理物から取ってくる。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/configuration/data-sources.html">https://www.terraform.io/docs/configuration/data-sources.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="output">Output&lt;/h2>
+&lt;p>moduleの属性値を他のmoduleで利用できるようにしたり、remote stateとして他の環境から参照可能にしたりする。&lt;/p>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/outputs.html">https://www.terraform.io/docs/configuration/outputs.html&lt;/a>&lt;/p>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
+&lt;p>&lt;a href="https://www.terraform.io/docs/commands/">https://www.terraform.io/docs/commands/&lt;/a>&lt;/p>
+&lt;h2 id="import">import&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/import/usage.html">https://www.terraform.io/docs/import/usage.html&lt;/a>&lt;/p>
+&lt;p>&lt;code>terraform import&lt;/code> コマンドにより、既存インフラをTerraform管理下に置くことができる。&lt;/p>
+&lt;p>一部インフラを手動で作った後、リソースのidを指定して取り込む、といった使い方ができる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tyasu/items/32b23dd76d25f7af712f" title="terraform importの使い方メモ - Qiita">terraform importの使い方メモ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="plan">plan&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/commands/plan.html">https://www.terraform.io/docs/commands/plan.html&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 対象を限定する&lt;/span>
+terraform plan -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type1.identifier1 -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type2.identifier2
+&lt;span style="color:#8f5902;font-style:italic"># planファイルを書き出す&lt;/span>
+terraform plan -out&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/tfplan
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="state">state&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/commands/state/">https://www.terraform.io/docs/commands/state/&lt;/a>&lt;/p>
+&lt;p>stateの管理・編集を行うコマンド。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform state list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>filtering-arg&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># terraform管理下のリソース一覧&lt;/span>
+terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモートのstateファイルをダウンロードして標準出力に表示&lt;/span>
+terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
+terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
+terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
+&lt;blockquote>
+&lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="gcs">gcs&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>認証用の &lt;code>credentials&lt;/code> または &lt;code>access_token&lt;/code> が必要。
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login">https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login&lt;/a> で作成できるユーザのApplication Default Credentialsでも良い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="s3">s3&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/s3.html">https://www.terraform.io/docs/backends/types/s3.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>ロックしたいときはDynamoDBを使う。
+&lt;ul>
+&lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: Providers</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/</link><pubDate>Sun, 26 Apr 2020 23:19:47 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/</guid><description>
+&lt;h2 id="http">HTTP&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/http/">https://www.terraform.io/docs/providers/http/&lt;/a>&lt;/p>
+&lt;h3 id="http-data-source">http Data Source&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/http/data_source.html">https://www.terraform.io/docs/providers/http/data_source.html&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http&amp;#34; &amp;#34;example&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://checkpoint-api.hashicorp.com/v1/check/terraform&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # Optional request headers
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000"> request_headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;span style="color:#000"> &amp;#34;Accept&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;application/json&amp;#34;&lt;/span>
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>curlで取ってくるようなデータはこれを使えばいい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tshohe/items/81e46e516ef4559dd32d">TerraformでJSONを扱う方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/Terraform/comments/9g62ox/getting_my_own_public_ip/">Getting my own Public IP : Terraform&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="random">Random&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/random/">https://www.terraform.io/docs/providers/random/&lt;/a>&lt;/p>
+&lt;p>乱数値の生成などで使える。&lt;br>
+生成した値はtfstateに保存され、生成時のパラメータが変わらない限り都度、生成することはない。&lt;/p>
+&lt;p>Resources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/random/r/id.html">random_id&lt;/a>&lt;/li>
+&lt;li>:&lt;/li>
+&lt;/ul>
+&lt;h2 id="template">Template&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/template/">https://www.terraform.io/docs/providers/template/&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># Template for initial configuration bash script
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;template_file&amp;#34; &amp;#34;init&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> template&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;init.tpl&amp;#34;)}&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">vars&lt;/span> {
+&lt;span style="color:#000"> consul_address&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${aws_instance.consul.private_ip}&amp;#34;&lt;/span>
+}
+}&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Create a web server
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34; &amp;#34;web&amp;#34;&lt;/span> {&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ...
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;span style="color:#000"> user_data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.template_file.init.rendered}&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="child-pages他のproviders">Child Pages（他のProviders）&lt;/h2></description></item></channel></rss>

@@ -1,4 +1,165 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software</title><link>https://progrhy.me/tech-notes/a/software/</link><description>Recent content in Software on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software</title><link>https://progrhy.me/tech-notes/a/software/</link><description>Recent content in Software on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>初心者向けガイド: &lt;a href="https://www.terraform.io/guides/">https://www.terraform.io/guides/&lt;/a>&lt;/li>
+&lt;li>ドキュメント: &lt;a href="https://www.terraform.io/docs/">https://www.terraform.io/docs/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kohey18/items/38400d8c498baa0a0ed8" title="terraform使い方(超基礎編) - Qiita">terraform使い方(超基礎編) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;h3 id="state">State&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/state/">https://www.terraform.io/docs/state/&lt;/a>&lt;/p>
+&lt;h4 id="locking">Locking&lt;/h4>
+&lt;p>&lt;a href="https://www.terraform.io/docs/state/locking.html">https://www.terraform.io/docs/state/locking.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.terraform.io/docs/backends">backend&lt;/a>によってサポートされていれば、排他制御が可能。&lt;/p>
+&lt;h2 id="examples">Examples&lt;/h2>
+&lt;p>公式のを見ると良い。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/hashicorp/terraform/tree/master/examples">https://github.com/hashicorp/terraform/tree/master/examples&lt;/a>
+&lt;ul>
+&lt;li>AWS: &lt;a href="https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples">https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
+&lt;p>公式: &lt;a href="https://github.com/hashicorp/best-practices/tree/master/terraform">https://github.com/hashicorp/best-practices/tree/master/terraform&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Terraform Version&lt;/th>
+&lt;th>記事&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>v0.10&lt;/td>
+&lt;td>&lt;a href="https://qiita.com/shogomuranushi/items/e2f3ff3cfdcacdd17f99" title="Terraform Best Practices in 2017 - Qiita">Terraform Best Practices in 2017 - Qiita&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>v0.7.x&lt;/td>
+&lt;td>&lt;a href="https://dev.classmethod.jp/devops/directory-layout-bestpractice-in-terraform/" title="Terraformにおけるディレクトリ構造のベストプラクティス ｜ Developers.IO">Terraformにおけるディレクトリ構造のベストプラクティス ｜ Developers.IO&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>オレオレ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/766d02e605358ad2930e" title="TerraformでWorkspaceを使わずに複数環境をDRYに設定する - Qiita">TerraformでWorkspaceを使わずに複数環境をDRYに設定する - Qiita&lt;/a> &amp;hellip; Terraform v0.10〜v0.11ぐらい対応&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.hashicorp.com/blog/structuring-hashicorp-terraform-configuration-for-production/">Structuring HashiCorp Terraform Configuration for Production&lt;/a> &amp;hellip; 2020-03-27. Workspacesを使わずにディレクトリを分けることのメリットが述べられている。&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="バージョン固定">バージョン固定&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/terraform.html">Terraform Settings - Configuration Language - Terraform by HashiCorp&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
+&lt;span style="color:#000"> required_version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;&amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">12&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">required_providers&lt;/span> {
+&lt;span style="color:#000"> aws&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;&amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
+&lt;span style="color:#000"> local&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.2&amp;#34;&lt;/span>
+}
+}
+&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.2.0&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>terraformのversion指定はtfenvでも可能&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1350fb28ae82a3dbb354">tfupdateでTerraform本体/プロバイダ/モジュールのバージョンアップを自動化する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="backendのs3やgcs等そのものをterraformで管理">BackendのS3やGCS等そのものをTerraformで管理&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/saiya_moebius/items/a8f8aa3683c2347d607c">Backend の S3 や DynamoDB 自体を terraform で管理するセットアップ方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="デバッグ">デバッグ&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/internals/debugging.html">https://www.terraform.io/docs/internals/debugging.html&lt;/a>&lt;/p>
+&lt;h4 id="ログレベルの変更">ログレベルの変更&lt;/h4>
+&lt;p>&lt;code>TF_LOG&lt;/code> 環境変数に &lt;code>TRACE, DEBUG, INFO, WARN, ERROR&lt;/code> のいずれかをセットすることで変更できる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">TF_LOG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>DEBUG terraform plan
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※しかし、どれを指定してもtraceレベルのログが出る気が…(v0.10.x)&lt;/p>
+&lt;h3 id="countを使って複数のリソースを作成">countを使って複数のリソースを作成&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Terraform" data-lang="Terraform">&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;instance_ips&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">default&lt;/span> = &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.100&amp;#34;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.101&amp;#34;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.102&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">
+&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;app&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">count&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;3&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000">private_ip&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">lookup&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">instance_ips&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">count&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ...
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">
+&lt;/span>&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;rds_roles&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">default&lt;/span> = &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;WRITER&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;READER&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">
+&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_cloudwatch_metric_alarm&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;rds_cpu&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">count&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000">alarm_name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;RDS-&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rds_roles&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87">count&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">-CPU&amp;#34;&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/configuration/resources.html#using-variables-with-count">https://www.terraform.io/docs/configuration/resources.html#using-variables-with-count&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/kanagi/items/095037ba3f72de3f9572">terraformでautoscalingしているサーバのcloudwatch alarmを自動設定する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ringo/items/875f08ec550f0826f0dc" title="Terraform でループして複数のリソースを作成する - Qiita">Terraform でループして複数のリソースを作成する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="変数やoutputでmapを使うと記述量が減って便利">変数やoutputでmapを使うと記述量が減って便利&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/shogomuranushi/items/cc387a1233cc7f4e6e60" title="Terraformのoutputでmapを利用する方法 - Qiita">Terraformのoutputでmapを利用する方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mapのlistを作る方法">mapのlistを作る方法&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://gist.github.com/brikis98/f3fe2ae06f996b40b55eebcb74ed9a9e">A hacky way to create a dynamic list of maps in Terraform&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="できない説">できない説&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/hashicorp/terraform/issues/7705" title="Cannot pass a list of maps to a resource/data · Issue #7705 · hashicorp/terraform">Cannot pass a list of maps to a resource/data · Issue #7705 · hashicorp/terraform&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ringo/items/875f08ec550f0826f0dc" title="Terraform でループして複数のリソースを作成する - Qiita">Terraform でループして複数のリソースを作成する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>…が、手元で試したところ(v0.10.x)、下のようにしてlistとして定義・参照することができた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my_complex_data&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">type&lt;/span> = &lt;span style="color:#204a87">&amp;#34;list&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> default = [
+&lt;/span>&lt;span style="color:#4e9a06"> {
+&lt;/span>&lt;span style="color:#4e9a06"> id = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> name = &amp;#34;&lt;/span>&lt;span style="color:#000">taro&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> height = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">170&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> },
+&lt;/span>&lt;span style="color:#4e9a06"> {
+&lt;/span>&lt;span style="color:#4e9a06"> id = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> name = &amp;#34;&lt;/span>&lt;span style="color:#000">hanako&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> height = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">160&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> },
+&lt;/span>&lt;span style="color:#4e9a06"> ]
+&lt;/span>&lt;span style="color:#4e9a06">}
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">foo_list = &amp;#34;&lt;/span>&lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">my_complex_data&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tools">Tools&lt;/h2>
+&lt;p>3rd Partyのツール&lt;/p>
+&lt;h3 id="tfenv">tfenv&lt;/h3>
+&lt;p>&lt;a href="https://github.com/Zordrak/tfenv">https://github.com/Zordrak/tfenv&lt;/a>&lt;/p>
+&lt;p>rbenv, anyenvのようなツールで、複数バージョンのterraformを切り替えて使えるようになるもの。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kamatama_41/items/ba59a070d8389aab7694">tfenvでTerraformのバージョン管理をする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1f57c62bed781ab8f4d7" title="Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita">Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
 &lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
 ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
 &lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
