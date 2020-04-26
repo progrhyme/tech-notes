@@ -1,0 +1,56 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><description>Recent content in GitHub on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 13:50:09 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/github/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GitHub Actions</title><link>https://progrhy.me/tech-notes/a/web-service/github/action/</link><pubDate>Sun, 26 Apr 2020 14:16:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/action/</guid><description>
+&lt;p>CI/CD等のワークフローを自動実行できるサービス。&lt;br>
+&lt;a href="https://github.blog/jp/2019-11-14-universe-day-one/">2019年11月に正式リリースされた&lt;/a>。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://help.github.com/en/actions">https://help.github.com/en/actions&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions">Workflow syntax for GitHub Actions - GitHub Help&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>&lt;a href="https://github.com/actions/starter-workflows">https://github.com/actions/starter-workflows&lt;/a> &amp;hellip; 初心者向けワークフローサンプル集&lt;/p>
+&lt;h2 id="workflowの作成">Workflowの作成&lt;/h2>
+&lt;p>&lt;a href="https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow">https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>プロジェクトの &lt;code>.github/workflows/&lt;/code> ディレクトリ下にYAMLファイルを作成する&lt;/li>
+&lt;li>pushをトリガーにしたり、定期的に実行したりできる
+&lt;ul>
+&lt;li>See &lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#on">https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#on&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="対象branchやpathをフィルタする">対象branchやpathをフィルタする&lt;/h3>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">push&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- master&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;releases/**&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;!releases/**-alpha&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># alpha版は含めない&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tags&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># file paths to consider in the event. Optional; defaults to all.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paths&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;test/*&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paths-ignore&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;docs/**&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>branchやtagについて -&amp;gt; &lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags">on.&amp;lt;push|pull_request&amp;gt;.&amp;lt;branches|tags&amp;gt;&lt;/a>&lt;/li>
+&lt;li>pathについて -&amp;gt; &lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">on.&amp;lt;push|pull_request&amp;gt;.paths&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="複数の実行環境に対応する">複数の実行環境に対応する&lt;/h3>
+&lt;p>複数のOSプラットフォームや、ランタイムのバージョンに対応する方法。&lt;br>
+下のようなbuild matrixを設定すると良い。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">runs-on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>matrix.os&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">strategy&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">os&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>ubuntu&lt;span style="color:#0000cf;font-weight:bold">-16.04&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ubuntu&lt;span style="color:#0000cf;font-weight:bold">-18.04&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">node&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="変数やシークレットの利用">変数やシークレットの利用&lt;/h2>
+&lt;p>&lt;a href="https://help.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow">https://help.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow&lt;/a>&lt;/p>
+&lt;h3 id="github_tokenによる認証">GITHUB_TOKENによる認証&lt;/h3>
+&lt;p>&lt;a href="https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token">Authenticating with the GITHUB_TOKEN - GitHub Help&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>GitHubは、ワークフローで利用する &lt;code>GITHUB_TOKEN&lt;/code> シークレットを自動的に生成します。 この &lt;code>GITHUB_TOKEN&lt;/code> は、ワークフローの実行内での認証に利用できます。&lt;/p>
+&lt;/blockquote></description></item></channel></rss>
