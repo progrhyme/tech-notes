@@ -1,4 +1,12 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Actions（タスク）</title><link>https://progrhy.me/tech-notes/a/web-service/github/action/action/</link><pubDate>Sun, 26 Apr 2020 14:28:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/action/action/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Install</title><link>https://progrhy.me/tech-notes/a/program/lang/go/install/</link><pubDate>Sun, 26 Apr 2020 19:02:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/install/</guid><description>
+&lt;h2 id="ubuntu">Ubuntu&lt;/h2>
+&lt;p>&lt;a href="https://github.com/golang/go/wiki/Ubuntu">https://github.com/golang/go/wiki/Ubuntu&lt;/a>&lt;/p>
+&lt;p>2018年以前ぐらいまではtarballからインストールしていたと思うが、2020-04-26現在は、apt installが可能になっている。&lt;/p>
+&lt;p>以下は最新版をインストールする手順:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Actions（タスク）</title><link>https://progrhy.me/tech-notes/a/web-service/github/action/action/</link><pubDate>Sun, 26 Apr 2020 14:28:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/action/action/</guid><description>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/marketplace?type=actions">Marketplace&lt;/a> &amp;hellip; 公開されているactionを見つけられる。&lt;/li>
 &lt;/ul>
@@ -109,7 +117,7 @@
 &lt;ul>
 &lt;li>&lt;code>extended: true&lt;/code> でHugoの拡張版をインストール&lt;/li>
 &lt;li>&lt;code>hugo-version: latest&lt;/code> で最新版を使う&lt;/li>
-&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/langs/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/langs/go/spec/</guid><description>
+&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/lang/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/spec/</guid><description>
 &lt;p>リファレンス &lt;a href="https://golang.org/ref/spec">https://golang.org/ref/spec&lt;/a>&lt;/p>
 &lt;h2 id="変数">変数&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Variables">https://golang.org/ref/spec#Variables&lt;/a>&lt;/p>
@@ -289,7 +297,7 @@
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://golang.jp/tag/effective-go/page/2" title="Effective Go - golang.jp">Effective Go - golang.jp&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Docsy</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/docsy/</link><pubDate>Sun, 26 Apr 2020 00:27:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/docsy/</guid><description>
+&lt;/ul></description></item><item><title>A: Docsy</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/docsy/</link><pubDate>Sun, 26 Apr 2020 00:27:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/docsy/</guid><description>
 &lt;p>&lt;a href="https://www.docsy.dev/">https://www.docsy.dev/&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://mag.osdn.jp/19/07/11/162000">Googleが2019年に公開した&lt;/a>Hugoのテーマ。&lt;/p>
 &lt;p>事例が&lt;a href="https://www.docsy.dev/docs/examples/">ここ&lt;/a>に載っている。&lt;br>
@@ -337,7 +345,7 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/learn/</guid><description>
+&lt;/ul></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</guid><description>
 &lt;p>&lt;a href="https://learn.netlify.com/en/">https://learn.netlify.com/en/&lt;/a>&lt;/p>
 &lt;p>ドキュメンテーションに向いた高機能なHugoのテーマ。&lt;/p>
 &lt;h2 id="コンテンツ管理">コンテンツ管理&lt;/h2>
