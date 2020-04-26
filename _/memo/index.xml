@@ -1,0 +1,68 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>progrhyme&#39;s Tech Notes – Memorandum</title>
+    <link>https://progrhy.me/tech-notes/_/memo/</link>
+    <description>Recent content in Memorandum on progrhyme&#39;s Tech Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://progrhy.me/tech-notes/_/memo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>_: 2020-04-25</title>
+      <link>https://progrhy.me/tech-notes/_/memo/20200425/</link>
+      <pubDate>Sat, 25 Apr 2020 23:20:56 +0900</pubDate>
+      
+      <guid>https://progrhy.me/tech-notes/_/memo/20200425/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;425&#34;&gt;4/25&lt;/h2&gt;
+&lt;h3 id=&#34;技術メモ用のサイトをhugoで新設することにした&#34;&gt;技術メモ用のサイトをHugoで新設することにした&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://gsuiteupdates-ja.googleblog.com/2019/02/google-google.html&#34;&gt;来年末には旧版のGoogleサイトが使えなくなるそう&lt;/a&gt;なので、早く移行しないとなー、と前々から思っていた。
+今回、ようやく重い腰を上げた形。&lt;/p&gt;
+&lt;p&gt;今時はhugoで作ったGitHub PagesのサイトはGitHub Actionで自動更新できるようだ。&lt;/p&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raahii.github.io/posts/automating-hugo-builds-with-github-actions/&#34;&gt;HugoのビルドをGithub Actionで自動化する - 1ミリもわからん&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d&#34;&gt;GitHub Actions による GitHub Pages への自動デプロイ - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;…で、前々から目をつけていたHugoのテーマ「&lt;a href=&#34;https://learn.netlify.com/en/&#34;&gt;LEARN&lt;/a&gt;」を使うことにした。&lt;/p&gt;
+&lt;p&gt;Googleが去年公開した&lt;a href=&#34;https://www.docsy.dev/&#34;&gt;Docsy&lt;/a&gt;というテーマでもよさそうだと思ったけど、LEARNの方は一度軽く試したこともあったので、安心感があった。&lt;/p&gt;
+&lt;h3 id=&#34;learnで気に入らなかったところ&#34;&gt;LEARNで気に入らなかったところ&lt;/h3&gt;
+&lt;p&gt;少しHugoのLEARNテーマでサイトを作っていたのだけど、少し不満が出てきた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;chapterページを作らないといけなくて、自由度が阻害されるように感じた。（自分でchapterページをカスタマイズするというやり方もあるが）&lt;/li&gt;
+&lt;li&gt;検索が妙にヒットしすぎる&lt;/li&gt;
+&lt;li&gt;ページの目次がちょっとわかりにくい。慣れれば問題ないけど&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gitbookを試してみたけどoss版は先行きが微妙&#34;&gt;GitBookを試してみたけど、OSS版は先行きが微妙&lt;/h3&gt;
+&lt;p&gt;GitBookでもいいんじゃないかと思って試していたのだけど、残念なことに気がついた。&lt;/p&gt;
+&lt;p&gt;詳しくは&lt;a href=&#34;../../software/gitbook&#34;&gt;Software &amp;gt; GitBook&lt;/a&gt;に書いた。&lt;/p&gt;
+&lt;p&gt;手順:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;npm install -g gitbook-cli
+mkdir new-docs
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$_&lt;/span&gt;
+gitbook init
+gitbook serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考にした記事:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33&#34;&gt;GitBookによるドキュメント作成 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://morizyun.github.io/blog/gitbook-github-pages-deploy/index.html&#34;&gt;GitBookをGitHub Pagesにアップロード | 酒と涙とRubyとRailsと&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/mitsuhisaT/items/8668b70586b9605040bd&#34;&gt;gitbookの使い方 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;結局docsyへ&#34;&gt;結局、Docsyへ&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://efcl.info/2017/12/26/docusaurus-almin/&#34;&gt;azuさんがGitBookからDocusaurusに移行していた&lt;/a&gt;ので、それもいいかもと思ったけど、見た目がDocsyに似ていたのでもうDocsyでいいだろうと思った。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
