@@ -1,154 +1,121 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>progrhyme&#39;s Tech Notes – プログラム言語</title>
-    <link>https://progrhy.me/tech-notes/a/program/langs/</link>
-    <description>Recent content in プログラム言語 on progrhyme&#39;s Tech Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sun, 26 Apr 2020 07:54:05 +0900</lastBuildDate>
-    
-	  <atom:link href="https://progrhy.me/tech-notes/a/program/langs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>A: Go</title>
-      <link>https://progrhy.me/tech-notes/a/program/langs/go/</link>
-      <pubDate>Sun, 26 Apr 2020 08:01:51 +0900</pubDate>
-      
-      <guid>https://progrhy.me/tech-notes/a/program/langs/go/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
-&lt;h3 id=&#34;ドキュメント&#34;&gt;ドキュメント&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://golang.org/doc/&#34;&gt;https://golang.org/doc/&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://golang.org/doc/effective_go.html&#34;&gt;https://golang.org/doc/effective_go.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://golang-jp.org/&#34;&gt;http://golang-jp.org/&lt;/a&gt; &amp;hellip; golang.orgの日本語訳プロジェクト&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;3rd-party-がまとめた資料&#34;&gt;3rd Party がまとめた資料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://motemen.github.io/go-for-go-book/&#34;&gt;GoのためのGo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.golangprograms.com/&#34; title=&#34;Go Language Programs, Tutorial, Articles and Examples&#34;&gt;Go Language Programs, Tutorial, Articles and Examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;play-ground&#34;&gt;Play Ground&lt;/h3&gt;
-&lt;p&gt;Sandbox &lt;a href=&#34;https://play.golang.org/&#34;&gt;https://play.golang.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;記事&#34;&gt;記事&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://postd.cc/go-best-practices-2016/&#34; title=&#34;6年間におけるGoのベストプラクティス | プログラミング | POSTD&#34;&gt;6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;開発ツール&#34;&gt;開発ツール&lt;/h2&gt;
-&lt;h3 id=&#34;goimports&#34;&gt;goimports&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://godoc.org/golang.org/x/tools/cmd/goimports&#34;&gt;https://godoc.org/golang.org/x/tools/cmd/goimports&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Install:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;go get golang.org/x/tools/cmd/goimports
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;goimports&lt;/code&gt; というコマンドが入る。&lt;br&gt;
-&lt;code&gt;go fmt&lt;/code&gt; のときに使われてないpkgの &lt;code&gt;import&lt;/code&gt; 文を削除してくれる。&lt;/p&gt;
-&lt;p&gt;Goglandだと &lt;code&gt;Settings &amp;gt; Go &amp;gt; On Save &amp;gt; On save run&lt;/code&gt; で設定できる。&lt;/p&gt;
-&lt;p&gt;参考:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://y0m0r.hateblo.jp/entry/20140112/1389501259&#34; title=&#34;goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes&#34;&gt;goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/kuro_milk/items/6adbf544dcb333d0f472&#34; title=&#34;Gogland で保存時に go fmt を走らせる - Qiita&#34;&gt;Gogland で保存時に go fmt を走らせる - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;ビルトイン関数&#34;&gt;ビルトイン関数&lt;/h2&gt;
-&lt;h3 id=&#34;append&#34;&gt;append&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://golang.org/pkg/builtin/#append&#34;&gt;https://golang.org/pkg/builtin/#append&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;func append(slice []Type, elems ...Type) []Type&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;sliceに要素、またはsliceを結合し、新たなsliceを返す。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;slice&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;slice&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;elem1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;elem2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color:#000&#34;&gt;slice&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;append&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;slice&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;anotherSlice&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
-&lt;h3 id=&#34;vendoring&#34;&gt;vendoring&lt;/h3&gt;
-&lt;p&gt;アプリケーションなどで、依存パッケージを管理する仕組み。&lt;br&gt;
-Go 1.6から正式にサポートされた。&lt;br&gt;
-Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code&gt;GO15VENDOREXPERIMENT&lt;/code&gt; を設定してコンパイルする必要がある。&lt;/p&gt;
-&lt;p&gt;vendoringのためのツールとして、glideやgomなどがある。&lt;/p&gt;
-&lt;p&gt;参考:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/okamos/items/587a5693a3ae9cae9b88&#34; title=&#34;今更だけどGoのVendoringについて思いをはせる - Qiita&#34;&gt;今更だけどGoのVendoringについて思いをはせる - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://yoru9zine.hatenablog.com/entry/2016/02/02/054922&#34; title=&#34;go vendoring - 隙あらば寝る&#34;&gt;go vendoring - 隙あらば寝る&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://librabuch.jp/blog/2016/04/go-lang-vendoring-glide/&#34; title=&#34;Glide で Go 言語のパッケージ管理と vendoring - Librabuch&#34;&gt;Glide で Go 言語のパッケージ管理と vendoring - Librabuch&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;enum&#34;&gt;enum&lt;/h3&gt;
-&lt;p&gt;Goにはenumがない。&lt;br&gt;
-intの独自型を定義するのがイディオムになっている。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Fruit&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt;
-
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;Apple&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Fruit&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;iota&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;Orange&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;Banana&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-
-&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;myFruit&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Fruit&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;この独自型に対して &lt;code&gt;String()&lt;/code&gt; メソッドを実装しておくと、名前が引けて便利:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Fruit&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;switch&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;f&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Apple&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Apple&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Orange&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Orange&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Banana&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Banana&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Unknown&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;golang.org/x/tools/cmd/stringer&lt;/code&gt; で &lt;code&gt;String()&lt;/code&gt; メソッドを含むコードを自動生成することもできる。&lt;/p&gt;
-&lt;p&gt;参考:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/awakia/items/c81c7816b9aea5422250&#34; title=&#34;GoのEnumイディオム - Qiita&#34;&gt;GoのEnumイディオム - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mattn.kaoriya.net/software/lang/go/20141208093852.htm&#34; title=&#34;Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&#34;&gt;Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://arslan.io/2015/10/08/ten-useful-techniques-in-go/&#34; title=&#34;Ten Useful Techniques in Go – Fatih Arslan&#34;&gt;Ten Useful Techniques in Go – Fatih Arslan&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://godoc.org/golang.org/x/tools/cmd/stringer&#34;&gt;https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;build&#34;&gt;build&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://golang.org/pkg/go/build/&#34;&gt;https://golang.org/pkg/go/build/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Build Constraints&lt;/code&gt; という機能は「build tag」としても知られている。&lt;br&gt;
-こんなの:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// (A)
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +build foo
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// (B)
-&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +build !foo
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(A) &lt;code&gt;go build -tags=foo&lt;/code&gt; でビルドされる。&lt;br&gt;
-(B) &lt;code&gt;go build&lt;/code&gt; でビルドされる。&lt;/p&gt;
-&lt;p&gt;参考:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://shinpei.github.io/blog/2014/10/07/use-build-constrains-or-build-tag-in-golang/&#34; title=&#34;go build -tagsを使ってRelease/Debugを切り替える - flyhigh&#34;&gt;go build -tagsを使ってRelease/Debugを切り替える - flyhigh&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;プロファイリング&#34;&gt;プロファイリング&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://golang.org/pkg/runtime/pprof/&#34; title=&#34;pprof - The Go Programming Language&#34;&gt;runtime/pprof&lt;/a&gt;という標準pkgを使うのが基本な感じ。
-&lt;ul&gt;
-&lt;li&gt;その内 &lt;a href=&#34;https://sites.google.com/site/progrhymetechwiki/programming/go/std-pkg&#34; title=&#34;標準パッケージ - progrhyme&#39;s Tech Wiki&#34;&gt;標準パッケージ - progrhyme&amp;rsquo;s Tech Wiki&lt;/a&gt; に書くと思う。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;runtimeのデバッグに役立つ環境変数の話:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://dave.cheney.net/tag/godebug&#34; title=&#34;GODEBUG | Dave Cheney&#34;&gt;GODEBUG | Dave Cheney&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;参考:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.golang.org/profiling-go-programs&#34; title=&#34;Profiling Go Programs - The Go Blog&#34;&gt;Profiling Go Programs - The Go Blog&lt;/a&gt; &amp;hellip; pprof&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://hakobe932.hatenablog.com/entry/2014/04/10/010619&#34; title=&#34;golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&#34;&gt;golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a&gt; &amp;hellip; pprof, net/http/pprof&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552&#34; title=&#34;golang profiling の基礎&#34;&gt;golang profiling の基礎&lt;/a&gt; &amp;hellip; pprof他&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/oywc410/items/ad8baee00f039705a5c0&#34; title=&#34;golangパフォーマンス3: mapとGC - Qiita&#34;&gt;golangパフォーマンス3: mapとGC - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;child-pages&#34;&gt;Child Pages&lt;/h2&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – プログラム言語</title><link>https://progrhy.me/tech-notes/a/program/langs/</link><description>Recent content in プログラム言語 on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 07:54:05 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/langs/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Go</title><link>https://progrhy.me/tech-notes/a/program/langs/go/</link><pubDate>Sun, 26 Apr 2020 08:01:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/langs/go/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;h3 id="ドキュメント">ドキュメント&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/">https://golang.org/doc/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html">https://golang.org/doc/effective_go.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="http://golang-jp.org/">http://golang-jp.org/&lt;/a> &amp;hellip; golang.orgの日本語訳プロジェクト&lt;/li>
+&lt;/ul>
+&lt;h4 id="3rd-party-がまとめた資料">3rd Party がまとめた資料&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://motemen.github.io/go-for-go-book/">GoのためのGo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.golangprograms.com/" title="Go Language Programs, Tutorial, Articles and Examples">Go Language Programs, Tutorial, Articles and Examples&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="play-ground">Play Ground&lt;/h3>
+&lt;p>Sandbox &lt;a href="https://play.golang.org/">https://play.golang.org/&lt;/a>&lt;/p>
+&lt;h3 id="記事">記事&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="開発ツール">開発ツール&lt;/h2>
+&lt;h3 id="goimports">goimports&lt;/h3>
+&lt;p>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/goimports">https://godoc.org/golang.org/x/tools/cmd/goimports&lt;/a>&lt;/p>
+&lt;p>Install:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">go get golang.org/x/tools/cmd/goimports
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>goimports&lt;/code> というコマンドが入る。&lt;br>
+&lt;code>go fmt&lt;/code> のときに使われてないpkgの &lt;code>import&lt;/code> 文を削除してくれる。&lt;/p>
+&lt;p>Goglandだと &lt;code>Settings &amp;gt; Go &amp;gt; On Save &amp;gt; On save run&lt;/code> で設定できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://y0m0r.hateblo.jp/entry/20140112/1389501259" title="goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes">goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/kuro_milk/items/6adbf544dcb333d0f472" title="Gogland で保存時に go fmt を走らせる - Qiita">Gogland で保存時に go fmt を走らせる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビルトイン関数">ビルトイン関数&lt;/h2>
+&lt;h3 id="append">append&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/builtin/#append">https://golang.org/pkg/builtin/#append&lt;/a>&lt;/p>
+&lt;p>&lt;code>func append(slice []Type, elems ...Type) []Type&lt;/code>&lt;/p>
+&lt;p>sliceに要素、またはsliceを結合し、新たなsliceを返す。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">elem1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">elem2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">anotherSlice&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="vendoring">vendoring&lt;/h3>
+&lt;p>アプリケーションなどで、依存パッケージを管理する仕組み。&lt;br>
+Go 1.6から正式にサポートされた。&lt;br>
+Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>GO15VENDOREXPERIMENT&lt;/code> を設定してコンパイルする必要がある。&lt;/p>
+&lt;p>vendoringのためのツールとして、glideやgomなどがある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/okamos/items/587a5693a3ae9cae9b88" title="今更だけどGoのVendoringについて思いをはせる - Qiita">今更だけどGoのVendoringについて思いをはせる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://yoru9zine.hatenablog.com/entry/2016/02/02/054922" title="go vendoring - 隙あらば寝る">go vendoring - 隙あらば寝る&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://librabuch.jp/blog/2016/04/go-lang-vendoring-glide/" title="Glide で Go 言語のパッケージ管理と vendoring - Librabuch">Glide で Go 言語のパッケージ管理と vendoring - Librabuch&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="enum">enum&lt;/h3>
+&lt;p>Goにはenumがない。&lt;br>
+intの独自型を定義するのがイディオムになっている。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#000">Apple&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">iota&lt;/span>
+&lt;span style="color:#000">Orange&lt;/span>
+&lt;span style="color:#000">Banana&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">myFruit&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>この独自型に対して &lt;code>String()&lt;/code> メソッドを実装しておくと、名前が引けて便利:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Apple&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Apple&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Orange&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Orange&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Banana&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Banana&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Unknown&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>golang.org/x/tools/cmd/stringer&lt;/code> で &lt;code>String()&lt;/code> メソッドを含むコードを自動生成することもできる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/awakia/items/c81c7816b9aea5422250" title="GoのEnumイディオム - Qiita">GoのEnumイディオム - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20141208093852.htm" title="Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話">Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://arslan.io/2015/10/08/ten-useful-techniques-in-go/" title="Ten Useful Techniques in Go – Fatih Arslan">Ten Useful Techniques in Go – Fatih Arslan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="build">build&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
+&lt;p>&lt;code>Build Constraints&lt;/code> という機能は「build tag」としても知られている。&lt;br>
+こんなの:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// (A)
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// +build foo
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// (B)
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// +build !foo
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>(A) &lt;code>go build -tags=foo&lt;/code> でビルドされる。&lt;br>
+(B) &lt;code>go build&lt;/code> でビルドされる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://shinpei.github.io/blog/2014/10/07/use-build-constrains-or-build-tag-in-golang/" title="go build -tagsを使ってRelease/Debugを切り替える - flyhigh">go build -tagsを使ってRelease/Debugを切り替える - flyhigh&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="プロファイリング">プロファイリング&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/pkg/runtime/pprof/" title="pprof - The Go Programming Language">runtime/pprof&lt;/a>という標準pkgを使うのが基本な感じ。
+&lt;ul>
+&lt;li>その内 &lt;a href="https://sites.google.com/site/progrhymetechwiki/programming/go/std-pkg" title="標準パッケージ - progrhyme's Tech Wiki">標準パッケージ - progrhyme&amp;rsquo;s Tech Wiki&lt;/a> に書くと思う。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>runtimeのデバッグに役立つ環境変数の話:
+&lt;ul>
+&lt;li>&lt;a href="https://dave.cheney.net/tag/godebug" title="GODEBUG | Dave Cheney">GODEBUG | Dave Cheney&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/profiling-go-programs" title="Profiling Go Programs - The Go Blog">Profiling Go Programs - The Go Blog&lt;/a> &amp;hellip; pprof&lt;/li>
+&lt;li>&lt;a href="http://hakobe932.hatenablog.com/entry/2014/04/10/010619" title="golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨">golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a> &amp;hellip; pprof, net/http/pprof&lt;/li>
+&lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

@@ -1,98 +1,52 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>progrhyme&#39;s Tech Notes – Themes（テーマ）</title>
-    <link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/</link>
-    <description>Recent content in Themes（テーマ） on progrhyme&#39;s Tech Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sat, 25 Apr 2020 23:38:41 +0900</lastBuildDate>
-    
-	  <atom:link href="https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>A: Docsy</title>
-      <link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/docsy/</link>
-      <pubDate>Sun, 26 Apr 2020 00:27:11 +0900</pubDate>
-      
-      <guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/docsy/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;a href=&#34;https://www.docsy.dev/&#34;&gt;https://www.docsy.dev/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://mag.osdn.jp/19/07/11/162000&#34;&gt;Googleが2019年に公開した&lt;/a&gt;Hugoのテーマ。&lt;/p&gt;
-&lt;p&gt;事例が&lt;a href=&#34;https://www.docsy.dev/docs/examples/&#34;&gt;ここ&lt;/a&gt;に載っている。&lt;br&gt;
-kubeflow, Knative, Apache Airflowなどで使われている。&lt;/p&gt;
-&lt;p&gt;20ページ以上のドキュメントサイトを作るときに向いている、と謳っている。&lt;br&gt;
-多言語対応しており、プロダクトのバージョニングも考慮されている。&lt;/p&gt;
-&lt;h2 id=&#34;documentation&#34;&gt;Documentation&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.docsy.dev/docs/&#34;&gt;https://www.docsy.dev/docs/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.docsy.dev/docs/getting-started/&#34;&gt;https://www.docsy.dev/docs/getting-started/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Hugoの拡張版&lt;/strong&gt;が必要。&lt;br&gt;
-これはSCSSを使っているためのようだ。&lt;/p&gt;
-&lt;p&gt;参考:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/google/docsy/issues/235&#34;&gt;Error building site: POSTCSS: failed to transform &amp;quot;scss/main.css&amp;quot; · Issue #235 · google/docsy&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;デモサイトのソースをcloneして使う&#34;&gt;デモサイトのソースをcloneして使う&lt;/h3&gt;
-&lt;p&gt;ふつうのHugo Themeなら、 &lt;code&gt;hugo new site&lt;/code&gt; してconfig.tomlでthemeを指定すれば大体それっぽく動くのだけど、Docsyはやや作りが複雑なようなので、Exampleサイトのソースを再利用した方が早そう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;git clone https://github.com/google/docsy-example.git mydocs
-&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; mydocs
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Themes（テーマ）</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/</link><description>Recent content in Themes（テーマ） on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:38:41 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Docsy</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/docsy/</link><pubDate>Sun, 26 Apr 2020 00:27:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/docsy/</guid><description>
+&lt;p>&lt;a href="https://www.docsy.dev/">https://www.docsy.dev/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://mag.osdn.jp/19/07/11/162000">Googleが2019年に公開した&lt;/a>Hugoのテーマ。&lt;/p>
+&lt;p>事例が&lt;a href="https://www.docsy.dev/docs/examples/">ここ&lt;/a>に載っている。&lt;br>
+kubeflow, Knative, Apache Airflowなどで使われている。&lt;/p>
+&lt;p>20ページ以上のドキュメントサイトを作るときに向いている、と謳っている。&lt;br>
+多言語対応しており、プロダクトのバージョニングも考慮されている。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://www.docsy.dev/docs/">https://www.docsy.dev/docs/&lt;/a>&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>&lt;a href="https://www.docsy.dev/docs/getting-started/">https://www.docsy.dev/docs/getting-started/&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Hugoの拡張版&lt;/strong>が必要。&lt;br>
+これはSCSSを使っているためのようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/google/docsy/issues/235">Error building site: POSTCSS: failed to transform &amp;quot;scss/main.css&amp;quot; · Issue #235 · google/docsy&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="デモサイトのソースをcloneして使う">デモサイトのソースをcloneして使う&lt;/h3>
+&lt;p>ふつうのHugo Themeなら、 &lt;code>hugo new site&lt;/code> してconfig.tomlでthemeを指定すれば大体それっぽく動くのだけど、Docsyはやや作りが複雑なようなので、Exampleサイトのソースを再利用した方が早そう。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/google/docsy-example.git mydocs
+&lt;span style="color:#204a87">cd&lt;/span> mydocs
 git submodule update --init --recursive
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>A: LEARN</title>
-      <link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/learn/</link>
-      <pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate>
-      
-      <guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/learn/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;a href=&#34;https://learn.netlify.com/en/&#34;&gt;https://learn.netlify.com/en/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;ドキュメンテーションに向いた高機能なHugoのテーマ。&lt;/p&gt;
-&lt;h2 id=&#34;コンテンツ管理&#34;&gt;コンテンツ管理&lt;/h2&gt;
-&lt;h3 id=&#34;ページの追加&#34;&gt;ページの追加&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://themes.gohugo.io//theme/hugo-theme-learn/en/cont/archetypes/&#34;&gt;https://themes.gohugo.io//theme/hugo-theme-learn/en/cont/archetypes/&lt;/a&gt; を参照。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Chapterページ&lt;/span&gt;
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/themes/learn/</guid><description>
+&lt;p>&lt;a href="https://learn.netlify.com/en/">https://learn.netlify.com/en/&lt;/a>&lt;/p>
+&lt;p>ドキュメンテーションに向いた高機能なHugoのテーマ。&lt;/p>
+&lt;h2 id="コンテンツ管理">コンテンツ管理&lt;/h2>
+&lt;h3 id="ページの追加">ページの追加&lt;/h3>
+&lt;p>&lt;a href="https://themes.gohugo.io//theme/hugo-theme-learn/en/cont/archetypes/">https://themes.gohugo.io//theme/hugo-theme-learn/en/cont/archetypes/&lt;/a> を参照。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Chapterページ&lt;/span>
 hugo new path/to/chapter/_index.md --kind chapter
-
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 普通のページ&lt;/span&gt;
+&lt;span style="color:#8f5902;font-style:italic"># 普通のページ&lt;/span>
 hugo new path/to/page.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;NOTE&lt;/h4&gt;
-パスは &lt;code&gt;content/&lt;/code&gt; からの相対パス。
-&lt;/div&gt;
-
-&lt;h2 id=&#34;拡張記法&#34;&gt;拡張記法&lt;/h2&gt;
-&lt;p&gt;いくつかHugoの機能を拡張して便利記法を提供してくれているのかな？&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://themes.gohugo.io//theme/hugo-theme-learn/en/shortcodes/&#34;&gt;Shortcodes&lt;/a&gt;に紹介されている。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://mermaid-js.github.io/mermaid/#/&#34;&gt;Mermaid&lt;/a&gt;によるフローチャート&lt;/li&gt;
-&lt;li&gt;Hugoのサイト設定変数参照&lt;/li&gt;
-&lt;li&gt;etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;などの機能がある。&lt;/p&gt;
-&lt;p&gt;以下は例:&lt;/p&gt;
-&lt;h3 id=&#34;注釈&#34;&gt;注釈&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;{{% notice note %}}
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">NOTE&lt;/h4>
+パスは &lt;code>content/&lt;/code> からの相対パス。
+&lt;/div>
+&lt;h2 id="拡張記法">拡張記法&lt;/h2>
+&lt;p>いくつかHugoの機能を拡張して便利記法を提供してくれているのかな？&lt;/p>
+&lt;p>&lt;a href="https://themes.gohugo.io//theme/hugo-theme-learn/en/shortcodes/">Shortcodes&lt;/a>に紹介されている。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://mermaid-js.github.io/mermaid/#/">Mermaid&lt;/a>によるフローチャート&lt;/li>
+&lt;li>Hugoのサイト設定変数参照&lt;/li>
+&lt;li>etc.&lt;/li>
+&lt;/ul>
+&lt;p>などの機能がある。&lt;/p>
+&lt;p>以下は例:&lt;/p>
+&lt;h3 id="注釈">注釈&lt;/h3>
+&lt;pre>&lt;code>{{% notice note %}}
 A notice disclaimer
 {{% /notice %}}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;note&lt;/code&gt; 以外に、 &lt;code&gt;info&lt;/code&gt;, &lt;code&gt;tip&lt;/code&gt;, &lt;code&gt;warning&lt;/code&gt; が使える。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>&lt;p>&lt;code>note&lt;/code> 以外に、 &lt;code>info&lt;/code>, &lt;code>tip&lt;/code>, &lt;code>warning&lt;/code> が使える。&lt;/p></description></item></channel></rss>

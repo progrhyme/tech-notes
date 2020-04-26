@@ -1,17 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>progrhyme&#39;s Tech Notes – progrhyme&#39;s Tech Notes</title>
-    <link>https://progrhy.me/tech-notes/</link>
-    <description>Recent content on progrhyme&#39;s Tech Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    
-	  <atom:link href="https://progrhy.me/tech-notes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
