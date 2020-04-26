@@ -34,4 +34,55 @@ gitbook serve
 &lt;li>&lt;a href="https://qiita.com/mitsuhisaT/items/8668b70586b9605040bd">gitbookの使い方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="結局docsyへ">結局、Docsyへ&lt;/h3>
-&lt;p>&lt;a href="https://efcl.info/2017/12/26/docusaurus-almin/">azuさんがGitBookからDocusaurusに移行していた&lt;/a>ので、それもいいかもと思ったけど、見た目がDocsyに似ていたのでもうDocsyでいいだろうと思った。&lt;/p></description></item></channel></rss>
+&lt;p>&lt;a href="https://efcl.info/2017/12/26/docusaurus-almin/">azuさんがGitBookからDocusaurusに移行していた&lt;/a>ので、それもいいかもと思ったけど、見た目がDocsyに似ていたのでもうDocsyでいいだろうと思った。&lt;/p>
+&lt;h2 id="426">4/26&lt;/h2>
+&lt;h3 id="プロフィールサイトのgulpがつらい">プロフィールサイトのgulpがつらい&lt;/h3>
+&lt;p>昨日、Docsyを扱うにあたって、UbuntuマシンのNode.jsをv8 -&amp;gt; v12に上げた。&lt;/p>
+&lt;h4 id="referenceerror-primordials-is-not-defined">ReferenceError: primordials is not defined&lt;/h4>
+&lt;p>今日、プロフィールサイト &lt;a href="https://progrhy.me">https://progrhy.me&lt;/a> の編集をしようとそのまま作業していたら、次とほぼ同じ問題に遭遇した。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hepokon365.hatenablog.com/entry/2019/10/31/022524">Node.js v12にアップデートするとgulp v4でもfs.jsで「ReferenceError: primordials is not defined」エラーが発生 - 毎日へっぽこ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>自分の環境で問題になったのは &lt;code>natives&lt;/code> module.&lt;/p>
+&lt;pre>&lt;code>% gulp
+fs.js:35
+} = primordials;
+^
+ReferenceError: primordials is not defined
+at fs.js:35:5
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at Object.req [as require] (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:54:
+10)
+at Object.&amp;lt;anonymous&amp;gt; (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/vinyl-fs/node_modules/gra
+ceful-fs/fs.js:1:37)
+at Module._compile (internal/modules/cjs/loader.js:1156:30) at Object.Module._extensions..js (internal/modules/cjs/loader.js:1176:10)
+at Module.load (internal/modules/cjs/loader.js:1000:32)
+at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+at Module.require (internal/modules/cjs/loader.js:1042:19)
+at require (internal/modules/cjs/helpers.js:77:18)
+&lt;/code>&lt;/pre>&lt;p>自分の場合も、上の記事と同じように、 &lt;code>package-lock.json&lt;/code> 内に &lt;code>graceful-fs&lt;/code> のv3系への依存があった。&lt;br>
+また、依存の解消は難しいようだった。&lt;/p>
+&lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/20200424#TOC-Gulp-3---4-">前回の挑戦&lt;/a>から、gulpのバージョンアップは今のところ諦めているので、Node.jsのバージョンをv10系に下げることにした。&lt;/p>
+&lt;h4 id="referenceerror-internalbinding-is-not-defined">ReferenceError: internalBinding is not defined&lt;/h4>
+&lt;p>次に出くわしたのは下のエラー:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://narunaru7638.hatenablog.com/entry/2019/05/04/124621">gulp利用時に「ReferenceError: internalBinding is not defined」のエラー - なるの備忘録&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>% gulp
+internal/util/inspect.js:31
+const types = internalBinding('types');
+^
+ReferenceError: internalBinding is not defined
+at internal/util/inspect.js:31:15
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at require (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:110:12)
+at util.js:25:21
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at require (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:110:12)
+at fs.js:42:21
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at Object.req [as require] (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:54:
+10)
+at Object.&amp;lt;anonymous&amp;gt; (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/vinyl-fs/node_modules/gra
+ceful-fs/fs.js:1:37)
+&lt;/code>&lt;/pre>&lt;p>上の記事にあったように、 &lt;code>npm i natives@latest --no-save&lt;/code> を実行したら解消した。&lt;/p></description></item></channel></rss>
