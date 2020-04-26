@@ -1,0 +1,79 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>progrhyme&#39;s Tech Notes – 静的サイトジェネレーター</title>
+    <link>https://progrhy.me/tech-notes/notes/software/static-site-generator/</link>
+    <description>Recent content in 静的サイトジェネレーター on progrhyme&#39;s Tech Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 25 Apr 2020 23:37:53 +0900</lastBuildDate>
+    
+	  <atom:link href="https://progrhy.me/tech-notes/notes/software/static-site-generator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Notes: Hugo</title>
+      <link>https://progrhy.me/tech-notes/notes/software/static-site-generator/hugo/</link>
+      <pubDate>Sat, 25 Apr 2020 23:38:08 +0900</pubDate>
+      
+      <guid>https://progrhy.me/tech-notes/notes/software/static-site-generator/hugo/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Go言語製の高速な静的サイトジェネレーター。&lt;/p&gt;
+&lt;h2 id=&#34;documentation&#34;&gt;Documentation&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/documentation/&#34;&gt;https://gohugo.io/documentation/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/content-management/&#34;&gt;Content Management&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/content-management/front-matter/&#34;&gt;Front Matter&lt;/a&gt; &amp;hellip; ページに対して付けることができるメタデータ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;getting-startedhttpsgohugoiogetting-started&#34;&gt;&lt;a href=&#34;https://gohugo.io/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;installhttpsgohugoiogetting-startedinstalling&#34;&gt;&lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;Install&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;拡張版のインストール&#34;&gt;拡張版のインストール&lt;/h4&gt;
+&lt;p&gt;通常版では、SASS/SCSSサポートがついていないので、必要であれば明示的に拡張版をインストールしないといけない。&lt;/p&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;./themes/docsy/#getting-started&#34;&gt;Themes &amp;gt; Docsy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://donsyoku.com/software/hugo-what-is-extended-version.html&#34;&gt;[Hugo]Hugoの通常バージョンとExtendedバージョンとの違い[memo] | 鈍色スイッチ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;バイナリをインストール&#34;&gt;バイナリをインストール&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;GitHub Releases&lt;/a&gt;から &lt;code&gt;_extended&lt;/code&gt; 付きのバイナリを取得する。&lt;/p&gt;
+&lt;h5 id=&#34;ソースからインストール&#34;&gt;ソースからインストール&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;git clone https://github.com/gohugoio/hugo.git
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; hugo
+go install --tags extended
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;linux&#34;&gt;Linux&lt;/h5&gt;
+&lt;p&gt;Snapの場合:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;snap install hugo --channel&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;extended
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;quickstarthttpsgohugoiogetting-startedquick-start&#34;&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;Quickstart&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 新しくサイトを作る&lt;/span&gt;
+hugo new site your-new-site
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# テーマを用意する&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; your-new-site
+git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; config.toml
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# コンテンツを作成する&lt;/span&gt;
+hugo new posts/my-first-post.md
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# hugo serverを起動&lt;/span&gt;
+hugo server -D
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## -D を付けることで draft のページも表示される&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;child-pages&#34;&gt;Child Pages&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

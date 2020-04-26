@@ -1,0 +1,211 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>progrhyme&#39;s Tech Notes – プログラミング</title>
+    <link>https://progrhy.me/tech-notes/notes/program/</link>
+    <description>Recent content in プログラミング on progrhyme&#39;s Tech Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 26 Apr 2020 07:50:29 +0900</lastBuildDate>
+    
+	  <atom:link href="https://progrhy.me/tech-notes/notes/program/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Notes: プログラム言語</title>
+      <link>https://progrhy.me/tech-notes/notes/program/langs/</link>
+      <pubDate>Sun, 26 Apr 2020 07:54:05 +0900</pubDate>
+      
+      <guid>https://progrhy.me/tech-notes/notes/program/langs/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
+&lt;h3 id=&#34;変数や関数の命名&#34;&gt;変数や関数の命名&lt;/h3&gt;
+&lt;p&gt;便利なサービス:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://codic.jp/&#34;&gt;https://codic.jp/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考になる記事:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.aerith.net/design/bool-j.html&#34; title=&#34;ブール値を返すメンバー関数の命名規則&#34;&gt;ブール値を返すメンバー関数の命名規則&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;言語の習得&#34;&gt;言語の習得&lt;/h3&gt;
+&lt;h4 id=&#34;a-to-z&#34;&gt;a to z&lt;/h4&gt;
+&lt;p&gt;ある言語を一通り学ぶということがどういうことかをまとめる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文法
+&lt;ul&gt;
+&lt;li&gt;ソースコードの構造、形式
+&lt;ul&gt;
+&lt;li&gt;ステートメント
+&lt;ul&gt;
+&lt;li&gt;区切り文字&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;コメント&lt;/li&gt;
+&lt;li&gt;式&lt;/li&gt;
+&lt;li&gt;演算子&lt;/li&gt;
+&lt;li&gt;キーワード&lt;/li&gt;
+&lt;li&gt;リテラル
+&lt;ul&gt;
+&lt;li&gt;数値, 文字列, ヒアドキュメント, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;その他記号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;数値演算&lt;/li&gt;
+&lt;li&gt;プリミティブな文字列処理
+&lt;ul&gt;
+&lt;li&gt;結合, 分解, 書式, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;型&lt;/li&gt;
+&lt;li&gt;制御構文
+&lt;ul&gt;
+&lt;li&gt;ループ&lt;/li&gt;
+&lt;li&gt;条件分岐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;例外処理&lt;/li&gt;
+&lt;li&gt;関数&lt;/li&gt;
+&lt;li&gt;構造体, 拡張型&lt;/li&gt;
+&lt;li&gt;オブジェクト&lt;/li&gt;
+&lt;li&gt;外部ファイルの利用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;言語機能
+&lt;ul&gt;
+&lt;li&gt;基本的なデータ型
+&lt;ul&gt;
+&lt;li&gt;配列&lt;/li&gt;
+&lt;li&gt;連想配列(マッピング構造体, ハッシュ)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;日付、時刻、時間&lt;/li&gt;
+&lt;li&gt;標準入出力&lt;/li&gt;
+&lt;li&gt;ファイル入出力&lt;/li&gt;
+&lt;li&gt;テキスト処理
+&lt;ul&gt;
+&lt;li&gt;正規表現&lt;/li&gt;
+&lt;li&gt;エンコーディング&lt;/li&gt;
+&lt;li&gt;マルチバイト文字対応&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;オブジェクト指向プログラミング
+&lt;ul&gt;
+&lt;li&gt;クラス, メソッド&lt;/li&gt;
+&lt;li&gt;継承&lt;/li&gt;
+&lt;li&gt;Mixin&lt;/li&gt;
+&lt;li&gt;オーバーライド, オーバーロード&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;バイナリ処理&lt;/li&gt;
+&lt;li&gt;並行処理&lt;/li&gt;
+&lt;li&gt;関数型プログラミング
+&lt;ul&gt;
+&lt;li&gt;高階関数&lt;/li&gt;
+&lt;li&gt;curry化&lt;/li&gt;
+&lt;li&gt;クロージャ, 無名関数, lambda式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ライブラリの利用
+&lt;ul&gt;
+&lt;li&gt;標準ライブラリ&lt;/li&gt;
+&lt;li&gt;3rd Partyのライブラリ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;テスト&lt;/li&gt;
+&lt;li&gt;メタプログラミング
+&lt;ul&gt;
+&lt;li&gt;リフレクション&lt;/li&gt;
+&lt;li&gt;ジェネリクス&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;実行
+&lt;ul&gt;
+&lt;li&gt;対話IFによる実行
+&lt;ul&gt;
+&lt;li&gt;REPL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;テスト
+&lt;ul&gt;
+&lt;li&gt;単体テスト&lt;/li&gt;
+&lt;li&gt;フレームワーク, ライブラリ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;典型的な問題解決
+&lt;ul&gt;
+&lt;li&gt;乱数&lt;/li&gt;
+&lt;li&gt;典型的アルゴリズム
+&lt;ul&gt;
+&lt;li&gt;ソート, ハッシュ表, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;典型的データ構造
+&lt;ul&gt;
+&lt;li&gt;連結リスト, 木, グラフ, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;プログラミング手法
+&lt;ul&gt;
+&lt;li&gt;ダックタイピング&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;デバッグ&lt;/li&gt;
+&lt;li&gt;プロファイリング&lt;/li&gt;
+&lt;li&gt;内部構造
+&lt;ul&gt;
+&lt;li&gt;実行プロセス
+&lt;ul&gt;
+&lt;li&gt;スレッド&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;コンパイラ&lt;/li&gt;
+&lt;li&gt;インタープリタ&lt;/li&gt;
+&lt;li&gt;VM&lt;/li&gt;
+&lt;li&gt;GC
+&lt;ul&gt;
+&lt;li&gt;アルゴリズム&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ソフトウェア開発
+&lt;ul&gt;
+&lt;li&gt;CLI&lt;/li&gt;
+&lt;li&gt;バッチ処理&lt;/li&gt;
+&lt;li&gt;デーモン&lt;/li&gt;
+&lt;li&gt;ライブラリ&lt;/li&gt;
+&lt;li&gt;Webアプリケーション&lt;/li&gt;
+&lt;li&gt;システムプログラミング&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;開発環境・ツール
+&lt;ul&gt;
+&lt;li&gt;エディタ&lt;/li&gt;
+&lt;li&gt;IDE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;コミュニティ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;child-pages&#34;&gt;Child Pages&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

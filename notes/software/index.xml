@@ -1,0 +1,71 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>progrhyme&#39;s Tech Notes – Software</title>
+    <link>https://progrhy.me/tech-notes/notes/software/</link>
+    <description>Recent content in Software on progrhyme&#39;s Tech Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate>
+    
+	  <atom:link href="https://progrhy.me/tech-notes/notes/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Notes: GitBook</title>
+      <link>https://progrhy.me/tech-notes/notes/software/gitbook/</link>
+      <pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate>
+      
+      <guid>https://progrhy.me/tech-notes/notes/software/gitbook/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br&gt;
+ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/GitbookIO/gitbook&#34;&gt;https://github.com/GitbookIO/gitbook&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Deprecation warning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As the efforts of the GitBook team are focused on the &lt;a href=&#34;https://www.gitbook.com&#34;&gt;GitBook.com&lt;/a&gt; platform, the CLI is no longer under active development.&lt;br&gt;
+All content supported by the CLI are mostly supported by our &lt;a href=&#34;https://docs.gitbook.com/integrations/github&#34;&gt;GitBook.com / GitHub integration&lt;/a&gt;.&lt;br&gt;
+Content hosted on the &lt;a href=&#34;https://legacy.gitbook.com&#34;&gt;legacy.gitbook.com&lt;/a&gt; will continue working until further notice. For differences with the new vesion, check out our &lt;a href=&#34;https://docs.gitbook.com/v2-changes/important-differences&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;documentation&#34;&gt;Documentation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.gitbook.com/&#34;&gt;https://docs.gitbook.com/&lt;/a&gt; &amp;hellip; クラウドサービス向け&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitbookio.gitbooks.io/documentation/&#34;&gt;Introduction | GitBook.com Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/GitbookIO/gitbook/tree/master/docs&#34;&gt;https://github.com/GitbookIO/gitbook/tree/master/docs&lt;/a&gt; &amp;hellip; たぶんOSSツールチェインのドキュメントはもうここを読むしかない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;目次生成系:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.aliyun.com/mirror/npm/package/gitbook-plugin-page-toc&#34;&gt;Package - gitbook-plugin-page-toc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/zanfab/gitbook-plugin-intopic-toc&#34;&gt;zanfab/gitbook-plugin-intopic-toc: GitBook Plugin to add inline table of contents (TOC) to each page using sticky and scrollspy effects.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/billryan/gitbook-plugin-etoc&#34;&gt;billryan/gitbook-plugin-etoc: Elegant toc plugin for GitBook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli&#34;&gt;GitBookによるドキュメント作成 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Notes: 静的サイトジェネレーター</title>
+      <link>https://progrhy.me/tech-notes/notes/software/static-site-generator/</link>
+      <pubDate>Sat, 25 Apr 2020 23:37:53 +0900</pubDate>
+      
+      <guid>https://progrhy.me/tech-notes/notes/software/static-site-generator/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
