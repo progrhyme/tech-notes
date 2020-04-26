@@ -9,7 +9,10 @@ menu:
 
 ## progrhyme's Tech Notes
 
-主に自分用のWikiですが、閲覧自由です。
+IT技術についての個人的なメモを書くサイトです。  
+主に自分用のものですが、閲覧は自由です。
+
+誤りなどありましたら、なんらかの方法でお知らせ頂ければ対応するかもしれません。
 
 {{% alert title="NOTE" %}}[progrhyme's Tech Wiki](https://sites.google.com/site/progrhymetechwiki/)の後継となるサイトです。{{% /alert %}}
 
