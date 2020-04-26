@@ -13,17 +13,20 @@ Go言語製の高速な静的サイトジェネレーター。
 https://gohugo.io/documentation/
 
 - [Getting Started](https://gohugo.io/getting-started/)
+  - [Install](https://gohugo.io/getting-started/installing/)
 - [Content Management](https://gohugo.io/content-management/)
   - [Front Matter](https://gohugo.io/content-management/front-matter/) ... ページに対して付けることができるメタデータ
 - :
 
-## [Getting Started](https://gohugo.io/getting-started/)
-
-### [Install](https://gohugo.io/getting-started/installing/)
-
+## Getting Started
+### Install
 #### 拡張版のインストール
 
 通常版では、SASS/SCSSサポートがついていないので、必要であれば明示的に拡張版をインストールしないといけない。
+
+{{% alert title="INFO" %}}
+2020-04-27現在、Macの場合は `brew install hugo` で拡張版がインストールされるようだ。
+{{% /alert %}}
 
 参考:
 
