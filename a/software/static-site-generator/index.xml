@@ -3,7 +3,11 @@
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://gohugo.io/documentation/">https://gohugo.io/documentation/&lt;/a>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://gohugo.io/getting-started/">Getting Started&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/">Getting Started&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/installing/">Install&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>&lt;a href="https://gohugo.io/content-management/">Content Management&lt;/a>
 &lt;ul>
 &lt;li>&lt;a href="https://gohugo.io/content-management/front-matter/">Front Matter&lt;/a> &amp;hellip; ページに対して付けることができるメタデータ&lt;/li>
@@ -11,10 +15,14 @@
 &lt;/li>
 &lt;li>:&lt;/li>
 &lt;/ul>
-&lt;h2 id="getting-startedhttpsgohugoiogetting-started">&lt;a href="https://gohugo.io/getting-started/">Getting Started&lt;/a>&lt;/h2>
-&lt;h3 id="installhttpsgohugoiogetting-startedinstalling">&lt;a href="https://gohugo.io/getting-started/installing/">Install&lt;/a>&lt;/h3>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;h3 id="install">Install&lt;/h3>
 &lt;h4 id="拡張版のインストール">拡張版のインストール&lt;/h4>
 &lt;p>通常版では、SASS/SCSSサポートがついていないので、必要であれば明示的に拡張版をインストールしないといけない。&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">INFO&lt;/h4>
+2020-04-27現在、Macの場合は &lt;code>brew install hugo&lt;/code> で拡張版がインストールされるようだ。
+&lt;/div>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="./themes/docsy/#getting-started">Themes &amp;gt; Docsy&lt;/a>&lt;/li>
