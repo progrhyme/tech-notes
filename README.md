@@ -39,7 +39,7 @@ hugo
 
 ```sh
 # Add a section page
-hugo new docs/path/to/section/_index.md
+hugo new a/path/to/section/_index.md
 # Add a note under the section
-hugo new docs/path/to/section/note.md
+hugo new a/path/to/section/note.md
 ```
