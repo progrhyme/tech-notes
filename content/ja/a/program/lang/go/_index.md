@@ -2,7 +2,7 @@
 title: "Go"
 linkTitle: "Golang"
 description: >
-  Go言語 https://golang.org/
+  Go言語 https://golang.org
 date: 2020-04-26T08:01:51+09:00
 ---
 
