@@ -4,6 +4,7 @@ linkTitle: "Hugo"
 description: >
   https://gohugo.io
 date: 2020-04-25T23:38:08+09:00
+weight: 275
 ---
 
 Go言語製の高速な静的サイトジェネレーター。
@@ -71,6 +72,22 @@ hugo new posts/my-first-post.md
 # hugo serverを起動
 hugo server -D
 ## -D を付けることで draft のページも表示される
+```
+
+## Configuration
+
+### Table Of Contents
+
+https://gohugo.io/getting-started/configuration-markup/#table-of-contents
+
+※Goldmarkのみ
+
+```toml
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
 ```
 
 ## Child Pages
