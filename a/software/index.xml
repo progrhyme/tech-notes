@@ -292,7 +292,27 @@ hugo server -D
 &lt;span style="color:#000">endLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>
 &lt;span style="color:#000">ordered&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
 &lt;span style="color:#000">startLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="known-issues">Known Issues&lt;/h2>
+&lt;h3 id="完全なページツリーを描画する機能がない">完全なページツリーを描画する機能がない&lt;/h3>
+&lt;p>ワークアラウンドでの対応が必要。&lt;/p>
+&lt;p>&lt;a href="https://github.com/gohugoio/hugo/issues/465">Multi-level sections (tree) · Issue #465 · gohugoio/hugo&lt;/a>&lt;/p>
+&lt;p>ワークアラウンド例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://vjeantet.github.io/hugo-menu-show/">http://vjeantet.github.io/hugo-menu-show/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/vjeantet/hugo-menu-show/blob/master/themes/menumenu/layouts/index.html">ソースコード&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://maku77.github.io/hugo/list/sidebar-menu.html">サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示） | まくまくHugo/Goノート&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/google/docsy/blob/master/layouts/partials/sidebar-tree.html">Docsyテーマでのサイドバーの実現方法&lt;/a>が参考になるかも。&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/&lt;/a> &amp;hellip; ドキュメント
