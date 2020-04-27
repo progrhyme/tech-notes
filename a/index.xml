@@ -399,7 +399,252 @@ MWYyZDFlMmU2N2Rm
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_118.html">例を交えてKubernetesのリミットとリクエストを理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits">Kubernetes best practices: Resource requests and limits | Google Cloud Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://docs.microsoft.com/ja-jp/azure/aks/developer-best-practices-resource-management">開発者のベスト プラクティス - Azure Kubernetes Service (AKS) でのリソース管理 | Microsoft Docs&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
+&lt;/ul></description></item><item><title>A: Visual Studio Code</title><link>https://progrhy.me/tech-notes/a/program/vscode/</link><pubDate>Mon, 27 Apr 2020 22:33:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vscode/</guid><description>
+&lt;p>Micfosoftが提供するOSSのクロスプラットフォームなコードエディタ。&lt;br>
+Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
+&lt;p>3rd Partyの拡張機能も多数あり、機能を拡充することができる。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://code.visualstudio.com/docs">https://code.visualstudio.com/docs&lt;/a>
+&lt;ul>
+&lt;li>Get Started:
+&lt;ul>
+&lt;li>&lt;a href="https://code.visualstudio.com/docs/getstarted/keybindings">Visual Studio Code Key Bindings&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>User Guide:
+&lt;ul>
+&lt;li>&lt;a href="https://code.visualstudio.com/docs/editor/extension-gallery">Managing Extensions in Visual Studio Code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="スニペット機能">スニペット機能&lt;/h3>
+&lt;ul>
+&lt;li>ユーザ定義のスニペットを作成可能
+&lt;ul>
+&lt;li>&lt;code>File &amp;gt; Preferences &amp;gt; User Snippets&lt;/code>&lt;/li>
+&lt;li>コメント付きJSON形式で書く&lt;/li>
+&lt;li>グローバルなスニペット&lt;/li>
+&lt;li>ワークスペースごとのスニペット&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>スニペットが有効になると、補完で選択可能になる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://vscode-doc-jp.github.io/docs/userguide/userdefinedsnippets.html">独自のスニペットを作成 | 非公式 - Visual Studio Code Docs&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lisz-works.com/entry/vscode-snippets">VS Codeをスニペット作成は簡単で便利だった！ - lisz-works&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="preferences">Preferences&lt;/h2>
+&lt;p>昔はJSON設定ファイルを直接編集するようなスタイルだったが、2018年9月現在、GUIで設定できる項目も増えてきたようだ。&lt;/p>
+&lt;p>2種類の設定がある。&lt;/p>
+&lt;ul>
+&lt;li>ユーザ設定 &amp;hellip; ワークスペースによらない、ユーザ環境で常に有効になる設定。&lt;/li>
+&lt;li>ワークスペース設定 &amp;hellip; ワークスペースの &lt;code>.vscode/settings.json&lt;/code> に保存される。&lt;/li>
+&lt;/ul>
+&lt;p>Quick Reference:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>config&lt;/th>
+&lt;th>値（*）&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>editor.insertSpaces&lt;/code>&lt;/td>
+&lt;td>true, false&lt;/td>
+&lt;td>ソフトタブ（タブキーで半角スペースを挿入）のon/off&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>editor.renderWhitespace&lt;/code>&lt;/td>
+&lt;td>none, all, boundary&lt;/td>
+&lt;td>スペースやタブを描画するかどうか。 &lt;code>boundary&lt;/code> では単語境界は描画しない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（*）デフォルト値は太字&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/spica/items/cfae8492804b8d3f8726">VSCodeのエディター設定の話 - タブ文字がなぜか半角スペースになってしまう - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="言語ごとの設定を行う">言語ごとの設定を行う&lt;/h3>
+&lt;p>インデントなどの設定を言語ごとに変えることができる。&lt;/p>
+&lt;p>settings.jsonで &lt;code>&amp;quot;[ruby]&amp;quot;: {}&lt;/code> などのエントリを作って、その中に設定を記述すればいい。&lt;br>
+コマンドパレットで &lt;code>Preferences: Configure language specific settings&lt;/code> と入力し、設定したい言語を選ぶやり方もある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%E3%81%A7%E8%A8%80%E8%AA%9E%E3%81%94%E3%81%A8%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%9F%E3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="インデント設定">インデント設定&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>config&lt;/th>
+&lt;th>値（*）&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>editor.detectIndentation&lt;/code>&lt;/td>
+&lt;td>&lt;strong>true&lt;/strong>, false&lt;/td>
+&lt;td>ファイルタイプごとのインデント設定を有効にする&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>editor.insertSpaces&lt;/code>&lt;/td>
+&lt;td>true, false&lt;/td>
+&lt;td>ソフトタブ（タブキーで半角スペースを挿入）のon/off&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>editor.tabSize&lt;/code>&lt;/td>
+&lt;td>&lt;strong>4&lt;/strong>&lt;/td>
+&lt;td>インデント幅&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（*）デフォルト値は太字&lt;/p>
+&lt;p>なぜか設定が反映されないときや、一時的に設定を変更したいときは、画面右下のインデント設定をクリックすることでアドホックに変更が可能。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1805/25/news039.html">VS Codeでインデントを設定するには：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://oua-iea-programmer.blogspot.com/2017/04/visual-studio-code.html">【Visual Studio Code】インデント幅の変更方法と、変えても反映されない時の対処法&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%e3%81%a7%e8%a8%80%e8%aa%9e%e3%81%94%e3%81%a8%e3%81%ab%e3%82%a4%e3%83%b3%e3%83%87%e3%83%b3%e3%83%88%e3%81%ae%e8%a8%ad%e5%ae%9a%e3%82%92%e3%81%97%e3%81%9f%e3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="フォント設定">フォント設定&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>config&lt;/th>
+&lt;th>値（*）&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>editor.fontSize&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>エディタのフォントサイズ&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（*）デフォルト値は太字&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tkyaji/items/45d5f88047e99c29dda2">Visual Studio Codeでフォントサイズをいい感じにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ファイルを常に新しいタブで開く">ファイルを常に新しいタブで開く&lt;/h3>
+&lt;p>&lt;code>workbench.editor.enablePreview: false&lt;/code> に設定し、プレビューを無効化する。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://code.i-harness.com/">[Visual-Studio-Code] ファイルを常に新しいタブで開くようにvscodeを設定するには？ | CODE Q&amp;amp;A 問題解決 [日本語]&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="テキストの折り返し">テキストの折り返し&lt;/h3>
+&lt;p>デフォルトは &lt;code>editor.wordWrap&lt;/code> が折り返さない設定(= &lt;code>off&lt;/code>)になっている。&lt;br>
+その他、次のオプションが有る:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>on&lt;/code> &amp;hellip; エディタの右端で折り返す&lt;/li>
+&lt;li>&lt;code>wordWrapColumn&lt;/code> &amp;hellip; &lt;code>editor.wordWrapColumn&lt;/code> で設定した値で折り返す&lt;/li>
+&lt;li>&lt;code>bounded&lt;/code> &amp;hellip; &lt;code>editor.wordWrapColumn&lt;/code> 設定値とエディタの幅の小さい方で折り返す&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1807/27/news035.html">VS Codeでテキストの折り返しを設定するには：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ショートカットキー">ショートカットキー&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Win/Linux&lt;/th>
+&lt;th>Mac&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+,&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+,&lt;/code>&lt;/td>
+&lt;td>設定画面を開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>コマンドパレットを開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+x&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>拡張機能を開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+@&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+Shift+@&lt;/code>&lt;/td>
+&lt;td>ターミナルを開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+k v&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+k v&lt;/code>&lt;/td>
+&lt;td>Markdownファイルのプレビュー画面をサイドバイサイドで表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+v&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+Shift+v&lt;/code>&lt;/td>
+&lt;td>Markdownファイルのプレビュー画面を別タブで表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+k Ctrl+s&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+k ⌘+s&lt;/code>&lt;/td>
+&lt;td>キーバインド一覧を開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+k Ctrl+t&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+k ⌘+t&lt;/code>&lt;/td>
+&lt;td>カラーテーマ(配色)設定&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/oruponu/items/ae9c720d4522c1606daf">Visual Studio Code キーボード ショートカット - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1804/20/news030.html">VS CodeでMarkdownをプレビューするには？：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="キーバインドの変更">キーバインドの変更&lt;/h3>
+&lt;p>↑のキーバインド一覧から変更可能&lt;/p>
+&lt;h2 id="extensions">Extensions&lt;/h2>
+&lt;h3 id="改行コードの表示">改行コードの表示&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=sohamkamani.code-eol">code-eol&lt;/a>
+&lt;ul>
+&lt;li>設定値: &lt;code>code-eol.color&lt;/code> &amp;hellip; 改行を表す記号の文字色を16進数のカラーコードで指定。
+&lt;ul>
+&lt;li>例: &lt;code>&amp;quot;#841a75&amp;quot;&lt;/code> (ラズベリー色)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=steditor.line-endings">line-endings&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>2018年9月、code-eolを入れて使っている。&lt;/p>
+&lt;h3 id="textlint">textlint&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint">vscode-textlint&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>日本語の書き方など指摘・修正してくれるLintツール。&lt;/p>
+&lt;p>使い方:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/azu/items/2c565a38df5ed4c9f4e1#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">VS Codeでtextlintを使って文章をチェックする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="vs-codeの更新">VS Codeの更新&lt;/h3>
+&lt;p>Ubuntu:&lt;/p>
+&lt;ol>
+&lt;li>debパッケージをダウンロード&lt;/li>
+&lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
+&lt;/ol></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
 &lt;p>&lt;a href="https://www.terraform.io/docs/commands/">https://www.terraform.io/docs/commands/&lt;/a>&lt;/p>
 &lt;h2 id="import">import&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/import/usage.html">https://www.terraform.io/docs/import/usage.html&lt;/a>&lt;/p>
