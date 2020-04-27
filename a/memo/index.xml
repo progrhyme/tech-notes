@@ -7,7 +7,6 @@
 &lt;li>&lt;a href="https://medium.com/google-cloud/infrastructure-as-code-introduction-to-continuous-spark-cluster-deployment-with-cloud-build-and-9798a776bbb0">Infrastructure as Code: Introduction to Continuous Spark Cluster Deployment with Cloud Build and Terraform&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="bitbucket-pipelines--terraform">Bitbucket Pipelines + Terraform&lt;/h3>
-&lt;p>GCP事例が見つからないけど、たぶん行けるのでは。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.slideshare.net/MasatomoIto/terraform-with-bitbucket-pipeline">Terraform with Bitbucket pipeline&lt;/a>&lt;/li>
@@ -15,7 +14,17 @@
 &lt;/ul>
 &lt;h4 id="tfnotify対応">tfnotify対応&lt;/h4>
 &lt;p>&lt;code>help wanted&lt;/code>&lt;/p>
-&lt;p>&lt;a href="https://github.com/mercari/tfnotify/issues/36">Support Bitbucket Pipelines · Issue #36 · mercari/tfnotify&lt;/a>&lt;/p></description></item><item><title>A: 2020-04-25</title><link>https://progrhy.me/tech-notes/a/memo/20200425/</link><pubDate>Sat, 25 Apr 2020 23:20:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200425/</guid><description>
+&lt;p>&lt;a href="https://github.com/mercari/tfnotify/issues/36">Support Bitbucket Pipelines · Issue #36 · mercari/tfnotify&lt;/a>&lt;/p>
+&lt;h4 id="gcp対応">GCP対応&lt;/h4>
+&lt;p>terraformのDockerイメージを使って、下の要領で認証情報を渡してあげれば行けると思われる。&lt;/p>
+&lt;h3 id="bitbucket-pipelinesでgcpに継続的デリバリ">Bitbucket PipelinesでGCPに継続的デリバリ&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket/deploy-to-google-cloud-900820342.html">Deploy to Google Cloud - Atlassian Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.primitivesense.com/case-studies/ci-with-testing-and-deploying-google-cloud-functions-within-bitbucket-pipelines/">Testing &amp;amp; deploying Google Cloud Functions in BitBucket Pipelines | PrimitiveSense - Web Design Newcastle&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/adilsoncarvalho/e0e8da81dbf52bf90c671887ef7e04d3">Bitbucket Pipelines deployment to a Google Container Engine configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@puuga/dev-story-deploy-to-gcp-cloud-run-with-bitbucket-pipelines-4fef8f2ece27">Dev Story: Deploy to GCP Cloud Run with Bitbucket Pipelines&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-04-25</title><link>https://progrhy.me/tech-notes/a/memo/20200425/</link><pubDate>Sat, 25 Apr 2020 23:20:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200425/</guid><description>
 &lt;h2 id="425">4/25&lt;/h2>
 &lt;h3 id="技術メモ用のサイトをhugoで新設することにした">技術メモ用のサイトをHugoで新設することにした&lt;/h3>
 &lt;p>&lt;a href="https://gsuiteupdates-ja.googleblog.com/2019/02/google-google.html">来年末には旧版のGoogleサイトが使えなくなるそう&lt;/a>なので、早く移行しないとなー、と前々から思っていた。

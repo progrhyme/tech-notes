@@ -1194,7 +1194,6 @@ setopt extended_history
 &lt;li>&lt;a href="https://medium.com/google-cloud/infrastructure-as-code-introduction-to-continuous-spark-cluster-deployment-with-cloud-build-and-9798a776bbb0">Infrastructure as Code: Introduction to Continuous Spark Cluster Deployment with Cloud Build and Terraform&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="bitbucket-pipelines--terraform">Bitbucket Pipelines + Terraform&lt;/h3>
-&lt;p>GCP事例が見つからないけど、たぶん行けるのでは。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.slideshare.net/MasatomoIto/terraform-with-bitbucket-pipeline">Terraform with Bitbucket pipeline&lt;/a>&lt;/li>
@@ -1202,7 +1201,17 @@ setopt extended_history
 &lt;/ul>
 &lt;h4 id="tfnotify対応">tfnotify対応&lt;/h4>
 &lt;p>&lt;code>help wanted&lt;/code>&lt;/p>
-&lt;p>&lt;a href="https://github.com/mercari/tfnotify/issues/36">Support Bitbucket Pipelines · Issue #36 · mercari/tfnotify&lt;/a>&lt;/p></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;p>&lt;a href="https://github.com/mercari/tfnotify/issues/36">Support Bitbucket Pipelines · Issue #36 · mercari/tfnotify&lt;/a>&lt;/p>
+&lt;h4 id="gcp対応">GCP対応&lt;/h4>
+&lt;p>terraformのDockerイメージを使って、下の要領で認証情報を渡してあげれば行けると思われる。&lt;/p>
+&lt;h3 id="bitbucket-pipelinesでgcpに継続的デリバリ">Bitbucket PipelinesでGCPに継続的デリバリ&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket/deploy-to-google-cloud-900820342.html">Deploy to Google Cloud - Atlassian Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.primitivesense.com/case-studies/ci-with-testing-and-deploying-google-cloud-functions-within-bitbucket-pipelines/">Testing &amp;amp; deploying Google Cloud Functions in BitBucket Pipelines | PrimitiveSense - Web Design Newcastle&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/adilsoncarvalho/e0e8da81dbf52bf90c671887ef7e04d3">Bitbucket Pipelines deployment to a Google Container Engine configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@puuga/dev-story-deploy-to-gcp-cloud-run-with-bitbucket-pipelines-4fef8f2ece27">Dev Story: Deploy to GCP Cloud Run with Bitbucket Pipelines&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>
@@ -2155,7 +2164,7 @@ sudo apt install golang-go
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://golang.jp/tag/effective-go/page/2" title="Effective Go - golang.jp">Effective Go - golang.jp&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Docsy</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/docsy/</link><pubDate>Sun, 26 Apr 2020 00:27:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/docsy/</guid><description>
+&lt;/ul></description></item><item><title>A: Docsy</title><link>https://progrhy.me/tech-notes/a/software/hugo/theme/docsy/</link><pubDate>Sun, 26 Apr 2020 00:27:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/hugo/theme/docsy/</guid><description>
 &lt;p>&lt;a href="https://www.docsy.dev/">https://www.docsy.dev/&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://mag.osdn.jp/19/07/11/162000">Googleが2019年に公開した&lt;/a>Hugoのテーマ。&lt;/p>
 &lt;p>事例が&lt;a href="https://www.docsy.dev/docs/examples/">ここ&lt;/a>に載っている。&lt;br>
@@ -2177,7 +2186,7 @@ kubeflow, Knative, Apache Airflowなどで使われている。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/google/docsy-example.git mydocs
 &lt;span style="color:#204a87">cd&lt;/span> mydocs
 git submodule update --init --recursive
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/hugo/theme/learn/</guid><description>
 &lt;p>&lt;a href="https://learn.netlify.com/en/">https://learn.netlify.com/en/&lt;/a>&lt;/p>
 &lt;p>ドキュメンテーションに向いた高機能なHugoのテーマ。&lt;/p>
 &lt;h2 id="コンテンツ管理">コンテンツ管理&lt;/h2>
