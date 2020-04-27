@@ -1,6 +1,6 @@
 ---
-title: "Config"
-linkTitle: "Config"
+title: "Configuration"
+linkTitle: "Configuration"
 description: >
   Manifestファイルや環境設定など
 date: 2020-04-27T10:53:22+09:00
@@ -56,7 +56,7 @@ spec:
 - [Kubernetes道場 10日目 - LivenessProbe / ReadinessProbeについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-10/)
 
 
-## Lifecycle Hooks
+### Lifecycle Hooks
 
 https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/
 
@@ -88,8 +88,7 @@ spec:
 参考:
 
 - [pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ](https://44smkn.hatenadiary.com/entry/2018/08/01/022312)
-- 
-
+- [Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-06/)
 
 ## Pods
 ### Affinity

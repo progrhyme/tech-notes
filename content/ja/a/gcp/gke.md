@@ -143,7 +143,7 @@ spec:
     protocol: TCP
 ```
 
-### BackendConfig（β at 2020-02-20）
+### BackendConfig（β on 2020-04-27）
 
 https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en
 
@@ -155,6 +155,22 @@ BackendConfigによって、HTTP(S) Load Balancingに以下の機能を設定で
 - [Cloud Armor](https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-armor-backendconfig)
 - Identity-Aware Proxy (IAP)
 - [Timeout, Connection draining timeout, Session affinity, User-defined request headers](https://cloud.google.com/kubernetes-engine/docs/how-to/configure-backend-service)
+
+Example:
+
+- タイムアウトを40秒に設定
+- 接続ドレインタイムアウトを60秒に設定
+
+```YAML
+apiVersion: cloud.google.com/v1beta1
+    kind: BackendConfig
+    metadata:
+      name: my-bsc-backendconfig
+    spec:
+      timeoutSec: 40
+      connectionDraining:
+        drainingTimeoutSec: 60
+```
 
 ### Horizontal Pod Autoscaler
 
@@ -206,8 +222,15 @@ gcloud container clusters get-credentials [CLUSTER_NAME] [--project PROJECT] [--
 
 [コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja)
 
+TL;DR:
+
 - ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる
 - 従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた
+
+[既知の問題](https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues)（2020-04-27時点）:
+
+- GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある
+- [Podのreadinessフィードバック](https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness)を<u>使っていない場合</u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある
 
 ## Topics
 ### Logging
