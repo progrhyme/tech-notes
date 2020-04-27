@@ -1,0 +1,40 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/gcp/</link><description>Recent content in Google Cloud Platform on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 10:39:24 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/lb/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
+&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>IP anycast対応&lt;/li>
+&lt;li>アーキテクチャ:
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>マネージド証明書
+&lt;ul>
+&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
+&lt;li>DV&lt;/li>
+&lt;li>自動更新&lt;/li>
+&lt;li>ワイルドカードドメインは不可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
+&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
+&lt;h2 id="logging">Logging&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
+従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
+特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item></channel></rss>

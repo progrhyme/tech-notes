@@ -1,4 +1,164 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software</title><link>https://progrhy.me/tech-notes/a/software/</link><description>Recent content in Software on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software</title><link>https://progrhy.me/tech-notes/a/software/</link><description>Recent content in Software on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/&lt;/a> &amp;hellip; ドキュメント
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tutorials/">https://kubernetes.io/docs/tutorials/&lt;/a> &amp;hellip; チュートリアル&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/">https://kubernetes.io/docs/tasks/&lt;/a> &amp;hellip; How-toガイド&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/advent-calendar/2018/k8s-dojo">Kubernetes道場 Advent Calendar 2018 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/">https://kubernetes.io/docs/reference/&lt;/a>
+&lt;ul>
+&lt;li>APIリファレンス&lt;/li>
+&lt;li>CLIリファレンス&lt;/li>
+&lt;li>etc.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="case-study">Case Study&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://k8s.af/">Kubernetes Failure Stories&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="versions">Versions&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/setup/release/version-skew-policy/">Kubernetes version and version skew support policy - Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="persistentvolume">PersistentVolume&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">https://kubernetes.io/docs/concepts/storage/persistent-volumes/&lt;/a>&lt;/p>
+&lt;p>永続化ボリューム&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-12/">Kubernetes道場 12日目 - PersistentVolume / PersistentVolumeClaim / StorageClassについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Podの水平オートスケーラー&lt;/p>
+&lt;ul>
+&lt;li>v1 &amp;hellip; CPU使用率(requestsの平均)でスケール&lt;/li>
+&lt;li>v2
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/hpa-v2.md">https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/hpa-v2.md&lt;/a>&lt;/li>
+&lt;li>カスタムメトリクス対応&lt;/li>
+&lt;li>複数メトリクス対応&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HorizontalPodAutoscaler&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>autoscaling/v2alpha1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>WebFrontend&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">scaleTargetRef&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ReplicationController&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>WebFrontend&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">minReplicas&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">maxReplicas&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metrics&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Resource&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cpu&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetAverageUtilization&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Object&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">object&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">target&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Frontend&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metricName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hits-per-second&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetValue&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>1k&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/horizontal-pod-autoscaling">Configuring a Horizontal Pod Autoscaler - GKE&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/kubernetes-engine/observing?hl=ja">GKE クラスタの観察 | Stackdriver Monitoring | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/k-hal/items/5f060fdbafa3d29b3499#hpa">GKEでPodとNodeをAutoscaling する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="cluster-autoscaler">Cluster Autoscaler&lt;/h3>
+&lt;p>&lt;a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md">FAQ.md&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="認証認可">認証/認可&lt;/h2>
+&lt;h3 id="rbac">RBAC&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">https://kubernetes.io/docs/reference/access-authn-authz/rbac/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Role &amp;hellip; 権限ロール。Namespace単位&lt;/li>
+&lt;li>ClusterRole &amp;hellip; クラスタ全体に効く権限ロール&lt;/li>
+&lt;li>RoleBinding &amp;hellip; Roleとユーザ/グループの紐付け&lt;/li>
+&lt;li>ClusterRoleBinding &amp;hellip; ClusterRoleとユーザ/グループの紐付け&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-20/">Kubernetes道場 20日目 - Role / RoleBinding / ClusterRole / ClusterRoleBindingについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/sheepland/items/67a5bb9b19d8686f389d">KubernetesのRBACについて - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="podの再起動">Podの再起動&lt;/h3>
+&lt;ul>
+&lt;li>K8sはクラスタの状態を宣言型で記述するので、「再起動する」というのを指示するのは難しいようだ&lt;/li>
+&lt;li>下の記事にあるように、Deploymentの定義を変えてapplyするのが良いだろう&lt;/li>
+&lt;li>レプリカの数を0にして増やすという手もある&lt;/li>
+&lt;/ul>
+&lt;p>See&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/dtan4/items/9e0ab5dbe8c64ed6dd21">全ての Pod を一発でリロードさせる方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="複数クラスタを設定する">複数クラスタを設定する&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/&lt;/a> &amp;hellip; &lt;code>kubectl config use-context&lt;/code> で複数クラスタを切り替えられるようにする設定チュートリアル&lt;/li>
+&lt;/ul>
+&lt;h3 id="機密情報や環境設定の扱い">機密情報や環境設定の扱い&lt;/h3>
+&lt;p>SecretsやConfigMapを使う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tellme.tokyo/post/2018/08/07/kubernetes-configmaps-secrets/">Kubernetes 上で Credentials を扱う | tellme.tokyo&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="namespaceの削除">Namespaceの削除&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#deleting-a-namespace">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#deleting-a-namespace&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl delete namespace my-ns
+kubectl delete -f my-ns.yml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466">Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/k8s-namespace-force-delete/">[小ネタ]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;h3 id="minikube">Minikube&lt;/h3>
+&lt;p>&lt;a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube&lt;/a>&lt;/p>
+&lt;p>ローカルでKubernetesを動かすためのツール。&lt;br>
+Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker上に直接クラスタを構築することもできる。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/getting-started-guides/minikube/">https://kubernetes.io/docs/getting-started-guides/minikube/&lt;/a> &amp;hellip; 導入ガイド
+&lt;ul>
+&lt;li>※先にkubectlをインストールしておくこと&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mumoshu/items/8f55ee830d8e5c172dd4">minikubeでローカルKubernetesクラスタを5分でつくる方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.1q77.com/2016/10/setup-kubernetes-1-4-using-minikube/">minikube でローカルでのテスト用 Kubernetes を構築 – 1Q77&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://reiki4040.hatenablog.com/entry/2017/04/11/221122">ローカルでkubernetesを動かせるminikubeを試す - 年中アイス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="skaffold">Skaffold&lt;/h3>
+&lt;p>開発・本番向けにKubernetesクラスタに継続的デリバリーを実施するコマンドラインツール。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/GoogleContainerTools/skaffold">https://github.com/GoogleContainerTools/skaffold&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://skaffold.dev/">https://skaffold.dev/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
 &lt;li>初心者向けガイド: &lt;a href="https://www.terraform.io/guides/">https://www.terraform.io/guides/&lt;/a>&lt;/li>
