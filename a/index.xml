@@ -448,6 +448,11 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;/li>
 &lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
 &lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://en.wikipedia.org/wiki/List_of_Unix_commands">List of Unix commands - Wikipedia&lt;/a> &amp;hellip; IEEE規格らしい。&lt;/li>
+&lt;/ul>
 &lt;h2 id="日付時刻時間">日付・時刻・時間&lt;/h2>
 &lt;h3 id="date">date&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 書式指定&lt;/span>
