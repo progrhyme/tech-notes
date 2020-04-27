@@ -924,6 +924,13 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200427/</guid><description>
+&lt;h2 id="427">4/27&lt;/h2>
+&lt;h3 id="cloud-build--terraformでインフラcicd">Cloud Build + TerraformでインフラCI/CD&lt;/h3>
+&lt;p>参考記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/managing-infrastructure-as-code?hl=ja">Terraform、Cloud Build、GitOps を使用してインフラストラクチャをコードとして管理する | ソリューション&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/google-cloud/infrastructure-as-code-introduction-to-continuous-spark-cluster-deployment-with-cloud-build-and-9798a776bbb0">Infrastructure as Code: Introduction to Continuous Spark Cluster Deployment with Cloud Build and Terraform&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
 &lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
 &lt;h2 id="about">About&lt;/h2>
