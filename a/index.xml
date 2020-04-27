@@ -644,7 +644,214 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ol>
 &lt;li>debパッケージをダウンロード&lt;/li>
 &lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
+&lt;/ol></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;h2 id="gitコマンド">gitコマンド&lt;/h2>
+&lt;h3 id="参考資料">参考資料&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/konweb/items/621722f67fdd8f86a017">【Git】基本コマンド - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="apply">apply&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## git diffコマンドで作ったpatchを適用する&lt;/span>
+git apply file.patch
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://maku77.github.io/git/git-patch.html">Git でパッチファイルを作成する | まくまくGitノート&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="archive">archive&lt;/h3>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>tar を使わないとファイルに実行ビットがついてしまうようだ。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/usamik26/items/9a2d14aea30cb01a60c6" title="Git リポジトリの内容を zip ファイルにする - Qiita">Git リポジトリの内容を zip ファイルにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="checkout">checkout&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## topicブランチを作成&lt;/span>
+git checkout -b topic
+&lt;span style="color:#8f5902;font-style:italic">## remoteブランチからローカルブランチを作成&lt;/span>
+git checkout -b foo origin/foo
+&lt;span style="color:#8f5902;font-style:italic">## 空ブランチを作る&lt;/span>
+git checkout --orphan empty
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/akiko-pusu/items/7c0a99b8cb37882d2cfe" title="gitの空ブランチを作る - Qiita">gitの空ブランチを作る - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="cherry-pick">cherry-pick&lt;/h3>
+&lt;p>別ブランチで開発中の機能などをコミット単位で取り込むときに使う。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git cherry-pick &amp;lt;SHA1&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## マージコミットのcherry-pick&lt;/span>
+git cherry-pick -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;SHA1&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/takc923/items/8e2d87d692f840b14464" title="merge commitをcherry-pickする - Qiita">merge commitをcherry-pickする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="clone">clone&lt;/h3>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-clone">https://git-scm.com/docs/git-clone&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 深さ1の shallow clone&lt;/span>
+git clone --depth &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;URL&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## ブランチ指定&lt;/span>
+git clone --branch BRANCH URL
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="commit">commit&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 変更点を表示してコミット&lt;/span>
+git commit -v
+&lt;span style="color:#8f5902;font-style:italic">## 空コミット&lt;/span>
+git commit --allow-empty
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="diff">diff&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## スペース等の差分を無視&lt;/span>
+git diff -w
+&lt;span style="color:#8f5902;font-style:italic">## ファイル名のみ表示&lt;/span>
+git diff --name-only
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fetch">fetch&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
+git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="log">log&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 過去のコミットから対象文字列を含むコミットを検索&lt;/span>
+git log -S 文字列
+&lt;span style="color:#8f5902;font-style:italic">## 1行で表示&lt;/span>
+git log --pretty&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>oneline
+git log --oneline --graph --decorate
+&lt;span style="color:#8f5902;font-style:italic">## フォーマット指定&lt;/span>
+git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%H&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># full commit hash のみ&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%83%AA%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%B8%E6%8A%9E" title="Git - リビジョンの選択">Git - リビジョンの選択&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104" title="git logのオプションあれこれ - 煙と消えるその前に">git logのオプションあれこれ - 煙と消えるその前に&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/key-amb/items/9ee8339d2da971581cfb" title="git log をいい感じに alias して色付きで見やすくしておく - Qiita">git log をいい感じに alias して色付きで見やすくしておく - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="rebase">rebase&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 過去のNコミットを編集&lt;/span>
+git rebase -i HEAD~N
+&lt;span style="color:#8f5902;font-style:italic">## 1st コミットから編集&lt;/span>
+git rebase -i --root
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/ken_c_lo/20130421/1366558065" title="First commit が git rebase -i できない問題 → git rebase -i --root でできる - 納豆には卵を入れる派です。">First commit が git rebase -i できない問題 → git rebase -i &amp;ndash;root でできる - 納豆には卵を入れる派です。&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="remote">remote&lt;/h3>
+&lt;p>リモートリポジトリの管理。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## リモートリポジトリ一覧&lt;/span>
+git remote
+git remote -v
+&lt;span style="color:#8f5902;font-style:italic">## リモートリポジトリ追加&lt;/span>
+git remote add &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## リモートリポジトリ削除&lt;/span>
+git remote rm &amp;lt;リポジトリ名&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## URL変更&lt;/span>
+git remote set-url &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## リポジトリ名変更&lt;/span>
+git remote rename &amp;lt;リポジトリ名&amp;gt; &amp;lt;新しいリポジトリ名&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.sejuku.net/blog/71492">これで完璧! git remoteでリポジトリを【追加,削除,確認,変更】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="revert">revert&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git revert &amp;lt;SHA1&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## マージコミットの取消し&lt;/span>
+git revert -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;SHA1&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt">https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/koba04/20121122/1353512656" title="gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記">gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="submodule">submodule&lt;/h3>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-submodule">https://git-scm.com/docs/git-submodule&lt;/a>&lt;/p>
+&lt;p>なんだかんだで割りと使っている。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 全submodule更新&lt;/span>
+git submodule foreach git pull origin master
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>sumobuleの削除 =&amp;gt; &lt;a href="https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete">https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/sotarok/items/0d525e568a6088f6f6bb" title="Git submodule の基礎 - Qiita">Git submodule の基礎 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/kshimo69/items/ac22d414d756ea08943f" title="git submoduleしてるリポジトリをリモートの最新に更新する - Qiita">git submoduleしてるリポジトリをリモートの最新に更新する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="向き先url変更">向き先url変更&lt;/h4>
+&lt;ol>
+&lt;li>&lt;code>.gitmodules&lt;/code> の向き先を新urlに変更&lt;/li>
+&lt;li>&lt;code>git submodule sync&lt;/code> で反映
+&lt;ul>
+&lt;li>&lt;code>.git/config&lt;/code> に変更が反映される&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>git submodule update&lt;/code> とかで更新&lt;/li>
+&lt;/ol>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/8mamo10/items/fd11d8c7a2d928b39173" title="submodule の向き先 url を変更する - Qiita">submodule の向き先 url を変更する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="tag">tag&lt;/h3>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+git tag &amp;lt;タグ名&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### 注釈付き&lt;/span>
+git tag -a &amp;lt;タグ名&amp;gt; -m &amp;lt;メッセージ&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
+git show &amp;lt;タグ名&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### 一覧&lt;/span>
+git tag
+&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
+git tag -d &amp;lt;タグ名&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## リモートに反映&lt;/span>
+git push &amp;lt;リモート&amp;gt; &amp;lt;タグ名&amp;gt;
+git push --tags
+&lt;span style="color:#8f5902;font-style:italic">### 削除反映&lt;/span>
+git push &amp;lt;リモート&amp;gt; :&amp;lt;タグ名&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/chihiro/items/cba40015b1aa2c73b78a">【Git】tag関連コマンド - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="歴史を改ざんする">歴史を改ざんする&lt;/h3>
+&lt;p>See &lt;a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88">Git - 歴史の書き換え&lt;/a>&lt;/p>
+&lt;h4 id="特定のファイルディレクトリの履歴を完全に削除">特定のファイル・ディレクトリの履歴を完全に削除&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## file&lt;/span>
+git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -f path/to/file&amp;#39;&lt;/span> HEAD
+&lt;span style="color:#8f5902;font-style:italic">## directory&lt;/span>
+git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -rf path/to/dir/&amp;#39;&lt;/span> HEAD
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gist.github.com/ktx2207/3167fa69531bdd6b44f1">Git ファイルの履歴を完全に削除する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="マージコミットを-cherry-pick">マージコミットを cherry-pick&lt;/h3>
+&lt;p>merge commit を cherry-pick&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git cherry-pick -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;merge commit のハッシュ&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/takc923/items/8e2d87d692f840b14464" title="merge commitをcherry-pickする - Qiita">merge commitをcherry-pickする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="特定のファイルを-git-管理対象から除外する">特定のファイルを Git 管理対象から除外する&lt;/h3>
+&lt;h4 id="1-gitignore-や-gitinfoexclude-を使う">1) &lt;code>.gitignore&lt;/code> や &lt;code>.git/info/exclude&lt;/code> を使う&lt;/h4>
+&lt;h4 id="2-既に-git-管理下にあるファイルをワーキングツリーで敢えて除外する">2) 既に Git 管理下にあるファイルをワーキングツリーで敢えて除外する&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git update-index —assume-unchanged &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+git update-index —skip-worktree &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 確認&lt;/span>
+git ls-files -v
+&lt;span style="color:#8f5902;font-style:italic">## 取り消し&lt;/span>
+git update-index —no-assume-unchanged &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+git update-index —no-skip-worktree &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>git ls-files -v の表示:&lt;/p>
+&lt;ul>
+&lt;li>assume-unchanged 設定のファイルは、状態が小文字で表示される&lt;/li>
+&lt;li>skip-worktree 設定のファイルは、状態が S と表示される&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/usamik26/items/56d0d3ba7a1300625f92">既に git 管理しているファイルをあえて無視したい - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="リポジトリをサブディレクトリで分割">リポジトリをサブディレクトリで分割&lt;/h3>
+&lt;h4 id="サブディレクトリが1つの場合">サブディレクトリが1つの場合&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone original_dir new_dir
+&lt;span style="color:#204a87">cd&lt;/span> new_dir
+git filter-branch --subdirectory-filter sub_dir_name HEAD
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://akio0911.net/archives/3421">gitリポジトリのサブディレクトリを別のリポジトリとして抽出する方法 - 拡張現実ライフ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="サブディレクトリが複数の場合">サブディレクトリが複数の場合&lt;/h4>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/2982055/detach-many-subdirectories-into-a-new-separate-git-repository">git filter branch - Detach many subdirectories into a new, separate Git repository - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
 &lt;p>&lt;a href="https://www.terraform.io/docs/commands/">https://www.terraform.io/docs/commands/&lt;/a>&lt;/p>
 &lt;h2 id="import">import&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/import/usage.html">https://www.terraform.io/docs/import/usage.html&lt;/a>&lt;/p>
@@ -670,7 +877,33 @@ terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモ�
 terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
 terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
 terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
+&lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
+ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
+&lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>⚠️ Deprecation warning&lt;/strong>&lt;/p>
+&lt;p>As the efforts of the GitBook team are focused on the &lt;a href="https://www.gitbook.com">GitBook.com&lt;/a> platform, the CLI is no longer under active development.&lt;br>
+All content supported by the CLI are mostly supported by our &lt;a href="https://docs.gitbook.com/integrations/github">GitBook.com / GitHub integration&lt;/a>.&lt;br>
+Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com&lt;/a> will continue working until further notice. For differences with the new vesion, check out our &lt;a href="https://docs.gitbook.com/v2-changes/important-differences">documentation&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.gitbook.com/">https://docs.gitbook.com/&lt;/a> &amp;hellip; クラウドサービス向け&lt;/li>
+&lt;li>&lt;a href="https://gitbookio.gitbooks.io/documentation/">Introduction | GitBook.com Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/GitbookIO/gitbook/tree/master/docs">https://github.com/GitbookIO/gitbook/tree/master/docs&lt;/a> &amp;hellip; たぶんOSSツールチェインのドキュメントはもうここを読むしかない。&lt;/li>
+&lt;/ul>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;p>目次生成系:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.aliyun.com/mirror/npm/package/gitbook-plugin-page-toc">Package - gitbook-plugin-page-toc&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/zanfab/gitbook-plugin-intopic-toc">zanfab/gitbook-plugin-intopic-toc: GitBook Plugin to add inline table of contents (TOC) to each page using sticky and scrollspy effects.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/billryan/gitbook-plugin-etoc">billryan/gitbook-plugin-etoc: Elegant toc plugin for GitBook&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
 &lt;/blockquote>
@@ -1898,33 +2131,7 @@ kubeflow, Knative, Apache Airflowなどで使われている。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/google/docsy-example.git mydocs
 &lt;span style="color:#204a87">cd&lt;/span> mydocs
 git submodule update --init --recursive
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
-&lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
-ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
-&lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>⚠️ Deprecation warning&lt;/strong>&lt;/p>
-&lt;p>As the efforts of the GitBook team are focused on the &lt;a href="https://www.gitbook.com">GitBook.com&lt;/a> platform, the CLI is no longer under active development.&lt;br>
-All content supported by the CLI are mostly supported by our &lt;a href="https://docs.gitbook.com/integrations/github">GitBook.com / GitHub integration&lt;/a>.&lt;br>
-Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com&lt;/a> will continue working until further notice. For differences with the new vesion, check out our &lt;a href="https://docs.gitbook.com/v2-changes/important-differences">documentation&lt;/a>.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.gitbook.com/">https://docs.gitbook.com/&lt;/a> &amp;hellip; クラウドサービス向け&lt;/li>
-&lt;li>&lt;a href="https://gitbookio.gitbooks.io/documentation/">Introduction | GitBook.com Documentation&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/GitbookIO/gitbook/tree/master/docs">https://github.com/GitbookIO/gitbook/tree/master/docs&lt;/a> &amp;hellip; たぶんOSSツールチェインのドキュメントはもうここを読むしかない。&lt;/li>
-&lt;/ul>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;p>目次生成系:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://developer.aliyun.com/mirror/npm/package/gitbook-plugin-page-toc">Package - gitbook-plugin-page-toc&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/zanfab/gitbook-plugin-intopic-toc">zanfab/gitbook-plugin-intopic-toc: GitBook Plugin to add inline table of contents (TOC) to each page using sticky and scrollspy effects.&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/billryan/gitbook-plugin-etoc">billryan/gitbook-plugin-etoc: Elegant toc plugin for GitBook&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</guid><description>
 &lt;p>&lt;a href="https://learn.netlify.com/en/">https://learn.netlify.com/en/&lt;/a>&lt;/p>
 &lt;p>ドキュメンテーションに向いた高機能なHugoのテーマ。&lt;/p>
 &lt;h2 id="コンテンツ管理">コンテンツ管理&lt;/h2>
