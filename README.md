@@ -1,3 +1,5 @@
+![github pages](https://github.com/progrhyme/tech-notes/workflows/github%20pages/badge.svg)
+
 # progrhyme's Tech Notes
 
 My personal yet public technical notes.
