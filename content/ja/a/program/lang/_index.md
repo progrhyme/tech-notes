@@ -3,6 +3,7 @@ title: "プログラム言語"
 linkTitle: "言語"
 date: 2020-04-26T07:54:05+09:00
 simple_list: true
+weight: 20
 ---
 
 ## Topics

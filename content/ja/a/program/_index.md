@@ -8,3 +8,6 @@ simple_list: true
 weight: 200
 ---
 
+エディタや統合開発環境についても、このセクション下に書くことにする。
+
+## Child Pages
