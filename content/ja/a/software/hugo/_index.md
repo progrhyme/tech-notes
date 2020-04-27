@@ -90,4 +90,24 @@ https://gohugo.io/getting-started/configuration-markup/#table-of-contents
     startLevel = 2
 ```
 
+## Known Issues
+
+### 完全なページツリーを描画する機能がない
+
+ワークアラウンドでの対応が必要。
+
+[Multi-level sections (tree) · Issue #465 · gohugoio/hugo](https://github.com/gohugoio/hugo/issues/465)
+
+ワークアラウンド例:
+- http://vjeantet.github.io/hugo-menu-show/
+  - [ソースコード](https://github.com/vjeantet/hugo-menu-show/blob/master/themes/menumenu/layouts/index.html)
+
+参考:
+
+- [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示） | まくまくHugo/Goノート](https://maku77.github.io/hugo/list/sidebar-menu.html)
+
+MEMO:
+
+- [Docsyテーマでのサイドバーの実現方法](https://github.com/google/docsy/blob/master/layouts/partials/sidebar-tree.html)が参考になるかも。
+
 ## Child Pages
