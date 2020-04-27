@@ -4,6 +4,7 @@ linkTitle: "GitBook"
 description: >
   https://www.gitbook.com/
 date: 2020-04-25T23:52:08+09:00
+weight: 250
 ---
 
 Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。  

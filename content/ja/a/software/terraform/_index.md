@@ -4,6 +4,7 @@ linkTitle: "Terraform"
 description: >
   https://www.terraform.io/
 date: 2020-04-26T22:59:20+09:00
+weight: 700
 ---
 
 ## Getting Started

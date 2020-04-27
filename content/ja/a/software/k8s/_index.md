@@ -4,6 +4,7 @@ linkTitle: "Kubernetes"
 description: >
   https://kubernetes.io/
 date: 2020-04-27T10:39:49+09:00
+weight: 300
 ---
 
 ## Getting Started
