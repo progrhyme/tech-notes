@@ -23,6 +23,11 @@ weight: 110
 
 - [GCP リソースの割り当てを増加(上限緩和申請) - Qiita](https://qiita.com/mouse2/items/dd136453798804f99de7)
 
+## コスト管理
+
+コスト節約のためのナレッジ:
+
+- 2020-04-21 [クラウドコストの最適化のためのベスト プラクティス | Google Cloud Blog](https://cloud.google.com/blog/ja/products/gcp/best-practices-for-optimizing-your-cloud-costs)
 
 ## 監査
 ### Cloud Audit Logging
@@ -33,7 +38,6 @@ https://cloud.google.com/logging/docs/audit/?hl=ja
 永久に保存したい場合は、GCSにエクスポートが必要そう。
 
 https://cloud.google.com/logging/quotas?hl=ja#logs_retention_periods
-
 
 ## 組織
 
@@ -63,7 +67,6 @@ See [組織に既存のプロジェクトを移行する | Google Cloud Resource
 
 - [Project quota requests \- Cloud Platform Console ヘルプ](https://support.google.com/cloud/answer/6330231?hl=ja)
 
-
 ## 構成管理
 ### Cloud Deployment Manager
 
@@ -73,7 +76,6 @@ YAMLでPythonテンプレートとJinja2に対応している。
 
 - Documentation: https://cloud.google.com/deployment-manager/docs/
   - [サポートされるリソースタイプ  |  Cloud Deployment Manager のドキュメント  |  Google Cloud](https://cloud.google.com/deployment-manager/docs/configuration/supported-resource-types)
-
 
 ## 開発
 ### ローカル開発用サーバ
@@ -98,7 +100,6 @@ QuotaやBillingの操作をするとき、 `serviceusage.services.use` が要求
 例:
 
 - `gcloud logging logs list`
-
 
 ## Tips
 ### ラベルの運用
