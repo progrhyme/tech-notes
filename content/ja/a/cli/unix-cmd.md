@@ -4,6 +4,7 @@ linkTitle: "UNIX系コマンド"
 description: >
   UNIX系OSで使えるコマンド
 date: 2020-04-27T19:37:41+09:00
+weight: 800
 ---
 
 筆者はLinuxかmacOSを使うことが多い。

@@ -4,6 +4,7 @@ linkTitle: "CLI"
 description:
   コマンドラインツールなど
 date: 2020-04-27T19:34:20+09:00
+simple_list: true
 weight: 500
 ---
 
@@ -19,3 +20,5 @@ weight: 500
 参考:
 
 - [scriptコマンドで作業ログを記録 ｜ DevelopersIO](https://dev.classmethod.jp/server-side/os/scriptcommand/)
+
+## Child Pages
