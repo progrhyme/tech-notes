@@ -230,4 +230,17 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/watch.html" title="watch コマンド | コマンドの使い方(Linux) | hydroculのメモ">watch コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/zsh/</guid><description>
+&lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
+&lt;h2 id="source-code">Source Code&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://sourceforge.net/p/zsh/code/ci/master/tree/">https://sourceforge.net/p/zsh/code/ci/master/tree/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/zsh-users/zsh">https://github.com/zsh-users/zsh&lt;/a> &amp;hellip; Mirror&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-zsh" data-lang="zsh">&lt;span style="color:#8f5902;font-style:italic"># history -i でコマンドの実行時間表示&lt;/span>
+setopt extended_history
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://orumin.blogspot.com/2017/10/unix-os.html">Unix 系 OS でコマンド実行間にタイムスタンプを付ける&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

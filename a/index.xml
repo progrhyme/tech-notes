@@ -644,7 +644,23 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ol>
 &lt;li>debパッケージをダウンロード&lt;/li>
 &lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;/ol></description></item><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
+&lt;p>Atlassian社が提供しているソースコードのホスティングサービス。&lt;br>
+JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
+&lt;h2 id="提供形態">提供形態&lt;/h2>
+&lt;ul>
+&lt;li>クラウド &amp;hellip; Bitbucket Cloud&lt;/li>
+&lt;li>セルフホスト &amp;hellip; オンプレミス
+&lt;ul>
+&lt;li>Bitbucket Server &amp;hellip; 単一サーバ&lt;/li>
+&lt;li>Bitbucket Datacenter &amp;hellip; クラスタ構成&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atlassian.com/ja/software/bitbucket/features/pipelines">Pipelines&lt;/a> &amp;hellip; 付属のCI/CDツール&lt;/li>
+&lt;/ul></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
 &lt;h2 id="gitコマンド">gitコマンド&lt;/h2>
 &lt;h3 id="参考資料">参考資料&lt;/h3>
 &lt;ul>
@@ -924,13 +940,6 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200427/</guid><description>
-&lt;h2 id="427">4/27&lt;/h2>
-&lt;h3 id="cloud-build--terraformでインフラcicd">Cloud Build + TerraformでインフラCI/CD&lt;/h3>
-&lt;p>参考記事:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/managing-infrastructure-as-code?hl=ja">Terraform、Cloud Build、GitOps を使用してインフラストラクチャをコードとして管理する | ソリューション&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://medium.com/google-cloud/infrastructure-as-code-introduction-to-continuous-spark-cluster-deployment-with-cloud-build-and-9798a776bbb0">Infrastructure as Code: Introduction to Continuous Spark Cluster Deployment with Cloud Build and Terraform&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
 &lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
 &lt;h2 id="about">About&lt;/h2>
@@ -1163,6 +1172,26 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/watch.html" title="watch コマンド | コマンドの使い方(Linux) | hydroculのメモ">watch コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/zsh/</guid><description>
+&lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
+&lt;h2 id="source-code">Source Code&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://sourceforge.net/p/zsh/code/ci/master/tree/">https://sourceforge.net/p/zsh/code/ci/master/tree/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/zsh-users/zsh">https://github.com/zsh-users/zsh&lt;/a> &amp;hellip; Mirror&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-zsh" data-lang="zsh">&lt;span style="color:#8f5902;font-style:italic"># history -i でコマンドの実行時間表示&lt;/span>
+setopt extended_history
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://orumin.blogspot.com/2017/10/unix-os.html">Unix 系 OS でコマンド実行間にタイムスタンプを付ける&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200427/</guid><description>
+&lt;h2 id="427">4/27&lt;/h2>
+&lt;h3 id="cloud-build--terraformでインフラcicd">Cloud Build + TerraformでインフラCI/CD&lt;/h3>
+&lt;p>参考記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/managing-infrastructure-as-code?hl=ja">Terraform、Cloud Build、GitOps を使用してインフラストラクチャをコードとして管理する | ソリューション&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/google-cloud/infrastructure-as-code-introduction-to-continuous-spark-cluster-deployment-with-cloud-build-and-9798a776bbb0">Infrastructure as Code: Introduction to Continuous Spark Cluster Deployment with Cloud Build and Terraform&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>

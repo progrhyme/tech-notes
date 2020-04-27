@@ -1,4 +1,20 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Webサービス</title><link>https://progrhy.me/tech-notes/a/web-service/</link><description>Recent content in Webサービス on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 13:42:49 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Webサービス</title><link>https://progrhy.me/tech-notes/a/web-service/</link><description>Recent content in Webサービス on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 13:42:49 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
+&lt;p>Atlassian社が提供しているソースコードのホスティングサービス。&lt;br>
+JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
+&lt;h2 id="提供形態">提供形態&lt;/h2>
+&lt;ul>
+&lt;li>クラウド &amp;hellip; Bitbucket Cloud&lt;/li>
+&lt;li>セルフホスト &amp;hellip; オンプレミス
+&lt;ul>
+&lt;li>Bitbucket Server &amp;hellip; 単一サーバ&lt;/li>
+&lt;li>Bitbucket Datacenter &amp;hellip; クラスタ構成&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atlassian.com/ja/software/bitbucket/features/pipelines">Pipelines&lt;/a> &amp;hellip; 付属のCI/CDツール&lt;/li>
+&lt;/ul></description></item><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://help.github.com/">https://help.github.com/&lt;/a>&lt;/p>
 &lt;ul>
