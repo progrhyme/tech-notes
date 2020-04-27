@@ -446,6 +446,233 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
+&lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
+&lt;h2 id="日付時刻時間">日付・時刻・時間&lt;/h2>
+&lt;h3 id="date">date&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 書式指定&lt;/span>
+date +%Y%m%d &lt;span style="color:#8f5902;font-style:italic"># YYYYMMDD&lt;/span>
+date +%FT%T &lt;span style="color:#8f5902;font-style:italic"># ISO8601風&lt;/span>
+date +%s &lt;span style="color:#8f5902;font-style:italic"># unixtime&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 日時指定/相対&lt;/span>
+date -d tomorrow &lt;span style="color:#8f5902;font-style:italic"># 明日&lt;/span>
+date -d &lt;span style="color:#4e9a06">&amp;#39;1 hour&amp;#39;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 1時間後&lt;/span>
+date -d &lt;span style="color:#4e9a06">&amp;#39;1 days ago&amp;#39;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 昨日&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 日時指定/絶対&lt;/span>
+date -d @1530675922 &lt;span style="color:#8f5902;font-style:italic"># unixtime&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Mac だと &lt;code>-d '〜'&lt;/code> オプションが使えない&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://shellscript.sunone.me/date.html" title="日付を取得する | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス">日付を取得する | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/date.html">date コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ファイル操作">ファイル操作&lt;/h2>
+&lt;h3 id="tee">tee&lt;/h3>
+&lt;p>標準出力に書きつつファイルにも書く、ということをやりたいときに使う。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log
+./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee -a a.log &lt;span style="color:#8f5902;font-style:italic"># 追記&lt;/span>
+./a.sh 2&amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log &lt;span style="color:#8f5902;font-style:italic"># 標準エラーもファイルに書く&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/wnoguchi/items/2fc3ec11043d139dc6bb" title="teeコマンドの使い方 - Qiita">teeコマンドの使い方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="touch">touch&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">touch -t &lt;span style="color:#0000cf;font-weight:bold">201807040100&lt;/span> path/to/file &lt;span style="color:#8f5902;font-style:italic"># mtimeを2018/7/4 01:00に変更&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1606/14/news013.html">【 touch 】コマンド――タイムスタンプを変更する／新規ファイルを作成する：Linux基本コマンドTips（23） - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="アーカイブ">アーカイブ&lt;/h2>
+&lt;h3 id="zipunzip">zip/unzip&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## dir/ を再帰的に圧縮&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 展開すると dir/ も出来る&lt;/span>
+zip -r foo.zip dir/
+&lt;span style="color:#8f5902;font-style:italic">## 中身を bar/ に展開&lt;/span>
+unzip foo.zip -d bar/
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060228/231001/?rt=nocnt" title="Linuxコマンド集 - 【 zip 】 ファイルを圧縮する（拡張子.zip）：ITpro">Linuxコマンド集 - 【 zip 】 ファイルを圧縮する（拡張子.zip）：ITpro&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1607/26/news014.html" title="Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT">Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="テキスト処理">テキスト処理&lt;/h2>
+&lt;h3 id="grep">grep&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## ファイル名だけ表示&lt;/span>
+grep -l PATTERN &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PATH&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="head">head&lt;/h3>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html">https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 先頭1行を表示&lt;/span>
+head -1 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 先頭20行を表示&lt;/span>
+head -n &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 先頭256Bを表示&lt;/span>
+head -c &lt;span style="color:#0000cf;font-weight:bold">256&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 先頭256KBを表示&lt;/span>
+head --bytes 256k &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sort">sort&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 第2フィールドで数値の降順ソート&lt;/span>
+cat file &lt;span style="color:#000;font-weight:bold">|&lt;/span> sort -nr -k2
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://linuxjm.osdn.jp/html/gnumaniak/man1/sort.1.html">https://linuxjm.osdn.jp/html/gnumaniak/man1/sort.1.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/sort.html" title="sort コマンド | コマンドの使い方(Linux) | hydroculのメモ">sort コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ファイルシステム">ファイルシステム&lt;/h2>
+&lt;h3 id="exportfs">exportfs&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">exportfs -a &lt;span style="color:#8f5902;font-style:italic"># /etc/exports の全てのディレクトリをエクスポート&lt;/span>
+exportfs -v &lt;span style="color:#8f5902;font-style:italic"># 現在エクスポート中のディレクトリ一覧&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.ibm.com/support/knowledgecenter/ja/ssw_aix_71/com.ibm.aix.cmds2/exportfs.htm">exportfs コマンド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mount">mount&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## uid, gid指定&lt;/span>
+mount -o &lt;span style="color:#000">uid&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1000,gid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1000&lt;/span> /dev/sdb1 /mnt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※NFSの場合、uid/gid指定は不可&lt;/p>
+&lt;p>See also:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/linux/fs">https://sites.google.com/site/progrhymetechwiki/linux/fs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1802/15/news035.html">【 mount 】コマンド――ファイルシステムをマウントする：Linux基本コマンドTips（183） - ＠IT&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/fwin2k/productreview/sfu35-01/sfu35_01_03.html">製品レビュー：企業ユーザーのためのSFU 3.5活用ガイダンス　第1回　SFU 3.5の概要とNFS機能　2．NFSとユーザー名マッピング - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="umount">umount&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">umount &amp;lt;mount先&amp;gt;
+umount &amp;lt;mount元&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ユーザ管理">ユーザ管理&lt;/h2>
+&lt;h3 id="getent">getent&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">getent group &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># グループに属しているユーザをリスト&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/niiyz/items/53aa4195dcc69db2052b">Linuxコマンドでユーザーのグループ確認・変更。 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="gpasswd">gpasswd&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">gpasswd -a &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループに所属させる&lt;/span>
+gpasswd -d &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループから削除&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1612/12/news016.html" title="【 gpasswd 】コマンド――ユーザーが所属するグループを管理する：Linux基本コマンドTips（72） - ＠IT">【 gpasswd 】コマンド――ユーザーが所属するグループを管理する：Linux基本コマンドTips（72） - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="groupadd">groupadd&lt;/h3>
+&lt;p>グループ作成。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">groupadd newgroup
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://webkaru.net/linux/groupadd-command/" title="Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru">Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="passwd">passwd&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">passwd -l &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アカウントをロック&lt;/span>
+passwd -u &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アンロック&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ロックされたアカウントはログインできず、利用不可になる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://kazmax.zpp.jp/linux/account_lock.html" title="Linux ユーザーアカウントをロック・アンロックする">Linux ユーザーアカウントをロック・アンロックする&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="useradd">useradd&lt;/h3>
+&lt;p>ユーザ追加。オプション多数&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-m&lt;/code>&lt;/td>
+&lt;td>ホームディレクトリ作成&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-s &amp;lt;SHELL&amp;gt;&lt;/code>&lt;/td>
+&lt;td>ログインシェルを指定&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## ホームディレクトリ作成&lt;/span>
+useradd -m &amp;lt;login&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## ログインシェルを/bin/bashに&lt;/span>
+useradd -s /bin/bash &amp;lt;login&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://eng-entrance.com/linux-command-useradd">useraddコマンドについて詳しくまとめました 【Linuxコマンド集】&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="usermod">usermod&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">usermod -g admin &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 主グループを変更&lt;/span>
+usermod -aG ops,app,... &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 副グループ追加&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://eng-entrance.com/linux-command-usermod" title="usermodコマンドについて詳しくまとめました 【Linuxコマンド集】">usermodコマンドについて詳しくまとめました 【Linuxコマンド集】&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="リソース管理">リソース管理&lt;/h2>
+&lt;h3 id="ps">ps&lt;/h3>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/procps/man1/ps.1.html">Man page of PS&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ps aux
+ps aufxwww
+ps auxwww -L
+ps -ef
+ps -efL
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Options:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>f&lt;/code>&lt;/td>
+&lt;td>forest, プロセスをツリー状に表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-L&lt;/code>&lt;/td>
+&lt;td>スレッド表示。 &lt;code>f&lt;/code> と同時に指定はできない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="top1">top(1)&lt;/h3>
+&lt;p>&lt;a href="https://linux.die.net/man/1/top">top(1): tasks - Linux man page&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># インタラクティブモード&lt;/span>
+top
+&lt;span style="color:#8f5902;font-style:italic">## 描画間隔を5秒に変更&lt;/span>
+top -d &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バッチモードで1回だけ実行&lt;/span>
+top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## CPUコアごとの負荷も表示&lt;/span>
+top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>インタラクティブモードの主な操作:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>M&lt;/code> &amp;hellip; メモリ使用率順にソート&lt;/li>
+&lt;li>&lt;code>P&lt;/code> &amp;hellip; CPU使用率順にソート&lt;/li>
+&lt;li>&lt;code>1&lt;/code> &amp;hellip; CPUコアごとの負荷を表示&lt;/li>
+&lt;li>&lt;code>c&lt;/code> &amp;hellip; プロセス名詳細を表示（トグル）&lt;/li>
+&lt;li>&lt;code>q&lt;/code> &amp;hellip; 終了&lt;/li>
+&lt;li>&lt;code>F&lt;/code> or &lt;code>O&lt;/code> &amp;hellip; ソートするフィールドを選ぶ&lt;/li>
+&lt;li>&lt;code>R&lt;/code> &amp;hellip; ソートの昇順/降順を切り替え&lt;/li>
+&lt;/ul>
+&lt;p>Mac版の違い:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>-b&lt;/code> オプションやバッチモードがなさそう&lt;/li>
+&lt;li>CPUコアごとに負荷を見る方法がわからん&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://bashalog.c-brains.jp/11/05/24-220315.php">[Linux] top コマンドをインタラクティブに操作する | バシャログ。&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ユーティリティー">ユーティリティー&lt;/h2>
+&lt;h3 id="watch">watch&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">watch -n &amp;lt;N&amp;gt; &lt;span style="color:#204a87">command&lt;/span> args...
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>N秒ごとにコマンドを実行して出力を表示。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/watch.html" title="watch コマンド | コマンドの使い方(Linux) | hydroculのメモ">watch コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
