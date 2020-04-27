@@ -174,7 +174,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html">Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/architecture/nodes/">ノード - Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Config</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
+&lt;/ul></description></item><item><title>A: Configuration</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
 &lt;h2 id="best-practices">Best Practices&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
@@ -213,7 +213,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-10/">Kubernetes道場 10日目 - LivenessProbe / ReadinessProbeについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="lifecycle-hooks">Lifecycle Hooks&lt;/h2>
+&lt;h3 id="lifecycle-hooks">Lifecycle Hooks&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/">https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/&lt;/a>&lt;/p>
 &lt;p>以下のフックを仕込むことで、コマンド実行などが可能。&lt;/p>
 &lt;ul>
@@ -238,7 +238,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://44smkn.hatenadiary.com/entry/2018/08/01/022312">pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ&lt;/a>&lt;/li>
-&lt;li>&lt;/li>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-06/">Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pods">Pods&lt;/h2>
 &lt;h3 id="affinity">Affinity&lt;/h3>

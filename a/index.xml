@@ -174,7 +174,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html">Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/architecture/nodes/">ノード - Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Config</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
+&lt;/ul></description></item><item><title>A: Configuration</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
 &lt;h2 id="best-practices">Best Practices&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
@@ -213,7 +213,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-10/">Kubernetes道場 10日目 - LivenessProbe / ReadinessProbeについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="lifecycle-hooks">Lifecycle Hooks&lt;/h2>
+&lt;h3 id="lifecycle-hooks">Lifecycle Hooks&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/">https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/&lt;/a>&lt;/p>
 &lt;p>以下のフックを仕込むことで、コマンド実行などが可能。&lt;/p>
 &lt;ul>
@@ -238,7 +238,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://44smkn.hatenadiary.com/entry/2018/08/01/022312">pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ&lt;/a>&lt;/li>
-&lt;li>&lt;/li>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-06/">Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pods">Pods&lt;/h2>
 &lt;h3 id="affinity">Affinity&lt;/h3>
@@ -573,7 +573,7 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetPort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TCP&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="backendconfigβ-at-2020-02-20">BackendConfig（β at 2020-02-20）&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="backendconfigβ-on-2020-04-27">BackendConfig（β on 2020-04-27）&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en">https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en&lt;/a>&lt;/p>
 &lt;p>GKE固有のcustom resource.&lt;/p>
 &lt;p>BackendConfigによって、HTTP(S) Load Balancingに以下の機能を設定できる:&lt;/p>
@@ -583,7 +583,20 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;li>Identity-Aware Proxy (IAP)&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/configure-backend-service">Timeout, Connection draining timeout, Session affinity, User-defined request headers&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
+&lt;p>Example:&lt;/p>
+&lt;ul>
+&lt;li>タイムアウトを40秒に設定&lt;/li>
+&lt;li>接続ドレインタイムアウトを60秒に設定&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cloud.google.com/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>BackendConfig&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-bsc-backendconfig&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">timeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">40&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">connectionDraining&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">drainingTimeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
 &lt;p>HPA.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler?hl=ja">水平ポッド自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
@@ -626,9 +639,15 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;/ul>
 &lt;h3 id="コンテナネイティブの負荷分散を使う">コンテナネイティブの負荷分散を使う&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja">コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>TL;DR:&lt;/p>
 &lt;ul>
 &lt;li>ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる&lt;/li>
 &lt;li>従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues">既知の問題&lt;/a>（2020-04-27時点）:&lt;/p>
+&lt;ul>
+&lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
 &lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="logging">Logging&lt;/h3>
@@ -666,6 +685,22 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;li>ワイルドカードドメインは不可&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
+&lt;blockquote>
+&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
+&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
+&lt;/blockquote>
+&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
+&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
+&lt;ul>
+&lt;li>HTTP(S) ロードバランサ&lt;/li>
+&lt;li>TCP プロキシ ロードバランサ&lt;/li>
+&lt;li>SSL プロキシ ロードバランサ&lt;/li>
+&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
+&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
 &lt;/ul>
 &lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
 &lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
