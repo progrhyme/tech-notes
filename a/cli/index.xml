@@ -40,7 +40,7 @@
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/dharry/items/f593d96c1b0269182922">シェルスクリプトのlint - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
+&lt;h2 id="syntax">Syntax&lt;/h2>
 &lt;h3 id="リダイレクト">リダイレクト&lt;/h3>
 &lt;p>Qiitaにまとめを書いた:&lt;/p>
 &lt;ul>
@@ -88,70 +88,12 @@ end
 &lt;li>&lt;a href="http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html" title="[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記">[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514">bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="scripting-cookbooks">Scripting Cookbooks&lt;/h2>
-&lt;p>実用的なコードスニペット集っぽいもの。&lt;/p>
-&lt;h3 id="論理演算">論理演算&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &amp;gt; 1&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 0&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;gt; 1&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 1&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>seq &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> wc -w&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &amp;gt; 2&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 0&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> ok&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; ok&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="数値の操作">数値の操作&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$((&lt;/span>i++&lt;span style="color:#204a87;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 0&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$((&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span>i&lt;span style="color:#204a87;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="連番によるループ">連番によるループ&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>seq &lt;span style="color:#000">$n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$((&lt;/span>n &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)))&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$i&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
 &lt;p>カスタマイズしたくなったときに見るページ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://www.atmarkit.co.jp/flinux/rensai/linuxtips/002cngprmpt.html" title="bashのプロンプトを変更するには">bashのプロンプトを変更するには&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519" title="Linuxで、bash プロンプトを素敵で実用的なものに変更する">Linuxで、bash プロンプトを素敵で実用的なものに変更する&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="文字列削除">文字列削除&lt;/h3>
-&lt;p>以下、 &lt;a href="http://iishikawa.s371.xrea.com/note/bash-script.html#idm2045339272">Bash scripting&lt;/a> より。&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>${var%pattern}&lt;/code> … 後方からパターンの最短マッチを削除&lt;/li>
-&lt;li>&lt;code>${var%%pattern}&lt;/code> … 後方からパターンの最長マッチを削除&lt;/li>
-&lt;li>&lt;code>${var#pattern}&lt;/code> … 前方からパターンの最短マッチを削除&lt;/li>
-&lt;li>&lt;code>${var##pattern}&lt;/code> … 前方からパターンの最長マッチを削除&lt;/li>
-&lt;/ul>
-&lt;p>パスからディレクトリ名やファイル名を取り出すのによく使う。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#000">fullpath&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/a/b/c.txt
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">fullpath&lt;/span>&lt;span style="color:#000;font-weight:bold">##*/&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># c.txt&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">fullpath&lt;/span>&lt;span style="color:#000;font-weight:bold">%/*&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># /a/b&lt;/span>
-&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>d.e.txt
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#000;font-weight:bold">%.*&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># d.e&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#000;font-weight:bold">##*.&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># txt&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>たぶん、Bash に限らず POSIX で使える。&lt;br>
-下に載ってる。&lt;/p>
-&lt;p>&lt;a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/p>
-&lt;h3 id="文字列置換">文字列置換&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>${var/x/y}&lt;/code> &amp;hellip; &lt;code>$var&lt;/code> 文字列の &lt;code>x&lt;/code> を &lt;code>y&lt;/code> に置換（1回のみ）&lt;/li>
-&lt;li>&lt;code>${var//x/y}&lt;/code> &amp;hellip; &lt;code>$var&lt;/code> 文字列の &lt;code>x&lt;/code> を &lt;code>y&lt;/code> に置換（全てマッチ）&lt;/li>
-&lt;/ul>
-&lt;p>参考: &lt;a href="http://www.koikikukan.com/archives/2019/05/09-235555.php">bashの変数をsplitして配列を作る方法: 小粋空間&lt;/a>&lt;/p>
-&lt;h3 id="文字列の部分切り出し">文字列の部分切り出し&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$str&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">1234567890&lt;/span>
-$ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">3&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">4&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">4567&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://kiririmode.hatenablog.jp/entry/20170913/1505228400">シェルスクリプトで部分文字列を切り出す - 理系学生日記&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="複数行のコメントアウト">複数行のコメントアウト&lt;/h3>
-&lt;p>&lt;code>:&lt;/code> とヒアドキュメントを組み合わせる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">: &amp;lt;&amp;lt; &lt;span style="color:#4e9a06">&amp;#34;__EOCOMMENT__&amp;#34;&lt;/span>
-コメントアウトしたいコード
-__EOCOMMENT__
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/imura81gt/items/a2998147bd7ae8056b26" title="bashで複数行コメントアウトする方法 - Qiita">bashで複数行コメントアウトする方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
 &lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
 &lt;h2 id="about">About&lt;/h2>
