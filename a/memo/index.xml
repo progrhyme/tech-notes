@@ -1,4 +1,27 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200427/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200428/</guid><description>
+&lt;h1 id="428">4/28&lt;/h1>
+&lt;h2 id="macでanyenv経由のnodenv経由でnodejsを入れてみた">Macでanyenv経由のnodenv経由でNode.jsを入れてみた&lt;/h2>
+&lt;p>以前はnodebrewを使っていたのだけど、anyenv押しの記事を見たので。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ucan-lab/items/ce35bcaf2562054917a8">Homebrew 経由の anyenv 経由の nodenv 経由で Node.js をインストールする - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/anyenv/anyenv">https://github.com/anyenv/anyenv&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/nodenv/nodenv">https://github.com/nodenv/nodenv&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>anyenv install&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install anyenv
+anyenv init
+&lt;span style="color:#8f5902;font-style:italic"># 指示に従う&lt;/span>
+vi .zshrc
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; eval &amp;#34;$(anyenv init -)&amp;#34; をいい感じに足す&lt;/span>
+&lt;span style="color:#204a87">exec&lt;/span> &lt;span style="color:#000">$SHELL&lt;/span> -l
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>nodenv install&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">anyenv install nodenv
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>nodenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+nodenv install 12.16.2
+nodenv global 12.16.2
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>eval &amp;quot;$(nodenv init -)&amp;quot;&lt;/code> はインストール後に1度だけ実行が必要そう。&lt;br>
+でないと、 &lt;code>~/.anyenv/envs/nodenv/shims/&lt;/code> 以下に実行ファイルができないっぽい。（ちょっとハマった。）&lt;/p></description></item><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200427/</guid><description>
 &lt;h2 id="427">4/27&lt;/h2>
 &lt;h3 id="cloud-build--terraformでインフラcicd">Cloud Build + TerraformでインフラCI/CD&lt;/h3>
 &lt;p>参考記事:&lt;/p>
