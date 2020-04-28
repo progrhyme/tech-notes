@@ -53,7 +53,7 @@ bash -n script.sh # シンタックスチェック
 
 - [シェルスクリプトのlint - Qiita](https://qiita.com/dharry/items/f593d96c1b0269182922)
 
-## Features
+## Syntax
 ### リダイレクト
 
 Qiitaにまとめを書いた:
@@ -93,7 +93,6 @@ EOS
 
 - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952 "bashのヒアドキュメントを活用する - Qiita")
 
-
 ### 正規表現
 
 POSIXか、EREなのだと思う。
@@ -118,17 +117,6 @@ end
 - [[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記](http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html "[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記")
 - [bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！](http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514)
 
-## Cookbooks
-### 論理演算
-
-```bash
-((2 > 1)) # $? => 0
-((1 > 1)) # $? => 1
-(($(seq 1 3 | wc -w) > 2)) # $? => 0
-
-if true; then echo ok; fi #=> ok
-```
-
 ## How-to
 
 ### プロンプト(PS1)の変更
@@ -136,68 +124,3 @@ if true; then echo ok; fi #=> ok
 カスタマイズしたくなったときに見るページ:
 - [bashのプロンプトを変更するには](http://www.atmarkit.co.jp/flinux/rensai/linuxtips/002cngprmpt.html "bashのプロンプトを変更するには")
 - [Linuxで、bash プロンプトを素敵で実用的なものに変更する](https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519 "Linuxで、bash プロンプトを素敵で実用的なものに変更する")
-
-
-### 文字列削除
-
-以下、 [Bash scripting](http://iishikawa.s371.xrea.com/note/bash-script.html#idm2045339272) より。
-
-- `${var%pattern}` … 後方からパターンの最短マッチを削除
-- `${var%%pattern}` … 後方からパターンの最長マッチを削除
-- `${var#pattern}` … 前方からパターンの最短マッチを削除
-- `${var##pattern}` … 前方からパターンの最長マッチを削除
-
-パスからディレクトリ名やファイル名を取り出すのによく使う。
-
-```bash
-fullpath=/a/b/c.txt
-echo ${fullpath##*/} # c.txt
-echo ${fullpath%/*} # /a/b
-filename=d.e.txt
-echo ${filename%.*} # d.e
-echo ${filename##*.} # txt
-```
-
-たぶん、Bash に限らず POSIX で使える。  
-下に載ってる。
-
-http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02
-
-### 文字列置換
-
-- `${var/x/y}` ... `$var` 文字列の `x` を `y` に置換（1回のみ）
-- `${var//x/y}` ... `$var` 文字列の `x` を `y` に置換（全てマッチ）
-
-参考: [bashの変数をsplitして配列を作る方法: 小粋空間](http://www.koikikukan.com/archives/2019/05/09-235555.php)
-
-
-### 文字列の部分切り出し
-
-```bash
-$ echo $str
-1234567890
-
-$ echo ${str:3:4}
-4567
-```
-
-参考:
-
-- [シェルスクリプトで部分文字列を切り出す - 理系学生日記](http://kiririmode.hatenablog.jp/entry/20170913/1505228400)
-
-
-### 複数行のコメントアウト
-
-`:` とヒアドキュメントを組み合わせる。
-
-```sh
-: << "__EOCOMMENT__"
-
-コメントアウトしたいコード
-
-__EOCOMMENT__
-```
-
-参考:
-
-- [bashで複数行コメントアウトする方法 - Qiita](https://qiita.com/imura81gt/items/a2998147bd7ae8056b26 "bashで複数行コメントアウトする方法 - Qiita")
