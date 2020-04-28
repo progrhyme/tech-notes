@@ -88,12 +88,22 @@ end
 &lt;li>&lt;a href="http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html" title="[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記">[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514">bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="cookbooks">Cookbooks&lt;/h2>
+&lt;h2 id="scripting-cookbooks">Scripting Cookbooks&lt;/h2>
+&lt;p>実用的なコードスニペット集っぽいもの。&lt;/p>
 &lt;h3 id="論理演算">論理演算&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &amp;gt; 1&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 0&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;gt; 1&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 1&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>seq &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> wc -w&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &amp;gt; 2&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 0&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> ok&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; ok&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="数値の操作">数値の操作&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$((&lt;/span>i++&lt;span style="color:#204a87;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 0&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$((&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span>i&lt;span style="color:#204a87;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 2&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="連番によるループ">連番によるループ&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>seq &lt;span style="color:#000">$n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$((&lt;/span>n &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)))&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$i&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
 &lt;p>カスタマイズしたくなったときに見るページ:&lt;/p>
