@@ -644,7 +644,151 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ol>
 &lt;li>debパッケージをダウンロード&lt;/li>
 &lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
+&lt;/ol></description></item><item><title>A: Bash</title><link>https://progrhy.me/tech-notes/a/cli/bash/</link><pubDate>Tue, 28 Apr 2020 09:14:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/bash/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>入門コンテンツ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://cs.lmu.edu/~ray/notes/bash/">Introduction to Bash&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://se.cite.ehime-u.ac.jp/~aman/memo/bash/">bash 入門 - se.cite.ehime-u.ac.jp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://rat.cis.k.hosei.ac.jp/article/linux/bash_intro.html">bash 入門 - rat.cis.k.hosei.ac.jp&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>コーディング規約:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://google.github.io/styleguide/shell.xml">Shell Style Guide&lt;/a> &amp;hellip; Google&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Bopllq0916/items/eeb1b8e2cfe386c4f64f">bashコーディング規約参考 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="documents">Documents&lt;/h2>
+&lt;h3 id="公式">公式&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://linuxjm.osdn.jp/html/GNU_bash/man1/bash.1.html" title="Man page of BASH">Man page of BASH&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html" title="Bash Reference Manual">Bash Reference Manual&lt;/a>&lt;/li>
+&lt;li>CHANGES: &lt;a href="https://tiswww.case.edu/php/chet/bash/CHANGES">https://tiswww.case.edu/php/chet/bash/CHANGES&lt;/a>&lt;/li>
+&lt;li>リリースノート的なもの: &lt;a href="https://tiswww.case.edu/php/chet/bash/NEWS">https://tiswww.case.edu/php/chet/bash/NEWS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="非公式">非公式&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://wiki.bash-hackers.org/scripting/bashchanges" title="Bash changes [Bash Hackers Wiki]">Bash changes [Bash Hackers Wiki]&lt;/a>&lt;/li>
+&lt;li>★&lt;a href="http://iishikawa.s371.xrea.com/note/bash-script.html">Bash scripting&lt;/a> &amp;hellip; 便利な Bash の小技いろいろ&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/b4b4r07/items/e56a8e3471fb45df2f59">bash 配列まとめ - Qiita&lt;/a>
+&lt;ul>
+&lt;li>配列の操作いろいろ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>プロンプトについて:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://rcmdnk.github.io/blog/2013/03/21/prompt-command/">PS1とPROMPT_COMMAND, GNU screenでの活用も&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="bashコマンド">bashコマンド&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">bash -n script.sh &lt;span style="color:#8f5902;font-style:italic"># シンタックスチェック&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/dharry/items/f593d96c1b0269182922">シェルスクリプトのlint - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="リダイレクト">リダイレクト&lt;/h3>
+&lt;p>Qiitaにまとめを書いた:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/e99be732c2e62d4a7641">Bashの入出力リダイレクトまとめ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/laikuaut/items/e1cc312ffc7ec2c872fc">bash: 標準出力、標準エラー出力をファイル、画面それぞれに出力する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://orebibou.com/2016/02/%E8%A6%9A%E3%81%88%E3%81%A6%E3%82%8B%E3%81%A8%E6%A1%88%E5%A4%96%E4%BE%BF%E5%88%A9%E3%81%AAbash%E3%81%AE%E3%83%AA%E3%83%80%E3%82%A4%E3%83%AC%E3%82%AF%E3%83%88%E3%83%BB%E3%83%91%E3%82%A4%E3%83%97/">覚えてると案外便利なBashのリダイレクト・パイプの使い方9個 | 俺的備忘録 〜なんかいろいろ〜&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ヒアドキュメント">ヒアドキュメント&lt;/h3>
+&lt;p>※POSIX標準ではないか。少なくともkshでは動かなさそう。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt; EOS &amp;gt; cat.out
+&lt;/span>&lt;span style="color:#4e9a06">foo
+&lt;/span>&lt;span style="color:#4e9a06"> bar
+&lt;/span>&lt;span style="color:#4e9a06"> baz
+&lt;/span>&lt;span style="color:#4e9a06">EOS&lt;/span>
+&lt;span style="color:#000">BODY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt; EOS
+&lt;/span>&lt;span style="color:#4e9a06">Dear Ken,
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">I&amp;#39;m so happy to write this message.
+&lt;/span>&lt;span style="color:#4e9a06">I&amp;#39;ll be back soon!
+&lt;/span>&lt;span style="color:#4e9a06">EOS&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ヒアドキュメントは文字列リテラルではなく、標準入力らしい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/take4s5i/items/e207cee4fb04385a9952" title="bashのヒアドキュメントを活用する - Qiita">bashのヒアドキュメントを活用する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="正規表現">正規表現&lt;/h3>
+&lt;p>POSIXか、EREなのだと思う。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> match
+end
+&lt;span style="color:#8f5902;font-style:italic">## マッチしないことの検査&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> ! &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> not match
+end
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/program/regexp">https://sites.google.com/site/progrhymetechwiki/program/regexp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://shellscript.sunone.me/case.html">case 文の使用方法 | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html" title="[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記">[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514">bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cookbooks">Cookbooks&lt;/h2>
+&lt;h3 id="論理演算">論理演算&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &amp;gt; 1&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 0&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;gt; 1&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 1&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>seq &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> wc -w&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &amp;gt; 2&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $? =&amp;gt; 0&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> ok&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; ok&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
+&lt;p>カスタマイズしたくなったときに見るページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/flinux/rensai/linuxtips/002cngprmpt.html" title="bashのプロンプトを変更するには">bashのプロンプトを変更するには&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519" title="Linuxで、bash プロンプトを素敵で実用的なものに変更する">Linuxで、bash プロンプトを素敵で実用的なものに変更する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="文字列削除">文字列削除&lt;/h3>
+&lt;p>以下、 &lt;a href="http://iishikawa.s371.xrea.com/note/bash-script.html#idm2045339272">Bash scripting&lt;/a> より。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>${var%pattern}&lt;/code> … 後方からパターンの最短マッチを削除&lt;/li>
+&lt;li>&lt;code>${var%%pattern}&lt;/code> … 後方からパターンの最長マッチを削除&lt;/li>
+&lt;li>&lt;code>${var#pattern}&lt;/code> … 前方からパターンの最短マッチを削除&lt;/li>
+&lt;li>&lt;code>${var##pattern}&lt;/code> … 前方からパターンの最長マッチを削除&lt;/li>
+&lt;/ul>
+&lt;p>パスからディレクトリ名やファイル名を取り出すのによく使う。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#000">fullpath&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/a/b/c.txt
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">fullpath&lt;/span>&lt;span style="color:#000;font-weight:bold">##*/&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># c.txt&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">fullpath&lt;/span>&lt;span style="color:#000;font-weight:bold">%/*&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># /a/b&lt;/span>
+&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>d.e.txt
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#000;font-weight:bold">%.*&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># d.e&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#000;font-weight:bold">##*.&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># txt&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>たぶん、Bash に限らず POSIX で使える。&lt;br>
+下に載ってる。&lt;/p>
+&lt;p>&lt;a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/p>
+&lt;h3 id="文字列置換">文字列置換&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>${var/x/y}&lt;/code> &amp;hellip; &lt;code>$var&lt;/code> 文字列の &lt;code>x&lt;/code> を &lt;code>y&lt;/code> に置換（1回のみ）&lt;/li>
+&lt;li>&lt;code>${var//x/y}&lt;/code> &amp;hellip; &lt;code>$var&lt;/code> 文字列の &lt;code>x&lt;/code> を &lt;code>y&lt;/code> に置換（全てマッチ）&lt;/li>
+&lt;/ul>
+&lt;p>参考: &lt;a href="http://www.koikikukan.com/archives/2019/05/09-235555.php">bashの変数をsplitして配列を作る方法: 小粋空間&lt;/a>&lt;/p>
+&lt;h3 id="文字列の部分切り出し">文字列の部分切り出し&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$str&lt;/span>
+&lt;span style="color:#0000cf;font-weight:bold">1234567890&lt;/span>
+$ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">3&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">4&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#0000cf;font-weight:bold">4567&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://kiririmode.hatenablog.jp/entry/20170913/1505228400">シェルスクリプトで部分文字列を切り出す - 理系学生日記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="複数行のコメントアウト">複数行のコメントアウト&lt;/h3>
+&lt;p>&lt;code>:&lt;/code> とヒアドキュメントを組み合わせる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">: &amp;lt;&amp;lt; &lt;span style="color:#4e9a06">&amp;#34;__EOCOMMENT__&amp;#34;&lt;/span>
+コメントアウトしたいコード
+__EOCOMMENT__
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/imura81gt/items/a2998147bd7ae8056b26" title="bashで複数行コメントアウトする方法 - Qiita">bashで複数行コメントアウトする方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
 &lt;p>Atlassian社が提供しているソースコードのホスティングサービス。&lt;br>
 JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;h2 id="提供形態">提供形態&lt;/h2>
