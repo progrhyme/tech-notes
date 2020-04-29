@@ -46,7 +46,8 @@ tfenv: tfenv-install: [ERROR] Tarball unzip failed
 &lt;li>&lt;code>brew uninstall unzip --ignore-dependencies&lt;/code> した後、 &lt;code>tfenv install 0.12.24&lt;/code> したら成功した。&lt;/li>
 &lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
 &lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-04-29</title><link>https://progrhy.me/tech-notes/a/memo/20200429/</link><pubDate>Wed, 29 Apr 2020 10:49:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200429/</guid><description>
+&lt;/ul>
+&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: 2020-04-29</title><link>https://progrhy.me/tech-notes/a/memo/20200429/</link><pubDate>Wed, 29 Apr 2020 10:49:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200429/</guid><description>
 &lt;h2 id="429">4/29&lt;/h2>
 &lt;h3 id="ubuntu-1804でintellij-ideaを20201にアップデート">Ubuntu 18.04でIntelliJ IDEAを2020.1にアップデート&lt;/h3>
 &lt;p>久しぶりに起動したらアップデートする必要があった。&lt;/p>

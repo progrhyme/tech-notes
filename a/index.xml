@@ -1239,7 +1239,8 @@ tfenv: tfenv-install: [ERROR] Tarball unzip failed
 &lt;li>&lt;code>brew uninstall unzip --ignore-dependencies&lt;/code> した後、 &lt;code>tfenv install 0.12.24&lt;/code> したら成功した。&lt;/li>
 &lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
 &lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
+&lt;/ul>
+&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
 &lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
 &lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
