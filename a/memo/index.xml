@@ -1,4 +1,27 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200428/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-29</title><link>https://progrhy.me/tech-notes/a/memo/20200429/</link><pubDate>Wed, 29 Apr 2020 10:49:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200429/</guid><description>
+&lt;h2 id="429">4/29&lt;/h2>
+&lt;h3 id="ubuntu-1804でintellij-ideaを20201にアップデート">Ubuntu 18.04でIntelliJ IDEAを2020.1にアップデート&lt;/h3>
+&lt;p>久しぶりに起動したらアップデートする必要があった。&lt;/p>
+&lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018.1にアップデートしたときのログ&lt;/a>&lt;/p>
+&lt;p>上と同じ手順で行けた。&lt;br>
+以下はログ。&lt;/p>
+&lt;p>tar.gzをダウンロードして解凍し、 &lt;code>$HOME/vendor/&lt;/code> に配置。&lt;br>
+&lt;code>idea-IC -&amp;gt; idea-IC-181.4203.550&lt;/code> とsymlinkしていたので、付け替える。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">cd&lt;/span> ~/vendor
+rm idea-IC
+ln -s idea-IC-201.6668.121 idea-IC
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>~/.local/share/applications/jetbrains-idea-ce.desktop&lt;/code> を次のように編集:&lt;/p>
+&lt;pre>&lt;code>[Desktop Entry]
+Version=2020.1.0
+Type=Application
+Name=IntelliJ IDEA Community Edition
+Icon=$HOME/vendor/idea-IC/bin/idea.png
+Exec=&amp;quot;$HOME/vendor/idea-IC/bin/idea.sh&amp;quot; %f
+Comment=The Drive to Develop
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-idea-ce
+&lt;/code>&lt;/pre>&lt;p>※ &lt;code>$HOME&lt;/code> は展開して書き替えないといけないかも。&lt;/p></description></item><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200428/</guid><description>
 &lt;h1 id="428">4/28&lt;/h1>
 &lt;h2 id="macでanyenv経由のnodenv経由でnodejsを入れてみた">Macでanyenv経由のnodenv経由でNode.jsを入れてみた&lt;/h2>
 &lt;p>以前はnodebrewを使っていたのだけど、anyenv押しの記事を見たので。&lt;/p>
