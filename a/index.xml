@@ -1191,7 +1191,157 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ol>
 &lt;li>debパッケージをダウンロード&lt;/li>
 &lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
+&lt;/ol></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
+&lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
+&lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
+&lt;ul>
+&lt;li>プロキシ設定
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/proxy-settings?hl=ja">プロキシ / ファイアウォールの背後で Cloud SDK を使用する場合の構成 | Cloud SDK のドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="gcloud">gcloud&lt;/h2>
+&lt;ul>
+&lt;li>Getting Started: &lt;a href="https://cloud.google.com/sdk/gcloud/?hl=ja">https://cloud.google.com/sdk/gcloud/?hl=ja&lt;/a>&lt;/li>
+&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference/?hl=ja">https://cloud.google.com/sdk/gcloud/reference/?hl=ja&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>新しめの機能の場合、 &lt;code>gcloud beta ...&lt;/code> や &lt;code>gcloud alpha ...&lt;/code> にしかコマンドがなかったり、 &lt;code>beta ...&lt;/code> や &lt;code>alpha ...&lt;/code> を付けることで結果が変わることがある&lt;/li>
+&lt;/ul>
+&lt;h3 id="認証">認証&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 初期設定(認証込)&lt;/span>
+gcloud init
+&lt;span style="color:#8f5902;font-style:italic">## ログイン認証&lt;/span>
+gcloud auth login
+&lt;span style="color:#8f5902;font-style:italic">## 現在認証済みのアカウント一覧&lt;/span>
+gcloud auth list
+&lt;span style="color:#8f5902;font-style:italic">## サービスアカウントの認証&lt;/span>
+gcloud auth activate-service-account --key-file &amp;lt;KEYFILE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## アクセストークンの表示&lt;/span>
+gcloud auth print-access-token
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="compute">compute&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute">https://cloud.google.com/sdk/gcloud/reference/compute&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## ssh&lt;/span>
+gcloud compute ssh &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;INSTANCE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-- &amp;lt;SSH_ARGS&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## scp&lt;/span>
+gcloud compute scp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--recurse&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> host:/path/to/dir path/to/local
+&lt;span style="color:#8f5902;font-style:italic">## 証明書&lt;/span>
+gcloud compute ssl-certificates
+&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
+gcloud compute ssl-certificates list
+&lt;span style="color:#8f5902;font-style:italic">## イメージの作成&lt;/span>
+gcloud compute images create my-image --source-disk my-vm-disk
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="instances">instances&lt;/h4>
+&lt;p>VM操作&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances">https://cloud.google.com/sdk/gcloud/reference/compute/instances&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create">create&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
+gcloud compute instances list
+&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
+gcloud compute instances start &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
+gcloud compute instances stop &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1-b &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --no-address &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 外部IPなし&lt;/span>
+--custom-vm-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>n1 &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># N1インスタンス&lt;/span>
+--custom-cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> --custom-memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8GB &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># リソースをカスタマイズする場合&lt;/span>
+--image-project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>another-project --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-image &lt;span style="color:#8f5902;font-style:italic"># 別プロジェクトのイメージを使う&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="config">config&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 設定値一覧表示&lt;/span>
+gcloud config list
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d">gcloud configで複数の設定を持って切り替える - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="configurations">configurations&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
+&lt;p>設定プロファイルの管理&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロファイル一覧表示&lt;/span>
+gcloud config configurations list
+&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
+gcloud config configurations describe プロファイル名
+&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+gcloud config configurations create プロファイル名
+&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
+gcloud config configurations delete プロファイル名
+&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
+gcloud config configurations activate プロファイル名
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="set">set&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">https://cloud.google.com/sdk/gcloud/reference/config/set&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
+&lt;p>Cloud Functionsの操作&lt;/p>
+&lt;h4 id="deploy">deploy&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions/deploy">https://cloud.google.com/sdk/gcloud/reference/functions/deploy&lt;/a>&lt;/p>
+&lt;p>Cloud Functionのデプロイ（作成・更新）&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cloud-buildsイベントをフックに動くFunctionのデプロイ&lt;/span>
+gcloud functions deploy &amp;lt;Function Name&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --trigger-topic cloud-builds &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --runtime nodejs10 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set-env-vars &lt;span style="color:#4e9a06">&amp;#34;FOO=foo,BAR=bar&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project my-project
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logging">logging&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging">https://cloud.google.com/sdk/gcloud/reference/logging&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>read&lt;/code>, &lt;code>list&lt;/code>などのコマンド利用時には serviceusage.services.use 権限が必要&lt;/li>
+&lt;/ul>
+&lt;h4 id="read">read&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging/read">https://cloud.google.com/sdk/gcloud/reference/logging/read&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud logging &lt;span style="color:#204a87">read&lt;/span> --format json
+gcloud logging &lt;span style="color:#204a87">read&lt;/span> --limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> --order&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asc
+gcloud logging &lt;span style="color:#204a87">read&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;timestamp&amp;gt;=&amp;#34;2020-03-19T05:28:00Z&amp;#34; timestamp&amp;lt;=&amp;#34;2020-03-25T05:33:28Z&amp;#34;&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-04-20現在、 &lt;code>tail -f&lt;/code> 相当のオプションはなさそう&lt;/p>
+&lt;h3 id="projects">projects&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/projects/">https://cloud.google.com/sdk/gcloud/reference/projects/&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロジェクト一覧&lt;/span>
+gcloud projects list
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考">参考&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c">よく使うgcloudコマンドたち - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="gsutil">gsutil&lt;/h2>
+&lt;p>Cloud Storage用のPython製CLI&lt;/p>
+&lt;ul>
+&lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
+&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/acl">https://cloud.google.com/storage/docs/gsutil/commands/acl&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
 &lt;p>有名なVimのファイラプラグイン。&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>ツリービューの操作:&lt;/p>
