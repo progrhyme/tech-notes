@@ -1547,6 +1547,34 @@ sudo rm -rf /etc/kubernetes/
 &lt;ul>
 &lt;li>&lt;a href="https://medium.com/@yudapramad/uninstall-minikube-5c032a7dd44f">Uninstall Minikube - yuda prama - Medium&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/kubernetes/minikube/issues/1043">How to uninstall? · Issue #1043 · kubernetes/minikube&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mdbookについて少し機能を調べた">mdBookについて少し機能を調べた&lt;/h3>
+&lt;p>&lt;a href="https://rust-lang.github.io/mdBook/">https://rust-lang.github.io/mdBook/&lt;/a>&lt;/p>
+&lt;p>Rust製のGitBookみたいなもの。&lt;br>
+高速でよさそう。&lt;/p>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>config: &lt;a href="https://rust-lang.github.io/mdBook/format/config.html">https://rust-lang.github.io/mdBook/format/config.html&lt;/a>&lt;/li>
+&lt;li>サイドバーに目次ツリーが表示されているが、 &lt;code>[output.html.fold]&lt;/code> で挙動を変えられそう。
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-lang/mdBook/pull/1027">https://github.com/rust-lang/mdBook/pull/1027&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>目次（Table of Contents）は公式サポートないのかも。イシューになってる
+&lt;ul>
+&lt;li>&lt;code>{{#toc}}{{/toc}}&lt;/code> で行けるんじゃないのかな？
+&lt;ul>
+&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/format/theme/index-hbs.html#1-toc">https://rust-lang.github.io/mdBook/format/theme/index-hbs.html#1-toc&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://github.com/rust-lang/mdBook/issues/153">https://github.com/rust-lang/mdBook/issues/153&lt;/a>&lt;/li>
+&lt;li>自作している人がいる
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/badboy/mdbook-toc">https://github.com/badboy/mdbook-toc&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200428/</guid><description>
 &lt;h1 id="428">4/28&lt;/h1>
 &lt;h2 id="macでanyenv経由のnodenv経由でnodejsを入れてみた">Macでanyenv経由のnodenv経由でNode.jsを入れてみた&lt;/h2>
