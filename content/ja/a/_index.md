@@ -12,7 +12,9 @@ IT技術についての個人的なメモを書くサイトです。
 
 誤りなどありましたら、なんらかの方法でお知らせ頂ければ対応するかもしれません。
 
-{{% alert title="NOTE" %}}[progrhyme's Tech Wiki](https://sites.google.com/site/progrhymetechwiki/)の後継となるサイトです。{{% /alert %}}
+{{% alert title="NOTE" %}}
+[progrhyme's Tech Wiki](https://sites.google.com/site/progrhymetechwiki/)の後継となるサイトです。
+{{% /alert %}}
 
 ## 作り方
 
