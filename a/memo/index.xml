@@ -119,8 +119,8 @@ sudo apt-get install build-essential
 Fedora, Red Hat, CentOS, etc.
 sudo yum groupinstall 'Development Tools'
 See https://docs.brew.sh/linux for more information.
-- Configure Homebrew in your /home/quiche/.zprofile by running
-echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' &amp;gt;&amp;gt; /home/quiche/.zprofile
+- Configure Homebrew in your /home/progrhyme/.zprofile by running
+echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' &amp;gt;&amp;gt; /home/progrhyme/.zprofile
 - Add Homebrew to your PATH
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 - We recommend that you install GCC by running:
