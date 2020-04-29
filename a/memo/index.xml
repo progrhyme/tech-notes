@@ -3,9 +3,9 @@
 &lt;h3 id="ubuntu-1804でintellij-ideaを20201にアップデート">Ubuntu 18.04でIntelliJ IDEAを2020.1にアップデート&lt;/h3>
 &lt;p>久しぶりに起動したらアップデートする必要があった。&lt;/p>
 &lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018.1にアップデートしたときのログ&lt;/a>&lt;/p>
-&lt;p>上と同じ手順で行けた。&lt;br>
+&lt;p>上と同じ手順で行けた。
 以下はログ。&lt;/p>
-&lt;p>tar.gzをダウンロードして解凍し、 &lt;code>$HOME/vendor/&lt;/code> に配置。&lt;br>
+&lt;p>tar.gzをダウンロードして解凍し、 &lt;code>$HOME/vendor/&lt;/code> に配置。
 &lt;code>idea-IC -&amp;gt; idea-IC-181.4203.550&lt;/code> とsymlinkしていたので、付け替える。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">cd&lt;/span> ~/vendor
 rm idea-IC
@@ -39,7 +39,7 @@ sudo rm -rf /etc/kubernetes/
 &lt;/ul>
 &lt;h3 id="mdbookについて少し機能を調べた">mdBookについて少し機能を調べた&lt;/h3>
 &lt;p>&lt;a href="https://rust-lang.github.io/mdBook/">https://rust-lang.github.io/mdBook/&lt;/a>&lt;/p>
-&lt;p>Rust製のGitBookみたいなもの。&lt;br>
+&lt;p>Rust製のGitBookみたいなもの。
 高速でよさそう。&lt;/p>
 &lt;p>MEMO:&lt;/p>
 &lt;ul>
@@ -64,6 +64,84 @@ sudo rm -rf /etc/kubernetes/
 &lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h3 id="ubuntu-1804にhomebrewをインストール">Ubuntu 18.04にHomebrewをインストール&lt;/h3>
+&lt;p>&lt;a href="https://github.com/tfutils/tfenv">tfutils/tfenv&lt;/a>を入れようと思ったんだけど、aptやsnapでのパッケージ提供がないようなので。&lt;/p>
+&lt;p>&lt;a href="https://docs.brew.sh/Homebrew-on-Linux">https://docs.brew.sh/Homebrew-on-Linux&lt;/a> のガイドに従ってインストール。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">/bin/bash -c &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;details>
+&lt;summary>インストールログ&lt;/summary>
+&lt;pre>&lt;code>% /bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&amp;quot;
+[sudo] パスワード:
+==&amp;gt; This script will install:
+/home/linuxbrew/.linuxbrew/bin/brew
+/home/linuxbrew/.linuxbrew/share/doc/homebrew
+/home/linuxbrew/.linuxbrew/share/man/man1/brew.1
+/home/linuxbrew/.linuxbrew/share/zsh/site-functions/_brew
+/home/linuxbrew/.linuxbrew/etc/bash_completion.d/brew
+/home/linuxbrew/.linuxbrew/Homebrew
+==&amp;gt; The following new directories will be created:
+/home/linuxbrew/.linuxbrew/bin
+/home/linuxbrew/.linuxbrew/etc
+/home/linuxbrew/.linuxbrew/include
+/home/linuxbrew/.linuxbrew/lib
+/home/linuxbrew/.linuxbrew/sbin
+/home/linuxbrew/.linuxbrew/share
+/home/linuxbrew/.linuxbrew/var
+/home/linuxbrew/.linuxbrew/opt
+/home/linuxbrew/.linuxbrew/share/zsh
+/home/linuxbrew/.linuxbrew/share/zsh/site-functions
+/home/linuxbrew/.linuxbrew/var/homebrew
+/home/linuxbrew/.linuxbrew/var/homebrew/linked
+/home/linuxbrew/.linuxbrew/Cellar
+/home/linuxbrew/.linuxbrew/Caskroom
+/home/linuxbrew/.linuxbrew/Homebrew
+/home/linuxbrew/.linuxbrew/Frameworks
+Press RETURN to continue or any other key to abort
+:
+（略
+:
+Warning: /home/linuxbrew/.linuxbrew/bin is not in your PATH.
+==&amp;gt; Installation successful!
+==&amp;gt; Homebrew has enabled anonymous aggregate formulae and cask analytics.
+Read the analytics documentation (and how to opt-out) here:
+https://docs.brew.sh/Analytics
+No analytics data has been sent yet (or will be during this `install` run).
+==&amp;gt; Homebrew is run entirely by unpaid volunteers. Please consider donating:
+https://github.com/Homebrew/brew#donations
+==&amp;gt; Next steps:
+- Run `brew help` to get started
+- Further documentation:
+https://docs.brew.sh
+- Install the Homebrew dependencies if you have sudo access:
+Debian, Ubuntu, etc.
+sudo apt-get install build-essential
+Fedora, Red Hat, CentOS, etc.
+sudo yum groupinstall 'Development Tools'
+See https://docs.brew.sh/linux for more information.
+- Configure Homebrew in your /home/quiche/.zprofile by running
+echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' &amp;gt;&amp;gt; /home/quiche/.zprofile
+- Add Homebrew to your PATH
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+- We recommend that you install GCC by running:
+brew install gcc
+&lt;/code>&lt;/pre>&lt;/details>
+&lt;p>&lt;/p>
+&lt;p>上のログ末尾のガイドに従い、 &lt;code>~/.zshrc&lt;/code> に &lt;code>eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)&lt;/code> を足した。&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/myenv/commit/09212479eead413fc9092a069bb04e948d4e8263">こんな感じ&lt;/a>で実現。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://code-log.hatenablog.com/entry/2019/05/23/092851">Homebrew on Linuxをubuntuにインストールする - code-log&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="homebrew-bundleでhomebrewのパッケージ管理">Homebrew BundleでHomebrewのパッケージ管理&lt;/h3>
+&lt;p>&lt;a href="https://github.com/Homebrew/homebrew-bundle">https://github.com/Homebrew/homebrew-bundle&lt;/a>&lt;/p>
+&lt;p>Homebrewのパッケージ管理ツールはいくつかあるっぽいが、公式のこれがLinuxにも対応していたので、これを使う。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew bundle
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>を初回実行するとインストールされる。&lt;/p>
+&lt;p>Brewfileを作って &lt;code>~/.Brewfile&lt;/code> にsymlinkし、 &lt;code>brew bundle&lt;/code> コマンドを &lt;code>--global&lt;/code> オプション付きで実行すればいい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/vochicong/items/f20afc89a6847cd58f0f">brew bundleでMacのアプリをまとめてインストール・管理 - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200428/</guid><description>
 &lt;h1 id="428">4/28&lt;/h1>
 &lt;h2 id="macでanyenv経由のnodenv経由でnodejsを入れてみた">Macでanyenv経由のnodenv経由でNode.jsを入れてみた&lt;/h2>
