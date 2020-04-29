@@ -4,7 +4,7 @@ linkTitle: "VS Code"
 description: >
   https://code.visualstudio.com/
 date: 2020-04-27T22:33:58+09:00
-weight: 40
+weight: 920
 ---
 
 Micfosoftが提供するOSSのクロスプラットフォームなコードエディタ。  
