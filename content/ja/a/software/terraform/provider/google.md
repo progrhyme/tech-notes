@@ -6,6 +6,22 @@ description: >
 date: 2020-04-26T23:20:30+09:00
 ---
 
+## Configuration
+
+[Google Provider Configuration Reference - Terraform by HashiCorp](https://www.terraform.io/docs/providers/google/guides/provider_reference.html)
+
+SYNOPSIS:
+
+```HCL
+provider "google" {
+  //credentials = "${file("account.json")}"
+  project     = "my-project-id"
+  region      = "us-central1"
+  zone        = "us-central1-c"
+  version     = "3.19.0"
+}
+```
+
 ## Resources
 ### compute系
 

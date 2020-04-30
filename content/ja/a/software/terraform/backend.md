@@ -9,6 +9,12 @@ weight: 300
 
 > A "backend" in Terraform determines how state is loaded and how an operation such as `apply` is executed. This abstraction enables non-local file state storage, remote execution, etc.
 
+## Documentation
+
+- [Configuration](https://www.terraform.io/docs/backends/config.html)
+- [Init](https://www.terraform.io/docs/backends/init.html)
+- [State Storage & Locking](https://www.terraform.io/docs/backends/state.html)
+
 ## gcs
 
 https://www.terraform.io/docs/backends/types/gcs.html
@@ -16,6 +22,9 @@ https://www.terraform.io/docs/backends/types/gcs.html
 - 認証用の `credentials` または `access_token` が必要。
   - https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login で作成できるユーザのApplication Default Credentialsでも良い
 
+```sh
+gcloud auth application-default login
+```
 
 ## s3
 

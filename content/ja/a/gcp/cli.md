@@ -220,4 +220,16 @@ gcloud projects list
 Cloud Storage用のPython製CLI
 
 - ドキュメント: https://cloud.google.com/storage/docs/gsutil
-- コマンドリファレンス: https://cloud.google.com/storage/docs/gsutil/commands/acl
+- コマンドリファレンス: https://cloud.google.com/storage/docs/gsutil/commands/help
+
+### mb
+
+https://cloud.google.com/storage/docs/gsutil/commands/mb
+
+バケット作成
+
+Examples:
+
+```sh
+gsutil mb -l asia gs://mybucket
+```

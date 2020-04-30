@@ -7,6 +7,14 @@ date: 2020-04-29T10:44:28+09:00
 weight: 30
 ---
 
+## Plugins
+### File Watchers
+
+ファイルを監視して自動で実行されるアクションを設定できる。  
+例えば、ファイルの変更を監視してコードフォーマッタを適用するとか。
+
+[ファイル監視 - 公式ヘルプ | IntelliJ IDEA](https://pleiades.io/help/idea/using-file-watchers.html)
+
 ## How to Upgrade
 ### Ubuntu
 
