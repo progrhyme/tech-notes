@@ -11,9 +11,24 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
+&lt;h2 id="pipelines">Pipelines&lt;/h2>
+&lt;p>付属のCI/CDツール。&lt;/p>
+&lt;p>&lt;a href="https://www.atlassian.com/ja/software/bitbucket/features/pipelines">製品ページ&lt;/a>&lt;/p>
+&lt;h3 id="documentation">Documentation&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://www.atlassian.com/ja/software/bitbucket/features/pipelines">Pipelines&lt;/a> &amp;hellip; 付属のCI/CDツール&lt;/li>
+&lt;li>日本語: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Pipelines を使用したビルド、テスト、およびデプロイ&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html">プル リクエストを使用したデプロイ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>English: &lt;a href="https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Build, test, and deploy with Pipelines&lt;/a>&lt;/li>
+&lt;li>デモリポジトリ: &lt;a href="https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC">https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="dockerイメージの利用">Dockerイメージの利用&lt;/h3>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/use-docker-images-as-build-environments-792298897.html">Docker イメージをビルド環境として使用する - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>DockerHubでは認証情報を渡すことでプライベートイメージの利用も可能&lt;/li>
+&lt;li>AWSのECRやGCPのGCRも利用可能&lt;/li>
 &lt;/ul></description></item><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://help.github.com/">https://help.github.com/&lt;/a>&lt;/p>
