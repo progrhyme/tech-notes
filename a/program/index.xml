@@ -178,6 +178,11 @@
 &lt;li>コミュニティ&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;h3 id="file-watchers">File Watchers&lt;/h3>
+&lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
+例えば、ファイルの変更を監視してコードフォーマッタを適用するとか。&lt;/p>
+&lt;p>&lt;a href="https://pleiades.io/help/idea/using-file-watchers.html">ファイル監視 - 公式ヘルプ | IntelliJ IDEA&lt;/a>&lt;/p>
 &lt;h2 id="how-to-upgrade">How to Upgrade&lt;/h2>
 &lt;h3 id="ubuntu">Ubuntu&lt;/h3>
 &lt;ul>

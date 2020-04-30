@@ -218,6 +218,12 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
 &lt;/blockquote>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/config.html">Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/init.html">Init&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/state.html">State Storage &amp;amp; Locking&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="gcs">gcs&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
 &lt;ul>
@@ -227,7 +233,8 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="s3">s3&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth application-default login
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="s3">s3&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/s3.html">https://www.terraform.io/docs/backends/types/s3.html&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>ロックしたいときはDynamoDBを使う。

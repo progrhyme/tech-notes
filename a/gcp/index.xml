@@ -147,8 +147,14 @@ gcloud projects list
 &lt;p>Cloud Storage用のPython製CLI&lt;/p>
 &lt;ul>
 &lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
-&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/acl">https://cloud.google.com/storage/docs/gsutil/commands/acl&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mb">mb&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">https://cloud.google.com/storage/docs/gsutil/commands/mb&lt;/a>&lt;/p>
+&lt;p>バケット作成&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>

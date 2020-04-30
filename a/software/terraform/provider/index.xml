@@ -282,7 +282,17 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;h3 id="ssm_parameter-1">ssm_parameter&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html&lt;/a>&lt;/p>
 &lt;p>EC2 Parameter Storeにデータを保存する。&lt;/p></description></item><item><title>A: Google</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</link><pubDate>Sun, 26 Apr 2020 23:20:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</guid><description>
-&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/guides/provider_reference.html">Google Provider Configuration Reference - Terraform by HashiCorp&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> //credentials&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;account.json&amp;#34;)}&amp;#34;&lt;/span>
+&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my-project-id&amp;#34;&lt;/span>
+&lt;span style="color:#000"> region&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;us-central1&amp;#34;&lt;/span>
+&lt;span style="color:#000"> zone&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;us-central1-c&amp;#34;&lt;/span>
+&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;3.19.0&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="resources">Resources&lt;/h2>
 &lt;h3 id="compute系">compute系&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>

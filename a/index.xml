@@ -400,6 +400,11 @@ MWYyZDFlMmU2N2Rm
 &lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits">Kubernetes best practices: Resource requests and limits | Google Cloud Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://docs.microsoft.com/ja-jp/azure/aks/developer-best-practices-resource-management">開発者のベスト プラクティス - Azure Kubernetes Service (AKS) でのリソース管理 | Microsoft Docs&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;h3 id="file-watchers">File Watchers&lt;/h3>
+&lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
+例えば、ファイルの変更を監視してコードフォーマッタを適用するとか。&lt;/p>
+&lt;p>&lt;a href="https://pleiades.io/help/idea/using-file-watchers.html">ファイル監視 - 公式ヘルプ | IntelliJ IDEA&lt;/a>&lt;/p>
 &lt;h2 id="how-to-upgrade">How to Upgrade&lt;/h2>
 &lt;h3 id="ubuntu">Ubuntu&lt;/h3>
 &lt;ul>
@@ -684,6 +689,12 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
 &lt;/blockquote>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/config.html">Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/init.html">Init&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/backends/state.html">State Storage &amp;amp; Locking&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="gcs">gcs&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
 &lt;ul>
@@ -693,7 +704,8 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="s3">s3&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth application-default login
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="s3">s3&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/s3.html">https://www.terraform.io/docs/backends/types/s3.html&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>ロックしたいときはDynamoDBを使う。
@@ -1389,8 +1401,14 @@ gcloud projects list
 &lt;p>Cloud Storage用のPython製CLI&lt;/p>
 &lt;ul>
 &lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
-&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/acl">https://cloud.google.com/storage/docs/gsutil/commands/acl&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
+&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mb">mb&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">https://cloud.google.com/storage/docs/gsutil/commands/mb&lt;/a>&lt;/p>
+&lt;p>バケット作成&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
 &lt;p>有名なVimのファイラプラグイン。&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>ツリービューの操作:&lt;/p>
@@ -2457,7 +2475,17 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;h3 id="ssm_parameter-1">ssm_parameter&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html&lt;/a>&lt;/p>
 &lt;p>EC2 Parameter Storeにデータを保存する。&lt;/p></description></item><item><title>A: Google</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</link><pubDate>Sun, 26 Apr 2020 23:20:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</guid><description>
-&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/guides/provider_reference.html">Google Provider Configuration Reference - Terraform by HashiCorp&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> //credentials&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;account.json&amp;#34;)}&amp;#34;&lt;/span>
+&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my-project-id&amp;#34;&lt;/span>
+&lt;span style="color:#000"> region&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;us-central1&amp;#34;&lt;/span>
+&lt;span style="color:#000"> zone&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;us-central1-c&amp;#34;&lt;/span>
+&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;3.19.0&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="resources">Resources&lt;/h2>
 &lt;h3 id="compute系">compute系&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>
