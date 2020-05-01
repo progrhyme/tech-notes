@@ -100,6 +100,8 @@ git clone --branch BRANCH URL
 git commit -v
 ## 空コミット
 git commit --allow-empty
+## コミットメッセージを変更
+git commit --amend
 ```
 
 ### diff
@@ -254,6 +256,30 @@ git push <リモート> :<タグ名>
 
 
 ## Tips
+### CommitterとAuthorを変更する
+
+HEADのcommitを修正する場合:
+
+```sh
+git config --local user.name "YOUR NAME"
+git config --local user.email your-address@example.com
+git commit --amend --reset-author
+```
+
+過去の履歴についても変更したい場合:
+
+```sh
+git rebase -i <commit hash>
+# 該当するコミットを `e` で選ぶ
+git commit --amend --reset-author 
+git rebase --continue
+```
+
+参考:
+
+- [過去のgitコミットのCommitとAuthor情報を修正する - ひと夏の技術](https://tech-1natsu.hatenablog.com/entry/2018/10/19/021855)
+- [Git の Commit Author と Commiter を変更する - Qiita](https://qiita.com/sea_mountain/items/d70216a5bc16a88ed932)
+
 ### 歴史を改ざんする
 
 See [Git - 歴史の書き換え](https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88)
