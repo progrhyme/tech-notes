@@ -137,6 +137,8 @@ kubectl patch deployment patch-demo --patch "$(cat patch-file.yaml)"
 ```sh
 ## exec
 kubectl exec <pod> -- <command> [args...]
+### podにbashでログイン
+kubectl exec -it <pod> -- /bin/bash -l
 
 ## cp
 kubectl cp path/to/localfile <pod>:/path/to/remotefile
