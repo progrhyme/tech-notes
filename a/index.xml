@@ -1415,6 +1415,16 @@ curl http://localhost:8080/api/
 &lt;p>以前に調べたログ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200427/">2020-04-27&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="tmuxのstatus-lineの色設定をいい感じにした">tmuxのstatus lineの色設定をいい感じにした&lt;/h3>
+&lt;p>2ヶ月ちょっと前に .tmux.conf をv2.9+対応にしたのだけど、status lineの色設定がなんかイマイチになってたので調整した。&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/dotfiles/commit/7983437087fdf64aa652f44d922f90a69622353d">https://github.com/progrhyme/dotfiles/commit/7983437087fdf64aa652f44d922f90a69622353d&lt;/a>&lt;/p>
+&lt;p>だいぶややこしい設定になっていて、どこを変えればいいかよくわからなくなっていたのと、tmuxプロセスを全て終了しないと再読込みされないっぽかったので更に混乱した。&lt;br>
+tmuxプロセスA内でconfを編集しながら、tmuxプロセスBを起動して見た目を確認していたが、それだとtmuxプロセスAの設定が引き継がれるような挙動だった。&lt;/p>
+&lt;p>参考にしたページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nojima/items/9bc576c922da3604a72b">tmux の status line の設定方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/tokuhy/dotfiles/blob/master/.tmux.conf">dotfiles/.tmux.conf at master · tokuhy/dotfiles&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-04-30</title><link>https://progrhy.me/tech-notes/a/memo/20200430/</link><pubDate>Thu, 30 Apr 2020 00:08:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200430/</guid><description>
 &lt;h2 id="430">4/30&lt;/h2>
 &lt;h3 id="ubuntuでhomebrewで入れたtfenvだとtfenv-installに失敗する">UbuntuでHomebrewで入れたtfenvだとtfenv installに失敗する&lt;/h3>
