@@ -502,6 +502,8 @@ git clone --branch BRANCH URL
 git commit -v
 &lt;span style="color:#8f5902;font-style:italic">## 空コミット&lt;/span>
 git commit --allow-empty
+&lt;span style="color:#8f5902;font-style:italic">## コミットメッセージを変更&lt;/span>
+git commit --amend
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="diff">diff&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## スペース等の差分を無視&lt;/span>
 git diff -w
@@ -606,6 +608,21 @@ git push &amp;lt;リモート&amp;gt; :&amp;lt;タグ名&amp;gt;
 &lt;li>&lt;a href="https://qiita.com/chihiro/items/cba40015b1aa2c73b78a">【Git】tag関連コマンド - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="committerとauthorを変更する">CommitterとAuthorを変更する&lt;/h3>
+&lt;p>HEADのcommitを修正する場合:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git config --local user.name &lt;span style="color:#4e9a06">&amp;#34;YOUR NAME&amp;#34;&lt;/span>
+git config --local user.email your-address@example.com
+git commit --amend --reset-author
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>過去の履歴についても変更したい場合:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git rebase -i &amp;lt;commit hash&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 該当するコミットを `e` で選ぶ&lt;/span>
+git commit --amend --reset-author
+git rebase --continue
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech-1natsu.hatenablog.com/entry/2018/10/19/021855">過去のgitコミットのCommitとAuthor情報を修正する - ひと夏の技術&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/sea_mountain/items/d70216a5bc16a88ed932">Git の Commit Author と Commiter を変更する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="歴史を改ざんする">歴史を改ざんする&lt;/h3>
 &lt;p>See &lt;a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88">Git - 歴史の書き換え&lt;/a>&lt;/p>
 &lt;h4 id="特定のファイルディレクトリの履歴を完全に削除">特定のファイル・ディレクトリの履歴を完全に削除&lt;/h4>
