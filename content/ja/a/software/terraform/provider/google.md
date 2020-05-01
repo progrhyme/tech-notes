@@ -23,12 +23,22 @@ provider "google" {
 ```
 
 ## Resources
-### IAM系
+### GCP (IAM, API, Billing, Organization)
 
-Providerリファレンスでは、「Google Cloud Platform Resources」というカテゴリに属する。
+Providerリファレンスで、「Google Cloud Platform Resources」というカテゴリに属するもの。
 
+- [google_project_service](https://www.terraform.io/docs/providers/google/r/google_project_service.html) ... APIs & Servicesの有効化
 - [google_service_account](https://www.terraform.io/docs/providers/google/r/google_service_account.html)
 - [google_service_account_key](https://www.terraform.io/docs/providers/google/r/google_service_account_key.html)
+
+#### IAM policy for projects
+
+https://www.terraform.io/docs/providers/google/r/google_project_iam.html
+
+- `google_project_iam_policy`
+- `google_project_iam_binding` ... role : member = 1 : Nの権限を設定する。Service Accountの権限にも対応
+- `google_project_iam_member` ... role : member = 1 : 1の権限を設定する。Service Accountの権限にも対応
+- `google_project_iam_audit_config`
 
 ### compute系
 

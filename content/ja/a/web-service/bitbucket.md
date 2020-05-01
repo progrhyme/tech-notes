@@ -36,3 +36,10 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
 
 - DockerHubでは認証情報を渡すことでプライベートイメージの利用も可能
 - AWSのECRやGCPのGCRも利用可能
+
+### パイプラインの変数
+
+[パイプラインでの変数 - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html)
+
+- 「secure」チェックをONにすると、パイプラインの実行ログ上でもマスクされ、表示されなくなる
+  - `$MY_SECRET` のように表示される
