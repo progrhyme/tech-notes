@@ -35,10 +35,22 @@ NOTE:
 
 - [Git リポジトリの内容を zip ファイルにする - Qiita](http://qiita.com/usamik26/items/9a2d14aea30cb01a60c6 "Git リポジトリの内容を zip ファイルにする - Qiita")
 
+### branch
+
+https://git-scm.com/docs/git-branch
+
+```sh
+# ローカルのbranchを表示
+git branch
+# 今のbranchを元に新しいbranchを作る
+git branch <newbranch>
+# 既存のbranchを元に新しいbranchを作る
+git branch <oldbranch> <newbranch>
+```
 
 ### checkout
 
-```bash
+```sh
 ## topicブランチを作成
 git checkout -b topic
 
