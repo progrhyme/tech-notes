@@ -36,6 +36,45 @@ curlで取ってくるようなデータはこれを使えばいい。
 - [TerraformでJSONを扱う方法 - Qiita](https://qiita.com/tshohe/items/81e46e516ef4559dd32d)
 - [Getting my own Public IP : Terraform](https://www.reddit.com/r/Terraform/comments/9g62ox/getting_my_own_public_ip/)
 
+## Local
+
+https://www.terraform.io/docs/providers/local/
+
+ローカルのファイルをData Sourceとして読んだり、Resourceとして作成・管理したり。
+
+### Data Source
+
+https://www.terraform.io/docs/providers/local/d/file.html
+
+```HCL
+data "local_file" "foo" {
+    filename = "${path.module}/foo.bar"
+}
+```
+
+Attributes Exported:
+
+- `content`
+- `content_base64`
+
+### Resource
+
+https://www.terraform.io/docs/providers/local/r/file.html
+
+```HCL
+resource "local_file" "foo" {
+    content              = "foo!"
+    filename             = "${path.module}/foo.bar"
+    file_permission      = "0644"
+    directory_permission = "0755"
+}
+```
+
+Arguments:
+
+- `filename` 以外はOptional
+- `file_permission`, `directory_permission` のデフォルトは `"0777"`
+
 ## Random
 
 https://www.terraform.io/docs/providers/random/

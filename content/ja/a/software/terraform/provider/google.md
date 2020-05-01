@@ -23,6 +23,13 @@ provider "google" {
 ```
 
 ## Resources
+### IAM系
+
+Providerリファレンスでは、「Google Cloud Platform Resources」というカテゴリに属する。
+
+- [google_service_account](https://www.terraform.io/docs/providers/google/r/google_service_account.html)
+- [google_service_account_key](https://www.terraform.io/docs/providers/google/r/google_service_account_key.html)
+
 ### compute系
 
 - [google_compute_backend_bucket](https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html) ... HTTP(S) LBのバックエンドになるGCSバケット設定
