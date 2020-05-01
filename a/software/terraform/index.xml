@@ -262,6 +262,32 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;li>&lt;a href="https://qiita.com/tshohe/items/81e46e516ef4559dd32d">TerraformでJSONを扱う方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.reddit.com/r/Terraform/comments/9g62ox/getting_my_own_public_ip/">Getting my own Public IP : Terraform&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="local">Local&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/local/">https://www.terraform.io/docs/providers/local/&lt;/a>&lt;/p>
+&lt;p>ローカルのファイルをData Sourceとして読んだり、Resourceとして作成・管理したり。&lt;/p>
+&lt;h3 id="data-source">Data Source&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/local/d/file.html">https://www.terraform.io/docs/providers/local/d/file.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;local_file&amp;#34; &amp;#34;foo&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${path.module}/foo.bar&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Attributes Exported:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>content&lt;/code>&lt;/li>
+&lt;li>&lt;code>content_base64&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="resource">Resource&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/local/r/file.html">https://www.terraform.io/docs/providers/local/r/file.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;local_file&amp;#34; &amp;#34;foo&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo!&amp;#34;&lt;/span>
+&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${path.module}/foo.bar&amp;#34;&lt;/span>
+&lt;span style="color:#000"> file_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0644&amp;#34;&lt;/span>
+&lt;span style="color:#000"> directory_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0755&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Arguments:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>filename&lt;/code> 以外はOptional&lt;/li>
+&lt;li>&lt;code>file_permission&lt;/code>, &lt;code>directory_permission&lt;/code> のデフォルトは &lt;code>&amp;quot;0777&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
 &lt;h2 id="random">Random&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/random/">https://www.terraform.io/docs/providers/random/&lt;/a>&lt;/p>
 &lt;p>乱数値の生成などで使える。&lt;br>

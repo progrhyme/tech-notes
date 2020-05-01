@@ -293,6 +293,12 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;3.19.0&amp;#34;&lt;/span>
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="resources">Resources&lt;/h2>
+&lt;h3 id="iam系">IAM系&lt;/h3>
+&lt;p>Providerリファレンスでは、「Google Cloud Platform Resources」というカテゴリに属する。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account.html">google_service_account&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account_key.html">google_service_account_key&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="compute系">compute系&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>

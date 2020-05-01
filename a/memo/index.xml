@@ -23,6 +23,16 @@ tmuxプロセスA内でconfを編集しながら、tmuxプロセスBを起動し
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/nojima/items/9bc576c922da3604a72b">tmux の status line の設定方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/tokuhy/dotfiles/blob/master/.tmux.conf">dotfiles/.tmux.conf at master · tokuhy/dotfiles&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="terraformでgcpのservice-account-keyを作成">TerraformでGCPのService Account Keyを作成&lt;/h3>
+&lt;p>Qiitaにこういうエントリを上げた:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/8603c0f6e350734c1739">TerraformでGCPのService Account Keyを作成し、ローカルにファイルとして保存する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>何度か実行して確かめたところ、次のことがわかった。&lt;/p>
+&lt;ul>
+&lt;li>Service Account Keyの内容はtfstateに保存される&lt;/li>
+&lt;li>よって、local_fileに書き出すコードは後で足してもいいし、一度消しても復元できる&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-04-30</title><link>https://progrhy.me/tech-notes/a/memo/20200430/</link><pubDate>Thu, 30 Apr 2020 00:08:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200430/</guid><description>
 &lt;h2 id="430">4/30&lt;/h2>
 &lt;h3 id="ubuntuでhomebrewで入れたtfenvだとtfenv-installに失敗する">UbuntuでHomebrewで入れたtfenvだとtfenv installに失敗する&lt;/h3>
