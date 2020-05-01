@@ -293,11 +293,20 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;3.19.0&amp;#34;&lt;/span>
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="resources">Resources&lt;/h2>
-&lt;h3 id="iam系">IAM系&lt;/h3>
-&lt;p>Providerリファレンスでは、「Google Cloud Platform Resources」というカテゴリに属する。&lt;/p>
+&lt;h3 id="gcp-iam-api-billing-organization">GCP (IAM, API, Billing, Organization)&lt;/h3>
+&lt;p>Providerリファレンスで、「Google Cloud Platform Resources」というカテゴリに属するもの。&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_service.html">google_project_service&lt;/a> &amp;hellip; APIs &amp;amp; Servicesの有効化&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account.html">google_service_account&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account_key.html">google_service_account_key&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="iam-policy-for-projects">IAM policy for projects&lt;/h4>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_iam.html">https://www.terraform.io/docs/providers/google/r/google_project_iam.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>google_project_iam_policy&lt;/code>&lt;/li>
+&lt;li>&lt;code>google_project_iam_binding&lt;/code> &amp;hellip; role : member = 1 : Nの権限を設定する。Service Accountの権限にも対応&lt;/li>
+&lt;li>&lt;code>google_project_iam_member&lt;/code> &amp;hellip; role : member = 1 : 1の権限を設定する。Service Accountの権限にも対応&lt;/li>
+&lt;li>&lt;code>google_project_iam_audit_config&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="compute系">compute系&lt;/h3>
 &lt;ul>

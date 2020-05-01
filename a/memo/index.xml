@@ -1,9 +1,66 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-01</title><link>https://progrhy.me/tech-notes/a/memo/20200501/</link><pubDate>Fri, 01 May 2020 01:34:48 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200501/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-02</title><link>https://progrhy.me/tech-notes/a/memo/20200502/</link><pubDate>Sat, 02 May 2020 00:06:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200502/</guid><description>
+&lt;h2 id="52">5/2&lt;/h2>
+&lt;h3 id="bitbucket-pipelinesでgcpに対してterraformを適用するには">Bitbucket PipelinesでGCPに対してTerraformを適用するには&lt;/h3>
+&lt;p>必要なもの:&lt;/p>
+&lt;ul>
+&lt;li>必要な権限が付与されたService Account Key&lt;/li>
+&lt;li>Cloud Resource Manager APIを有効化&lt;/li>
+&lt;/ul>
+&lt;p>手順:&lt;/p>
+&lt;ol>
+&lt;li>Service Account Keyを作り、JSON形式で取得&lt;/li>
+&lt;li>
+&lt;ol>
+&lt;li>をBitbucketのリポジトリ変数にsecure変数として設定。キーはなんでもいいが、ここでは &lt;code>GOOGLE_CREDENTIALS_DATA&lt;/code> とする。Base64化は不要&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>下のような &lt;code>bitbucket-pipelines.yml&lt;/code> を用意する&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">image&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hashicorp/terraform&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.12.24&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">staging&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${GOOGLE_CREDENTIALS_DATA}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- export&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>init&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>plan&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">master&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${GOOGLE_CREDENTIALS_DATA}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- export&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>init&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apply&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--auto-approve&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform plan&lt;/code> まで上手く行くことは試した。&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>stagingブランチからmasterブランチにマージする前提
+&lt;ul>
+&lt;li>この向きでPRを作るといい&lt;/li>
+&lt;li>任意のPRでPipelineを実行するのは、Bitbucket Pipelinesでは難しそう
+&lt;ul>
+&lt;li>Webhookと組合せて頑張ればできるかもしれないが、労力に見合うのか…？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200501/#ci%E3%81%A7gcp%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6terraform%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">2020-05-01に調べたログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.slideshare.net/MasatomoIto/terraform-with-bitbucket-pipeline">Terraform with Bitbucket pipeline&lt;/a> p.31&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html">プル リクエストを使用したデプロイ- アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-01</title><link>https://progrhy.me/tech-notes/a/memo/20200501/</link><pubDate>Fri, 01 May 2020 01:34:48 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200501/</guid><description>
 &lt;h2 id="51">5/1&lt;/h2>
 &lt;h3 id="ciでgcpに対してterraformするには">CIでGCPに対してTerraformするには&lt;/h3>
-&lt;p>サービスアカウントのキーをJSONで作って、 &lt;code>GOOGLE_CREDENTIALS&lt;/code> or &lt;code>GOOGLE_BACKEND_CREDENTIALS&lt;/code> 環境変数に渡せば良さそう。
+&lt;p>&lt;del>サービスアカウントのキーをJSONで作って、 &lt;code>GOOGLE_CREDENTIALS&lt;/code> or &lt;code>GOOGLE_BACKEND_CREDENTIALS&lt;/code> 環境変数に渡せば良さそう。&lt;/del>
 （事例によって異なる環境変数を使っていることがある。）&lt;/p>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
+&lt;p>（追記） &lt;code>terraform plan&lt;/code> のときには&lt;a href="https://cloud.google.com/docs/authentication/production">Application Credentials&lt;/a>が必要になる。&lt;br>
+GCS backend認証も上記の環境変数がない場合は、Application Credentialsにフォールバックするので、環境変数 &lt;code>GOOGLE_APPLICATION_CREDENTIALS&lt;/code> にキーファイルのパスを設定するのがよい。&lt;/p>
 &lt;p>事例:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://gist.github.com/MisaKondo/cb46b0ecd106e9c824a641b14954b8e1">TerraformによるGCP環境の管理&lt;/a>&lt;/li>

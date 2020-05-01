@@ -29,6 +29,15 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;ul>
 &lt;li>DockerHubでは認証情報を渡すことでプライベートイメージの利用も可能&lt;/li>
 &lt;li>AWSのECRやGCPのGCRも利用可能&lt;/li>
+&lt;/ul>
+&lt;h3 id="パイプラインの変数">パイプラインの変数&lt;/h3>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html">パイプラインでの変数 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>「secure」チェックをONにすると、パイプラインの実行ログ上でもマスクされ、表示されなくなる
+&lt;ul>
+&lt;li>&lt;code>$MY_SECRET&lt;/code> のように表示される&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://help.github.com/">https://help.github.com/&lt;/a>&lt;/p>
