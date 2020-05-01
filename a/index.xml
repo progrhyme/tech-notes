@@ -1328,6 +1328,8 @@ kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## exec&lt;/span>
 kubectl &lt;span style="color:#204a87">exec&lt;/span> &amp;lt;pod&amp;gt; -- &amp;lt;command&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>args...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### podにbashでログイン&lt;/span>
+kubectl &lt;span style="color:#204a87">exec&lt;/span> -it &amp;lt;pod&amp;gt; -- /bin/bash -l
 &lt;span style="color:#8f5902;font-style:italic">## cp&lt;/span>
 kubectl cp path/to/localfile &amp;lt;pod&amp;gt;:/path/to/remotefile
 kubectl cp &amp;lt;pod&amp;gt;:/path/to/remotefile /path/to/localfile
