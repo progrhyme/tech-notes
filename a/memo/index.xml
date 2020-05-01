@@ -264,4 +264,28 @@ at Object.req [as require] (/home/progrhyme/my/repos/progrhyme.github.io/node_mo
 10)
 at Object.&amp;lt;anonymous&amp;gt; (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/vinyl-fs/node_modules/gra
 ceful-fs/fs.js:1:37)
-&lt;/code>&lt;/pre>&lt;p>上の記事にあったように、 &lt;code>npm i natives@latest --no-save&lt;/code> を実行したら解消した。&lt;/p></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;p>上の記事にあったように、 &lt;code>npm i natives@latest --no-save&lt;/code> を実行したら解消した。&lt;/p></description></item><item><title>A: 2020-03-18</title><link>https://progrhy.me/tech-notes/a/memo/20200318/</link><pubDate>Wed, 18 Mar 2020 12:19:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200318/</guid><description>
+&lt;h2 id="318">3/18&lt;/h2>
+&lt;h3 id="ubuntuでkrewを使ってkubectxkubensをinstall">Ubuntuでkrewを使ってkubectx/kubensをinstall&lt;/h3>
+&lt;p>kubectxをUbuntuにどうやって入れようかとREADMEを見ていたら、kubectlにはkrewというプラグイン管理システムがあるそうな。&lt;/p>
+&lt;p>&lt;a href="https://github.com/kubernetes-sigs/krew/">https://github.com/kubernetes-sigs/krew/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://krew.sigs.k8s.io/docs/user-guide/setup/install/">https://krew.sigs.k8s.io/docs/user-guide/setup/install/&lt;/a> に従ってインストール&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## bash&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -x&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>mktemp -d&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+curl -fsSLO &lt;span style="color:#4e9a06">&amp;#34;https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+tar zxvf krew.tar.gz &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+&lt;span style="color:#000">KREW&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./krew-&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>uname &lt;span style="color:#000;font-weight:bold">|&lt;/span> tr &lt;span style="color:#4e9a06">&amp;#39;[:upper:]&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;[:lower:]&amp;#39;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">_amd64&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$KREW&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> install --manifest&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>krew.yaml --archive&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>krew.tar.gz &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$KREW&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> update
+&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>↓を.bashrcに追記&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">PATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">KREW_ROOT&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#000;font-weight:bold">/.krew&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/bin:&lt;/span>&lt;span style="color:#000">$PATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>…で、kubectx/kubensをinstall:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl krew install ctx
+kubectl krew install ns
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>kubectx&lt;/code> &lt;code>kubens&lt;/code> ではなく &lt;code>kubectl ctx&lt;/code> &lt;code>kubectx ns&lt;/code> で使うことになる。&lt;/p>
+&lt;h3 id="gkeのingressではgcsをバックエンドにできない">GKEのIngressではGCSをバックエンドにできない&lt;/h3>
+&lt;p>&lt;a href="https://qiita.com/mihirat/items/668a43a88547792cde7e">kubernetesを使った開発のベストプラクティスを求めて - Qiita&lt;/a>&lt;/p>
+&lt;p>この記事は2年4ヶ月前のものなのだが、自分で試してもできなかった。&lt;br>
+残念。&lt;/p></description></item></channel></rss>
