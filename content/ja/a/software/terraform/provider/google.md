@@ -22,6 +22,15 @@ provider "google" {
 }
 ```
 
+- `credentials`
+  - GCPのサービスアカウントキー（JSON）のパスまたは内容
+  - 環境変数 `GOOGLE_CREDENTIALS` or `GOOGLE_CLOUD_KEYFILE_JSON` or `GCLOUD_KEYFILE_JSON` による指定も可能。
+  - 指定がない場合、[Application Default Credentials](https://cloud.google.com/docs/authentication/production)にフォールバックする
+
+See also:
+
+- [Backends#gcs]({{< ref "/a/software/terraform/backend.md" >}}#gcs)
+
 ## Resources
 ### GCP (IAM, API, Billing, Organization)
 
