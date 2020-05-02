@@ -17,6 +17,12 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
   - Bitbucket Server ... 単一サーバ
   - Bitbucket Datacenter ... クラスタ構成
 
+## Documentation
+
+- [Bitbucket Cloud documentation - Atlassian Documentation](https://confluence.atlassian.com/bitbucket)
+- 邦訳: [Bitbucket Cloud ドキュメント - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-cloud-documentation-221448814.html)
+  - [Webhook を管理する - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html)
+
 ## Pipelines
 
 付属のCI/CDツール。
@@ -25,10 +31,61 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
 
 ### Documentation
 
-- 日本語: [Pipelines を使用したビルド、テスト、およびデプロイ](https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
-  - [プル リクエストを使用したデプロイ](https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html)
-- English: [Build, test, and deploy with Pipelines](https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
+- [Build, test, and deploy with Pipelines](https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
+- 邦訳: [Pipelines を使用したビルド、テスト、およびデプロイ](https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
+  - [YAML アンカー - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html)
+  - [Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html)
 - デモリポジトリ: https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC
+
+### プルリクエストで実行する
+
+ドキュメント: [bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html)
+
+`pull-requests` というキーワードによって、PRをトリガーとするパイプライン処理を記述できる。
+
+Example:
+
+```YAML
+pipelines:
+  pull-requests:
+    '**': #this runs as default for any branch not elsewhere defined
+      - step:
+          script:
+            - ...
+    feature/*: #any branch with a feature prefix
+      - step:
+          script:
+            - ...
+```
+
+参考:
+
+- [プル リクエストを使用したデプロイ](https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html)
+
+### ステップを手動実行する
+
+ドキュメント: [bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html)
+
+- `trigger: manual` をつける。  
+- ※最初のステップは手動にはできない
+
+Example:
+
+```YAML
+pipelines:
+  default:
+    - step:
+        script:
+          - ./run-test.sh
+    - step:
+        trigger: manual
+        script:
+          - ./deploy.sh
+```
+
+Tips:
+
+- パイプライン全体を手動トリガーで実行する場合、customパイプラインを使う
 
 ### Dockerイメージの利用
 
@@ -43,3 +100,9 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
 
 - 「secure」チェックをONにすると、パイプラインの実行ログ上でもマスクされ、表示されなくなる
   - `$MY_SECRET` のように表示される
+
+### パイプラインをトリガーせずにコミット
+
+コミットメッセージに `[skip ci]` または `[ci skip]` を含める。
+
+[Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html)
