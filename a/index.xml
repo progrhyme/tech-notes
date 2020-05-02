@@ -1309,7 +1309,16 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;p>必要なもの:&lt;/p>
 &lt;ul>
 &lt;li>必要な権限が付与されたService Account Key&lt;/li>
-&lt;li>Cloud Resource Manager APIを有効化&lt;/li>
+&lt;li>GCPで必要なAPIを有効化
+&lt;ul>
+&lt;li>操作対象のリソースによって異なる。以下は例:
+&lt;ul>
+&lt;li>Cloud Resource Manager API &amp;hellip; Service Accountの作成に必要だった&lt;/li>
+&lt;li>Compute Engine API &amp;hellip; GCEインスタンス作成などで必要そう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>手順:&lt;/p>
 &lt;ol>
@@ -2887,6 +2896,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_service.html">google_compute_backend_service&lt;/a> &amp;hellip; GCLBのバックエンドになるサービスの設定&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_health_check.html">google_compute_health_check&lt;/a> &amp;hellip; ヘルスチェック&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_instance.html">google_compute_instance&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html">google_compute_managed_ssl_certificate&lt;/a> &amp;hellip; β (2020-03-18) HTTPS LBのためのマネージドTLS証明書&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_security_policy.html">google_compute_security_policy&lt;/a> &amp;hellip; Cloud Armorのセキュリティポリシー&lt;/li>
 &lt;/ul>

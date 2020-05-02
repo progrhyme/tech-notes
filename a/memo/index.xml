@@ -4,7 +4,16 @@
 &lt;p>必要なもの:&lt;/p>
 &lt;ul>
 &lt;li>必要な権限が付与されたService Account Key&lt;/li>
-&lt;li>Cloud Resource Manager APIを有効化&lt;/li>
+&lt;li>GCPで必要なAPIを有効化
+&lt;ul>
+&lt;li>操作対象のリソースによって異なる。以下は例:
+&lt;ul>
+&lt;li>Cloud Resource Manager API &amp;hellip; Service Accountの作成に必要だった&lt;/li>
+&lt;li>Compute Engine API &amp;hellip; GCEインスタンス作成などで必要そう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>手順:&lt;/p>
 &lt;ol>
