@@ -423,18 +423,66 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket">Bitbucket Cloud documentation - Atlassian Documentation&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-cloud-documentation-221448814.html">Bitbucket Cloud ドキュメント - アトラシアン製品ドキュメント&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html">Webhook を管理する - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="pipelines">Pipelines&lt;/h2>
 &lt;p>付属のCI/CDツール。&lt;/p>
 &lt;p>&lt;a href="https://www.atlassian.com/ja/software/bitbucket/features/pipelines">製品ページ&lt;/a>&lt;/p>
-&lt;h3 id="documentation">Documentation&lt;/h3>
+&lt;h3 id="documentation-1">Documentation&lt;/h3>
 &lt;ul>
-&lt;li>日本語: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Pipelines を使用したビルド、テスト、およびデプロイ&lt;/a>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Build, test, and deploy with Pipelines&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Pipelines を使用したビルド、テスト、およびデプロイ&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html">YAML アンカー - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デモリポジトリ: &lt;a href="https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC">https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="プルリクエストで実行する">プルリクエストで実行する&lt;/h3>
+&lt;p>ドキュメント: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;p>&lt;code>pull-requests&lt;/code> というキーワードによって、PRをトリガーとするパイプライン処理を記述できる。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pull-requests&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#39;**&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#this runs as default for any branch not elsewhere defined&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">feature/*&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#any branch with a feature prefix&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html">プル リクエストを使用したデプロイ&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;li>English: &lt;a href="https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Build, test, and deploy with Pipelines&lt;/a>&lt;/li>
-&lt;li>デモリポジトリ: &lt;a href="https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC">https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC&lt;/a>&lt;/li>
+&lt;h3 id="ステップを手動実行する">ステップを手動実行する&lt;/h3>
+&lt;p>ドキュメント: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>trigger: manual&lt;/code> をつける。&lt;/li>
+&lt;li>※最初のステップは手動にはできない&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ./run-test.sh&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>manual&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ./deploy.sh&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>パイプライン全体を手動トリガーで実行する場合、customパイプラインを使う&lt;/li>
 &lt;/ul>
 &lt;h3 id="dockerイメージの利用">Dockerイメージの利用&lt;/h3>
 &lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/use-docker-images-as-build-environments-792298897.html">Docker イメージをビルド環境として使用する - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
@@ -450,7 +498,10 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;li>&lt;code>$MY_SECRET&lt;/code> のように表示される&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;/ul>
+&lt;h3 id="パイプラインをトリガーせずにコミット">パイプラインをトリガーせずにコミット&lt;/h3>
+&lt;p>コミットメッセージに &lt;code>[skip ci]&lt;/code> または &lt;code>[ci skip]&lt;/code> を含める。&lt;/p>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
 &lt;h2 id="gitコマンド">gitコマンド&lt;/h2>
 &lt;h3 id="参考資料">参考資料&lt;/h3>
 &lt;ul>
@@ -1272,41 +1323,73 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">image&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hashicorp/terraform&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.12.24&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">staging&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">definitions&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;amp;terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>plan&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${GOOGLE_CREDENTIALS_DATA}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- export&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>init&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>plan&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">master&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;amp;terraform-apply&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apply&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${GOOGLE_CREDENTIALS_DATA}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- export&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>init&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apply&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--auto-approve&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform plan&lt;/code> まで上手く行くことは試した。&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>stagingブランチからmasterブランチにマージする前提
-&lt;ul>
-&lt;li>この向きでPRを作るといい&lt;/li>
-&lt;li>任意のPRでPipelineを実行するのは、Bitbucket Pipelinesでは難しそう
-&lt;ul>
-&lt;li>Webhookと組合せて頑張ればできるかもしれないが、労力に見合うのか…？&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#39;**&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">master&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-apply&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>manual&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上は、masterを除く任意のbranchに対する更新で &lt;code>terraform plan&lt;/code> を実行し、master branchにおいては、 &lt;code>terraform plan&lt;/code> を自動実行した後、マニュアルで &lt;code>terraform apply&lt;/code> を実行する。&lt;/p>
+&lt;p>branch更新でなく、プルリクエスト駆動にすることもできる。&lt;br>
+上の例で、 &lt;code>pipelines&lt;/code> 以下のみ、次のように変更してみる:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pull-requests&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">feature/*&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">master&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-apply&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>manual&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで、 &lt;code>feature/*&lt;/code> にマッチするbranchからのPRにより、 &lt;code>terraform plan&lt;/code> が実行される。&lt;br>
+PRした後、branchを更新すればパイプラインが再実行される。&lt;/p>
+&lt;p>任意のbranchによるPRを対象にしたい場合は、 &lt;code>feature/*&lt;/code> の代わりに &lt;code>'**'&lt;/code> と記せば良い。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html">YAML アンカー - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200501/#ci%E3%81%A7gcp%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6terraform%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">2020-05-01に調べたログ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.slideshare.net/MasatomoIto/terraform-with-bitbucket-pipeline">Terraform with Bitbucket pipeline&lt;/a> p.31&lt;/li>
-&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html">プル リクエストを使用したデプロイ- アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/web-service/bitbucket/">Bitbucketについてのメモ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="yamlで配列のマージはできなさそう">YAMLで配列のマージはできなさそう&lt;/h3>
+&lt;p>ハッシュのマージはアンカーとエイリアスでできるのだけど、配列のマージはできなさそう。&lt;/p>
+&lt;p>参考: &lt;a href="https://stackoverflow.com/questions/24090177/how-to-merge-yaml-arrays">list - How to merge YAML arrays? - Stack Overflow&lt;/a>&lt;/p>
+&lt;p>配列の1つ1つの要素にアンカーを付けて、再利用することは可能。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">- &lt;span style="color:#8f5902;font-style:italic">&amp;amp;mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>foo&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- bar&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#8f5902;font-style:italic">*mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#8f5902;font-style:italic">*mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [&amp;#39;foo&amp;#39;, &amp;#39;bar&amp;#39;, &amp;#39;foo&amp;#39;, &amp;#39;foo&amp;#39;]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://magazine.rubyist.net/articles/0009/0009-YAML.html#%E3%82%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%81%A8%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9">プログラマーのための YAML 入門 (初級編)&lt;/a>&lt;/p>
+&lt;h3 id="dangerはbitbucketにどのように対応しているか">DangerはBitbucketにどのように対応しているか&lt;/h3>
+&lt;p>tfnotifyをBitbucketに対応させたいなーと思いながら、参考にできるかなと思って見ていた。&lt;/p>
+&lt;p>CIサーバからBitbucketのREST APIを叩いているようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/danger/danger/pull/481/files">Bitbucket Server by HeEAaD · Pull Request #481 · danger/danger&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://danger.systems/js/usage/bitbucket_cloud.html">Danger + BitBucket Cloud&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: kubectl</title><link>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</link><pubDate>Fri, 01 May 2020 12:15:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</guid><description>
 &lt;p>Kubernetesクラスタを制御するCLI.&lt;/p>
 &lt;ul>
