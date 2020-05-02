@@ -22,6 +22,7 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
 - [Bitbucket Cloud documentation - Atlassian Documentation](https://confluence.atlassian.com/bitbucket)
 - 邦訳: [Bitbucket Cloud ドキュメント - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-cloud-documentation-221448814.html)
   - [Webhook を管理する - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html)
+  - [Bitbucket Cloud で Web サイトを公開する - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html)
 
 ## Pipelines
 
