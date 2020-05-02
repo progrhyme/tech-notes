@@ -292,7 +292,20 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;span style="color:#000"> zone&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;us-central1-c&amp;#34;&lt;/span>
 &lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;3.19.0&amp;#34;&lt;/span>
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="resources">Resources&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>credentials&lt;/code>
+&lt;ul>
+&lt;li>GCPのサービスアカウントキー（JSON）のパスまたは内容&lt;/li>
+&lt;li>環境変数 &lt;code>GOOGLE_CREDENTIALS&lt;/code> or &lt;code>GOOGLE_CLOUD_KEYFILE_JSON&lt;/code> or &lt;code>GCLOUD_KEYFILE_JSON&lt;/code> による指定も可能。&lt;/li>
+&lt;li>指定がない場合、&lt;a href="https://cloud.google.com/docs/authentication/production">Application Default Credentials&lt;/a>にフォールバックする&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>See also:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/backend/#gcs">Backends#gcs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="resources">Resources&lt;/h2>
 &lt;h3 id="gcp-iam-api-billing-organization">GCP (IAM, API, Billing, Organization)&lt;/h3>
 &lt;p>Providerリファレンスで、「Google Cloud Platform Resources」というカテゴリに属するもの。&lt;/p>
 &lt;ul>
