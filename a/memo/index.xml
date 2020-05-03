@@ -1,4 +1,20 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-02</title><link>https://progrhy.me/tech-notes/a/memo/20200502/</link><pubDate>Sat, 02 May 2020 00:06:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200502/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
+&lt;h2 id="53">5/3&lt;/h2>
+&lt;h3 id="github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる">GitHub Actionsには今ビルドを手動トリガーするネイティブ機能はない（が、同等のことはできる）&lt;/h3>
+&lt;p>Bitbucket Pipelinesの &lt;code>trigger: manual&lt;/code> みたいな機能がリファレンス見てもなさそうだなと思ってググってみたら、なさそうだとわかった。&lt;/p>
+&lt;p>フィーチャーリクエストが出ている:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.community/t5/GitHub-Actions/GitHub-Actions-Manual-Trigger-Approvals/td-p/31504">GitHub Actions Manual Trigger / Approvals - GitHub Community Forum&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>擬似的に同等のことはできる。以下、参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/proudust/items/51599abd2b107b708e1e">GitHub Actions で手動トリガーのワークフローを作る - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/58933155/manual-workflow-triggers-in-github-actions">docker - Manual workflow triggers in Github Actions - Stack Overflow&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>on.watch.types [stared]&lt;/code> でstarをフックにしている例が面白いw&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-02</title><link>https://progrhy.me/tech-notes/a/memo/20200502/</link><pubDate>Sat, 02 May 2020 00:06:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200502/</guid><description>
 &lt;h2 id="52">5/2&lt;/h2>
 &lt;h3 id="bitbucket-pipelinesでgcpに対してterraformを適用するには">Bitbucket PipelinesでGCPに対してTerraformを適用するには&lt;/h3>
 &lt;p>※Qiitaに移しました:&lt;/p>
