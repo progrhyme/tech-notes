@@ -16,6 +16,16 @@ https://help.github.com/en/actions
 - [Workflow syntax for GitHub Actions - GitHub Help](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 - [Virtual environments for GitHub-hosted runners - GitHub Help](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners) ... `runs-on` でサポートされている実行環境
 
+## 既知の制限事項
+
+2020-05-03更新
+
+- ビルドを手動トリガーするネイティブ機能がない
+  - [2020-05-03に調べたログ]({{< ref "/a/memo/20200503.md" >}}#github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる)
+  - ※ワークアラウンドは可能
+- YAMLアンカーがサポートされていない
+  - [Support for YAML anchors - GitHub Community Forum](https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336)
+
 ## Getting Started
 
 https://github.com/actions/starter-workflows ... 初心者向けワークフローサンプル集
