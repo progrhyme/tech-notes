@@ -25,6 +25,9 @@ https://help.github.com/en/actions
   - ※ワークアラウンドは可能
 - YAMLアンカーがサポートされていない
   - [Support for YAML anchors - GitHub Community Forum](https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336)
+- デフォルトではSlackインテグレーションで、ビルド結果通知を受け取れない。
+  - 3rd Partyのactionを使えば可能。incoming webhookと組み合わせる
+  - プルリクエストに紐付いたビルドの結果はわかるっぽい
 
 ## Getting Started
 

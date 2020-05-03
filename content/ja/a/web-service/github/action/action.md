@@ -103,6 +103,24 @@ jobs:
 
 ## 3rd Party Actions
 
+### Slack通知用
+
+- [8398a7/action-slack](https://github.com/8398a7/action-slack) ... メッセージ等のカスタマイズの余地はなさそうだが、必要十分な感ある
+- [rtCamp/action-slack-notify](https://github.com/rtCamp/action-slack-notify) ... 通知先チャネルも設定可能で、よさそう
+
+### Deployments作成用
+
+Deploymentsについては See [GitHub#Deployments]({{< ref "/a/web-service/github/_index.md" >}}#deployments)
+
+NOTE:
+
+- 後掲のpeaceiris/actions-gh-pagesのように、内部的にDeploymentを作成するactionもあるようだ。
+
+Actions:
+
+- [bobheadxi/deployments](https://github.com/bobheadxi/deployments)
+- [chrnorm/deployment-action](https://github.com/chrnorm/deployment-action)
+
 ### hashicorp/terraform-github-actions
 
 https://github.com/hashicorp/terraform-github-actions
