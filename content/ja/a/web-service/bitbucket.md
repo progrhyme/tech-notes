@@ -34,9 +34,13 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
 
 - [Build, test, and deploy with Pipelines](https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
 - 邦訳: [Pipelines を使用したビルド、テスト、およびデプロイ](https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
-  - [YAML アンカー - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html)
-  - [Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html)
+  - [YAML アンカー](https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html)
+  - [Bitbucket Pipelines の FAQ](https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html)
 - デモリポジトリ: https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC
+
+参考:
+
+- [【初心者向け】bitbucket-pipelinesのキーワードとTips - Qiita](https://qiita.com/mochio/items/33584357e924f55f9023)
 
 ### プルリクエストで実行する
 
@@ -101,6 +105,21 @@ Tips:
 
 - 「secure」チェックをONにすると、パイプラインの実行ログ上でもマスクされ、表示されなくなる
   - `$MY_SECRET` のように表示される
+
+### Deployments
+
+Documentation:
+
+- [Bitbucket Deployments - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-deployments-940695276.html)
+  - [Bitbucket Deployments のセットアップ](https://ja.confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html)
+  - [ロールバック](https://ja.confluence.atlassian.com/bitbucket/rollbacks-981147477.html)
+
+NOTE:
+
+- Deployments設定で、デプロイ先環境の管理ができる。
+- bitbucket-pipelines.ymlのstep設定で `deployment: Production` などと指定すると、そのstepのビルドがデプロイ先環境と紐付けられる。
+- ダッシュボードで履歴が確認できる
+- ロールバックもGUIぽちぽちで行ける
 
 ### パイプラインをトリガーせずにコミット
 
