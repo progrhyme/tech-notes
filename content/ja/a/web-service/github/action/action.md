@@ -103,6 +103,115 @@ jobs:
 
 ## 3rd Party Actions
 
+### hashicorp/terraform-github-actions
+
+https://github.com/hashicorp/terraform-github-actions
+
+terraformを実行するaction
+
+ドキュメント:
+
+- 上のREADME
+- https://www.terraform.io/docs/github-actions/
+
+NOTE:
+
+- デフォルト設定でプルリクエストにfmt, validate, planの結果をコメントしてくれて便利。
+
+#### 例: terraform fmt -> validate -> plan
+
+```YAML
+name: terraform plan
+
+on: pull_request
+
+env:
+  tf_version: '0.12.24'
+  tf_work_dir: '.'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: terraform fmt
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: fmt
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+
+      - name: terraform init
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: init
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+
+      - name: terraform validate
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: validate
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+
+      - name: terraform plan
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: plan
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+```
+
+#### 例: terraform plan -> apply
+
+```YAML
+name: terraform apply
+
+on:
+  push:
+    branches:
+      - master
+env:
+  tf_version: '0.12.24'
+  tf_work_dir: '.'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: terraform init
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: init
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+
+      - name: terraform plan
+        id: plan
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: plan
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+
+      - name: terraform apply
+        # planの差分がある時のみ実行
+        if: ${{ steps.plan.outputs.tf_actions_plan_has_changes == 'true' }}
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: ${{ env.tf_version }}
+          tf_actions_subcommand: apply
+          tf_actions_working_dir: ${{ env.tf_work_dir }}
+```
+
 ### peaceiris/actions-gh-pages
 
 https://github.com/peaceiris/actions-gh-pages
