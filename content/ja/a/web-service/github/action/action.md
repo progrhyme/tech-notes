@@ -8,9 +8,9 @@ date: 2020-04-26T14:28:26+09:00
 
 ## Actionとは
 
-[About actions - GitHub Help](https://help.github.com/en/actions/building-actions/about-actions#types-of-actions)
+アクションは、ワークフロー内で実行される個々のタスク。
 
-actionはワークフローで実行される処理（タスク）を再利用可能な形にパッケージしたものである。
+[About actions - GitHub Help](https://help.github.com/en/actions/building-actions/about-actions)
 
 ### Actionの形式
 

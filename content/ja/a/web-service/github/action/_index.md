@@ -6,8 +6,10 @@ description: >
 date: 2020-04-26T14:16:09+09:00
 ---
 
-CI/CD等のワークフローを自動実行できるサービス。  
+GitHubのリポジトリに対してCI/CD等のワークフローを自動実行できるサービス。  
 [2019年11月に正式リリースされた](https://github.blog/jp/2019-11-14-universe-day-one/)。
+
+※2020-05-03 このページの内容を元に、[Qiitaに投稿した](https://qiita.com/progrhyme/items/56c24b3731deffcd4481)。
 
 ## Documentation
 
@@ -30,9 +32,10 @@ https://help.github.com/en/actions
   - ※ワークアラウンドは可能
 - YAMLアンカーがサポートされていない
   - [Support for YAML anchors - GitHub Community Forum](https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336)
-- デフォルトではSlackインテグレーションで、ビルド結果通知を受け取れない。
+- デフォルトでは[公式のSlackインテグレーション](https://github.com/integrations/slack#configuration)で、ビルド結果通知を受け取れない。
+  - 該当するfeatureがない
   - 3rd Partyのactionを使えば可能。incoming webhookと組み合わせる
-  - プルリクエストに紐付いたビルドの結果はわかるっぽい
+  - プルリクエストに紐付いたビルドの結果はわかるようだ
 
 ## Getting Started
 
@@ -114,8 +117,8 @@ NOTE:
 
 リファレンス:
 
-- branchやtagについて -> [on.<push|pull_request>.<branches|tags>](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)
-- pathについて -> [on.<push|pull_request>.paths](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)
+- branchやtagについて -> [on\.\<push\|pull_request\>\.\<branches\|tags\>](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)
+- pathについて -> [on\.\<push\|pull_request\>\.paths](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)
 
 ### 複数の実行環境に対応する
 
