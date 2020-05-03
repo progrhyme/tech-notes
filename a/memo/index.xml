@@ -1,81 +1,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-02</title><link>https://progrhy.me/tech-notes/a/memo/20200502/</link><pubDate>Sat, 02 May 2020 00:06:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200502/</guid><description>
 &lt;h2 id="52">5/2&lt;/h2>
 &lt;h3 id="bitbucket-pipelinesでgcpに対してterraformを適用するには">Bitbucket PipelinesでGCPに対してTerraformを適用するには&lt;/h3>
-&lt;p>必要なもの:&lt;/p>
+&lt;p>※Qiitaに移しました:&lt;/p>
 &lt;ul>
-&lt;li>必要な権限が付与されたService Account Key&lt;/li>
-&lt;li>GCPで必要なAPIを有効化
-&lt;ul>
-&lt;li>操作対象のリソースによって異なる。以下は例:
-&lt;ul>
-&lt;li>Cloud Resource Manager API &amp;hellip; Service Accountの作成に必要だった&lt;/li>
-&lt;li>Compute Engine API &amp;hellip; GCEインスタンス作成などで必要そう&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/ed96d42dd811063a24c2">Bitbucket PipelinesでGCPに対してTerraformでインフラCI/CDする - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>手順:&lt;/p>
-&lt;ol>
-&lt;li>Service Account Keyを作り、JSON形式で取得&lt;/li>
-&lt;li>
-&lt;ol>
-&lt;li>をBitbucketのリポジトリ変数にsecure変数として設定。キーはなんでもいいが、ここでは &lt;code>GOOGLE_CREDENTIALS_DATA&lt;/code> とする。Base64化は不要&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>下のような &lt;code>bitbucket-pipelines.yml&lt;/code> を用意する&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">image&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hashicorp/terraform&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.12.24&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">definitions&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;amp;terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>plan&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${GOOGLE_CREDENTIALS_DATA}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- export&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>init&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>plan&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;amp;terraform-apply&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apply&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;${GOOGLE_CREDENTIALS_DATA}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- export&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOOGLE_APPLICATION_CREDENTIALS=service-account-key.json&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>init&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- terraform&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apply&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-input=&lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--auto-approve&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#39;**&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">master&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-apply&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>manual&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上は、masterを除く任意のbranchに対する更新で &lt;code>terraform plan&lt;/code> を実行し、master branchにおいては、 &lt;code>terraform plan&lt;/code> を自動実行した後、マニュアルで &lt;code>terraform apply&lt;/code> を実行する。&lt;/p>
-&lt;p>branch更新でなく、プルリクエスト駆動にすることもできる。&lt;br>
-上の例で、 &lt;code>pipelines&lt;/code> 以下のみ、次のように変更してみる:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pull-requests&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">feature/*&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">branches&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">master&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-plan&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">*terraform-apply&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>manual&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで、 &lt;code>feature/*&lt;/code> にマッチするbranchからのPRにより、 &lt;code>terraform plan&lt;/code> が実行される。&lt;br>
-PRした後、branchを更新すればパイプラインが再実行される。&lt;/p>
-&lt;p>任意のbranchによるPRを対象にしたい場合は、 &lt;code>feature/*&lt;/code> の代わりに &lt;code>'**'&lt;/code> と記せば良い。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html">YAML アンカー - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200501/#ci%E3%81%A7gcp%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6terraform%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">2020-05-01に調べたログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/web-service/bitbucket/">Bitbucketについてのメモ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>（5/3追記）&lt;/p>
+&lt;p>下の記事を見て、 &lt;code>GOOGLE_CREDENTIALS&lt;/code> はパス名じゃなくてサービスアカウントキーのJSONままでも行けると気づいた。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kentakozuka/items/e0d356df38f29ee7587e">Github Actions で GCPに向けてTerraform を実行する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="yamlで配列のマージはできなさそう">YAMLで配列のマージはできなさそう&lt;/h3>
 &lt;p>ハッシュのマージはアンカーとエイリアスでできるのだけど、配列のマージはできなさそう。&lt;/p>

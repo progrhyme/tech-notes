@@ -29,11 +29,15 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Build, test, and deploy with Pipelines&lt;/a>&lt;/li>
 &lt;li>邦訳: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Pipelines を使用したビルド、テスト、およびデプロイ&lt;/a>
 &lt;ul>
-&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html">YAML アンカー - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html">YAML アンカー&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>デモリポジトリ: &lt;a href="https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC">https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mochio/items/33584357e924f55f9023">【初心者向け】bitbucket-pipelinesのキーワードとTips - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="プルリクエストで実行する">プルリクエストで実行する&lt;/h3>
 &lt;p>ドキュメント: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
@@ -87,6 +91,23 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;li>&lt;code>$MY_SECRET&lt;/code> のように表示される&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h3 id="deployments">Deployments&lt;/h3>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-deployments-940695276.html">Bitbucket Deployments - アトラシアン製品ドキュメント&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html">Bitbucket Deployments のセットアップ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/rollbacks-981147477.html">ロールバック&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Deployments設定で、デプロイ先環境の管理ができる。&lt;/li>
+&lt;li>bitbucket-pipelines.ymlのstep設定で &lt;code>deployment: Production&lt;/code> などと指定すると、そのstepのビルドがデプロイ先環境と紐付けられる。&lt;/li>
+&lt;li>ダッシュボードで履歴が確認できる&lt;/li>
+&lt;li>ロールバックもGUIぽちぽちで行ける&lt;/li>
 &lt;/ul>
 &lt;h3 id="パイプラインをトリガーせずにコミット">パイプラインをトリガーせずにコミット&lt;/h3>
 &lt;p>コミットメッセージに &lt;code>[skip ci]&lt;/code> または &lt;code>[ci skip]&lt;/code> を含める。&lt;/p>
