@@ -1354,7 +1354,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/proudust/items/51599abd2b107b708e1e">GitHub Actions で手動トリガーのワークフローを作る - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/58933155/manual-workflow-triggers-in-github-actions">docker - Manual workflow triggers in Github Actions - Stack Overflow&lt;/a>
 &lt;ul>
-&lt;li>&lt;code>on.watch.types [stared]&lt;/code> でstarをフックにしている例が面白いw&lt;/li>
+&lt;li>&lt;code>on.watch.types: [stared]&lt;/code> でstarをフックにしている例が面白いw&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-05-02</title><link>https://progrhy.me/tech-notes/a/memo/20200502/</link><pubDate>Sat, 02 May 2020 00:06:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200502/</guid><description>
