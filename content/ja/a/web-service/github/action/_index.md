@@ -43,6 +43,44 @@ NOTE:
 - pushをトリガーにしたり、定期的に実行したりできる
   - See https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
 
+### プルリクエストで実行する
+
+任意のプルリクエストでtestを実行し、masterブランチへのマージでのみdeployを実行する設定例（2ファイル）:
+
+```YAML
+# test.yml
+name: test
+on: pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest
+      steps:
+        # tasks for testing
+---
+# deploy.yml
+name: deploy
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged == true }}
+      steps:
+        # tasks for deployment
+```
+
+NOTE:
+
+- デフォルトでは `pull_request` eventでは `types: [opened, synchronize, reopend]` でしか実行されない。 `test` のときはこれになっている。
+  - https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+
+参考:
+
+- [Solved: Re: Trigger workflow only on pull request MERGE - GitHub Community Forum](https://github.community/t5/GitHub-Actions/Trigger-workflow-only-on-pull-request-MERGE/td-p/43201) ... Solutionは間違ってるので注意
+
 ### 対象branchやpathをフィルタする
 
 Example:
@@ -62,6 +100,12 @@ on:
     paths-ignore:
       - 'docs/**'
 ```
+
+NOTE:
+
+- `branches` と `branches-ignore` は**併用不可**
+- `tags` と `tags-ignore` は**併用不可**
+- `paths` と `paths-ignore` は（たぶん）併用可
 
 リファレンス:
 
