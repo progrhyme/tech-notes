@@ -6,6 +6,11 @@
 &lt;ul>
 &lt;li>&lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions">Workflow syntax for GitHub Actions - GitHub Help&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners">Virtual environments for GitHub-hosted runners - GitHub Help&lt;/a> &amp;hellip; &lt;code>runs-on&lt;/code> でサポートされている実行環境&lt;/li>
+&lt;li>&lt;a href="https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions">Context and expression syntax for GitHub Actions - GitHub Help&lt;/a> &amp;hellip; &lt;code>${{ &amp;lt;expression&amp;gt; }}&lt;/code> 形式でYAMLに埋め込める式表現とか、 &lt;code>if: ${{ &amp;lt;expression&amp;gt; }}&lt;/code> によるガード条件について&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/HeRo/items/935d5e268208d411ab5a">Github Actionsの使い方メモ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="既知の制限事項">既知の制限事項&lt;/h2>
 &lt;p>2020-05-03更新&lt;/p>
