@@ -15,6 +15,11 @@ https://help.github.com/en/actions
 
 - [Workflow syntax for GitHub Actions - GitHub Help](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 - [Virtual environments for GitHub-hosted runners - GitHub Help](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners) ... `runs-on` でサポートされている実行環境
+- [Context and expression syntax for GitHub Actions - GitHub Help](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions) ... `${{ <expression> }}` 形式でYAMLに埋め込める式表現とか、 `if: ${{ <expression> }}` によるガード条件について
+
+参考:
+
+- [Github Actionsの使い方メモ - Qiita](https://qiita.com/HeRo/items/935d5e268208d411ab5a)
 
 ## 既知の制限事項
 
