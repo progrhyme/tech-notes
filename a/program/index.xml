@@ -408,13 +408,18 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>設定画面を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>&lt;code>Ctrl+p&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+p&lt;/code>&lt;/td>
+&lt;td>ファイルを検索して開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
 &lt;td>コマンドパレットを開く&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>Ctrl+Shift+x&lt;/code>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>&lt;code>⌘+Shift+x&lt;/code>&lt;/td>
 &lt;td>拡張機能を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -444,6 +449,12 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">keyboard-shortcuts-linux.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">keyboard-shortcuts-macos.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">keyboard-shortcuts-windows.pdf&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/oruponu/items/ae9c720d4522c1606daf">Visual Studio Code キーボード ショートカット - Qiita&lt;/a>&lt;/li>

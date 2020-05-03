@@ -1268,13 +1268,18 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>設定画面を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>&lt;code>Ctrl+p&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+p&lt;/code>&lt;/td>
+&lt;td>ファイルを検索して開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
+&lt;td>&lt;code>⌘+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
 &lt;td>コマンドパレットを開く&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>Ctrl+Shift+x&lt;/code>&lt;/td>
-&lt;td>&lt;/td>
+&lt;td>&lt;code>⌘+Shift+x&lt;/code>&lt;/td>
 &lt;td>拡張機能を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -1304,6 +1309,12 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">keyboard-shortcuts-linux.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">keyboard-shortcuts-macos.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">keyboard-shortcuts-windows.pdf&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/oruponu/items/ae9c720d4522c1606daf">Visual Studio Code キーボード ショートカット - Qiita&lt;/a>&lt;/li>
@@ -2906,6 +2917,14 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;h3 id="ssm_parameter-1">ssm_parameter&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html&lt;/a>&lt;/p>
 &lt;p>EC2 Parameter Storeにデータを保存する。&lt;/p></description></item><item><title>A: Google</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</link><pubDate>Sun, 26 Apr 2020 23:20:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</guid><description>
+&lt;h2 id="versions">Versions&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/guides/provider_versions.html">https://www.terraform.io/docs/providers/google/guides/provider_versions.html&lt;/a>&lt;/p>
+&lt;p>β機能をサポートした &lt;a href="https://github.com/terraform-providers/terraform-provider-google-beta">google-beta&lt;/a> というProviderもある。&lt;/p>
+&lt;p>「要するに、ふつうの &lt;code>gcloud&lt;/code> コマンドの代わりに &lt;code>gcloud beta&lt;/code> コマンドを使うようなもの」&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>両Providerの併用も可能だが、beta -&amp;gt; 無印への移行時には作業が必要&lt;/li>
+&lt;/ul>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/guides/provider_reference.html">Google Provider Configuration Reference - Terraform by HashiCorp&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
@@ -2953,6 +2972,11 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_instance.html">google_compute_instance&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html">google_compute_managed_ssl_certificate&lt;/a> &amp;hellip; β (2020-03-18) HTTPS LBのためのマネージドTLS証明書&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_security_policy.html">google_compute_security_policy&lt;/a> &amp;hellip; Cloud Armorのセキュリティポリシー&lt;/li>
+&lt;/ul>
+&lt;h3 id="gke関連">GKE関連&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/container_cluster.html">google_container_cluster&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/container_node_pool.html">google_container_node_pool&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="storage-gcs-系">storage (GCS) 系&lt;/h3>
 &lt;ul>
