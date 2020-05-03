@@ -3013,8 +3013,8 @@ sudo apt install golang-go
 &lt;li>&lt;a href="https://github.com/marketplace?type=actions">Marketplace&lt;/a> &amp;hellip; 公開されているactionを見つけられる。&lt;/li>
 &lt;/ul>
 &lt;h2 id="actionとは">Actionとは&lt;/h2>
-&lt;p>&lt;a href="https://help.github.com/en/actions/building-actions/about-actions#types-of-actions">About actions - GitHub Help&lt;/a>&lt;/p>
-&lt;p>actionはワークフローで実行される処理（タスク）を再利用可能な形にパッケージしたものである。&lt;/p>
+&lt;p>アクションは、ワークフロー内で実行される個々のタスク。&lt;/p>
+&lt;p>&lt;a href="https://help.github.com/en/actions/building-actions/about-actions">About actions - GitHub Help&lt;/a>&lt;/p>
 &lt;h3 id="actionの形式">Actionの形式&lt;/h3>
 &lt;p>&lt;a href="https://help.github.com/en/actions/building-actions/about-actions#types-of-actions">https://help.github.com/en/actions/building-actions/about-actions#types-of-actions&lt;/a>&lt;/p>
 &lt;table>

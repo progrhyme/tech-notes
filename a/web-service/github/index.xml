@@ -1,6 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><description>Recent content in GitHub on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 13:50:09 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/github/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GitHub Actions</title><link>https://progrhy.me/tech-notes/a/web-service/github/action/</link><pubDate>Sun, 26 Apr 2020 14:16:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/action/</guid><description>
-&lt;p>CI/CD等のワークフローを自動実行できるサービス。&lt;br>
+&lt;p>GitHubのリポジトリに対してCI/CD等のワークフローを自動実行できるサービス。&lt;br>
 &lt;a href="https://github.blog/jp/2019-11-14-universe-day-one/">2019年11月に正式リリースされた&lt;/a>。&lt;/p>
+&lt;p>※2020-05-03 このページの内容を元に、&lt;a href="https://qiita.com/progrhyme/items/56c24b3731deffcd4481">Qiitaに投稿した&lt;/a>。&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://help.github.com/en/actions">https://help.github.com/en/actions&lt;/a>&lt;/p>
 &lt;ul>
@@ -26,10 +27,11 @@
 &lt;li>&lt;a href="https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336">Support for YAML anchors - GitHub Community Forum&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>デフォルトではSlackインテグレーションで、ビルド結果通知を受け取れない。
+&lt;li>デフォルトでは&lt;a href="https://github.com/integrations/slack#configuration">公式のSlackインテグレーション&lt;/a>で、ビルド結果通知を受け取れない。
 &lt;ul>
+&lt;li>該当するfeatureがない&lt;/li>
 &lt;li>3rd Partyのactionを使えば可能。incoming webhookと組み合わせる&lt;/li>
-&lt;li>プルリクエストに紐付いたビルドの結果はわかるっぽい&lt;/li>
+&lt;li>プルリクエストに紐付いたビルドの結果はわかるようだ&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
