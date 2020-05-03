@@ -7,6 +7,21 @@
 &lt;li>&lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions">Workflow syntax for GitHub Actions - GitHub Help&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners">Virtual environments for GitHub-hosted runners - GitHub Help&lt;/a> &amp;hellip; &lt;code>runs-on&lt;/code> でサポートされている実行環境&lt;/li>
 &lt;/ul>
+&lt;h2 id="既知の制限事項">既知の制限事項&lt;/h2>
+&lt;p>2020-05-03更新&lt;/p>
+&lt;ul>
+&lt;li>ビルドを手動トリガーするネイティブ機能がない
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200503/#github-actions%E3%81%AB%E3%81%AF%E4%BB%8A%E3%83%93%E3%83%AB%E3%83%89%E3%82%92%E6%89%8B%E5%8B%95%E3%83%88%E3%83%AA%E3%82%AC%E3%83%BC%E3%81%99%E3%82%8B%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E6%A9%9F%E8%83%BD%E3%81%AF%E3%81%AA%E3%81%84%E3%81%8C%E5%90%8C%E7%AD%89%E3%81%AE%E3%81%93%E3%81%A8%E3%81%AF%E3%81%A7%E3%81%8D%E3%82%8B">2020-05-03に調べたログ&lt;/a>&lt;/li>
+&lt;li>※ワークアラウンドは可能&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>YAMLアンカーがサポートされていない
+&lt;ul>
+&lt;li>&lt;a href="https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336">Support for YAML anchors - GitHub Community Forum&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://github.com/actions/starter-workflows">https://github.com/actions/starter-workflows&lt;/a> &amp;hellip; 初心者向けワークフローサンプル集&lt;/p>
 &lt;h2 id="workflowの作成">Workflowの作成&lt;/h2>
