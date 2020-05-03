@@ -6,6 +6,18 @@ description: >
 date: 2020-04-26T23:20:30+09:00
 ---
 
+## Versions
+
+https://www.terraform.io/docs/providers/google/guides/provider_versions.html
+
+β機能をサポートした [google-beta](https://github.com/terraform-providers/terraform-provider-google-beta) というProviderもある。
+
+「要するに、ふつうの `gcloud` コマンドの代わりに `gcloud beta` コマンドを使うようなもの」
+
+NOTE:
+
+- 両Providerの併用も可能だが、beta -> 無印への移行時には作業が必要
+
 ## Configuration
 
 [Google Provider Configuration Reference - Terraform by HashiCorp](https://www.terraform.io/docs/providers/google/guides/provider_reference.html)
@@ -57,6 +69,11 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 - [google_compute_instance](https://www.terraform.io/docs/providers/google/r/compute_instance.html)
 - [google_compute_managed_ssl_certificate](https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html) ... β (2020-03-18) HTTPS LBのためのマネージドTLS証明書
 - [google_compute_security_policy](https://www.terraform.io/docs/providers/google/r/compute_security_policy.html) ... Cloud Armorのセキュリティポリシー
+
+### GKE関連
+
+- [google_container_cluster](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
+- [google_container_node_pool](https://www.terraform.io/docs/providers/google/r/container_node_pool.html)
 
 ### storage (GCS) 系
 

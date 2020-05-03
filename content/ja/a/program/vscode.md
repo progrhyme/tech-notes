@@ -131,13 +131,20 @@ settings.jsonで `"[ruby]": {}` などのエントリを作って、その中に
  Win/Linux | Mac | 機能
 ---------------|-------|---------
  `Ctrl+,` | `⌘+,` | 設定画面を開く
- `Ctrl+Shift+p` |  | コマンドパレットを開く
- `Ctrl+Shift+x` |  | 拡張機能を開く
+ `Ctrl+p` | `⌘+p` | ファイルを検索して開く
+ `Ctrl+Shift+p`, `F1` | `⌘+Shift+p`, `F1` | コマンドパレットを開く
+ `Ctrl+Shift+x` | `⌘+Shift+x` | 拡張機能を開く
  `Ctrl+Shift+@` | `⌘+Shift+@` | ターミナルを開く
  `Ctrl+k v` | `⌘+k v` | Markdownファイルのプレビュー画面をサイドバイサイドで表示
  `Ctrl+Shift+v` | `⌘+Shift+v` | Markdownファイルのプレビュー画面を別タブで表示
  `Ctrl+k Ctrl+s` | `⌘+k ⌘+s` | キーバインド一覧を開く
  `Ctrl+k Ctrl+t` | `⌘+k ⌘+t` | カラーテーマ(配色)設定
+
+リファレンス:
+
+- [keyboard-shortcuts-linux.pdf](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+- [keyboard-shortcuts-macos.pdf](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+- [keyboard-shortcuts-windows.pdf](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 参考:
 
