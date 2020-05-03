@@ -134,7 +134,7 @@ terraformを実行するaction
 
 NOTE:
 
-- デフォルト設定でプルリクエストにfmt, validate, planの結果をコメントしてくれて便利。
+- デフォルト設定でプルリクエストにfmt, validate, plan, applyの結果をコメントしてくれて便利。
 
 #### 例: terraform fmt -> validate -> plan
 
