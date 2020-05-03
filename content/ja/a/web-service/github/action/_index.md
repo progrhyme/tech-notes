@@ -14,6 +14,7 @@ CI/CD等のワークフローを自動実行できるサービス。
 https://help.github.com/en/actions
 
 - [Workflow syntax for GitHub Actions - GitHub Help](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [Virtual environments for GitHub-hosted runners - GitHub Help](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners) ... `runs-on` でサポートされている実行環境
 
 ## Getting Started
 
@@ -22,6 +23,8 @@ https://github.com/actions/starter-workflows ... 初心者向けワークフロ�
 ## Workflowの作成
 
 https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
+
+NOTE:
 
 - プロジェクトの `.github/workflows/` ディレクトリ下にYAMLファイルを作成する
 - pushをトリガーにしたり、定期的に実行したりできる
@@ -67,9 +70,82 @@ strategy:
     node: [6, 8, 10]
 ```
 
+### Dockerコンテナ上でビルド実行
+
+`jobs.<job_id>.container` で指定する。
+
+https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer
+
+Examples:
+
+```YAML
+jobs:
+  my_job:
+    container: node:10.16-jessie
+
+---
+jobs:
+  my_job:
+    container:
+      image: node:10.16-jessie
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
+```
+
+[starter-workflows](https://github.com/actions/starter-workflows)にも参考になるサンプルがある。以下は例:
+
+- https://github.com/actions/starter-workflows/blob/master/ci/erlang.yml
+
+### 環境変数を設定する
+
+https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#env
+
+いくつかの箇所で設定できる。それぞれ適用範囲が異なる。
+
+ 設定位置 | 適用範囲
+----------|----------
+ `env` | for all jobs and steps
+ `jobs.<job_id>.env` | for all steps in the job
+ `jobs.<job_id>.steps.env` | for the step
+ `jobs.<job_id>.container.env` | for the container to run steps in the job
+
+Examples:
+
+```YAML
+env:
+  SERVER: production
+
+---
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    env:
+      MY_VAR: Hi there! My name is
+    steps:
+    - name: Print a greeting
+      env:
+        FIRST_NAME: Mona
+        MIDDLE_NAME: The
+        LAST_NAME: Octocat
+      run: |
+        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+```
+
+See also [#変数やシークレットの利用](#変数やシークレットの利用)
+
 ## 変数やシークレットの利用
 
-https://help.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
+Documents:
+
+- https://help.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
+  - [Creating and storing encrypted secrets - GitHub Help](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
+  - [Using environment variables - GitHub Help](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables)
 
 ### GITHUB_TOKENによる認証
 
