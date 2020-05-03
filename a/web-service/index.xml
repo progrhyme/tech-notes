@@ -117,4 +117,11 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;ul>
 &lt;li>邦訳: &lt;a href="https://help.github.com/ja">https://help.github.com/ja&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="deployments">Deployments&lt;/h2>
+&lt;p>Deploymentを作成するとリポジトリに「environment」というメニューができて、デプロイ履歴などが見えるようになる。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://help.github.com/en/github/administering-a-repository/viewing-deployment-activity-for-your-repository">Viewing deployment activity for your repository - GitHub Help&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.github.com/v3/repos/deployments/">Deployments | GitHub Developer Guide&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

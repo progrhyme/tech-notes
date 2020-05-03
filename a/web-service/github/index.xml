@@ -21,6 +21,12 @@
 &lt;li>&lt;a href="https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336">Support for YAML anchors - GitHub Community Forum&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>デフォルトではSlackインテグレーションで、ビルド結果通知を受け取れない。
+&lt;ul>
+&lt;li>3rd Partyのactionを使えば可能。incoming webhookと組み合わせる&lt;/li>
+&lt;li>プルリクエストに紐付いたビルドの結果はわかるっぽい&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://github.com/actions/starter-workflows">https://github.com/actions/starter-workflows&lt;/a> &amp;hellip; 初心者向けワークフローサンプル集&lt;/p>

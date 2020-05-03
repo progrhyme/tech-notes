@@ -84,6 +84,22 @@
 &lt;li>&lt;a href="https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml">https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="3rd-party-actions">3rd Party Actions&lt;/h2>
+&lt;h3 id="slack通知用">Slack通知用&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/8398a7/action-slack">8398a7/action-slack&lt;/a> &amp;hellip; メッセージ等のカスタマイズの余地はなさそうだが、必要十分な感ある&lt;/li>
+&lt;li>&lt;a href="https://github.com/rtCamp/action-slack-notify">rtCamp/action-slack-notify&lt;/a> &amp;hellip; 通知先チャネルも設定可能で、よさそう&lt;/li>
+&lt;/ul>
+&lt;h3 id="deployments作成用">Deployments作成用&lt;/h3>
+&lt;p>Deploymentsについては See &lt;a href="https://progrhy.me/tech-notes/a/web-service/github/#deployments">GitHub#Deployments&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>後掲のpeaceiris/actions-gh-pagesのように、内部的にDeploymentを作成するactionもあるようだ。&lt;/li>
+&lt;/ul>
+&lt;p>Actions:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/bobheadxi/deployments">bobheadxi/deployments&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/chrnorm/deployment-action">chrnorm/deployment-action&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="hashicorpterraform-github-actions">hashicorp/terraform-github-actions&lt;/h3>
 &lt;p>&lt;a href="https://github.com/hashicorp/terraform-github-actions">https://github.com/hashicorp/terraform-github-actions&lt;/a>&lt;/p>
 &lt;p>terraformを実行するaction&lt;/p>
