@@ -14,6 +14,9 @@ IT技術についての個人的なメモを書くサイトです。
 
 {{% alert title="NOTE" %}}
 [progrhyme's Tech Wiki](https://sites.google.com/site/progrhymetechwiki/)の後継となるサイトです。
+
+参考: ブログを書きました。
+- [技術メモを旧GoogleサイトからHugo + Docsyに移行している話 - progrhyme's tech blog](https://tech-progrhyme.hatenablog.com/entry/2020/04/26/tech-notes-by-hugo-docsy)
 {{% /alert %}}
 
 ## 作り方
