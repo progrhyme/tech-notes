@@ -15,12 +15,12 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>基本的なオブジェクト:&lt;/p>
+&lt;p>基本的なオブジェクト（* は本サイト内のページ）:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/">Pod&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/pod/">Pod&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/service/">Service&lt;/a> *&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volume&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace&lt;/a>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/namespace/">Namespace&lt;/a> *
 &lt;ul>
 &lt;li>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/li>
 &lt;/ul>
@@ -30,7 +30,7 @@
 これは基本オブジェクト上に構築され、以下のような便利な機能を提供する:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet&lt;/a> &amp;hellip; &lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/">Replication Controller&lt;/a>の後継。&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment&lt;/a> &amp;hellip; PodやReplicaSetの状態を宣言的に記述することを可能にする。&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/deployment/">Deployment&lt;/a> * &amp;hellip; PodやReplicaSetの状態を宣言的に記述することを可能にする。&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSet&lt;/a> &amp;hellip; v1.8でbeta. Deployment同様Podを管理するが、それぞれのPodを異なる個体と認識する。&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">DaemonSet&lt;/a> &amp;hellip; ノード上でPodのコピーを動かす。典型的なユースケースとしては、cephやfluentd, collectdなどが挙げられる。&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Job&lt;/a> &amp;hellip; Podを実行し、正常に完了するまでをトラッキングする。定められた回数、正常に完了したら、Jobも完了となる。&lt;/li>
