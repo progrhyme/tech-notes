@@ -34,8 +34,8 @@ See [Organizing Cluster Access Using kubeconfig Files - Kubernetes](https://kube
 
 - [kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita](https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2)
 
-
-## 環境設定 - config & context
+## ユースケース
+### 環境設定 - config & context
 
 ```sh
 ## kubeconfig 表示
@@ -55,8 +55,7 @@ kubectl config use-context <context-name>
 
 - [kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja)
 
-
-## 実行・公開
+### 実行・公開
 
 - run ... コンテナイメージを実行する。deploymentまたはjobが作られる。
 - expose ... リソースをクラスタ外にServiceとして公開する。
@@ -74,7 +73,7 @@ kubectl run <deployment-name> --image=<image-name> --port=<port>
 kubectl expose deployment <deployment-name> --type=NodePort
 ```
 
-## App Management
+### App Management
 
 - autoscale
 - scale ... 次のリソースのサイズを設定する:
@@ -92,38 +91,38 @@ kubectl scale --replicas=3 -f foo.yml
 kubectl scale --current-replicas=2 --replicas=3 deployment/mysql
 ```
 
-## リソース管理
-### 作成・更新
+### リソース管理
+#### 作成・更新
 
 - create/apply/replace ... JSON or YAMLのリソース定義ファイルを適用して、リソースを作成/更新する。
 - patch ... YAML/JSONのマージを用いて、リソース定義を差分更新する
 
 ```sh
-## create
+# create
 kubectl create -f <Path or URL of config file>
 
-### ファイルから Secret を作成
+## ファイルから Secret を作成
 kubectl create secret generic my-secret --from-file=./secret/secret.json
-### ファイルから ConfigMap を作成
+## ファイルから ConfigMap を作成
 kubectl create configmap my-config --from-file=./config/config.json
 
 
-## apply
+# apply
 kubectl apply -f <Path or URL of config file>
 
-### 例
+## 例
 kubectl apply -f https://k8s.io/docs/tasks/run-application/deployment.yaml
 kubectl apply -f ./pod.json
 
 
-## replace
+# replace
 kubectl replace -f <Path or URL of config file>
 
 
-## patch
+# patch
 kubectl patch <Resource Type> <Name> --patch <YAML Content>
 
-### 例
+## 例
 kubectl patch deployment patch-demo --patch "$(cat patch-file.yaml)"
 ```
 
@@ -135,7 +134,7 @@ kubectl patch deployment patch-demo --patch "$(cat patch-file.yaml)"
 - [kubectl applyとkubectl replaceの違いは何ですか - コードログ](https://codeday.me/jp/qa/20190406/566540.html)
 
 
-### Pod操作
+#### Pod操作
 
 - exec ... コマンドをコンテナ内で実行する
 - cp ... ファイルをクライアント環境とPod間でやりとり
@@ -157,7 +156,7 @@ kubectl cp <pod>:/path/to/remotefile /path/to/localfile
 - [kubernetes: コンテナイメージにログインする - Qiita](https://qiita.com/suzukihi724/items/515654f54538a2103ee0)
 
 
-### Node操作
+#### Node操作
 
 - cordon ... ノードへのスケジュールを停止
 - drain ... ノードからPodを削除
@@ -177,40 +176,61 @@ kubectl drain <node-name> --ignore-daemonsets
 - [kubernetesの無停止運用を意識した検証 – てっくぼっと！](https://blog.applibot.co.jp/2016/12/27/kubernetes-zero-downtime/)
 - [Kubernetes の drain について検証した時のメモ - Qiita](https://qiita.com/toshihirock/items/d22fee20b1a561b9efea)
 
-
-### 表示
+#### 表示
 
 - get ... 単一・複数リソースの情報を表示する。
 - describe ... 単一リソース or グループの情報を表示
 - diff ... リソースファイルとクラスタの状態を差分表示
 
 ```sh
-## get
+# get
 kubectl get deploy[ments]
-kubectl get po[ds]
+kubectl get po[ds] [-o json|yaml]
 
-### フィルタの例
+## フィルタの例
 kubectl get pods -l app=nginx
 
-## describe
+# describe
 kubectl describe pods # all pods
 kubectl describe pod <pod-name>
 kubectl describe deploy[ment] <deployment-name>
 
-## diff
+# diff
 kubectl diff -f foo.yml
-### kustomizeバージョン
+## kustomizeバージョン
 kubectl diff -k .
 ```
 
-### 削除
+#### 削除
 
 ```sh
 ## delete
 kubectl delete deployment <deployment-name>
 ```
 
-## ログ - logs
+## サブコマンド
+### apply
+
+基本的な利用イメージは[ユースケース > リソース管理 > 作成更新](#作成更新)を見よ。
+
+オプション:
+
+ オプション | デフォルト | 機能
+------------|------------|------
+ `--prune` | `false` | α in 2020-0505. <br />指定されてないリソースを削除する。ただし、<br /> `--save-config` オプション付きで作られたものは除く。<br /> `-l` フィルタか `--all` オプションと同時に使うべし
+ `--prune-whitelist` | `[]` | `--prune` で使うデフォルトのホワイトリストを上書きする
+
+Examples:
+
+```sh
+# app=nginxラベルのリソースにマニフェストを適用し、マニフェスト外のリソースを削除する
+kubectl apply --prune -f manifest.yaml -l app=nginx
+
+# マニフェストに書かれていないConfigMapを全て削除
+kubectl apply --prune -f manifest.yaml --all --prune-whitelist=core/v1/ConfigMap
+```
+
+### logs
 
 ```sh
 ## 基本構文
@@ -220,7 +240,9 @@ kubectl logs <Pod名> [Options]
 kubectl logs <Pod名> --tail=10 -f
 ```
 
-## API Proxy
+### proxy
+
+API Proxyサーバを起動する
 
 ```sh
 kubectl proxy --port=8080 &
