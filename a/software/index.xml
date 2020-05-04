@@ -307,6 +307,161 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: GNU make</title><link>https://progrhy.me/tech-notes/a/software/make/</link><pubDate>Mon, 04 May 2020 19:50:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/make/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>公式リファレンスは↑&lt;/p>
+&lt;p>サードパーティーのリファレンス的資料:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.ecoop.net/coop/translated/GNUMake3.77/make_toc.jp.html">GNU make 日本語訳(Coop編) - 目次&lt;/a> &amp;hellip; 1998年ぐらい。古い&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/chibi929/items/b8c5f36434d5d3fbfa4a">Makefileの関数 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;p>使えるMakefileの例&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">default&lt;/span> &lt;span style="color:#000">build&lt;/span> &lt;span style="color:#000">clean&lt;/span>
+&lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">build&lt;/span>
+&lt;span style="color:#000">clean&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+rm -rf dist/
+&lt;span style="color:#000">timestamp&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+date +%s &amp;gt; timestamp
+&lt;span style="color:#000">build&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">timestamp&lt;/span> &lt;span style="color:#000">another&lt;/span>-&lt;span style="color:#000">file&lt;/span>
+some_build_command
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>ターゲットの依存ターゲットは複数記すことができる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://objectclub.jp/community/memorial/homepage3.nifty.com/masarl/article/gnu-make/rule.html">- 自動化のためのGNU Make入門講座 - Makefileの基本：ルール&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="makefile-構文">Makefile 構文&lt;/h2>
+&lt;h3 id="変数">変数&lt;/h3>
+&lt;p>変数定義のやり方について。&lt;/p>
+&lt;p>&amp;ldquo;=&amp;rdquo; と &amp;ldquo;:=&amp;rdquo; は違う。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">src&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> foo.c
+&lt;span style="color:#000">ymd&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shell date +%Y%m%d&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://quruli.ivory.ne.jp/document/make_3.79.1/make-jp_5.html" title="GNU make: 6. 変数の使用法">GNU make: 6. 変数の使用法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="curdir">$(CURDIR)&lt;/h4>
+&lt;p>makeを実行しているプロセスのカレントディレクトリを返す。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.gnu.org/software/make/manual/html_node/Recursion.html">https://www.gnu.org/software/make/manual/html_node/Recursion.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/m-hiyama/20080805/1217915354" title="今日のMake Tips：CURDIR変数 - 檜山正幸のキマイラ飼育記">今日のMake Tips：CURDIR変数 - 檜山正幸のキマイラ飼育記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="関数">関数&lt;/h3>
+&lt;h4 id="foreach-name-list-command">$(foreach name, LIST, command)&lt;/h4>
+&lt;p>ループ実行&lt;/p>
+&lt;h3 id="phonyターゲット">.PHONYターゲット&lt;/h3>
+&lt;p>&lt;a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html&lt;/a>&lt;/p>
+&lt;p>ファイルを生成しないやつ&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">clean&lt;/span>
+&lt;span style="color:#000">clean&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+rm *.o tmp
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>複数の.PHONYターゲットをまとめて記述することもできる&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">all&lt;/span> &lt;span style="color:#000">clean&lt;/span> &lt;span style="color:#000">deps&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;p>&lt;a href="https://www.gnu.org/software/make/manual/make.html#Conditionals">7 Conditional Parts of Makefiles&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">libs_for_gcc&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> -lgnu
+&lt;span style="color:#000">normal_libs&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
+&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#a40000">ifeq&lt;/span> &lt;span style="color:#a40000">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">,gcc)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">libs_for_gcc&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#a40000">else&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">normal_libs&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#a40000">endif&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="makeコマンド">makeコマンド&lt;/h2>
+&lt;p>公式マニュアル:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.gnu.org/software/make/manual/make.html#Running">9 How to Run make&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.gnu.org/software/make/manual/make.html#Overriding">9.5 Overriding Variables&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.gnu.org/software/make/manual/make.html#Options-Summary">9.7 Summary of Options&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># デフォルトのタスク（＝最上部で定義されたタスク）を実行&lt;/span>
+make
+&lt;span style="color:#8f5902;font-style:italic"># タスク名を指定して実行。複数指定可&lt;/span>
+make task1 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>task2 ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Makefileを指定する&lt;/span>
+make -f&lt;span style="color:#000;font-weight:bold">|&lt;/span>--file &amp;lt;Makefile&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># dry-run&lt;/span>
+make -n&lt;span style="color:#000;font-weight:bold">|&lt;/span>--dry-run
+&lt;span style="color:#8f5902;font-style:italic"># 変数の設定&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Makefile内で定義されていれば、オーバーライドする&lt;/span>
+make &lt;span style="color:#000">CFLAGS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>-g
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>その他のオプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-j|--jobs[=N]&lt;/code>&lt;/td>
+&lt;td>同時実行数を指定。See &lt;a href="https://www.gnu.org/software/make/manual/make.html#Parallel">5.4 Parallel Execution&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-e|--environment-overrides&lt;/code>&lt;/td>
+&lt;td>環境変数をオーバーライドする&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-d&lt;/code>&lt;/td>
+&lt;td>デバッグ情報を表示。 &lt;code>--debug=a&lt;/code> と同じ&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>--trace&lt;/code>&lt;/td>
+&lt;td>実行時のトレース情報を表示する&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-s|--silent|--quiet&lt;/code>&lt;/td>
+&lt;td>実行されるタスクをプリントしない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-h|--help&lt;/code>&lt;/td>
+&lt;td>ヘルプ表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-v|--version&lt;/code>&lt;/td>
+&lt;td>バージョン表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="必要なディレクトリを作ってタスク実行">必要なディレクトリを作ってタスク実行&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">BUILD_DIR&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> path/to/build
+&lt;span style="color:#000">$(BUILD_DIR)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">all&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">BUILD_DIR&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> some_commands
+&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">all&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="環境変数の取扱い">環境変数の取扱い&lt;/h3>
+&lt;p>環境変数はMakeの変数として参照できる。例: &lt;code>$(CFLAGS)&lt;/code>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kojiohta/items/54b1a9f7d482c35dc4fa">GNU Make のふたつの変数の使い分け - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ecoop.net/coop/translated/GNUMake3.77/make_6.jp.html">GNU make 日本語訳(Coop編) - 変数の利用法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="コマンドに引数を渡したい">コマンドに引数を渡したい&lt;/h3>
+&lt;p>&lt;code>make CFAGS=-g&lt;/code> みたいに変数経由で渡すことになりそう。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/liubin/items/69d9faf804e82ddec376">Makefileにパラメータを渡す方法と条件文 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://itchyny.hatenablog.com/entry/20120213/1329135107">Makefileで遊ぼう 〜 階乗, フィボナッチ数, Brainfuck処理系まで - プログラムモグモグ&lt;/a>
+&lt;ul>
+&lt;li>入門レベルで割とよく使う感じの機能がまとまってる。&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: Hugo</title><link>https://progrhy.me/tech-notes/a/software/hugo/</link><pubDate>Sat, 25 Apr 2020 23:38:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/hugo/</guid><description>
 &lt;p>Go言語製の高速な静的サイトジェネレーター。&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>
