@@ -905,7 +905,15 @@ kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-wei
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="api-proxy">API Proxy&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
 curl http://localhost:8080/api/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p></description></item><item><title>A: Halyard</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</link><pubDate>Tue, 05 May 2020 00:27:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="全てのマニフェストを取得したい">全てのマニフェストを取得したい&lt;/h3>
+&lt;p>これでよさそう:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get all --export&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -o yaml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/24873">Is there a way to generate yml files that will produce the existing cluster? · Issue #24873 · kubernetes/kubernetes&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Halyard</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</link><pubDate>Tue, 05 May 2020 00:27:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</guid><description>
 &lt;p>Spinnakerの管理ツール。
 daemon + CLI.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
@@ -2829,7 +2837,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;h2 id="54">5/4&lt;/h2>
 &lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
 &lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>
-&lt;p>コード: &lt;a href="https://github.com/progrhyme/git-wraps/blob/2f4a4f321d43a17e6001bfb659747a62933499ce/bin/git-branch-sweep">git-wraps/bin/git-branch-sweep&lt;/a>&lt;/p>
+&lt;p>コード: &lt;a href="https://github.com/progrhyme/git-wraps/blob/e06f3238a5c6e0d1605e3de96b1a56d74a046953/bin/git-branch-sweep">git-wraps/bin/git-branch-sweep&lt;/a>&lt;/p>
 &lt;p>gitのaliasにも設定したかったので、オプションにも対応させた。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% git bsp -h
 NAME
