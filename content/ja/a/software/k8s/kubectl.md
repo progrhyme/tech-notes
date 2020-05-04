@@ -228,3 +228,16 @@ curl http://localhost:8080/api/
 ```
 
 See https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/
+
+## How-to
+### 全てのマニフェストを取得したい
+
+これでよさそう:
+
+```sh
+kubectl get all --export=true -o yaml
+```
+
+参考:
+
+- [Is there a way to generate yml files that will produce the existing cluster? · Issue #24873 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/24873)
