@@ -105,12 +105,16 @@ jobs:
 
 ### Slack通知用
 
+たくさんあるが、starが多くて目についたものを載せる:
+
 - [8398a7/action-slack](https://github.com/8398a7/action-slack) ... メッセージ等のカスタマイズの余地はなさそうだが、必要十分な感ある
 - [rtCamp/action-slack-notify](https://github.com/rtCamp/action-slack-notify) ... 通知先チャネルも設定可能で、よさそう
 
 ### Deployments作成用
 
 Deploymentsについては See [GitHub#Deployments]({{< ref "/a/web-service/github/_index.md" >}}#deployments)
+
+これもたくさんあるが、一部のみ掲載する。
 
 NOTE:
 

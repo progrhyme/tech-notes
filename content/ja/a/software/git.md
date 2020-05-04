@@ -140,6 +140,18 @@ git log --format="%H" # full commit hash のみ
 - [git logのオプションあれこれ - 煙と消えるその前に](http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104 "git logのオプションあれこれ - 煙と消えるその前に")
 - [git log をいい感じに alias して色付きで見やすくしておく - Qiita](http://qiita.com/key-amb/items/9ee8339d2da971581cfb "git log をいい感じに alias して色付きで見やすくしておく - Qiita")
 
+### pull
+
+https://git-scm.com/docs/git-pull
+
+```sh
+# リファレンスには書いてないが、fetch時に--pruneしてくれるらしい
+git pull --prune
+```
+
+参考:
+
+- [リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita](https://qiita.com/yuichielectric/items/84cd61915a1236f19221)
 
 ### rebase
 
@@ -254,8 +266,27 @@ git push <リモート> :<タグ名>
 
 - [【Git】tag関連コマンド - Qiita](https://qiita.com/chihiro/items/cba40015b1aa2c73b78a)
 
+## config
+### aliasの設定
 
-## Tips
+Examples:
+
+```
+[alias]
+    st  = status
+    dfc = diff --cached
+```
+
+Tips:
+
+- 右辺を `!` から記述すると外部コマンドを記述できる
+
+参考:
+
+- [gitで便利なエイリアス達 - Qiita](https://qiita.com/peccul/items/90dd469e2f72babbc106)
+- [git aliasで外部コマンドを呼び出して便利にしてみる - Qiita](https://qiita.com/akirashi/items/2b5cf0f32777aaaf6287)
+
+## How-to
 ### CommitterとAuthorを変更する
 
 HEADのcommitを修正する場合:
@@ -309,6 +340,16 @@ git cherry-pick -m 1 <merge commit のハッシュ>
 参考:
 
 - [merge commitをcherry-pickする - Qiita](http://qiita.com/takc923/items/8e2d87d692f840b14464 "merge commitをcherry-pickする - Qiita")
+
+### マージ済みブランチを掃除する
+
+色んな人がやっていて、aliasに設定したりサブコマンドを作ったりしている。
+
+自分でも[2020-05-04に作った]({{< ref "/a/memo/20200504.md" >}}#git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った)。
+
+参考:
+
+- [gitでbranchをお掃除する際のチートシート - Qiita](https://qiita.com/kenshiroh/items/44dcf4b094e841bb42a2)
 
 ### 特定のファイルを Git 管理対象から除外する
 

@@ -82,6 +82,23 @@ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; 
 何もしないコマンド
 
 ## How-to
+### ユーザー入力を受け付ける
+
+`read` を使う。
+
+```sh
+echo -n "Are you sure? (y/N) "
+read answer
+if [[ "$answer" != "y" ]]; then
+  echo "Canceled."
+  exit
+fi
+```
+
+参考:
+
+- [【Linux】シェルスクリプトでキーボード入力を受付ける方法](https://eng-entrance.com/linux-shellscript-keyboard)
+
 ### コマンドの出力結果にタイムスタンプをつける
 
 ```sh

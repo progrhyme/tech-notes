@@ -62,6 +62,14 @@ gg=G
 
 
 ## How-to
+### タブ文字の入力
+
+`:set expandtab` （ `:set et` ）設定の時でも、 `Ctrl+v Tab` で入力できる。
+
+参考:
+
+- [:set expandtab（:set et）設定の時に、タブ文字を挿入する — 名無しのvim使い](https://nanasi.jp/articles/howto/editing/et-inserttab.html)
+
 ### 改行文字の置換（挿入/削除）
 
 ```Vim
