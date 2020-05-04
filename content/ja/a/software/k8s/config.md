@@ -4,7 +4,7 @@ linkTitle: "Configuration"
 description: >
   Manifestファイルや環境設定など
 date: 2020-04-27T10:53:22+09:00
-weight: 20
+weight: 60
 ---
 
 ## Best Practices

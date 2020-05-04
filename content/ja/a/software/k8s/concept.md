@@ -4,7 +4,7 @@ linkTitle: "Concept"
 description: >
   全体アーキテクチャーや構成要素について
 date: 2020-04-27T10:53:19+09:00
-weight: 10
+weight: 30
 ---
 
 ## Documentation

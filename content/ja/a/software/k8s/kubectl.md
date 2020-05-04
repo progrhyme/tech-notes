@@ -2,6 +2,7 @@
 title: "kubectl"
 linkTitle: "kubectl"
 date: 2020-05-01T12:15:07+09:00
+weight: 150
 ---
 
 Kubernetesクラスタを制御するCLI.
@@ -11,6 +12,12 @@ Kubernetesクラスタを制御するCLI.
 - [kubectl Cheat Sheet - Kubernetes](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - https://kubectl.docs.kubernetes.io/
 
+## 周辺ツール
+
+- [Krew](https://krew.sigs.k8s.io/) ... kubectl plugin manager
+- [kubectx](https://github.com/ahmetb/kubectx) ... context, namespaceの切替を簡単にしてくれる
+- [kustomize]({{< ref "/a/software/k8s/kustomize.md" >}}) ... Kubernetesのマニフェスト管理ツール。kubectl 1.14からkubectlに取り込まれた
+- [lbolla/kube-secret-editor](https://github.com/lbolla/kube-secret-editor) ... secretをデコードした状態で編集することを可能にし、編集後にエンコードして保存してくれる
 
 ## 設定
 ### kubeconfig
