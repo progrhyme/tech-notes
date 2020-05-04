@@ -28,7 +28,7 @@ https://help.github.com/en/actions
 2020-05-03更新
 
 - ビルドを手動トリガーするネイティブ機能がない
-  - [2020-05-03に調べたログ]({{< ref "/a/memo/20200503.md" >}}#github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる)
+  - [2020-05-03に調べたログ]({{< ref "20200503.md" >}}#github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる)
   - ※ワークアラウンドは可能
 - YAMLアンカーがサポートされていない
   - [Support for YAML anchors - GitHub Community Forum](https://github.community/t5/GitHub-Actions/Support-for-YAML-anchors/td-p/30336)
