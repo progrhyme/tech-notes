@@ -683,7 +683,72 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/ul>
 &lt;h3 id="パイプラインをトリガーせずにコミット">パイプラインをトリガーせずにコミット&lt;/h3>
 &lt;p>コミットメッセージに &lt;code>[skip ci]&lt;/code> または &lt;code>[ci skip]&lt;/code> を含める。&lt;/p>
-&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/function/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="ログ出力">ログ出力&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/functions/docs/monitoring/logging">https://cloud.google.com/functions/docs/monitoring/logging&lt;/a>&lt;/p>
+&lt;p>Cloud Loggingにログを送ることができる。&lt;br>
+言語によってやり方が異なる。&lt;/p>
+&lt;ul>
+&lt;li>共通: 標準出力/標準エラー出力&lt;/li>
+&lt;li>Node.js
+&lt;ul>
+&lt;li>&lt;code>console.log()&lt;/code> -&amp;gt; &lt;code>INFO&lt;/code> ログ&lt;/li>
+&lt;li>&lt;code>console.error()&lt;/code> -&amp;gt; &lt;code>ERROR&lt;/code> ログ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Sho2010@github/items/460900d16cdee7f3d2bd">Cloud FunctionsのlogをstackdriverにjsonPayloadで送りたい - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="vpc接続">VPC接続&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/iam/</guid><description>
+&lt;p>&lt;a href="https://cloud.google.com/iam/docs">https://cloud.google.com/iam/docs&lt;/a>&lt;/p>
+&lt;p>Cloud IAM. Google IDベースのアクセス管理ができる。&lt;/p>
+&lt;p>Googleグループを設定することもできる。&lt;/p>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/iam/docs/permissions-reference">IAM permissions reference&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="compute-engineへのアクセス権限">Compute Engineへのアクセス権限&lt;/h3>
+&lt;p>関係するRoles:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Role&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>roles/compute.instanceAdmin.v1&lt;/td>
+&lt;td>インスタンスの作成・削除・編集など&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>roles/iam.serviceAccountUser&lt;/td>
+&lt;td>サービスアカウントの利用。インスタンス作成にも必要&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>roles/iap.tunnelResourceAccessor&lt;/td>
+&lt;td>IAP経由でインスタンスにSSHするために必要&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/iap/docs/managing-access?hl=ja">IAP で保護されたリソースへのアクセスの管理 | Identity-Aware Proxy のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/iam/docs/faq?hl=ja" title="よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud">よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ameblo.jp/principia-ca/entry-12144854519.html" title="GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ">GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
 &lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
 &lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/preemptible">https://cloud.google.com/compute/docs/instances/preemptible&lt;/a>&lt;/p>
