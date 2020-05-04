@@ -75,6 +75,33 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 - [google_container_cluster](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
 - [google_container_node_pool](https://www.terraform.io/docs/providers/google/r/container_node_pool.html)
 
+参考:
+
+- [Terraformを用いてVPCネットワークにGKE限定公開クラスタを構成する - Qiita](https://qiita.com/y-uemurax/items/4376e27ccc0b2dcc85f0)
+
+#### Examples
+
+限定公開クラスタ（パブリックエンドポイント有り）
+
+```HCL
+resource "google_container_cluster" "experiment" {
+  name     = "experiment"
+  location = "asia-northeast1"
+
+  private_cluster_config {
+    enable_private_nodes    = true
+    enable_private_endpoint = false
+    master_ipv4_cidr_block  = "172.16.0.0/28"
+  }
+
+  ip_allocation_policy {
+    # GKE管理のサブネットを作成してもらう
+    cluster_ipv4_cidr_block  = ""
+    services_ipv4_cidr_block = ""
+  }
+}
+```
+
 ### storage (GCS) 系
 
 - [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) ... GCS (Cloud Storage) バケット

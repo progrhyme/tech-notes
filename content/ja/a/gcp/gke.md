@@ -36,7 +36,7 @@ Last updated at 2020-04-13
 
 ### 限定公開クラスタ
 
-Docs:
+Documents:
 
 - [限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja)
 - https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja
@@ -52,6 +52,14 @@ Docs:
 Tips:
 
 - (2019-12-02現在) `gcloud container clusters create` コマンドでは `--enable-private-nodes --master-ipv4-cidr <CIDR>` オプションをつける
+
+#### 制限事項
+
+[限定公開クラスタの作成 | Kubernetes Engine ドキュメント | Google Cloud#要件、制約、制限](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja#req_res_lim)
+
+
+- [エイリアスIP範囲](https://cloud.google.com/vpc/docs/alias-ip?hl=ja)が有効なVPCネイティブクラスタである必要がある
+  - See [VPCネイティブクラスタを作成する](#vpcネイティブクラスタを作成する)
 
 ### 負荷分散
 
@@ -232,6 +240,19 @@ TL;DR:
 
 - GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある
 - [Podのreadinessフィードバック](https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness)を<u>使っていない場合</u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある
+
+### VPCネイティブクラスタを作成する
+
+[VPC ネイティブ クラスタを作成する | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/alias-ips?hl=ja)
+
+2020-05-04現在、GCPコンソールから作成する場合はデフォルトでVPCネイティブクラスタになるが、REST APIやgcloudコマンドでは[ルートベースクラスタ](https://cloud.google.com/vpc/docs/routes?hl=ja)になるので注意。
+
+2つのやり方がある:
+
+1. 既存のサブネットにクラスタを作成する。アドレス範囲の割り当て方は下の2つ:
+   - GKE管理のセカンダリ範囲割り当て
+   - ユーザー管理のセカンダリ範囲割り当て
+1. クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる
 
 ### メンテナンス時間枠と除外枠の設定
 

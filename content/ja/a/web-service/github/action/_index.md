@@ -204,6 +204,36 @@ jobs:
 
 See also [#変数やシークレットの利用](#変数やシークレットの利用)
 
+### jobやstepを特定の条件で実行する
+
+`jobs.<job_id>.if` や `jobs.<job_id>.steps.if` の値に条件式を記述することで、該当のjobやstepを条件が真のときのみ実行することができる。
+
+Examples:
+
+```YAML
+jobs:
+  deploy:
+    # プルリクエストがマージされた時のみ実行
+    if: ${{ github.event.pull_request.merged == true }}
+
+    steps:
+      - name: Deploy
+        # some deploy action
+
+      - name: Notify
+        # このstepは常に実行する
+        if: ${{ always() }}
+        # some notify action
+```
+
+NOTE:
+
+- `if: ` に渡す条件式では `${{ }}` は省略可能
+- ワークフロー内でタスクが失敗すると、デフォルトでは後続のタスクはスキップされる
+  - See [Context and expression syntax for GitHub Actions - GitHub Help#always](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#always)
+
+> A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+
 ## 変数やシークレットの利用
 
 Documents:

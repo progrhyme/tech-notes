@@ -67,8 +67,13 @@ See [組織に既存のプロジェクトを移行する | Google Cloud Resource
 
 - [Project quota requests \- Cloud Platform Console ヘルプ](https://support.google.com/cloud/answer/6330231?hl=ja)
 
-## API認証
+## APIとサービス
 
+https://console.cloud.google.com/apis/library
+
+- 一覧の確認には、 `gcloud services list` コマンドを使う
+
+### 認証
 ドキュメント:
 
 - [認証の概要 | Google Cloud](https://cloud.google.com/docs/authentication?hl=ja)

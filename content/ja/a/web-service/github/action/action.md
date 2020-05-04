@@ -234,6 +234,10 @@ jobs:
           tf_actions_working_dir: ${{ env.tf_work_dir }}
 ```
 
+参考:
+
+- [GitHub ActionsでGCPにTerraformでインフラCI/CDする - Qiita](https://qiita.com/progrhyme/items/6bde1e1807a65c7e2cb2)
+
 ### peaceiris/actions-gh-pages
 
 https://github.com/peaceiris/actions-gh-pages
