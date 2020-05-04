@@ -79,14 +79,22 @@
 &lt;li>fluentd &amp;hellip; cluster-level loggingを実現する。&lt;/li>
 &lt;/ul>
 &lt;h2 id="pods">Pods&lt;/h2>
-&lt;p>Podが起動できない理由:&lt;/p>
+&lt;h3 id="スケジューリング">スケジューリング&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Podが起動できない理由:
 &lt;ul>
 &lt;li>OutOfMemory, OutOfCpu &amp;hellip; Nodeのリソースが足りない&lt;/li>
 &lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/li>
+&lt;/li>
 &lt;/ul>
+&lt;h4 id="taintsとtolerations">TaintsとTolerations&lt;/h4>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/">Taints and Tolerations - Kubernetes&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://qiita.com/sheepland/items/8fedae15e157c102757f">KubernetesのTaintsとTolerationsについて - Qiita&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み&lt;/p>
+&lt;/blockquote>
 &lt;h3 id="podの終了">Podの終了&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods">https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>

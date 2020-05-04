@@ -79,14 +79,22 @@
 &lt;li>fluentd &amp;hellip; cluster-level loggingを実現する。&lt;/li>
 &lt;/ul>
 &lt;h2 id="pods">Pods&lt;/h2>
-&lt;p>Podが起動できない理由:&lt;/p>
+&lt;h3 id="スケジューリング">スケジューリング&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Podが起動できない理由:
 &lt;ul>
 &lt;li>OutOfMemory, OutOfCpu &amp;hellip; Nodeのリソースが足りない&lt;/li>
 &lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/li>
+&lt;/li>
 &lt;/ul>
+&lt;h4 id="taintsとtolerations">TaintsとTolerations&lt;/h4>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/">Taints and Tolerations - Kubernetes&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://qiita.com/sheepland/items/8fedae15e157c102757f">KubernetesのTaintsとTolerationsについて - Qiita&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み&lt;/p>
+&lt;/blockquote>
 &lt;h3 id="podの終了">Podの終了&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods">https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
@@ -1278,6 +1286,12 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;ul>
 &lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
+&lt;/ul>
+&lt;h3 id="メンテナンス時間枠と除外枠の設定">メンテナンス時間枠と除外枠の設定&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions?hl=ja">メンテナンスの時間枠と除外の構成 | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>クラスタやノードのアップグレードが行われる時間枠を設定可能。&lt;/li>
+&lt;li>（たぶん）最短4時間&lt;/li>
 &lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="logging">Logging&lt;/h3>
