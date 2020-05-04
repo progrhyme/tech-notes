@@ -389,6 +389,10 @@ hugo server -D
 &lt;li>&lt;a href="https://github.com/google/docsy/blob/master/layouts/partials/sidebar-tree.html">Docsyテーマでのサイドバーの実現方法&lt;/a>が参考になるかも。&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
+&lt;p>関連ページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/gcp/gke/">Google Cloud &amp;gt; GKE&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/&lt;/a> &amp;hellip; ドキュメント

@@ -290,7 +290,16 @@ gcloud projects list
 &lt;ul>
 &lt;li>VMからカスタムイメージを作る場合は、VMを停止しないと駄目みたい&lt;/li>
 &lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>関連ページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/">Software &amp;gt; Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials?hl=ja">チュートリアル | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to?hl=ja">入門ガイド | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="documentation">Documentation&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas?hl=ja">https://cloud.google.com/kubernetes-engine/quotas?hl=ja&lt;/a>&lt;/li>
@@ -519,6 +528,21 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;ul>
 &lt;li>クラスタやノードのアップグレードが行われる時間枠を設定可能。&lt;/li>
 &lt;li>（たぶん）最短4時間&lt;/li>
+&lt;/ul>
+&lt;h3 id="docker-hubのイメージを使うには">Docker Hubのイメージを使うには？&lt;/h3>
+&lt;p>公開イメージだったら普通に使える。&lt;/p>
+&lt;p>プライベートなイメージでも認証情報を渡せば普通に使えるんじゃないかな。&lt;/p>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>日本語の記事だとミラーしたり、GCRにpushしてる例が多い&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/50826766/google-cloud-kubernetes-accessing-private-docker-hub-hosted-images">Google Cloud Kubernetes accessing private Docker Hub hosted images - Stack Overflow&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/containers/images/">Images - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/toddlers/bb09002ffdc27fba6b7cef920fda2041">docker hub with kubernetes in GKE&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://estl.tech/using-images-from-a-private-registry-on-gke-b3bfb2562b16">Using Images from a Private Registry on GKE - Engineering Tomorrow’s Systems&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hawksnowlog.blogspot.com/2017/02/dockerhub-image-deploy-on-gke.html">hawksnowlog: Google Container Engine に Dockerhub で公開しているイメージをデプロイする方法&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="logging">Logging&lt;/h3>
