@@ -339,4 +339,94 @@ setopt extended_history
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://orumin.blogspot.com/2017/10/unix-os.html">Unix 系 OS でコマンド実行間にタイムスタンプを付ける&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Shell Script</title><link>https://progrhy.me/tech-notes/a/cli/shell-script/</link><pubDate>Mon, 04 May 2020 14:49:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell-script/</guid><description>
+&lt;p>関連ページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/bash/cookbook/">Bash &amp;gt; Cookbooks&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;h3 id="リファレンス">リファレンス&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://www.unix.com/man-page/posix/1p/sh/">POSIX 1003.1 - man page for sh (posix section 1p) - Unix &amp;amp; Linux Commands&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.unix.org/whitepapers/shdiffs.html">Shell Command Language (www.unix.org))&lt;/a>
+&lt;ul>
+&lt;li>System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html">Shell Command Language (pubs.opengroup.org)&lt;/a> &amp;hellip; 上と同じ内容のようだ&lt;/li>
+&lt;/ul>
+&lt;h3 id="コーディング規約">コーディング規約&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://google.github.io/styleguide/shell.xml" title="Shell Style Guide">Shell Style Guide&lt;/a> &amp;hellip; Google の
+&lt;ul>
+&lt;li>参考: &lt;a href="http://qiita.com/laqiiz/items/5f72ca668f1c58176644" title="Googleの肩に乗ってShellコーディングしちゃおう - Qiita">Googleの肩に乗ってShellコーディングしちゃおう - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="入門サイトなど">入門サイトなど&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://shellscript.sunone.me/">UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://motw.mods.jp/shellscript/tutorial.html">シェルスクリプト入門 書き方のまとめ | Memo on the Web&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/katsukii/items/383b241209fe96eae6e7">シェルスクリプトの基礎知識まとめ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;h3 id="演算子">演算子&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ループ">ループ&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">continue&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 後続の処理をスキップして次の周回へ&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
+:
+&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+:
+&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## イテレータでループ&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>get_some_list&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+:
+&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/">【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="parameter-expansion">Parameter Expansion&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">word&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -z &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">var&lt;/span>&lt;span style="color:#000;font-weight:bold">+x&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is unset&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is set to &amp;#39;&lt;/span>&lt;span style="color:#000">$var&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="built-ins">Built-Ins&lt;/h2>
+&lt;h3 id="-colon">&lt;code>:&lt;/code> (colon)&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon&lt;/a>&lt;/li>
+&lt;li>Bash: &lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>何もしないコマンド&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="コマンドの出力結果にタイムスタンプをつける">コマンドの出力結果にタイムスタンプをつける&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">do_something &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#000">IFS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">read&lt;/span> -r line&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>date&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06"> &lt;/span>&lt;span style="color:#000">$line&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://serverfault.com/questions/310098/how-to-add-a-timestamp-to-bash-script-log" title="linux - How to add a timestamp to bash script log? - Server Fault">linux - How to add a timestamp to bash script log? - Server Fault&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="オプション解析">オプション解析&lt;/h3>
+&lt;p>シェルスクリプトでコマンドラインオプションをどう解析するか。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/b4b4r07/items/dcd6be0bb9c9185475bb">bash によるオプション解析 - Qiita&lt;/a>
+&lt;ul>
+&lt;li>getopts, getopt, 自前解析のメリット・デメリット。自前解析推し&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
