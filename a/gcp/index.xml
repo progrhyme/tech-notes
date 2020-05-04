@@ -154,7 +154,77 @@ gcloud projects list
 &lt;p>バケット作成&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
+&lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
+&lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/preemptible">https://cloud.google.com/compute/docs/instances/preemptible&lt;/a>&lt;/p>
+&lt;p>Preemptible VM Instance. AWSでいうところのスポットインスタンス。&lt;/p>
+&lt;ul>
+&lt;li>いつでも停止される可能性がある&lt;/li>
+&lt;li>24時間実行したら必ず停止される&lt;/li>
+&lt;/ul>
+&lt;h4 id="プリエンプト処理">プリエンプト処理&lt;/h4>
+&lt;ol>
+&lt;li>プリエンプション通知を&lt;a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface#Power_states">ACPI G2 ソフトオフ&lt;/a>形式でインスタンスに送信&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#handle_preemption">シャットダウンスクリプト&lt;/a>によってプリエンプションを処理。インスタンス停止前にクリーンアップ操作を実施できる&lt;/li>
+&lt;li>インスタンスが30秒以内に停止しないと、&lt;a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface#Power_states">ACPI G3 メカニカルオフ&lt;/a>信号がOSに送信される&lt;/li>
+&lt;li>インスタンスは &lt;code>TERMINATED&lt;/code> 状態になる&lt;/li>
+&lt;/ol>
+&lt;h4 id="プリエンプトされたかどうか調べる">プリエンプトされたかどうか調べる&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#detecting_if_an_instance_was_preempted">https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#detecting_if_an_instance_was_preempted&lt;/a>&lt;/p>
+&lt;p>Cloud Loggingで &lt;code>compute.instances.preempted&lt;/code> で検索。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/58256153/gcp-vm-consistently-shutting-down-without-warning">ssh - GCP VM consistently shutting down without warning - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="参考">参考&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.marketechlabo.com/gce-preemptible-instance/">格安に使えるGCEのプリエンプティブインスタンスの勝手に停止対策 | marketechlabo&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="インスタンスグループ">インスタンスグループ&lt;/h3>
+&lt;ul>
+&lt;li>マネージド &amp;hellip; オートスケールする。インスタンステンプレートを使う&lt;/li>
+&lt;li>非マネージド &amp;hellip; 自前でインスタンスを登録して管理
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances?hl=ja">非マネージド インスタンス グループの作成 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="shielded-vm">Shielded VM&lt;/h3>
+&lt;p>Documents:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/security/shielded-cloud/shielded-vm?hl=ja">Shielded VM | ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Features:&lt;/p>
+&lt;ul>
+&lt;li>セキュアブート&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/integrity-monitoring?hl=ja">整合性モニタリング&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>整合性チェックに引っかかると、インスタンスが起動しない（起動直後にシャットダウンする）ことがある&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/firmware/uefi/#%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88">UEFI#セキュアブート&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/56100268/why-my-google-cloud-instance-often-shut-down-automatically-by-itself">why my google cloud instance often shut down automatically by itself - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="machine-images">Machine Images&lt;/h2>
+&lt;p>Beta at 2020-04-16現在&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-images">https://cloud.google.com/compute/docs/machine-images&lt;/a>&lt;/p>
+&lt;p>最近リリースされたやつ。&lt;br>
+従来のImageとの違いは↑に書いてある。&lt;/p>
+&lt;h2 id="images">Images&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/images?hl=ja">https://cloud.google.com/compute/docs/images?hl=ja&lt;/a>&lt;/p>
+&lt;p>AWS AMIみたいなもの&lt;/p>
+&lt;p>Documents:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>VMからカスタムイメージを作る場合は、VMを停止しないと駄目みたい&lt;/li>
+&lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>

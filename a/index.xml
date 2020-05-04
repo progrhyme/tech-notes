@@ -414,7 +414,163 @@ MWYyZDFlMmU2N2Rm
 &lt;p>&lt;a href="http://e-words.jp/w/BIOS.html">BIOS（Basic Input/Output System）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
 &lt;blockquote>
 &lt;p>パソコンなどの主基板（マザーボード）などに格納されたコンピュータプログラム（ファームウェア）の一種で、起動時のOSの読み込みや、接続された装置・機器に対する基本的な入出力制御などを行うもの。&lt;/p>
-&lt;/blockquote></description></item><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
+&lt;/blockquote></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
+&lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
+&lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
+&lt;ul>
+&lt;li>プロキシ設定
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/proxy-settings?hl=ja">プロキシ / ファイアウォールの背後で Cloud SDK を使用する場合の構成 | Cloud SDK のドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="gcloud">gcloud&lt;/h2>
+&lt;ul>
+&lt;li>Getting Started: &lt;a href="https://cloud.google.com/sdk/gcloud/?hl=ja">https://cloud.google.com/sdk/gcloud/?hl=ja&lt;/a>&lt;/li>
+&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference/?hl=ja">https://cloud.google.com/sdk/gcloud/reference/?hl=ja&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>新しめの機能の場合、 &lt;code>gcloud beta ...&lt;/code> や &lt;code>gcloud alpha ...&lt;/code> にしかコマンドがなかったり、 &lt;code>beta ...&lt;/code> や &lt;code>alpha ...&lt;/code> を付けることで結果が変わることがある&lt;/li>
+&lt;/ul>
+&lt;h3 id="認証">認証&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 初期設定(認証込)&lt;/span>
+gcloud init
+&lt;span style="color:#8f5902;font-style:italic">## ログイン認証&lt;/span>
+gcloud auth login
+&lt;span style="color:#8f5902;font-style:italic">## 現在認証済みのアカウント一覧&lt;/span>
+gcloud auth list
+&lt;span style="color:#8f5902;font-style:italic">## サービスアカウントの認証&lt;/span>
+gcloud auth activate-service-account --key-file &amp;lt;KEYFILE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## アクセストークンの表示&lt;/span>
+gcloud auth print-access-token
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="compute">compute&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute">https://cloud.google.com/sdk/gcloud/reference/compute&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## ssh&lt;/span>
+gcloud compute ssh &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;INSTANCE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-- &amp;lt;SSH_ARGS&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## scp&lt;/span>
+gcloud compute scp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--recurse&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> host:/path/to/dir path/to/local
+&lt;span style="color:#8f5902;font-style:italic">## 証明書&lt;/span>
+gcloud compute ssl-certificates
+&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
+gcloud compute ssl-certificates list
+&lt;span style="color:#8f5902;font-style:italic">## イメージの作成&lt;/span>
+gcloud compute images create my-image --source-disk my-vm-disk
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="instances">instances&lt;/h4>
+&lt;p>VM操作&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances">https://cloud.google.com/sdk/gcloud/reference/compute/instances&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create">create&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
+gcloud compute instances list
+&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
+gcloud compute instances start &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
+gcloud compute instances stop &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1-b &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --no-address &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 外部IPなし&lt;/span>
+--custom-vm-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>n1 &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># N1インスタンス&lt;/span>
+--custom-cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> --custom-memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8GB &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># リソースをカスタマイズする場合&lt;/span>
+--image-project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>another-project --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-image &lt;span style="color:#8f5902;font-style:italic"># 別プロジェクトのイメージを使う&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="config">config&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 設定値一覧表示&lt;/span>
+gcloud config list
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d">gcloud configで複数の設定を持って切り替える - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="configurations">configurations&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
+&lt;p>設定プロファイルの管理&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロファイル一覧表示&lt;/span>
+gcloud config configurations list
+&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
+gcloud config configurations describe プロファイル名
+&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+gcloud config configurations create プロファイル名
+&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
+gcloud config configurations delete プロファイル名
+&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
+gcloud config configurations activate プロファイル名
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="set">set&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">https://cloud.google.com/sdk/gcloud/reference/config/set&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
+&lt;p>Cloud Functionsの操作&lt;/p>
+&lt;h4 id="deploy">deploy&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions/deploy">https://cloud.google.com/sdk/gcloud/reference/functions/deploy&lt;/a>&lt;/p>
+&lt;p>Cloud Functionのデプロイ（作成・更新）&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cloud-buildsイベントをフックに動くFunctionのデプロイ&lt;/span>
+gcloud functions deploy &amp;lt;Function Name&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --trigger-topic cloud-builds &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --runtime nodejs10 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set-env-vars &lt;span style="color:#4e9a06">&amp;#34;FOO=foo,BAR=bar&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project my-project
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logging">logging&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging">https://cloud.google.com/sdk/gcloud/reference/logging&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>read&lt;/code>, &lt;code>list&lt;/code>などのコマンド利用時には serviceusage.services.use 権限が必要&lt;/li>
+&lt;/ul>
+&lt;h4 id="read">read&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging/read">https://cloud.google.com/sdk/gcloud/reference/logging/read&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud logging &lt;span style="color:#204a87">read&lt;/span> --format json
+gcloud logging &lt;span style="color:#204a87">read&lt;/span> --limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> --order&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asc
+gcloud logging &lt;span style="color:#204a87">read&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;timestamp&amp;gt;=&amp;#34;2020-03-19T05:28:00Z&amp;#34; timestamp&amp;lt;=&amp;#34;2020-03-25T05:33:28Z&amp;#34;&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-04-20現在、 &lt;code>tail -f&lt;/code> 相当のオプションはなさそう&lt;/p>
+&lt;h3 id="projects">projects&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/projects/">https://cloud.google.com/sdk/gcloud/reference/projects/&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロジェクト一覧&lt;/span>
+gcloud projects list
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考">参考&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c">よく使うgcloudコマンドたち - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="gsutil">gsutil&lt;/h2>
+&lt;p>Cloud Storage用のPython製CLI&lt;/p>
+&lt;ul>
+&lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
+&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mb">mb&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">https://cloud.google.com/storage/docs/gsutil/commands/mb&lt;/a>&lt;/p>
+&lt;p>バケット作成&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
 &lt;p>Atlassian社が提供しているソースコードのホスティングサービス。&lt;br>
 JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;h2 id="提供形態">提供形態&lt;/h2>
@@ -527,7 +683,77 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/ul>
 &lt;h3 id="パイプラインをトリガーせずにコミット">パイプラインをトリガーせずにコミット&lt;/h3>
 &lt;p>コミットメッセージに &lt;code>[skip ci]&lt;/code> または &lt;code>[ci skip]&lt;/code> を含める。&lt;/p>
-&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
+&lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
+&lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/preemptible">https://cloud.google.com/compute/docs/instances/preemptible&lt;/a>&lt;/p>
+&lt;p>Preemptible VM Instance. AWSでいうところのスポットインスタンス。&lt;/p>
+&lt;ul>
+&lt;li>いつでも停止される可能性がある&lt;/li>
+&lt;li>24時間実行したら必ず停止される&lt;/li>
+&lt;/ul>
+&lt;h4 id="プリエンプト処理">プリエンプト処理&lt;/h4>
+&lt;ol>
+&lt;li>プリエンプション通知を&lt;a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface#Power_states">ACPI G2 ソフトオフ&lt;/a>形式でインスタンスに送信&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#handle_preemption">シャットダウンスクリプト&lt;/a>によってプリエンプションを処理。インスタンス停止前にクリーンアップ操作を実施できる&lt;/li>
+&lt;li>インスタンスが30秒以内に停止しないと、&lt;a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface#Power_states">ACPI G3 メカニカルオフ&lt;/a>信号がOSに送信される&lt;/li>
+&lt;li>インスタンスは &lt;code>TERMINATED&lt;/code> 状態になる&lt;/li>
+&lt;/ol>
+&lt;h4 id="プリエンプトされたかどうか調べる">プリエンプトされたかどうか調べる&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#detecting_if_an_instance_was_preempted">https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#detecting_if_an_instance_was_preempted&lt;/a>&lt;/p>
+&lt;p>Cloud Loggingで &lt;code>compute.instances.preempted&lt;/code> で検索。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/58256153/gcp-vm-consistently-shutting-down-without-warning">ssh - GCP VM consistently shutting down without warning - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="参考">参考&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.marketechlabo.com/gce-preemptible-instance/">格安に使えるGCEのプリエンプティブインスタンスの勝手に停止対策 | marketechlabo&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="インスタンスグループ">インスタンスグループ&lt;/h3>
+&lt;ul>
+&lt;li>マネージド &amp;hellip; オートスケールする。インスタンステンプレートを使う&lt;/li>
+&lt;li>非マネージド &amp;hellip; 自前でインスタンスを登録して管理
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances?hl=ja">非マネージド インスタンス グループの作成 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="shielded-vm">Shielded VM&lt;/h3>
+&lt;p>Documents:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/security/shielded-cloud/shielded-vm?hl=ja">Shielded VM | ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Features:&lt;/p>
+&lt;ul>
+&lt;li>セキュアブート&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/integrity-monitoring?hl=ja">整合性モニタリング&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>整合性チェックに引っかかると、インスタンスが起動しない（起動直後にシャットダウンする）ことがある&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/firmware/uefi/#%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88">UEFI#セキュアブート&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/56100268/why-my-google-cloud-instance-often-shut-down-automatically-by-itself">why my google cloud instance often shut down automatically by itself - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="machine-images">Machine Images&lt;/h2>
+&lt;p>Beta at 2020-04-16現在&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-images">https://cloud.google.com/compute/docs/machine-images&lt;/a>&lt;/p>
+&lt;p>最近リリースされたやつ。&lt;br>
+従来のImageとの違いは↑に書いてある。&lt;/p>
+&lt;h2 id="images">Images&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/images?hl=ja">https://cloud.google.com/compute/docs/images?hl=ja&lt;/a>&lt;/p>
+&lt;p>AWS AMIみたいなもの&lt;/p>
+&lt;p>Documents:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>VMからカスタムイメージを作る場合は、VMを停止しないと駄目みたい&lt;/li>
+&lt;/ul></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
 &lt;h2 id="gitコマンド">gitコマンド&lt;/h2>
 &lt;h3 id="参考資料">参考資料&lt;/h3>
 &lt;ul>
@@ -785,7 +1011,218 @@ terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモ�
 terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
 terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
 terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas?hl=ja">https://cloud.google.com/kubernetes-engine/quotas?hl=ja&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/best-practices-for-operating-containers">Best Practices for Operating Containers | Architectures | Google Cloud&lt;/a>
+&lt;ul>
+&lt;li>Logging, etc.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-terminating-with-grace">Kubernetes best practices: terminating with grace | Google Cloud Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler?hl=ja">クラスタ オートスケーラー | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler?hl=ja">クラスタの自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="quota">Quota&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas">https://cloud.google.com/kubernetes-engine/quotas&lt;/a>&lt;/p>
+&lt;p>Last updated at 2020-04-13&lt;/p>
+&lt;ul>
+&lt;li>GKEクラスタごと
+&lt;ul>
+&lt;li>クラスタあたりの最大ノード数: 5,000&lt;/li>
+&lt;li>ノードプールあたりの最大ノード数: 1,000&lt;/li>
+&lt;li>ノードあたりの最大ポッド数: 110&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="限定公開クラスタ">限定公開クラスタ&lt;/h3>
+&lt;p>Docs:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja">限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/nat/docs/gke-example">Example GKE Setup | Cloud NAT | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>要点:&lt;/p>
+&lt;ul>
+&lt;li>ノードは内部IPアドレスのみを持つため、インターネットから隔離される&lt;/li>
+&lt;li>限定公開クラスタでは、マスターへのアクセスを制御できる&lt;/li>
+&lt;li>LB経由で受信トラフィックを受けられる。また、内部LB経由でVPC内のトラフィックを受けることもできる&lt;/li>
+&lt;li>外と通信したいときは、上記の「Example GKE Setup」にあるように、Cloud NAT + Cloud Routerをセットアップする&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>(2019-12-02現在) &lt;code>gcloud container clusters create&lt;/code> コマンドでは &lt;code>--enable-private-nodes --master-ipv4-cidr &amp;lt;CIDR&amp;gt;&lt;/code> オプションをつける&lt;/li>
+&lt;/ul>
+&lt;h3 id="負荷分散">負荷分散&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="https-負荷分散">HTTP(S) 負荷分散&lt;/h4>
+&lt;p>Ingressで複数のバックエンドServiceを設定できる。設定例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>extensions/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">rules&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">http&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paths&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/*&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-products&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60000&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/discounted&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-discounted-products&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="managed-ssl-certificateを使う">Managed SSL certificateを使う&lt;/h5>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs">https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>GCPの静的IPを払い出し、対象のDNSレコードに設定する必要がある&lt;/li>
+&lt;/ul>
+&lt;p>See also &lt;a href="https://sites.google.com/site/progrhymetechwiki/cloud/gcp/gclb#TOC-SSL-">https://sites.google.com/site/progrhymetechwiki/cloud/gcp/gclb#TOC-SSL-&lt;/a>&lt;/p>
+&lt;h5 id="httpの無効化">HTTPの無効化&lt;/h5>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=ja#disabling_http">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=ja#disabling_http&lt;/a>&lt;/p>
+&lt;p>HTTPSのみを使うときはアノテーション &lt;code>kubernetes.io/ingress.allow-http&lt;/code> の値を &lt;code>&amp;quot;false&amp;quot;&lt;/code> に設定する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>extensions/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-ingress&lt;span style="color:#0000cf;font-weight:bold">-2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">annotations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kubernetes.io/ingress.allow-http&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tls&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">secretName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-secret&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-03-04現在、K8sのバージョンによっては、マネージドSSL証明書を使う場合は、 &lt;code>ingress.gcp.kubernetes.io/pre-shared-cert&lt;/code> アノテーションの値に証明書名を入れる必要がある。1.15.x-gke.y の場合は自動でアノテーション付けてくれるっぽい。&lt;br>
+See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://github.com/kubernetes/ingress-gce/issues/1001&lt;/a>&lt;/p>
+&lt;h3 id="内部tcpudp負荷分散">内部TCP/UDP負荷分散&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing?hl=ja">内部 TCP / UDP 負荷分散 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>2020-03-25現在、β版&lt;/p>
+&lt;ul>
+&lt;li>Serviceを &lt;code>type: LoadBalancer&lt;/code> で作成し、所定のannotationを入れる&lt;/li>
+&lt;li>内部LBが作成される&lt;/li>
+&lt;li>Ingressは不要&lt;/li>
+&lt;li>Compute InstanceGroupで振り分けされる
+&lt;ul>
+&lt;li>2020-03-25現在、ネットワークエンドポイントグループには対応していない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>同じDeploymentで、内部LBのServiceと外部HTTP(S)負荷分散用の2つのServiceを持つことができる&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ilb-service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">annotations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cloud.google.com/load-balancer-type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Internal&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">labels&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hello&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>LoadBalancer&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hello&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetPort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TCP&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="backendconfigβ-on-2020-04-27">BackendConfig（β on 2020-04-27）&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en">https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en&lt;/a>&lt;/p>
+&lt;p>GKE固有のcustom resource.&lt;/p>
+&lt;p>BackendConfigによって、HTTP(S) Load Balancingに以下の機能を設定できる:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cdn-backendconfig">Cloud CDN&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-armor-backendconfig">Cloud Armor&lt;/a>&lt;/li>
+&lt;li>Identity-Aware Proxy (IAP)&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/configure-backend-service">Timeout, Connection draining timeout, Session affinity, User-defined request headers&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;ul>
+&lt;li>タイムアウトを40秒に設定&lt;/li>
+&lt;li>接続ドレインタイムアウトを60秒に設定&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cloud.google.com/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>BackendConfig&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-bsc-backendconfig&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">timeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">40&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">connectionDraining&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">drainingTimeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
+&lt;p>HPA.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler?hl=ja">水平ポッド自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/external-metrics-autoscaling?hl=ja">外部指標によるデプロイの自動スケーリング | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/custom-metrics-autoscaling?hl=ja">カスタム指標でのデプロイの自動スケーリング | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a>&lt;/li>
+&lt;li>いずれもCloud Monitoringメトリクスでスケール設定を行う&lt;/li>
+&lt;li>&lt;a href="https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/custom-metrics-stackdriver-adapter">https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/custom-metrics-stackdriver-adapter&lt;/a> をクラスタにデプロイする&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler">https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.doit-intl.com/autoscaling-k8s-hpa-with-google-http-s-load-balancer-rps-stackdriver-metric-92db0a28e1ea">Autoscaling K8s HPA with Google HTTP/S Load-Balancer RPS EXTERNAL Stackdriver Metrics&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="アップグレード">アップグレード&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster&lt;/a>&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">リリースチャネル&lt;/a>を指定することで、自動アップグレードできる&lt;/li>
+&lt;/ul>
+&lt;h3 id="kubeconfigエントリを生成">kubeconfigエントリを生成&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters get-credentials &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>CLUSTER_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project PROJECT&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>↑のコマンドは更に、クラスタをデフォルトのkubectlのcontextに設定する。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="gkeのノードにssh">GKEのノードにSSH&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/connecting-advanced#sshbetweeninstances">高度な方法によるインスタンスへの接続 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/inductor/items/bc0ff7d761e0cc7e9394">限定公開クラスターのGKEノードにサクッとSSHする方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/sonots/items/6e2a57af945cf0daedd4">GKE で k8s クラスタの node に ssh する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://acloud.guru/forums/gcp-certified-associate-cloud-engineer/discussion/-Lh3ET0aNrv3FwNbNvh6/Insufficient%20Permission:%20Request%20had%20insufficient%20authentication%20scopes.">Insufficient Permission: Request had insufficient authentication scopes. - Course: Google Certified Associate Cloud Engineer 2020&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コンテナネイティブの負荷分散を使う">コンテナネイティブの負荷分散を使う&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja">コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>TL;DR:&lt;/p>
+&lt;ul>
+&lt;li>ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる&lt;/li>
+&lt;li>従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues">既知の問題&lt;/a>（2020-04-27時点）:&lt;/p>
+&lt;ul>
+&lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="logging">Logging&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/customizing-stackdriver-logs-fluentd?hl=ja">Google Kubernetes Engine の Stackdriver ログを Fluentd でカスタマイズする | ソリューション&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
 &lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
 ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
 &lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
@@ -811,7 +1248,62 @@ Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/lb/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
+&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>IP anycast対応&lt;/li>
+&lt;li>アーキテクチャ:
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>マネージド証明書
+&lt;ul>
+&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
+&lt;li>DV&lt;/li>
+&lt;li>自動更新&lt;/li>
+&lt;li>ワイルドカードドメインは不可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
+&lt;blockquote>
+&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
+&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
+&lt;/blockquote>
+&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
+&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
+&lt;ul>
+&lt;li>HTTP(S) ロードバランサ&lt;/li>
+&lt;li>TCP プロキシ ロードバランサ&lt;/li>
+&lt;li>SSL プロキシ ロードバランサ&lt;/li>
+&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
+&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
+&lt;/ul>
+&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
+&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
+&lt;h2 id="logging">Logging&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
+従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
+特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
 &lt;/blockquote>
@@ -1735,163 +2227,7 @@ tfenv: tfenv-install: [ERROR] Tarball unzip failed
 &lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
 &lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
 &lt;/ul>
-&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
-&lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
-&lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
-&lt;ul>
-&lt;li>プロキシ設定
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/proxy-settings?hl=ja">プロキシ / ファイアウォールの背後で Cloud SDK を使用する場合の構成 | Cloud SDK のドキュメント&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="gcloud">gcloud&lt;/h2>
-&lt;ul>
-&lt;li>Getting Started: &lt;a href="https://cloud.google.com/sdk/gcloud/?hl=ja">https://cloud.google.com/sdk/gcloud/?hl=ja&lt;/a>&lt;/li>
-&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference/?hl=ja">https://cloud.google.com/sdk/gcloud/reference/?hl=ja&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>新しめの機能の場合、 &lt;code>gcloud beta ...&lt;/code> や &lt;code>gcloud alpha ...&lt;/code> にしかコマンドがなかったり、 &lt;code>beta ...&lt;/code> や &lt;code>alpha ...&lt;/code> を付けることで結果が変わることがある&lt;/li>
-&lt;/ul>
-&lt;h3 id="認証">認証&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 初期設定(認証込)&lt;/span>
-gcloud init
-&lt;span style="color:#8f5902;font-style:italic">## ログイン認証&lt;/span>
-gcloud auth login
-&lt;span style="color:#8f5902;font-style:italic">## 現在認証済みのアカウント一覧&lt;/span>
-gcloud auth list
-&lt;span style="color:#8f5902;font-style:italic">## サービスアカウントの認証&lt;/span>
-gcloud auth activate-service-account --key-file &amp;lt;KEYFILE&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## アクセストークンの表示&lt;/span>
-gcloud auth print-access-token
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="compute">compute&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute">https://cloud.google.com/sdk/gcloud/reference/compute&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## ssh&lt;/span>
-gcloud compute ssh &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;INSTANCE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-- &amp;lt;SSH_ARGS&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## scp&lt;/span>
-gcloud compute scp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--recurse&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> host:/path/to/dir path/to/local
-&lt;span style="color:#8f5902;font-style:italic">## 証明書&lt;/span>
-gcloud compute ssl-certificates
-&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
-gcloud compute ssl-certificates list
-&lt;span style="color:#8f5902;font-style:italic">## イメージの作成&lt;/span>
-gcloud compute images create my-image --source-disk my-vm-disk
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="instances">instances&lt;/h4>
-&lt;p>VM操作&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances">https://cloud.google.com/sdk/gcloud/reference/compute/instances&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create">create&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
-gcloud compute instances list
-&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
-gcloud compute instances start &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
-gcloud compute instances stop &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
-gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1-b &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --no-address &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 外部IPなし&lt;/span>
---custom-vm-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>n1 &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># N1インスタンス&lt;/span>
---custom-cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> --custom-memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8GB &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># リソースをカスタマイズする場合&lt;/span>
---image-project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>another-project --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-image &lt;span style="color:#8f5902;font-style:italic"># 別プロジェクトのイメージを使う&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="config">config&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 設定値一覧表示&lt;/span>
-gcloud config list
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d">gcloud configで複数の設定を持って切り替える - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="configurations">configurations&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
-&lt;p>設定プロファイルの管理&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロファイル一覧表示&lt;/span>
-gcloud config configurations list
-&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
-gcloud config configurations describe プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
-gcloud config configurations create プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
-gcloud config configurations delete プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
-gcloud config configurations activate プロファイル名
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="set">set&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">https://cloud.google.com/sdk/gcloud/reference/config/set&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
-gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
-gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
-&lt;p>Cloud Functionsの操作&lt;/p>
-&lt;h4 id="deploy">deploy&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions/deploy">https://cloud.google.com/sdk/gcloud/reference/functions/deploy&lt;/a>&lt;/p>
-&lt;p>Cloud Functionのデプロイ（作成・更新）&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cloud-buildsイベントをフックに動くFunctionのデプロイ&lt;/span>
-gcloud functions deploy &amp;lt;Function Name&amp;gt; &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --trigger-topic cloud-builds &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --runtime nodejs10 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set-env-vars &lt;span style="color:#4e9a06">&amp;#34;FOO=foo,BAR=bar&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project my-project
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logging">logging&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging">https://cloud.google.com/sdk/gcloud/reference/logging&lt;/a>&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>read&lt;/code>, &lt;code>list&lt;/code>などのコマンド利用時には serviceusage.services.use 権限が必要&lt;/li>
-&lt;/ul>
-&lt;h4 id="read">read&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging/read">https://cloud.google.com/sdk/gcloud/reference/logging/read&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud logging &lt;span style="color:#204a87">read&lt;/span> --format json
-gcloud logging &lt;span style="color:#204a87">read&lt;/span> --limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> --order&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asc
-gcloud logging &lt;span style="color:#204a87">read&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;timestamp&amp;gt;=&amp;#34;2020-03-19T05:28:00Z&amp;#34; timestamp&amp;lt;=&amp;#34;2020-03-25T05:33:28Z&amp;#34;&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-04-20現在、 &lt;code>tail -f&lt;/code> 相当のオプションはなさそう&lt;/p>
-&lt;h3 id="projects">projects&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/projects/">https://cloud.google.com/sdk/gcloud/reference/projects/&lt;/a>&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロジェクト一覧&lt;/span>
-gcloud projects list
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考">参考&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c">よく使うgcloudコマンドたち - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="gsutil">gsutil&lt;/h2>
-&lt;p>Cloud Storage用のPython製CLI&lt;/p>
-&lt;ul>
-&lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
-&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="mb">mb&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">https://cloud.google.com/storage/docs/gsutil/commands/mb&lt;/a>&lt;/p>
-&lt;p>バケット作成&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
+&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
 &lt;p>有名なVimのファイラプラグイン。&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>ツリービューの操作:&lt;/p>
@@ -2408,273 +2744,7 @@ $ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$
 &lt;li>&lt;a href="https://www.primitivesense.com/case-studies/ci-with-testing-and-deploying-google-cloud-functions-within-bitbucket-pipelines/">Testing &amp;amp; deploying Google Cloud Functions in BitBucket Pipelines | PrimitiveSense - Web Design Newcastle&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/adilsoncarvalho/e0e8da81dbf52bf90c671887ef7e04d3">Bitbucket Pipelines deployment to a Google Container Engine configuration&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://medium.com/@puuga/dev-story-deploy-to-gcp-cloud-run-with-bitbucket-pipelines-4fef8f2ece27">Dev Story: Deploy to GCP Cloud Run with Bitbucket Pipelines&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas?hl=ja">https://cloud.google.com/kubernetes-engine/quotas?hl=ja&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/best-practices-for-operating-containers">Best Practices for Operating Containers | Architectures | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>Logging, etc.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-terminating-with-grace">Kubernetes best practices: terminating with grace | Google Cloud Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="仕様">仕様&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler?hl=ja">クラスタ オートスケーラー | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler?hl=ja">クラスタの自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="quota">Quota&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas">https://cloud.google.com/kubernetes-engine/quotas&lt;/a>&lt;/p>
-&lt;p>Last updated at 2020-04-13&lt;/p>
-&lt;ul>
-&lt;li>GKEクラスタごと
-&lt;ul>
-&lt;li>クラスタあたりの最大ノード数: 5,000&lt;/li>
-&lt;li>ノードプールあたりの最大ノード数: 1,000&lt;/li>
-&lt;li>ノードあたりの最大ポッド数: 110&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="限定公開クラスタ">限定公開クラスタ&lt;/h3>
-&lt;p>Docs:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja">限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/nat/docs/gke-example">Example GKE Setup | Cloud NAT | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>要点:&lt;/p>
-&lt;ul>
-&lt;li>ノードは内部IPアドレスのみを持つため、インターネットから隔離される&lt;/li>
-&lt;li>限定公開クラスタでは、マスターへのアクセスを制御できる&lt;/li>
-&lt;li>LB経由で受信トラフィックを受けられる。また、内部LB経由でVPC内のトラフィックを受けることもできる&lt;/li>
-&lt;li>外と通信したいときは、上記の「Example GKE Setup」にあるように、Cloud NAT + Cloud Routerをセットアップする&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>(2019-12-02現在) &lt;code>gcloud container clusters create&lt;/code> コマンドでは &lt;code>--enable-private-nodes --master-ipv4-cidr &amp;lt;CIDR&amp;gt;&lt;/code> オプションをつける&lt;/li>
-&lt;/ul>
-&lt;h3 id="負荷分散">負荷分散&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="https-負荷分散">HTTP(S) 負荷分散&lt;/h4>
-&lt;p>Ingressで複数のバックエンドServiceを設定できる。設定例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>extensions/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">rules&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">http&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paths&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/*&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-products&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60000&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/discounted&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-discounted-products&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="managed-ssl-certificateを使う">Managed SSL certificateを使う&lt;/h5>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs">https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>GCPの静的IPを払い出し、対象のDNSレコードに設定する必要がある&lt;/li>
-&lt;/ul>
-&lt;p>See also &lt;a href="https://sites.google.com/site/progrhymetechwiki/cloud/gcp/gclb#TOC-SSL-">https://sites.google.com/site/progrhymetechwiki/cloud/gcp/gclb#TOC-SSL-&lt;/a>&lt;/p>
-&lt;h5 id="httpの無効化">HTTPの無効化&lt;/h5>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=ja#disabling_http">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=ja#disabling_http&lt;/a>&lt;/p>
-&lt;p>HTTPSのみを使うときはアノテーション &lt;code>kubernetes.io/ingress.allow-http&lt;/code> の値を &lt;code>&amp;quot;false&amp;quot;&lt;/code> に設定する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>extensions/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-ingress&lt;span style="color:#0000cf;font-weight:bold">-2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">annotations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kubernetes.io/ingress.allow-http&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tls&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">secretName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-secret&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-03-04現在、K8sのバージョンによっては、マネージドSSL証明書を使う場合は、 &lt;code>ingress.gcp.kubernetes.io/pre-shared-cert&lt;/code> アノテーションの値に証明書名を入れる必要がある。1.15.x-gke.y の場合は自動でアノテーション付けてくれるっぽい。&lt;br>
-See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://github.com/kubernetes/ingress-gce/issues/1001&lt;/a>&lt;/p>
-&lt;h3 id="内部tcpudp負荷分散">内部TCP/UDP負荷分散&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing?hl=ja">内部 TCP / UDP 負荷分散 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>2020-03-25現在、β版&lt;/p>
-&lt;ul>
-&lt;li>Serviceを &lt;code>type: LoadBalancer&lt;/code> で作成し、所定のannotationを入れる&lt;/li>
-&lt;li>内部LBが作成される&lt;/li>
-&lt;li>Ingressは不要&lt;/li>
-&lt;li>Compute InstanceGroupで振り分けされる
-&lt;ul>
-&lt;li>2020-03-25現在、ネットワークエンドポイントグループには対応していない&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>同じDeploymentで、内部LBのServiceと外部HTTP(S)負荷分散用の2つのServiceを持つことができる&lt;/li>
-&lt;/ul>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ilb-service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">annotations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cloud.google.com/load-balancer-type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Internal&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">labels&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hello&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>LoadBalancer&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hello&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetPort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TCP&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="backendconfigβ-on-2020-04-27">BackendConfig（β on 2020-04-27）&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en">https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en&lt;/a>&lt;/p>
-&lt;p>GKE固有のcustom resource.&lt;/p>
-&lt;p>BackendConfigによって、HTTP(S) Load Balancingに以下の機能を設定できる:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cdn-backendconfig">Cloud CDN&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-armor-backendconfig">Cloud Armor&lt;/a>&lt;/li>
-&lt;li>Identity-Aware Proxy (IAP)&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/configure-backend-service">Timeout, Connection draining timeout, Session affinity, User-defined request headers&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Example:&lt;/p>
-&lt;ul>
-&lt;li>タイムアウトを40秒に設定&lt;/li>
-&lt;li>接続ドレインタイムアウトを60秒に設定&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cloud.google.com/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>BackendConfig&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-bsc-backendconfig&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">timeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">40&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">connectionDraining&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">drainingTimeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
-&lt;p>HPA.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler?hl=ja">水平ポッド自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/external-metrics-autoscaling?hl=ja">外部指標によるデプロイの自動スケーリング | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/custom-metrics-autoscaling?hl=ja">カスタム指標でのデプロイの自動スケーリング | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a>&lt;/li>
-&lt;li>いずれもCloud Monitoringメトリクスでスケール設定を行う&lt;/li>
-&lt;li>&lt;a href="https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/custom-metrics-stackdriver-adapter">https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/custom-metrics-stackdriver-adapter&lt;/a> をクラスタにデプロイする&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler">https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.doit-intl.com/autoscaling-k8s-hpa-with-google-http-s-load-balancer-rps-stackdriver-metric-92db0a28e1ea">Autoscaling K8s HPA with Google HTTP/S Load-Balancer RPS EXTERNAL Stackdriver Metrics&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="アップグレード">アップグレード&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster&lt;/a>&lt;/p>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">リリースチャネル&lt;/a>を指定することで、自動アップグレードできる&lt;/li>
-&lt;/ul>
-&lt;h3 id="kubeconfigエントリを生成">kubeconfigエントリを生成&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters get-credentials &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>CLUSTER_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project PROJECT&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>↑のコマンドは更に、クラスタをデフォルトのkubectlのcontextに設定する。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="gkeのノードにssh">GKEのノードにSSH&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/connecting-advanced#sshbetweeninstances">高度な方法によるインスタンスへの接続 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/inductor/items/bc0ff7d761e0cc7e9394">限定公開クラスターのGKEノードにサクッとSSHする方法 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/sonots/items/6e2a57af945cf0daedd4">GKE で k8s クラスタの node に ssh する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://acloud.guru/forums/gcp-certified-associate-cloud-engineer/discussion/-Lh3ET0aNrv3FwNbNvh6/Insufficient%20Permission:%20Request%20had%20insufficient%20authentication%20scopes.">Insufficient Permission: Request had insufficient authentication scopes. - Course: Google Certified Associate Cloud Engineer 2020&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="コンテナネイティブの負荷分散を使う">コンテナネイティブの負荷分散を使う&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja">コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>TL;DR:&lt;/p>
-&lt;ul>
-&lt;li>ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる&lt;/li>
-&lt;li>従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた&lt;/li>
-&lt;/ul>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues">既知の問題&lt;/a>（2020-04-27時点）:&lt;/p>
-&lt;ul>
-&lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
-&lt;/ul>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="logging">Logging&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/customizing-stackdriver-logs-fluentd?hl=ja">Google Kubernetes Engine の Stackdriver ログを Fluentd でカスタマイズする | ソリューション&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="参考">参考&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/lb/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
-&lt;h2 id="概要">概要&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
-&lt;ul>
-&lt;li>IP anycast対応&lt;/li>
-&lt;li>アーキテクチャ:
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>マネージド証明書
-&lt;ul>
-&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
-&lt;li>DV&lt;/li>
-&lt;li>自動更新&lt;/li>
-&lt;li>ワイルドカードドメインは不可&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
-&lt;blockquote>
-&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
-&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
-&lt;/blockquote>
-&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
-&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
-&lt;ul>
-&lt;li>HTTP(S) ロードバランサ&lt;/li>
-&lt;li>TCP プロキシ ロードバランサ&lt;/li>
-&lt;li>SSL プロキシ ロードバランサ&lt;/li>
-&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
-&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
-&lt;/ul>
-&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
-&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
-&lt;h2 id="logging">Logging&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
-従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
-特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: AWS</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/aws/</link><pubDate>Sun, 26 Apr 2020 23:20:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/aws/</guid><description>
+&lt;/ul></description></item><item><title>A: AWS</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/aws/</link><pubDate>Sun, 26 Apr 2020 23:20:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/aws/</guid><description>
 &lt;h2 id="provider-configuration">Provider Configuration&lt;/h2>
 &lt;ul>
 &lt;li>&lt;code>max_retries&lt;/code> &amp;hellip; APIのリトライ回数を指定できる&lt;/li>
