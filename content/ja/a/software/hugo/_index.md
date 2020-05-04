@@ -4,7 +4,7 @@ linkTitle: "Hugo"
 description: >
   https://gohugo.io
 date: 2020-04-25T23:38:08+09:00
-weight: 275
+weight: 280
 ---
 
 Go言語製の高速な静的サイトジェネレーター。
