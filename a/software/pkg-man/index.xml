@@ -1,0 +1,109 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><description>Recent content in Package Managers on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 04 May 2020 17:17:16 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/pkg-man/index.xml" rel="self" type="application/rss+xml"/><item><title>A: dpkg</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</link><pubDate>Mon, 04 May 2020 17:18:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</guid><description>
+&lt;p>ハイレベルのインタフェースとして &lt;strong>apt&lt;/strong>, &lt;strong>apt-get&lt;/strong>, &lt;strong>aptitude&lt;/strong> がある。&lt;br>
+昔からあるのがaptitudeで、最近あまり使われてない気がするが、2017年11月18日現在、これにしかない機能もあるそうだ。&lt;br>
+aptは最先端のようだが、すべてaptで賄えるというわけではまだなさそう。&lt;/p>
+&lt;p>dpkg &amp;lt;=&amp;gt; aptの関係は、RHEL系におけるrpm &amp;lt;=&amp;gt; yumの関係と似ている。&lt;/p>
+&lt;p>つまり、dpkgは低レベルのインタフェースであり、aptは内部的にdpkgを使っている。&lt;br>
+…というようなことが &lt;a href="http://www.tkd55.net/?p=816">Debian系のファイル管理コマンドもまとめてみた | tkd55&lt;/a> に書いてあった。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2016/20160604#TOC-apt-">https://sites.google.com/site/progrhymetechwiki/home/memo/2016/20160604#TOC-apt-&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ドキュメント">ドキュメント&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://debian-handbook.info/browse/ja-JP/stable/">Debian 管理者ハンドブック&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://debian-handbook.info/browse/ja-JP/stable/sect.apt-get.html">6.2. aptitude、apt-get、apt コマンド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://linux.die.net/man/1/dpkg">dpkg(1): package manager for Debian - Linux man page&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://ja.manpages.org/apt/8">man apt (8): コマンドラインインターフェイス&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://linux.die.net/man/8/apt-get">apt-get(8) - Linux man page&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://linux.die.net/man/8/aptitude">aptitude(8) - Linux man page&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="コマンド">コマンド&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># パッケージリストの更新&lt;/span>
+apt update
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの更新&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 最低限可能なアップグレードを行う&lt;/span>
+apt upgrade
+apt-get upgrade
+aptitude safe-upgrade
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの検索&lt;/span>
+apt search &lt;span style="color:#000">$QUERY&lt;/span>
+apt-cache search &lt;span style="color:#000">$QUERY&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの削除&lt;/span>
+apt remove &lt;span style="color:#000">$PACKAGE&lt;/span>...
+apt-get remove &lt;span style="color:#000">$PACKAGE&lt;/span>...
+&lt;span style="color:#8f5902;font-style:italic">## 不要なパッケージを削除 ... 依存関係でインストールされたが、使われなくなったもの&lt;/span>
+apt autoremove
+&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージの一覧&lt;/span>
+dpkg -l
+&lt;span style="color:#8f5902;font-style:italic"># パッケージがインストールされているか調べる&lt;/span>
+dpkg -l &lt;span style="color:#000">$PACKAGE&lt;/span>
+dpkg-query -l &lt;span style="color:#000">$PACKAGE&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージに含まれるファイルリストを表示&lt;/span>
+dpkg-query -L &lt;span style="color:#000">$PACKAGE&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="インストール">インストール&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">apt install &lt;span style="color:#000">$PACKAGE&lt;/span>...
+apt-get install &lt;span style="color:#000">$PACKAGE&lt;/span>...
+&lt;span style="color:#8f5902;font-style:italic"># バージョン指定&lt;/span>
+apt-get install &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">PACKAGE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">VERSION&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>...
+&lt;span style="color:#8f5902;font-style:italic"># .debパッケージファイルをインストール&lt;/span>
+dpkg -i foo.deb
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/isaoshimizu/items/e9c7fdc8efad66422cae">apt-getでversionを指定してインストールする方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="参考">参考&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://www.tkd55.net/?p=816">Debian系のファイル管理コマンドもまとめてみた | tkd55&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/bluerepliroid/20071205/1197288679">aptとdpkg - intrinsic feeling&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/SUZUKI_Masaya/items/1fd9489e631c78e5b007">aptコマンドチートシート - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://news.mynavi.jp/article/20100420-a053/">rpm、deb、depot、msiパッケージの展開と一覧表示コマンドまとめ | マイナビニュース&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Homebrew</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</link><pubDate>Mon, 04 May 2020 17:19:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</guid><description>
+&lt;p>かねてからmacOSでユーザーランドで動くパッケージ管理ソフトとして開発者に親しまれてきたツールだが、2019年にLinuxにも正式に対応した。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>インストール &amp;hellip; &lt;a href="https://brew.sh/">https://brew.sh/&lt;/a> に従う&lt;/li>
+&lt;/ul>
+&lt;h2 id="macos">macOS&lt;/h2>
+&lt;ul>
+&lt;li>デフォルトで &lt;code>/usr/local&lt;/code> にインストールされる&lt;/li>
+&lt;/ul>
+&lt;h2 id="linux">Linux&lt;/h2>
+&lt;p>&lt;a href="https://docs.brew.sh/Homebrew-on-Linux">https://docs.brew.sh/Homebrew-on-Linux&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>デフォルトで &lt;code>/home/linuxbrew/.linuxbrew&lt;/code> にインストールされる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/04/29/222302">UbuntuにHomebrewを入れてHomebrew Bundleでパッケージ管理することにした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="homebrew-bundle">Homebrew Bundle&lt;/h2>
+&lt;p>&lt;a href="https://github.com/Homebrew/homebrew-bundle">https://github.com/Homebrew/homebrew-bundle&lt;/a>&lt;/p>
+&lt;p>Rubyのbundlerのように、brewでインストールするパッケージをBrewfileという構成ファイルにまとめる。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Brewfileに基づいてパッケージインストール&lt;/span>
+brew bundle &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>install&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Brewfileに入ってないパッケージを削除する&lt;/span>
+brew bundle cleanup &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--force&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>オプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--global&lt;/code>&lt;/td>
+&lt;td>&lt;code>~/.Brewfile&lt;/code> を見に行く&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kiririmode.hatenablog.jp/entry/20200103/1578033722">Macでのアプリケーションインストールの自動化 - 理系学生日記&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

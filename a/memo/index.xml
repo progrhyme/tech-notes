@@ -28,7 +28,11 @@ bsp = branch-sweep --pull
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/kenshiroh/items/44dcf4b094e841bb42a2">gitでbranchをお掃除する際のチートシート - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
+&lt;/ul>
+&lt;h3 id="ubuntuでkubectxをlinuxbrewで入れた">Ubuntuでkubectxをlinuxbrewで入れた&lt;/h3>
+&lt;p>&lt;a href="https://github.com/ahmetb/kubectx">https://github.com/ahmetb/kubectx&lt;/a>&lt;/p>
+&lt;p>READMEには明記されてはいないのだけど、 &lt;code>brew install kubectx&lt;/code> でふつうにインストールできて使えた。&lt;br>
+まあ、シェルスクリプトだしな。&lt;/p></description></item><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
 &lt;h2 id="53">5/3&lt;/h2>
 &lt;h3 id="github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる">GitHub Actionsには今ビルドを手動トリガーするネイティブ機能はない（が、同等のことはできる）&lt;/h3>
 &lt;p>Bitbucket Pipelinesの &lt;code>trigger: manual&lt;/code> みたいな機能がリファレンス見てもなさそうだなと思ってググってみたら、なさそうだとわかった。&lt;/p>
