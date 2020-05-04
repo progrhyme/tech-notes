@@ -4,7 +4,7 @@ linkTitle: "Concept"
 description: >
   全体アーキテクチャーや構成要素について
 date: 2020-04-27T10:53:19+09:00
-weight: 30
+weight: 10
 ---
 
 ## Documentation
@@ -19,19 +19,19 @@ https://kubernetes.io/docs/concepts/
   - [kubelet](https://kubernetes.io/docs/reference/generated/kubelet/)
   - [kube-proxy](https://kubernetes.io/docs/reference/generated/kube-proxy/)
 
-基本的なオブジェクト:
+基本的なオブジェクト（* は本サイト内のページ）:
 
-- [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)
-- [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
+- [Pod]({{< ref "/a/software/k8s/pod.md" >}}) *
+- [Service]({{< ref "/a/software/k8s/service.md" >}}) *
 - [Volume](https://kubernetes.io/docs/concepts/storage/volumes/)
-- [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+- [Namespace]({{< ref "/a/software/k8s/namespace.md" >}}) *
   - Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを **Namespace** と呼ぶ。
 
 より高次の概念として **Controller** と呼ばれるものがある。  
 これは基本オブジェクト上に構築され、以下のような便利な機能を提供する:
 
 - [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) ... [Replication Controller](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)の後継。
-- [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) ... PodやReplicaSetの状態を宣言的に記述することを可能にする。
+- [Deployment]({{< ref "/a/software/k8s/deployment.md" >}}) * ... PodやReplicaSetの状態を宣言的に記述することを可能にする。
 - [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) ... v1.8でbeta. Deployment同様Podを管理するが、それぞれのPodを異なる個体と認識する。
 - [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ... ノード上でPodのコピーを動かす。典型的なユースケースとしては、cephやfluentd, collectdなどが挙げられる。
 - [Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) ... Podを実行し、正常に完了するまでをトラッキングする。定められた回数、正常に完了したら、Jobも完了となる。
@@ -70,114 +70,35 @@ https://kubernetes.io/docs/concepts/overview/components/
 - supervisord ... ノード上でdockerやkubeletを動かし続ける。
 - fluentd ... cluster-level loggingを実現する。
 
-
-## Pods
-
-### スケジューリング
-
-[Node上へのPodのスケジューリング - Kubernetes](https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/)
-
-NOTE:
-
-- Podが起動できない理由:
-  - OutOfMemory, OutOfCpu ... Nodeのリソースが足りない
-
-#### TaintsとTolerations
-
-[Taints and Tolerations - Kubernetes](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/)
-
-[KubernetesのTaintsとTolerationsについて - Qiita](https://qiita.com/sheepland/items/8fedae15e157c102757f)より:
-
-> Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み
-
-### Podの終了
-
-https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
-
-参考:
-
-- [Kubernetes: 詳解 Pods の終了 - Qiita](https://qiita.com/superbrothers/items/3ac78daba3560ea406b2)
-- [KubernetesでRollingUpdateするためのPodの安全な終了 | SIOS Tech. Lab](https://tech-lab.sios.jp/archives/18730)
-
-
-### CrashLoopBackOff
-
-発生条件:
-
-- memory limits以上を使おうとしてOOMで殺され、繰り返し再起動されるとき
-  - 再起動間隔はexponential backoffで延びる
-
-参考:
-
-- [KubernetesのResource RequestsとResource Limitsについて - Qiita](https://qiita.com/sheepland/items/eb0e4c65aaae70ec4e2f)
-
-## Services
-
-- https://kubernetes.io/docs/concepts/services-networking/service/
-- https://cloud.google.com/kubernetes-engine/docs/concepts/service
-  
-Kubernetesクラスタ内では、複数のPodを束ねてServiceにしている。
-Serviceを使用すると、メンバーPodのIPアドレスが変更されても、Serviceが存続している間に固定のIPアドレスを取得できる。
-
-- [Label Selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors) ... サービスを識別するためのラベルとそのセレクタ。
-- **Endpoints** API ... Service内のPodの変更に伴って更新される。
-
-Service定義ファイルのサンプル:
-
-```YAML
-kind: Service
-apiVersion: v1
-metadata:
-  name: my-service
-spec:
-  selector:
-    app: MyApp
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 9376
-```
-
-これはKubernetesクラスタ内で `my-service` という名前でアクセスできる。
-
-参考:
-
-- [Service | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja)
-- [Kubernetes道場 9日目 - Serviceについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-09/)
-
-
-### Serviceのtype
-
-https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja#types_of_services
-
-- `ClusterIP` （デフォルト） ... クラスタ内で固定IPアドレスを獲得
-- `NodePort` ... 指定された1つ以上の `nodePort` 値を利用して、ノードのIPアドレスを通じてアクセス可能になる
-- `LoadBalancer` ... ネットワークロードバランサを介したアクセスを提供
-- `ExternalName` ... See below
-- `Headless`
-
-
-### ExternalName
-
-https://kubernetes.io/ja/docs/concepts/services-networking/service/#externalname
-
-外部から参照できるDNS名を提供する。  
-この機能を使うには、GKEなどのように、KubernetesにDNSコンポーネントが導入されている必要がある。  
-
-Example:
-
-```YAML
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-  namespace: prod
-spec:
-  type: ExternalName
-  externalName: my.database.example.com
-```
-
 ## リソース管理
+### コンテナやPodへのCPU/メモリの割当て
+
+基本:
+
+- Podは、cpu/memory requests以上の空きリソースを持つノードにスケジュールされる
+- コンテナのcpu利用量がlimit値を越えるとスロットルされる = パフォーマンス劣化する
+- コンテナのmemory利用量がlimit値を越えるとOOM Killerで殺される。再起動できるときは再起動される
+- Podが複数のコンテナで構成される場合、リソース指定値は全コンテナの合計値になる
+- requestsを指定しないとデフォルト値になる
+- limitsを指定しないとノードで利用可能な最大値になる
+
+Tips:
+
+- コンテナのcpu/memoryのrequestsより大きなlimitsを指定することで、突発的な負荷に耐えられるようになり、かつ、適切に制限をかけられる
+
+ベストプラクティス:
+
+- NamespaceでResourceQuotasやLimitRangeを設定すると良い
+  - See [Namespace#resourcequotas]({{< ref "/a/software/k8s/namespace.md" >}}#resourcequotas)
+
+参考:
+
+- [コンテナおよびPodへのCPUリソースの割り当て - Kubernetes](https://kubernetes.io/ja/docs/tasks/configure-pod-container/assign-cpu-resource/)
+- [コンテナおよびPodへのメモリーリソースの割り当て - Kubernetes](https://kubernetes.io/ja/docs/tasks/configure-pod-container/assign-memory-resource/)
+- [例を交えてKubernetesのリミットとリクエストを理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム](https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_118.html)
+- [Kubernetes best practices: Resource requests and limits | Google Cloud Blog](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits)
+- [開発者のベスト プラクティス - Azure Kubernetes Service (AKS) でのリソース管理 | Microsoft Docs](https://docs.microsoft.com/ja-jp/azure/aks/developer-best-practices-resource-management)
+
 ### Pod Eviction
 
 Documents:

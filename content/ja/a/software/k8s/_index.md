@@ -12,16 +12,20 @@ weight: 300
 - [Google Cloud > GKE]({{< ref "/a/gcp/gke.md" >}})
 
 ## Getting Started
+### Documentation
 
 - https://kubernetes.io/docs/home/ ... ドキュメント
   - https://kubernetes.io/docs/tutorials/ ... チュートリアル
   - https://kubernetes.io/docs/tasks/ ... How-toガイド
 
-## Documentation
-
 参考:
 
 - [Kubernetes道場 Advent Calendar 2018 - Qiita](https://qiita.com/advent-calendar/2018/k8s-dojo)
+
+## ベストプラクティス
+
+- [Configuration Best Practices | Kubernetes](https://kubernetes.io/docs/concepts/configuration/overview/)
+
 
 ## Reference
 
