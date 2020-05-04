@@ -22,19 +22,18 @@ weight: 300
 
 - [Kubernetes道場 Advent Calendar 2018 - Qiita](https://qiita.com/advent-calendar/2018/k8s-dojo)
 
-## ベストプラクティス
-
-- [Configuration Best Practices | Kubernetes](https://kubernetes.io/docs/concepts/configuration/overview/)
-
-
-## Reference
+### リファレンス
 
 - https://kubernetes.io/docs/reference/
   - APIリファレンス
   - CLIリファレンス
   - etc.
 
-## Case Study
+## ベストプラクティス
+
+- [Configuration Best Practices | Kubernetes](https://kubernetes.io/docs/concepts/configuration/overview/)
+
+## ケーススタディ
 
 参考:
 
@@ -43,87 +42,6 @@ weight: 300
 ## Versions
 
 - [Kubernetes version and version skew support policy - Kubernetes](https://kubernetes.io/docs/setup/release/version-skew-policy/)
-
-## Features
-### PersistentVolume
-
-https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-
-永続化ボリューム
-
-参考:
-
-- [Kubernetes道場 12日目 - PersistentVolume / PersistentVolumeClaim / StorageClassについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-12/)
-
-### Horizontal Pod Autoscaler
-
-- https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-- https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
-
-Podの水平オートスケーラー
-
-- v1 ... CPU使用率(requestsの平均)でスケール
-- v2
-  - https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/hpa-v2.md
-  - カスタムメトリクス対応
-  - 複数メトリクス対応
-
-Example:
-
-```YAML
-kind: HorizontalPodAutoscaler
-apiVersion: autoscaling/v2alpha1
-metadata:
-  name: WebFrontend
-spec:
-  scaleTargetRef:
-    kind: ReplicationController
-    name: WebFrontend
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 80
-  - type: Object
-    object:
-      target:
-        kind: Service
-        name: Frontend
-      metricName: hits-per-second
-      targetValue: 1k
-```
-
-参考:
-
-- [Configuring a Horizontal Pod Autoscaler - GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/horizontal-pod-autoscaling)
-- [GKE クラスタの観察 | Stackdriver Monitoring | Google Cloud](https://cloud.google.com/monitoring/kubernetes-engine/observing?hl=ja)
-- [GKEでPodとNodeをAutoscaling する - Qiita](https://qiita.com/k-hal/items/5f060fdbafa3d29b3499#hpa)
-
-
-### Cluster Autoscaler
-
-https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
-
-- [FAQ.md](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
-
-
-## 認証/認可
-### RBAC
-
-https://kubernetes.io/docs/reference/access-authn-authz/rbac/
-
-- Role ... 権限ロール。Namespace単位
-- ClusterRole ... クラスタ全体に効く権限ロール
-- RoleBinding ... Roleとユーザ/グループの紐付け
-- ClusterRoleBinding ... ClusterRoleとユーザ/グループの紐付け
-
-参考:
-
-- [Kubernetes道場 20日目 - Role / RoleBinding / ClusterRole / ClusterRoleBindingについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-20/)
-- [KubernetesのRBACについて - Qiita](https://qiita.com/sheepland/items/67a5bb9b19d8686f389d)
-
 
 ## How-to
 ### Podの再起動
@@ -165,9 +83,28 @@ kubectl delete -f my-ns.yml
 - [Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita](https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466)
 - [\[小ネタ\]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO](https://dev.classmethod.jp/articles/k8s-namespace-force-delete/)
 
+## エコシステム
 
-## Tools
-### Minikube
+参考:
+
+- [Kubernetesのエコシステムをまとめる - Qiita](https://qiita.com/cvusk/items/100dfb955150ef8964e5) 2018年5月時点
+
+### マニフェスト管理
+
+※ * は当サイト内のページ
+
+- [kustomize]({{<ref "/a/software/k8s/kustomize.md" >}}) *
+- [Helm](https://helm.sh/)
+- [ksonnet](https://github.com/ksonnet/ksonnet)
+  - 2019年2月で更新が止まっている。参考: [Welcoming Heptio Open Source Projects to VMware](https://tanzu.vmware.com/content/blog/welcoming-heptio-open-source-projects-to-vmware)
+
+### テスト用クラスタ構築
+
+- Minikube（See below）
+- [Kind](https://kind.sigs.k8s.io/)
+  - 参考: [Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck](https://speakerdeck.com/ytaka23/cicd-test-night-5th)
+
+#### Minikube
 
 https://github.com/kubernetes/minikube
 
@@ -183,8 +120,25 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 - [minikube でローカルでのテスト用 Kubernetes を構築 – 1Q77](https://blog.1q77.com/2016/10/setup-kubernetes-1-4-using-minikube/)
 - [ローカルでkubernetesを動かせるminikubeを試す - 年中アイス](http://reiki4040.hatenablog.com/entry/2017/04/11/221122)
 
+### CI/CD
 
-### Skaffold
+※ * は当サイト内のページ
+
+- [Argo CD](https://argoproj.github.io/argo-cd/)
+- [Concourse](https://concourse-ci.org/)
+  - 参考: [Kubernetesを前提としたCI/CDパイプラインの具体例と、本番運用に必要なもの (1/2)：コンテナベースのCI/CD本番事例大解剖（3） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1909/04/news005.html)
+- [Jenkins X](https://jenkins-x.io/)
+- [Prow](https://github.com/kubernetes/test-infra/tree/master/prow)
+  - 参考: [KubernetesベースのCI/CDシステムProwに入門してみた | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/22072/)
+- Skaffold（See below）
+- [Spinnaker]({{< ref "/a/software/spinnaker/_index.md" >}}) *
+- [Tekton](https://tekton.dev/)
+
+参考:
+
+- [Spinnaker vs. Argo CD vs. Tekton vs. Jenkins X: Cloud-Native CI/CD](https://www.inovex.de/blog/spinnaker-vs-argo-cd-vs-tekton-vs-jenkins-x/)
+
+#### Skaffold
 
 開発・本番向けにKubernetesクラスタに継続的デリバリーを実施するコマンドラインツール。
 

@@ -70,6 +70,85 @@ https://kubernetes.io/docs/concepts/overview/components/
 - supervisord ... ノード上でdockerやkubeletを動かし続ける。
 - fluentd ... cluster-level loggingを実現する。
 
+## 認証/認可
+### RBAC
+
+https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+
+- Role ... 権限ロール。Namespace単位
+- ClusterRole ... クラスタ全体に効く権限ロール
+- RoleBinding ... Roleとユーザ/グループの紐付け
+- ClusterRoleBinding ... ClusterRoleとユーザ/グループの紐付け
+
+参考:
+
+- [Kubernetes道場 20日目 - Role / RoleBinding / ClusterRole / ClusterRoleBindingについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-20/)
+- [KubernetesのRBACについて - Qiita](https://qiita.com/sheepland/items/67a5bb9b19d8686f389d)
+
+## オートスケール
+### Horizontal Pod Autoscaler
+
+- https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+- https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+Podの水平オートスケーラー
+
+- v1 ... CPU使用率(requestsの平均)でスケール
+- v2
+  - https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/hpa-v2.md
+  - カスタムメトリクス対応
+  - 複数メトリクス対応
+
+Example:
+
+```YAML
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2alpha1
+metadata:
+  name: WebFrontend
+spec:
+  scaleTargetRef:
+    kind: ReplicationController
+    name: WebFrontend
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 80
+  - type: Object
+    object:
+      target:
+        kind: Service
+        name: Frontend
+      metricName: hits-per-second
+      targetValue: 1k
+```
+
+参考:
+
+- [Configuring a Horizontal Pod Autoscaler - GKE](https://cloud.google.com/kubernetes-engine/docs/how-to/horizontal-pod-autoscaling)
+- [GKE クラスタの観察 | Stackdriver Monitoring | Google Cloud](https://cloud.google.com/monitoring/kubernetes-engine/observing?hl=ja)
+- [GKEでPodとNodeをAutoscaling する - Qiita](https://qiita.com/k-hal/items/5f060fdbafa3d29b3499#hpa)
+
+### Cluster Autoscaler
+
+https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
+
+- [FAQ.md](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
+
+## Storage
+### PersistentVolume
+
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+
+永続化ボリューム
+
+参考:
+
+- [Kubernetes道場 12日目 - PersistentVolume / PersistentVolumeClaim / StorageClassについて - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-12/)
+
 ## リソース管理
 ### コンテナやPodへのCPU/メモリの割当て
 
