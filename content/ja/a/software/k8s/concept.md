@@ -111,7 +111,6 @@ https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods
 
 - [KubernetesのResource RequestsとResource Limitsについて - Qiita](https://qiita.com/sheepland/items/eb0e4c65aaae70ec4e2f)
 
-
 ## Services
 
 - https://kubernetes.io/docs/concepts/services-networking/service/

@@ -7,6 +7,10 @@ date: 2020-04-27T10:39:49+09:00
 weight: 300
 ---
 
+関連ページ:
+
+- [Google Cloud > GKE]({{< ref "/a/gcp/gke.md" >}})
+
 ## Getting Started
 
 - https://kubernetes.io/docs/home/ ... ドキュメント

@@ -7,7 +7,16 @@ date: 2020-04-27T11:01:49+09:00
 weight: 220
 ---
 
-## Documentation
+関連ページ:
+
+- [Software > Kubernetes]({{< ref "/a/software/k8s/_index.md" >}})
+
+## Getting Started
+
+- [チュートリアル | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/tutorials?hl=ja)
+- [入門ガイド | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to?hl=ja)
+
+### Documentation
 
 - https://cloud.google.com/kubernetes-engine/docs/?hl=ja
 - https://cloud.google.com/kubernetes-engine/quotas?hl=ja
@@ -260,6 +269,24 @@ TL;DR:
 
 - クラスタやノードのアップグレードが行われる時間枠を設定可能。  
 - （たぶん）最短4時間
+
+### Docker Hubのイメージを使うには？
+
+公開イメージだったら普通に使える。
+
+プライベートなイメージでも認証情報を渡せば普通に使えるんじゃないかな。  
+
+MEMO:
+
+- 日本語の記事だとミラーしたり、GCRにpushしてる例が多い
+
+参考:
+
+- [Google Cloud Kubernetes accessing private Docker Hub hosted images - Stack Overflow](https://stackoverflow.com/questions/50826766/google-cloud-kubernetes-accessing-private-docker-hub-hosted-images)
+- [Images - Kubernetes](https://kubernetes.io/docs/concepts/containers/images/)
+- [docker hub with kubernetes in GKE](https://gist.github.com/toddlers/bb09002ffdc27fba6b7cef920fda2041)
+- [Using Images from a Private Registry on GKE - Engineering Tomorrow’s Systems](https://estl.tech/using-images-from-a-private-registry-on-gke-b3bfb2562b16)
+- [hawksnowlog: Google Container Engine に Dockerhub で公開しているイメージをデプロイする方法](https://hawksnowlog.blogspot.com/2017/02/dockerhub-image-deploy-on-gke.html)
 
 ## Topics
 ### Logging
