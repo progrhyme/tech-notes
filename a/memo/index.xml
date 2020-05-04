@@ -5,6 +5,8 @@
 &lt;p>…というか、exportしてないと不安である。&lt;/p>
 &lt;p>kustomizeで管理していても、野良のリソースがないことを保証できない。&lt;br>
 素のマニフェスト管理でも同様。&lt;/p>
+&lt;p>&lt;code>kubectl apply&lt;/code> は、ふつうは削除同期をやってくれないので。&lt;/p>
+&lt;p>（※…と思って、リファレンスを読み返していたら、 &lt;code>--prune&lt;/code> というオプションがα機能であるようだ。これについては、&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#apply">kubectl#apply&lt;/a>に書いた）&lt;/p>
 &lt;p>定期的にdumpして差分がないかチェックした方がいいんじゃないかな。&lt;br>
 特に、本番とstaging環境は。&lt;/p>
 &lt;p>逆に、export -&amp;gt; applyの運用にしていれば、staging環境の差分をそのまま本番に適用する運用が可能ではないだろうか。&lt;br>

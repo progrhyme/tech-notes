@@ -771,7 +771,8 @@ dpkg -i foo.deb
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2">kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h2>
+&lt;h2 id="ユースケース">ユースケース&lt;/h2>
+&lt;h3 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
 kubectl config view
 &lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
@@ -785,7 +786,7 @@ kubectl config use-context &amp;lt;context-name&amp;gt;
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="実行公開">実行・公開&lt;/h2>
+&lt;h3 id="実行公開">実行・公開&lt;/h3>
 &lt;ul>
 &lt;li>run &amp;hellip; コンテナイメージを実行する。deploymentまたはjobが作られる。&lt;/li>
 &lt;li>expose &amp;hellip; リソースをクラスタ外にServiceとして公開する。&lt;/li>
@@ -798,7 +799,7 @@ kubectl run nginx --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/s
 kubectl expose deployment &amp;lt;deployment-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> --target-port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8000&lt;/span>
 kubectl run &amp;lt;deployment-name&amp;gt; --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;image-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;port&amp;gt;
 kubectl expose deployment &amp;lt;deployment-name&amp;gt; --type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NodePort
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="app-management">App Management&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="app-management">App Management&lt;/h3>
 &lt;ul>
 &lt;li>autoscale&lt;/li>
 &lt;li>scale &amp;hellip; 次のリソースのサイズを設定する:
@@ -813,28 +814,28 @@ kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/sp
 kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> -f foo.yml
 &lt;span style="color:#8f5902;font-style:italic">### 今のサイズが2だったら3にする&lt;/span>
 kubectl scale --current-replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> deployment/mysql
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="リソース管理">リソース管理&lt;/h2>
-&lt;h3 id="作成更新">作成・更新&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="リソース管理">リソース管理&lt;/h3>
+&lt;h4 id="作成更新">作成・更新&lt;/h4>
 &lt;ul>
 &lt;li>create/apply/replace &amp;hellip; JSON or YAMLのリソース定義ファイルを適用して、リソースを作成/更新する。&lt;/li>
 &lt;li>patch &amp;hellip; YAML/JSONのマージを用いて、リソース定義を差分更新する&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## create&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># create&lt;/span>
 kubectl create -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### ファイルから Secret を作成&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## ファイルから Secret を作成&lt;/span>
 kubectl create secret generic my-secret --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./secret/secret.json
-&lt;span style="color:#8f5902;font-style:italic">### ファイルから ConfigMap を作成&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## ファイルから ConfigMap を作成&lt;/span>
 kubectl create configmap my-config --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./config/config.json
-&lt;span style="color:#8f5902;font-style:italic">## apply&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># apply&lt;/span>
 kubectl apply -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
 kubectl apply -f https://k8s.io/docs/tasks/run-application/deployment.yaml
 kubectl apply -f ./pod.json
-&lt;span style="color:#8f5902;font-style:italic">## replace&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># replace&lt;/span>
 kubectl replace -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## patch&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># patch&lt;/span>
 kubectl patch &amp;lt;Resource Type&amp;gt; &amp;lt;Name&amp;gt; --patch &amp;lt;YAML Content&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
 kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat patch-file.yaml&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -843,7 +844,7 @@ kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-23/">Kubernetes道場 23日目 - kubectlを網羅する - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://codeday.me/jp/qa/20190406/566540.html">kubectl applyとkubectl replaceの違いは何ですか - コードログ&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="pod操作">Pod操作&lt;/h3>
+&lt;h4 id="pod操作">Pod操作&lt;/h4>
 &lt;ul>
 &lt;li>exec &amp;hellip; コマンドをコンテナ内で実行する&lt;/li>
 &lt;li>cp &amp;hellip; ファイルをクライアント環境とPod間でやりとり&lt;/li>
@@ -859,7 +860,7 @@ kubectl cp &amp;lt;pod&amp;gt;:/path/to/remotefile /path/to/localfile
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/suzukihi724/items/515654f54538a2103ee0">kubernetes: コンテナイメージにログインする - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="node操作">Node操作&lt;/h3>
+&lt;h4 id="node操作">Node操作&lt;/h4>
 &lt;ul>
 &lt;li>cordon &amp;hellip; ノードへのスケジュールを停止&lt;/li>
 &lt;li>drain &amp;hellip; ノードからPodを削除&lt;/li>
@@ -875,34 +876,65 @@ kubectl drain &amp;lt;node-name&amp;gt; --ignore-daemonsets
 &lt;li>&lt;a href="https://blog.applibot.co.jp/2016/12/27/kubernetes-zero-downtime/">kubernetesの無停止運用を意識した検証 – てっくぼっと！&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/toshihirock/items/d22fee20b1a561b9efea">Kubernetes の drain について検証した時のメモ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="表示">表示&lt;/h3>
+&lt;h4 id="表示">表示&lt;/h4>
 &lt;ul>
 &lt;li>get &amp;hellip; 単一・複数リソースの情報を表示する。&lt;/li>
 &lt;li>describe &amp;hellip; 単一リソース or グループの情報を表示&lt;/li>
 &lt;li>diff &amp;hellip; リソースファイルとクラスタの状態を差分表示&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## get&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># get&lt;/span>
 kubectl get deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ments&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### フィルタの例&lt;/span>
+kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-o json&lt;span style="color:#000;font-weight:bold">|&lt;/span>yaml&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## フィルタの例&lt;/span>
 kubectl get pods -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
-&lt;span style="color:#8f5902;font-style:italic">## describe&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># describe&lt;/span>
 kubectl describe pods &lt;span style="color:#8f5902;font-style:italic"># all pods&lt;/span>
 kubectl describe pod &amp;lt;pod-name&amp;gt;
 kubectl describe deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ment&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;deployment-name&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## diff&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># diff&lt;/span>
 kubectl diff -f foo.yml
-&lt;span style="color:#8f5902;font-style:italic">### kustomizeバージョン&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## kustomizeバージョン&lt;/span>
 kubectl diff -k .
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="削除">削除&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="削除">削除&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## delete&lt;/span>
 kubectl delete deployment &amp;lt;deployment-name&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ログ---logs">ログ - logs&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="サブコマンド">サブコマンド&lt;/h2>
+&lt;h3 id="apply">apply&lt;/h3>
+&lt;p>基本的な利用イメージは&lt;a href="#%E4%BD%9C%E6%88%90%E6%9B%B4%E6%96%B0">ユースケース &amp;gt; リソース管理 &amp;gt; 作成更新&lt;/a>を見よ。&lt;/p>
+&lt;p>オプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>デフォルト&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--prune&lt;/code>&lt;/td>
+&lt;td>&lt;code>false&lt;/code>&lt;/td>
+&lt;td>α in 2020-0505. &lt;br />指定されてないリソースを削除する。ただし、&lt;br /> &lt;code>--save-config&lt;/code> オプション付きで作られたものは除く。&lt;br /> &lt;code>-l&lt;/code> フィルタか &lt;code>--all&lt;/code> オプションと同時に使うべし&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>--prune-whitelist&lt;/code>&lt;/td>
+&lt;td>&lt;code>[]&lt;/code>&lt;/td>
+&lt;td>&lt;code>--prune&lt;/code> で使うデフォルトのホワイトリストを上書きする&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># app=nginxラベルのリソースにマニフェストを適用し、マニフェスト外のリソースを削除する&lt;/span>
+kubectl apply --prune -f manifest.yaml -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
+&lt;span style="color:#8f5902;font-style:italic"># マニフェストに書かれていないConfigMapを全て削除&lt;/span>
+kubectl apply --prune -f manifest.yaml --all --prune-whitelist&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>core/v1/ConfigMap
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logs">logs&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 基本構文&lt;/span>
 kubectl logs &amp;lt;Pod名&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 10行 tail -f&lt;/span>
 kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> -f
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="api-proxy">API Proxy&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="proxy">proxy&lt;/h3>
+&lt;p>API Proxyサーバを起動する&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
 curl http://localhost:8080/api/
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p>
@@ -2840,6 +2872,8 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;p>…というか、exportしてないと不安である。&lt;/p>
 &lt;p>kustomizeで管理していても、野良のリソースがないことを保証できない。&lt;br>
 素のマニフェスト管理でも同様。&lt;/p>
+&lt;p>&lt;code>kubectl apply&lt;/code> は、ふつうは削除同期をやってくれないので。&lt;/p>
+&lt;p>（※…と思って、リファレンスを読み返していたら、 &lt;code>--prune&lt;/code> というオプションがα機能であるようだ。これについては、&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#apply">kubectl#apply&lt;/a>に書いた）&lt;/p>
 &lt;p>定期的にdumpして差分がないかチェックした方がいいんじゃないかな。&lt;br>
 特に、本番とstaging環境は。&lt;/p>
 &lt;p>逆に、export -&amp;gt; applyの運用にしていれば、staging環境の差分をそのまま本番に適用する運用が可能ではないだろうか。&lt;br>
