@@ -1,0 +1,98 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><description>Recent content in Spinnaker on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 05 May 2020 00:24:18 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/spinnaker/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Halyard</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</link><pubDate>Tue, 05 May 2020 00:27:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</guid><description>
+&lt;p>Spinnakerの管理ツール。
+daemon + CLI.&lt;/p>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/oracledevs/install-spinnaker-with-halyard-on-kubernetes-88277bd61d59">Install Spinnaker with Halyard on Kubernetes - Oracle Developers - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="halコマンド">halコマンド&lt;/h2>
+&lt;p>リファレンス: &lt;a href="https://www.spinnaker.io/reference/halyard/commands/">https://www.spinnaker.io/reference/halyard/commands/&lt;/a>&lt;/p>
+&lt;h3 id="backup">backup&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バックアップ作成。tarballが出来る&lt;/span>
+hal backup create
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="config">config&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerのコンポーネントのリソース利用量を変更&lt;/span>
+hal config deploy component-sizing &amp;lt;component&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>delete&lt;span style="color:#000;font-weight:bold">|&lt;/span>edit&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># IAP認証を有効化&lt;/span>
+hal config security authn iap &lt;span style="color:#204a87">enable&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 該当プロバイダのアカウント一覧&lt;/span>
+hal config provider &lt;span style="color:#000">$PROVIDER&lt;/span> account list
+&lt;span style="color:#8f5902;font-style:italic"># 該当プロバイダの該当アカウントにRBACのロール設定&lt;/span>
+hal config provider &lt;span style="color:#000">$PROVIDER&lt;/span> account edit &lt;span style="color:#000">$ACCOUNT&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --read-permissions &lt;span style="color:#000">$ROLE1&lt;/span>,&lt;span style="color:#000">$ROLE2&lt;/span>,... &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --write-permissions &lt;span style="color:#000">$ROLE1&lt;/span>,&lt;span style="color:#000">$ROLE2&lt;/span>,...
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/#accounts">https://www.spinnaker.io/setup/security/authorization/#accounts&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="deploy">deploy&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerの設定変更を適用する&lt;/span>
+hal deploy apply
+&lt;span style="color:#8f5902;font-style:italic"># Spinnakerに接続する&lt;/span>
+hal deploy connect
+&lt;span style="color:#8f5902;font-style:italic"># 各サービスのログを集める&lt;/span>
+hal deploy collect-logs
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cookbooks">Cookbooks&lt;/h3>
+&lt;h4 id="spinnakerのバージョン更新">Spinnakerのバージョン更新&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 利用可能なバージョン一覧&lt;/span>
+hal version list
+&lt;span style="color:#8f5902;font-style:italic"># 現在のバージョン表示&lt;/span>
+hal config version
+&lt;span style="color:#8f5902;font-style:italic"># バージョン変更&lt;/span>
+hal config version edit --version &lt;span style="color:#000">$NEW_VERSION&lt;/span>
+hal deploy apply
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="複数のspinnaker環境を管理する">複数のSpinnaker環境を管理する&lt;/h3>
+&lt;p>Halyardでは &lt;code>Deployment&lt;/code> という単位でconfigを分けることができる。「Deployment」という語はふつうのデプロイという意味やK8s用語としても使われるので、用語としてよくないと思う。 &lt;code>Environment&lt;/code> とかにしてほしかった気がする（Environmentも何かとかぶりそうだが）。&lt;/p>
+&lt;p>See &lt;a href="https://www.spinnaker.io/reference/halyard/#deployments">https://www.spinnaker.io/reference/halyard/#deployments&lt;/a>&lt;/p>
+&lt;p>新しいDeploymentを作るには下のコマンドを叩く:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config --set-current-deployment &lt;span style="color:#000">$DEPLOYMENT&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>指定した &lt;code>$DEPLOYMENT&lt;/code> がなければ新規作成される。&lt;br>
+ちなみに、デフォルトの &lt;code>$DEPLOYMENT&lt;/code> は &lt;code>default&lt;/code> である。&lt;/p>
+&lt;p>このコマンドによって新しく作ったDeploymentはまっさらな状態なので、一通りセットアップしなければならない。&lt;br>
+（日記はここで終わっている。）&lt;/p></description></item><item><title>A: Pipelines</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/pipeline/</link><pubDate>Tue, 05 May 2020 00:28:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/pipeline/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>Guides:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/user/pipeline/managing-pipelines/">Managing Pipelines&lt;/a> &amp;hellip; 作成、実行、無効化、削除、編集、設定の復元、etc.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.spinnaker.io/reference/pipeline/">Reference&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/reference/pipeline/stages/">Stages&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="automated-triggers">Automated Triggers&lt;/h3>
+&lt;p>パイプラインを外部から実行するためのトリガー設定。&lt;/p>
+&lt;h4 id="docker-registry">Docker Registry&lt;/h4>
+&lt;p>&lt;a href="https://www.spinnaker.io/setup/install/providers/docker-registry/">https://www.spinnaker.io/setup/install/providers/docker-registry/&lt;/a> で設定しているリポジトリに新しいイメージがpushされたときに発火する。&lt;br>
+※タグが更新されないと発火しない&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.armory.io/spinnaker-user-guides/docker/">Working with Docker Images - Armory Spinnaker Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tech.virtualtech.jp/entry/2018/06/25/180834">Spinnakerのパイプラインによる自動デプロイ - 仮想化通信&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="webhooks">Webhooks&lt;/h4>
+&lt;p>&lt;a href="https://www.spinnaker.io/guides/user/pipeline/triggers/webhooks/">https://www.spinnaker.io/guides/user/pipeline/triggers/webhooks/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;spinnaker-url&amp;gt;/webhooks/webhook/$key&lt;/code> な任意のURLを発行して、対象のパイプラインのトリガーにできる&lt;/li>
+&lt;li>Spinnaker for GCPな環境でも外から叩けるURLが発行できそうだった&lt;/li>
+&lt;/ul>
+&lt;h3 id="manual-judgement">Manual Judgement&lt;/h3>
+&lt;p>Documents:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/tutorials/codelabs/safe-deployments/">Safe Deployments - Spinnaker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>Manual Judgement&lt;/code> stageを追加することで、人間による手動判断のプロセスを追加できる。&lt;/p>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Manual Judgement&lt;/code> stageでは通知を飛ばすことができる。これによってパイプラインの実行権限のある人に判断を促す&lt;/li>
+&lt;li>&lt;code>Manual Judgement&lt;/code> の結果によって処理を分岐させたい場合、続くstageで &lt;code>Conditional on Expression&lt;/code> にチェックを入れ、条件として &lt;code>${ #(&amp;quot;Manual Judgementのstage名&amp;quot;).equals(&amp;quot;選択肢&amp;quot;)}&lt;/code> を入れる&lt;/li>
+&lt;/ul>
+&lt;h4 id="propagate-authentication">Propagate Authentication&lt;/h4>
+&lt;p>これにチェックを入れると、認証機能によって許可されたユーザにしか判断が下せないようになる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.armory.io/spinnaker/authorization/">Authentication and Authorization - Armory Spinnaker Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/workshops/lab-5.html">Lab 5: Deployment Safeguards | workshops&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

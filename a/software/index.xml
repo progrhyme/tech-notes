@@ -562,11 +562,7 @@ hugo server -D
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/advent-calendar/2018/k8s-dojo">Kubernetes道場 Advent Calendar 2018 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h3 id="リファレンス">リファレンス&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/reference/">https://kubernetes.io/docs/reference/&lt;/a>
 &lt;ul>
@@ -576,7 +572,11 @@ hugo server -D
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="case-study">Case Study&lt;/h2>
+&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ケーススタディ">ケーススタディ&lt;/h2>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://k8s.af/">Kubernetes Failure Stories&lt;/a>&lt;/li>
@@ -584,78 +584,6 @@ hugo server -D
 &lt;h2 id="versions">Versions&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/setup/release/version-skew-policy/">Kubernetes version and version skew support policy - Kubernetes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
-&lt;h3 id="persistentvolume">PersistentVolume&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">https://kubernetes.io/docs/concepts/storage/persistent-volumes/&lt;/a>&lt;/p>
-&lt;p>永続化ボリューム&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-12/">Kubernetes道場 12日目 - PersistentVolume / PersistentVolumeClaim / StorageClassについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Podの水平オートスケーラー&lt;/p>
-&lt;ul>
-&lt;li>v1 &amp;hellip; CPU使用率(requestsの平均)でスケール&lt;/li>
-&lt;li>v2
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/hpa-v2.md">https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/hpa-v2.md&lt;/a>&lt;/li>
-&lt;li>カスタムメトリクス対応&lt;/li>
-&lt;li>複数メトリクス対応&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>HorizontalPodAutoscaler&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>autoscaling/v2alpha1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>WebFrontend&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">scaleTargetRef&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ReplicationController&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>WebFrontend&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">minReplicas&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">maxReplicas&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metrics&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Resource&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cpu&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetAverageUtilization&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Object&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">object&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">target&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Frontend&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metricName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hits-per-second&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetValue&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>1k&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/horizontal-pod-autoscaling">Configuring a Horizontal Pod Autoscaler - GKE&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/monitoring/kubernetes-engine/observing?hl=ja">GKE クラスタの観察 | Stackdriver Monitoring | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/k-hal/items/5f060fdbafa3d29b3499#hpa">GKEでPodとNodeをAutoscaling する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="cluster-autoscaler">Cluster Autoscaler&lt;/h3>
-&lt;p>&lt;a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md">FAQ.md&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="認証認可">認証/認可&lt;/h2>
-&lt;h3 id="rbac">RBAC&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">https://kubernetes.io/docs/reference/access-authn-authz/rbac/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>Role &amp;hellip; 権限ロール。Namespace単位&lt;/li>
-&lt;li>ClusterRole &amp;hellip; クラスタ全体に効く権限ロール&lt;/li>
-&lt;li>RoleBinding &amp;hellip; Roleとユーザ/グループの紐付け&lt;/li>
-&lt;li>ClusterRoleBinding &amp;hellip; ClusterRoleとユーザ/グループの紐付け&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-20/">Kubernetes道場 20日目 - Role / RoleBinding / ClusterRole / ClusterRoleBindingについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/sheepland/items/67a5bb9b19d8686f389d">KubernetesのRBACについて - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="podの再起動">Podの再起動&lt;/h3>
@@ -687,8 +615,32 @@ kubectl delete -f my-ns.yml
 &lt;li>&lt;a href="https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466">Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/k8s-namespace-force-delete/">[小ネタ]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="tools">Tools&lt;/h2>
-&lt;h3 id="minikube">Minikube&lt;/h3>
+&lt;h2 id="エコシステム">エコシステム&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/cvusk/items/100dfb955150ef8964e5">Kubernetesのエコシステムをまとめる - Qiita&lt;/a> 2018年5月時点&lt;/li>
+&lt;/ul>
+&lt;h3 id="マニフェスト管理">マニフェスト管理&lt;/h3>
+&lt;p>※ * は当サイト内のページ&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kustomize/">kustomize&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://helm.sh/">Helm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ksonnet/ksonnet">ksonnet&lt;/a>
+&lt;ul>
+&lt;li>2019年2月で更新が止まっている。参考: &lt;a href="https://tanzu.vmware.com/content/blog/welcoming-heptio-open-source-projects-to-vmware">Welcoming Heptio Open Source Projects to VMware&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="テスト用クラスタ構築">テスト用クラスタ構築&lt;/h3>
+&lt;ul>
+&lt;li>Minikube（See below）&lt;/li>
+&lt;li>&lt;a href="https://kind.sigs.k8s.io/">Kind&lt;/a>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://speakerdeck.com/ytaka23/cicd-test-night-5th">Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="minikube">Minikube&lt;/h4>
 &lt;p>&lt;a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube&lt;/a>&lt;/p>
 &lt;p>ローカルでKubernetesを動かすためのツール。&lt;br>
 Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker上に直接クラスタを構築することもできる。&lt;/p>
@@ -705,11 +657,233 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;li>&lt;a href="https://blog.1q77.com/2016/10/setup-kubernetes-1-4-using-minikube/">minikube でローカルでのテスト用 Kubernetes を構築 – 1Q77&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://reiki4040.hatenablog.com/entry/2017/04/11/221122">ローカルでkubernetesを動かせるminikubeを試す - 年中アイス&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="skaffold">Skaffold&lt;/h3>
+&lt;h3 id="cicd">CI/CD&lt;/h3>
+&lt;p>※ * は当サイト内のページ&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/">Argo CD&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://concourse-ci.org/">Concourse&lt;/a>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://www.atmarkit.co.jp/ait/articles/1909/04/news005.html">Kubernetesを前提としたCI/CDパイプラインの具体例と、本番運用に必要なもの (1/2)：コンテナベースのCI/CD本番事例大解剖（3） - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://jenkins-x.io/">Jenkins X&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kubernetes/test-infra/tree/master/prow">Prow&lt;/a>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://developers.cyberagent.co.jp/blog/archives/22072/">KubernetesベースのCI/CDシステムProwに入門してみた | CyberAgent Developers Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Skaffold（See below）&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/spinnaker/">Spinnaker&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://tekton.dev/">Tekton&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.inovex.de/blog/spinnaker-vs-argo-cd-vs-tekton-vs-jenkins-x/">Spinnaker vs. Argo CD vs. Tekton vs. Jenkins X: Cloud-Native CI/CD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="skaffold">Skaffold&lt;/h4>
 &lt;p>開発・本番向けにKubernetesクラスタに継続的デリバリーを実施するコマンドラインツール。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/GoogleContainerTools/skaffold">https://github.com/GoogleContainerTools/skaffold&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://skaffold.dev/">https://skaffold.dev/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><pubDate>Tue, 05 May 2020 00:24:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>公式サイト: &lt;a href="https://www.spinnaker.io/">https://www.spinnaker.io/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/">Set up Spinnaker&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/install/providers/">Cloud Providers&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/install/providers/docker-registry/">Docker Registry&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/install/providers/kubernetes-v2/">Kubernetes v2&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/install/providers/kubernetes-v2/gke/">GKE&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/">Guides&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/tutorials/">Tutorials&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/tutorials/codelabs/">Codelabs&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/tutorials/codelabs/safe-deployments/">Safe Deployments&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/reference/">Reference&lt;/a>
+&lt;ul>
+&lt;li>API &lt;a href="https://www.spinnaker.io/reference/api/docs.html">https://www.spinnaker.io/reference/api/docs.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="quickstart">Quickstart&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/spinnaker/spinnaker.github.io/blob/master/downloads/kubernetes/quick-install.yml">https://github.com/spinnaker/spinnaker.github.io/blob/master/downloads/kubernetes/quick-install.yml&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="concepts">Concepts&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/concepts/">Overview&lt;/a>
+&lt;ul>
+&lt;li>Application management
+&lt;ul>
+&lt;li>:&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Application deployment
+&lt;ul>
+&lt;li>Pipeline&lt;/li>
+&lt;li>Stage&lt;/li>
+&lt;li>Deployment strategies&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="guides">Guides&lt;/h2>
+&lt;p>&lt;a href="https://www.spinnaker.io/guides/">https://www.spinnaker.io/guides/&lt;/a>&lt;/p>
+&lt;h3 id="kubernetes">Kubernetes&lt;/h3>
+&lt;p>&lt;a href="https://www.spinnaker.io/guides/user/kubernetes-v2/">https://www.spinnaker.io/guides/user/kubernetes-v2/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/user/kubernetes-v2/deploy-manifest/">Deploy Kubernetes Manifests&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/user/kubernetes-v2/patch-manifest/">Patch Kubernetes Manifests&lt;/a>
+&lt;ul>
+&lt;li>K8sのmanifestをpatch更新できる。&lt;/li>
+&lt;li>参考: &lt;a href="https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/">Update API Objects in Place Using kubectl patch - Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/guides/user/kubernetes-v2/rollout-strategies/">Rollout Strategies&lt;/a>
+&lt;ul>
+&lt;li>※ReplicaSetのみ有効 &lt;a href="https://www.spinnaker.io/guides/user/kubernetes-v2/traffic-management/#you-must-use-replica-sets">https://www.spinnaker.io/guides/user/kubernetes-v2/traffic-management/#you-must-use-replica-sets&lt;/a>&lt;/li>
+&lt;li>Red/Black Rollouts&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.spinnaker.io/introducing-rollout-strategies-in-the-kubernetes-v2-provider-8bbffea109a">Introducing Rollout Strategies in the Kubernetes V2 Provider&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;p>&lt;a href="https://www.spinnaker.io/reference/">https://www.spinnaker.io/reference/&lt;/a>&lt;/p>
+&lt;h3 id="artifacts">Artifacts&lt;/h3>
+&lt;p>&lt;a href="https://www.spinnaker.io/reference/artifacts/">https://www.spinnaker.io/reference/artifacts/&lt;/a>&lt;/p>
+&lt;p>外部リソースを参照するオブジェクト。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>Dockerイメージ&lt;/li>
+&lt;li>GCSやS3内のバイナリ&lt;/li>
+&lt;/ul>
+&lt;h4 id="artifacts-in-kubernetes-manifest-basedhttpswwwspinnakerioreferenceartifactsin-kubernetes-v2">&lt;a href="https://www.spinnaker.io/reference/artifacts/in-kubernetes-v2/">Artifacts In Kubernetes (Manifest Based)&lt;/a>&lt;/h4>
+&lt;p>いくつかのリソースは &lt;code>vNNN&lt;/code> 形式でSpinnaker内でバージョンが振られる。&lt;/p>
+&lt;h2 id="components">Components&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>component&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Clouddriver&lt;/td>
+&lt;td>クラウドインフラとのやりとりを司る&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Deck&lt;/td>
+&lt;td>Web UI&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Gate&lt;/td>
+&lt;td>API Gateway&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Orca&lt;/td>
+&lt;td>オーケストレーションエンジン&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authentication/">Authentication - Spinnaker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/productionize/scaling/horizontal-scaling/">Horizontally Scale Spinnaker Services - Spinnaker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;h3 id="authentication--認証">Authentication / 認証&lt;/h3>
+&lt;p>&lt;a href="https://www.spinnaker.io/setup/security/authentication/">https://www.spinnaker.io/setup/security/authentication/&lt;/a>&lt;/p>
+&lt;h4 id="google-cloud-iapによる認証">Google Cloud IAPによる認証&lt;/h4>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/reference/halyard/commands/#hal-config-security-authn-iap">https://www.spinnaker.io/reference/halyard/commands/#hal-config-security-authn-iap&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@damianmyerscough/spinnaker-authentication-with-cloud-iap-a7f12ebf18c0">Spinnaker Authentication with Cloud IAP - Damian Myerscough - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="authorization--認可">Authorization / 認可&lt;/h3>
+&lt;ul>
+&lt;li>Setup: &lt;a href="https://www.spinnaker.io/setup/security/authorization/">https://www.spinnaker.io/setup/security/authorization/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/google-groups/">Google Groups via G Suite - Spinnaker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Architecture: &lt;a href="https://www.spinnaker.io/reference/architecture/authz_authn/authorization/">https://www.spinnaker.io/reference/architecture/authz_authn/authorization/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Automated Triggersによって起動するPipelineの場合、以下の2つの方法のいずれかで権限設定する:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/service-accounts/">Service Accounts - Spinnaker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/pipeline-permissions/">Pipeline Permissions - Spinnaker&lt;/a> &amp;hellip; こっちは2020-01-08時点でまだαらしい&lt;/li>
+&lt;/ul>
+&lt;h4 id="service-account">Service Account&lt;/h4>
+&lt;p>削除&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">curl -X DELETE &lt;span style="color:#000">$FRONT50&lt;/span>/serviceAccounts/&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>サービスアカウントID&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://github.com/spinnaker/front50/blob/a25e184f6afd4dd63a8c8fdb63fe109b378f9991/front50-web/src/main/groovy/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.groovy#L69">https://github.com/spinnaker/front50/blob/a25e184f6afd4dd63a8c8fdb63fe109b378f9991/front50-web/src/main/groovy/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.groovy#L69&lt;/a>&lt;/p>
+&lt;h3 id="ciツール連携">CIツール連携&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/ci/">https://www.spinnaker.io/setup/ci/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.spinnaker.io/reference/halyard/commands/#hal-config-ci">https://www.spinnaker.io/reference/halyard/commands/#hal-config-ci&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>2020-01-17現在、Concourse, Jenkins, Google Cloud Build, Travis CI, Werckerに対応しているようだ。&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="kubernetesアカウントを追加する">Kubernetesアカウントを追加する&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.spinnaker.io/setup/install/providers/kubernetes-v2/#adding-an-account">https://www.spinnaker.io/setup/install/providers/kubernetes-v2/#adding-an-account&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Yama-Tomo/items/73c2a7ccf60c22866a04">Spinnakerでデプロイ先のクラスタを追加する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ログレベルの変更">ログレベルの変更&lt;/h3>
+&lt;p>&lt;code>~/.hal/default/service/settings/${component}.yml&lt;/code> に以下の内容を記述:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">env&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">JAVA_OPTS&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-Dlogging.level.com.netflix.${コンポーネント名}=DEBUG&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/spinnaker/spinnaker/issues/3388">Fiat Service Account causes NPE if the Service Account is not a user in LDAP · Issue #3388 · spinnaker/spinnaker&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://community.spinnaker.io/t/solved-how-to-change-spinnakers-services-logging-level/458">[SOLVED] How to change spinnaker&amp;rsquo;s services logging level? - Operations - Spinnaker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="spinnaker-rollout-strategies-vs-k8s-rolling-update">Spinnaker Rollout Strategies vs K8s Rolling Update&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://community.spinnaker.io/t/spinnaker-deployment-strategies-v-kubernetes-rolling-update/180">Spinnaker deployment strategies v. Kubernetes rolling update - Platforms - Spinnaker&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="gcp-gke">GCP (GKE)&lt;/h2>
+&lt;p>Getting Started:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/GoogleCloudPlatform/spinnaker-for-gcp">https://github.com/GoogleCloudPlatform/spinnaker-for-gcp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/docs/ci-cd/spinnaker/spinnaker-for-gcp">https://cloud.google.com/docs/ci-cd/spinnaker/spinnaker-for-gcp&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Advanced:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/managing-and-deploying-apps-to-multiple-gke-clusters-using-spinnaker?hl=ja">Spinnaker を使用したアプリの管理と複数の GKE クラスタへのデプロイ | ソリューション | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/takasp/items/a74c8acdf3a8851b8da7">GKE で Spinnaker を構築する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
