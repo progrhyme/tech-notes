@@ -3681,7 +3681,11 @@ sudo apt install golang-go
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tf_actions_version&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>env.tf_version&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tf_actions_subcommand&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apply&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tf_actions_working_dir&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>env.tf_work_dir&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="peaceirisactions-gh-pages">peaceiris/actions-gh-pages&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/6bde1e1807a65c7e2cb2">GitHub ActionsでGCPにTerraformでインフラCI/CDする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="peaceirisactions-gh-pages">peaceiris/actions-gh-pages&lt;/h3>
 &lt;p>&lt;a href="https://github.com/peaceiris/actions-gh-pages">https://github.com/peaceiris/actions-gh-pages&lt;/a>&lt;/p>
 &lt;p>GitHub Pagesに公開するaction.&lt;/p>
 &lt;p>Example:&lt;/p>
