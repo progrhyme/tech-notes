@@ -78,95 +78,37 @@
 &lt;li>supervisord &amp;hellip; ノード上でdockerやkubeletを動かし続ける。&lt;/li>
 &lt;li>fluentd &amp;hellip; cluster-level loggingを実現する。&lt;/li>
 &lt;/ul>
-&lt;h2 id="pods">Pods&lt;/h2>
-&lt;h3 id="スケジューリング">スケジューリング&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/p>
-&lt;p>NOTE:&lt;/p>
+&lt;h2 id="リソース管理">リソース管理&lt;/h2>
+&lt;h3 id="コンテナやpodへのcpuメモリの割当て">コンテナやPodへのCPU/メモリの割当て&lt;/h3>
+&lt;p>基本:&lt;/p>
 &lt;ul>
-&lt;li>Podが起動できない理由:
-&lt;ul>
-&lt;li>OutOfMemory, OutOfCpu &amp;hellip; Nodeのリソースが足りない&lt;/li>
+&lt;li>Podは、cpu/memory requests以上の空きリソースを持つノードにスケジュールされる&lt;/li>
+&lt;li>コンテナのcpu利用量がlimit値を越えるとスロットルされる = パフォーマンス劣化する&lt;/li>
+&lt;li>コンテナのmemory利用量がlimit値を越えるとOOM Killerで殺される。再起動できるときは再起動される&lt;/li>
+&lt;li>Podが複数のコンテナで構成される場合、リソース指定値は全コンテナの合計値になる&lt;/li>
+&lt;li>requestsを指定しないとデフォルト値になる&lt;/li>
+&lt;li>limitsを指定しないとノードで利用可能な最大値になる&lt;/li>
 &lt;/ul>
-&lt;/li>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>コンテナのcpu/memoryのrequestsより大きなlimitsを指定することで、突発的な負荷に耐えられるようになり、かつ、適切に制限をかけられる&lt;/li>
 &lt;/ul>
-&lt;h4 id="taintsとtolerations">TaintsとTolerations&lt;/h4>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/">Taints and Tolerations - Kubernetes&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://qiita.com/sheepland/items/8fedae15e157c102757f">KubernetesのTaintsとTolerationsについて - Qiita&lt;/a>より:&lt;/p>
-&lt;blockquote>
-&lt;p>Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="podの終了">Podの終了&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods">https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
+&lt;p>ベストプラクティス:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://qiita.com/superbrothers/items/3ac78daba3560ea406b2">Kubernetes: 詳解 Pods の終了 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://tech-lab.sios.jp/archives/18730">KubernetesでRollingUpdateするためのPodの安全な終了 | SIOS Tech. Lab&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="crashloopbackoff">CrashLoopBackOff&lt;/h3>
-&lt;p>発生条件:&lt;/p>
+&lt;li>NamespaceでResourceQuotasやLimitRangeを設定すると良い
 &lt;ul>
-&lt;li>memory limits以上を使おうとしてOOMで殺され、繰り返し再起動されるとき
-&lt;ul>
-&lt;li>再起動間隔はexponential backoffで延びる&lt;/li>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/namespace/#resourcequotas">Namespace#resourcequotas&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://qiita.com/sheepland/items/eb0e4c65aaae70ec4e2f">KubernetesのResource RequestsとResource Limitsについて - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/ja/docs/tasks/configure-pod-container/assign-cpu-resource/">コンテナおよびPodへのCPUリソースの割り当て - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/ja/docs/tasks/configure-pod-container/assign-memory-resource/">コンテナおよびPodへのメモリーリソースの割り当て - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_118.html">例を交えてKubernetesのリミットとリクエストを理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits">Kubernetes best practices: Resource requests and limits | Google Cloud Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.microsoft.com/ja-jp/azure/aks/developer-best-practices-resource-management">開発者のベスト プラクティス - Azure Kubernetes Service (AKS) でのリソース管理 | Microsoft Docs&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="services">Services&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">https://kubernetes.io/docs/concepts/services-networking/service/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service">https://cloud.google.com/kubernetes-engine/docs/concepts/service&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Kubernetesクラスタ内では、複数のPodを束ねてServiceにしている。
-Serviceを使用すると、メンバーPodのIPアドレスが変更されても、Serviceが存続している間に固定のIPアドレスを取得できる。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors">Label Selector&lt;/a> &amp;hellip; サービスを識別するためのラベルとそのセレクタ。&lt;/li>
-&lt;li>&lt;strong>Endpoints&lt;/strong> API &amp;hellip; Service内のPodの変更に伴って更新される。&lt;/li>
-&lt;/ul>
-&lt;p>Service定義ファイルのサンプル:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MyApp&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TCP&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetPort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">9376&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これはKubernetesクラスタ内で &lt;code>my-service&lt;/code> という名前でアクセスできる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja">Service | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-09/">Kubernetes道場 9日目 - Serviceについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="serviceのtype">Serviceのtype&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja#types_of_services">https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja#types_of_services&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>ClusterIP&lt;/code> （デフォルト） &amp;hellip; クラスタ内で固定IPアドレスを獲得&lt;/li>
-&lt;li>&lt;code>NodePort&lt;/code> &amp;hellip; 指定された1つ以上の &lt;code>nodePort&lt;/code> 値を利用して、ノードのIPアドレスを通じてアクセス可能になる&lt;/li>
-&lt;li>&lt;code>LoadBalancer&lt;/code> &amp;hellip; ネットワークロードバランサを介したアクセスを提供&lt;/li>
-&lt;li>&lt;code>ExternalName&lt;/code> &amp;hellip; See below&lt;/li>
-&lt;li>&lt;code>Headless&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h3 id="externalname">ExternalName&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/services-networking/service/#externalname">https://kubernetes.io/ja/docs/concepts/services-networking/service/#externalname&lt;/a>&lt;/p>
-&lt;p>外部から参照できるDNS名を提供する。&lt;br>
-この機能を使うには、GKEなどのように、KubernetesにDNSコンポーネントが導入されている必要がある。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">namespace&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>prod&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ExternalName&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">externalName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my.database.example.com&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="リソース管理">リソース管理&lt;/h2>
 &lt;h3 id="pod-eviction">Pod Eviction&lt;/h3>
 &lt;p>Documents:&lt;/p>
 &lt;ul>
@@ -182,78 +124,33 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html">Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/architecture/nodes/">ノード - Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Configuration</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
-&lt;h2 id="best-practices">Best Practices&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="kubeconfig">kubeconfig&lt;/h2>
-&lt;p>クラスタ認証情報を保存するYAMLファイル。&lt;br>
-&lt;code>kubectl&lt;/code> の設定ファイル。&lt;br>
-デフォルトのPATHは &lt;code>$HOME/.kube/config&lt;/code>&lt;/p>
+&lt;/ul></description></item><item><title>A: ConfigMap</title><link>https://progrhy.me/tech-notes/a/software/k8s/configmap/</link><pubDate>Mon, 04 May 2020 22:39:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/configmap/</guid><description>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/secret/">Secret&lt;/a>&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-11/">Kubernetes道場 11日目 - ConfigMap / Secretについて - Toku&amp;rsquo;s Blog&lt;/a>より&lt;/p>
+&lt;blockquote>
+&lt;p>ConfigMapやSecretはアプリケーションの設定やクレデンシャルをコンテナイメージから分離するために使われる。&lt;br>
+ConfigMapやSecretをVolumeとして、または環境変数を通してPodに設定やクレデンシャルを渡す。&lt;/p>
+&lt;/blockquote>
+&lt;p>ConfigMapはSecretと違い、値をencodeせずに平文でYAMLに書くので、普通の設定ファイル的な位置づけ。&lt;/p>
+&lt;blockquote>
+&lt;p>A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume .&lt;/p>
+&lt;/blockquote>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">Configure Access to Multiple Clusters - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/tkusumi/items/cf7b096972bfa2810800">Kubernetes: ConfigMap / Secret の内容を一度に環境変数として読み込む (envFrom) - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="namespaces">Namespaces&lt;/h2>
-&lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Namespace&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>myapp&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>公式サイトにいくつかのガイドやサンプルがある:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-15/">Kubernetes道場 15日目 - Namespace / Resource QoS / ResourceQuota / LimitRangeについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="resourcequotas">ResourceQuotas&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">https://kubernetes.io/docs/concepts/policy/resource-quotas/&lt;/a>&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ResourceQuota&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>compute-resources&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">hard&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">requests.cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">requests.memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>1Gi&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits.cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits.memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>2Gi&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>適用例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl create -f ./compute-resources.yaml --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>myspace
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note:&lt;/p>
-&lt;ul>
-&lt;li>ResourceQuotaを設定したnamespaceに属する全Podの合計値が上限になる&lt;/li>
-&lt;li>cpu, memory以外も色々ある&lt;/li>
-&lt;/ul>
-&lt;h3 id="limitrange">LimitRange&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/policy/limit-range/">https://kubernetes.io/docs/concepts/policy/limit-range/&lt;/a>&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>LimitRange&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>limit-mem-cpu-per-container&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">max&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;800m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;1Gi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">min&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;100m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;99Mi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;700m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;900Mi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">defaultRequest&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;110m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;111Mi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Container&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>namespaceに対して設定する&lt;/li>
-&lt;li>cpu/memoryのrequests/limitsの下限、上限、デフォルト値を設定できる&lt;/li>
-&lt;/ul>
-&lt;h2 id="container">Container&lt;/h2>
-&lt;h3 id="コマンド引数の定義">コマンド/引数の定義&lt;/h3>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">Configure a Pod to Use a ConfigMap - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/">Configuring Redis using a ConfigMap | Kubernetes&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Container</title><link>https://progrhy.me/tech-notes/a/software/k8s/container/</link><pubDate>Mon, 04 May 2020 22:14:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/container/</guid><description>
+&lt;p>Kubernetesにおいて、基本的にコンテナはPod内で定義され、実行される（はず）。&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/pod/">Pod&lt;/a>&lt;/p>
+&lt;h2 id="cpuメモリの割当て">CPU/メモリの割当て&lt;/h2>
+&lt;p>考え方やベストプラクティスについては&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%84pod%E3%81%B8%E3%81%AEcpu%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E5%89%B2%E5%BD%93%E3%81%A6">Concept#コンテナやpodへのcpuメモリの割当て&lt;/a>を見よ。&lt;/p>
+&lt;h2 id="コマンド引数の定義">コマンド/引数の定義&lt;/h2>
 &lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes">https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -269,7 +166,7 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">command&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;printenv&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">args&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;HOSTNAME&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;KUBERNETES_PORT&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">restartPolicy&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OnFailure&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="livenessreadiness-probes">liveness/readiness probes&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="livenessreadiness-probes">liveness/readiness probes&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Configure Liveness, Readiness and Startup Probes - Kubernetes&lt;/a>&lt;/li>
 &lt;/ul>
@@ -278,8 +175,9 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-10/">Kubernetes道場 10日目 - LivenessProbe / ReadinessProbeについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="lifecycle-hooks">Lifecycle Hooks&lt;/h3>
+&lt;h2 id="lifecycle-hooks">Lifecycle Hooks&lt;/h2>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/">https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/pod/#%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB">Pod#ライフサイクル&lt;/a>&lt;/p>
 &lt;p>以下のフックを仕込むことで、コマンド実行などが可能。&lt;/p>
 &lt;ul>
 &lt;li>PostStart&lt;/li>
@@ -304,20 +202,11 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://44smkn.hatenadiary.com/entry/2018/08/01/022312">pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-06/">Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="pods">Pods&lt;/h2>
-&lt;h3 id="affinity">Affinity&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/#affinity-%e3%81%a8-anti-affinity">Node上へのPodのスケジューリング - Kubernetes#AffinityとAnti-Affinity&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-18/#affinity-anti-affinity">Kubernetes道場 18日目 - Affinity / Anti-Affinity / Taint / Tolerationについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.1915keke.com/entry/2018/09/26/163447">KubernetesのNode AffinityとInternal Pod Affinityを使ってPodを高度スケジューリングする - Kekeの日記&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/sheepland/items/ed12b3dc4a8f1df7c4ec">KubernetesのNode Affinity, Inter-Pod Affinityについて - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="deployment">Deployment&lt;/h2>
+&lt;/ul></description></item><item><title>A: Deployment</title><link>https://progrhy.me/tech-notes/a/software/k8s/deployment/</link><pubDate>Mon, 04 May 2020 21:45:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/deployment/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/">https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Deployment コントローラーはPodとReplicaSetの宣言的なアップデート機能を提供します。&lt;/p>
+&lt;/blockquote>
 &lt;p>Example:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apps/v1&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Deployment&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -343,8 +232,8 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-08/">Kubernetes道場 8日目 - ReplicaSet / Deploymentについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="spec">spec&lt;/h3>
-&lt;h4 id="strategy">strategy&lt;/h4>
+&lt;h2 id="spec">spec&lt;/h2>
+&lt;h3 id="strategy">strategy&lt;/h3>
 &lt;p>更新戦略。&lt;/p>
 &lt;p>Example:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -367,76 +256,6 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/TakiTake@github/items/bfc977baf4b909b1e118">KubernetesのRolling updateを安全に行う - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://rahmonov.me/posts/zero-downtime-deployment-with-kubernetes/">Zero Downtime Deployment with Kubernetes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="configmaps--secrets">ConfigMaps &amp;amp; Secrets&lt;/h2>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-11/">Kubernetes道場 11日目 - ConfigMap / Secretについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/tkusumi/items/cf7b096972bfa2810800">Kubernetes: ConfigMap / Secret の内容を一度に環境変数として読み込む (envFrom) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="configmaps">ConfigMaps&lt;/h3>
-&lt;p>Secretsと似ているが、こちらは値をencodeせずに平文でYAMLに書くので、普通の設定ファイル的な位置づけ。&lt;/p>
-&lt;p>公式サイトにいくつかのガイドやサンプルがある:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">Use ConfigMap Data in Pods | Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/configmap/">Configure Containers Using a ConfigMap | Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/">Configuring Redis using a ConfigMap | Kubernetes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="secrets">Secrets&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/configuration/secret/">https://kubernetes.io/docs/concepts/configuration/secret/&lt;/a>&lt;/p>
-&lt;p>パスワードなどテキストをbase64でencodeして保存する。&lt;br>
-暗号化の機能もある？&lt;/p>
-&lt;p>Podから環境変数として読み込むという使い方をすることが多いようだ。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ubiteku.oinker.me/2017/03/01/kubernetes-secrets/">Kubernetes Secrets の紹介 – データベースのパスワードやその他秘密情報をどこに保存するか？ – ゆびてく&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="secretsの作成">Secretsの作成&lt;/h4>
-&lt;p>例1) テキストファイルから作成&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &amp;gt; ./username.txt
-&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;1f2d1e2e67df&amp;#39;&lt;/span> &amp;gt; ./password.txt
-kubectl create secret generic db-user-pass --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./username.txt --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./password.txt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>例2) 自分で定義ファイル(YAML)を作る&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
-&lt;span style="color:#000">YWRtaW4&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;1f2d1e2e67df&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
-MWYyZDFlMmU2N2Rm
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic">## secret.yaml&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Secret&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>mysecret&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Opaque&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">username&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>YWRtaW4=&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">password&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MWYyZDFlMmU2N2Rm&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">kubectl apply -f ./secret.yaml
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="cpumemoryの割り当て">CPU/Memoryの割り当て&lt;/h3>
-&lt;p>基本:&lt;/p>
-&lt;ul>
-&lt;li>Podは、cpu/memory requests以上の空きリソースを持つノードにスケジュールされる&lt;/li>
-&lt;li>コンテナのcpu利用量がlimit値を越えるとスロットルされる = パフォーマンス劣化する&lt;/li>
-&lt;li>コンテナのmemory利用量がlimit値を越えるとOOM Killerで殺される。再起動できるときは再起動される&lt;/li>
-&lt;li>Podが複数のコンテナで構成される場合、リソース指定値は全コンテナの合計値になる&lt;/li>
-&lt;li>requestsを指定しないとデフォルト値になる&lt;/li>
-&lt;li>limitsを指定しないとノードで利用可能な最大値になる&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>コンテナのcpu/memoryのrequestsより大きなlimitsを指定することで、突発的な負荷に耐えられるようになり、かつ、適切に制限をかけられる&lt;/li>
-&lt;/ul>
-&lt;p>ベストプラクティス:&lt;/p>
-&lt;ul>
-&lt;li>NamespaceでResourceQuotasやLimitRangeを設定すると良い&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/ja/docs/tasks/configure-pod-container/assign-cpu-resource/">コンテナおよびPodへのCPUリソースの割り当て - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/ja/docs/tasks/configure-pod-container/assign-memory-resource/">コンテナおよびPodへのメモリーリソースの割り当て - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_118.html">例を交えてKubernetesのリミットとリクエストを理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits">Kubernetes best practices: Resource requests and limits | Google Cloud Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.microsoft.com/ja-jp/azure/aks/developer-best-practices-resource-management">開発者のベスト プラクティス - Azure Kubernetes Service (AKS) でのリソース管理 | Microsoft Docs&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: kubectl</title><link>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</link><pubDate>Fri, 01 May 2020 12:15:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</guid><description>
 &lt;p>Kubernetesクラスタを制御するCLI.&lt;/p>
 &lt;ul>
@@ -639,4 +458,203 @@ kubectl get -k .
 &lt;ul>
 &lt;li>&lt;a href="https://deeeet.com/writing/2018/07/10/kustomize/">KustomizeでKubernetes YAMLを管理する | SOTA&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.mosuke.tech/entry/2019/06/21/kustomize/">Kustomizeで環境ごとに異なるマニフェストを作る | Goldstine研究所&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Namespace</title><link>https://progrhy.me/tech-notes/a/software/k8s/namespace/</link><pubDate>Mon, 04 May 2020 21:45:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/namespace/</guid><description>
+&lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
+&lt;p>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Namespace&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>myapp&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-15/">Kubernetes道場 15日目 - Namespace / Resource QoS / ResourceQuota / LimitRangeについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="リソース管理">リソース管理&lt;/h2>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%84pod%E3%81%B8%E3%81%AEcpu%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E5%89%B2%E5%BD%93%E3%81%A6">Concept#コンテナやpodへのcpuメモリの割当て&lt;/a>&lt;/p>
+&lt;p>ResourceQuotasやLimitRangeを設定することで、リソース管理をよりいい感じに行えるっぽい。（が、逆に面倒ではないかという気もする。）&lt;/p>
+&lt;h3 id="resourcequotas">ResourceQuotas&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">https://kubernetes.io/docs/concepts/policy/resource-quotas/&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ResourceQuota&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>compute-resources&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">hard&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">requests.cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">requests.memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>1Gi&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits.cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits.memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>2Gi&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>適用例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl create -f ./compute-resources.yaml --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>myspace
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note:&lt;/p>
+&lt;ul>
+&lt;li>ResourceQuotaを設定したnamespaceに属する全Podの合計値が上限になる&lt;/li>
+&lt;li>cpu, memory以外も色々ある&lt;/li>
+&lt;/ul>
+&lt;h3 id="limitrange">LimitRange&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/policy/limit-range/">https://kubernetes.io/docs/concepts/policy/limit-range/&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>LimitRange&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>limit-mem-cpu-per-container&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">max&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;800m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;1Gi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">min&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;100m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;99Mi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;700m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;900Mi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">defaultRequest&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;110m&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;111Mi&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Container&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>namespaceに対して設定する&lt;/li>
+&lt;li>cpu/memoryのrequests/limitsの下限、上限、デフォルト値を設定できる&lt;/li>
+&lt;/ul></description></item><item><title>A: Pod</title><link>https://progrhy.me/tech-notes/a/software/k8s/pod/</link><pubDate>Mon, 04 May 2020 21:45:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/pod/</guid><description>
+&lt;p>1つ以上のコンテナを内包する、ワークロードの基本単位。&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/">Container&lt;/a>&lt;/p>
+&lt;h2 id="スケジューリング">スケジューリング&lt;/h2>
+&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Podが起動できない理由:
+&lt;ul>
+&lt;li>OutOfMemory, OutOfCpu &amp;hellip; Nodeのリソースが足りない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="affinity">Affinity&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/#affinity-%e3%81%a8-anti-affinity">Node上へのPodのスケジューリング - Kubernetes#AffinityとAnti-Affinity&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-18/#affinity-anti-affinity">Kubernetes道場 18日目 - Affinity / Anti-Affinity / Taint / Tolerationについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.1915keke.com/entry/2018/09/26/163447">KubernetesのNode AffinityとInternal Pod Affinityを使ってPodを高度スケジューリングする - Kekeの日記&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/sheepland/items/ed12b3dc4a8f1df7c4ec">KubernetesのNode Affinity, Inter-Pod Affinityについて - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="taintsとtolerations">TaintsとTolerations&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/">Taints and Tolerations - Kubernetes&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://qiita.com/sheepland/items/8fedae15e157c102757f">KubernetesのTaintsとTolerationsについて - Qiita&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="ライフサイクル">ライフサイクル&lt;/h2>
+&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/pods/pod-lifecycle/">Podのライフサイクル - Kubernetes&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/#lifecycle-hooks">Container#lifecycle-hooks&lt;/a>&lt;/p>
+&lt;h3 id="podの終了">Podの終了&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods">https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/superbrothers/items/3ac78daba3560ea406b2">Kubernetes: 詳解 Pods の終了 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tech-lab.sios.jp/archives/18730">KubernetesでRollingUpdateするためのPodの安全な終了 | SIOS Tech. Lab&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="crashloopbackoff">CrashLoopBackOff&lt;/h3>
+&lt;p>発生条件:&lt;/p>
+&lt;ul>
+&lt;li>memory limits以上を使おうとしてOOMで殺され、繰り返し再起動されるとき
+&lt;ul>
+&lt;li>再起動間隔はexponential backoffで延びる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sheepland/items/eb0e4c65aaae70ec4e2f">KubernetesのResource RequestsとResource Limitsについて - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="pod-eviction">Pod Eviction&lt;/h3>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p></description></item><item><title>A: Secret</title><link>https://progrhy.me/tech-notes/a/software/k8s/secret/</link><pubDate>Mon, 04 May 2020 22:39:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/secret/</guid><description>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/configmap/">ConfigMap&lt;/a>&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>ConfigMapと同じような使い方ができるが、暗号化機構が備わっており、クレデンシャルなど機微情報を扱うのに向いている。&lt;/p>
+&lt;p>Podから環境変数として読み込むという使い方をすることが多いようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ubiteku.oinker.me/2017/03/01/kubernetes-secrets/">Kubernetes Secrets の紹介 – データベースのパスワードやその他秘密情報をどこに保存するか？ – ゆびてく&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="documents">Documents&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kubernetes/community/blob/master/contributors/design-proposals/auth/secrets.md">design-proposals/secrets.md - kubernetes/community&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="secretsの作成">Secretsの作成&lt;/h2>
+&lt;p>例1) テキストファイルから作成&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &amp;gt; ./username.txt
+&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;1f2d1e2e67df&amp;#39;&lt;/span> &amp;gt; ./password.txt
+kubectl create secret generic db-user-pass --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./username.txt --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./password.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>例2) 自分で定義ファイル(YAML)を作る&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
+&lt;span style="color:#000">YWRtaW4&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;1f2d1e2e67df&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
+MWYyZDFlMmU2N2Rm
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic">## secret.yaml&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Secret&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>mysecret&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Opaque&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">username&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>YWRtaW4=&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">password&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MWYyZDFlMmU2N2Rm&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">kubectl apply -f ./secret.yaml
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Service</title><link>https://progrhy.me/tech-notes/a/software/k8s/service/</link><pubDate>Mon, 04 May 2020 21:45:23 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/service/</guid><description>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">https://kubernetes.io/docs/concepts/services-networking/service/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service">https://cloud.google.com/kubernetes-engine/docs/concepts/service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Podの集合で実行されている持続的なワークロードをネットワークサービスとして公開する抽象的な手法。&lt;/p>
+&lt;p>Serviceを使用すると、メンバーPodのIPアドレスが変更されても、Serviceが存続している間に固定のIPアドレスを取得できる。&lt;/p>
+&lt;p>Service定義ファイルのサンプル:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MyApp&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TCP&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetPort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">9376&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これはKubernetesクラスタ内で &lt;code>my-service&lt;/code> という名前でアクセスできる。&lt;/p>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors">Label Selector&lt;/a> &amp;hellip; サービスを識別するためのラベルとそのセレクタ。&lt;/li>
+&lt;li>&lt;strong>Endpoints&lt;/strong> API &amp;hellip; Service内のPodの変更に伴って更新される。&lt;/li>
+&lt;/ul>
+&lt;h2 id="serviceのtype">Serviceのtype&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja#types_of_services">https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja#types_of_services&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>ClusterIP&lt;/code> （デフォルト） &amp;hellip; クラスタ内で固定IPアドレスを獲得&lt;/li>
+&lt;li>&lt;code>NodePort&lt;/code> &amp;hellip; 指定された1つ以上の &lt;code>nodePort&lt;/code> 値を利用して、ノードのIPアドレスを通じてアクセス可能になる&lt;/li>
+&lt;li>&lt;code>LoadBalancer&lt;/code> &amp;hellip; ネットワークロードバランサを介したアクセスを提供&lt;/li>
+&lt;li>&lt;code>ExternalName&lt;/code> &amp;hellip; See below&lt;/li>
+&lt;li>&lt;code>Headless&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="externalname">ExternalName&lt;/h3>
+&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/services-networking/service/#externalname">https://kubernetes.io/ja/docs/concepts/services-networking/service/#externalname&lt;/a>&lt;/p>
+&lt;p>外部から参照できるDNS名を提供する。&lt;br>
+この機能を使うには、GKEなどのように、KubernetesにDNSコンポーネントが導入されている必要がある。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-service&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">namespace&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>prod&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ExternalName&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">externalName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my.database.example.com&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考記事など">参考記事など&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja">Service | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-09/">Kubernetes道場 9日目 - Serviceについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

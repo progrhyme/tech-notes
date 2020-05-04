@@ -549,6 +549,7 @@ hugo server -D
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/gcp/gke/">Google Cloud &amp;gt; GKE&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;h3 id="documentation">Documentation&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/&lt;/a> &amp;hellip; ドキュメント
 &lt;ul>
@@ -557,10 +558,13 @@ hugo server -D
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/advent-calendar/2018/k8s-dojo">Kubernetes道場 Advent Calendar 2018 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
