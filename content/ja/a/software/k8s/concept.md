@@ -73,14 +73,22 @@ https://kubernetes.io/docs/concepts/overview/components/
 
 ## Pods
 
-Podが起動できない理由:
+### スケジューリング
 
-- OutOfMemory, OutOfCpu ... Nodeのリソースが足りない
+[Node上へのPodのスケジューリング - Kubernetes](https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/)
 
-参考:
+NOTE:
 
-- [Node上へのPodのスケジューリング - Kubernetes](https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/)
+- Podが起動できない理由:
+  - OutOfMemory, OutOfCpu ... Nodeのリソースが足りない
 
+#### TaintsとTolerations
+
+[Taints and Tolerations - Kubernetes](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/)
+
+[KubernetesのTaintsとTolerationsについて - Qiita](https://qiita.com/sheepland/items/8fedae15e157c102757f)より:
+
+> Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み
 
 ### Podの終了
 

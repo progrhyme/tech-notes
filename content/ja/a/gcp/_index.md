@@ -67,6 +67,18 @@ See [組織に既存のプロジェクトを移行する | Google Cloud Resource
 
 - [Project quota requests \- Cloud Platform Console ヘルプ](https://support.google.com/cloud/answer/6330231?hl=ja)
 
+## API認証
+
+ドキュメント:
+
+- [認証の概要 | Google Cloud](https://cloud.google.com/docs/authentication?hl=ja)
+- [エンドユーザーとして認証する | Google Cloud](https://cloud.google.com/docs/authentication/end-user?hl=ja) ... OAuth 2.0を使う
+
+### OAuthスコープ
+
+- [OAuth 2.0 Scopes for Google APIs | Google Identity Platform](https://developers.google.com/identity/protocols/oauth2/scopes)
+- https://cloud.google.com/sdk/gcloud/reference/compute/instances/create#--scopes ... エイリアス一覧
+
 ## 構成管理
 ### Cloud Deployment Manager
 

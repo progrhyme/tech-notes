@@ -233,6 +233,13 @@ TL;DR:
 - GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある
 - [Podのreadinessフィードバック](https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness)を<u>使っていない場合</u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある
 
+### メンテナンス時間枠と除外枠の設定
+
+[メンテナンスの時間枠と除外の構成 | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions?hl=ja)
+
+- クラスタやノードのアップグレードが行われる時間枠を設定可能。  
+- （たぶん）最短4時間
+
 ## Topics
 ### Logging
 
