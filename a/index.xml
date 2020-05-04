@@ -2833,7 +2833,18 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
+&lt;/ul></description></item><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200505/</guid><description>
+&lt;h1 id="55">5/5&lt;/h1>
+&lt;h2 id="kubernetesのマニフェストは全部exportして管理した方がいいんじゃねって思った">Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/h2>
+&lt;p>exportのやり方は調べて&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#%E5%85%A8%E3%81%A6%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%81%84">kubectlのページ#全てのマニフェストを取得したい&lt;/a>に書いた。&lt;/p>
+&lt;p>…というか、exportしてないと不安である。&lt;/p>
+&lt;p>kustomizeで管理していても、野良のリソースがないことを保証できない。&lt;br>
+素のマニフェスト管理でも同様。&lt;/p>
+&lt;p>定期的にdumpして差分がないかチェックした方がいいんじゃないかな。&lt;br>
+特に、本番とstaging環境は。&lt;/p>
+&lt;p>逆に、export -&amp;gt; applyの運用にしていれば、staging環境の差分をそのまま本番に適用する運用が可能ではないだろうか。&lt;br>
+このやり方なら、仰々しいK8s対応のCI/CDツールなど使わなくても、kubectlとGitOpsだけで行けるかもしれない。&lt;/p>
+&lt;p>まだ試してないので、実際にやってみたら色々と課題も出てくるだろうけど。&lt;/p></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
 &lt;h2 id="54">5/4&lt;/h2>
 &lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
 &lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>
@@ -2867,7 +2878,21 @@ bsp = branch-sweep --pull
 &lt;h3 id="ubuntuでkubectxをlinuxbrewで入れた">Ubuntuでkubectxをlinuxbrewで入れた&lt;/h3>
 &lt;p>&lt;a href="https://github.com/ahmetb/kubectx">https://github.com/ahmetb/kubectx&lt;/a>&lt;/p>
 &lt;p>READMEには明記されてはいないのだけど、 &lt;code>brew install kubectx&lt;/code> でふつうにインストールできて使えた。&lt;br>
-まあ、シェルスクリプトだしな。&lt;/p></description></item><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
+まあ、シェルスクリプトだしな。&lt;/p>
+&lt;h3 id="memo-ページの階層を増やしたらhogoのサイト内ページ参照が壊れた">memo/ ページの階層を増やしたらHogoのサイト内ページ参照が壊れた&lt;/h3>
+&lt;p>下の変更による:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/tech-notes/commit/325430dfd7d297186bc73aa2e53bf69e8da5a79c">[memo] Move some memos under 2020/ · progrhyme/tech-notes@325430d&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>例えば、20200502.md内のリンクを20200501へのリンクを &lt;code>{{\&amp;lt; ref &amp;quot;/a/memo/20200501.md&amp;quot; \&amp;gt;}}&lt;/code> に戻すと、次のエラーが出る:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% hugo -v --path-warnings
+INFO 2020/05/05 06:53:45 Using config file:
+Building sites … INFO 2020/05/05 06:53:45 syncing static files to /home/progrhyme/my/repos/tech-notes/public/
+INFO 2020/05/05 06:53:45 postcss: use config file /home/progrhyme/my/repos/tech-notes/themes/docsy/postcss.config.js
+ERROR 2020/05/05 06:53:47 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ja&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> REF_NOT_FOUND: Ref &lt;span style="color:#4e9a06">&amp;#34;/a/memo/20200501.md&amp;#34;&lt;/span>: &lt;span style="color:#4e9a06">&amp;#34;/home/progrhyme/my/repos/tech-notes/content/ja/a/memo/20200502.md:16:34&amp;#34;&lt;/span>: page not found
+Total in &lt;span style="color:#0000cf;font-weight:bold">2470&lt;/span> ms
+Error: Error building site: logged &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> error&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
 &lt;h2 id="53">5/3&lt;/h2>
 &lt;h3 id="github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる">GitHub Actionsには今ビルドを手動トリガーするネイティブ機能はない（が、同等のことはできる）&lt;/h3>
 &lt;p>Bitbucket Pipelinesの &lt;code>trigger: manual&lt;/code> みたいな機能がリファレンス見てもなさそうだなと思ってググってみたら、なさそうだとわかった。&lt;/p>
@@ -2982,7 +3007,7 @@ GCS backend認証も上記の環境変数がない場合は、Application Creden
 &lt;/ul>
 &lt;p>以前に調べたログ:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="../20200427/">2020-04-27&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200427/">2020-04-27&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="tmuxのstatus-lineの色設定をいい感じにした">tmuxのstatus lineの色設定をいい感じにした&lt;/h3>
 &lt;p>2ヶ月ちょっと前に .tmux.conf をv2.9+対応にしたのだけど、status lineの色設定がなんかイマイチになってたので調整した。&lt;/p>
@@ -3462,7 +3487,7 @@ sudo rm -rf /etc/kubernetes/
 &lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200428/</guid><description>
+&lt;/ul></description></item><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200428/</guid><description>
 &lt;h1 id="428">4/28&lt;/h1>
 &lt;h2 id="macでanyenv経由のnodenv経由でnodejsを入れてみた">Macでanyenv経由のnodenv経由でNode.jsを入れてみた&lt;/h2>
 &lt;p>以前はnodebrewを使っていたのだけど、anyenv押しの記事を見たので。&lt;/p>
@@ -4033,12 +4058,4 @@ npm install
 &lt;p>インストールされたパッケージを削除する。&lt;/p>
 &lt;p>エイリアス: &lt;code>remove, rm, un, unlink&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm uninstall パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Install</title><link>https://progrhy.me/tech-notes/a/program/lang/go/install/</link><pubDate>Sun, 26 Apr 2020 19:02:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/install/</guid><description>
-&lt;h2 id="ubuntu">Ubuntu&lt;/h2>
-&lt;p>&lt;a href="https://github.com/golang/go/wiki/Ubuntu">https://github.com/golang/go/wiki/Ubuntu&lt;/a>&lt;/p>
-&lt;p>2018年以前ぐらいまではtarballからインストールしていたと思うが、2020-04-26現在は、apt installが可能になっている。&lt;/p>
-&lt;p>以下は最新版をインストールする手順:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install golang-go
 &lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
