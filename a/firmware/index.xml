@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Firmware</title><link>https://progrhy.me/tech-notes/a/firmware/</link><description>Recent content in Firmware on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 04 May 2020 08:37:40 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/firmware/index.xml" rel="self" type="application/rss+xml"/><item><title>A: BIOS</title><link>https://progrhy.me/tech-notes/a/firmware/bios/</link><pubDate>Mon, 04 May 2020 08:43:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/bios/</guid><description>
+&lt;p>&lt;a href="http://e-words.jp/w/BIOS.html">BIOS（Basic Input/Output System）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>パソコンなどの主基板（マザーボード）などに格納されたコンピュータプログラム（ファームウェア）の一種で、起動時のOSの読み込みや、接続された装置・機器に対する基本的な入出力制御などを行うもの。&lt;/p>
+&lt;/blockquote></description></item><item><title>A: UEFI</title><link>https://progrhy.me/tech-notes/a/firmware/uefi/</link><pubDate>Mon, 04 May 2020 08:45:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/uefi/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="http://e-words.jp/w/UEFI.html">UEFI（EFI）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>コンピュータ内の各装置を制御するファームウェアとオペレーティングシステム（OS）の間の通信仕様を定めた標準規格の一つ。従来のBIOSに代わるもの。UEFI対応ファームウェアを指してUEFIと呼ぶこともある。&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>業界団体: UEFIフォーラム &lt;a href="https://uefi.org/">https://uefi.org/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">Unified Extensible Firmware Interface - Wikipedia&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;p>&lt;a href="https://uefi.org/specifications">https://uefi.org/specifications&lt;/a>&lt;/p>
+&lt;p>2020-05-04時点の最新版: &lt;a href="https://uefi.org/sites/default/files/resources/UEFI_Spec_2_8_A_Feb14.pdf">UEFI Specification Version 2.8 (Errata A) (released February 2020)&lt;/a>&lt;/p>
+&lt;h3 id="セキュアブート">セキュアブート&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/security/shielded-cloud/shielded-vm?hl=ja">Shielded VM | ドキュメント | Google Cloud&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>すべてのブートコンポーネントのデジタル署名を検証し、署名検証が失敗した場合にブートプロセスを停止することで、システムが正規のソフトウェアのみを実行することを保証します。&lt;/p>
+&lt;/blockquote>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.microsoft.com/ja-jp/windows-hardware/design/device-experiences/oem-secure-boot">セキュア ブート | Microsoft Docs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="歴史">歴史&lt;/h2>
+&lt;p>&lt;a href="http://e-words.jp/w/UEFI.html">UEFI（EFI）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>従来使われてきたBIOSは、16ビットマイクロプロセッサの時代に設計されたもので、マルチタスク環境で利用されることを想定していない点や、メインメモリの位置640KB〜1MBわずか384KBの領域にしか配置できない点など、現在のハードウェアやOSから見ると時代遅れで窮屈な制約が多い。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>これを克服するため、64ビット環境を想定して新たに設計された近代的で拡張可能なファームウェアのインターフェース仕様としてUEFIの開発が始まった。&lt;/p>
+&lt;/blockquote>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>開発当初は「EFI」（Extensible Firmware Interface）という名称だった。&lt;/li>
+&lt;li>2005年、業界団体のUEFIフォーラムへ移管され、同時に名称もUEFI（Unified EFI）に改められた。&lt;/li>
+&lt;/ul></description></item></channel></rss>
