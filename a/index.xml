@@ -1,4 +1,15 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;h3 id="file-watchers">File Watchers&lt;/h3>
+&lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
+例えば、ファイルの変更を監視してコードフォーマッタを適用するとか。&lt;/p>
+&lt;p>&lt;a href="https://pleiades.io/help/idea/using-file-watchers.html">ファイル監視 - 公式ヘルプ | IntelliJ IDEA&lt;/a>&lt;/p>
+&lt;h2 id="how-to-upgrade">How to Upgrade&lt;/h2>
+&lt;h3 id="ubuntu">Ubuntu&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200429/#ubuntu-1804%E3%81%A7intellij-idea%E3%82%9220201%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88">2020年に2018年版から2020.1にアップデートしたときのログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018年に2017年版から2018.1にアップデートしたときのログ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/">https://kubernetes.io/docs/concepts/&lt;/a>&lt;/p>
 &lt;h2 id="overview">Overview&lt;/h2>
@@ -182,7 +193,11 @@ Serviceを使用すると、メンバーPodのIPアドレスが変更されて�
 &lt;ul>
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html">Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/architecture/nodes/">ノード - Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Configuration</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
+&lt;/ul></description></item><item><title>A: BIOS</title><link>https://progrhy.me/tech-notes/a/firmware/bios/</link><pubDate>Mon, 04 May 2020 08:43:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/bios/</guid><description>
+&lt;p>&lt;a href="http://e-words.jp/w/BIOS.html">BIOS（Basic Input/Output System）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>パソコンなどの主基板（マザーボード）などに格納されたコンピュータプログラム（ファームウェア）の一種で、起動時のOSの読み込みや、接続された装置・機器に対する基本的な入出力制御などを行うもの。&lt;/p>
+&lt;/blockquote></description></item><item><title>A: Configuration</title><link>https://progrhy.me/tech-notes/a/software/k8s/config/</link><pubDate>Mon, 27 Apr 2020 10:53:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/config/</guid><description>
 &lt;h2 id="best-practices">Best Practices&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/concepts/configuration/overview/">Configuration Best Practices | Kubernetes&lt;/a>&lt;/li>
@@ -407,22 +422,7 @@ MWYyZDFlMmU2N2Rm
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_118.html">例を交えてKubernetesのリミットとリクエストを理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits">Kubernetes best practices: Resource requests and limits | Google Cloud Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://docs.microsoft.com/ja-jp/azure/aks/developer-best-practices-resource-management">開発者のベスト プラクティス - Azure Kubernetes Service (AKS) でのリソース管理 | Microsoft Docs&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;h3 id="file-watchers">File Watchers&lt;/h3>
-&lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
-例えば、ファイルの変更を監視してコードフォーマッタを適用するとか。&lt;/p>
-&lt;p>&lt;a href="https://pleiades.io/help/idea/using-file-watchers.html">ファイル監視 - 公式ヘルプ | IntelliJ IDEA&lt;/a>&lt;/p>
-&lt;h2 id="how-to-upgrade">How to Upgrade&lt;/h2>
-&lt;h3 id="ubuntu">Ubuntu&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200429/#ubuntu-1804%E3%81%A7intellij-idea%E3%82%9220201%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88">2020年に2018年版から2020.1にアップデートしたときのログ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018年に2017年版から2018.1にアップデートしたときのログ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: BIOS</title><link>https://progrhy.me/tech-notes/a/firmware/bios/</link><pubDate>Mon, 04 May 2020 08:43:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/bios/</guid><description>
-&lt;p>&lt;a href="http://e-words.jp/w/BIOS.html">BIOS（Basic Input/Output System）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
-&lt;blockquote>
-&lt;p>パソコンなどの主基板（マザーボード）などに格納されたコンピュータプログラム（ファームウェア）の一種で、起動時のOSの読み込みや、接続された装置・機器に対する基本的な入出力制御などを行うもの。&lt;/p>
-&lt;/blockquote></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
+&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
 &lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
 &lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
@@ -819,6 +819,208 @@ dpkg -i foo.deb
 &lt;li>&lt;a href="http://d.hatena.ne.jp/bluerepliroid/20071205/1197288679">aptとdpkg - intrinsic feeling&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/SUZUKI_Masaya/items/1fd9489e631c78e5b007">aptコマンドチートシート - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://news.mynavi.jp/article/20100420-a053/">rpm、deb、depot、msiパッケージの展開と一覧表示コマンドまとめ | マイナビニュース&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: kubectl</title><link>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</link><pubDate>Fri, 01 May 2020 12:15:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</guid><description>
+&lt;p>Kubernetesクラスタを制御するCLI.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/overview/">https://kubernetes.io/docs/reference/kubectl/overview/&lt;/a>&lt;/li>
+&lt;li>リファレンス: &lt;a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubectl.docs.kubernetes.io/">https://kubectl.docs.kubernetes.io/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="周辺ツール">周辺ツール&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://krew.sigs.k8s.io/">Krew&lt;/a> &amp;hellip; kubectl plugin manager&lt;/li>
+&lt;li>&lt;a href="https://github.com/ahmetb/kubectx">kubectx&lt;/a> &amp;hellip; context, namespaceの切替を簡単にしてくれる&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kustomize/">kustomize&lt;/a> &amp;hellip; Kubernetesのマニフェスト管理ツール。kubectl 1.14からkubectlに取り込まれた&lt;/li>
+&lt;li>&lt;a href="https://github.com/lbolla/kube-secret-editor">lbolla/kube-secret-editor&lt;/a> &amp;hellip; secretをデコードした状態で編集することを可能にし、編集後にエンコードして保存してくれる&lt;/li>
+&lt;/ul>
+&lt;h2 id="設定">設定&lt;/h2>
+&lt;h3 id="kubeconfig">kubeconfig&lt;/h3>
+&lt;p>環境設定ファイルkubeconfigを参照する順番:&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>&lt;code>--kubeconfig&lt;/code> フラグで指定されたパス&lt;/li>
+&lt;li>&lt;code>$KUBECONFIG&lt;/code> 環境変数に指定されたパス一覧&lt;/li>
+&lt;li>&lt;code>~/.kube/config&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;p>See &lt;a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files - Kubernetes&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2">kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
+kubectl config view
+&lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
+kubectl config get-contexts
+&lt;span style="color:#8f5902;font-style:italic">### 現在のcontext&lt;/span>
+kubectl config current-context
+&lt;span style="color:#8f5902;font-style:italic">### 変更&lt;/span>
+kubectl config use-context &amp;lt;context-name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="実行公開">実行・公開&lt;/h2>
+&lt;ul>
+&lt;li>run &amp;hellip; コンテナイメージを実行する。deploymentまたはjobが作られる。&lt;/li>
+&lt;li>expose &amp;hellip; リソースをクラスタ外にServiceとして公開する。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## run&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
+kubectl run nginx --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
+&lt;span style="color:#8f5902;font-style:italic">## expose&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
+kubectl expose deployment &amp;lt;deployment-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> --target-port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8000&lt;/span>
+kubectl run &amp;lt;deployment-name&amp;gt; --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;image-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;port&amp;gt;
+kubectl expose deployment &amp;lt;deployment-name&amp;gt; --type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NodePort
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="app-management">App Management&lt;/h2>
+&lt;ul>
+&lt;li>autoscale&lt;/li>
+&lt;li>scale &amp;hellip; 次のリソースのサイズを設定する:
+&lt;ul>
+&lt;li>Deployment, ReplicaSet, Replication Controller, StatefulSet&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## scale&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### ReplicaSet &amp;#39;foo&amp;#39; を3に&lt;/span>
+kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> rs/foo
+kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> -f foo.yml
+&lt;span style="color:#8f5902;font-style:italic">### 今のサイズが2だったら3にする&lt;/span>
+kubectl scale --current-replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> deployment/mysql
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="リソース管理">リソース管理&lt;/h2>
+&lt;h3 id="作成更新">作成・更新&lt;/h3>
+&lt;ul>
+&lt;li>create/apply/replace &amp;hellip; JSON or YAMLのリソース定義ファイルを適用して、リソースを作成/更新する。&lt;/li>
+&lt;li>patch &amp;hellip; YAML/JSONのマージを用いて、リソース定義を差分更新する&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## create&lt;/span>
+kubectl create -f &amp;lt;Path or URL of config file&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### ファイルから Secret を作成&lt;/span>
+kubectl create secret generic my-secret --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./secret/secret.json
+&lt;span style="color:#8f5902;font-style:italic">### ファイルから ConfigMap を作成&lt;/span>
+kubectl create configmap my-config --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./config/config.json
+&lt;span style="color:#8f5902;font-style:italic">## apply&lt;/span>
+kubectl apply -f &amp;lt;Path or URL of config file&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
+kubectl apply -f https://k8s.io/docs/tasks/run-application/deployment.yaml
+kubectl apply -f ./pod.json
+&lt;span style="color:#8f5902;font-style:italic">## replace&lt;/span>
+kubectl replace -f &amp;lt;Path or URL of config file&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## patch&lt;/span>
+kubectl patch &amp;lt;Resource Type&amp;gt; &amp;lt;Name&amp;gt; --patch &amp;lt;YAML Content&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
+kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat patch-file.yaml&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/">Update API Objects in Place Using kubectl patch - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tellme.tokyo/post/2018/08/07/kubernetes-configmaps-secrets/">Kubernetes 上で Credentials を扱う | tellme.tokyo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-23/">Kubernetes道場 23日目 - kubectlを網羅する - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://codeday.me/jp/qa/20190406/566540.html">kubectl applyとkubectl replaceの違いは何ですか - コードログ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="pod操作">Pod操作&lt;/h3>
+&lt;ul>
+&lt;li>exec &amp;hellip; コマンドをコンテナ内で実行する&lt;/li>
+&lt;li>cp &amp;hellip; ファイルをクライアント環境とPod間でやりとり&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## exec&lt;/span>
+kubectl &lt;span style="color:#204a87">exec&lt;/span> &amp;lt;pod&amp;gt; -- &amp;lt;command&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>args...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### podにbashでログイン&lt;/span>
+kubectl &lt;span style="color:#204a87">exec&lt;/span> -it &amp;lt;pod&amp;gt; -- /bin/bash -l
+&lt;span style="color:#8f5902;font-style:italic">## cp&lt;/span>
+kubectl cp path/to/localfile &amp;lt;pod&amp;gt;:/path/to/remotefile
+kubectl cp &amp;lt;pod&amp;gt;:/path/to/remotefile /path/to/localfile
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/suzukihi724/items/515654f54538a2103ee0">kubernetes: コンテナイメージにログインする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="node操作">Node操作&lt;/h3>
+&lt;ul>
+&lt;li>cordon &amp;hellip; ノードへのスケジュールを停止&lt;/li>
+&lt;li>drain &amp;hellip; ノードからPodを削除&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cordon&lt;/span>
+kubectl cordon &amp;lt;node-name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## drain&lt;/span>
+kubectl drain &amp;lt;node-name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### DaemonSetで管理されてPodを停止するとき&lt;/span>
+kubectl drain &amp;lt;node-name&amp;gt; --ignore-daemonsets
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.applibot.co.jp/2016/12/27/kubernetes-zero-downtime/">kubernetesの無停止運用を意識した検証 – てっくぼっと！&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/toshihirock/items/d22fee20b1a561b9efea">Kubernetes の drain について検証した時のメモ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="表示">表示&lt;/h3>
+&lt;ul>
+&lt;li>get &amp;hellip; 単一・複数リソースの情報を表示する。&lt;/li>
+&lt;li>describe &amp;hellip; 単一リソース or グループの情報を表示&lt;/li>
+&lt;li>diff &amp;hellip; リソースファイルとクラスタの状態を差分表示&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## get&lt;/span>
+kubectl get deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ments&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### フィルタの例&lt;/span>
+kubectl get pods -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
+&lt;span style="color:#8f5902;font-style:italic">## describe&lt;/span>
+kubectl describe pods &lt;span style="color:#8f5902;font-style:italic"># all pods&lt;/span>
+kubectl describe pod &amp;lt;pod-name&amp;gt;
+kubectl describe deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ment&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;deployment-name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## diff&lt;/span>
+kubectl diff -f foo.yml
+&lt;span style="color:#8f5902;font-style:italic">### kustomizeバージョン&lt;/span>
+kubectl diff -k .
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="削除">削除&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## delete&lt;/span>
+kubectl delete deployment &amp;lt;deployment-name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ログ---logs">ログ - logs&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 基本構文&lt;/span>
+kubectl logs &amp;lt;Pod名&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 10行 tail -f&lt;/span>
+kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> -f
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="api-proxy">API Proxy&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
+curl http://localhost:8080/api/
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
+&lt;p>Kubernetesのマニフェスト管理ツール。&lt;/p>
+&lt;p>リポジトリ: &lt;a href="https://github.com/kubernetes-sigs/kustomize">https://github.com/kubernetes-sigs/kustomize&lt;/a>&lt;/p>
+&lt;p>kubectl 1.14からkustomizeが統合されている。&lt;/p>
+&lt;h2 id="ドキュメント情報リソース">ドキュメント/情報リソース&lt;/h2>
+&lt;ul>
+&lt;li>Reference: &lt;a href="https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html">https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html&lt;/a>&lt;/li>
+&lt;li>Examples: &lt;a href="https://github.com/kubernetes-sigs/kustomize/tree/master/examples">https://github.com/kubernetes-sigs/kustomize/tree/master/examples&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli-usage">CLI Usage&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl kustomize
+&lt;span style="color:#8f5902;font-style:italic"># kustomization.yaml を含むディレクトリで&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## Apply the Resource Config&lt;/span>
+kubectl apply -k .
+&lt;span style="color:#8f5902;font-style:italic">## View the Resources&lt;/span>
+kubectl get -k .
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubectl.docs.kubernetes.io/pages/app_management/apply.html">https://kubectl.docs.kubernetes.io/pages/app_management/apply.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="configmapの管理">ConfigMapの管理&lt;/h3>
+&lt;ol>
+&lt;li>configMapGeneratorで生成&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>(2020-03-18) &lt;code>behavior&lt;/code> を &lt;code>create&lt;/code>, &lt;code>replace&lt;/code>, &lt;code>merge&lt;/code> から選べるのだが、 &lt;code>create&lt;/code> 以外だとdiffでエラーが出るのだが…&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>resourcesで管理&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>ConfigMapをYAMLで管理することになる。こっちの方が扱いやすいように感じた&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://deeeet.com/writing/2018/07/10/kustomize/">KustomizeでKubernetes YAMLを管理する | SOTA&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.mosuke.tech/entry/2019/06/21/kustomize/">Kustomizeで環境ごとに異なるマニフェストを作る | Goldstine研究所&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Homebrew</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</link><pubDate>Mon, 04 May 2020 17:19:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</guid><description>
 &lt;p>かねてからmacOSでユーザーランドで動くパッケージ管理ソフトとして開発者に親しまれてきたツールだが、2019年にLinuxにも正式に対応した。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
@@ -2359,164 +2561,7 @@ gpg &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GnuPG&lt;span sty
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/danger/danger/pull/481/files">Bitbucket Server by HeEAaD · Pull Request #481 · danger/danger&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://danger.systems/js/usage/bitbucket_cloud.html">Danger + BitBucket Cloud&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: kubectl</title><link>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</link><pubDate>Fri, 01 May 2020 12:15:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</guid><description>
-&lt;p>Kubernetesクラスタを制御するCLI.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/overview/">https://kubernetes.io/docs/reference/kubectl/overview/&lt;/a>&lt;/li>
-&lt;li>リファレンス: &lt;a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubectl.docs.kubernetes.io/">https://kubectl.docs.kubernetes.io/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="設定">設定&lt;/h2>
-&lt;h3 id="kubeconfig">kubeconfig&lt;/h3>
-&lt;p>環境設定ファイルkubeconfigを参照する順番:&lt;/p>
-&lt;blockquote>
-&lt;ol>
-&lt;li>&lt;code>--kubeconfig&lt;/code> フラグで指定されたパス&lt;/li>
-&lt;li>&lt;code>$KUBECONFIG&lt;/code> 環境変数に指定されたパス一覧&lt;/li>
-&lt;li>&lt;code>~/.kube/config&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;/blockquote>
-&lt;p>See &lt;a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files - Kubernetes&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2">kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
-kubectl config view
-&lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
-kubectl config get-contexts
-&lt;span style="color:#8f5902;font-style:italic">### 現在のcontext&lt;/span>
-kubectl config current-context
-&lt;span style="color:#8f5902;font-style:italic">### 変更&lt;/span>
-kubectl config use-context &amp;lt;context-name&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="実行公開">実行・公開&lt;/h2>
-&lt;ul>
-&lt;li>run &amp;hellip; コンテナイメージを実行する。deploymentまたはjobが作られる。&lt;/li>
-&lt;li>expose &amp;hellip; リソースをクラスタ外にServiceとして公開する。&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## run&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
-kubectl run nginx --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
-&lt;span style="color:#8f5902;font-style:italic">## expose&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
-kubectl expose deployment &amp;lt;deployment-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> --target-port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8000&lt;/span>
-kubectl run &amp;lt;deployment-name&amp;gt; --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;image-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;port&amp;gt;
-kubectl expose deployment &amp;lt;deployment-name&amp;gt; --type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NodePort
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="app-management">App Management&lt;/h2>
-&lt;ul>
-&lt;li>autoscale&lt;/li>
-&lt;li>scale &amp;hellip; 次のリソースのサイズを設定する:
-&lt;ul>
-&lt;li>Deployment, ReplicaSet, Replication Controller, StatefulSet&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## scale&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### ReplicaSet &amp;#39;foo&amp;#39; を3に&lt;/span>
-kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> rs/foo
-kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> -f foo.yml
-&lt;span style="color:#8f5902;font-style:italic">### 今のサイズが2だったら3にする&lt;/span>
-kubectl scale --current-replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> deployment/mysql
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="リソース管理">リソース管理&lt;/h2>
-&lt;h3 id="作成更新">作成・更新&lt;/h3>
-&lt;ul>
-&lt;li>create/apply/replace &amp;hellip; JSON or YAMLのリソース定義ファイルを適用して、リソースを作成/更新する。&lt;/li>
-&lt;li>patch &amp;hellip; YAML/JSONのマージを用いて、リソース定義を差分更新する&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## create&lt;/span>
-kubectl create -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### ファイルから Secret を作成&lt;/span>
-kubectl create secret generic my-secret --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./secret/secret.json
-&lt;span style="color:#8f5902;font-style:italic">### ファイルから ConfigMap を作成&lt;/span>
-kubectl create configmap my-config --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./config/config.json
-&lt;span style="color:#8f5902;font-style:italic">## apply&lt;/span>
-kubectl apply -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
-kubectl apply -f https://k8s.io/docs/tasks/run-application/deployment.yaml
-kubectl apply -f ./pod.json
-&lt;span style="color:#8f5902;font-style:italic">## replace&lt;/span>
-kubectl replace -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## patch&lt;/span>
-kubectl patch &amp;lt;Resource Type&amp;gt; &amp;lt;Name&amp;gt; --patch &amp;lt;YAML Content&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
-kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat patch-file.yaml&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/">Update API Objects in Place Using kubectl patch - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://tellme.tokyo/post/2018/08/07/kubernetes-configmaps-secrets/">Kubernetes 上で Credentials を扱う | tellme.tokyo&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-23/">Kubernetes道場 23日目 - kubectlを網羅する - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://codeday.me/jp/qa/20190406/566540.html">kubectl applyとkubectl replaceの違いは何ですか - コードログ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="pod操作">Pod操作&lt;/h3>
-&lt;ul>
-&lt;li>exec &amp;hellip; コマンドをコンテナ内で実行する&lt;/li>
-&lt;li>cp &amp;hellip; ファイルをクライアント環境とPod間でやりとり&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## exec&lt;/span>
-kubectl &lt;span style="color:#204a87">exec&lt;/span> &amp;lt;pod&amp;gt; -- &amp;lt;command&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>args...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### podにbashでログイン&lt;/span>
-kubectl &lt;span style="color:#204a87">exec&lt;/span> -it &amp;lt;pod&amp;gt; -- /bin/bash -l
-&lt;span style="color:#8f5902;font-style:italic">## cp&lt;/span>
-kubectl cp path/to/localfile &amp;lt;pod&amp;gt;:/path/to/remotefile
-kubectl cp &amp;lt;pod&amp;gt;:/path/to/remotefile /path/to/localfile
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/suzukihi724/items/515654f54538a2103ee0">kubernetes: コンテナイメージにログインする - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="node操作">Node操作&lt;/h3>
-&lt;ul>
-&lt;li>cordon &amp;hellip; ノードへのスケジュールを停止&lt;/li>
-&lt;li>drain &amp;hellip; ノードからPodを削除&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cordon&lt;/span>
-kubectl cordon &amp;lt;node-name&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## drain&lt;/span>
-kubectl drain &amp;lt;node-name&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">### DaemonSetで管理されてPodを停止するとき&lt;/span>
-kubectl drain &amp;lt;node-name&amp;gt; --ignore-daemonsets
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.applibot.co.jp/2016/12/27/kubernetes-zero-downtime/">kubernetesの無停止運用を意識した検証 – てっくぼっと！&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/toshihirock/items/d22fee20b1a561b9efea">Kubernetes の drain について検証した時のメモ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="表示">表示&lt;/h3>
-&lt;ul>
-&lt;li>get &amp;hellip; 単一・複数リソースの情報を表示する。&lt;/li>
-&lt;li>describe &amp;hellip; 単一リソース or グループの情報を表示&lt;/li>
-&lt;li>diff &amp;hellip; リソースファイルとクラスタの状態を差分表示&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## get&lt;/span>
-kubectl get deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ments&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">### フィルタの例&lt;/span>
-kubectl get pods -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
-&lt;span style="color:#8f5902;font-style:italic">## describe&lt;/span>
-kubectl describe pods &lt;span style="color:#8f5902;font-style:italic"># all pods&lt;/span>
-kubectl describe pod &amp;lt;pod-name&amp;gt;
-kubectl describe deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ment&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;deployment-name&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## diff&lt;/span>
-kubectl diff -f foo.yml
-&lt;span style="color:#8f5902;font-style:italic">### kustomizeバージョン&lt;/span>
-kubectl diff -k .
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="削除">削除&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## delete&lt;/span>
-kubectl delete deployment &amp;lt;deployment-name&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ログ---logs">ログ - logs&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 基本構文&lt;/span>
-kubectl logs &amp;lt;Pod名&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 10行 tail -f&lt;/span>
-kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> -f
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="api-proxy">API Proxy&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
-curl http://localhost:8080/api/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-01</title><link>https://progrhy.me/tech-notes/a/memo/20200501/</link><pubDate>Fri, 01 May 2020 01:34:48 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200501/</guid><description>
+&lt;/ul></description></item><item><title>A: 2020-05-01</title><link>https://progrhy.me/tech-notes/a/memo/20200501/</link><pubDate>Fri, 01 May 2020 01:34:48 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200501/</guid><description>
 &lt;h2 id="51">5/1&lt;/h2>
 &lt;h3 id="ciでgcpに対してterraformするには">CIでGCPに対してTerraformするには&lt;/h3>
 &lt;p>&lt;del>サービスアカウントのキーをJSONで作って、 &lt;code>GOOGLE_CREDENTIALS&lt;/code> or &lt;code>GOOGLE_BACKEND_CREDENTIALS&lt;/code> 環境変数に渡せば良さそう。&lt;/del>
