@@ -325,7 +325,7 @@ gcloud projects list
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="限定公開クラスタ">限定公開クラスタ&lt;/h3>
-&lt;p>Docs:&lt;/p>
+&lt;p>Documents:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja">限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja&lt;/a>&lt;/li>
@@ -341,6 +341,15 @@ gcloud projects list
 &lt;p>Tips:&lt;/p>
 &lt;ul>
 &lt;li>(2019-12-02現在) &lt;code>gcloud container clusters create&lt;/code> コマンドでは &lt;code>--enable-private-nodes --master-ipv4-cidr &amp;lt;CIDR&amp;gt;&lt;/code> オプションをつける&lt;/li>
+&lt;/ul>
+&lt;h4 id="制限事項">制限事項&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja#req_res_lim">限定公開クラスタの作成 | Kubernetes Engine ドキュメント | Google Cloud#要件、制約、制限&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/vpc/docs/alias-ip?hl=ja">エイリアスIP範囲&lt;/a>が有効なVPCネイティブクラスタである必要がある
+&lt;ul>
+&lt;li>See &lt;a href="#vpc%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">VPCネイティブクラスタを作成する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h3 id="負荷分散">負荷分散&lt;/h3>
 &lt;ul>
@@ -492,6 +501,19 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
 &lt;/ul>
+&lt;h3 id="vpcネイティブクラスタを作成する">VPCネイティブクラスタを作成する&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/alias-ips?hl=ja">VPC ネイティブ クラスタを作成する | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>2020-05-04現在、GCPコンソールから作成する場合はデフォルトでVPCネイティブクラスタになるが、REST APIやgcloudコマンドでは&lt;a href="https://cloud.google.com/vpc/docs/routes?hl=ja">ルートベースクラスタ&lt;/a>になるので注意。&lt;/p>
+&lt;p>2つのやり方がある:&lt;/p>
+&lt;ol>
+&lt;li>既存のサブネットにクラスタを作成する。アドレス範囲の割り当て方は下の2つ:
+&lt;ul>
+&lt;li>GKE管理のセカンダリ範囲割り当て&lt;/li>
+&lt;li>ユーザー管理のセカンダリ範囲割り当て&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる&lt;/li>
+&lt;/ol>
 &lt;h3 id="メンテナンス時間枠と除外枠の設定">メンテナンス時間枠と除外枠の設定&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions?hl=ja">メンテナンスの時間枠と除外の構成 | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;ul>

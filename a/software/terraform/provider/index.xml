@@ -343,7 +343,27 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/container_cluster.html">google_container_cluster&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/container_node_pool.html">google_container_node_pool&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="storage-gcs-系">storage (GCS) 系&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/y-uemurax/items/4376e27ccc0b2dcc85f0">Terraformを用いてVPCネットワークにGKE限定公開クラスタを構成する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="examples">Examples&lt;/h4>
+&lt;p>限定公開クラスタ（パブリックエンドポイント有り）&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_container_cluster&amp;#34; &amp;#34;experiment&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;experiment&amp;#34;&lt;/span>
+&lt;span style="color:#000"> location&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;asia-northeast1&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">private_cluster_config&lt;/span> {
+&lt;span style="color:#000"> enable_private_nodes&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+&lt;span style="color:#000"> enable_private_endpoint&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
+&lt;span style="color:#000"> master_ipv4_cidr_block&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;172.16.0.0/28&amp;#34;&lt;/span>
+}
+&lt;span style="color:#204a87;font-weight:bold">ip_allocation_policy&lt;/span> {&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # GKE管理のサブネットを作成してもらう
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000"> cluster_ipv4_cidr_block&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#000"> services_ipv4_cidr_block&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="storage-gcs-系">storage (GCS) 系&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket.html">google_storage_bucket&lt;/a> &amp;hellip; GCS (Cloud Storage) バケット&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html">google_storage_bucket_object&lt;/a> &amp;hellip; GCSオブジェクト。ローカルのファイルからアップロードできる&lt;/li>
