@@ -1,4 +1,34 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
+&lt;h2 id="54">5/4&lt;/h2>
+&lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
+&lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>
+&lt;p>コード: &lt;a href="https://github.com/progrhyme/git-wraps/blob/2f4a4f321d43a17e6001bfb659747a62933499ce/bin/git-branch-sweep">git-wraps/bin/git-branch-sweep&lt;/a>&lt;/p>
+&lt;p>gitのaliasにも設定したかったので、オプションにも対応させた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% git bsp -h
+NAME
+git-branch-sweep - git subcommand to clean up merged &lt;span style="color:#204a87">local&lt;/span> branches
+SYNOPSYS
+&lt;span style="color:#8f5902;font-style:italic"># Basic execution&lt;/span>
+git branch-sweep
+&lt;span style="color:#8f5902;font-style:italic"># Interactive mode&lt;/span>
+git branch-sweep -i
+&lt;span style="color:#8f5902;font-style:italic"># pull before sweep&lt;/span>
+git branch-sweep -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--pull
+&lt;span style="color:#8f5902;font-style:italic"># Specify both options&lt;/span>
+git branch-sweep -i -p
+Help:
+git branch-sweep -h&lt;span style="color:#000;font-weight:bold">|&lt;/span>--help
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>このスクリプトをPATHが通っている場所に置く。&lt;/p>
+&lt;p>.gitconfigのaliasはこんな感じ:&lt;/p>
+&lt;pre>&lt;code>[alias]
+plr = pull --prune
+bsp = branch-sweep --pull
+&lt;/code>&lt;/pre>&lt;p>&lt;code>git branch-sweep&lt;/code> か &lt;code>git plr&lt;/code> か &lt;code>git bsp&lt;/code> か、利用頻度によってaliasを調整するかもしれない。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kenshiroh/items/44dcf4b094e841bb42a2">gitでbranchをお掃除する際のチートシート - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-03</title><link>https://progrhy.me/tech-notes/a/memo/20200503/</link><pubDate>Sun, 03 May 2020 12:11:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200503/</guid><description>
 &lt;h2 id="53">5/3&lt;/h2>
 &lt;h3 id="github-actionsには今ビルドを手動トリガーするネイティブ機能はないが同等のことはできる">GitHub Actionsには今ビルドを手動トリガーするネイティブ機能はない（が、同等のことはできる）&lt;/h3>
 &lt;p>Bitbucket Pipelinesの &lt;code>trigger: manual&lt;/code> みたいな機能がリファレンス見てもなさそうだなと思ってググってみたら、なさそうだとわかった。&lt;/p>
