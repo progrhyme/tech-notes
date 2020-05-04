@@ -2200,7 +2200,7 @@ gpg &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GnuPG&lt;span sty
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200501/#ci%E3%81%A7gcp%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6terraform%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">2020-05-01に調べたログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../20200501/#ci%E3%81%A7gcp%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6terraform%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">2020-05-01に調べたログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/web-service/bitbucket/">Bitbucketについてのメモ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>（5/3追記）&lt;/p>
@@ -2398,7 +2398,7 @@ GCS backend認証も上記の環境変数がない場合は、Application Creden
 &lt;/ul>
 &lt;p>以前に調べたログ:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200427/">2020-04-27&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../20200427/">2020-04-27&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="tmuxのstatus-lineの色設定をいい感じにした">tmuxのstatus lineの色設定をいい感じにした&lt;/h3>
 &lt;p>2ヶ月ちょっと前に .tmux.conf をv2.9+対応にしたのだけど、status lineの色設定がなんかイマイチになってたので調整した。&lt;/p>
@@ -2963,7 +2963,7 @@ $ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$
 &lt;li>&lt;code>${var/x/y}&lt;/code> &amp;hellip; &lt;code>$var&lt;/code> 文字列の &lt;code>x&lt;/code> を &lt;code>y&lt;/code> に置換（1回のみ）&lt;/li>
 &lt;li>&lt;code>${var//x/y}&lt;/code> &amp;hellip; &lt;code>$var&lt;/code> 文字列の &lt;code>x&lt;/code> を &lt;code>y&lt;/code> に置換（全てマッチ）&lt;/li>
 &lt;/ul>
-&lt;p>参考: &lt;a href="http://www.koikikukan.com/archives/2019/05/09-235555.php">bashの変数をsplitして配列を作る方法: 小粋空間&lt;/a>&lt;/p></description></item><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200427/</guid><description>
+&lt;p>参考: &lt;a href="http://www.koikikukan.com/archives/2019/05/09-235555.php">bashの変数をsplitして配列を作る方法: 小粋空間&lt;/a>&lt;/p></description></item><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200427/</guid><description>
 &lt;h2 id="427">4/27&lt;/h2>
 &lt;h3 id="cloud-build--terraformでインフラcicd">Cloud Build + TerraformでインフラCI/CD&lt;/h3>
 &lt;p>参考記事:&lt;/p>
@@ -3895,7 +3895,7 @@ hugo new path/to/page.md
 &lt;pre>&lt;code>{{% notice note %}}
 A notice disclaimer
 {{% /notice %}}
-&lt;/code>&lt;/pre>&lt;p>&lt;code>note&lt;/code> 以外に、 &lt;code>info&lt;/code>, &lt;code>tip&lt;/code>, &lt;code>warning&lt;/code> が使える。&lt;/p></description></item><item><title>A: 2020-04-25</title><link>https://progrhy.me/tech-notes/a/memo/20200425/</link><pubDate>Sat, 25 Apr 2020 23:20:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200425/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>&lt;code>note&lt;/code> 以外に、 &lt;code>info&lt;/code>, &lt;code>tip&lt;/code>, &lt;code>warning&lt;/code> が使える。&lt;/p></description></item><item><title>A: 2020-04-25</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200425/</link><pubDate>Sat, 25 Apr 2020 23:20:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200425/</guid><description>
 &lt;h2 id="425">4/25&lt;/h2>
 &lt;h3 id="技術メモ用のサイトをhugoで新設することにした">技術メモ用のサイトをHugoで新設することにした&lt;/h3>
 &lt;p>&lt;a href="https://gsuiteupdates-ja.googleblog.com/2019/02/google-google.html">来年末には旧版のGoogleサイトが使えなくなるそう&lt;/a>なので、早く移行しないとなー、と前々から思っていた。
@@ -3982,7 +3982,7 @@ at Object.req [as require] (/home/progrhyme/my/repos/progrhyme.github.io/node_mo
 10)
 at Object.&amp;lt;anonymous&amp;gt; (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/vinyl-fs/node_modules/gra
 ceful-fs/fs.js:1:37)
-&lt;/code>&lt;/pre>&lt;p>上の記事にあったように、 &lt;code>npm i natives@latest --no-save&lt;/code> を実行したら解消した。&lt;/p></description></item><item><title>A: 2020-03-18</title><link>https://progrhy.me/tech-notes/a/memo/20200318/</link><pubDate>Wed, 18 Mar 2020 12:19:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200318/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>上の記事にあったように、 &lt;code>npm i natives@latest --no-save&lt;/code> を実行したら解消した。&lt;/p></description></item><item><title>A: 2020-03-18</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200318/</link><pubDate>Wed, 18 Mar 2020 12:19:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200318/</guid><description>
 &lt;h2 id="318">3/18&lt;/h2>
 &lt;h3 id="ubuntuでkrewを使ってkubectxkubensをinstall">Ubuntuでkrewを使ってkubectx/kubensをinstall&lt;/h3>
 &lt;p>kubectxをUbuntuにどうやって入れようかとREADMEを見ていたら、kubectlにはkrewというプラグイン管理システムがあるそうな。&lt;/p>

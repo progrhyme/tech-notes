@@ -1,0 +1,138 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-27</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200427/</link><pubDate>Mon, 27 Apr 2020 23:52:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200427/</guid><description>
+&lt;h2 id="427">4/27&lt;/h2>
+&lt;h3 id="cloud-build--terraformでインフラcicd">Cloud Build + TerraformでインフラCI/CD&lt;/h3>
+&lt;p>参考記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/managing-infrastructure-as-code?hl=ja">Terraform、Cloud Build、GitOps を使用してインフラストラクチャをコードとして管理する | ソリューション&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/google-cloud/infrastructure-as-code-introduction-to-continuous-spark-cluster-deployment-with-cloud-build-and-9798a776bbb0">Infrastructure as Code: Introduction to Continuous Spark Cluster Deployment with Cloud Build and Terraform&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="bitbucket-pipelines--terraform">Bitbucket Pipelines + Terraform&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.slideshare.net/MasatomoIto/terraform-with-bitbucket-pipeline">Terraform with Bitbucket pipeline&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.nicksantamaria.net/post/self-deploying-site-hugo-terraform-bitbucket-pipelines/">How to build self-deploying applications with Terraform and BitBucket Pipelines. | Nick Santamaria&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="tfnotify対応">tfnotify対応&lt;/h4>
+&lt;p>&lt;code>help wanted&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://github.com/mercari/tfnotify/issues/36">Support Bitbucket Pipelines · Issue #36 · mercari/tfnotify&lt;/a>&lt;/p>
+&lt;h4 id="gcp対応">GCP対応&lt;/h4>
+&lt;p>terraformのDockerイメージを使って、下の要領で認証情報を渡してあげれば行けると思われる。&lt;/p>
+&lt;h3 id="bitbucket-pipelinesでgcpに継続的デリバリ">Bitbucket PipelinesでGCPに継続的デリバリ&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket/deploy-to-google-cloud-900820342.html">Deploy to Google Cloud - Atlassian Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.primitivesense.com/case-studies/ci-with-testing-and-deploying-google-cloud-functions-within-bitbucket-pipelines/">Testing &amp;amp; deploying Google Cloud Functions in BitBucket Pipelines | PrimitiveSense - Web Design Newcastle&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/adilsoncarvalho/e0e8da81dbf52bf90c671887ef7e04d3">Bitbucket Pipelines deployment to a Google Container Engine configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@puuga/dev-story-deploy-to-gcp-cloud-run-with-bitbucket-pipelines-4fef8f2ece27">Dev Story: Deploy to GCP Cloud Run with Bitbucket Pipelines&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-04-25</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200425/</link><pubDate>Sat, 25 Apr 2020 23:20:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200425/</guid><description>
+&lt;h2 id="425">4/25&lt;/h2>
+&lt;h3 id="技術メモ用のサイトをhugoで新設することにした">技術メモ用のサイトをHugoで新設することにした&lt;/h3>
+&lt;p>&lt;a href="https://gsuiteupdates-ja.googleblog.com/2019/02/google-google.html">来年末には旧版のGoogleサイトが使えなくなるそう&lt;/a>なので、早く移行しないとなー、と前々から思っていた。
+今回、ようやく重い腰を上げた形。&lt;/p>
+&lt;p>今時はhugoで作ったGitHub PagesのサイトはGitHub Actionで自動更新できるようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://raahii.github.io/posts/automating-hugo-builds-with-github-actions/">HugoのビルドをGithub Actionで自動化する - 1ミリもわからん&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d">GitHub Actions による GitHub Pages への自動デプロイ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>…で、前々から目をつけていたHugoのテーマ「&lt;a href="https://learn.netlify.com/en/">LEARN&lt;/a>」を使うことにした。&lt;/p>
+&lt;p>Googleが去年公開した&lt;a href="https://www.docsy.dev/">Docsy&lt;/a>というテーマでもよさそうだと思ったけど、LEARNの方は一度軽く試したこともあったので、安心感があった。&lt;/p>
+&lt;h3 id="learnで気に入らなかったところ">LEARNで気に入らなかったところ&lt;/h3>
+&lt;p>少しHugoのLEARNテーマでサイトを作っていたのだけど、少し不満が出てきた。&lt;/p>
+&lt;ul>
+&lt;li>chapterページを作らないといけなくて、自由度が阻害されるように感じた。（自分でchapterページをカスタマイズするというやり方もあるが）&lt;/li>
+&lt;li>検索が妙にヒットしすぎる&lt;/li>
+&lt;li>ページの目次がちょっとわかりにくい。慣れれば問題ないけど&lt;/li>
+&lt;/ul>
+&lt;h3 id="gitbookを試してみたけどoss版は先行きが微妙">GitBookを試してみたけど、OSS版は先行きが微妙&lt;/h3>
+&lt;p>GitBookでもいいんじゃないかと思って試していたのだけど、残念なことに気がついた。&lt;/p>
+&lt;p>詳しくは&lt;a href="https://progrhy.me/tech-notes/a/software/gitbook/">Software &amp;gt; GitBook&lt;/a>に書いた。&lt;/p>
+&lt;p>手順:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm install -g gitbook-cli
+mkdir new-docs
+&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#000">$_&lt;/span>
+gitbook init
+gitbook serve
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考にした記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://morizyun.github.io/blog/gitbook-github-pages-deploy/index.html">GitBookをGitHub Pagesにアップロード | 酒と涙とRubyとRailsと&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/mitsuhisaT/items/8668b70586b9605040bd">gitbookの使い方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="結局docsyへ">結局、Docsyへ&lt;/h3>
+&lt;p>&lt;a href="https://efcl.info/2017/12/26/docusaurus-almin/">azuさんがGitBookからDocusaurusに移行していた&lt;/a>ので、それもいいかもと思ったけど、見た目がDocsyに似ていたのでもうDocsyでいいだろうと思った。&lt;/p>
+&lt;h2 id="426">4/26&lt;/h2>
+&lt;h3 id="プロフィールサイトのgulpがつらい">プロフィールサイトのgulpがつらい&lt;/h3>
+&lt;p>昨日、Docsyを扱うにあたって、UbuntuマシンのNode.jsをv8 -&amp;gt; v12に上げた。&lt;/p>
+&lt;h4 id="referenceerror-primordials-is-not-defined">ReferenceError: primordials is not defined&lt;/h4>
+&lt;p>今日、プロフィールサイト &lt;a href="https://progrhy.me">https://progrhy.me&lt;/a> の編集をしようとそのまま作業していたら、次とほぼ同じ問題に遭遇した。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hepokon365.hatenablog.com/entry/2019/10/31/022524">Node.js v12にアップデートするとgulp v4でもfs.jsで「ReferenceError: primordials is not defined」エラーが発生 - 毎日へっぽこ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>自分の環境で問題になったのは &lt;code>natives&lt;/code> module.&lt;/p>
+&lt;pre>&lt;code>% gulp
+fs.js:35
+} = primordials;
+^
+ReferenceError: primordials is not defined
+at fs.js:35:5
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at Object.req [as require] (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:54:
+10)
+at Object.&amp;lt;anonymous&amp;gt; (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/vinyl-fs/node_modules/gra
+ceful-fs/fs.js:1:37)
+at Module._compile (internal/modules/cjs/loader.js:1156:30) at Object.Module._extensions..js (internal/modules/cjs/loader.js:1176:10)
+at Module.load (internal/modules/cjs/loader.js:1000:32)
+at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+at Module.require (internal/modules/cjs/loader.js:1042:19)
+at require (internal/modules/cjs/helpers.js:77:18)
+&lt;/code>&lt;/pre>&lt;p>自分の場合も、上の記事と同じように、 &lt;code>package-lock.json&lt;/code> 内に &lt;code>graceful-fs&lt;/code> のv3系への依存があった。&lt;br>
+また、依存の解消は難しいようだった。&lt;/p>
+&lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/20200424#TOC-Gulp-3---4-">前回の挑戦&lt;/a>から、gulpのバージョンアップは今のところ諦めているので、Node.jsのバージョンをv10系に下げることにした。&lt;/p>
+&lt;h4 id="referenceerror-internalbinding-is-not-defined">ReferenceError: internalBinding is not defined&lt;/h4>
+&lt;p>次に出くわしたのは下のエラー:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://narunaru7638.hatenablog.com/entry/2019/05/04/124621">gulp利用時に「ReferenceError: internalBinding is not defined」のエラー - なるの備忘録&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>% gulp
+internal/util/inspect.js:31
+const types = internalBinding('types');
+^
+ReferenceError: internalBinding is not defined
+at internal/util/inspect.js:31:15
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at require (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:110:12)
+at util.js:25:21
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at require (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:110:12)
+at fs.js:42:21
+at req_ (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:137:5)
+at Object.req [as require] (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/natives/index.js:54:
+10)
+at Object.&amp;lt;anonymous&amp;gt; (/home/progrhyme/my/repos/progrhyme.github.io/node_modules/vinyl-fs/node_modules/gra
+ceful-fs/fs.js:1:37)
+&lt;/code>&lt;/pre>&lt;p>上の記事にあったように、 &lt;code>npm i natives@latest --no-save&lt;/code> を実行したら解消した。&lt;/p></description></item><item><title>A: 2020-03-18</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200318/</link><pubDate>Wed, 18 Mar 2020 12:19:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200318/</guid><description>
+&lt;h2 id="318">3/18&lt;/h2>
+&lt;h3 id="ubuntuでkrewを使ってkubectxkubensをinstall">Ubuntuでkrewを使ってkubectx/kubensをinstall&lt;/h3>
+&lt;p>kubectxをUbuntuにどうやって入れようかとREADMEを見ていたら、kubectlにはkrewというプラグイン管理システムがあるそうな。&lt;/p>
+&lt;p>&lt;a href="https://github.com/kubernetes-sigs/krew/">https://github.com/kubernetes-sigs/krew/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://krew.sigs.k8s.io/docs/user-guide/setup/install/">https://krew.sigs.k8s.io/docs/user-guide/setup/install/&lt;/a> に従ってインストール&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## bash&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -x&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>mktemp -d&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+curl -fsSLO &lt;span style="color:#4e9a06">&amp;#34;https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+tar zxvf krew.tar.gz &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+&lt;span style="color:#000">KREW&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./krew-&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>uname &lt;span style="color:#000;font-weight:bold">|&lt;/span> tr &lt;span style="color:#4e9a06">&amp;#39;[:upper:]&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;[:lower:]&amp;#39;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">_amd64&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$KREW&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> install --manifest&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>krew.yaml --archive&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>krew.tar.gz &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$KREW&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> update
+&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>↓を.bashrcに追記&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">PATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">KREW_ROOT&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#000;font-weight:bold">/.krew&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/bin:&lt;/span>&lt;span style="color:#000">$PATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>…で、kubectx/kubensをinstall:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl krew install ctx
+kubectl krew install ns
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>kubectx&lt;/code> &lt;code>kubens&lt;/code> ではなく &lt;code>kubectl ctx&lt;/code> &lt;code>kubectx ns&lt;/code> で使うことになる。&lt;/p>
+&lt;h3 id="gkeのingressではgcsをバックエンドにできない">GKEのIngressではGCSをバックエンドにできない&lt;/h3>
+&lt;p>&lt;a href="https://qiita.com/mihirat/items/668a43a88547792cde7e">kubernetesを使った開発のベストプラクティスを求めて - Qiita&lt;/a>&lt;/p>
+&lt;p>この記事は2年4ヶ月前のものなのだが、自分で試してもできなかった。&lt;br>
+残念。&lt;/p></description></item></channel></rss>
