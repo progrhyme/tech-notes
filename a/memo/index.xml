@@ -29,7 +29,11 @@ sh ./installer.sh ~/.vim/dein
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>そもそもこのプラグインはvim-pluginの雛形作成ツールで、今のところ使う予定がないので、消すことにした。&lt;/p>
 &lt;p>あと、TOMLに対応したプラグインがなかったので、 &lt;code>'cespare/vim-toml'&lt;/code> を入れた。&lt;/p>
 &lt;p>以上。&lt;/p>
-&lt;p>なんか、vim起動後にENTERが必要だったり、終了後に画面がクリアされなかったりする（NeoBundleの頃はそんなことはなかった）が、概ね問題なさそう。&lt;/p></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
+&lt;p>なんか、vim起動後にENTERが必要だったり、終了後に画面がクリアされなかったりする（NeoBundleの頃はそんなことはなかった）が、概ね問題なさそう。&lt;/p>
+&lt;p>（追記）引き続き確認したところ、 &lt;code>'Align'&lt;/code> プラグインで警告が出ていることに気がついた。 &lt;code>'vim-scripts/Align'&lt;/code> に修正したら上の問題はなくなった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/dotfiles/commit/df90a50ffca16629bb0dbcf31f6405e249cac763">修正コミット&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
 &lt;h2 id="54">5/4&lt;/h2>
 &lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
 &lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>
