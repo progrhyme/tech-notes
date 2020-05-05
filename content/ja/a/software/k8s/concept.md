@@ -11,36 +11,22 @@ weight: 10
 
 https://kubernetes.io/docs/concepts/
 
-## Overview
+## アーキテクチャー概観
 
-- Kubernetes Master
-  - クラスタ内に１つ存在するマスターノード。ノード上で、[kube-apiserver](https://kubernetes.io/docs/reference/generated/kube-apiserver/), [kube-controller-manager](https://kubernetes.io/docs/reference/generated/kube-controller-manager/), [kube-scheduler](https://kubernetes.io/docs/reference/generated/kube-scheduler/)の3プロセスが動作する。
-- マスター以外のノードで動くプロセス:
-  - [kubelet](https://kubernetes.io/docs/reference/generated/kubelet/)
-  - [kube-proxy](https://kubernetes.io/docs/reference/generated/kube-proxy/)
+[Kubernetesのコンポーネント - Kubernetes](https://kubernetes.io/ja/docs/concepts/overview/components/)より。
 
-基本的なオブジェクト（* は本サイト内のページ）:
+- **クラスタ** ... <u>ノード</u>の集合
+  - 少なくとも1つの<u>ワーカーノード</u>と少なくとも1つの<u>マスターノード</u>がある
+- **ノード（Node）** ... コンテナ化されたアプリケーションを実行するマシン
+  - **マスターノード** ... <u>ワーカーノード</u>とPodを管理。複数台構成によって高可用性を実現できる
+  - **ワーカーノード** ... Podを動かす
 
-- [Pod]({{< ref "/a/software/k8s/pod.md" >}}) *
-- [Service]({{< ref "/a/software/k8s/service.md" >}}) *
-- [Volume](https://kubernetes.io/docs/concepts/storage/volumes/)
-- [Namespace]({{< ref "/a/software/k8s/namespace.md" >}}) *
-  - Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを **Namespace** と呼ぶ。
-
-より高次の概念として **Controller** と呼ばれるものがある。  
-これは基本オブジェクト上に構築され、以下のような便利な機能を提供する:
-
-- [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) ... [Replication Controller](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)の後継。
-- [Deployment]({{< ref "/a/software/k8s/deployment.md" >}}) * ... PodやReplicaSetの状態を宣言的に記述することを可能にする。
-- [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) ... v1.8でbeta. Deployment同様Podを管理するが、それぞれのPodを異なる個体と認識する。
-- [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ... ノード上でPodのコピーを動かす。典型的なユースケースとしては、cephやfluentd, collectdなどが挙げられる。
-- [Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) ... Podを実行し、正常に完了するまでをトラッキングする。定められた回数、正常に完了したら、Jobも完了となる。
-
-## Components
-
-https://kubernetes.io/docs/concepts/overview/components/
+各ノードで実行され、Kubernetesのクラスタ機能を成り立たせる<u>コンポーネント</u>を以下に記す。
 
 ### Master Components
+
+マスターコンポーネントは、クラスターのコントロールプレーンを提供する。  
+クラスタのどのマシンでも実行できるが、通常は全てのコンポーネントが同じマシンで起動され、そのマシンにはユーザーのPodをスケジュールしない。
 
 - [kube-apiserver](https://kubernetes.io/docs/reference/generated/kube-apiserver/)
   - Kubernetesを制御するフロントAPI. 水平スケール可能。参考: [Building High-Availability Clusters | Kubernetes](https://kubernetes.io/docs/admin/high-availability/)
@@ -61,7 +47,6 @@ https://kubernetes.io/docs/concepts/overview/components/
   - [Container Resource Monitoring](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)
   - [Cluster-level Logging](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 
-
 ### Node Components
 
 - [kubelet](https://kubernetes.io/docs/reference/generated/kubelet/) ... マスターと通信するエージェントプロセス。
@@ -69,6 +54,114 @@ https://kubernetes.io/docs/concepts/overview/components/
 - docker, rkt ... コンテナランタイム
 - supervisord ... ノード上でdockerやkubeletを動かし続ける。
 - fluentd ... cluster-level loggingを実現する。
+
+## リソースオブジェクト
+
+APIオブジェクトとも呼ばれるようだ。
+
+[Kubernetes API Reference Docs (v1.18 at 2020-04-13)](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/)に従い、カテゴライズして記す。
+
+NOTE:
+
+- 以下、「*」は本サイト内のページを表すとする。
+- 一旦、v1beta以下は省くか、versionを明記する
+
+### Workloads
+
+- coreグループ:
+  - [Container]({{< ref "/a/software/k8s/container.md" >}}) *
+  - [Pod]({{< ref "/a/software/k8s/pod.md" >}}) *
+  - ReplicationContoller
+- appsグループ:
+  - [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) ... [Replication Controller](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)の後継。
+  - [Deployment]({{< ref "/a/software/k8s/deployment.md" >}}) * ... PodやReplicaSetの状態を宣言的に記述することを可能にする。
+  - [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) ... v1.8でbeta. Deployment同様Podを管理するが、それぞれのPodを異なる個体と認識する。
+  - [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ... ノード上でPodのコピーを動かす。典型的なユースケースとしては、cephやfluentd, collectdなどが挙げられる。
+- batchグループ:
+  - [Job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/) ... Podを実行し、正常に完了するまでをトラッキングする。定められた回数、正常に完了したら、Jobも完了となる。
+  - CronJob v1beta1
+
+MEMO: 
+
+- apps, batchグループのオブジェクトを **Controller** と呼ぶことがあったようだ。
+
+### Discovery & LB (Service APIs)
+
+- coreグループ:
+  - [Service]({{< ref "/a/software/k8s/service.md" >}}) *
+  - Endpoints
+- networking.k8s.ioグループ:
+  - Ingress v1beta1
+  - IngressClass v1beta1
+- discovery.k8s.ioグループ:
+  - EndpointSlice v1beta1
+
+### Config & Storage
+
+- coreグループ:
+  - ConfigMap
+  - Secret
+  - PersistentVolumeClaim
+  - [Volume](https://kubernetes.io/docs/concepts/storage/volumes/)
+- storage.k8s.ioグループ:
+  - CSIDriver
+  - CSINode
+  - StorageClass
+  - VolumeAttachment
+
+### Metadata
+
+- coreグループ:
+  - Event
+  - LimitRange
+  - PodTemplate
+- appsグループ:
+  - ControllerRevision
+- autoscalingグループ:
+  - [HorizontalPodAutoscaler](#horizontal-pod-autoscaler) * ... HPAと略されることが多い
+- scheduling.k8s.ioグループ:
+  - PriorityClass ... See [Pod Priority and Preemption - Kubernetes#priorityclass](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass)
+- admissionregistration.k8s.ioグループ:
+  - MutatingWebhookConfiguration
+  - ValidatingWebhookConfiguration
+- apiextensions.k8s.ioグループ:
+  - CustomResourceDefinition ... CRDと略されることが多い。K8sの機能拡張によく用いられる
+- policyグループ:
+  - PodDisruptionBudget v1beta1
+  - PodSecurityPolicy v1beta1
+
+### Cluster
+
+- coreグループ:
+  - Binding
+  - ComponentStatus
+  - [Namespace]({{< ref "/a/software/k8s/namespace.md" >}}) * ... Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを **Namespace** と呼ぶ
+  - Node
+  - PersistentVolume
+  - ResourceQuota
+  - ServiceAccount
+- authentication.k8s.ioグループ:
+  - TokenRequest
+  - TokenReview
+- authorization.k8s.ioグループ:
+  - LocalSubjectAccessReview
+  - SelfSubjectAccessReview
+  - SelfSubjectRulesReview
+  - SubjectAccessReview
+- rbac.authorization.k8s.ioグループ:
+  - ClusterRole
+  - ClusterRoleBinding
+  - Role
+  - RoleBinding
+- apiregistration.k8s.ioグループ:
+  - APIService
+  - AuditSink
+- certificates.k8s.ioグループ:
+  - CertificateSigningRequest v1beta1
+- networking.k8s.ioグループ:
+  - NetworkPolicy
+- coordination.k8s.ioグループ:
+  - Lease
 
 ## 認証/認可
 ### RBAC

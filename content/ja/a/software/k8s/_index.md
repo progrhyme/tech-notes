@@ -85,6 +85,8 @@ kubectl delete -f my-ns.yml
 
 ## エコシステム
 
+kubectlと周辺ツールについては[kubectl]({{< ref "/a/software/k8s/kubectl.md" >}})を見よ。
+
 参考:
 
 - [Kubernetesのエコシステムをまとめる - Qiita](https://qiita.com/cvusk/items/100dfb955150ef8964e5) 2018年5月時点
@@ -144,5 +146,9 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 
 - https://github.com/GoogleContainerTools/skaffold
 - https://skaffold.dev/
+
+### その他
+
+- [ksync | Sync files between your local system and a kubernetes cluster.](https://ksync.github.io/ksync/)
 
 ## Child Pages
