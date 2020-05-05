@@ -11,7 +11,25 @@
 特に、本番とstaging環境は。&lt;/p>
 &lt;p>逆に、export -&amp;gt; applyの運用にしていれば、staging環境の差分をそのまま本番に適用する運用が可能ではないだろうか。&lt;br>
 このやり方なら、仰々しいK8s対応のCI/CDツールなど使わなくても、kubectlとGitOpsだけで行けるかもしれない。&lt;/p>
-&lt;p>まだ試してないので、実際にやってみたら色々と課題も出てくるだろうけど。&lt;/p></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
+&lt;p>まだ試してないので、実際にやってみたら色々と課題も出てくるだろうけど。&lt;/p>
+&lt;h3 id="neobundleからdeinvimに乗り換えた">NeoBundleからdein.vimに乗り換えた&lt;/h3>
+&lt;p>今更かよって感じだけど乗り換えた。&lt;br>
+NeoBundleは2年ぐらい前に更新が止まっていた。&lt;/p>
+&lt;p>作業マシンはUbuntu 18.04&lt;/p>
+&lt;h4 id="インストール">インストール&lt;/h4>
+&lt;p>&lt;a href="https://github.com/Shougo/dein.vim#quick-start">https://github.com/Shougo/dein.vim#quick-start&lt;/a> に従う。&lt;/p>
+&lt;p>インストール先は &lt;code>~/.vim/dein&lt;/code> とした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh &amp;gt; installer.sh
+sh ./installer.sh ~/.vim/dein
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実際は&lt;a href="https://github.com/progrhyme/dotfiles/commit/1ef6a75f2952407d6758eb0c1cef584943ed9ecc">こんな感じ&lt;/a>で、スクリプトで対応した。&lt;/p>
+&lt;h4 id="vimrcの移行">vimrcの移行&lt;/h4>
+&lt;p>&lt;a href="https://github.com/progrhyme/dotfiles/commit/35f3be479a57e92d98a6182792b900366ab20beb">このコミット&lt;/a>で対応した。&lt;/p>
+&lt;p>とりあえず使ってるのは全部移行しようかと思ったけど、次の行のプラグインについてはどう移行すればいいのかぱっとわからず、悩んだ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">NeoBundleLazy&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;mopp/layoutplugin.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> { &lt;span style="color:#4e9a06">&amp;#39;autoload&amp;#39;&lt;/span> : { &lt;span style="color:#4e9a06">&amp;#39;commands&amp;#39;&lt;/span> : &lt;span style="color:#4e9a06">&amp;#39;LayoutPlugin&amp;#39;&lt;/span>} }&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>そもそもこのプラグインはvim-pluginの雛形作成ツールで、今のところ使う予定がないので、消すことにした。&lt;/p>
+&lt;p>あと、TOMLに対応したプラグインがなかったので、 &lt;code>'cespare/vim-toml'&lt;/code> を入れた。&lt;/p>
+&lt;p>以上。&lt;/p>
+&lt;p>なんか、vim起動後にENTERが必要だったり、終了後に画面がクリアされなかったりする（NeoBundleの頃はそんなことはなかった）が、概ね問題なさそう。&lt;/p></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
 &lt;h2 id="54">5/4&lt;/h2>
 &lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
 &lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>
