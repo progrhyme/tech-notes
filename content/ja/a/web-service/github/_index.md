@@ -7,6 +7,10 @@ date: 2020-04-26T13:50:09+09:00
 weight: 200
 ---
 
+## 稼働/障害 情報
+
+https://www.githubstatus.com/
+
 ## Documentation
 
 https://help.github.com/
