@@ -615,7 +615,60 @@ kubectl delete -f my-ns.yml
 &lt;li>&lt;a href="https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466">Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/k8s-namespace-force-delete/">[小ネタ]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="cfs-quotaが有効のときcpu-limits設定によってコンテナがストールする問題">CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題&lt;/h3>
+&lt;p>2018年には起こっていた問題。&lt;br>
+2020-04-14現在の状況は不明。&lt;/p>
+&lt;p>TL;DR:&lt;/p>
+&lt;ul>
+&lt;li>KubeletでCPU CFS quota有効だと問題
+&lt;ul>
+&lt;li>OS kernelのスケジューラがCFSだったらデフォルト有効だと思う&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デフォルトの &lt;code>cpu.cfs_period_us&lt;/code> が100ms &amp;hellip; この単位時間でクォータがリセットされる&lt;/li>
+&lt;li>マルチコアのマシン上に複数Podがスケジュールされたとき、複数のPodが同時にCPUを使うと、すぐにlimitsに達してスロットルされてしまうことが起こり得る&lt;/li>
+&lt;/ul>
+&lt;p>仕組みについては、下の記事が詳しい:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/omio-engineering/cpu-limits-and-aggressive-throttling-in-kubernetes-c5b20bd8a718">CPU limits and aggressive throttling in Kubernetes - Omio Engineering - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連リソース:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/67577">CFS quotas can lead to unnecessary throttling · Issue #67577 · kubernetes/kubernetes&lt;/a> &amp;hellip; 2020-04-14現在、まだOpen&lt;/li>
+&lt;li>&lt;a href="https://www.slideshare.net/try_except_/optimizing-kubernetes-resource-requestslimits-for-costefficiency-and-latency-highload">Optimizing Kubernetes Resource Requests/Limits for Cost-Efficiency an…&lt;/a> pp.24-43&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/">Control CPU Management Policies on the Node - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://christina04.hatenablog.com/entry/kubernetes-resource-limits">Kubernetesのresource requests, limits - Carpe Diem&lt;/a>&lt;/li>
+&lt;li>Kubeletの設定:
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/">kubelet - Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/">Set Kubelet parameters via a config file - Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="クラスタが大きくなるとどんな問題があるか">クラスタが大きくなるとどんな問題があるか？&lt;/h3>
+&lt;p>巷では不安定になるとよく言われるが、どのくらいやばいのか、どんな問題が起こり得るのかを考察する。&lt;/p>
+&lt;p>起こり得る問題:&lt;/p>
+&lt;ul>
+&lt;li>Pod Affinityを使っている場合に、スケジューリングが遅くなる。
+&lt;ul>
+&lt;li>ref. &lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Inter-Pod AffinityとAnti-Affinityは、大規模なクラスター上で使用する際にスケジューリングを非常に遅くする恐れのある多くの処理を要します。 そのため、数百台以上のNodeから成るクラスターでは使用することを推奨されません。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="gke-google-kubernetes-engine-の場合">GKE (Google Kubernetes Engine) の場合&lt;/h4>
+&lt;ul>
+&lt;li>内部TCP/UDPロードバランサのバックエンドVMの最大数が250
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing?hl=ja#limits">https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing?hl=ja#limits&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="エコシステム">エコシステム&lt;/h2>
+&lt;p>kubectlと周辺ツールについては&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/">kubectl&lt;/a>を見よ。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/cvusk/items/100dfb955150ef8964e5">Kubernetesのエコシステムをまとめる - Qiita&lt;/a> 2018年5月時点&lt;/li>
@@ -685,6 +738,10 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/GoogleContainerTools/skaffold">https://github.com/GoogleContainerTools/skaffold&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://skaffold.dev/">https://skaffold.dev/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="その他">その他&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><pubDate>Tue, 05 May 2020 00:24:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>

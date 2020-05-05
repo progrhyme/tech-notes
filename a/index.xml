@@ -1,43 +1,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/">https://kubernetes.io/docs/concepts/&lt;/a>&lt;/p>
-&lt;h2 id="overview">Overview&lt;/h2>
+&lt;h2 id="このページについて">このページについて&lt;/h2>
+&lt;p>何を書くか:&lt;/p>
 &lt;ul>
-&lt;li>Kubernetes Master
+&lt;li>Kubernetesの全体アーキテクチャーや構成要素の概要&lt;/li>
+&lt;li>個別のオブジェクトによらない概念や機能等について&lt;/li>
+&lt;/ul>
+&lt;p>書かないこと:&lt;/p>
 &lt;ul>
-&lt;li>クラスタ内に１つ存在するマスターノード。ノード上で、&lt;a href="https://kubernetes.io/docs/reference/generated/kube-apiserver/">kube-apiserver&lt;/a>, &lt;a href="https://kubernetes.io/docs/reference/generated/kube-controller-manager/">kube-controller-manager&lt;/a>, &lt;a href="https://kubernetes.io/docs/reference/generated/kube-scheduler/">kube-scheduler&lt;/a>の3プロセスが動作する。&lt;/li>
+&lt;li>著しく個々のオブジェクトに紐づく文書のボリュームが大きくなったら、独立したページに切り出す&lt;/li>
+&lt;/ul>
+&lt;h2 id="アーキテクチャー概観">アーキテクチャー概観&lt;/h2>
+&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/overview/components/">Kubernetesのコンポーネント - Kubernetes&lt;/a>より。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>クラスタ&lt;/strong> &amp;hellip; &lt;u>ノード&lt;/u>の集合
+&lt;ul>
+&lt;li>少なくとも1つの&lt;u>ワーカーノード&lt;/u>と少なくとも1つの&lt;u>マスターノード&lt;/u>がある&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>マスター以外のノードで動くプロセス:
+&lt;li>&lt;strong>ノード（Node）&lt;/strong> &amp;hellip; コンテナ化されたアプリケーションを実行するマシン
 &lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/reference/generated/kubelet/">kubelet&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/reference/generated/kube-proxy/">kube-proxy&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>基本的なオブジェクト（* は本サイト内のページ）:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/pod/">Pod&lt;/a> *&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/service/">Service&lt;/a> *&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volume&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/namespace/">Namespace&lt;/a> *
-&lt;ul>
-&lt;li>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/li>
+&lt;li>&lt;strong>マスターノード&lt;/strong> &amp;hellip; &lt;u>ワーカーノード&lt;/u>とPodを管理。複数台構成によって高可用性を実現できる&lt;/li>
+&lt;li>&lt;strong>ワーカーノード&lt;/strong> &amp;hellip; Podを動かす&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>より高次の概念として &lt;strong>Controller&lt;/strong> と呼ばれるものがある。&lt;br>
-これは基本オブジェクト上に構築され、以下のような便利な機能を提供する:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet&lt;/a> &amp;hellip; &lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/">Replication Controller&lt;/a>の後継。&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/deployment/">Deployment&lt;/a> * &amp;hellip; PodやReplicaSetの状態を宣言的に記述することを可能にする。&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSet&lt;/a> &amp;hellip; v1.8でbeta. Deployment同様Podを管理するが、それぞれのPodを異なる個体と認識する。&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">DaemonSet&lt;/a> &amp;hellip; ノード上でPodのコピーを動かす。典型的なユースケースとしては、cephやfluentd, collectdなどが挙げられる。&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Job&lt;/a> &amp;hellip; Podを実行し、正常に完了するまでをトラッキングする。定められた回数、正常に完了したら、Jobも完了となる。&lt;/li>
-&lt;/ul>
-&lt;h2 id="components">Components&lt;/h2>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/overview/components/">https://kubernetes.io/docs/concepts/overview/components/&lt;/a>&lt;/p>
+&lt;p>各ノードで実行され、Kubernetesのクラスタ機能を成り立たせる&lt;u>コンポーネント&lt;/u>を以下に記す。&lt;/p>
 &lt;h3 id="master-components">Master Components&lt;/h3>
+&lt;p>マスターコンポーネントは、クラスターのコントロールプレーンを提供する。&lt;br>
+クラスタのどのマシンでも実行できるが、通常は全てのコンポーネントが同じマシンで起動され、そのマシンにはユーザーのPodをスケジュールしない。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/reference/generated/kube-apiserver/">kube-apiserver&lt;/a>
 &lt;ul>
@@ -77,6 +67,180 @@
 &lt;li>docker, rkt &amp;hellip; コンテナランタイム&lt;/li>
 &lt;li>supervisord &amp;hellip; ノード上でdockerやkubeletを動かし続ける。&lt;/li>
 &lt;li>fluentd &amp;hellip; cluster-level loggingを実現する。&lt;/li>
+&lt;/ul>
+&lt;h2 id="リソースオブジェクト">リソースオブジェクト&lt;/h2>
+&lt;p>APIオブジェクトとも呼ばれるようだ。&lt;/p>
+&lt;p>&lt;a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/">Kubernetes API Reference Docs (v1.18 at 2020-04-13)&lt;/a>に従い、カテゴライズして記す。&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>以下、「*」は本サイト内のページを表すとする。&lt;/li>
+&lt;li>一旦、v1beta以下は省くか、versionを明記する&lt;/li>
+&lt;/ul>
+&lt;h3 id="workloads">Workloads&lt;/h3>
+&lt;ul>
+&lt;li>coreグループ:
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/">Container&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/pod/">Pod&lt;/a> *&lt;/li>
+&lt;li>ReplicationContoller&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>appsグループ:
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet&lt;/a> &amp;hellip; &lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/">Replication Controller&lt;/a>の後継。&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/deployment/">Deployment&lt;/a> * &amp;hellip; PodやReplicaSetの状態を宣言的に記述することを可能にする。&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">StatefulSet&lt;/a> &amp;hellip; v1.8でbeta. Deployment同様Podを管理するが、それぞれのPodを異なる個体と認識する。&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">DaemonSet&lt;/a> &amp;hellip; ノード上でPodのコピーを動かす。典型的なユースケースとしては、cephやfluentd, collectdなどが挙げられる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>batchグループ:
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Job&lt;/a> &amp;hellip; Podを実行し、正常に完了するまでをトラッキングする。定められた回数、正常に完了したら、Jobも完了となる。&lt;/li>
+&lt;li>CronJob v1beta1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>apps, batchグループのオブジェクトを &lt;strong>Controller&lt;/strong> と呼ぶことがあったようだ。&lt;/li>
+&lt;/ul>
+&lt;h3 id="discovery--lb-service-apis">Discovery &amp;amp; LB (Service APIs)&lt;/h3>
+&lt;ul>
+&lt;li>coreグループ:
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/service/">Service&lt;/a> *&lt;/li>
+&lt;li>Endpoints&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>networking.k8s.ioグループ:
+&lt;ul>
+&lt;li>Ingress v1beta1&lt;/li>
+&lt;li>IngressClass v1beta1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>discovery.k8s.ioグループ:
+&lt;ul>
+&lt;li>EndpointSlice v1beta1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="config--storage">Config &amp;amp; Storage&lt;/h3>
+&lt;ul>
+&lt;li>coreグループ:
+&lt;ul>
+&lt;li>ConfigMap&lt;/li>
+&lt;li>Secret&lt;/li>
+&lt;li>PersistentVolumeClaim&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/storage/volumes/">Volume&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>storage.k8s.ioグループ:
+&lt;ul>
+&lt;li>CSIDriver&lt;/li>
+&lt;li>CSINode&lt;/li>
+&lt;li>StorageClass&lt;/li>
+&lt;li>VolumeAttachment&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="metadata">Metadata&lt;/h3>
+&lt;ul>
+&lt;li>coreグループ:
+&lt;ul>
+&lt;li>Event&lt;/li>
+&lt;li>LimitRange&lt;/li>
+&lt;li>PodTemplate&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>appsグループ:
+&lt;ul>
+&lt;li>ControllerRevision&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autoscalingグループ:
+&lt;ul>
+&lt;li>&lt;a href="#horizontal-pod-autoscaler">HorizontalPodAutoscaler&lt;/a> * &amp;hellip; HPAと略されることが多い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>scheduling.k8s.ioグループ:
+&lt;ul>
+&lt;li>PriorityClass &amp;hellip; See &lt;a href="https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass">Pod Priority and Preemption - Kubernetes#priorityclass&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>admissionregistration.k8s.ioグループ:
+&lt;ul>
+&lt;li>MutatingWebhookConfiguration&lt;/li>
+&lt;li>ValidatingWebhookConfiguration&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>apiextensions.k8s.ioグループ:
+&lt;ul>
+&lt;li>CustomResourceDefinition &amp;hellip; CRDと略されることが多い。K8sの機能拡張によく用いられる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>policyグループ:
+&lt;ul>
+&lt;li>PodDisruptionBudget v1beta1&lt;/li>
+&lt;li>PodSecurityPolicy v1beta1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="cluster">Cluster&lt;/h3>
+&lt;ul>
+&lt;li>coreグループ:
+&lt;ul>
+&lt;li>Binding&lt;/li>
+&lt;li>ComponentStatus&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/namespace/">Namespace&lt;/a> * &amp;hellip; Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ&lt;/li>
+&lt;li>Node&lt;/li>
+&lt;li>&lt;a href="#persistentvolume">PersistentVolume&lt;/a> *&lt;/li>
+&lt;li>ResourceQuota&lt;/li>
+&lt;li>ServiceAccount&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>authentication.k8s.ioグループ:
+&lt;ul>
+&lt;li>TokenRequest&lt;/li>
+&lt;li>TokenReview&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>authorization.k8s.ioグループ:
+&lt;ul>
+&lt;li>LocalSubjectAccessReview&lt;/li>
+&lt;li>SelfSubjectAccessReview&lt;/li>
+&lt;li>SelfSubjectRulesReview&lt;/li>
+&lt;li>SubjectAccessReview&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>rbac.authorization.k8s.ioグループ:
+&lt;ul>
+&lt;li>ClusterRole&lt;/li>
+&lt;li>ClusterRoleBinding&lt;/li>
+&lt;li>Role&lt;/li>
+&lt;li>RoleBinding&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>apiregistration.k8s.ioグループ:
+&lt;ul>
+&lt;li>APIService&lt;/li>
+&lt;li>AuditSink&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>certificates.k8s.ioグループ:
+&lt;ul>
+&lt;li>CertificateSigningRequest v1beta1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>networking.k8s.ioグループ:
+&lt;ul>
+&lt;li>NetworkPolicy&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>coordination.k8s.ioグループ:
+&lt;ul>
+&lt;li>Lease&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="認証認可">認証/認可&lt;/h2>
 &lt;h3 id="rbac">RBAC&lt;/h3>
@@ -197,6 +361,15 @@
 &lt;ul>
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html">Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/architecture/nodes/">ノード - Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ロギング">ロギング&lt;/h2>
+&lt;p>概念:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/cluster-administration/logging/">Logging Architecture - Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ソリューション:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/debug-application-cluster/logging-stackdriver/">Logging Using Stackdriver - Kubernetes&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
 &lt;h2 id="plugins">Plugins&lt;/h2>
 &lt;h3 id="file-watchers">File Watchers&lt;/h3>
