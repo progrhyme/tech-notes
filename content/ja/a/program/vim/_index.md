@@ -8,6 +8,11 @@ date: 2020-04-29T20:37:00+09:00
 weight: 900
 ---
 
+## Getting Started
+
+- エディタの操作 → [エディタ]({{< ref "/a/program/vim/edit.md" >}})
+- Vimの設定 → [vimrc]({{< ref "/a/program/vim/vimrc.md" >}})
+
 ## パッケージ管理
 
 Vim 8から標準機能になった。
@@ -26,11 +31,20 @@ https://vim-jp.org/vimdoc-ja/repeat.html#packages
 
 - [Vundle](https://github.com/VundleVim/Vundle.vim) ... 一番人気っぽいがここ数年、全然更新されてない（2020-05-05現在）
 - [vim-plug](https://github.com/junegunn/vim-plug) ... ミニマリストにオススメっぽい
-- [dein.vim](https://github.com/Shougo/dein.vim) ... 闇の力を得たプラグインマネージャー（笑） NeoBundleの後継
+- [dein.vim](#deinvim) ... 闇の力を得たプラグインマネージャー（笑） NeoBundleの後継
 
 参考:
 
 - [Vim におけるプラグイン管理についてまとめてみた - Qiita](https://qiita.com/tanabee/items/e2064c5ce59c85915940)
+
+### dein.vim
+
+https://github.com/Shougo/dein.vim
+
+参考:
+
+- [NeoVim、そしてdein.vimへ - Qiita](https://qiita.com/okamos/items/2259d5c770d51b88d75b)
+- [\[dein.vim\] hook の便利な使い方 - Qiita](https://qiita.com/delphinus/items/cd221a450fd23506e81a)
 
 ## Specs
 ### 正規表現
@@ -47,53 +61,40 @@ https://vim-jp.org/vimdoc-ja/repeat.html#packages
 - ローカルに設定したい値は `setlocal` を使う。そうでないとグローバル値も変化してしまう
   - 例えば `ftplugin/xxx` でファイルタイプごとの設定をするときに `set` を使ってしまうと、ファイルを開くたびにグローバルの設定値が変化しかねない
 
-## エディタの操作
-### 全行の削除
-
-```vim
-" 全行削除
-%d
-```
+## How-to
 
 参考:
 
-- [vim - 全行削除コマンド - IT Notebook](http://makaaso.hatenablog.com/entry/2015/04/24/221955)
+- [Vimメモ : filetypeの確認 - もた日記](https://wonderwall.hatenablog.com/entry/2016/03/20/222308)
 
-### 全行のインデント
+### 現在編集してるファイルのfiletypeを確認
 
-```vim
-" ファイル全体をインデント
-gg=G
-```
-
-参考:
-
-- [cl.pocari.org - Vim でインデントを整える](http://cl.pocari.org/2002-12-06-9.html)
-
-### テキスト検索
-
-- ノーマルモードで `/` を打って検索。
-- `/\c` で始めると大文字小文字を区別せずに検索
-
-参考:
-
-- [Vim内で検索するときに大文字小文字を気にしない（ignore case）する方法 - Qiita](https://qiita.com/shoma2da/items/23009d4e1a90c5fe5c31)
-
-### タブ文字の入力
-
-`:set expandtab` （ `:set et` ）設定の時でも、 `Ctrl+v Tab` で入力できる。
-
-参考:
-
-- [:set expandtab（:set et）設定の時に、タブ文字を挿入する — 名無しのvim使い](https://nanasi.jp/articles/howto/editing/et-inserttab.html)
-
-### 改行文字の置換（挿入/削除）
+エディタ上でどちらかを実行
 
 ```Vim
-; 改行を削除
-:s/\n//g
-; 改行を挿入
-:s//\r/g
+:set filetype?
+:echo &filetype
 ```
 
-See [vimの置換で改行を(挿入|削除)する - Qiita](https://qiita.com/kiduki/items/df724a7a7ae50e70c08c)
+### filetype一覧の確認
+
+エディタ上で以下を実行:
+
+```Vim
+:echo glob($VIMRUNTIME . '/ftplugin/*.vim')
+:echo glob($VIMRUNTIME . '/indent/*.vim')
+:echo glob($VIMRUNTIME . '/syntax/*.vim')
+
+" 拡張子との関係を一覧
+:autocmd filetypedetect
+```
+
+## 関連プロジェクト
+
+- [Neovim](https://neovim.io/)
+  - Vimのメンテナンシビリティと拡張性を高め、モダン化するプロジェクト
+  - 参考:
+    - [Neovimがどういうプロジェクトなのかまとめ - Qiita](https://qiita.com/lighttiger2505/items/440c32e40082dc310c1e)
+    - [neovim とは何か？ | Vim入門](https://vim.blue/what-is-neovim/)
+
+## Child Pages

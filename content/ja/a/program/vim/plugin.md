@@ -3,6 +3,7 @@ title: "Vim Plugins"
 linkTitle: "Plugins"
 description: Vimプラグイン
 date: 2020-05-05T11:23:51+09:00
+weight: 600
 ---
 
 ## Plugins
@@ -11,6 +12,7 @@ date: 2020-05-05T11:23:51+09:00
   - 参考: [vimのファイル検索プラグインctrlp.vimの設定 – MY ROBOTICS](https://sy-base.com/myrobotics/vim/vim_ctrlp/)
 - [yankround.vim](https://github.com/LeafCage/yankround.vim) ... レジスタ履歴を取得・再利用する
 - NERDTree ... See below
+- [cespare/vim-toml](https://github.com/cespare/vim-toml) ... TOMLのシンタックスハイライト
 
 参考:
 
