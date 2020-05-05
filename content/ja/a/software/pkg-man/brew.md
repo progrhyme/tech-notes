@@ -32,6 +32,8 @@ https://github.com/Homebrew/homebrew-bundle
 
 Rubyのbundlerのように、brewでインストールするパッケージをBrewfileという構成ファイルにまとめる。
 
+オプションなしで実行した場合、カレントディレクトリの `Brewfile` を参照する。
+
 SYNOPSIS:
 
 ```sh
@@ -39,6 +41,8 @@ SYNOPSIS:
 brew bundle [install] [OPTIONS]
 # Brewfileに入ってないパッケージを削除する
 brew bundle cleanup [--force] [OPTIONS]
+# インストールされているパッケージリストをBrewfileに書き出す
+brew bundle dump [OPTIONS]
 ```
 
 オプション:
@@ -46,6 +50,7 @@ brew bundle cleanup [--force] [OPTIONS]
  オプション | 意味
 ------------|------
  `--global` | `~/.Brewfile` を見に行く
+ `--file <File>` | Brewfileを指定する
 
 参考:
 
