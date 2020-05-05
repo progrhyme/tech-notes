@@ -41,6 +41,11 @@ https://vim-jp.org/vimdoc-ja/repeat.html#packages
 
 https://github.com/Shougo/dein.vim
 
+ヘルプ:
+
+- https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt
+- `:help dein`
+
 参考:
 
 - [NeoVim、そしてdein.vimへ - Qiita](https://qiita.com/okamos/items/2259d5c770d51b88d75b)
