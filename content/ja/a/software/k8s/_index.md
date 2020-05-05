@@ -83,6 +83,48 @@ kubectl delete -f my-ns.yml
 - [Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita](https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466)
 - [\[小ネタ\]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO](https://dev.classmethod.jp/articles/k8s-namespace-force-delete/)
 
+## Topics
+### CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題
+
+2018年には起こっていた問題。  
+2020-04-14現在の状況は不明。
+
+TL;DR:
+
+- KubeletでCPU CFS quota有効だと問題
+  - OS kernelのスケジューラがCFSだったらデフォルト有効だと思う
+- デフォルトの `cpu.cfs_period_us` が100ms ... この単位時間でクォータがリセットされる
+- マルチコアのマシン上に複数Podがスケジュールされたとき、複数のPodが同時にCPUを使うと、すぐにlimitsに達してスロットルされてしまうことが起こり得る
+
+仕組みについては、下の記事が詳しい:
+
+- [CPU limits and aggressive throttling in Kubernetes - Omio Engineering - Medium](https://medium.com/omio-engineering/cpu-limits-and-aggressive-throttling-in-kubernetes-c5b20bd8a718)
+
+関連リソース:
+
+- [CFS quotas can lead to unnecessary throttling · Issue #67577 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/67577) ... 2020-04-14現在、まだOpen
+- [Optimizing Kubernetes Resource Requests/Limits for Cost-Efficiency an…](https://www.slideshare.net/try_except_/optimizing-kubernetes-resource-requestslimits-for-costefficiency-and-latency-highload) pp.24-43
+- [Control CPU Management Policies on the Node - Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/)
+- [Kubernetesのresource requests, limits - Carpe Diem](https://christina04.hatenablog.com/entry/kubernetes-resource-limits)
+- Kubeletの設定:
+  - [kubelet - Kubernetes](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+  - [Set Kubelet parameters via a config file - Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)
+
+### クラスタが大きくなるとどんな問題があるか？
+
+巷では不安定になるとよく言われるが、どのくらいやばいのか、どんな問題が起こり得るのかを考察する。
+
+起こり得る問題:
+
+- Pod Affinityを使っている場合に、スケジューリングが遅くなる。
+  - ref. https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/  
+> Inter-Pod AffinityとAnti-Affinityは、大規模なクラスター上で使用する際にスケジューリングを非常に遅くする恐れのある多くの処理を要します。 そのため、数百台以上のNodeから成るクラスターでは使用することを推奨されません。
+
+#### GKE (Google Kubernetes Engine) の場合
+
+- 内部TCP/UDPロードバランサのバックエンドVMの最大数が250
+  - https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing?hl=ja#limits
+
 ## エコシステム
 
 kubectlと周辺ツールについては[kubectl]({{< ref "/a/software/k8s/kubectl.md" >}})を見よ。

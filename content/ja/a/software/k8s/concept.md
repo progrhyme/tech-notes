@@ -2,14 +2,21 @@
 title: "Concept"
 linkTitle: "Concept"
 description: >
-  全体アーキテクチャーや構成要素について
+  https://kubernetes.io/docs/concepts/
 date: 2020-04-27T10:53:19+09:00
 weight: 10
 ---
 
-## Documentation
+## このページについて
 
-https://kubernetes.io/docs/concepts/
+何を書くか:
+
+- Kubernetesの全体アーキテクチャーや構成要素の概要
+- 個別のオブジェクトによらない概念や機能等について
+
+書かないこと:
+
+- 著しく個々のオブジェクトに紐づく文書のボリュームが大きくなったら、独立したページに切り出す
 
 ## アーキテクチャー概観
 
@@ -137,7 +144,7 @@ MEMO:
   - ComponentStatus
   - [Namespace]({{< ref "/a/software/k8s/namespace.md" >}}) * ... Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを **Namespace** と呼ぶ
   - Node
-  - PersistentVolume
+  - [PersistentVolume](#persistentvolume) *
   - ResourceQuota
   - ServiceAccount
 - authentication.k8s.ioグループ:
@@ -287,3 +294,13 @@ Documents:
 
 - [Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム](https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html)
 - [ノード - Kubernetes](https://kubernetes.io/ja/docs/concepts/architecture/nodes/)
+
+## ロギング
+
+概念:
+
+- [Logging Architecture - Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
+
+ソリューション:
+
+- [Logging Using Stackdriver - Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/logging-stackdriver/)
