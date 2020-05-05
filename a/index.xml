@@ -370,7 +370,44 @@
 &lt;p>ソリューション:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tasks/debug-application-cluster/logging-stackdriver/">Logging Using Stackdriver - Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
+&lt;/ul></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/program/vim/edit/</link><pubDate>Tue, 05 May 2020 14:04:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/edit/</guid><description>
+&lt;p>エディタを起動した後の使い方。&lt;br>
+主にファイル編集に関わる操作。&lt;/p>
+&lt;h2 id="全行の削除">全行の削除&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 全行削除&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>%&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://makaaso.hatenablog.com/entry/2015/04/24/221955">vim - 全行削除コマンド - IT Notebook&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="全行のインデント">全行のインデント&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; ファイル全体をインデント&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">gg&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#000">G&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://cl.pocari.org/2002-12-06-9.html">cl.pocari.org - Vim でインデントを整える&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="テキスト検索">テキスト検索&lt;/h2>
+&lt;ul>
+&lt;li>ノーマルモードで &lt;code>/&lt;/code> を打って検索。&lt;/li>
+&lt;li>&lt;code>/\c&lt;/code> で始めると大文字小文字を区別せずに検索&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/shoma2da/items/23009d4e1a90c5fe5c31">Vim内で検索するときに大文字小文字を気にしない（ignore case）する方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="タブ文字の入力">タブ文字の入力&lt;/h2>
+&lt;p>&lt;code>:set expandtab&lt;/code> （ &lt;code>:set et&lt;/code> ）設定の時でも、 &lt;code>Ctrl+v Tab&lt;/code> で入力できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nanasi.jp/articles/howto/editing/et-inserttab.html">:set expandtab（:set et）設定の時に、タブ文字を挿入する — 名無しのvim使い&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="改行文字の置換挿入削除">改行文字の置換（挿入/削除）&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">; &lt;span style="color:#000">改行を削除&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">/\n/&lt;/span>/&lt;span style="color:#000">g&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>; &lt;span style="color:#000">改行を挿入&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">//&lt;/span>\&lt;span style="color:#000">r&lt;/span>/&lt;span style="color:#000">g&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://qiita.com/kiduki/items/df724a7a7ae50e70c08c">vimの置換で改行を(挿入|削除)する - Qiita&lt;/a>&lt;/p></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
 &lt;h2 id="plugins">Plugins&lt;/h2>
 &lt;h3 id="file-watchers">File Watchers&lt;/h3>
 &lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
@@ -463,6 +500,23 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://44smkn.hatenadiary.com/entry/2018/08/01/022312">pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-06/">Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: vimrc</title><link>https://progrhy.me/tech-notes/a/program/vim/vimrc/</link><pubDate>Tue, 05 May 2020 14:34:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/vimrc/</guid><description>
+&lt;p>Vimの設定ファイルであるvimrcについて。&lt;/p>
+&lt;h2 id="どのファイルが読み込まれるか">どのファイルが読み込まれるか&lt;/h2>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/starting.html#initialization">https://vim-jp.org/vimdoc-ja/starting.html#initialization&lt;/a>&lt;/p>
+&lt;p>&lt;code>vim -u ${file}&lt;/code> で任意の設定ファイルを指定できる。&lt;/p>
+&lt;h2 id="filetype">filetype&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34;filetype検出の有効化&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">filetype&lt;/span> &lt;span style="color:#000">on&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; プラグインやインデントのロードも有効化&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">filetype&lt;/span> &lt;span style="color:#000">plugin&lt;/span> &lt;span style="color:#000">indent&lt;/span> &lt;span style="color:#000">on&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 拡張子によるfiletype検出の追加の例&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">autocmd&lt;/span> &lt;span style="color:#000">BufNewFile&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">BufRead&lt;/span> *.&lt;span style="color:#000">rb&lt;/span> &lt;span style="color:#000">setfiletype&lt;/span> &lt;span style="color:#000">ruby&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wonderwall.hatenablog.com/entry/2016/03/20/222308">Vimメモ : filetypeの確認 - もた日記&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Deployment</title><link>https://progrhy.me/tech-notes/a/software/k8s/deployment/</link><pubDate>Mon, 04 May 2020 21:45:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/deployment/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/">https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/&lt;/a>&lt;/p>
 &lt;blockquote>
@@ -2215,7 +2269,50 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>namespaceに対して設定する&lt;/li>
 &lt;li>cpu/memoryのrequests/limitsの下限、上限、デフォルト値を設定できる&lt;/li>
-&lt;/ul></description></item><item><title>A: Pod</title><link>https://progrhy.me/tech-notes/a/software/k8s/pod/</link><pubDate>Mon, 04 May 2020 21:45:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/pod/</guid><description>
+&lt;/ul></description></item><item><title>A: Vim Plugins</title><link>https://progrhy.me/tech-notes/a/program/vim/plugin/</link><pubDate>Tue, 05 May 2020 11:23:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/plugin/</guid><description>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/ctrlpvim/ctrlp.vim">ctrlp.vim&lt;/a> &amp;hellip; 高速ファイル検索ツール
+&lt;ul>
+&lt;li>参考: &lt;a href="https://sy-base.com/myrobotics/vim/vim_ctrlp/">vimのファイル検索プラグインctrlp.vimの設定 – MY ROBOTICS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://github.com/LeafCage/yankround.vim">yankround.vim&lt;/a> &amp;hellip; レジスタ履歴を取得・再利用する&lt;/li>
+&lt;li>NERDTree &amp;hellip; See below&lt;/li>
+&lt;li>&lt;a href="https://github.com/cespare/vim-toml">cespare/vim-toml&lt;/a> &amp;hellip; TOMLのシンタックスハイライト&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sy-base.com/myrobotics/vim/vim-my-plugins/">vim – 強力なおすすめプラグイン – MY ROBOTICS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="nerdtree">NERDTree&lt;/h2>
+&lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree&lt;/a>&lt;/p>
+&lt;p>有名なVimのファイラプラグイン。&lt;/p>
+&lt;h3 id="usage">Usage&lt;/h3>
+&lt;p>ツリービューの操作:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>キー&lt;/th>
+&lt;th>用途&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>?&lt;/code>&lt;/td>
+&lt;td>help表示（トグル）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>I&lt;/code>&lt;/td>
+&lt;td>隠しファイルの表示（トグル）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="ファイルディレクトリを作成">ファイル・ディレクトリを作成&lt;/h4>
+&lt;p>ファイルツリーの任意の位置で &lt;code>m&lt;/code> を押すとメニューが表示されるので、 &lt;code>(a)dd a childnode&lt;/code> を選ぶ。&lt;br>
+ディレクトリを作る場合は末尾に &lt;code>/&lt;/code> を入力すること。&lt;br>
+でないと、空のファイルが作られる。&lt;/p>
+&lt;p>&lt;code>Ctrl-C&lt;/code> でメニューを抜けることができた。(Macで)&lt;/p></description></item><item><title>A: Pod</title><link>https://progrhy.me/tech-notes/a/software/k8s/pod/</link><pubDate>Mon, 04 May 2020 21:45:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/pod/</guid><description>
 &lt;p>1つ以上のコンテナを内包する、ワークロードの基本単位。&lt;/p>
 &lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/">Container&lt;/a>&lt;/p>
 &lt;h2 id="スケジューリング">スケジューリング&lt;/h2>
@@ -3038,49 +3135,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Vim Plugins</title><link>https://progrhy.me/tech-notes/a/program/vim/plugin/</link><pubDate>Tue, 05 May 2020 11:23:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/plugin/</guid><description>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/ctrlpvim/ctrlp.vim">ctrlp.vim&lt;/a> &amp;hellip; 高速ファイル検索ツール
-&lt;ul>
-&lt;li>参考: &lt;a href="https://sy-base.com/myrobotics/vim/vim_ctrlp/">vimのファイル検索プラグインctrlp.vimの設定 – MY ROBOTICS&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://github.com/LeafCage/yankround.vim">yankround.vim&lt;/a> &amp;hellip; レジスタ履歴を取得・再利用する&lt;/li>
-&lt;li>NERDTree &amp;hellip; See below&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://sy-base.com/myrobotics/vim/vim-my-plugins/">vim – 強力なおすすめプラグイン – MY ROBOTICS&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="nerdtree">NERDTree&lt;/h2>
-&lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree&lt;/a>&lt;/p>
-&lt;p>有名なVimのファイラプラグイン。&lt;/p>
-&lt;h3 id="usage">Usage&lt;/h3>
-&lt;p>ツリービューの操作:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>キー&lt;/th>
-&lt;th>用途&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>?&lt;/code>&lt;/td>
-&lt;td>help表示（トグル）&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>I&lt;/code>&lt;/td>
-&lt;td>隠しファイルの表示（トグル）&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h4 id="ファイルディレクトリを作成">ファイル・ディレクトリを作成&lt;/h4>
-&lt;p>ファイルツリーの任意の位置で &lt;code>m&lt;/code> を押すとメニューが表示されるので、 &lt;code>(a)dd a childnode&lt;/code> を選ぶ。&lt;br>
-ディレクトリを作る場合は末尾に &lt;code>/&lt;/code> を入力すること。&lt;br>
-でないと、空のファイルが作られる。&lt;/p>
-&lt;p>&lt;code>Ctrl-C&lt;/code> でメニューを抜けることができた。(Macで)&lt;/p></description></item><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200505/</guid><description>
+&lt;/ul></description></item><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200505/</guid><description>
 &lt;h1 id="55">5/5&lt;/h1>
 &lt;h2 id="kubernetesのマニフェストは全部exportして管理した方がいいんじゃねって思った">Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/h2>
 &lt;p>exportのやり方は調べて&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#%E5%85%A8%E3%81%A6%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%81%84">kubectlのページ#全てのマニフェストを取得したい&lt;/a>に書いた。&lt;/p>
@@ -4196,89 +4251,4 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;p>Cloud Function作成・管理&lt;/p>
 &lt;h3 id="google_project_service">google_project_service&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_service.html">https://www.terraform.io/docs/providers/google/r/google_project_service.html&lt;/a>&lt;/p>
-&lt;p>APIサービスの有効化&lt;/p></description></item><item><title>A: v0.11</title><link>https://progrhy.me/tech-notes/a/software/terraform/config/v0.11/</link><pubDate>Sun, 26 Apr 2020 23:09:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/config/v0.11/</guid><description>
-&lt;h2 id="便利構文">便利構文&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/configuration/interpolation.html">https://www.terraform.io/docs/configuration/interpolation.html&lt;/a>&lt;/p>
-&lt;p>計算とか制御構文とか便利関数が有る。&lt;/p>
-&lt;h3 id="elementlist-index">element(list, index)&lt;/h3>
-&lt;p>listの要素を取得。&lt;br>
-最初の要素のindexは0.&lt;/p>
-&lt;h3 id="filepath">file(path)&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(path/to/file)}&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ファイルの内容を取り込む
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="formatformat-args-">format(format, args, &amp;hellip;)&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${format(&amp;#34;https://%s/%s&amp;#34;, var.fqdn, var.path)}&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="formatlistformat-args-">formatlist(format, args, &amp;hellip;)&lt;/h3>
-&lt;p>formatのlist版。 &lt;code>args...&lt;/code> としてlistを受け取り、list値を返す。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">urls&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${formatlist(&amp;#34;https://%s/&amp;#34;, var.fqdn_list)}&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="lookupmap-key--default">lookup(map, key [, default])&lt;/h3>
-&lt;p>mapの &lt;code>key&lt;/code> に対するvalueを参照する。第3引数に見つからなかったときの &lt;code>default&lt;/code> 値を指定することもできる。&lt;/p>
-&lt;p>1階層のmapは &lt;code>stash[&amp;quot;x&amp;quot;]&lt;/code> で良いが、デフォルト値を設定したいときや、2階層のmapでは &lt;code>lookup&lt;/code> を使う必要がある。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${lookup(var.stash[&amp;#34;x&amp;#34;], &amp;#34;y&amp;#34;, &amp;#34;default-value&amp;#34;)}&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="keysmap">keys(map)&lt;/h3>
-&lt;p>mapのキーをソート済みのlistとして返す。See also &lt;code>values&lt;/code>&lt;/p>
-&lt;h3 id="mapkey-value-">map(key, value, &amp;hellip;)&lt;/h3>
-&lt;p>mapを作る。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#204a87;font-weight:bold">output&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;result&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#a40000">map&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;key-1&amp;#34;, &amp;#34;${value-1}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;key-2&amp;#34;, &amp;#34;${value-2}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#a40000">:&lt;/span>
-&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="splitdelim-string">split(delim, string)&lt;/h3>
-&lt;p>文字列をデリミタ文字で分割してlistを返す。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#4e9a06">&amp;#34;${element(split(&amp;#34;/&amp;#34;, &amp;#34;dir/file&amp;#34;), 1)}&amp;#34; #=&amp;gt; &amp;#34;file&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="valuesmap">values(map)&lt;/h3>
-&lt;p>mapの値をlistとして返す。得られる値の順序は、対応するキーのlistが &lt;code>keys&lt;/code> で返される順序と同じになるようである。&lt;/p></description></item><item><title>A: npm</title><link>https://progrhy.me/tech-notes/a/program/lang/js/node/npm/</link><pubDate>Sun, 26 Apr 2020 21:03:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/js/node/npm/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://docs.npmjs.com/">https://docs.npmjs.com/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.npmjs.com/cli-documentation/">CLI documentation | npm Documentation&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cli">CLI&lt;/h2>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># help&lt;/span>
-npm &lt;span style="color:#204a87">help&lt;/span>
-npm &lt;span style="color:#204a87">help&lt;/span> &amp;lt;command&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
-npm -v
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="npm-install">npm-install&lt;/h3>
-&lt;p>&lt;a href="https://docs.npmjs.com/cli-commands/install.html">https://docs.npmjs.com/cli-commands/install.html&lt;/a>&lt;/p>
-&lt;p>パッケージをインストールする。&lt;/p>
-&lt;p>エイリアス: &lt;code>i, add&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 書式&lt;/span>
-npm install パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-npm install &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;name&amp;gt;
-npm install &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;name&amp;gt;@&amp;lt;version&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># package.json に従ってインストール&lt;/span>
-npm install
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>説明&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>-g&lt;/td>
-&lt;td>&amp;ndash;global&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;ndash;no-save&lt;/td>
-&lt;td>（package.jsonの）&lt;strong>dependencies&lt;/strong> に追加しない&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="npm-ls">npm-ls&lt;/h3>
-&lt;p>&lt;a href="https://docs.npmjs.com/cli-commands/ls.html">https://docs.npmjs.com/cli-commands/ls.html&lt;/a>&lt;/p>
-&lt;p>インストールされたパッケージを一覧表示。&lt;/p>
-&lt;p>エイリアス: &lt;code>list, la, ll&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm ls &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;pkg&amp;gt; ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="npm-uninstall">npm-uninstall&lt;/h3>
-&lt;p>&lt;a href="https://docs.npmjs.com/cli-commands/uninstall.html">https://docs.npmjs.com/cli-commands/uninstall.html&lt;/a>&lt;/p>
-&lt;p>インストールされたパッケージを削除する。&lt;/p>
-&lt;p>エイリアス: &lt;code>remove, rm, un, unlink&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm uninstall パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;p>APIサービスの有効化&lt;/p></description></item></channel></rss>

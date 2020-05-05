@@ -189,6 +189,11 @@
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200429/#ubuntu-1804%E3%81%A7intellij-idea%E3%82%9220201%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88">2020年に2018年版から2020.1にアップデートしたときのログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018年に2017年版から2018.1にアップデートしたときのログ&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Vim</title><link>https://progrhy.me/tech-notes/a/program/vim/</link><pubDate>Wed, 29 Apr 2020 20:37:00 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>エディタの操作 → &lt;a href="https://progrhy.me/tech-notes/a/program/vim/edit/">エディタ&lt;/a>&lt;/li>
+&lt;li>Vimの設定 → &lt;a href="https://progrhy.me/tech-notes/a/program/vim/vimrc/">vimrc&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
 &lt;p>Vim 8から標準機能になった。&lt;/p>
 &lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/repeat.html#packages">https://vim-jp.org/vimdoc-ja/repeat.html#packages&lt;/a>&lt;/p>
@@ -204,11 +209,18 @@
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/VundleVim/Vundle.vim">Vundle&lt;/a> &amp;hellip; 一番人気っぽいがここ数年、全然更新されてない（2020-05-05現在）&lt;/li>
 &lt;li>&lt;a href="https://github.com/junegunn/vim-plug">vim-plug&lt;/a> &amp;hellip; ミニマリストにオススメっぽい&lt;/li>
-&lt;li>&lt;a href="https://github.com/Shougo/dein.vim">dein.vim&lt;/a> &amp;hellip; 闇の力を得たプラグインマネージャー（笑） NeoBundleの後継&lt;/li>
+&lt;li>&lt;a href="#deinvim">dein.vim&lt;/a> &amp;hellip; 闇の力を得たプラグインマネージャー（笑） NeoBundleの後継&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tanabee/items/e2064c5ce59c85915940">Vim におけるプラグイン管理についてまとめてみた - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="deinvim">dein.vim&lt;/h3>
+&lt;p>&lt;a href="https://github.com/Shougo/dein.vim">https://github.com/Shougo/dein.vim&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/okamos/items/2259d5c770d51b88d75b">NeoVim、そしてdein.vimへ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/delphinus/items/cd221a450fd23506e81a">[dein.vim] hook の便利な使い方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="specs">Specs&lt;/h2>
 &lt;h3 id="正規表現">正規表現&lt;/h3>
@@ -226,42 +238,38 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="エディタの操作">エディタの操作&lt;/h2>
-&lt;h3 id="全行の削除">全行の削除&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 全行削除&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>%&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://makaaso.hatenablog.com/entry/2015/04/24/221955">vim - 全行削除コマンド - IT Notebook&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="全行のインデント">全行のインデント&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; ファイル全体をインデント&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">gg&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#000">G&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://cl.pocari.org/2002-12-06-9.html">cl.pocari.org - Vim でインデントを整える&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="テキスト検索">テキスト検索&lt;/h3>
-&lt;ul>
-&lt;li>ノーマルモードで &lt;code>/&lt;/code> を打って検索。&lt;/li>
-&lt;li>&lt;code>/\c&lt;/code> で始めると大文字小文字を区別せずに検索&lt;/li>
-&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://qiita.com/shoma2da/items/23009d4e1a90c5fe5c31">Vim内で検索するときに大文字小文字を気にしない（ignore case）する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wonderwall.hatenablog.com/entry/2016/03/20/222308">Vimメモ : filetypeの確認 - もた日記&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="タブ文字の入力">タブ文字の入力&lt;/h3>
-&lt;p>&lt;code>:set expandtab&lt;/code> （ &lt;code>:set et&lt;/code> ）設定の時でも、 &lt;code>Ctrl+v Tab&lt;/code> で入力できる。&lt;/p>
-&lt;p>参考:&lt;/p>
+&lt;h3 id="現在編集してるファイルのfiletypeを確認">現在編集してるファイルのfiletypeを確認&lt;/h3>
+&lt;p>エディタ上でどちらかを実行&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">filetype&lt;/span>?&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &amp;amp;&lt;span style="color:#000">filetype&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="filetype一覧の確認">filetype一覧の確認&lt;/h3>
+&lt;p>エディタ上で以下を実行:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/ftplugin/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/indent/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/syntax/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 拡張子との関係を一覧&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">autocmd&lt;/span> &lt;span style="color:#000">filetypedetect&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="関連プロジェクト">関連プロジェクト&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://nanasi.jp/articles/howto/editing/et-inserttab.html">:set expandtab（:set et）設定の時に、タブ文字を挿入する — 名無しのvim使い&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://neovim.io/">Neovim&lt;/a>
+&lt;ul>
+&lt;li>Vimのメンテナンシビリティと拡張性を高め、モダン化するプロジェクト&lt;/li>
+&lt;li>参考:
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/lighttiger2505/items/440c32e40082dc310c1e">Neovimがどういうプロジェクトなのかまとめ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://vim.blue/what-is-neovim/">neovim とは何か？ | Vim入門&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="改行文字の置換挿入削除">改行文字の置換（挿入/削除）&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">; &lt;span style="color:#000">改行を削除&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">/\n/&lt;/span>/&lt;span style="color:#000">g&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>; &lt;span style="color:#000">改行を挿入&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">//&lt;/span>\&lt;span style="color:#000">r&lt;/span>/&lt;span style="color:#000">g&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://qiita.com/kiduki/items/df724a7a7ae50e70c08c">vimの置換で改行を(挿入|削除)する - Qiita&lt;/a>&lt;/p></description></item><item><title>A: Visual Studio Code</title><link>https://progrhy.me/tech-notes/a/program/vscode/</link><pubDate>Mon, 27 Apr 2020 22:33:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vscode/</guid><description>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Visual Studio Code</title><link>https://progrhy.me/tech-notes/a/program/vscode/</link><pubDate>Mon, 27 Apr 2020 22:33:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vscode/</guid><description>
 &lt;p>Micfosoftが提供するOSSのクロスプラットフォームなコードエディタ。&lt;br>
 Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;p>3rd Partyの拡張機能も多数あり、機能を拡充することができる。&lt;/p>
