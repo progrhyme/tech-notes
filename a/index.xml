@@ -517,7 +517,58 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://wonderwall.hatenablog.com/entry/2016/03/20/222308">Vimメモ : filetypeの確認 - もた日記&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Deployment</title><link>https://progrhy.me/tech-notes/a/software/k8s/deployment/</link><pubDate>Mon, 04 May 2020 21:45:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/deployment/</guid><description>
+&lt;/ul>
+&lt;h2 id="キーマッピング">キーマッピング&lt;/h2>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/map.html">map - Vim日本語ドキュメント&lt;/a>&lt;/p>
+&lt;h3 id="マップコマンド">マップコマンド&lt;/h3>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/map.html#:map-commands">https://vim-jp.org/vimdoc-ja/map.html#:map-commands&lt;/a>&lt;/p>
+&lt;p>構文:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">map&lt;/span> {&lt;span style="color:#000">lhs&lt;/span>} {&lt;span style="color:#000">rhs&lt;/span>} &lt;span style="color:#8f5902;font-style:italic">&amp;#34; キー入力 {lhs} を {rhs} に割り当てる&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">unmap&lt;/span> {&lt;span style="color:#000">lhs&lt;/span>} &lt;span style="color:#8f5902;font-style:italic">&amp;#34; キー入力 {lhs} のマッピングを削除&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>map, nmapなど（ &lt;code>noremap&lt;/code> じゃないやつ）:&lt;/p>
+&lt;ul>
+&lt;li>マップが使われたときに &lt;code>{rhs}&lt;/code> が評価され、再マップされる&lt;/li>
+&lt;li>マップを入れ子にしたり、再帰的にできる&lt;/li>
+&lt;/ul>
+&lt;p>noremap, nnoremapなど:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>{rhs}&lt;/code> は再マップされないので、入れ子になったり再帰的になったりしない&lt;/li>
+&lt;li>コマンドを再定義するときによく使われる&lt;/li>
+&lt;/ul>
+&lt;h3 id="マップとモード">マップとモード&lt;/h3>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/map.html#:map-modes">https://vim-jp.org/vimdoc-ja/map.html#:map-modes&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>コマンド&lt;/th>
+&lt;th>モード&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>map&lt;/code>, &lt;code>noremap&lt;/code>, &lt;code>unmap&lt;/code>&lt;/td>
+&lt;td>ノーマル、ビジュアル、選択、オペレータ待機&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>nmap&lt;/code>, &lt;code>nnoremap&lt;/code>, &lt;code>nunmap&lt;/code>&lt;/td>
+&lt;td>ノーマル&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>他に &lt;code>vmap&lt;/code>, &lt;code>smap&lt;/code>, &lt;code>xmap&lt;/code> などある。&lt;/p>
+&lt;p>「オペレータ待機モード」は、&lt;code>d&lt;/code>、&lt;code>y&lt;/code>、&lt;code>c&lt;/code>などの後で、後続の操作を待機しているとき。&lt;/p>
+&lt;h3 id="キーマッピングを確認する方法">キーマッピングを確認する方法&lt;/h3>
+&lt;p>&lt;a href="https://qiita.com/wakaba260/items/99ea1b8042c98fb7df93">Vimのキーマッピングを確認する - Qiita&lt;/a>より。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; デフォルトキーバインドの一覧&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">help&lt;/span> &lt;span style="color:#000">index&lt;/span>.&lt;span style="color:#000">txt&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 自分で割り当てたキーマップの確認&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">map&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34; すべて確認&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">imap&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34; インサートモードだけ&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34; ノーマルモードだけ&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">vmap&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34; ヴィジュアルモードだけ&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">verbose&lt;/span> &lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34; 定義元ファイル情報も表示&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Deployment</title><link>https://progrhy.me/tech-notes/a/software/k8s/deployment/</link><pubDate>Mon, 04 May 2020 21:45:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/deployment/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/">https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>Deployment コントローラーはPodとReplicaSetの宣言的なアップデート機能を提供します。&lt;/p>
@@ -2278,19 +2329,43 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;li>cpu/memoryのrequests/limitsの下限、上限、デフォルト値を設定できる&lt;/li>
 &lt;/ul></description></item><item><title>A: Vim Plugins</title><link>https://progrhy.me/tech-notes/a/program/vim/plugin/</link><pubDate>Tue, 05 May 2020 11:23:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/plugin/</guid><description>
 &lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;p>次節以降で紹介していないもの:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/ctrlpvim/ctrlp.vim">ctrlp.vim&lt;/a> &amp;hellip; 高速ファイル検索ツール
+&lt;li>&lt;a href="https://github.com/ervandew/supertab">ervandew/supertab&lt;/a> &amp;hellip; タブ補完を可能にしてくれる
 &lt;ul>
-&lt;li>参考: &lt;a href="https://sy-base.com/myrobotics/vim/vim_ctrlp/">vimのファイル検索プラグインctrlp.vimの設定 – MY ROBOTICS&lt;/a>&lt;/li>
+&lt;li>補完リストのスクロールを上から下にしたい場合、vimrcに&lt;br>
+&lt;code>let g:SuperTabDefaultCompletionType = &amp;quot;&amp;lt;c-n&amp;gt;&amp;quot;&lt;/code>&lt;br>
+を設定する&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&lt;a href="https://github.com/LeafCage/yankround.vim">yankround.vim&lt;/a> &amp;hellip; レジスタ履歴を取得・再利用する&lt;/li>
-&lt;li>NERDTree &amp;hellip; See below&lt;/li>
 &lt;li>&lt;a href="https://github.com/cespare/vim-toml">cespare/vim-toml&lt;/a> &amp;hellip; TOMLのシンタックスハイライト&lt;/li>
+&lt;li>&lt;a href="https://github.com/kana/vim-operator-user">kana/vim-operator-user&lt;/a> &amp;hellip; 後掲のvim-operator-replaceなどが依存している
+&lt;ul>
+&lt;li>ドキュメント: &lt;a href="http://kana.github.io/config/vim/operator-user.html">Vim: operator-user - Define your own operator easily&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://sy-base.com/myrobotics/vim/vim-my-plugins/">vim – 強力なおすすめプラグイン – MY ROBOTICS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://liginc.co.jp/469142">僕がVimで愛用しているプラグイン30連発 | 東京のWeb制作会社LIG&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ctrlpvim">ctrlp.vim&lt;/h2>
+&lt;p>&lt;a href="https://github.com/ctrlpvim/ctrlp.vim">https://github.com/ctrlpvim/ctrlp.vim&lt;/a>&lt;/p>
+&lt;p>ディレクトリ下のファイルからファイル名をインクリメンタル検索して開いたり、バッファ一覧から検索したり、開いてるバッファの該当行を探してジャンプしたりできる。&lt;/p>
+&lt;p>vimrc設定例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; &amp;lt;C-p&amp;gt;で実行するフィーチャーをCtrlPMixedに変更&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; カレントディレクトリ下のファイル検索 + バッファ一覧 + 最後に開いたファイルリスト&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">g&lt;/span>:&lt;span style="color:#000">ctrlp_cmd&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;CtrlPMixed&amp;#39;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; &amp;lt;C-p&amp;gt;で実行するコマンドを変更&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; git下じゃないときはvimのglobとかにフォールバックしてくれる&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">g&lt;/span>:&lt;span style="color:#000">ctrlp_user_command&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span> \ [&lt;span style="color:#4e9a06">&amp;#39;.git&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;cd %s &amp;amp;&amp;amp; git ls-files -co --exclude-standard&amp;#39;&lt;/span>]&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nnoremap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Leader&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>/ &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">ESC&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>:&lt;span style="color:#000">CtrlPLine&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Return&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/oahiroaki/items/d71337fb9d28303a54a8">ctrlp.vimの使い方まとめ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sy-base.com/myrobotics/vim/vim_ctrlp/">vimのファイル検索プラグインctrlp.vimの設定 – MY ROBOTICS&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="nerdtree">NERDTree&lt;/h2>
 &lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree&lt;/a>&lt;/p>
@@ -2319,7 +2394,54 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;p>ファイルツリーの任意の位置で &lt;code>m&lt;/code> を押すとメニューが表示されるので、 &lt;code>(a)dd a childnode&lt;/code> を選ぶ。&lt;br>
 ディレクトリを作る場合は末尾に &lt;code>/&lt;/code> を入力すること。&lt;br>
 でないと、空のファイルが作られる。&lt;/p>
-&lt;p>&lt;code>Ctrl-C&lt;/code> でメニューを抜けることができた。(Macで)&lt;/p></description></item><item><title>A: Pod</title><link>https://progrhy.me/tech-notes/a/software/k8s/pod/</link><pubDate>Mon, 04 May 2020 21:45:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/pod/</guid><description>
+&lt;p>&lt;code>Ctrl-C&lt;/code> でメニューを抜けることができた。(Macで)&lt;/p>
+&lt;h2 id="vim-operator-replace">vim-operator-replace&lt;/h2>
+&lt;p>&lt;a href="https://github.com/kana/vim-operator-replace">https://github.com/kana/vim-operator-replace&lt;/a>&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://kana.github.io/config/vim/operator-replace.html">Vim: operator-replace - Operator to replace text with register content&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ヤンクしているテキストでカーソル下のテキストを置き換える。&lt;/p>
+&lt;p>vimrc設定例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Space&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">operator&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">replace&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※ドキュメントでは &lt;code>map&lt;/code> になっているが、 &lt;code>nmap&lt;/code> でも動いた。&lt;/p>
+&lt;p>下のようなテキストを編集する:&lt;/p>
+&lt;pre>&lt;code>foo
+bar
+baz
+&lt;/code>&lt;/pre>&lt;p>3行とも &lt;code>foo&lt;/code> にしたいときは次のように操作すればいい:&lt;/p>
+&lt;ol>
+&lt;li>カーソルを先頭行 &lt;code>f&lt;/code> 位置に置き、「ye」とタイプして &lt;code>foo&lt;/code> をヤンク&lt;/li>
+&lt;li>「j」を押して2行目の行頭にカーソルを移動し、「&lt;Space>e」とタイプする&lt;/li>
+&lt;li>「j^」とタイプして3行目の行頭に移動し、「.」をタイプする&lt;/li>
+&lt;/ol>
+&lt;p>（参考記事の通りにやるのは難しかった。。）&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://kazuph.hateblo.jp/entry/2013/01/04/005030">vim-operator-replaceでコピペを簡単に - 僕のYak Shavingは終わらない&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="yankroundvim">yankround.vim&lt;/h2>
+&lt;p>&lt;a href="https://github.com/LeafCage/yankround.vim">https://github.com/LeafCage/yankround.vim&lt;/a>&lt;/p>
+&lt;p>レジスタ履歴を取得・再利用する。&lt;/p>
+&lt;p>vimrc設定例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000">p&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">xmap&lt;/span> &lt;span style="color:#000">p&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000">P&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">P&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000">gp&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">gp&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">xmap&lt;/span> &lt;span style="color:#000">gp&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">gp&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000">gP&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">gP&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">C&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">prev&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nmap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">C&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Plug&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;(&lt;/span>&lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">next&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nnoremap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Leader&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000">y&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">ESC&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>:&lt;span style="color:#000">Unite&lt;/span> &lt;span style="color:#000">yankround&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">Return&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>p&lt;/code> や &lt;code>P&lt;/code> でヤンクを貼り付けた後、 &lt;code>&amp;lt;C-p&amp;gt;&lt;/code> や &lt;code>&amp;lt;C-n&amp;gt;&lt;/code> で順に操作して選べる。&lt;/p>
+&lt;p>&lt;code>:Unite yankround&lt;/code> でUniteの小画面を開いてレジスタを一覧できる。
+この小画面内で &lt;code>d&lt;/code> でレジスタを消したり、 &lt;code>x&lt;/code> で素早く対象を選んだりできる。（Unite全然使い倒してない）&lt;/p>
+&lt;p>ctrlp.vimと組み合わせると &lt;code>:CtrlPYankRound&lt;/code> というコマンドが使えるようになって、これもレジスタを一覧できるのだけど、レジスタの内容でインクリメンタル検索できないので、 &lt;code>:Unite yankround&lt;/code> の方が使いやすい。&lt;br>
+（GitHubにイシューが挙がっている。）&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://engineerspirit.com/2017/07/01/post-1427/">vimの便利なPlugin（その26）yankround | 技術者魂&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Pod</title><link>https://progrhy.me/tech-notes/a/software/k8s/pod/</link><pubDate>Mon, 04 May 2020 21:45:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/pod/</guid><description>
 &lt;p>1つ以上のコンテナを内包する、ワークロードの基本単位。&lt;/p>
 &lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/">Container&lt;/a>&lt;/p>
 &lt;h2 id="スケジューリング">スケジューリング&lt;/h2>

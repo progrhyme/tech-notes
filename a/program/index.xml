@@ -217,6 +217,11 @@
 &lt;/ul>
 &lt;h3 id="deinvim">dein.vim&lt;/h3>
 &lt;p>&lt;a href="https://github.com/Shougo/dein.vim">https://github.com/Shougo/dein.vim&lt;/a>&lt;/p>
+&lt;p>ヘルプ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt">https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt&lt;/a>&lt;/li>
+&lt;li>&lt;code>:help dein&lt;/code>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/2259d5c770d51b88d75b">NeoVim、そしてdein.vimへ - Qiita&lt;/a>&lt;/li>
