@@ -112,6 +112,8 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;h3 id="パイプラインをトリガーせずにコミット">パイプラインをトリガーせずにコミット&lt;/h3>
 &lt;p>コミットメッセージに &lt;code>[skip ci]&lt;/code> または &lt;code>[ci skip]&lt;/code> を含める。&lt;/p>
 &lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
+&lt;h2 id="稼働障害-情報">稼働/障害 情報&lt;/h2>
+&lt;p>&lt;a href="https://www.githubstatus.com/">https://www.githubstatus.com/&lt;/a>&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://help.github.com/">https://help.github.com/&lt;/a>&lt;/p>
 &lt;ul>

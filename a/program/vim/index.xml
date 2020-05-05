@@ -1,6 +1,22 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Vim</title><link>https://progrhy.me/tech-notes/a/program/vim/</link><description>Recent content in Vim on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 29 Apr 2020 20:37:00 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>A: NERDTree</title><link>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</link><pubDate>Wed, 29 Apr 2020 20:37:15 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/nerdtree/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Vim</title><link>https://progrhy.me/tech-notes/a/program/vim/</link><description>Recent content in Vim on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 29 Apr 2020 20:37:00 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Vim Plugins</title><link>https://progrhy.me/tech-notes/a/program/vim/plugin/</link><pubDate>Tue, 05 May 2020 11:23:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/plugin/</guid><description>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/ctrlpvim/ctrlp.vim">ctrlp.vim&lt;/a> &amp;hellip; 高速ファイル検索ツール
+&lt;ul>
+&lt;li>参考: &lt;a href="https://sy-base.com/myrobotics/vim/vim_ctrlp/">vimのファイル検索プラグインctrlp.vimの設定 – MY ROBOTICS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://github.com/LeafCage/yankround.vim">yankround.vim&lt;/a> &amp;hellip; レジスタ履歴を取得・再利用する&lt;/li>
+&lt;li>NERDTree &amp;hellip; See below&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sy-base.com/myrobotics/vim/vim-my-plugins/">vim – 強力なおすすめプラグイン – MY ROBOTICS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="nerdtree">NERDTree&lt;/h2>
+&lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree&lt;/a>&lt;/p>
 &lt;p>有名なVimのファイラプラグイン。&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h3 id="usage">Usage&lt;/h3>
 &lt;p>ツリービューの操作:&lt;/p>
 &lt;table>
 &lt;thead>
@@ -20,7 +36,7 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h3 id="ファイルディレクトリを作成">ファイル・ディレクトリを作成&lt;/h3>
+&lt;h4 id="ファイルディレクトリを作成">ファイル・ディレクトリを作成&lt;/h4>
 &lt;p>ファイルツリーの任意の位置で &lt;code>m&lt;/code> を押すとメニューが表示されるので、 &lt;code>(a)dd a childnode&lt;/code> を選ぶ。&lt;br>
 ディレクトリを作る場合は末尾に &lt;code>/&lt;/code> を入力すること。&lt;br>
 でないと、空のファイルが作られる。&lt;/p>
