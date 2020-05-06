@@ -13,6 +13,16 @@ weight: 900
 - エディタの操作 → [エディタ]({{< ref "/a/program/vim/edit.md" >}})
 - Vimの設定 → [vimrc]({{< ref "/a/program/vim/vimrc.md" >}})
 
+## Install
+### Ubuntuに新しいVimを入れる
+
+2020-05-06現在、Ubuntu 18.04に入っているVimのバージョンが8.0だった。  
+より新しいバージョンを使うには、aptで `ppa:jonathonf/vim` のようなリポジトリの追加が必要そう。
+
+参考:
+
+- 2019年12月の記事: [How to Install Vim 8.2 in Ubuntu 18.04, 16.04, 19.10 | UbuntuHandbook](http://ubuntuhandbook.org/index.php/2019/12/install-vim-8-2-ubuntu-18-04-16-04-19-10/)
+
 ## パッケージ管理
 
 Vim 8から標準機能になった。
