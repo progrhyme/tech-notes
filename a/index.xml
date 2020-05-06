@@ -3279,9 +3279,11 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 このやり方なら、仰々しいK8s対応のCI/CDツールなど使わなくても、kubectlとGitOpsだけで行けるかもしれない。&lt;/p>
 &lt;p>まだ試してないので、実際にやってみたら色々と課題も出てくるだろうけど。&lt;/p>
 &lt;h3 id="neobundleからdeinvimに乗り換えた">NeoBundleからdein.vimに乗り換えた&lt;/h3>
+&lt;p>※5/6 ブログ書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/06/122034">今更だけどNeoBundleからdein.vimに乗り換えて、プラグインを6つ追加した - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
 &lt;p>今更かよって感じだけど乗り換えた。&lt;br>
 NeoBundleは2年ぐらい前に更新が止まっていた。&lt;/p>
 &lt;p>作業マシンはUbuntu 18.04&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vim/#deinvim">Vim#deinvim&lt;/a>&lt;/p>
 &lt;h4 id="インストール">インストール&lt;/h4>
 &lt;p>&lt;a href="https://github.com/Shougo/dein.vim#quick-start">https://github.com/Shougo/dein.vim#quick-start&lt;/a> に従う。&lt;/p>
 &lt;p>インストール先は &lt;code>~/.vim/dein&lt;/code> とした。&lt;/p>
