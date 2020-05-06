@@ -132,6 +132,7 @@ kubectlと周辺ツールについては[kubectl]({{< ref "/a/software/k8s/kubec
 参考:
 
 - [Kubernetesのエコシステムをまとめる - Qiita](https://qiita.com/cvusk/items/100dfb955150ef8964e5) 2018年5月時点
+- [k3s と MicroK8s の違いを考える - Qiita](https://qiita.com/ynott/items/89941c36c606a8384028)
 
 ### マニフェスト管理
 
@@ -142,11 +143,23 @@ kubectlと周辺ツールについては[kubectl]({{< ref "/a/software/k8s/kubec
 - [ksonnet](https://github.com/ksonnet/ksonnet)
   - 2019年2月で更新が止まっている。参考: [Welcoming Heptio Open Source Projects to VMware](https://tanzu.vmware.com/content/blog/welcoming-heptio-open-source-projects-to-vmware)
 
-### テスト用クラスタ構築
+### クラスタ構築
+
+- kubeadm ... 公式
+
+参考:
+
+- [2019年版・Kubernetesクラスタ構築入門 | さくらのナレッジ](https://knowledge.sakura.ad.jp/20955/)
+
+#### 開発・テスト用
 
 - Minikube（See below）
 - [Kind](https://kind.sigs.k8s.io/)
-  - 参考: [Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck](https://speakerdeck.com/ytaka23/cicd-test-night-5th)
+  - 参考:
+    - [Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck](https://speakerdeck.com/ytaka23/cicd-test-night-5th)
+    - [kindで軽量テスト用Kubernetesクラスタを作る＆運用する時のTIPS - Qiita](https://qiita.com/Hiroyuki_OSAKI/items/2395e6bbb98856df12f3)
+- [MicroK8s](https://microk8s.io/) ... Canonical社が出してるやつ
+  - 参考: [第560回 microk8sでお手軽Kubernetes環境構築：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0560)
 
 #### Minikube
 
@@ -191,6 +204,7 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 
 ### その他
 
+- [K3s: Lightweight Kubernetes](https://k3s.io/) ... Rancherが出してる軽量版K8s
 - [ksync | Sync files between your local system and a kubernetes cluster.](https://ksync.github.io/ksync/)
 
 ## Child Pages
