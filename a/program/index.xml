@@ -194,6 +194,14 @@
 &lt;li>エディタの操作 → &lt;a href="https://progrhy.me/tech-notes/a/program/vim/edit/">エディタ&lt;/a>&lt;/li>
 &lt;li>Vimの設定 → &lt;a href="https://progrhy.me/tech-notes/a/program/vim/vimrc/">vimrc&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="install">Install&lt;/h2>
+&lt;h3 id="ubuntuに新しいvimを入れる">Ubuntuに新しいVimを入れる&lt;/h3>
+&lt;p>2020-05-06現在、Ubuntu 18.04に入っているVimのバージョンが8.0だった。&lt;br>
+より新しいバージョンを使うには、aptで &lt;code>ppa:jonathonf/vim&lt;/code> のようなリポジトリの追加が必要そう。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>2019年12月の記事: &lt;a href="http://ubuntuhandbook.org/index.php/2019/12/install-vim-8-2-ubuntu-18-04-16-04-19-10/">How to Install Vim 8.2 in Ubuntu 18.04, 16.04, 19.10 | UbuntuHandbook&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
 &lt;p>Vim 8から標準機能になった。&lt;/p>
 &lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/repeat.html#packages">https://vim-jp.org/vimdoc-ja/repeat.html#packages&lt;/a>&lt;/p>
