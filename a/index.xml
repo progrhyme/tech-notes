@@ -1567,7 +1567,9 @@ git revert -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;l
 &lt;h3 id="submodule">submodule&lt;/h3>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-submodule">https://git-scm.com/docs/git-submodule&lt;/a>&lt;/p>
 &lt;p>なんだかんだで割りと使っている。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 全submodule更新&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># submodule追加&lt;/span>
+git submodule add &amp;lt;git-url&amp;gt; &amp;lt;local-path&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 全submodule更新&lt;/span>
 git submodule foreach git pull origin master
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>sumobuleの削除 =&amp;gt; &lt;a href="https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete">https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
