@@ -567,6 +567,7 @@ kubectl delete -f my-ns.yml
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/cvusk/items/100dfb955150ef8964e5">Kubernetesのエコシステムをまとめる - Qiita&lt;/a> 2018年5月時点&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ynott/items/89941c36c606a8384028">k3s と MicroK8s の違いを考える - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="マニフェスト管理">マニフェスト管理&lt;/h3>
 &lt;p>※ * は当サイト内のページ&lt;/p>
@@ -579,12 +580,30 @@ kubectl delete -f my-ns.yml
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="テスト用クラスタ構築">テスト用クラスタ構築&lt;/h3>
+&lt;h3 id="クラスタ構築">クラスタ構築&lt;/h3>
+&lt;ul>
+&lt;li>kubeadm &amp;hellip; 公式&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://knowledge.sakura.ad.jp/20955/">2019年版・Kubernetesクラスタ構築入門 | さくらのナレッジ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="開発テスト用">開発・テスト用&lt;/h4>
 &lt;ul>
 &lt;li>Minikube（See below）&lt;/li>
 &lt;li>&lt;a href="https://kind.sigs.k8s.io/">Kind&lt;/a>
 &lt;ul>
-&lt;li>参考: &lt;a href="https://speakerdeck.com/ytaka23/cicd-test-night-5th">Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck&lt;/a>&lt;/li>
+&lt;li>参考:
+&lt;ul>
+&lt;li>&lt;a href="https://speakerdeck.com/ytaka23/cicd-test-night-5th">Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Hiroyuki_OSAKI/items/2395e6bbb98856df12f3">kindで軽量テスト用Kubernetesクラスタを作る＆運用する時のTIPS - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://microk8s.io/">MicroK8s&lt;/a> &amp;hellip; Canonical社が出してるやつ
+&lt;ul>
+&lt;li>参考: &lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0560">第560回 microk8sでお手軽Kubernetes環境構築：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -636,6 +655,7 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;/ul>
 &lt;h3 id="その他">その他&lt;/h3>
 &lt;ul>
+&lt;li>&lt;a href="https://k3s.io/">K3s: Lightweight Kubernetes&lt;/a> &amp;hellip; Rancherが出してる軽量版K8s&lt;/li>
 &lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><pubDate>Tue, 05 May 2020 00:24:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/</guid><description>
