@@ -214,7 +214,10 @@ https://git-scm.com/docs/git-submodule
 なんだかんだで割りと使っている。
 
 ```bash
-## 全submodule更新
+# submodule追加
+git submodule add <git-url> <local-path>
+
+# 全submodule更新
 git submodule foreach git pull origin master
 ```
 
