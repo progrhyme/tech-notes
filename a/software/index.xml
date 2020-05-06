@@ -281,32 +281,6 @@ git filter-branch --subdirectory-filter sub_dir_name HEAD
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/2982055/detach-many-subdirectories-into-a-new-separate-git-repository">git filter branch - Detach many subdirectories into a new, separate Git repository - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/gitbook/</guid><description>
-&lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
-ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
-&lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>⚠️ Deprecation warning&lt;/strong>&lt;/p>
-&lt;p>As the efforts of the GitBook team are focused on the &lt;a href="https://www.gitbook.com">GitBook.com&lt;/a> platform, the CLI is no longer under active development.&lt;br>
-All content supported by the CLI are mostly supported by our &lt;a href="https://docs.gitbook.com/integrations/github">GitBook.com / GitHub integration&lt;/a>.&lt;br>
-Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com&lt;/a> will continue working until further notice. For differences with the new vesion, check out our &lt;a href="https://docs.gitbook.com/v2-changes/important-differences">documentation&lt;/a>.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.gitbook.com/">https://docs.gitbook.com/&lt;/a> &amp;hellip; クラウドサービス向け&lt;/li>
-&lt;li>&lt;a href="https://gitbookio.gitbooks.io/documentation/">Introduction | GitBook.com Documentation&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/GitbookIO/gitbook/tree/master/docs">https://github.com/GitbookIO/gitbook/tree/master/docs&lt;/a> &amp;hellip; たぶんOSSツールチェインのドキュメントはもうここを読むしかない。&lt;/li>
-&lt;/ul>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;p>目次生成系:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://developer.aliyun.com/mirror/npm/package/gitbook-plugin-page-toc">Package - gitbook-plugin-page-toc&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/zanfab/gitbook-plugin-intopic-toc">zanfab/gitbook-plugin-intopic-toc: GitBook Plugin to add inline table of contents (TOC) to each page using sticky and scrollspy effects.&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/billryan/gitbook-plugin-etoc">billryan/gitbook-plugin-etoc: Elegant toc plugin for GitBook&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: GNU make</title><link>https://progrhy.me/tech-notes/a/software/make/</link><pubDate>Mon, 04 May 2020 19:50:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/make/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>公式リファレンスは↑&lt;/p>
@@ -462,88 +436,7 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;li>入門レベルで割とよく使う感じの機能がまとまってる。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: Hugo</title><link>https://progrhy.me/tech-notes/a/software/hugo/</link><pubDate>Sat, 25 Apr 2020 23:38:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/hugo/</guid><description>
-&lt;p>Go言語製の高速な静的サイトジェネレーター。&lt;/p>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://gohugo.io/documentation/">https://gohugo.io/documentation/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gohugo.io/getting-started/">Getting Started&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://gohugo.io/getting-started/installing/">Install&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://gohugo.io/content-management/">Content Management&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://gohugo.io/content-management/front-matter/">Front Matter&lt;/a> &amp;hellip; ページに対して付けることができるメタデータ&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>:&lt;/li>
-&lt;/ul>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;h3 id="install">Install&lt;/h3>
-&lt;h4 id="拡張版のインストール">拡張版のインストール&lt;/h4>
-&lt;p>通常版では、SASS/SCSSサポートがついていないので、必要であれば明示的に拡張版をインストールしないといけない。&lt;/p>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">INFO&lt;/h4>
-2020-04-27現在、Macの場合は &lt;code>brew install hugo&lt;/code> で拡張版がインストールされるようだ。
-&lt;/div>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="./themes/docsy/#getting-started">Themes &amp;gt; Docsy&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://donsyoku.com/software/hugo-what-is-extended-version.html">[Hugo]Hugoの通常バージョンとExtendedバージョンとの違い[memo] | 鈍色スイッチ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h5 id="バイナリをインストール">バイナリをインストール&lt;/h5>
-&lt;p>&lt;a href="https://github.com/gohugoio/hugo/releases">GitHub Releases&lt;/a>から &lt;code>_extended&lt;/code> 付きのバイナリを取得する。&lt;/p>
-&lt;h5 id="ソースからインストール">ソースからインストール&lt;/h5>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/gohugoio/hugo.git
-&lt;span style="color:#204a87">cd&lt;/span> hugo
-go install --tags extended
-&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="linux">Linux&lt;/h5>
-&lt;p>Snapの場合:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">snap install hugo --channel&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>extended
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="quickstarthttpsgohugoiogetting-startedquick-start">&lt;a href="https://gohugo.io/getting-started/quick-start/">Quickstart&lt;/a>&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 新しくサイトを作る&lt;/span>
-hugo new site your-new-site
-&lt;span style="color:#8f5902;font-style:italic"># テーマを用意する&lt;/span>
-&lt;span style="color:#204a87">cd&lt;/span> your-new-site
-git init
-git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39;&lt;/span> &amp;gt;&amp;gt; config.toml
-&lt;span style="color:#8f5902;font-style:italic"># コンテンツを作成する&lt;/span>
-hugo new posts/my-first-post.md
-&lt;span style="color:#8f5902;font-style:italic"># hugo serverを起動&lt;/span>
-hugo server -D
-&lt;span style="color:#8f5902;font-style:italic">## -D を付けることで draft のページも表示される&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;h3 id="table-of-contents">Table Of Contents&lt;/h3>
-&lt;p>&lt;a href="https://gohugo.io/getting-started/configuration-markup/#table-of-contents">https://gohugo.io/getting-started/configuration-markup/#table-of-contents&lt;/a>&lt;/p>
-&lt;p>※Goldmarkのみ&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-toml" data-lang="toml">&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">markup&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">markup&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">tableOfContents&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000">endLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>
-&lt;span style="color:#000">ordered&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
-&lt;span style="color:#000">startLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="known-issues">Known Issues&lt;/h2>
-&lt;h3 id="完全なページツリーを描画する機能がない">完全なページツリーを描画する機能がない&lt;/h3>
-&lt;p>ワークアラウンドでの対応が必要。&lt;/p>
-&lt;p>&lt;a href="https://github.com/gohugoio/hugo/issues/465">Multi-level sections (tree) · Issue #465 · gohugoio/hugo&lt;/a>&lt;/p>
-&lt;p>ワークアラウンド例:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://vjeantet.github.io/hugo-menu-show/">http://vjeantet.github.io/hugo-menu-show/&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/vjeantet/hugo-menu-show/blob/master/themes/menumenu/layouts/index.html">ソースコード&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://maku77.github.io/hugo/list/sidebar-menu.html">サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示） | まくまくHugo/Goノート&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>MEMO:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/google/docsy/blob/master/layouts/partials/sidebar-tree.html">Docsyテーマでのサイドバーの実現方法&lt;/a>が参考になるかも。&lt;/li>
-&lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
+&lt;/ul></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/gcp/gke/">Google Cloud &amp;gt; GKE&lt;/a>&lt;/li>
@@ -1103,4 +996,9 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1f57c62bed781ab8f4d7" title="Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita">Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><pubDate>Mon, 04 May 2020 17:17:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/</guid><description/></item></channel></rss>
+&lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><pubDate>Mon, 04 May 2020 17:17:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/</guid><description/></item><item><title>A: Static Site Generators</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/</link><pubDate>Wed, 06 May 2020 13:39:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/</guid><description>
+&lt;p>コンテンツをMarkdown等で管理して、静的サイトを作れるソフトウェア製品。&lt;br>
+製本ツールであっても、HTML形式での出力に対応しているものはここに入れると思う。&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>&lt;a href="https://www.staticgen.com/">https://www.staticgen.com/&lt;/a> &amp;hellip; OSS比較サイト&lt;/p>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

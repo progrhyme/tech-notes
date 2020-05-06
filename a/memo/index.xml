@@ -1,4 +1,15 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200505/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200506/</guid><description>
+&lt;h2 id="56">5/6&lt;/h2>
+&lt;h3 id="githubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ">GitHubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ&lt;/h3>
+&lt;p>なんかないかなと思ったけど、&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>以上のものは見つからないな。&lt;/p>
+&lt;p>hubコマンドあたりで実装されてたりはしなかった。&lt;/p>
+&lt;p>&lt;a href="https://hub.github.com/hub.1.html">https://hub.github.com/hub.1.html&lt;/a>&lt;/p>
+&lt;h3 id="ghgでmdbookを入れようと思ったが失敗した">ghgでmdBookを入れようと思ったが失敗した&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% env &lt;span style="color:#000">GHG_HOME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span> ghg get rust-lang/mdBook
+fetch the GitHub release &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> rust-lang/mdBook
+no assets available
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>悲しい。&lt;br>
+結局wget -&amp;gt; tar xvfで入れました。&lt;/p></description></item><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200505/</guid><description>
 &lt;h2 id="55">5/5&lt;/h2>
 &lt;h3 id="kubernetesのマニフェストは全部exportして管理した方がいいんじゃねって思った">Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/h3>
 &lt;p>exportのやり方は調べて&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#%E5%85%A8%E3%81%A6%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%81%84">kubectlのページ#全てのマニフェストを取得したい&lt;/a>に書いた。&lt;/p>
@@ -268,70 +279,4 @@ tfenv: tfenv-install: [ERROR] Tarball unzip failed
 &lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
 &lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
 &lt;/ul>
-&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: 2020-04-29</title><link>https://progrhy.me/tech-notes/a/memo/20200429/</link><pubDate>Wed, 29 Apr 2020 10:49:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200429/</guid><description>
-&lt;h2 id="429">4/29&lt;/h2>
-&lt;h3 id="ubuntu-1804でintellij-ideaを20201にアップデート">Ubuntu 18.04でIntelliJ IDEAを2020.1にアップデート&lt;/h3>
-&lt;p>久しぶりに起動したらアップデートする必要があった。&lt;/p>
-&lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018.1にアップデートしたときのログ&lt;/a>&lt;/p>
-&lt;p>上と同じ手順で行けた。&lt;br>
-以下はログ。&lt;/p>
-&lt;p>tar.gzをダウンロードして解凍し、 &lt;code>$HOME/vendor/&lt;/code> に配置。&lt;br>
-&lt;code>idea-IC -&amp;gt; idea-IC-181.4203.550&lt;/code> とsymlinkしていたので、付け替える。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">cd&lt;/span> ~/vendor
-rm idea-IC
-ln -s idea-IC-201.6668.121 idea-IC
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>~/.local/share/applications/jetbrains-idea-ce.desktop&lt;/code> を次のように編集:&lt;/p>
-&lt;pre>&lt;code>[Desktop Entry]
-Version=2020.1.0
-Type=Application
-Name=IntelliJ IDEA Community Edition
-Icon=$HOME/vendor/idea-IC/bin/idea.png
-Exec=&amp;quot;$HOME/vendor/idea-IC/bin/idea.sh&amp;quot; %f
-Comment=The Drive to Develop
-Categories=Development;IDE;
-Terminal=false
-StartupWMClass=jetbrains-idea-ce
-&lt;/code>&lt;/pre>&lt;p>※ &lt;code>$HOME&lt;/code> は展開して書き替えないといけないかも。&lt;/p>
-&lt;h3 id="ubuntuに昔入れたminikubeをuninstall">Ubuntuに昔入れたminikubeをUninstall&lt;/h3>
-&lt;p>localkubeというdaemonが動いていることに気がついたのがきっかけだけど、2〜3年使っていないので掃除することにした。&lt;/p>
-&lt;p>実行したコマンド:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo systemctl stop localkube
-sudo systemctl disable localkube
-docker system prune
-rm -rf ~/.minikube
-sudo rm /usr/local/bin/localkube /usr/local/bin/minikube
-sudo rm -rf /etc/kubernetes/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2017/20171118#TOC-Ubuntu-Minikube-">2017年の作業ログ&lt;/a>によると、dpkgで入れたみたいなんだけど、 &lt;code>dpkg -l&lt;/code> しても出てこなかった。はて。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://medium.com/@yudapramad/uninstall-minikube-5c032a7dd44f">Uninstall Minikube - yuda prama - Medium&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kubernetes/minikube/issues/1043">How to uninstall? · Issue #1043 · kubernetes/minikube&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="mdbookについて少し機能を調べた">mdBookについて少し機能を調べた&lt;/h3>
-&lt;p>&lt;a href="https://rust-lang.github.io/mdBook/">https://rust-lang.github.io/mdBook/&lt;/a>&lt;/p>
-&lt;p>Rust製のGitBookみたいなもの。&lt;br>
-高速でよさそう。&lt;/p>
-&lt;p>MEMO:&lt;/p>
-&lt;ul>
-&lt;li>config: &lt;a href="https://rust-lang.github.io/mdBook/format/config.html">https://rust-lang.github.io/mdBook/format/config.html&lt;/a>&lt;/li>
-&lt;li>サイドバーに目次ツリーが表示されているが、 &lt;code>[output.html.fold]&lt;/code> で挙動を変えられそう。
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/rust-lang/mdBook/pull/1027">https://github.com/rust-lang/mdBook/pull/1027&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>目次（Table of Contents）は公式サポートないのかも。イシューになってる
-&lt;ul>
-&lt;li>&lt;code>{{#toc}}{{/toc}}&lt;/code> で行けるんじゃないのかな？
-&lt;ul>
-&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/format/theme/index-hbs.html#1-toc">https://rust-lang.github.io/mdBook/format/theme/index-hbs.html#1-toc&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://github.com/rust-lang/mdBook/issues/153">https://github.com/rust-lang/mdBook/issues/153&lt;/a>&lt;/li>
-&lt;li>自作している人がいる
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/badboy/mdbook-toc">https://github.com/badboy/mdbook-toc&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>
+&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>

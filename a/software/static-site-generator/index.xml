@@ -1,0 +1,163 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Static Site Generators</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/</link><description>Recent content in Static Site Generators on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 06 May 2020 13:39:38 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/static-site-generator/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</guid><description>
+&lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
+ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
+&lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>⚠️ Deprecation warning&lt;/strong>&lt;/p>
+&lt;p>As the efforts of the GitBook team are focused on the &lt;a href="https://www.gitbook.com">GitBook.com&lt;/a> platform, the CLI is no longer under active development.&lt;br>
+All content supported by the CLI are mostly supported by our &lt;a href="https://docs.gitbook.com/integrations/github">GitBook.com / GitHub integration&lt;/a>.&lt;br>
+Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com&lt;/a> will continue working until further notice. For differences with the new vesion, check out our &lt;a href="https://docs.gitbook.com/v2-changes/important-differences">documentation&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.gitbook.com/">https://docs.gitbook.com/&lt;/a> &amp;hellip; クラウドサービス向け&lt;/li>
+&lt;li>&lt;a href="https://gitbookio.gitbooks.io/documentation/">Introduction | GitBook.com Documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/GitbookIO/gitbook/tree/master/docs">https://github.com/GitbookIO/gitbook/tree/master/docs&lt;/a> &amp;hellip; たぶんOSSツールチェインのドキュメントはもうここを読むしかない。&lt;/li>
+&lt;/ul>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;p>目次生成系:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.aliyun.com/mirror/npm/package/gitbook-plugin-page-toc">Package - gitbook-plugin-page-toc&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/zanfab/gitbook-plugin-intopic-toc">zanfab/gitbook-plugin-intopic-toc: GitBook Plugin to add inline table of contents (TOC) to each page using sticky and scrollspy effects.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/billryan/gitbook-plugin-etoc">billryan/gitbook-plugin-etoc: Elegant toc plugin for GitBook&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Hugo</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/</link><pubDate>Sat, 25 Apr 2020 23:38:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/</guid><description>
+&lt;p>Go言語製の高速な静的サイトジェネレーター。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://gohugo.io/documentation/">https://gohugo.io/documentation/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/">Getting Started&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/installing/">Install&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://gohugo.io/content-management/">Content Management&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/content-management/front-matter/">Front Matter&lt;/a> &amp;hellip; ページに対して付けることができるメタデータ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>:&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;h3 id="install">Install&lt;/h3>
+&lt;h4 id="拡張版のインストール">拡張版のインストール&lt;/h4>
+&lt;p>通常版では、SASS/SCSSサポートがついていないので、必要であれば明示的に拡張版をインストールしないといけない。&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">INFO&lt;/h4>
+2020-04-27現在、Macの場合は &lt;code>brew install hugo&lt;/code> で拡張版がインストールされるようだ。
+&lt;/div>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="./themes/docsy/#getting-started">Themes &amp;gt; Docsy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://donsyoku.com/software/hugo-what-is-extended-version.html">[Hugo]Hugoの通常バージョンとExtendedバージョンとの違い[memo] | 鈍色スイッチ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h5 id="バイナリをインストール">バイナリをインストール&lt;/h5>
+&lt;p>&lt;a href="https://github.com/gohugoio/hugo/releases">GitHub Releases&lt;/a>から &lt;code>_extended&lt;/code> 付きのバイナリを取得する。&lt;/p>
+&lt;h5 id="ソースからインストール">ソースからインストール&lt;/h5>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/gohugoio/hugo.git
+&lt;span style="color:#204a87">cd&lt;/span> hugo
+go install --tags extended
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="linux">Linux&lt;/h5>
+&lt;p>Snapの場合:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">snap install hugo --channel&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>extended
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="quickstarthttpsgohugoiogetting-startedquick-start">&lt;a href="https://gohugo.io/getting-started/quick-start/">Quickstart&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 新しくサイトを作る&lt;/span>
+hugo new site your-new-site
+&lt;span style="color:#8f5902;font-style:italic"># テーマを用意する&lt;/span>
+&lt;span style="color:#204a87">cd&lt;/span> your-new-site
+git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39;&lt;/span> &amp;gt;&amp;gt; config.toml
+&lt;span style="color:#8f5902;font-style:italic"># コンテンツを作成する&lt;/span>
+hugo new posts/my-first-post.md
+&lt;span style="color:#8f5902;font-style:italic"># hugo serverを起動&lt;/span>
+hugo server -D
+&lt;span style="color:#8f5902;font-style:italic">## -D を付けることで draft のページも表示される&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="table-of-contents">Table Of Contents&lt;/h3>
+&lt;p>&lt;a href="https://gohugo.io/getting-started/configuration-markup/#table-of-contents">https://gohugo.io/getting-started/configuration-markup/#table-of-contents&lt;/a>&lt;/p>
+&lt;p>※Goldmarkのみ&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-toml" data-lang="toml">&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">markup&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">markup&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">tableOfContents&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">endLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>
+&lt;span style="color:#000">ordered&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
+&lt;span style="color:#000">startLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="known-issues">Known Issues&lt;/h2>
+&lt;h3 id="完全なページツリーを描画する機能がない">完全なページツリーを描画する機能がない&lt;/h3>
+&lt;p>ワークアラウンドでの対応が必要。&lt;/p>
+&lt;p>&lt;a href="https://github.com/gohugoio/hugo/issues/465">Multi-level sections (tree) · Issue #465 · gohugoio/hugo&lt;/a>&lt;/p>
+&lt;p>ワークアラウンド例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://vjeantet.github.io/hugo-menu-show/">http://vjeantet.github.io/hugo-menu-show/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/vjeantet/hugo-menu-show/blob/master/themes/menumenu/layouts/index.html">ソースコード&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://maku77.github.io/hugo/list/sidebar-menu.html">サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示） | まくまくHugo/Goノート&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/google/docsy/blob/master/layouts/partials/sidebar-tree.html">Docsyテーマでのサイドバーの実現方法&lt;/a>が参考になるかも。&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: mdBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/mdbook/</link><pubDate>Wed, 06 May 2020 13:52:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/mdbook/</guid><description>
+&lt;p>Rust製のGitBookみたいなもの。&lt;br>
+高速でよさそう。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>上のサイトがドキュメントを兼ねている。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/cli/">CLI&lt;/a>
+&lt;ul>
+&lt;li>インストール方法はこちら&lt;/li>
+&lt;li>サブコマンド:
+&lt;ul>
+&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/cli/init.html">init&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/cli/build.html">build&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/cli/serve.html">serve&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli--quickstart">CLI &amp;amp; Quickstart&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 新しくブックのディレクトリを作り、初期セットアップを行う&lt;/span>
+mdbook init &amp;lt;your-book-directory&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># デフォルトでHTMLを ./book にビルド&lt;/span>
+mdbook build &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># デフォルトで ./book 以下のHTMLを元にHTTPサーバを起動&lt;/span>
+mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>2020-05-06現在、 &lt;code>serve&lt;/code> コマンドはHTML表示のテスト用で、Webサイト用の完全なサーバ機能を目指したものではないとのこと&lt;/li>
+&lt;/ul>
+&lt;h2 id="memo">MEMO&lt;/h2>
+&lt;h3 id="2020-04-29">2020-04-29&lt;/h3>
+&lt;ul>
+&lt;li>config: &lt;a href="https://rust-lang.github.io/mdBook/format/config.html">https://rust-lang.github.io/mdBook/format/config.html&lt;/a>&lt;/li>
+&lt;li>サイドバーに目次ツリーが表示されているが、 &lt;code>[output.html.fold]&lt;/code> で挙動を変えられそう。
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-lang/mdBook/pull/1027">https://github.com/rust-lang/mdBook/pull/1027&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>目次（Table of Contents）は公式サポートないのかも。イシューになってる
+&lt;ul>
+&lt;li>&lt;code>{{#toc}}{{/toc}}&lt;/code> で行けるんじゃないのかな？
+&lt;ul>
+&lt;li>&lt;a href="https://rust-lang.github.io/mdBook/format/theme/index-hbs.html#1-toc">https://rust-lang.github.io/mdBook/format/theme/index-hbs.html#1-toc&lt;/a>&lt;/li>
+&lt;li>（2020-05-06追記）愚直に書き足したところ、駄目だった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://github.com/rust-lang/mdBook/issues/153">https://github.com/rust-lang/mdBook/issues/153&lt;/a>&lt;/li>
+&lt;li>自作している人がいる
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/badboy/mdbook-toc">https://github.com/badboy/mdbook-toc&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
