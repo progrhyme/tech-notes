@@ -441,13 +441,33 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;p>Documents:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://k9scli.io/topics/install/">Install&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://k9scli.io/topics/commands/">Commands&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://tech.enigmo.co.jp/entry/2019/12/17/090000">k9sで快適なk8sライフを送ろう！ - エニグモ開発者ブログ&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="コマンド">コマンド&lt;/h4>
-&lt;p>&lt;a href="https://k9scli.io/topics/commands/">https://k9scli.io/topics/commands/&lt;/a>&lt;/p>
+&lt;h4 id="cli">CLI&lt;/h4>
+&lt;p>オプション&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--readonly&lt;/code>&lt;/td>
+&lt;td>更新操作を無効にする&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>モニタリング用途で使う場合、 &lt;code>--readonly&lt;/code> をつけるべき&lt;/li>
+&lt;/ul>
+&lt;h4 id="インタラクティブモード">インタラクティブモード&lt;/h4>
 &lt;p>&lt;code>k9s&lt;/code> コマンド起動後の操作&lt;/p>
 &lt;table>
 &lt;thead>
