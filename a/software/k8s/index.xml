@@ -666,11 +666,16 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;li>&lt;a href="https://rahmonov.me/posts/zero-downtime-deployment-with-kubernetes/">Zero Downtime Deployment with Kubernetes&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: kubectl</title><link>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</link><pubDate>Fri, 01 May 2020 12:15:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</guid><description>
 &lt;p>Kubernetesクラスタを制御するCLI.&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/overview/">https://kubernetes.io/docs/reference/kubectl/overview/&lt;/a>&lt;/li>
 &lt;li>リファレンス: &lt;a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet - Kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubectl.docs.kubernetes.io/">https://kubectl.docs.kubernetes.io/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-23/">Kubernetes道場 23日目 - kubectlを網羅する - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="周辺ツール">周辺ツール&lt;/h2>
 &lt;ul>
@@ -864,10 +869,18 @@ curl http://localhost:8080/api/
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="全てのマニフェストを取得したい">全てのマニフェストを取得したい&lt;/h3>
 &lt;p>これでよさそう:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get all --export&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> -o yaml
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get all --export -o yaml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>※v1.14で &lt;code>--export&lt;/code> オプションはdeprecateされているが、2020-05-07, 代替手段は見つけられていない。&lt;/li>
+&lt;li>上だとPodもexport対象になるので、使い勝手悪いかも？&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/24873">Is there a way to generate yml files that will produce the existing cluster? · Issue #24873 · kubernetes/kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/pull/73787">Deprecate &amp;ndash;export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/tkusumi/items/a824e040475fc47d311a">Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec">Dump Kubernetes cluster resources as YAML&lt;/a> &amp;hellip; シェルスクリプトで頑張っている事例&lt;/li>
 &lt;/ul></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
 &lt;p>Kubernetesのマニフェスト管理ツール。&lt;/p>
 &lt;p>リポジトリ: &lt;a href="https://github.com/kubernetes-sigs/kustomize">https://github.com/kubernetes-sigs/kustomize&lt;/a>&lt;/p>
