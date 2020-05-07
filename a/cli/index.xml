@@ -94,6 +94,27 @@ end
 &lt;ul>
 &lt;li>&lt;a href="http://www.atmarkit.co.jp/flinux/rensai/linuxtips/002cngprmpt.html" title="bashのプロンプトを変更するには">bashのプロンプトを変更するには&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519" title="Linuxで、bash プロンプトを素敵で実用的なものに変更する">Linuxで、bash プロンプトを素敵で実用的なものに変更する&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: jq</title><link>https://progrhy.me/tech-notes/a/cli/jq/</link><pubDate>Thu, 07 May 2020 11:44:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/jq/</guid><description>
+&lt;p>JSONにクエリしてフィルタできるCLIツール。&lt;/p>
+&lt;h2 id="documents">Documents&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://stedolan.github.io/jq/tutorial/">https://stedolan.github.io/jq/tutorial/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stedolan.github.io/jq/manual/">https://stedolan.github.io/jq/manual/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="チートシート">チートシート&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># オブジェクトの特定キーの要素を抽出&lt;/span>
+cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.some_key&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 配列の特定要素を抽出&lt;/span>
+cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[0]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトの特定キーを抽出&lt;/span>
+cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | .some_key&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトからいくつかの要素を選んでそれぞれ配列に格納&lt;/span>
+cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | [.keyA, .keyB, .keyC.keyAinC]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトからいくつかの要素を選んで新たなオブジェクトを作り、それぞれ出力&lt;/span>
+cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | {a: .keyA, b: .keyB, ca: .keyC.keyAinC}&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.qoosky.io/techs/1ee07c140f">jq チートシート - Qoosky&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
 &lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
 &lt;h2 id="about">About&lt;/h2>
