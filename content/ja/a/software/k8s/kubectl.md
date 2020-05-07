@@ -7,10 +7,16 @@ weight: 150
 
 Kubernetesクラスタを制御するCLI.
 
+## Documentation
+
 - https://kubernetes.io/docs/reference/kubectl/overview/
 - リファレンス: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 - [kubectl Cheat Sheet - Kubernetes](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - https://kubectl.docs.kubernetes.io/
+
+参考:
+
+- [Kubernetes道場 23日目 - kubectlを網羅する - Toku's Blog](https://cstoku.dev/posts/2018/k8sdojo-23/)
 
 ## 周辺ツール
 
@@ -257,9 +263,17 @@ See https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/
 これでよさそう:
 
 ```sh
-kubectl get all --export=true -o yaml
+kubectl get all --export -o yaml
 ```
+
+NOTE:
+
+- ※v1.14で `--export` オプションはdeprecateされているが、2020-05-07, 代替手段は見つけられていない。
+- 上だとPodもexport対象になるので、使い勝手悪いかも？
 
 参考:
 
 - [Is there a way to generate yml files that will produce the existing cluster? · Issue #24873 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/24873)
+- [Deprecate --export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/pull/73787)
+- [Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita](https://qiita.com/tkusumi/items/a824e040475fc47d311a)
+- [Dump Kubernetes cluster resources as YAML](https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec) ... シェルスクリプトで頑張っている事例
