@@ -1933,7 +1933,27 @@ terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモ�
 terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
 terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
 terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Container Registry</title><link>https://progrhy.me/tech-notes/a/gcp/gcr/</link><pubDate>Thu, 07 May 2020 16:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gcr/</guid><description>
+&lt;p>Dockerコンテナレジストリ。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs">https://cloud.google.com/container-registry/docs&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs?hl=ja">リソース&lt;/a> &amp;hellip; 料金、クォータ、リリースノートなど&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="認証">認証&lt;/h3>
+&lt;p>dockerコマンドでGCRにアクセスできるようにする:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth configure-docker
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/advanced-authentication">https://cloud.google.com/container-registry/docs/advanced-authentication&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="pubsub通知">Pub/Sub通知&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/configuring-notifications?hl=ja">Pub/Sub 通知の構成 | Container Registry のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>イメージが push、タグ付け、削除されたときなど、Container Registry リポジトリに変更が加えられた場合、Pub/Sub を使用して通知を受け取ることができます&lt;/p>
+&lt;/blockquote></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/">Software &amp;gt; Kubernetes&lt;/a>&lt;/li>
@@ -4186,27 +4206,4 @@ sudo rm -rf /etc/kubernetes/
 &lt;ul>
 &lt;li>&lt;a href="https://medium.com/@yudapramad/uninstall-minikube-5c032a7dd44f">Uninstall Minikube - yuda prama - Medium&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/kubernetes/minikube/issues/1043">How to uninstall? · Issue #1043 · kubernetes/minikube&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-04-28</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200428/</link><pubDate>Tue, 28 Apr 2020 13:16:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200428/</guid><description>
-&lt;h1 id="428">4/28&lt;/h1>
-&lt;h2 id="macでanyenv経由のnodenv経由でnodejsを入れてみた">Macでanyenv経由のnodenv経由でNode.jsを入れてみた&lt;/h2>
-&lt;p>以前はnodebrewを使っていたのだけど、anyenv押しの記事を見たので。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ucan-lab/items/ce35bcaf2562054917a8">Homebrew 経由の anyenv 経由の nodenv 経由で Node.js をインストールする - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/anyenv/anyenv">https://github.com/anyenv/anyenv&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/nodenv/nodenv">https://github.com/nodenv/nodenv&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>anyenv install&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install anyenv
-anyenv init
-&lt;span style="color:#8f5902;font-style:italic"># 指示に従う&lt;/span>
-vi .zshrc
-&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; eval &amp;#34;$(anyenv init -)&amp;#34; をいい感じに足す&lt;/span>
-&lt;span style="color:#204a87">exec&lt;/span> &lt;span style="color:#000">$SHELL&lt;/span> -l
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>nodenv install&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">anyenv install nodenv
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>nodenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-nodenv install 12.16.2
-nodenv global 12.16.2
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>eval &amp;quot;$(nodenv init -)&amp;quot;&lt;/code> はインストール後に1度だけ実行が必要そう。&lt;br>
-でないと、 &lt;code>~/.anyenv/envs/nodenv/shims/&lt;/code> 以下に実行ファイルができないっぽい。（ちょっとハマった。）&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
