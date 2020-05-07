@@ -434,12 +434,71 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;h2 id="クライアント">クライアント&lt;/h2>
 &lt;p>kubectlと周辺ツールについては&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/">kubectl&lt;/a>を見よ。&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://k9scli.io/">K9s - Manage Your Kubernetes Clusters In Style&lt;/a>
+&lt;li>K9s &amp;hellip; See below&lt;/li>
+&lt;/ul>
+&lt;h3 id="k9s">K9s&lt;/h3>
+&lt;p>&lt;a href="https://k9scli.io/">K9s - Manage Your Kubernetes Clusters In Style&lt;/a>&lt;/p>
+&lt;p>Documents:&lt;/p>
 &lt;ul>
-&lt;li>参考: &lt;a href="https://tech.enigmo.co.jp/entry/2019/12/17/090000">k9sで快適なk8sライフを送ろう！ - エニグモ開発者ブログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://k9scli.io/topics/install/">Install&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech.enigmo.co.jp/entry/2019/12/17/090000">k9sで快適なk8sライフを送ろう！ - エニグモ開発者ブログ&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="コマンド">コマンド&lt;/h4>
+&lt;p>&lt;a href="https://k9scli.io/topics/commands/">https://k9scli.io/topics/commands/&lt;/a>&lt;/p>
+&lt;p>&lt;code>k9s&lt;/code> コマンド起動後の操作&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>コマンド&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>:q[uit]&lt;/code>, &lt;code>Ctrl+c&lt;/code>&lt;/td>
+&lt;td>終了&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;Esc&amp;gt;&lt;/code>&lt;/td>
+&lt;td>元の画面に戻る&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>:ctx&lt;/code>&lt;/td>
+&lt;td>context選択&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>:ns&lt;/code>&lt;/td>
+&lt;td>namespace選択&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/&lt;/code>&lt;/td>
+&lt;td>リソースフィルタ。あいまい検索。 &lt;code>-l&lt;/code> でラベルセレクトも使える&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>d&lt;/code>, &lt;code>y&lt;/code>&lt;/td>
+&lt;td>describe, YAMLを見る&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>e&lt;/code>&lt;/td>
+&lt;td>編集&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>l&lt;/code>&lt;/td>
+&lt;td>ログ表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+d&lt;/code>&lt;/td>
+&lt;td>リソースを削除する&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+k&lt;/code>&lt;/td>
+&lt;td>リソースを停止（Kill）する（&lt;strong>確認ダイアログはない&lt;/strong>）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="cicd">CI/CD&lt;/h2>
 &lt;p>※ * は当サイト内のページ&lt;/p>
 &lt;ul>
