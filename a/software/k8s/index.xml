@@ -370,6 +370,109 @@
 &lt;p>ソリューション:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tasks/debug-application-cluster/logging-stackdriver/">Logging Using Stackdriver - Kubernetes&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: エコシステム</title><link>https://progrhy.me/tech-notes/a/software/k8s/ecosystem/</link><pubDate>Thu, 07 May 2020 11:10:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/ecosystem/</guid><description>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/cvusk/items/100dfb955150ef8964e5">Kubernetesのエコシステムをまとめる - Qiita&lt;/a> 2018年5月時点&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ynott/items/89941c36c606a8384028">k3s と MicroK8s の違いを考える - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="マニフェスト管理">マニフェスト管理&lt;/h2>
+&lt;p>※ * は当サイト内のページ&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kustomize/">kustomize&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://helm.sh/">Helm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ksonnet/ksonnet">ksonnet&lt;/a>
+&lt;ul>
+&lt;li>2019年2月で更新が止まっている。参考: &lt;a href="https://tanzu.vmware.com/content/blog/welcoming-heptio-open-source-projects-to-vmware">Welcoming Heptio Open Source Projects to VMware&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="クラスタ構築">クラスタ構築&lt;/h2>
+&lt;ul>
+&lt;li>kubeadm &amp;hellip; 公式&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://knowledge.sakura.ad.jp/20955/">2019年版・Kubernetesクラスタ構築入門 | さくらのナレッジ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="開発テスト用">開発・テスト用&lt;/h3>
+&lt;ul>
+&lt;li>Minikube（See below）&lt;/li>
+&lt;li>&lt;a href="https://kind.sigs.k8s.io/">Kind&lt;/a>
+&lt;ul>
+&lt;li>参考:
+&lt;ul>
+&lt;li>&lt;a href="https://speakerdeck.com/ytaka23/cicd-test-night-5th">Kind で量産する使い捨て Kubernetes #cicd_test_night / CICD Test Night 5th - Speaker Deck&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Hiroyuki_OSAKI/items/2395e6bbb98856df12f3">kindで軽量テスト用Kubernetesクラスタを作る＆運用する時のTIPS - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://microk8s.io/">MicroK8s&lt;/a> &amp;hellip; Canonical社が出してるやつ
+&lt;ul>
+&lt;li>参考: &lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0560">第560回 microk8sでお手軽Kubernetes環境構築：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="minikube">Minikube&lt;/h4>
+&lt;p>&lt;a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube&lt;/a>&lt;/p>
+&lt;p>ローカルでKubernetesを動かすためのツール。&lt;br>
+Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker上に直接クラスタを構築することもできる。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/docs/getting-started-guides/minikube/">https://kubernetes.io/docs/getting-started-guides/minikube/&lt;/a> &amp;hellip; 導入ガイド
+&lt;ul>
+&lt;li>※先にkubectlをインストールしておくこと&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mumoshu/items/8f55ee830d8e5c172dd4">minikubeでローカルKubernetesクラスタを5分でつくる方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.1q77.com/2016/10/setup-kubernetes-1-4-using-minikube/">minikube でローカルでのテスト用 Kubernetes を構築 – 1Q77&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://reiki4040.hatenablog.com/entry/2017/04/11/221122">ローカルでkubernetesを動かせるminikubeを試す - 年中アイス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="クライアント">クライアント&lt;/h2>
+&lt;p>kubectlと周辺ツールについては&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/">kubectl&lt;/a>を見よ。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://k9scli.io/">K9s - Manage Your Kubernetes Clusters In Style&lt;/a>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://tech.enigmo.co.jp/entry/2019/12/17/090000">k9sで快適なk8sライフを送ろう！ - エニグモ開発者ブログ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="cicd">CI/CD&lt;/h2>
+&lt;p>※ * は当サイト内のページ&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/">Argo CD&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://concourse-ci.org/">Concourse&lt;/a>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://www.atmarkit.co.jp/ait/articles/1909/04/news005.html">Kubernetesを前提としたCI/CDパイプラインの具体例と、本番運用に必要なもの (1/2)：コンテナベースのCI/CD本番事例大解剖（3） - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://jenkins-x.io/">Jenkins X&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kubernetes/test-infra/tree/master/prow">Prow&lt;/a>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://developers.cyberagent.co.jp/blog/archives/22072/">KubernetesベースのCI/CDシステムProwに入門してみた | CyberAgent Developers Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Skaffold（See below）&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/spinnaker/">Spinnaker&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://tekton.dev/">Tekton&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.inovex.de/blog/spinnaker-vs-argo-cd-vs-tekton-vs-jenkins-x/">Spinnaker vs. Argo CD vs. Tekton vs. Jenkins X: Cloud-Native CI/CD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="skaffold">Skaffold&lt;/h3>
+&lt;p>開発・本番向けにKubernetesクラスタに継続的デリバリーを実施するコマンドラインツール。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/GoogleContainerTools/skaffold">https://github.com/GoogleContainerTools/skaffold&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://skaffold.dev/">https://skaffold.dev/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="その他">その他&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://k3s.io/">K3s: Lightweight Kubernetes&lt;/a> &amp;hellip; Rancherが出してる軽量版K8s&lt;/li>
+&lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ConfigMap</title><link>https://progrhy.me/tech-notes/a/software/k8s/configmap/</link><pubDate>Mon, 04 May 2020 22:39:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/configmap/</guid><description>
 &lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/secret/">Secret&lt;/a>&lt;/p>
 &lt;h2 id="overview">Overview&lt;/h2>
