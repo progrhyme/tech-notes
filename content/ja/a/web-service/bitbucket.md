@@ -126,3 +126,20 @@ NOTE:
 コミットメッセージに `[skip ci]` または `[ci skip]` を含める。
 
 [Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html)
+
+### パイプラインからリポジトリを変更してプッシュする
+
+[リポジトリにプッシュ バックする - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/push-back-to-your-repository-962352710.html)
+
+Example:
+
+```YAML
+pipelines:
+  default:
+    - step:
+        script:
+        - echo "Made a change in build ${BITBUCKET_BUILD_NUMBER}" >> changes.txt
+        - git add changes.txt
+        - git commit -m "[skip ci] Updating changes.txt with latest build number."
+        - git push
+```
