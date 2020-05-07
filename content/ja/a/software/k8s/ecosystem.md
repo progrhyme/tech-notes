@@ -58,8 +58,50 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 
 kubectlと周辺ツールについては[kubectl]({{< ref "/a/software/k8s/kubectl.md" >}})を見よ。
 
-- [K9s - Manage Your Kubernetes Clusters In Style](https://k9scli.io/)
-  - 参考: [k9sで快適なk8sライフを送ろう！ - エニグモ開発者ブログ](https://tech.enigmo.co.jp/entry/2019/12/17/090000)
+- K9s ... See below
+
+### K9s
+
+[K9s - Manage Your Kubernetes Clusters In Style](https://k9scli.io/)
+
+Documents:
+
+- [Install](https://k9scli.io/topics/install/)
+- [Commands](https://k9scli.io/topics/commands/)
+
+参考:
+
+- [k9sで快適なk8sライフを送ろう！ - エニグモ開発者ブログ](https://tech.enigmo.co.jp/entry/2019/12/17/090000)
+
+#### CLI
+
+オプション
+
+ オプション | 意味
+----------|------
+ `--readonly` | 更新操作を無効にする
+
+NOTE:
+
+- モニタリング用途で使う場合、 `--readonly` をつけるべき
+
+#### インタラクティブモード
+
+
+`k9s` コマンド起動後の操作
+
+ コマンド | 意味
+---------|-----
+ `:q[uit]`, `Ctrl+c` | 終了
+ `<Esc>` | 元の画面に戻る
+ `:ctx` | context選択
+ `:ns` | namespace選択
+ `/` | リソースフィルタ。あいまい検索。 `-l` でラベルセレクトも使える
+ `d`, `y` | describe, YAMLを見る
+ `e` | 編集
+ `l` | ログ表示
+ `Ctrl+d` | リソースを削除する
+ `Ctrl+k` | リソースを停止（Kill）する（**確認ダイアログはない**）
 
 ## CI/CD
 
