@@ -45,11 +45,16 @@ git apply file.patch
 &lt;p>&lt;a href="https://git-scm.com/docs/git-branch">https://git-scm.com/docs/git-branch&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ローカルのbranchを表示&lt;/span>
 git branch
+&lt;span style="color:#8f5902;font-style:italic">## マージ済みのbranchを表示&lt;/span>
+git branch --merged
+&lt;span style="color:#8f5902;font-style:italic">## 出力フォーマット指定&lt;/span>
+git branch --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;FORMAT&amp;gt;&amp;#34;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 今のbranchを元に新しいbranchを作る&lt;/span>
 git branch &amp;lt;newbranch&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic"># 既存のbranchを元に新しいbranchを作る&lt;/span>
 git branch &amp;lt;oldbranch&amp;gt; &amp;lt;newbranch&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checkout">checkout&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>--format&lt;/code> オプションで指定できるフォーマットについては&lt;a href="#for-each-ref">git-for-each-ref&lt;/a>を見よ。&lt;/p>
+&lt;h3 id="checkout">checkout&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## topicブランチを作成&lt;/span>
 git checkout -b topic
 &lt;span style="color:#8f5902;font-style:italic">## remoteブランチからローカルブランチを作成&lt;/span>
@@ -90,7 +95,49 @@ git diff --name-only
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fetch">fetch&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
 git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="log">log&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="for-each-ref">for-each-ref&lt;/h3>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-for-each-ref">https://git-scm.com/docs/git-for-each-ref&lt;/a>&lt;/p>
+&lt;p>local branch, remote branchのHEAD, tagの情報を表示。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># A simple example showing the use of shell eval on the output, demonstrating the use of --shell.&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># List the prefixes of all heads:&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">#!/bin/sh&lt;/span>
+git &lt;span style="color:#204a87;font-weight:bold">for&lt;/span>-each-ref --shell --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ref=%(refname)&amp;#34;&lt;/span> refs/heads &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#204a87">read&lt;/span> entry&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$entry&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">`&lt;/span>dirname &lt;span style="color:#000">$ref&lt;/span>&lt;span style="color:#4e9a06">`&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>FORMATで指定できるフィールド:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>フィールド&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>refname&lt;/code>&lt;/td>
+&lt;td>The name of the ref (the part after $GIT_DIR/).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>refname:short&lt;/code>&lt;/td>
+&lt;td>branch, tagなど明らかな名前がついているものはこれで参照できる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>objecttype&lt;/code>&lt;/td>
+&lt;td>blob, tree, commit, tag&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>objectsize&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>objectname&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="log">log&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 過去のコミットから対象文字列を含むコミットを検索&lt;/span>
 git log -S 文字列
 &lt;span style="color:#8f5902;font-style:italic">## 1行で表示&lt;/span>
