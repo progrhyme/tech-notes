@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Argo Project</title><link>https://progrhy.me/tech-notes/a/software/argo/</link><description>Recent content in Argo Project on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Fri, 08 May 2020 17:20:06 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/argo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Argo CD</title><link>https://progrhy.me/tech-notes/a/software/argo/cd/</link><pubDate>Fri, 08 May 2020 17:20:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/argo/cd/</guid><description>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/operator-manual/sso/">SSO Overview - Argo CD - Declarative GitOps CD for Kubernetes&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/dexidp/dex">dex&lt;/a>を使ってOpen ID対応できる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/user-guide/auto_sync/">Automated Sync Policy - Argo CD - Declarative GitOps CD for Kubernetes&lt;/a>
+&lt;ul>
+&lt;li>Automatic Pruning
+&lt;ul>
+&lt;li>デフォルトではリソースの削除はやらないが、このオプションをONにすると、削除同期もやってくれる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

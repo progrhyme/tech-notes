@@ -3637,6 +3637,23 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Argo CD</title><link>https://progrhy.me/tech-notes/a/software/argo/cd/</link><pubDate>Fri, 08 May 2020 17:20:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/argo/cd/</guid><description>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/operator-manual/sso/">SSO Overview - Argo CD - Declarative GitOps CD for Kubernetes&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/dexidp/dex">dex&lt;/a>を使ってOpen ID対応できる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/user-guide/auto_sync/">Automated Sync Policy - Argo CD - Declarative GitOps CD for Kubernetes&lt;/a>
+&lt;ul>
+&lt;li>Automatic Pruning
+&lt;ul>
+&lt;li>デフォルトではリソースの削除はやらないが、このオプションをONにすると、削除同期もやってくれる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
 &lt;h2 id="58">5/8&lt;/h2>
 &lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
@@ -3995,81 +4012,4 @@ tfenv: tfenv-install: [ERROR] Tarball unzip failed
 &lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
 &lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
 &lt;/ul>
-&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: Dockerfile</title><link>https://progrhy.me/tech-notes/a/software/docker/dockerfile/</link><pubDate>Wed, 29 Apr 2020 12:47:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/docker/dockerfile/</guid><description>
-&lt;ul>
-&lt;li>公式リファレンス: &lt;a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/&lt;/a>&lt;/li>
-&lt;li>邦訳: &lt;a href="http://docs.docker.jp/engine/reference/builder.html" title="Dockerfile リファレンス — Docker-docs-ja ドキュメント">Dockerfile リファレンス — Docker-docs-ja ドキュメント&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/&lt;/a>
-&lt;ul>
-&lt;li>邦訳: &lt;a href="http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html">http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.slideshare.net/ssuser1f3c12/introduce-that-best-practices-for-writing-dockerfiles">Introduce that Best practices for writing Dockerfiles&lt;/a> &amp;hellip; 2018年12月Japan Container Daysでのモリハヤさんの発表&lt;/li>
-&lt;li>&lt;a href="http://qiita.com/pottava/items/452bf80e334bc1fee69a" title="効率的に安全な Dockerfile を作るには - Qiita">効率的に安全な Dockerfile を作るには - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="addとcopy">ADDとCOPY&lt;/h3>
-&lt;p>&lt;a href="http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html#add-copy">http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html#add-copy&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>COPY&lt;/code> で間に合うときは &lt;code>COPY&lt;/code> を使うべき&lt;/li>
-&lt;li>&lt;code>ADD&lt;/code> は圧縮ファイルの展開などの機能もある&lt;/li>
-&lt;/ul>
-&lt;h2 id="syntax">Syntax&lt;/h2>
-&lt;h3 id="環境変数の利用">環境変数の利用&lt;/h3>
-&lt;p>&lt;a href="http://docs.docker.jp/engine/reference/builder.html#environment-replacement">http://docs.docker.jp/engine/reference/builder.html#environment-replacement&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>全てではないが、一部の命令で環境変数の利用がサポートされている。&lt;/li>
-&lt;li>&lt;code>ENV&lt;/code> 命令で環境変数をセットすることもできる。&lt;/li>
-&lt;li>コンテナ実行時に環境変数をセットする際は &lt;code>docker run&lt;/code> に &lt;code>-e KEY=${VALUE}&lt;/code> の形で渡す。
-&lt;ul>
-&lt;li>これらを &lt;code>CMD&lt;/code> や &lt;code>ENTRYPOINT&lt;/code> で解釈する際は、exec形式(= &lt;code>[&amp;quot;実行コマンド&amp;quot;, &amp;quot;引数&amp;quot;...]&lt;/code>の形式)では展開されないため、シェル形式(= &lt;code>実行コマンド 引数...&lt;/code>)で記す必要がある。&lt;/li>
-&lt;li>または、ラッパースクリプトを指定するという手もアリだろう。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="instructions">Instructions&lt;/h3>
-&lt;h4 id="cmd">CMD&lt;/h4>
-&lt;p>コンテナのデフォルトの実行コマンド、またはその引数を指定する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec実行形式&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># ENTRYPOINTのデフォルト引数&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &amp;lt;コマンド...&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># シェル形式&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>２番目は &lt;code>ENTRYPOINT&lt;/code> を指定した時、その引数となる。
-&lt;ul>
-&lt;li>&lt;code>docker run &amp;lt;コンテナ&amp;gt; 引数...&lt;/code> として上書きできる&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>1, 3番目の形式は &lt;code>ENTRYPOINT&lt;/code> と一緒には指定できない（はず…）
-&lt;ul>
-&lt;li>シェル形式の場合、 &lt;code>/bin/sh -c&lt;/code> で起動されるようだ&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h4 id="entrypoint">ENTRYPOINT&lt;/h4>
-&lt;p>コンテナのデフォルトの実行コマンドを指定する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec形式&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> 実行ファイル ARG1 ARG2 ... &lt;span style="color:#8f5902;font-style:italic"># シェル形式&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>上書きするには &lt;code>--entrypoint &amp;lt;コマンド...&amp;gt;&lt;/code> とする。&lt;/li>
-&lt;li>シェル形式の場合、 &lt;code>/bin/sh -c&lt;/code> で起動されるようだ&lt;/li>
-&lt;li>&lt;code>CMD&lt;/code> でデフォルト引数を与えると、 &lt;code>ENTRYPOINT&lt;/code> として指定した「コマンド + 引数」の後に &lt;code>CMD&lt;/code> として与えた引数がくっつく。&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>&lt;span style="color:#4e9a06"> ubuntu&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;top&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このコンテナを &lt;code>docker run&lt;/code> で動かすと、 &lt;code>top -b -c&lt;/code> が実行される（はず）。&lt;/p>
-&lt;h4 id="volume">VOLUME&lt;/h4>
-&lt;p>&lt;code>docker run&lt;/code> の &lt;code>-v&lt;/code> オプションに相当。&lt;br>
-ホストのディレクトリをコンテナにマウントする。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/namutaka/items/f6a574f75f0997a1bb1d">DockerのVolume機能について実験してみたことをまとめます - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="tips">Tips&lt;/h2>
-&lt;h3 id="cmdとentrypointがどう作用するか">CMDとENTRYPOINTがどう作用するか&lt;/h3>
-&lt;p>&lt;a href="http://docs.docker.jp/engine/reference/builder.html#cmd-entrypoint">http://docs.docker.jp/engine/reference/builder.html#cmd-entrypoint&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item></channel></rss>

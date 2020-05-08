@@ -1,4 +1,13 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software</title><link>https://progrhy.me/tech-notes/a/software/</link><description>Recent content in Software on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Docker</title><link>https://progrhy.me/tech-notes/a/software/docker/</link><pubDate>Wed, 29 Apr 2020 11:59:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/docker/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software</title><link>https://progrhy.me/tech-notes/a/software/</link><description>Recent content in Software on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 23:37:10 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Argo Project</title><link>https://progrhy.me/tech-notes/a/software/argo/</link><pubDate>Fri, 08 May 2020 17:20:06 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/argo/</guid><description>
+&lt;p>Kubernetes向けのワークフローエンジン、CI/CDソリューションを提供するプロジェクト。&lt;/p>
+&lt;h2 id="projects">Projects&lt;/h2>
+&lt;ul>
+&lt;li>Workflow&lt;/li>
+&lt;li>CD&lt;/li>
+&lt;li>Rollouts&lt;/li>
+&lt;li>Events&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Docker</title><link>https://progrhy.me/tech-notes/a/software/docker/</link><pubDate>Wed, 29 Apr 2020 11:59:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/docker/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>公式:&lt;/p>
 &lt;ul>
