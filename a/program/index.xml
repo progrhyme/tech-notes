@@ -178,6 +178,14 @@
 &lt;li>コミュニティ&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;ul>
+&lt;li>画面分割 &amp;hellip; &lt;code>Window &amp;gt; Editor Tabs &amp;gt; (Split Vertically|Split Horizontally)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/pipi_taro/items/859d445960bb79a3ac78">IntelliJの使い方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="plugins">Plugins&lt;/h2>
 &lt;h3 id="file-watchers">File Watchers&lt;/h3>
 &lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>

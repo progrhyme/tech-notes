@@ -221,6 +221,7 @@ gcloud projects list
 &lt;li>&lt;a href="https://ameblo.jp/principia-ca/entry-12144854519.html" title="GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ">GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
 &lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-types?hl=ja">マシンタイプ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/preemptible">https://cloud.google.com/compute/docs/instances/preemptible&lt;/a>&lt;/p>
 &lt;p>Preemptible VM Instance. AWSでいうところのスポットインスタンス。&lt;/p>
