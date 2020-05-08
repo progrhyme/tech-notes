@@ -2,6 +2,7 @@
 title: "JavaScript"
 linkTitle: "JavaScript"
 date: 2020-04-26T20:47:40+09:00
+weight: 250
 ---
 
 [JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript)
