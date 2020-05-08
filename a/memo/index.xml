@@ -75,7 +75,20 @@ generated
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;log_config.#&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#a40000">:&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform_version&lt;/code> がマシンにインストール済みのバージョンと違うのは、terraformerが同梱しているってことなのかな？&lt;/p></description></item><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200506/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform_version&lt;/code> がマシンにインストール済みのバージョンと違うのは、terraformerが同梱しているってことなのかな？&lt;/p>
+&lt;h3 id="kubernetesのマニフェストをvcsで管理して削除まで正しく同期する方法">KubernetesのマニフェストをVCSで管理して、削除まで正しく同期する方法&lt;/h3>
+&lt;p>某所で聞いたりして情報を集めた。&lt;br>
+このエントリは後掲の関連リンクの続きである。&lt;/p>
+&lt;ol>
+&lt;li>管理対象のリソースに &lt;code>label&lt;/code> でバージョン番号を振り、新しいバージョンのリソースを配置した後、古いバージョンのリソースを削除する&lt;/li>
+&lt;li>&lt;code>kubectl apply&lt;/code> 時に &lt;code>--prune&lt;/code> オプションを付ける&lt;/li>
+&lt;li>Argo CDのAutomatic Pruning機能を使う&lt;/li>
+&lt;li>リソースをTerraformで管理する&lt;/li>
+&lt;/ol>
+&lt;p>関連:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../20200505/#kubernetes%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%81%AF%E5%85%A8%E9%83%A8export%E3%81%97%E3%81%A6%E7%AE%A1%E7%90%86%E3%81%97%E3%81%9F%E6%96%B9%E3%81%8C%E3%81%84%E3%81%84%E3%82%93%E3%81%98%E3%82%83%E3%81%AD%E3%81%A3%E3%81%A6%E6%80%9D%E3%81%A3%E3%81%9F">2020-05-05のメモ - Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200506/</guid><description>
 &lt;h2 id="56">5/6&lt;/h2>
 &lt;h3 id="githubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ">GitHubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ&lt;/h3>
 &lt;p>なんかないかなと思ったけど、&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>以上のものは見つからないな。&lt;/p>
