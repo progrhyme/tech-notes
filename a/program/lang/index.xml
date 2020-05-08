@@ -1,81 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – プログラム言語</title><link>https://progrhy.me/tech-notes/a/program/lang/</link><description>Recent content in プログラム言語 on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 07:54:05 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/lang/index.xml" rel="self" type="application/rss+xml"/><item><title>A: JavaScript</title><link>https://progrhy.me/tech-notes/a/program/lang/js/</link><pubDate>Sun, 26 Apr 2020 20:47:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/js/</guid><description>
-&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript">JavaScript | MDN&lt;/a>&lt;/p>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide" title="JavaScript ガイド - JavaScript | MDN">JavaScript ガイド - JavaScript | MDN&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Reference:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference" title="JavaScript リファレンス - JavaScript | MDN">JavaScript リファレンス - JavaScript | MDN&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.w3schools.com/jsref/" title="JavaScript and HTML DOM Reference">JavaScript and HTML DOM Reference&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>コーディング規約:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://google.github.io/styleguide/javascriptguide.xml" title="Google JavaScript Style Guide">Google JavaScript Style Guide&lt;/a>
-&lt;ul>
-&lt;li>非公式和訳: &lt;a href="http://cou929.nu/data/google_javascript_style_guide/" title="Google JavaScript Style Guide 和訳 — Google JavaScript Style Guide 和訳">Google JavaScript Style Guide 和訳 — Google JavaScript Style Guide 和訳&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://github.com/felixge/node-style-guide">https://github.com/felixge/node-style-guide&lt;/a>&lt;/li>
-&lt;li>参考まとめ:
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/takeharu/items/dee0972e5f39bfd4d7c8" title="JavaScriptのスタイルガイドまとめ(おすすめ4選) - Qiita">JavaScriptのスタイルガイドまとめ(おすすめ4選) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="reference">Reference&lt;/h2>
-&lt;h3 id="date">Date&lt;/h3>
-&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date&lt;/a>&lt;/p>
-&lt;h3 id="json">JSON&lt;/h3>
-&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON&lt;/a>&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">obj&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">str&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">stringify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">obj&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tips">Tips&lt;/h2>
-&lt;h3 id="デバッグ">デバッグ&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>debugger;&lt;/code> 文を埋め込む。&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://postd.cc/how-to-not-hate-javascript-tips-from-the-frontline/" title="JavaScriptのデバッグ方法 – JSを嫌いにならないためのTips | プログラミング | POSTD">JavaScriptのデバッグ方法 – JSを嫌いにならないためのTips | プログラミング | POSTD&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="日付と時刻の計算">日付と時刻の計算&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/kazu56/items/cca24cfdca4553269cab" title="【JavaScript】日付処理 - Qiita">【JavaScript】日付処理 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/ee532932%28v=vs.94%29.aspx" title="日付と時刻の計算 (JavaScript)">日付と時刻の計算 (JavaScript)&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="var-let-constの使い分け">var, let, constの使い分け&lt;/h3>
-&lt;p>2017年12月現在、イマイチよくわかっていない。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://sbfl.net/blog/2016/07/14/javascript-var-let-const/" title="JavaScriptにおけるvar/let/constの使い分け">JavaScriptにおけるvar/let/constの使い分け&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="sprintfなさそう">sprintfなさそう&lt;/h3>
-&lt;p>Node.jsだとutilがある:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://nodejs.org/api/util.html">https://nodejs.org/api/util.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>npmもある:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.npmjs.com/package/sprintf">https://www.npmjs.com/package/sprintf&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&amp;ldquo;0&amp;quot;埋めとか半角スペースで埋める方法としては substr を使った例が出て来る:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2014/12/03/114154" title="Javascriptで文字列の０埋め、空白で右寄せでフォーマット - それマグで！">Javascriptで文字列の０埋め、空白で右寄せでフォーマット - それマグで！&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>自作関数を作る例も出てくる:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/pseudo_foxkeh/items/9297a834bc8e05133e7a" title="Javascriptで日付・時刻をフォーマット表示 - Qiita">Javascriptで日付・時刻をフォーマット表示 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/osakanafish/items/c64fe8a34e7221e811d0" title="日付フォーマットなど 日付系処理 - Qiita">日付フォーマットなど 日付系処理 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>日付時刻については、固定フォーマットで出力する関数はある。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/ff743760(v=vs.94).aspx" title="日付と時刻文字列 (JavaScript)">日付と時刻文字列 (JavaScript)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.sejuku.net/blog/23064" title="【Javascript入門】日付のフォーマット処理まとめ | 侍エンジニア塾ブログ | プログラミング入門者向け学習情報サイト">【Javascript入門】日付のフォーマット処理まとめ | 侍エンジニア塾ブログ | プログラミング入門者向け学習情報サイト&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Go</title><link>https://progrhy.me/tech-notes/a/program/lang/go/</link><pubDate>Sun, 26 Apr 2020 08:01:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – プログラム言語</title><link>https://progrhy.me/tech-notes/a/program/lang/</link><description>Recent content in プログラム言語 on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 07:54:05 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/lang/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Go</title><link>https://progrhy.me/tech-notes/a/program/lang/go/</link><pubDate>Sun, 26 Apr 2020 08:01:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;h3 id="ドキュメント">ドキュメント&lt;/h3>
 &lt;ul>
@@ -195,4 +118,104 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
 &lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: JavaScript</title><link>https://progrhy.me/tech-notes/a/program/lang/js/</link><pubDate>Sun, 26 Apr 2020 20:47:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/js/</guid><description>
+&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript">JavaScript | MDN&lt;/a>&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide" title="JavaScript ガイド - JavaScript | MDN">JavaScript ガイド - JavaScript | MDN&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Reference:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference" title="JavaScript リファレンス - JavaScript | MDN">JavaScript リファレンス - JavaScript | MDN&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.w3schools.com/jsref/" title="JavaScript and HTML DOM Reference">JavaScript and HTML DOM Reference&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>コーディング規約:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://google.github.io/styleguide/javascriptguide.xml" title="Google JavaScript Style Guide">Google JavaScript Style Guide&lt;/a>
+&lt;ul>
+&lt;li>非公式和訳: &lt;a href="http://cou929.nu/data/google_javascript_style_guide/" title="Google JavaScript Style Guide 和訳 — Google JavaScript Style Guide 和訳">Google JavaScript Style Guide 和訳 — Google JavaScript Style Guide 和訳&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://github.com/felixge/node-style-guide">https://github.com/felixge/node-style-guide&lt;/a>&lt;/li>
+&lt;li>参考まとめ:
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/takeharu/items/dee0972e5f39bfd4d7c8" title="JavaScriptのスタイルガイドまとめ(おすすめ4選) - Qiita">JavaScriptのスタイルガイドまとめ(おすすめ4選) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h3 id="date">Date&lt;/h3>
+&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date&lt;/a>&lt;/p>
+&lt;h3 id="json">JSON&lt;/h3>
+&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">obj&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">str&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">stringify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">obj&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="デバッグ">デバッグ&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>debugger;&lt;/code> 文を埋め込む。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://postd.cc/how-to-not-hate-javascript-tips-from-the-frontline/" title="JavaScriptのデバッグ方法 – JSを嫌いにならないためのTips | プログラミング | POSTD">JavaScriptのデバッグ方法 – JSを嫌いにならないためのTips | プログラミング | POSTD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="日付と時刻の計算">日付と時刻の計算&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kazu56/items/cca24cfdca4553269cab" title="【JavaScript】日付処理 - Qiita">【JavaScript】日付処理 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/ee532932%28v=vs.94%29.aspx" title="日付と時刻の計算 (JavaScript)">日付と時刻の計算 (JavaScript)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="var-let-constの使い分け">var, let, constの使い分け&lt;/h3>
+&lt;p>2017年12月現在、イマイチよくわかっていない。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sbfl.net/blog/2016/07/14/javascript-var-let-const/" title="JavaScriptにおけるvar/let/constの使い分け">JavaScriptにおけるvar/let/constの使い分け&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="sprintfなさそう">sprintfなさそう&lt;/h3>
+&lt;p>Node.jsだとutilがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nodejs.org/api/util.html">https://nodejs.org/api/util.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>npmもある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.npmjs.com/package/sprintf">https://www.npmjs.com/package/sprintf&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&amp;ldquo;0&amp;quot;埋めとか半角スペースで埋める方法としては substr を使った例が出て来る:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2014/12/03/114154" title="Javascriptで文字列の０埋め、空白で右寄せでフォーマット - それマグで！">Javascriptで文字列の０埋め、空白で右寄せでフォーマット - それマグで！&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>自作関数を作る例も出てくる:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/pseudo_foxkeh/items/9297a834bc8e05133e7a" title="Javascriptで日付・時刻をフォーマット表示 - Qiita">Javascriptで日付・時刻をフォーマット表示 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/osakanafish/items/c64fe8a34e7221e811d0" title="日付フォーマットなど 日付系処理 - Qiita">日付フォーマットなど 日付系処理 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>日付時刻については、固定フォーマットで出力する関数はある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/ff743760(v=vs.94).aspx" title="日付と時刻文字列 (JavaScript)">日付と時刻文字列 (JavaScript)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.sejuku.net/blog/23064" title="【Javascript入門】日付のフォーマット処理まとめ | 侍エンジニア塾ブログ | プログラミング入門者向け学習情報サイト">【Javascript入門】日付のフォーマット処理まとめ | 侍エンジニア塾ブログ | プログラミング入門者向け学習情報サイト&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Perl</title><link>https://progrhy.me/tech-notes/a/program/lang/perl/</link><pubDate>Fri, 08 May 2020 22:34:00 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/perl/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://perldoc.perl.org/">https://perldoc.perl.org/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://perldoc.jp/">https://perldoc.jp/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="podの書き方">PODの書き方&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://perldoc.perl.org/5.30.0/perlpod.html">https://perldoc.perl.org/5.30.0/perlpod.html&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="https://perldoc.jp/docs/perl/5.26.1/perlpod.pod">https://perldoc.jp/docs/perl/5.26.1/perlpod.pod&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="history">History&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Perl">Perl - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://history.perl.org/PerlTimeline.html">http://history.perl.org/PerlTimeline.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cpan">CPAN&lt;/h2>
+&lt;h3 id="cpanモジュールのメンテに関する備忘録">CPANモジュールのメンテに関する備忘録&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/gfx/20140823/1408750107">comaint(1)でCPAN moduleのcomaintainerを追加する - Islands in the byte stream&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://keyamb.hatenablog.com/entry/2014/03/15/204118">Minilla を使って CPAN にモジュールを上げてみた - weblog of key_amb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2017/20170509#TOC-CPAN-">久しぶりにCPANリリース / 20170509 - progrhyme&amp;rsquo;s Tech Wiki&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
