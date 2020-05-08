@@ -7,6 +7,9 @@ weight: 200
 ---
 
 ## 仮想マシン
+
+[マシンタイプ | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/machine-types?hl=ja)
+
 ### プリエンプティブルVMインスタンス
 
 https://cloud.google.com/compute/docs/instances/preemptible

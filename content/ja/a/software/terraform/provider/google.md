@@ -43,6 +43,13 @@ See also:
 
 - [Backends#gcs]({{< ref "/a/software/terraform/backend.md" >}}#gcs)
 
+## Data Sources
+### compute系
+
+- [google_compute_network](https://www.terraform.io/docs/providers/google/d/datasource_compute_network.html)
+- [google_compute_subnetwork](https://www.terraform.io/docs/providers/google/d/datasource_compute_subnetwork.html)
+
+
 ## Resources
 ### GCP (IAM, API, Billing, Organization)
 
@@ -69,6 +76,15 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 - [google_compute_instance](https://www.terraform.io/docs/providers/google/r/compute_instance.html)
 - [google_compute_managed_ssl_certificate](https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html) ... β (2020-03-18) HTTPS LBのためのマネージドTLS証明書
 - [google_compute_security_policy](https://www.terraform.io/docs/providers/google/r/compute_security_policy.html) ... Cloud Armorのセキュリティポリシー
+
+ネットワーク関係:
+
+- [google_compute_address](https://www.terraform.io/docs/providers/google/r/compute_address.html) ... `EXTERNAL` なアドレスも発行できる。Cloud NATに使うのはこっち
+- [google_compute_global_address](https://www.terraform.io/docs/providers/google/r/compute_global_address.html) ... HTTP(S) LBで使うやつ
+- [google_compute_network](https://www.terraform.io/docs/providers/google/r/compute_network.html)
+- [google_compute_subnetwork](https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html)
+- [google_compute_router](https://www.terraform.io/docs/providers/google/r/compute_router.html) ... Cloud Router
+- [google_compute_router_nat](https://www.terraform.io/docs/providers/google/r/compute_router_nat.html) ... Cloud NAT w/ Cloud Router
 
 ### GKE関連
 

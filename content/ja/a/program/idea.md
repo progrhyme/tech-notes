@@ -7,6 +7,14 @@ date: 2020-04-29T10:44:28+09:00
 weight: 30
 ---
 
+## Usage
+
+- 画面分割 ... `Window > Editor Tabs > (Split Vertically|Split Horizontally)`
+
+参考:
+
+- [IntelliJの使い方 - Qiita](https://qiita.com/pipi_taro/items/859d445960bb79a3ac78)
+
 ## Plugins
 ### File Watchers
 
