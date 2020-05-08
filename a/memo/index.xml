@@ -74,7 +74,7 @@ generated
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;log_config.#&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#a40000">:&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200506/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform_version&lt;/code> がマシンにインストール済みのバージョンと違うのは、terraformerが同梱しているってことなのかな？&lt;/p></description></item><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200506/</guid><description>
 &lt;h2 id="56">5/6&lt;/h2>
 &lt;h3 id="githubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ">GitHubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ&lt;/h3>
 &lt;p>なんかないかなと思ったけど、&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>以上のものは見つからないな。&lt;/p>
