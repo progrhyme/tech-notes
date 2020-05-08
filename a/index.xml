@@ -3468,6 +3468,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>debパッケージをダウンロード&lt;/li>
 &lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
 &lt;/ol></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
+&lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
 &lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
 &lt;h2 id="install">Install&lt;/h2>
 &lt;p>Homebrew:&lt;/p>
@@ -3583,8 +3584,9 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
 &lt;h2 id="58">5/8&lt;/h2>
 &lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
-&lt;p>GCPでdefault networkをimportしたいと思ったのだけど、公式ドキュメントにimportのコマンドが書いてなかった。&lt;br>
-&lt;code>terraformer&lt;/code> のことを思い出したので、使ってみることにした。&lt;/p>
+&lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
+ふつうに &lt;code>terraform import&lt;/code> を使えばいいのだが、terraformerのことを思い出したので、使ってみることにした。&lt;br>
+terraformerを使えばHCLファイルを生成することができる。&lt;/p>
 &lt;p>terraformerについての一般的な内容は&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/terraformer/">terraformer&lt;/a>にメモしている。&lt;/p>
 &lt;p>作業環境: macOS&lt;/p>
 &lt;p>Install:&lt;/p>

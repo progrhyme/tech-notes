@@ -1,8 +1,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
 &lt;h2 id="58">5/8&lt;/h2>
 &lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
-&lt;p>GCPでdefault networkをimportしたいと思ったのだけど、公式ドキュメントにimportのコマンドが書いてなかった。&lt;br>
-&lt;code>terraformer&lt;/code> のことを思い出したので、使ってみることにした。&lt;/p>
+&lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
+ふつうに &lt;code>terraform import&lt;/code> を使えばいいのだが、terraformerのことを思い出したので、使ってみることにした。&lt;br>
+terraformerを使えばHCLファイルを生成することができる。&lt;/p>
 &lt;p>terraformerについての一般的な内容は&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/terraformer/">terraformer&lt;/a>にメモしている。&lt;/p>
 &lt;p>作業環境: macOS&lt;/p>
 &lt;p>Install:&lt;/p>
