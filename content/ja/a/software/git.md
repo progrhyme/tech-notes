@@ -42,11 +42,19 @@ https://git-scm.com/docs/git-branch
 ```sh
 # ローカルのbranchを表示
 git branch
+## マージ済みのbranchを表示
+git branch --merged
+## 出力フォーマット指定
+git branch --format="<FORMAT>"
+
 # 今のbranchを元に新しいbranchを作る
 git branch <newbranch>
+
 # 既存のbranchを元に新しいbranchを作る
 git branch <oldbranch> <newbranch>
 ```
+
+`--format` オプションで指定できるフォーマットについては[git-for-each-ref](#for-each-ref)を見よ。
 
 ### checkout
 
@@ -119,6 +127,35 @@ git diff --name-only
 ## remote で削除された branch について、local のトラッキングブランチも消す
 git fetch -p|--prune
 ```
+
+### for-each-ref
+
+https://git-scm.com/docs/git-for-each-ref
+
+local branch, remote branchのHEAD, tagの情報を表示。
+
+```sh
+# A simple example showing the use of shell eval on the output, demonstrating the use of --shell.
+# List the prefixes of all heads:
+
+#!/bin/sh
+
+git for-each-ref --shell --format="ref=%(refname)" refs/heads | \
+while read entry; do
+  eval "$entry"
+  echo `dirname $ref`
+done
+```
+
+FORMATで指定できるフィールド:
+
+ フィールド | 意味
+----------|------
+ `refname` | The name of the ref (the part after $GIT_DIR/).
+ `refname:short` | branch, tagなど明らかな名前がついているものはこれで参照できる
+ `objecttype` | blob, tree, commit, tag
+ `objectsize` |
+ `objectname` |
 
 ### log
 

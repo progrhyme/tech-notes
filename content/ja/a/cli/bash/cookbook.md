@@ -11,6 +11,10 @@ date: 2020-04-28T12:04:10+09:00
 
 - [シェルスクリプト]({{< ref "/a/cli/shell-script.md" >}})
 
+NOTE:
+
+- このページに書いているが、実はPOSIX対応の機能もあるかもしれない。
+
 ## 複数行のコメントアウト
 
 `:` とヒアドキュメントを組み合わせる。
@@ -54,6 +58,53 @@ $ for i in $(seq $n $((n + 2))); do echo $i; done
 1
 2
 ```
+
+## 多重ループとbreak, continue
+
+`break 2` や `continue 2` のように後ろに数字を与えることで、上の階層のループを抜けられるようだ。
+
+Example:
+
+```sh
+for ((i=1; i <= 4; i++)); do
+  for ((j=1; j <= 3; j++)); do
+    echo "(i, j) = ($i, $j)"
+    if ((i > 2)); then
+      if ((j == 2)); then
+        echo End of loop
+        break 2
+      fi
+    elif ((i > 1 && j == 2)); then
+      continue 2
+    fi
+    echo blah blah
+  done
+  echo "[$i] end"
+done
+```
+
+実行結果:
+
+```
+(i, j) = (1, 1)
+blah blah
+(i, j) = (1, 2)
+blah blah
+(i, j) = (1, 3)
+blah blah
+[1] end
+(i, j) = (2, 1)
+blah blah
+(i, j) = (2, 2)
+(i, j) = (3, 1)
+blah blah
+(i, j) = (3, 2)
+End of loop
+```
+
+参考:
+
+- [bash のbreak、continue、return、exit | 敗走王のブログ](https://ameblo.jp/dagyah/entry-12341581495.html)
 
 ## 文字列操作
 ### 部分文字列の削除
