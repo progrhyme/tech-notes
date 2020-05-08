@@ -36,6 +36,13 @@ curlで取ってくるようなデータはこれを使えばいい。
 - [TerraformでJSONを扱う方法 - Qiita](https://qiita.com/tshohe/items/81e46e516ef4559dd32d)
 - [Getting my own Public IP : Terraform](https://www.reddit.com/r/Terraform/comments/9g62ox/getting_my_own_public_ip/)
 
+## Kubernetes
+
+- https://www.terraform.io/docs/providers/kubernetes/
+- https://github.com/terraform-providers/terraform-provider-kubernetes
+
+K8sのリソースオブジェクトを管理できる。
+
 ## Local
 
 https://www.terraform.io/docs/providers/local/
@@ -111,4 +118,4 @@ resource "aws_instance" "web" {
 }
 ```
 
-## Child Pages（他のProviders）
+## Other Providers
