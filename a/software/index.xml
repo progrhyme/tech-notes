@@ -506,6 +506,7 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tutorials/">https://kubernetes.io/docs/tutorials/&lt;/a> &amp;hellip; チュートリアル&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tasks/">https://kubernetes.io/docs/tasks/&lt;/a> &amp;hellip; How-toガイド&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/glossary/?fundamental=true">Standardized Glossary - Kubernetes&lt;/a> &amp;hellip; 用語集&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>

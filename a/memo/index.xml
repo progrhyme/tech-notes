@@ -77,6 +77,7 @@ generated
 &lt;span style="color:#a40000">:&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform_version&lt;/code> がマシンにインストール済みのバージョンと違うのは、terraformerが同梱しているってことなのかな？&lt;/p>
 &lt;h3 id="kubernetesのマニフェストをvcsで管理して削除まで正しく同期する方法">KubernetesのマニフェストをVCSで管理して、削除まで正しく同期する方法&lt;/h3>
+&lt;p>※5/9 ブログを書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/09/125134">Kubernetesのマニフェストをリポジトリ管理しつつ、リソースの削除も反映したい件 - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
 &lt;p>某所で聞いたりして情報を集めた。&lt;br>
 このエントリは後掲の関連リンクの続きである。&lt;/p>
 &lt;ol>
