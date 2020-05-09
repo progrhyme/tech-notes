@@ -1,10 +1,10 @@
 ---
 title: "Google Cloud Platform"
-linkTitle: "Google Cloud"
+linkTitle: "GCP"
 description: >
   https://cloud.google.com/
 date: 2020-04-27T10:39:24+09:00
-weight: 110
+weight: 200
 ---
 
 ## 障害情報
