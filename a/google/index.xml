@@ -1,0 +1,173 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google</title><link>https://progrhy.me/tech-notes/a/google/</link><description>Recent content in Google on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 09 May 2020 09:35:58 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/google/gcp/</link><pubDate>Mon, 27 Apr 2020 10:39:24 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/</guid><description>
+&lt;h2 id="障害情報">障害情報&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://status.cloud.google.com/">https://status.cloud.google.com/&lt;/a>
+&lt;ul>
+&lt;li>RSSもある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://twitter.com/gcpstatus">https://twitter.com/gcpstatus&lt;/a> でも配信されている&lt;/li>
+&lt;/ul>
+&lt;h2 id="quota">quota&lt;/h2>
+&lt;p>リソース制限。割当て上限。&lt;/p>
+&lt;h3 id="緩和方法">緩和方法&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mouse2/items/dd136453798804f99de7">GCP リソースの割り当てを増加(上限緩和申請) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="コスト管理">コスト管理&lt;/h2>
+&lt;p>コスト節約のためのナレッジ:&lt;/p>
+&lt;ul>
+&lt;li>2020-04-21 &lt;a href="https://cloud.google.com/blog/ja/products/gcp/best-practices-for-optimizing-your-cloud-costs">クラウドコストの最適化のためのベスト プラクティス | Google Cloud Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="監査">監査&lt;/h2>
+&lt;h3 id="cloud-audit-logging">Cloud Audit Logging&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/logging/docs/audit/?hl=ja">https://cloud.google.com/logging/docs/audit/?hl=ja&lt;/a>&lt;/p>
+&lt;p>デフォルトでもある程度ログを取ってくれるが、有効期限がある。&lt;br>
+永久に保存したい場合は、GCSにエクスポートが必要そう。&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/logging/quotas?hl=ja#logs_retention_periods">https://cloud.google.com/logging/quotas?hl=ja#logs_retention_periods&lt;/a>&lt;/p>
+&lt;h2 id="組織">組織&lt;/h2>
+&lt;p>AWSのOrganizationみたいなものと思う。&lt;br>
+G Suiteだとドメインに紐づくか。&lt;/p>
+&lt;h3 id="フォルダ">フォルダ&lt;/h3>
+&lt;p>フォルダを作って組織内のプロジェクトを階層化できる。&lt;br>
+例えば組織の部門ごとにフォルダを作ると、権限管理など便利。&lt;/p>
+&lt;p>See &lt;a href="https://cloud.google.com/resource-manager/docs/creating-managing-folders?hl=ja" title="フォルダの作成と管理 | Google Cloud Resource Manager ドキュメント | Google Cloud">フォルダの作成と管理 | Google Cloud Resource Manager ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;h3 id="プロジェクトを組織に移行">プロジェクトを組織に移行&lt;/h3>
+&lt;p>元々組織に紐付いていなかったプロジェクトを組織に紐付けることができる。&lt;br>
+戻すこともできるが、プロジェクト作成者のみ(？)&lt;/p>
+&lt;p>プロジェクトは組織のポリシーに準じるようになるので、不整合が起こらないようにしないといけない、といった注意点があるようだ。&lt;/p>
+&lt;p>See &lt;a href="https://cloud.google.com/resource-manager/docs/migrating-projects-billing?hl=ja" title="組織に既存のプロジェクトを移行する | Google Cloud Resource Manager ドキュメント | Google Cloud">組織に既存のプロジェクトを移行する | Google Cloud Resource Manager ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;h3 id="制限">制限&lt;/h3>
+&lt;p>組織内に作れるプロジェクト数は上限がある。&lt;br>
+緩和申請もできるみたい。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support.google.com/cloud/answer/6330231?hl=ja">Project quota requests - Cloud Platform Console ヘルプ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="apiとサービス">APIとサービス&lt;/h2>
+&lt;p>&lt;a href="https://console.cloud.google.com/apis/library">https://console.cloud.google.com/apis/library&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>一覧の確認には、 &lt;code>gcloud services list&lt;/code> コマンドを使う&lt;/li>
+&lt;/ul>
+&lt;h3 id="認証">認証&lt;/h3>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/docs/authentication?hl=ja">認証の概要 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/docs/authentication/end-user?hl=ja">エンドユーザーとして認証する | Google Cloud&lt;/a> &amp;hellip; OAuth 2.0を使う&lt;/li>
+&lt;/ul>
+&lt;h3 id="oauthスコープ">OAuthスコープ&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://developers.google.com/identity/protocols/oauth2/scopes">OAuth 2.0 Scopes for Google APIs | Google Identity Platform&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create#--scopes">https://cloud.google.com/sdk/gcloud/reference/compute/instances/create#--scopes&lt;/a> &amp;hellip; エイリアス一覧&lt;/li>
+&lt;/ul>
+&lt;h2 id="構成管理">構成管理&lt;/h2>
+&lt;h3 id="cloud-deployment-manager">Cloud Deployment Manager&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/deployment-manager/">https://cloud.google.com/deployment-manager/&lt;/a>&lt;/p>
+&lt;p>YAMLでPythonテンプレートとJinja2に対応している。&lt;/p>
+&lt;ul>
+&lt;li>Documentation: &lt;a href="https://cloud.google.com/deployment-manager/docs/">https://cloud.google.com/deployment-manager/docs/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/deployment-manager/docs/configuration/supported-resource-types">サポートされるリソースタイプ | Cloud Deployment Manager のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="開発">開発&lt;/h2>
+&lt;h3 id="ローカル開発用サーバ">ローカル開発用サーバ&lt;/h3>
+&lt;p>一部のサービスには、自動テストなどでも使えるエミュレータが提供されている:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/datastore/docs/tools/datastore-emulator">Cloud Datastore&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigtable/docs/emulator?hl=ja">Cloud Bigtable&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/pubsub/docs/emulator?hl=ja">Cloud Pub/Sub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="service-usage">Service Usage&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/service-usage/docs/overview?hl=ja">https://cloud.google.com/service-usage/docs/overview?hl=ja&lt;/a>&lt;/p>
+&lt;p>GCPサービスやAPIの表示、管理。&lt;/p>
+&lt;h3 id="権限">権限&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/service-usage/docs/access-control">https://cloud.google.com/service-usage/docs/access-control&lt;/a>&lt;/p>
+&lt;p>QuotaやBillingの操作をするとき、 &lt;code>serviceusage.services.use&lt;/code> が要求される。&lt;br>
+例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gcloud logging logs list&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="ラベルの運用">ラベルの運用&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/resource-manager/docs/creating-managing-labels?hl=ja">ラベルの作成と管理 | Resource Manager のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/smallpalace/items/bc07c00d1583dbe53a79">はじめてのGCP - Qiita&lt;/a> &amp;hellip; 2018年8月時点だが、ネットワークセキュリティ周りなどそこそこまとまっている&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Google Groups</title><link>https://progrhy.me/tech-notes/a/google/group/</link><pubDate>Sat, 09 May 2020 09:42:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/group/</guid><description>
+&lt;p>メーリングリスト、フォーラムを提供してくれる。&lt;br>
+GCPなどでアカウント管理にも使える。&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="g-suite特有の機能">G Suite特有の機能&lt;/h3>
+&lt;h4 id="グループアドレスの追加エイリアス">グループアドレスの追加(エイリアス)&lt;/h4>
+&lt;p>&lt;a href="https://support.google.com/a/answer/2727156?hl=ja" title="グループのアドレスを追加する - G Suite 管理者 ヘルプ">グループのアドレスを追加する - G Suite 管理者 ヘルプ&lt;/a>&lt;/p></description></item><item><title>A: Google Sheets</title><link>https://progrhy.me/tech-notes/a/google/sheet/</link><pubDate>Sat, 09 May 2020 09:38:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/sheet/</guid><description>
+&lt;h2 id="関数">関数&lt;/h2>
+&lt;p>&lt;a href="https://support.google.com/docs/table/25273?hl=ja">Google スプレッドシートの関数リスト - ドキュメント エディタ ヘルプ&lt;/a>&lt;/p>
+&lt;h3 id="sumifs">SUMIFS&lt;/h3>
+&lt;p>&lt;a href="https://support.google.com/docs/answer/3238496?hl=ja">https://support.google.com/docs/answer/3238496?hl=ja&lt;/a>&lt;/p>
+&lt;p>SUMIFの条件部を複数指定できるバージョン。&lt;/p>
+&lt;p>Format: &lt;code>SUMIFS(合計範囲, 条件範囲1, 条件1, [条件範囲2, 条件2, ...])&lt;/code>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="日時の差を計算">日時の差を計算&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://support.google.com/docs/answer/6055612?hl=ja">DATEDIF&lt;/a> &amp;hellip; 日付、月数、年数に対応&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>=(B2-A2) * 86400 // 秒数
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support.office.com/ja-jp/article/2-%e3%81%a4%e3%81%ae%e6%99%82%e5%88%bb%e3%81%ae%e5%b7%ae%e3%82%92%e8%a8%88%e7%ae%97%e3%81%99%e3%82%8b-e1c78778-749b-49a3-b13e-737715505ff6">2 つの時刻の差を計算する - Excel&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="数値によって分類する">数値によって分類する&lt;/h3>
+&lt;p>LOOKUP系の関数（ &lt;code>[VH]LOOKUP&lt;/code> ）の最後の引数に &lt;code>true&lt;/code> を与えると、「検索値以下で最も近い値」を取り出すことができる。&lt;br>
+これによって、「点数によってランクを付ける」といったことが可能。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>\&lt;/th>
+&lt;th>A&lt;/th>
+&lt;th>B&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>1&lt;/strong>&lt;/td>
+&lt;td>下限値&lt;/td>
+&lt;td>等級&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>2&lt;/strong>&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>D&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>3&lt;/strong>&lt;/td>
+&lt;td>26&lt;/td>
+&lt;td>C&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>4&lt;/strong>&lt;/td>
+&lt;td>51&lt;/td>
+&lt;td>B&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>5&lt;/strong>&lt;/td>
+&lt;td>76&lt;/td>
+&lt;td>A&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>上のような表があり、 &lt;code>=VLOOKUP(検索値, $A$2:$B$5, 2, TRUE)&lt;/code> とやると、次のようになる:&lt;/p>
+&lt;ul>
+&lt;li>検索値が &lt;code>(-∞, 0)&lt;/code> =&amp;gt; &lt;code>#N/A&lt;/code>&lt;/li>
+&lt;li>検索値が &lt;code>[0, 26)&lt;/code> =&amp;gt; D&lt;/li>
+&lt;li>検索値が &lt;code>[26, 51)&lt;/code> =&amp;gt; C&lt;/li>
+&lt;li>検索値が &lt;code>[51, 76)&lt;/code> =&amp;gt; B&lt;/li>
+&lt;li>検索値が &lt;code>[76, ∞)&lt;/code> =&amp;gt; A&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dekiru.net/article/12612/">ExcelのVLOOKUP関数で「○以上△未満」の条件で表を検索する方法 | できるネット&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

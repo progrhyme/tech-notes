@@ -812,7 +812,7 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/TakiTake@github/items/bfc977baf4b909b1e118">KubernetesのRolling updateを安全に行う - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://rahmonov.me/posts/zero-downtime-deployment-with-kubernetes/">Zero Downtime Deployment with Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
+&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
 &lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
 &lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
@@ -1093,7 +1093,7 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>add&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>changes.txt&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>commit&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-m&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;[skip ci] Updating changes.txt with latest build number.&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>push&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/function/</guid><description>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
@@ -1117,7 +1117,7 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;h3 id="vpc接続">VPC接続&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/iam/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/google/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/iam/</guid><description>
 &lt;p>&lt;a href="https://cloud.google.com/iam/docs">https://cloud.google.com/iam/docs&lt;/a>&lt;/p>
 &lt;p>Cloud IAM. Google IDベースのアクセス管理ができる。&lt;/p>
 &lt;p>Googleグループを設定することもできる。&lt;/p>
@@ -1581,7 +1581,7 @@ brew bundle dump &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTI
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kiririmode.hatenablog.jp/entry/20200103/1578033722">Macでのアプリケーションインストールの自動化 - 理系学生日記&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
+&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gce/</guid><description>
 &lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-types?hl=ja">マシンタイプ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
@@ -1989,7 +1989,7 @@ terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモ�
 terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
 terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
 terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Container Registry</title><link>https://progrhy.me/tech-notes/a/gcp/gcr/</link><pubDate>Thu, 07 May 2020 16:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gcr/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Container Registry</title><link>https://progrhy.me/tech-notes/a/google/gcp/gcr/</link><pubDate>Thu, 07 May 2020 16:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gcr/</guid><description>
 &lt;p>Dockerコンテナレジストリ。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>Documentation:&lt;/p>
@@ -2009,7 +2009,7 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/configuring-notifications?hl=ja">Pub/Sub 通知の構成 | Container Registry のドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>イメージが push、タグ付け、削除されたときなど、Container Registry リポジトリに変更が加えられた場合、Pub/Sub を使用して通知を受け取ることができます&lt;/p>
-&lt;/blockquote></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;/blockquote></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gke/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/">Software &amp;gt; Kubernetes&lt;/a>&lt;/li>
@@ -2272,7 +2272,13 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</guid><description>
+&lt;/ul></description></item><item><title>A: Google Groups</title><link>https://progrhy.me/tech-notes/a/google/group/</link><pubDate>Sat, 09 May 2020 09:42:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/group/</guid><description>
+&lt;p>メーリングリスト、フォーラムを提供してくれる。&lt;br>
+GCPなどでアカウント管理にも使える。&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="g-suite特有の機能">G Suite特有の機能&lt;/h3>
+&lt;h4 id="グループアドレスの追加エイリアス">グループアドレスの追加(エイリアス)&lt;/h4>
+&lt;p>&lt;a href="https://support.google.com/a/answer/2727156?hl=ja" title="グループのアドレスを追加する - G Suite 管理者 ヘルプ">グループのアドレスを追加する - G Suite 管理者 ヘルプ&lt;/a>&lt;/p></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</guid><description>
 &lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
 ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
 &lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
@@ -2474,7 +2480,7 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.qoosky.io/techs/1ee07c140f">jq チートシート - Qoosky&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/lb/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
 &lt;h2 id="概要">概要&lt;/h2>
@@ -3277,6 +3283,74 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/watch.html" title="watch コマンド | コマンドの使い方(Linux) | hydroculのメモ">watch コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Google Sheets</title><link>https://progrhy.me/tech-notes/a/google/sheet/</link><pubDate>Sat, 09 May 2020 09:38:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/sheet/</guid><description>
+&lt;h2 id="関数">関数&lt;/h2>
+&lt;p>&lt;a href="https://support.google.com/docs/table/25273?hl=ja">Google スプレッドシートの関数リスト - ドキュメント エディタ ヘルプ&lt;/a>&lt;/p>
+&lt;h3 id="sumifs">SUMIFS&lt;/h3>
+&lt;p>&lt;a href="https://support.google.com/docs/answer/3238496?hl=ja">https://support.google.com/docs/answer/3238496?hl=ja&lt;/a>&lt;/p>
+&lt;p>SUMIFの条件部を複数指定できるバージョン。&lt;/p>
+&lt;p>Format: &lt;code>SUMIFS(合計範囲, 条件範囲1, 条件1, [条件範囲2, 条件2, ...])&lt;/code>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="日時の差を計算">日時の差を計算&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://support.google.com/docs/answer/6055612?hl=ja">DATEDIF&lt;/a> &amp;hellip; 日付、月数、年数に対応&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>=(B2-A2) * 86400 // 秒数
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support.office.com/ja-jp/article/2-%e3%81%a4%e3%81%ae%e6%99%82%e5%88%bb%e3%81%ae%e5%b7%ae%e3%82%92%e8%a8%88%e7%ae%97%e3%81%99%e3%82%8b-e1c78778-749b-49a3-b13e-737715505ff6">2 つの時刻の差を計算する - Excel&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="数値によって分類する">数値によって分類する&lt;/h3>
+&lt;p>LOOKUP系の関数（ &lt;code>[VH]LOOKUP&lt;/code> ）の最後の引数に &lt;code>true&lt;/code> を与えると、「検索値以下で最も近い値」を取り出すことができる。&lt;br>
+これによって、「点数によってランクを付ける」といったことが可能。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>\&lt;/th>
+&lt;th>A&lt;/th>
+&lt;th>B&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>1&lt;/strong>&lt;/td>
+&lt;td>下限値&lt;/td>
+&lt;td>等級&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>2&lt;/strong>&lt;/td>
+&lt;td>0&lt;/td>
+&lt;td>D&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>3&lt;/strong>&lt;/td>
+&lt;td>26&lt;/td>
+&lt;td>C&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>4&lt;/strong>&lt;/td>
+&lt;td>51&lt;/td>
+&lt;td>B&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>5&lt;/strong>&lt;/td>
+&lt;td>76&lt;/td>
+&lt;td>A&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>上のような表があり、 &lt;code>=VLOOKUP(検索値, $A$2:$B$5, 2, TRUE)&lt;/code> とやると、次のようになる:&lt;/p>
+&lt;ul>
+&lt;li>検索値が &lt;code>(-∞, 0)&lt;/code> =&amp;gt; &lt;code>#N/A&lt;/code>&lt;/li>
+&lt;li>検索値が &lt;code>[0, 26)&lt;/code> =&amp;gt; D&lt;/li>
+&lt;li>検索値が &lt;code>[26, 51)&lt;/code> =&amp;gt; C&lt;/li>
+&lt;li>検索値が &lt;code>[51, 76)&lt;/code> =&amp;gt; B&lt;/li>
+&lt;li>検索値が &lt;code>[76, ∞)&lt;/code> =&amp;gt; A&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dekiru.net/article/12612/">ExcelのVLOOKUP関数で「○以上△未満」の条件で表を検索する方法 | できるネット&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/zsh/</guid><description>
 &lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
 &lt;h2 id="source-code">Source Code&lt;/h2>
@@ -3928,75 +4002,4 @@ gpg &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GnuPG&lt;span sty
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/kent-hamaguchi/items/0e44f563caf39cd3eb9e">GitHubにgpg署名付きのコミットをする - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://joemphilips.com/post/gpg_memo/">GPGで自分用の秘密鍵を1つに統一する · JoeMPhilips&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-02</title><link>https://progrhy.me/tech-notes/a/memo/20200502/</link><pubDate>Sat, 02 May 2020 00:06:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200502/</guid><description>
-&lt;h2 id="52">5/2&lt;/h2>
-&lt;h3 id="bitbucket-pipelinesでgcpに対してterraformを適用するには">Bitbucket PipelinesでGCPに対してTerraformを適用するには&lt;/h3>
-&lt;p>※Qiitaに移しました:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/progrhyme/items/ed96d42dd811063a24c2">Bitbucket PipelinesでGCPに対してTerraformでインフラCI/CDする - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="../20200501/#ci%E3%81%A7gcp%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6terraform%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">2020-05-01に調べたログ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/web-service/bitbucket/">Bitbucketについてのメモ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>（5/3追記）&lt;/p>
-&lt;p>下の記事を見て、 &lt;code>GOOGLE_CREDENTIALS&lt;/code> はパス名じゃなくてサービスアカウントキーのJSONままでも行けると気づいた。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/kentakozuka/items/e0d356df38f29ee7587e">Github Actions で GCPに向けてTerraform を実行する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="yamlで配列のマージはできなさそう">YAMLで配列のマージはできなさそう&lt;/h3>
-&lt;p>ハッシュのマージはアンカーとエイリアスでできるのだけど、配列のマージはできなさそう。&lt;/p>
-&lt;p>参考: &lt;a href="https://stackoverflow.com/questions/24090177/how-to-merge-yaml-arrays">list - How to merge YAML arrays? - Stack Overflow&lt;/a>&lt;/p>
-&lt;p>配列の1つ1つの要素にアンカーを付けて、再利用することは可能。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">- &lt;span style="color:#8f5902;font-style:italic">&amp;amp;mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>foo&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- bar&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#8f5902;font-style:italic">*mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#8f5902;font-style:italic">*mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [&amp;#39;foo&amp;#39;, &amp;#39;bar&amp;#39;, &amp;#39;foo&amp;#39;, &amp;#39;foo&amp;#39;]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://magazine.rubyist.net/articles/0009/0009-YAML.html#%E3%82%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%81%A8%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9">プログラマーのための YAML 入門 (初級編)&lt;/a>&lt;/p>
-&lt;h3 id="dangerはbitbucketにどのように対応しているか">DangerはBitbucketにどのように対応しているか&lt;/h3>
-&lt;p>tfnotifyをBitbucketに対応させたいなーと思いながら、参考にできるかなと思って見ていた。&lt;/p>
-&lt;p>CIサーバからBitbucketのREST APIを叩いているようだ。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/danger/danger/pull/481/files">Bitbucket Server by HeEAaD · Pull Request #481 · danger/danger&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://danger.systems/js/usage/bitbucket_cloud.html">Danger + BitBucket Cloud&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-01</title><link>https://progrhy.me/tech-notes/a/memo/20200501/</link><pubDate>Fri, 01 May 2020 01:34:48 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200501/</guid><description>
-&lt;h2 id="51">5/1&lt;/h2>
-&lt;h3 id="ciでgcpに対してterraformするには">CIでGCPに対してTerraformするには&lt;/h3>
-&lt;p>&lt;del>サービスアカウントのキーをJSONで作って、 &lt;code>GOOGLE_CREDENTIALS&lt;/code> or &lt;code>GOOGLE_BACKEND_CREDENTIALS&lt;/code> 環境変数に渡せば良さそう。&lt;/del>
-（事例によって異なる環境変数を使っていることがある。）&lt;/p>
-&lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
-&lt;p>（追記） &lt;code>terraform plan&lt;/code> のときには&lt;a href="https://cloud.google.com/docs/authentication/production">Application Credentials&lt;/a>が必要になる。&lt;br>
-GCS backend認証も上記の環境変数がない場合は、Application Credentialsにフォールバックするので、環境変数 &lt;code>GOOGLE_APPLICATION_CREDENTIALS&lt;/code> にキーファイルのパスを設定するのがよい。&lt;/p>
-&lt;p>事例:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gist.github.com/MisaKondo/cb46b0ecd106e9c824a641b14954b8e1">TerraformによるGCP環境の管理&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform">Managing Google Cloud projects with Terraform&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.devsamurai.com/ja/gcp-terraform-101/">Terraformツールを使ってGCPリソース管理 | DevSamurai&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>以前に調べたログ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200427/">2020-04-27&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="tmuxのstatus-lineの色設定をいい感じにした">tmuxのstatus lineの色設定をいい感じにした&lt;/h3>
-&lt;p>2ヶ月ちょっと前に .tmux.conf をv2.9+対応にしたのだけど、status lineの色設定がなんかイマイチになってたので調整した。&lt;/p>
-&lt;p>&lt;a href="https://github.com/progrhyme/dotfiles/commit/7983437087fdf64aa652f44d922f90a69622353d">https://github.com/progrhyme/dotfiles/commit/7983437087fdf64aa652f44d922f90a69622353d&lt;/a>&lt;/p>
-&lt;p>だいぶややこしい設定になっていて、どこを変えればいいかよくわからなくなっていたのと、tmuxプロセスを全て終了しないと再読込みされないっぽかったので更に混乱した。&lt;br>
-tmuxプロセスA内でconfを編集しながら、tmuxプロセスBを起動して見た目を確認していたが、それだとtmuxプロセスAの設定が引き継がれるような挙動だった。&lt;/p>
-&lt;p>参考にしたページ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/nojima/items/9bc576c922da3604a72b">tmux の status line の設定方法 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/tokuhy/dotfiles/blob/master/.tmux.conf">dotfiles/.tmux.conf at master · tokuhy/dotfiles&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="terraformでgcpのservice-account-keyを作成">TerraformでGCPのService Account Keyを作成&lt;/h3>
-&lt;p>Qiitaにこういうエントリを上げた:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/progrhyme/items/8603c0f6e350734c1739">TerraformでGCPのService Account Keyを作成し、ローカルにファイルとして保存する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>何度か実行して確かめたところ、次のことがわかった。&lt;/p>
-&lt;ul>
-&lt;li>Service Account Keyの内容はtfstateに保存される&lt;/li>
-&lt;li>よって、local_fileに書き出すコードは後で足してもいいし、一度消しても復元できる&lt;/li>
 &lt;/ul></description></item></channel></rss>

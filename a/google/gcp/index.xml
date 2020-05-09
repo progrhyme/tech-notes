@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/gcp/</link><description>Recent content in Google Cloud Platform on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 10:39:24 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/cli/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/google/gcp/</link><description>Recent content in Google Cloud Platform on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 10:39:24 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
 &lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
 &lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
@@ -154,7 +154,7 @@ gcloud projects list
 &lt;p>バケット作成&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/function/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
@@ -178,7 +178,7 @@ gcloud projects list
 &lt;h3 id="vpc接続">VPC接続&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/iam/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/google/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/iam/</guid><description>
 &lt;p>&lt;a href="https://cloud.google.com/iam/docs">https://cloud.google.com/iam/docs&lt;/a>&lt;/p>
 &lt;p>Cloud IAM. Google IDベースのアクセス管理ができる。&lt;/p>
 &lt;p>Googleグループを設定することもできる。&lt;/p>
@@ -219,7 +219,7 @@ gcloud projects list
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/iam/docs/faq?hl=ja" title="よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud">よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ameblo.jp/principia-ca/entry-12144854519.html" title="GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ">GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gce/</guid><description>
+&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gce/</guid><description>
 &lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-types?hl=ja">マシンタイプ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
@@ -290,7 +290,7 @@ gcloud projects list
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>VMからカスタムイメージを作る場合は、VMを停止しないと駄目みたい&lt;/li>
-&lt;/ul></description></item><item><title>A: Container Registry</title><link>https://progrhy.me/tech-notes/a/gcp/gcr/</link><pubDate>Thu, 07 May 2020 16:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gcr/</guid><description>
+&lt;/ul></description></item><item><title>A: Container Registry</title><link>https://progrhy.me/tech-notes/a/google/gcp/gcr/</link><pubDate>Thu, 07 May 2020 16:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gcr/</guid><description>
 &lt;p>Dockerコンテナレジストリ。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>Documentation:&lt;/p>
@@ -310,7 +310,7 @@ gcloud projects list
 &lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/configuring-notifications?hl=ja">Pub/Sub 通知の構成 | Container Registry のドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>イメージが push、タグ付け、削除されたときなど、Container Registry リポジトリに変更が加えられた場合、Pub/Sub を使用して通知を受け取ることができます&lt;/p>
-&lt;/blockquote></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/gke/</guid><description>
+&lt;/blockquote></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gke/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/">Software &amp;gt; Kubernetes&lt;/a>&lt;/li>
@@ -573,7 +573,7 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/gcp/lb/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
 &lt;h2 id="概要">概要&lt;/h2>

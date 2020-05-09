@@ -497,7 +497,7 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;/ul></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/gcp/gke/">Google Cloud &amp;gt; GKE&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/gke/">Google Cloud &amp;gt; GKE&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;h3 id="documentation">Documentation&lt;/h3>
