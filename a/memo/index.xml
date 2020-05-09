@@ -45,7 +45,131 @@
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://shellscript.sunone.me/tips.html">シェルスクリプト Tips | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
+&lt;/ul>
+&lt;h3 id="microk8sを使ってみる">Microk8sを使ってみる&lt;/h3>
+&lt;p>Ubuntu 18.04デスクトップ環境で、&lt;a href="../2020/20200429/#ubuntu%E3%81%AB%E6%98%94%E5%85%A5%E3%82%8C%E3%81%9Fminikube%E3%82%92uninstall">4/29に昔入れていたminikubeをアンインストールしてしまった&lt;/a>のだが、また手元でさくっと試せるKubernetes環境が欲しくなった。&lt;/p>
+&lt;p>またminikubeを入れてもいいのだけど、Canonicalが&lt;a href="https://microk8s.io/">Microk8s&lt;/a>というのを出しており、これが使えそうだ。&lt;br>
+ちらっと見たところ、snapでインストール可能で簡単そうなので、こちらを試してみることにした。&lt;/p>
+&lt;p>&lt;a href="https://microk8s.io/docs/">Quick start | MicroK8s&lt;/a> に従ってセットアップする。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0560">第560回 microk8sでお手軽Kubernetes環境構築：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/numa_numa/items/798500668db59163f3b2">遅ればせながらMicroK8sをためす - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/niiku-y/items/e5285af4f12b1318cf4e">MicroK8sを使ってみる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="1-install">1. Install&lt;/h4>
+&lt;p>snapでインストールする。&lt;/p>
+&lt;p>ガイドでは &lt;code>--channel=1.18/stable&lt;/code> が示されていたが、他にどんなチャネルがあるのか気になったので、&lt;a href="https://microk8s.io/docs/setting-snap-channel">Selecting a snap channel | MicroK8s&lt;/a>を見つつ次のコマンドで確認した:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% snap info microk8s
+name: microk8s
+summary: Kubernetes &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> workstations and appliances
+publisher: Canonical*
+:
+channels:
+latest/stable: v1.18.2 2020-04-27 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1378&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+latest/candidate: v1.18.2 2020-04-30 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1383&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+latest/beta: v1.18.2 2020-04-30 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1383&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+latest/edge: v1.18.2 2020-05-07 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1399&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 211MB classic
+dqlite/stable: --
+dqlite/candidate: --
+dqlite/beta: --
+dqlite/edge: v1.16.2 2019-11-07 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1038&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 189MB classic
+1.19/stable: --
+1.19/candidate: --
+1.19/beta: --
+1.19/edge: v1.19.0-alpha.1 2020-03-26 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1311&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+1.18/stable: v1.18.2 2020-04-27 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1379&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+1.18/candidate: v1.18.2 2020-04-27 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1379&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+1.18/beta: v1.18.2 2020-04-27 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1379&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+1.18/edge: v1.18.2 2020-04-29 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>1387&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 201MB classic
+:
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>今は latest/stable = 1.18/stable らしい。&lt;br>
+今後もstableのバージョンが上がったらsnapが勝手にアップデートしてくれることが期待できるので、 &lt;code>latest/stable&lt;/code> チャネルを使うことにする。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ sudo snap install microk8s --classic --channel&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>latest/stable
+:
+microk8s v1.18.2 from Canonical✓ installed
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-join-the-group">2. Join the group&lt;/h4>
+&lt;p>ログインユーザをmicrok8sグループに所属させる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% grep microk8s /etc/group
+microk8s:x:997:
+% sudo usermod -a -G microk8s &lt;span style="color:#000">$USER&lt;/span>
+% sudo chown -f -R &lt;span style="color:#000">$USER&lt;/span> ~/.kube
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>You will also need to re-enter the session for the group update to take place&lt;/p>
+&lt;/blockquote>
+&lt;p>とのことなので、次を実行:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">su - &lt;span style="color:#000">$USER&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これをやると &lt;code>$PATH&lt;/code> に &lt;code>/snap/bin&lt;/code> が含まれなくなって &lt;code>microk8s&lt;/code> コマンドが見つからなくなってしまったので、下を実行して解決:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% &lt;span style="color:#000">PATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$PATH&lt;/span>:/snap/bin
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>次回ログイン時にはこれは不要だろう。&lt;/p>
+&lt;h4 id="3-check-the-status">3. Check the status&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% microk8s status --wait-ready
+microk8s is running
+addons:
+cilium: disabled
+dashboard: disabled
+dns: disabled
+fluentd: disabled
+gpu: disabled
+helm: disabled
+helm3: disabled
+host-access: disabled
+ingress: disabled
+istio: disabled
+jaeger: disabled
+knative: disabled
+kubeflow: disabled
+linkerd: disabled
+metallb: disabled
+metrics-server: disabled
+prometheus: disabled
+rbac: disabled
+registry: disabled
+storage: disabled
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>最初は必要最小限のインストールになっているそうだ。&lt;br>
+アドオンは後の手順で追加できる。&lt;/p>
+&lt;h4 id="4-access-kubernetes">4. Access Kubernetes&lt;/h4>
+&lt;p>&lt;code>microk8s kubectl&lt;/code> でkubectlと同じ操作ができる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% microk8s kubectl get nodes
+NAME STATUS ROLES AGE VERSION
+ubuntu Ready &amp;lt;none&amp;gt; 13m v1.18.2-41+b5cdb79a4060a3
+% microk8s kubectl get services
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>S&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> AGE
+kubernetes ClusterIP 10.152.183.1 &amp;lt;none&amp;gt; 443/TCP 14m
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>kubectlをインストールしてないなら、下のようにaliasしておくと楽だよとのこと:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">alias&lt;/span> &lt;span style="color:#000">kubectl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;microk8s kubectl&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>私の環境にはkubectlをsnapでインストールしているので、これは保留で。&lt;/p>
+&lt;h4 id="5-deploy-an-app">5. Deploy an app&lt;/h4>
+&lt;p>適当なイメージでDeploymentを作成する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% microk8s kubectl create deployment kubernetes-bootcamp --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>gcr.io/google-samples/kubernetes-bootcamp:v1
+deployment.apps/kubernetes-bootcamp created
+% microk8s kubectl get pods
+NAME READY STATUS RESTARTS AGE
+kubernetes-bootcamp-6f6656d949-ggmrx 0/1 ContainerCreating &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> 8s
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="6-use-add-ons">6. Use add-ons&lt;/h4>
+&lt;p>下のようにして追加できる。今回はスキップした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">microk8s &lt;span style="color:#204a87">enable&lt;/span> dns storage
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="7-starting-and-stopping-microk8s">7. Starting and Stopping MicroK8s&lt;/h4>
+&lt;p>microk8sをstop/startしてみる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% microk8s stop
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>sudo&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> パスワード:
+Stopped.
+% microk8s status
+microk8s is not running. Use microk8s inspect &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> a deeper inspection.
+% microk8s start
+Started.
+Enabling pod scheduling
+node/ubuntu already uncordoned
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>さっき作ったPodも復活していた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% microk8s kubectl get pods
+NAME READY STATUS RESTARTS AGE
+kubernetes-bootcamp-6f6656d949-ggmrx 1/1 Running &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> 4m1s
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="next-steps">Next Steps&lt;/h4>
+&lt;p>簡単に使えて良い。&lt;br>
+実験用の環境としては全く問題なさそう。&lt;/p>
+&lt;p>マシンが複数あれば、マルチノードな環境も割と楽に作れそう。
+これはVirtualboxなどの仮想マシンでもいいだろう。&lt;/p>
+&lt;p>&lt;a href="https://microk8s.io/docs/clustering">Multi-node MicroK8s | MicroK8s&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
 &lt;h2 id="58">5/8&lt;/h2>
 &lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
 &lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
