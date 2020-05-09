@@ -1,4 +1,56 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-29</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200429/</link><pubDate>Wed, 29 Apr 2020 10:49:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200429/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-04-30</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200430/</link><pubDate>Thu, 30 Apr 2020 00:08:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200430/</guid><description>
+&lt;h2 id="430">4/30&lt;/h2>
+&lt;h3 id="ubuntuでhomebrewで入れたtfenvだとtfenv-installに失敗する">UbuntuでHomebrewで入れたtfenvだとtfenv installに失敗する&lt;/h3>
+&lt;p>unzipで失敗する。&lt;/p>
+&lt;p>デバッグしたところ、Homebrewの依存でインストールされたunzipが使われてしまうからのようだ。&lt;/p>
+&lt;p>tfenvの &lt;code>libexec/helpers&lt;/code> 内に &lt;code>which unzip&lt;/code> を仕込んで確かめた。&lt;/p>
+&lt;p>ログ:&lt;/p>
+&lt;pre>&lt;code>% TFENV_DEBUG=true tfenv install 0.12.24
++ [tfenv:22] '[' -z '' ']'
+++++ [tfenv:23] readlink_f /home/linuxbrew/.linuxbrew/bin/tfenv
+:
+（中略）
+:
++ [tfenv-install:180] mkdir -p /home/linuxbrew/.linuxbrew/Cellar/tfenv/1.0.2/versions/0.12.24
++ [tfenv-install:181] unzip tfenv_download.DtVL3N/terraform_0.12.24_linux_amd64.zip -d /home/linuxbrew/.linuxbrew/Cellar/tfenv/1.0.2/version
+s/0.12.24
+UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
+Usage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]
+Default action is to extract files in list, except those in xlist, to exdir;
+file[.zip] may be a wildcard. -Z =&amp;gt; ZipInfo mode (&amp;quot;unzip -Z&amp;quot; for usage).
+-p extract files to pipe, no messages -l list files (short format)
+-f freshen existing files, create none -t test compressed archive data
+-u update files, create if necessary -z display archive comment only
+-v list verbosely/show version info -T timestamp archive to latest
+-x exclude files that follow (in xlist) -d extract files into exdir
+modifiers:
+-n never overwrite existing files -q quiet mode (-qq =&amp;gt; quieter)
+-o overwrite files WITHOUT prompting -a auto-convert any text files
+-j junk paths (do not make directories) -aa treat ALL files as text
+-C match filenames case-insensitively -L make (some) names lowercase
+-X restore UID/GID info -V retain VMS version numbers
+-K keep setuid/setgid/tacky permissions -M pipe through &amp;quot;more&amp;quot; pager
+See &amp;quot;unzip -hh&amp;quot; or unzip.txt for more help. Examples:
+unzip data1 -x joe =&amp;gt; extract all files except joe from zipfile data1.zip
+unzip -p foo | more =&amp;gt; send contents of foo.zip via pipe into program more
+unzip -fo foo ReadMe =&amp;gt; quietly replace existing ReadMe if archive file newer
++ [tfenv-install:181] error_and_die 'Tarball unzip failed'
+++ [helpers:4] basename /home/linuxbrew/.linuxbrew/Cellar/tfenv/1.0.2/libexec/tfenv-install
++ [helpers:4] echo -e 'tfenv: tfenv-install: \033[0;31m[ERROR] Tarball unzip failed\033[0;39m'
+tfenv: tfenv-install: [ERROR] Tarball unzip failed
++ [helpers:5] which unzip
+/home/linuxbrew/.linuxbrew/bin/unzip
++ [helpers:6] exit 1
++ [helpers:1] rm -rf tfenv_download.DtVL3N
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;code>brew uninstall unzip --ignore-dependencies&lt;/code> した後、 &lt;code>tfenv install 0.12.24&lt;/code> したら成功した。&lt;/li>
+&lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
+&lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
+&lt;/ul>
+&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p>
+&lt;h4 id="59-追記">5/9 追記&lt;/h4>
+&lt;p>これ、GCEにDebian 10とUbuntu 18.04とCent OS 8のVMを立てて追試したところ、全部linuxbrewのunzipが正常に動いた。&lt;/p>
+&lt;p>なぜだ。。&lt;/p></description></item><item><title>A: 2020-04-29</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200429/</link><pubDate>Wed, 29 Apr 2020 10:49:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200429/</guid><description>
 &lt;h2 id="429">4/29&lt;/h2>
 &lt;h3 id="ubuntu-1804でintellij-ideaを20201にアップデート">Ubuntu 18.04でIntelliJ IDEAを2020.1にアップデート&lt;/h3>
 &lt;p>久しぶりに起動したらアップデートする必要があった。&lt;/p>

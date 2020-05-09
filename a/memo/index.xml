@@ -1,4 +1,51 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
+&lt;h2 id="59">5/9&lt;/h2>
+&lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
+&lt;p>いつだったか、何かの本でそういう書き方を見てからずっとそうやってる。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+:
+&lt;span style="color:#204a87">exit&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+: &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;&amp;#39;__EOF__&amp;#39;
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=encoding utf8
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=head1 NAME
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">B&amp;lt;my-script&amp;gt; - short description
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=head1 DESCRIPTION
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">:
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=cut
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">__EOF__&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これでPODに食わせるとドキュメントとして解釈してくれるので、スクリプト内では &lt;code>pod2text $0&lt;/code> とかでヘルプを表示できる。&lt;/p>
+&lt;p>…が、そろそろ &lt;code>pod2text&lt;/code> がどの環境にも入っていると想定すべきでないかも…という気がしてきた。&lt;br>
+ところが、じゃあどう書いたらいいの？っていうのには決定版がない気がする。&lt;/p>
+&lt;p>シェルスクリプトにちゃんとコメントを書こうとしている人たちの間では、主に2つの派閥がある気がする:&lt;/p>
+&lt;ol>
+&lt;li>スクリプトのヘッダや関数のヘッダとしてドキュメントコメントをそれなりのフォーマットで書きましょう派。&lt;a href="https://google.github.io/styleguide/shellguide.html#s4.1-file-header">Googleのコーディング規約&lt;/a>もこれ&lt;/li>
+&lt;li>&lt;code>usage()&lt;/code> 関数内にヒアドキュメントで書きましょう派&lt;/li>
+&lt;/ol>
+&lt;p>いいとこ取りをしてる感じに見えるのは、 &lt;code>usage()&lt;/code> 関数でコメントをパースしてヘルプっぽく出力してるもの。&lt;br>
+下のような例があった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ngyuki/items/673d6cb3b36360eaf5cc">シェルスクリプトでヘルプメッセージをコメントに書いて表示する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/TomKid/items/ab49f8d0cd15b18e5e4a">自作シェルスクリプトにヘルプやらバージョンメッセージを実装？する面白い方法があった - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>自分で独自フォーマットのコメントを書いている、という点では、下もこの類型にあたるか:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ssh0/items/0c14ee8949512a4dc98e">シェルスクリプト群のドキュメント書くの面倒だから自動でREADME.mdを生成する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jmcantrell/bashful/blob/master/bin/shdoc">https://github.com/jmcantrell/bashful/blob/master/bin/shdoc&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>godocみたいなのないかな、と思って「shelldoc」とか「shdoc」とかでぐぐるとたくさん出てくる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://shellscript.sunone.me/tips.html">シェルスクリプト Tips | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
 &lt;h2 id="58">5/8&lt;/h2>
 &lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
 &lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
@@ -321,53 +368,4 @@ tmuxプロセスA内でconfを編集しながら、tmuxプロセスBを起動し
 &lt;ul>
 &lt;li>Service Account Keyの内容はtfstateに保存される&lt;/li>
 &lt;li>よって、local_fileに書き出すコードは後で足してもいいし、一度消しても復元できる&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-04-30</title><link>https://progrhy.me/tech-notes/a/memo/20200430/</link><pubDate>Thu, 30 Apr 2020 00:08:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200430/</guid><description>
-&lt;h2 id="430">4/30&lt;/h2>
-&lt;h3 id="ubuntuでhomebrewで入れたtfenvだとtfenv-installに失敗する">UbuntuでHomebrewで入れたtfenvだとtfenv installに失敗する&lt;/h3>
-&lt;p>unzipで失敗する。&lt;/p>
-&lt;p>デバッグしたところ、Homebrewの依存でインストールされたunzipが使われてしまうからのようだ。&lt;/p>
-&lt;p>tfenvの &lt;code>libexec/helpers&lt;/code> 内に &lt;code>which unzip&lt;/code> を仕込んで確かめた。&lt;/p>
-&lt;p>ログ:&lt;/p>
-&lt;pre>&lt;code>% TFENV_DEBUG=true tfenv install 0.12.24
-+ [tfenv:22] '[' -z '' ']'
-++++ [tfenv:23] readlink_f /home/linuxbrew/.linuxbrew/bin/tfenv
-:
-（中略）
-:
-+ [tfenv-install:180] mkdir -p /home/linuxbrew/.linuxbrew/Cellar/tfenv/1.0.2/versions/0.12.24
-+ [tfenv-install:181] unzip tfenv_download.DtVL3N/terraform_0.12.24_linux_amd64.zip -d /home/linuxbrew/.linuxbrew/Cellar/tfenv/1.0.2/version
-s/0.12.24
-UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
-Usage: unzip [-Z] [-opts[modifiers]] file[.zip] [list] [-x xlist] [-d exdir]
-Default action is to extract files in list, except those in xlist, to exdir;
-file[.zip] may be a wildcard. -Z =&amp;gt; ZipInfo mode (&amp;quot;unzip -Z&amp;quot; for usage).
--p extract files to pipe, no messages -l list files (short format)
--f freshen existing files, create none -t test compressed archive data
--u update files, create if necessary -z display archive comment only
--v list verbosely/show version info -T timestamp archive to latest
--x exclude files that follow (in xlist) -d extract files into exdir
-modifiers:
--n never overwrite existing files -q quiet mode (-qq =&amp;gt; quieter)
--o overwrite files WITHOUT prompting -a auto-convert any text files
--j junk paths (do not make directories) -aa treat ALL files as text
--C match filenames case-insensitively -L make (some) names lowercase
--X restore UID/GID info -V retain VMS version numbers
--K keep setuid/setgid/tacky permissions -M pipe through &amp;quot;more&amp;quot; pager
-See &amp;quot;unzip -hh&amp;quot; or unzip.txt for more help. Examples:
-unzip data1 -x joe =&amp;gt; extract all files except joe from zipfile data1.zip
-unzip -p foo | more =&amp;gt; send contents of foo.zip via pipe into program more
-unzip -fo foo ReadMe =&amp;gt; quietly replace existing ReadMe if archive file newer
-+ [tfenv-install:181] error_and_die 'Tarball unzip failed'
-++ [helpers:4] basename /home/linuxbrew/.linuxbrew/Cellar/tfenv/1.0.2/libexec/tfenv-install
-+ [helpers:4] echo -e 'tfenv: tfenv-install: \033[0;31m[ERROR] Tarball unzip failed\033[0;39m'
-tfenv: tfenv-install: [ERROR] Tarball unzip failed
-+ [helpers:5] which unzip
-/home/linuxbrew/.linuxbrew/bin/unzip
-+ [helpers:6] exit 1
-+ [helpers:1] rm -rf tfenv_download.DtVL3N
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;code>brew uninstall unzip --ignore-dependencies&lt;/code> した後、 &lt;code>tfenv install 0.12.24&lt;/code> したら成功した。&lt;/li>
-&lt;li>&lt;code>/home/linuxbrew/.linuxbrew/bin/unzip some.zip -d somedir&lt;/code> は同じエラーで失敗する。&lt;/li>
-&lt;li>&lt;code>/usr/bin/unzip some.zip -d somedir&lt;/code> は成功する。&lt;/li>
-&lt;/ul>
-&lt;p>単独でunzipコマンドを実行しても失敗しているので、Linuxbrewのunzipが壊れてるんだと思う。&lt;/p></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>
+&lt;/ul></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>
