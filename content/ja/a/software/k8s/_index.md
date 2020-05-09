@@ -9,7 +9,7 @@ weight: 300
 
 関連ページ:
 
-- [Google Cloud > GKE]({{< ref "/a/gcp/gke.md" >}})
+- [Google Cloud > GKE]({{< ref "/a/google/gcp/gke.md" >}})
 
 ## Getting Started
 ### Documentation
