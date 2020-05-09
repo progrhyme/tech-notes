@@ -17,6 +17,7 @@ weight: 300
 - https://kubernetes.io/docs/home/ ... ドキュメント
   - https://kubernetes.io/docs/tutorials/ ... チュートリアル
   - https://kubernetes.io/docs/tasks/ ... How-toガイド
+  - [Standardized Glossary - Kubernetes](https://kubernetes.io/docs/reference/glossary/?fundamental=true) ... 用語集
 
 参考:
 
