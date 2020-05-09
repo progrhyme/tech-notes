@@ -1,4 +1,21 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Google Apps Script</title><link>https://progrhy.me/tech-notes/a/google/gas/</link><pubDate>Sat, 09 May 2020 21:08:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gas/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>ガイド: &lt;a href="https://developers.google.com/apps-script/overview">https://developers.google.com/apps-script/overview&lt;/a>&lt;/li>
+&lt;li>APIリファレンス: &lt;a href="https://developers.google.com/apps-script/reference/">https://developers.google.com/apps-script/reference/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>入門系記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://libro.tuyano.com/index2?id=638001" title="初心者のためのGoogle Apps Scriptプログラミング入門">初心者のためのGoogle Apps Scriptプログラミング入門&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://uxmilk.jp/25775" title="【Google Apps Script入門】Google Apps Scriptとは？ | UX MILK">【Google Apps Script入門】Google Apps Scriptとは？ | UX MILK&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="webアプリケーションとして公開">Webアプリケーションとして公開&lt;/h3>
+&lt;p>&lt;a href="https://developers.google.com/apps-script">HTML Service: Create and Serve HTML | Apps Script | Google Developers&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hyt48/items/2534237d96f991f31966">Google Apps ScriptでWebアプリケーションをつくる - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
 &lt;h2 id="このページについて">このページについて&lt;/h2>
 &lt;p>何を書くか:&lt;/p>
 &lt;ul>
@@ -4061,70 +4078,4 @@ sh ./installer.sh ~/.vim/dein
 &lt;p>（追記）引き続き確認したところ、 &lt;code>'Align'&lt;/code> プラグインで警告が出ていることに気がついた。 &lt;code>'vim-scripts/Align'&lt;/code> に修正したら上の問題はなくなった。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/progrhyme/dotfiles/commit/df90a50ffca16629bb0dbcf31f6405e249cac763">修正コミット&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200504/</guid><description>
-&lt;h2 id="54">5/4&lt;/h2>
-&lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
-&lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>
-&lt;p>コード: &lt;a href="https://github.com/progrhyme/git-wraps/blob/5580b8cf19d62262392548a8fa66c737ae5c01c6/bin/git-branch-clean">git-wraps/bin/git-branch-clean&lt;/a>&lt;/p>
-&lt;p>gitのaliasにも設定したかったので、オプションにも対応させた。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% git bc -h
-NAME
-git-branch-clean - git subcommand to clean up merged &lt;span style="color:#204a87">local&lt;/span> branches
-SYNOPSYS
-git branch-clean &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-DESCRIPTION
-This is a git subcommand to clean up merged &lt;span style="color:#204a87">local&lt;/span> branches.
-Branches &lt;span style="color:#4e9a06">&amp;#34;master&amp;#34;&lt;/span> and &lt;span style="color:#4e9a06">&amp;#34;develop&amp;#34;&lt;/span> are whitelisted by default. You can
-change the whitelist by &lt;span style="color:#4e9a06">&amp;#34;-a|--allow BRANCH&amp;#34;&lt;/span> option.
-Current branch is always whitelisted.
-OPTIONS
--i Interactive mode. Show prompt before deleting branch.
--a&lt;span style="color:#000;font-weight:bold">|&lt;/span>--allow BRANCH
-Add argument as branch name to whitelist which won&lt;span style="color:#a40000">&amp;#39;&lt;/span>t be deleted.
-This option can be specified multiple times.
-Ex&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Whitelist = (develop, master, CURRENT)&lt;/span>
-git branch-clean
-&lt;span style="color:#8f5902;font-style:italic"># Whitelist = (foo, CURRENT)&lt;/span>
-git branch-clean -a foo
-&lt;span style="color:#8f5902;font-style:italic"># Whitelist = (test, master, CURRENT)&lt;/span>
-git branch-clean -a &lt;span style="color:#204a87">test&lt;/span> -a master
--p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--pull
-Execute &lt;span style="color:#4e9a06">&amp;#34;git pull --prune&amp;#34;&lt;/span> before deleting branches.
--v&lt;span style="color:#000;font-weight:bold">|&lt;/span>--verbose
-Verbose output.
--h&lt;span style="color:#000;font-weight:bold">|&lt;/span>--help
-Show &lt;span style="color:#204a87">help&lt;/span> text.
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>このスクリプトをPATHが通っている場所に置く。&lt;/p>
-&lt;p>.gitconfigのaliasはこんな感じ:&lt;/p>
-&lt;pre>&lt;code>[alias]
-plr = pull --prune
-bc = branch-clean --pull
-bcp = branch-clean --pull
-&lt;/code>&lt;/pre>&lt;p>&lt;code>git branch-clean&lt;/code> か &lt;code>git plr&lt;/code> か &lt;code>git bcp&lt;/code> か、利用頻度によってaliasを調整するかもしれない。（※追記あり）&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/kenshiroh/items/44dcf4b094e841bb42a2">gitでbranchをお掃除する際のチートシート - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="59-追記">5/9 追記&lt;/h4>
-&lt;p>&lt;code>git-branch-sweep&lt;/code> -&amp;gt; &lt;code>git-branch-clean&lt;/code> にリネームして、上を書き換えた。&lt;br>
-エイリアスは3つ登録した。&lt;/p>
-&lt;h3 id="ubuntuでkubectxをlinuxbrewで入れた">Ubuntuでkubectxをlinuxbrewで入れた&lt;/h3>
-&lt;p>&lt;a href="https://github.com/ahmetb/kubectx">https://github.com/ahmetb/kubectx&lt;/a>&lt;/p>
-&lt;p>READMEには明記されてはいないのだけど、 &lt;code>brew install kubectx&lt;/code> でふつうにインストールできて使えた。&lt;br>
-まあ、シェルスクリプトだしな。&lt;/p>
-&lt;h3 id="memo-ページの階層を増やしたらhogoのサイト内ページ参照が壊れた">memo/ ページの階層を増やしたらHogoのサイト内ページ参照が壊れた&lt;/h3>
-&lt;p>下の変更による:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/tech-notes/commit/325430dfd7d297186bc73aa2e53bf69e8da5a79c">[memo] Move some memos under 2020/ · progrhyme/tech-notes@325430d&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>例えば、20200502.md内のリンクを20200501へのリンクを &lt;code>{{\&amp;lt; ref &amp;quot;/a/memo/20200501.md&amp;quot; \&amp;gt;}}&lt;/code> に戻すと、次のエラーが出る:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% hugo -v --path-warnings
-INFO 2020/05/05 06:53:45 Using config file:
-Building sites … INFO 2020/05/05 06:53:45 syncing static files to /home/progrhyme/my/repos/tech-notes/public/
-INFO 2020/05/05 06:53:45 postcss: use config file /home/progrhyme/my/repos/tech-notes/themes/docsy/postcss.config.js
-ERROR 2020/05/05 06:53:47 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ja&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> REF_NOT_FOUND: Ref &lt;span style="color:#4e9a06">&amp;#34;/a/memo/20200501.md&amp;#34;&lt;/span>: &lt;span style="color:#4e9a06">&amp;#34;/home/progrhyme/my/repos/tech-notes/content/ja/a/memo/20200502.md:16:34&amp;#34;&lt;/span>: page not found
-Total in &lt;span style="color:#0000cf;font-weight:bold">2470&lt;/span> ms
-Error: Error building site: logged &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> error&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

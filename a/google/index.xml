@@ -1,4 +1,21 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google</title><link>https://progrhy.me/tech-notes/a/google/</link><description>Recent content in Google on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 09 May 2020 09:35:58 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/google/gcp/</link><pubDate>Mon, 27 Apr 2020 10:39:24 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google</title><link>https://progrhy.me/tech-notes/a/google/</link><description>Recent content in Google on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 09 May 2020 09:35:58 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Google Apps Script</title><link>https://progrhy.me/tech-notes/a/google/gas/</link><pubDate>Sat, 09 May 2020 21:08:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gas/</guid><description>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>ガイド: &lt;a href="https://developers.google.com/apps-script/overview">https://developers.google.com/apps-script/overview&lt;/a>&lt;/li>
+&lt;li>APIリファレンス: &lt;a href="https://developers.google.com/apps-script/reference/">https://developers.google.com/apps-script/reference/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>入門系記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://libro.tuyano.com/index2?id=638001" title="初心者のためのGoogle Apps Scriptプログラミング入門">初心者のためのGoogle Apps Scriptプログラミング入門&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://uxmilk.jp/25775" title="【Google Apps Script入門】Google Apps Scriptとは？ | UX MILK">【Google Apps Script入門】Google Apps Scriptとは？ | UX MILK&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="webアプリケーションとして公開">Webアプリケーションとして公開&lt;/h3>
+&lt;p>&lt;a href="https://developers.google.com/apps-script">HTML Service: Create and Serve HTML | Apps Script | Google Developers&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hyt48/items/2534237d96f991f31966">Google Apps ScriptでWebアプリケーションをつくる - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/google/gcp/</link><pubDate>Mon, 27 Apr 2020 10:39:24 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/</guid><description>
 &lt;h2 id="障害情報">障害情報&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://status.cloud.google.com/">https://status.cloud.google.com/&lt;/a>
