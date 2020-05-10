@@ -3955,6 +3955,19 @@ bashで書いたスクリプトはシバン書いてるから実行したら普�
 &lt;ul>
 &lt;li>&lt;a href="https://nodaki.hatenablog.com/entry/2018/09/24/213942">【Ubuntu】 shellをfish + fisherman に変えた話 - 0.5から始める機械学習&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/minako-ph/items/dba6d65b741e3a30ad16#fisherman%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B">【2019年版】macのターミナルにFishとFishermanを導入する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="gasでwebアプリ作るテスト">GASでWebアプリ作るテスト&lt;/h3>
+&lt;p>&lt;a href="https://qiita.com/hyt48/items/2534237d96f991f31966">Google Apps ScriptでWebアプリケーションをつくる - Qiita&lt;/a>を写経。
+ステップ5の「データをGoogleスプレッドシートに保存」はまだできていない。&lt;/p>
+&lt;p>JS, CSSを分割したところから上手く行かなくなった。
+原因は以下の2つ:&lt;/p>
+&lt;ul>
+&lt;li>Qiita上ではJS, CSSのコードが省略されている。&lt;a href="https://github.com/mio3io/cr-vue/tree/master/codes/tutorial-todo">GitHubの完全版&lt;/a>からコピる必要があった。&lt;/li>
+&lt;li>コード.gsの &lt;code>doGet()&lt;/code> 関数を下に従って変更する必要があった:
+&lt;ul>
+&lt;li>&lt;a href="https://tonari-it.com/gas-web-html-css-scriptlet/">GASでWebページを作るときにHTMLとCSSを別ファイルに記述する方法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
 &lt;h2 id="59">5/9&lt;/h2>
 &lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
