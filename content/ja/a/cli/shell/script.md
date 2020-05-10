@@ -1,13 +1,14 @@
 ---
-title: "Shell Script"
-linkTitle: "シェルスクリプト"
+title: "シェルスクリプト"
+linkTitle: "スクリプト"
+description: shell scripts
 date: 2020-05-04T14:49:53+09:00
 weight: 2000
 ---
 
 関連ページ:
 
-- [Bash > Cookbooks]({{< ref "/a/cli/bash/cookbook.md" >}})
+- [Bash > Cookbooks]({{< ref "/a/cli/shell/bash/cookbook.md" >}})
 
 ## About
 

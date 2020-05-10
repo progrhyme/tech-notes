@@ -9,7 +9,7 @@ date: 2020-04-28T12:04:10+09:00
 
 関連ページ:
 
-- [シェルスクリプト]({{< ref "/a/cli/shell-script.md" >}})
+- [シェルスクリプト]({{< ref "/a/cli/shell/script.md" >}})
 
 NOTE:
 
