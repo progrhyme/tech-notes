@@ -43,6 +43,10 @@ curlで取ってくるようなデータはこれを使えばいい。
 
 K8sのリソースオブジェクトを管理できる。
 
+### Resources
+
+- [kubernetes_deployment](https://www.terraform.io/docs/providers/kubernetes/r/deployment.html)
+
 ## Local
 
 https://www.terraform.io/docs/providers/local/
