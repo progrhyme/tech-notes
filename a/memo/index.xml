@@ -1,4 +1,87 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
+&lt;h2 id="510">5/10&lt;/h2>
+&lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
+&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/121145">TerraformのKubernetes ProviderでK8sのリソース管理にトライ - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
+&lt;h3 id="ubuntuでもanyenvを使うことにした">Ubuntuでもanyenvを使うことにした&lt;/h3>
+&lt;p>Ubuntuで最近Ruby触ってなかったので、入っているRubyが古いことに気づいたのだけど、rbenvも &lt;code>git clone&lt;/code> して入れたものなので、古い。&lt;br>
+plenv, pyenvも同様である。&lt;/p>
+&lt;p>&lt;a href="../2020/20200428/">4/28&lt;/a>にmacOSでanyenvを試したのだけど、Ubuntuでも使ってみることにした。&lt;/p>
+&lt;p>&lt;a href="https://github.com/anyenv/anyenv">https://github.com/anyenv/anyenv&lt;/a>&lt;/p>
+&lt;p>自分環境のセットアップスクリプトに &lt;code>setup-rbenv.sh&lt;/code> とか入れてるけど、anyenvで管理した方が筋がよさそう。&lt;/p>
+&lt;h4 id="anyenv-install">anyenv install&lt;/h4>
+&lt;p>Linuxbrewを入れてるので、brewでインストールできた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% brew install &lt;span style="color:#000">anyenv&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Downloading https://linuxbrew.bintray.com/bottles/anyenv-1.1.1.x86_64_linux.bottle.tar.gz
+&lt;span style="color:#8f5902;font-style:italic">######################################################################## 100.0%&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Pouring anyenv-1.1.1.x86_64_linux.bottle.tar.gz
+🍺 /home/linuxbrew/.linuxbrew/Cellar/anyenv/1.1.1: &lt;span style="color:#0000cf;font-weight:bold">23&lt;/span> files, 48.4KB
+% anyenv init
+&lt;span style="color:#8f5902;font-style:italic"># Load anyenv automatically by adding&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># the following to ~/.zshrc:&lt;/span>
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>anyenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+% &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>anyenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+ANYENV_DEFINITION_ROOT&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>/home/quiche/.config/anyenv/anyenv-install&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> doesn&lt;span style="color:#4e9a06">&amp;#39;t exist. You can initialize it by:
+&lt;/span>&lt;span style="color:#4e9a06">&amp;gt; anyenv install --init
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">% anyenv install --init
+&lt;/span>&lt;span style="color:#4e9a06">Manifest directory doesn&amp;#39;&lt;/span>t exist: /home/quiche/.config/anyenv/anyenv-install
+Do you want to checkout ? &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>y/N&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>: y
+Cloning https://github.com/anyenv/anyenv-install.git master to /home/quiche/.config/anyenv/anyenv-install...
+Cloning into &lt;span style="color:#4e9a06">&amp;#39;/home/quiche/.config/anyenv/anyenv-install&amp;#39;&lt;/span>...
+remote: Enumerating objects: 48, &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>.
+remote: Total &lt;span style="color:#0000cf;font-weight:bold">48&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>delta 0&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, reused &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>delta 0&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, pack-reused &lt;span style="color:#0000cf;font-weight:bold">48&lt;/span>
+Unpacking objects: 100% &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>48/48&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>.
+Completed!
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここまでやって &lt;code>exec $SHELL -l&lt;/code> してもまだPATHには変化なし。&lt;br>
+どうも何かしら &lt;code>*env&lt;/code> をインストールしないといけないらしい。&lt;/p>
+&lt;p>&lt;code>anyenv install rbenv&lt;/code> してからシェルに再ログインすると、PATHに &lt;code>$HOME/.anyenv/envs/rbenv/shims&lt;/code>, &lt;code>$HOME/.anyenv/envs/rbenv/bin&lt;/code> が追加された。&lt;/p>
+&lt;h4 id="rubyのインストールでややハマった">rubyのインストールでややハマった&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% rbenv install 2.7.1 -v
+:
+ruby: error &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> loading shared libraries: libruby.so.2.7: cannot open shared object file: No such file or directory
+uncommon.mk:1130: recipe &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> target &lt;span style="color:#4e9a06">&amp;#39;revision.tmp&amp;#39;&lt;/span> failed
+make: *** &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>revision.tmp&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Error &lt;span style="color:#0000cf;font-weight:bold">127&lt;/span>
+BUILD FAILED &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Ubuntu 18.04 using ruby-build 20200401-11-g12af1c3&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>上のようなエラーで失敗した。&lt;br>
+どうもこれはrdocの生成でコケているようだ。&lt;/p>
+&lt;p>ただ、ビルドログを見たら下のようなエラーも出ていた。&lt;/p>
+&lt;pre>&lt;code>% view /tmp/ruby-build.20200510143333.6198.log
+:
+1660 *** Following extensions are not compiled:$
+1661 dbm:$
+1662 &amp;gt;-Could not be configured. It will not be installed.$
+1663 &amp;gt;-Check ext/dbm/mkmf.log for more details.$
+1664 gdbm:$
+1665 &amp;gt;-Could not be configured. It will not be installed.$
+1666 &amp;gt;-Check ext/gdbm/mkmf.log for more details.$
+1667 *** Fix the problems, then remove these directories and try again if you want.$
+:
+&lt;/code>&lt;/pre>&lt;p>よくわからないままビルドに必要そうなパッケージをインストールしてリトライした。&lt;/p>
+&lt;pre>&lt;code>sudo apt install build-essential bison libffi-dev libgdbm-dev libgdbm-compat-dev \
+libreadline-dev libssl-dev zlib1g-dev
+&lt;/code>&lt;/pre>&lt;p>参考: &lt;a href="https://qiita.com/raccy/items/cd0b39a33dbe764480be">Rubyをソースからコンパイルするときの依存ライブラリ - Qiita&lt;/a>&lt;/p>
+&lt;p>上で、いくつかのパッケージは既にインストールされていた。&lt;/p>
+&lt;p>リトライした結果、結局、さっきと同じrubyのエラーで失敗した。&lt;br>
+ビルドログから、dbm関連のエラーは消えていたので、そこは解消したらしい。&lt;/p>
+&lt;p>闇雲に別のまっさらなシェルを立ち上げて再度インストールを試みたところ、成功した。&lt;/p>
+&lt;p>まだ &lt;code>~/.rbenv&lt;/code> に古いrbenvが入っていて、 &lt;code>ruby&lt;/code> が &lt;code>~/.rbenv/shims/ruby&lt;/code> を向いていたので、その辺が悪さをしていたのかもしれない。&lt;/p>
+&lt;p>これで駄目だったらrdocの生成をオフしようかと思っていた。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hackbaka.hatenablog.com/entry/2018/09/13/151242">Ruby インストール時の rdoc エラー[Ubuntu] - ハッキングバカ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="clenvでtravis-ciのビルド通知とバッジを修正した">clenvでTravis CIのビルド通知とバッジを修正した&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
+&lt;p>昔、リポジトリを key-amb -&amp;gt; progrhyme に移したのだけど、そのせいでバッジとSlack通知がおかしくなっていた。&lt;/p>
+&lt;p>Slackのインテグレーション自体は生きていたので、 &lt;code>travis&lt;/code> コマンドで設定をし直した。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gem i travis
+travis encrypt &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;Slack Workspace&amp;gt;:&amp;lt;Slack Integration Token&amp;gt;&amp;#34;&lt;/span> --add notifications.slack.rooms
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで .travis.yml が更新されたので、GitHubにpushして完了。&lt;/p>
+&lt;p>バッジも新しいURLで取得した。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
 &lt;h2 id="59">5/9&lt;/h2>
 &lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
 &lt;p>いつだったか、何かの本でそういう書き方を見てからずっとそうやってる。&lt;/p>
@@ -47,10 +130,7 @@
 &lt;li>&lt;a href="https://shellscript.sunone.me/tips.html">シェルスクリプト Tips | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="microk8sを使ってみる">Microk8sを使ってみる&lt;/h3>
-&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/110630">UbuntuでKubernetesのテスト環境としてMicrok8sをセットアップした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
-&lt;h2 id="510">5/10&lt;/h2>
-&lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
-&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/121145">TerraformのKubernetes ProviderでK8sのリソース管理にトライ - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
+&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/110630">UbuntuでKubernetesのテスト環境としてMicrok8sをセットアップした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
 &lt;h2 id="58">5/8&lt;/h2>
 &lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
 &lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
