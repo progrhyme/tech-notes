@@ -9,6 +9,14 @@ weight: 2000
 
 - [Bash > Cookbooks]({{< ref "/a/cli/bash/cookbook.md" >}})
 
+## About
+
+シェル上で動作する簡易なプログラミング言語、あるいはそれによって書かれたプログラム。
+
+参考:
+
+- [シェルスクリプトとは - IT用語辞典 e-Words](http://e-words.jp/w/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88.html)
+
 ## Getting Started
 ### リファレンス
 
