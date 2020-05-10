@@ -276,4 +276,33 @@ fish is a smart and user-friendly command line shell for Linux, macOS, and the r
 &lt;li>&lt;a href="https://qiita.com/hennin/items/33758226a0de8c963ddf">fish shellが結構良かった話 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/kuwa72/items/f3a90fcd215938f5817e">シェル芸人のためのfish入門 - Qiita&lt;/a> &amp;hellip; Bashとの違いがわかりやすかった&lt;/li>
 &lt;/ul>
+&lt;h3 id="getting-started">Getting Started&lt;/h3>
+&lt;p>Install:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://fishshell.com/">https://fishshell.com/&lt;/a> の「Go fish」から&lt;/li>
+&lt;/ul>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://fishshell.com/docs/current/">https://fishshell.com/docs/current/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://fishshell.com/docs/current/tutorial.html">Tutorial — fish-shell 3.1.2 documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="package-managers">Package Managers&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher&lt;/a> &amp;hellip; これが人気っぽい&lt;/li>
+&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish&lt;/a> &amp;hellip; fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># oh-my-fishのテーマをfisherでインストール&lt;/span>
+fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

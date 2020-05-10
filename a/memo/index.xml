@@ -102,6 +102,47 @@ travis encrypt &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;Slack Workspace&a
 &lt;li>&lt;a href="https://qiita.com/zakuroishikuro/items/1b02378bf9e940602d87">知らないうちにMacがシステム標準でJavaScriptで操作できるようになってた (JXA) - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0492">第492回 GNOME Shellの拡張機能を作ってみよう：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/JavaScript/Shells">JavaScript シェル - JavaScript リダイレクト 1 | MDN&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ubuntuでfishを少しだけ試してみた">Ubuntuでfishを少しだけ試してみた&lt;/h3>
+&lt;p>Install:&lt;/p>
+&lt;p>&lt;a href="https://launchpad.net/~fish-shell/+archive/ubuntu/release-3">https://launchpad.net/~fish-shell/+archive/ubuntu/release-3&lt;/a> の通り:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
+sudo apt-get install fish
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>fish&lt;/code> で起動する。&lt;/p>
+&lt;p>体感そんな悪くない。&lt;br>
+bashで書いたスクリプトはシバン書いてるから実行したら普通に動くし、特に戸惑うことはない感じ。&lt;/p>
+&lt;p>少しカスタマイズしたら十分使いやすくなりそう。&lt;/p>
+&lt;h4 id="fisherを試す">fisherを試す&lt;/h4>
+&lt;p>テーマを使ってみたかったので、fisherを入れてテーマを入れてみる。&lt;/p>
+&lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
+&lt;p>READMEに従ってインストール&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>色々ハマったんだけど、最終的に次の要領で、まあまあいい感じになった:&lt;/p>
+&lt;h5 id="powerlineのインストール">powerlineのインストール&lt;/h5>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install powerline
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gist.github.com/TrentSPalmer/63a85b582d42ab4bff665fc2dbba42e2">fish powerline on ubuntu the easy way&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>※↑に書かれている &lt;code>~/.config/fish/config.fish&lt;/code> の設定をすると、fishでpowerlineは使えるが、他のテーマを入れるとおかしくなる。（カニバってしまう？）&lt;/p>
+&lt;p>powerlineを使うには対応したフォントが必要らしい。これに中々気づかなかった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://news.mynavi.jp/itsearch/article/hardware/4775">【連載】にわか管理者のためのLinux運用入門 [210] Powerlineでカッコよく - シェル編（bash、zsh、fish）｜サーバ/ストレージ｜IT製品の事例・解説記事&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/microsoft/cascadia-code/releases">https://github.com/microsoft/cascadia-code/releases&lt;/a> から、最新版を &lt;code>~/.fonts&lt;/code> にインストールした。&lt;/p>
+&lt;p>参考: &lt;a href="http://omoiyari.nishinari.coop/ubuntu-tips/%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab/">フォントのインストール | Ubuntu初心者の集いブログ&lt;/a>&lt;/p>
+&lt;h5 id="テーマの追加">テーマの追加&lt;/h5>
+&lt;p>この後、fishを起動し、 &lt;code>fisher add oh-my-fish/theme-bobthefish&lt;/code> で、まあまあいい感じになった。&lt;/p>
+&lt;p>ただ、プロンプトの左端が &lt;code>I&lt;/code> となっていて、これはスクリーンショットによると本来は矢印記号が出るはずなんじゃないかと思う。&lt;/p>
+&lt;p>theme-bobthefish のガイドに従って、 &lt;a href="https://github.com/ryanoasis/nerd-fonts/releases">https://github.com/ryanoasis/nerd-fonts/releases&lt;/a> も入れてみたけど、特に変わらない。&lt;/p>
+&lt;h5 id="上手く行かなかったこと">上手く行かなかったこと&lt;/h5>
+&lt;p>上まで辿りついたが、 &lt;code>theme-budspencer&lt;/code> だと上手く行かなかった。&lt;br>
+プロンプトでENTERだけを押しても改行されない感じになってしまう。&lt;/p>
+&lt;h5 id="参考">参考&lt;/h5>
+&lt;ul>
+&lt;li>&lt;a href="https://nodaki.hatenablog.com/entry/2018/09/24/213942">【Ubuntu】 shellをfish + fisherman に変えた話 - 0.5から始める機械学習&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/minako-ph/items/dba6d65b741e3a30ad16#fisherman%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B">【2019年版】macのターミナルにFishとFishermanを導入する - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
 &lt;h2 id="59">5/9&lt;/h2>
 &lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
