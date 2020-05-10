@@ -3462,6 +3462,25 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%E3%81%A7%E8%A8%80%E8%AA%9E%E3%81%94%E3%81%A8%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%9F%E3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="自動フォーマット">自動フォーマット&lt;/h3>
+&lt;p>&lt;a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting">https://code.visualstudio.com/docs/editor/codebasics#_formatting&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>config&lt;/th>
+&lt;th>値（*）&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>editor.formatOnSave&lt;/code>&lt;/td>
+&lt;td>true, &lt;strong>false&lt;/strong>&lt;/td>
+&lt;td>保存時にコードフォーマッタをかける&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（*）デフォルト値は太字&lt;/p>
 &lt;h3 id="インデント設定">インデント設定&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -3637,19 +3656,41 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ol>
 &lt;li>debパッケージをダウンロード&lt;/li>
 &lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
-&lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
-&lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
-&lt;h2 id="install">Install&lt;/h2>
-&lt;p>Homebrew:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: Shell Script</title><link>https://progrhy.me/tech-notes/a/cli/shell-script/</link><pubDate>Mon, 04 May 2020 14:49:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell-script/</guid><description>
+&lt;/ol></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/terraform/editor/</link><pubDate>Sun, 10 May 2020 08:41:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/editor/</guid><description>
+&lt;p>各種エディタやIDEでTerraformを書くための設定など。&lt;/p>
+&lt;h2 id="intellij-idea">IntelliJ IDEA&lt;/h2>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/idea/">IntelliJ IDEA&lt;/a>&lt;/p>
+&lt;h3 id="plugins">Plugins&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-support">HashiCorp Terraform / HCL language support - IntelliJ IDEs | JetBrains&lt;/a>&lt;/li>
+&lt;li>File Watcher &amp;hellip; ファイル保存時に &lt;code>terraform fmt&lt;/code> を実行するため&lt;/li>
+&lt;/ul>
+&lt;h3 id="設定">設定&lt;/h3>
+&lt;ul>
+&lt;li>File Watcherによる &lt;code>terraform fmt&lt;/code> を設定する&lt;/li>
+&lt;/ul>
+&lt;h2 id="visual-studio-code">Visual Studio Code&lt;/h2>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vscode/">Visual Studio Code&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/pypypyo14/items/5520f3defa55119f3a1a">VSCodeでTerraformを書くときの設定(2019/11/07追記: HCL2対応) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="extensions">Extensions&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=mauve.terraform">Terraform - Visual Studio Marketplace&lt;/a>
+&lt;ul>
+&lt;li>2020年5月、公式になった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.hashicorp.com/blog/supporting-the-hashicorp-terraform-extension-for-visual-studio-code/">Supporting the HashiCorp Terraform Extension for Visual Studio Code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="設定-1">設定&lt;/h3>
+&lt;ul>
+&lt;li>自動フォーマット（ &lt;code>editor.formatOnSave&lt;/code> ）をONにしておく -&amp;gt; &lt;code>terraform fmt&lt;/code> が掛かるようになる&lt;/li>
+&lt;/ul></description></item><item><title>A: Shell Script</title><link>https://progrhy.me/tech-notes/a/cli/shell-script/</link><pubDate>Mon, 04 May 2020 14:49:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell-script/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/bash/cookbook/">Bash &amp;gt; Cookbooks&lt;/a>&lt;/li>
@@ -3751,7 +3792,292 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
+&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
+&lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
+&lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
+&lt;h2 id="install">Install&lt;/h2>
+&lt;p>Homebrew:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 09:05:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
+&lt;h2 id="510">5/10&lt;/h2>
+&lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
+&lt;p>Kubernetes Provider自体については&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/provider/#kubernetes">Software &amp;gt; Terraform &amp;gt; Providers#Kubernetes&lt;/a>にメモしている。&lt;/p>
+&lt;p>環境としては、昨日UbuntuデスクトップにインストールしたMicrok8sを使った。&lt;br>
+default namespaceにkubernetes-bootcamp Deploymentを作っていたので、これをTerraform管理にして弄ってみる。&lt;/p>
+&lt;p>環境構成:&lt;/p>
+&lt;ul>
+&lt;li>Ubuntu 18.04 LTS&lt;/li>
+&lt;li>microk8s v1.18.2&lt;/li>
+&lt;li>terraformer v0.8.7&lt;/li>
+&lt;li>terraform v0.12.24&lt;/li>
+&lt;li>terraform-provider-kubernetes v1.11.2&lt;/li>
+&lt;/ul>
+&lt;p>参考記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.mosuke.tech/entry/2019/03/07/k8s-with-terraform/">Kubernetes上のリソースをTerraformで管理するメリットとデメリット | Goldstine研究所&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/literalice/items/61c536ed57701abeb8c8">TerraformでKubernetesのリソース(ConfigMapやSecretなど)を管理する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.masu-mi.me/post/2020/03/17/make-k8s-secrets-with-tf/">Terraformでk8sにSecretsを作って使う • masu-mi&amp;rsquo;s blog(Dirty Cache)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="providerstf-の用意">providers.tf の用意&lt;/h4>
+&lt;p>microk8s用のクラスタに接続するため、下のコマンドでkubeconfigファイルを作った。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">microk8s kubectl config view &amp;gt; ~/tmp/microk8s/kubeconfig
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>providers.tf に下を記述する:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> config_path&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~/tmp/microk8s/kubeconfig&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ちゃんとした証明書を用意してないからか、これをつけてないとterraformコマンドがコケる
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000"> insecure&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>いつもterraformの設定ファイルを書くのにはIntelliJ IDEAを使っていたのだけど、最近VS Codeの拡張機能もHCL v0.12に対応したので、今回はVS Codeを使ってみた。（実は11月にはもう対応していたらしい）&lt;/p>
+&lt;p>参考: &lt;a href="https://progrhy.me/tech-notes/a/software/terraform/editor/">Software &amp;gt; Terraform &amp;gt; エディタ&lt;/a>&lt;/p>
+&lt;h4 id="terraformerによるimport失敗">terraformerによるimport→失敗&lt;/h4>
+&lt;p>terraformerをLinuxbrewでインストール。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>（実際にはHomebrew Bundleでbundle installしている。）&lt;/p>
+&lt;p>&lt;code>terraform init&lt;/code> によって &lt;code>.terraform/plugins&lt;/code> に取得されたプロバイダーの実行ファイルを &lt;code>~/.terraform.d/plugins&lt;/code> にコピーする。&lt;/p>
+&lt;p>…で、importを試したが、なぜか下のようなメッセージが出て失敗する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% env &lt;span style="color:#000">KUBECONFIG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~/tmp/microk8s/kubeconfig terraformer import kubernetes --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>configmaps,deployments,namespaces,pods,secrets,services
+2020/05/10 09:22:18 kubernetes importing... configmaps
+2020/05/10 09:22:18 kubernetes: configmaps not supported resource
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>他のリソースを先頭にしても同様。&lt;/p>
+&lt;p>microk8sだから？ よくわからないけど、ここはそんなにやりたいところじゃないので、諦めて手でHCLを書くことにする。&lt;/p>
+&lt;h4 id="hclを書いてterraform-import">HCLを書いてterraform import&lt;/h4>
+&lt;p>&lt;code>microk8s kubectl get deployment -o yaml&lt;/code> で出力したYAMLを見ながらHCLを書き起こす:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes_deployment&amp;#34; &amp;#34;bootcamp&amp;#34;&lt;/span> {
+&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span> {
+&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes-bootcamp&amp;#34;&lt;/span>
+&lt;span style="color:#000"> labels&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;span style="color:#000"> app&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes-bootcamp&amp;#34;&lt;/span>
+}
+}
+&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span> {
+&lt;span style="color:#000"> replicas&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span> {
+&lt;span style="color:#000"> match_labels&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;span style="color:#000"> app&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes-bootcamp&amp;#34;&lt;/span>
+}
+}
+&lt;span style="color:#204a87;font-weight:bold">template&lt;/span> {
+&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span> {
+&lt;span style="color:#000"> labels&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;span style="color:#000"> app&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes-bootcamp&amp;#34;&lt;/span>
+}
+}
+&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span> {
+&lt;span style="color:#204a87;font-weight:bold">container&lt;/span> {
+&lt;span style="color:#000"> image&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;gcr.io/google-samples/kubernetes-bootcamp:v1&amp;#34;&lt;/span>
+&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;kubernetes-bootcamp&amp;#34;&lt;/span>
+}
+}
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>下のコマンドでimportする&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% terraform import kubernetes_deployment.bootcamp default/kubernetes-bootcamp
+kubernetes_deployment.bootcamp: Importing from ID &lt;span style="color:#4e9a06">&amp;#34;default/kubernetes-bootcamp&amp;#34;&lt;/span>...
+kubernetes_deployment.bootcamp: Import prepared!
+Prepared kubernetes_deployment &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> import
+kubernetes_deployment.bootcamp: Refreshing state... &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>default/kubernetes-bootcamp&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+Import successful!
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="hclを編集してリソースを更新してみる">HCLを編集してリソースを更新してみる&lt;/h4>
+&lt;p>まずは、さっきの &lt;code>kubernetes_deployment.bootcamp&lt;/code> の &lt;code>spec.template.spec.container&lt;/code> に下のようなresources設定を足してみる&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL"> &lt;span style="color:#204a87;font-weight:bold">resources&lt;/span> {
+&lt;span style="color:#204a87;font-weight:bold">limits&lt;/span> {
+&lt;span style="color:#000"> memory&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;64Mi&amp;#34;&lt;/span>
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform apply&lt;/code> したログは下の通り:&lt;/p>
+&lt;pre>&lt;code>% terraform apply
+kubernetes_deployment.bootcamp: Refreshing state... [id=default/kubernetes-bootcamp]
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+~ update in-place
+Terraform will perform the following actions:
+# kubernetes_deployment.bootcamp will be updated in-place
+~ resource &amp;quot;kubernetes_deployment&amp;quot; &amp;quot;bootcamp&amp;quot; {
+id = &amp;quot;default/kubernetes-bootcamp&amp;quot;
+:
+~ spec {
+:
+~ template {
+:
+~ spec {
+:
+~ container {
+:
+~ resources {
++ limits {
++ memory = &amp;quot;64Mi&amp;quot;
+}
+}
+}
+}
+}
+}
+timeouts {}
+}
+Plan: 0 to add, 1 to change, 0 to destroy.
+Do you want to perform these actions?
+Terraform will perform the actions described above.
+Only 'yes' will be accepted to approve.
+Enter a value: yes
+kubernetes_deployment.bootcamp: Modifying... [id=default/kubernetes-bootcamp]
+kubernetes_deployment.bootcamp: Modifications complete after 1s [id=default/kubernetes-bootcamp]
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+&lt;/code>&lt;/pre>&lt;p>PodsでDeploymentsの様子をwatchしていたが、下のような動きだった。&lt;/p>
+&lt;ol>
+&lt;li>新しいPodが立ち上がる&lt;/li>
+&lt;li>古いPodがTerminateされる&lt;/li>
+&lt;/ol>
+&lt;p>ふつうにDeploymentを更新するときと同じで、RollingUpgradeなんだろうと思う。&lt;/p>
+&lt;h4 id="リソースの名前を変えて再作成してみる">リソースの名前を変えて、再作成してみる&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-diff" data-lang="diff"> resource &amp;#34;kubernetes_deployment&amp;#34; &amp;#34;bootcamp&amp;#34; {
+metadata {
+&lt;span style="color:#a40000">- name = &amp;#34;kubernetes-bootcamp&amp;#34;
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#00a000">+ name = &amp;#34;kubernetes-bootcamp2&amp;#34;
+&lt;/span>&lt;span style="color:#00a000">&lt;/span> labels = {
+app = &amp;#34;kubernetes-bootcamp&amp;#34;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform apply&lt;/code> のログは下の通り（長いので折りたたみにした）:&lt;/p>
+&lt;details>
+&lt;pre>&lt;code>% terraform apply
+kubernetes_deployment.bootcamp: Refreshing state... [id=default/kubernetes-bootcamp]
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+-/+ destroy and then create replacement
+Terraform will perform the following actions:
+# kubernetes_deployment.bootcamp must be replaced
+-/+ resource &amp;quot;kubernetes_deployment&amp;quot; &amp;quot;bootcamp&amp;quot; {
+~ id = &amp;quot;default/kubernetes-bootcamp&amp;quot; -&amp;gt; (known after apply)
+~ metadata {
+- annotations = {} -&amp;gt; null
+~ generation = 2 -&amp;gt; (known after apply)
+labels = {
+&amp;quot;app&amp;quot; = &amp;quot;kubernetes-bootcamp&amp;quot;
+}
+~ name = &amp;quot;kubernetes-bootcamp&amp;quot; -&amp;gt; &amp;quot;kubernetes-bootcamp2&amp;quot; # forces replacement
+namespace = &amp;quot;default&amp;quot;
+~ resource_version = &amp;quot;44171&amp;quot; -&amp;gt; (known after apply)
+~ self_link = &amp;quot;/apis/apps/v1/namespaces/default/deployments/kubernetes-bootcamp&amp;quot; -&amp;gt; (known after
+apply)
+~ uid = &amp;quot;91420400-2545-4c7a-bc23-2fd6769d41a7&amp;quot; -&amp;gt; (known after apply)
+}
+~ spec {
+:
+~ strategy {
+~ type = &amp;quot;RollingUpdate&amp;quot; -&amp;gt; (known after apply)
+~ rolling_update {
+~ max_surge = &amp;quot;25%&amp;quot; -&amp;gt; (known after apply)
+~ max_unavailable = &amp;quot;25%&amp;quot; -&amp;gt; (known after apply)
+}
+}
+~ template {
+~ metadata {
+- annotations = {} -&amp;gt; null
+~ generation = 0 -&amp;gt; (known after apply)
+labels = {
+&amp;quot;app&amp;quot; = &amp;quot;kubernetes-bootcamp&amp;quot;
+}
++ name = (known after apply)
++ resource_version = (known after apply)
++ self_link = (known after apply)
++ uid = (known after apply)
+}
+~ spec {
+- active_deadline_seconds = 0 -&amp;gt; null
+- automount_service_account_token = false -&amp;gt; null
+dns_policy = &amp;quot;ClusterFirst&amp;quot;
+host_ipc = false
+host_network = false
+host_pid = false
++ hostname = (known after apply)
++ node_name = (known after apply)
+- node_selector = {} -&amp;gt; null
+restart_policy = &amp;quot;Always&amp;quot;
++ service_account_name = (known after apply)
+share_process_namespace = false
+termination_grace_period_seconds = 30
+~ container {
+- args = [] -&amp;gt; null
+- command = [] -&amp;gt; null
+image = &amp;quot;gcr.io/google-samples/kubernetes-bootcamp:v1&amp;quot;
+~ image_pull_policy = &amp;quot;IfNotPresent&amp;quot; -&amp;gt; (known after apply)
+name = &amp;quot;kubernetes-bootcamp&amp;quot;
+stdin = false
+stdin_once = false
+termination_message_path = &amp;quot;/dev/termination-log&amp;quot;
+tty = false
+~ resources {
+~ limits {
++ cpu = (known after apply)
+memory = &amp;quot;64Mi&amp;quot;
+}
++ requests {
++ cpu = (known after apply)
++ memory = (known after apply)
+}
+}
++ volume_mount {
+:
+}
+}
++ image_pull_secrets {
++ name = (known after apply)
+}
++ volume {
++ name = (known after apply)
++ aws_elastic_block_store {
++ fs_type = (known after apply)
++ partition = (known after apply)
++ read_only = (known after apply)
++ volume_id = (known after apply)
+}
+:
+}
+}
+}
+}
+- timeouts {}
+}
+Plan: 1 to add, 0 to change, 1 to destroy.
+Do you want to perform these actions?
+Terraform will perform the actions described above.
+Only 'yes' will be accepted to approve.
+Enter a value: yes
+kubernetes_deployment.bootcamp: Destroying... [id=default/kubernetes-bootcamp]
+kubernetes_deployment.bootcamp: Destruction complete after 0s
+kubernetes_deployment.bootcamp: Creating...
+kubernetes_deployment.bootcamp: Creation complete after 8s [id=default/kubernetes-bootcamp2]
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+&lt;/code>&lt;/pre>&lt;/details>
+&lt;p>&lt;/p>
+&lt;p>この場合、Kubernetes的に別々のリソースとして認識されるからだろうけど、リソースの再作成が行われる。&lt;br>
+再作成だからか、変えてない差分もたくさん出てくる。ログではいくらか間引いたが、それでも長くなった。&lt;/p>
+&lt;p>大事なのは実行ログで、先にDestroyが走ってから、Createされている。&lt;/p>
+&lt;p>この挙動については、HCLのresource設定で &lt;code>lifecycle&lt;/code> ブロックを設定することで変えることができる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-diff" data-lang="diff"> resource &amp;#34;kubernetes_deployment&amp;#34; &amp;#34;bootcamp&amp;#34; {
+:
+&lt;span style="color:#00a000">+ lifecycle {
+&lt;/span>&lt;span style="color:#00a000">+ create_before_destroy = true
+&lt;/span>&lt;span style="color:#00a000">+ }
+&lt;/span>&lt;span style="color:#00a000">&lt;/span> }
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これをつけて &lt;code>metadata.name&lt;/code> を変えて &lt;code>terraform apply&lt;/code> を再実行すると、期待した動きになった。
+最後の実行ログのところだけ下に貼る:&lt;/p>
+&lt;pre>&lt;code>% terraform apply
+:
+Enter a value: yes
+kubernetes_deployment.bootcamp: Creating...
+kubernetes_deployment.bootcamp: Creation complete after 8s [id=default/kubernetes-bootcamp3]
+kubernetes_deployment.bootcamp: Destroying... [id=default/kubernetes-bootcamp2]
+kubernetes_deployment.bootcamp: Destruction complete after 0s
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+&lt;/code>&lt;/pre></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
 &lt;h2 id="59">5/9&lt;/h2>
 &lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
 &lt;p>いつだったか、何かの本でそういう書き方を見てからずっとそうやってる。&lt;/p>
@@ -4030,52 +4356,4 @@ generated
 &lt;p>関連:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="../20200505/#kubernetes%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%81%AF%E5%85%A8%E9%83%A8export%E3%81%97%E3%81%A6%E7%AE%A1%E7%90%86%E3%81%97%E3%81%9F%E6%96%B9%E3%81%8C%E3%81%84%E3%81%84%E3%82%93%E3%81%98%E3%82%83%E3%81%AD%E3%81%A3%E3%81%A6%E6%80%9D%E3%81%A3%E3%81%9F">2020-05-05のメモ - Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200506/</guid><description>
-&lt;h2 id="56">5/6&lt;/h2>
-&lt;h3 id="githubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ">GitHubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ&lt;/h3>
-&lt;p>なんかないかなと思ったけど、&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>以上のものは見つからないな。&lt;/p>
-&lt;p>hubコマンドあたりで実装されてたりはしなかった。&lt;/p>
-&lt;p>&lt;a href="https://hub.github.com/hub.1.html">https://hub.github.com/hub.1.html&lt;/a>&lt;/p>
-&lt;h3 id="ghgでmdbookを入れようと思ったが失敗した">ghgでmdBookを入れようと思ったが失敗した&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% env &lt;span style="color:#000">GHG_HOME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span> ghg get rust-lang/mdBook
-fetch the GitHub release &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> rust-lang/mdBook
-no assets available
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>悲しい。&lt;br>
-結局wget -&amp;gt; tar xvfで入れました。&lt;/p></description></item><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200505/</guid><description>
-&lt;h2 id="55">5/5&lt;/h2>
-&lt;h3 id="kubernetesのマニフェストは全部exportして管理した方がいいんじゃねって思った">Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/h3>
-&lt;p>exportのやり方は調べて&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#%E5%85%A8%E3%81%A6%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%81%84">kubectlのページ#全てのマニフェストを取得したい&lt;/a>に書いた。&lt;/p>
-&lt;p>…というか、exportしてないと不安である。&lt;/p>
-&lt;p>kustomizeで管理していても、野良のリソースがないことを保証できない。&lt;br>
-素のマニフェスト管理でも同様。&lt;/p>
-&lt;p>&lt;code>kubectl apply&lt;/code> は、ふつうは削除同期をやってくれないので。&lt;/p>
-&lt;p>（※…と思って、リファレンスを読み返していたら、 &lt;code>--prune&lt;/code> というオプションがα機能であるようだ。これについては、&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#apply">kubectl#apply&lt;/a>に書いた）&lt;/p>
-&lt;p>定期的にdumpして差分がないかチェックした方がいいんじゃないかな。&lt;br>
-特に、本番とstaging環境は。&lt;/p>
-&lt;p>逆に、export -&amp;gt; applyの運用にしていれば、staging環境の差分をそのまま本番に適用する運用が可能ではないだろうか。&lt;br>
-このやり方なら、仰々しいK8s対応のCI/CDツールなど使わなくても、kubectlとGitOpsだけで行けるかもしれない。&lt;/p>
-&lt;p>まだ試してないので、実際にやってみたら色々と課題も出てくるだろうけど。&lt;/p>
-&lt;h3 id="neobundleからdeinvimに乗り換えた">NeoBundleからdein.vimに乗り換えた&lt;/h3>
-&lt;p>※5/6 ブログ書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/06/122034">今更だけどNeoBundleからdein.vimに乗り換えて、プラグインを6つ追加した - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
-&lt;p>今更かよって感じだけど乗り換えた。&lt;br>
-NeoBundleは2年ぐらい前に更新が止まっていた。&lt;/p>
-&lt;p>作業マシンはUbuntu 18.04&lt;/p>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vim/#deinvim">Vim#deinvim&lt;/a>&lt;/p>
-&lt;h4 id="インストール">インストール&lt;/h4>
-&lt;p>&lt;a href="https://github.com/Shougo/dein.vim#quick-start">https://github.com/Shougo/dein.vim#quick-start&lt;/a> に従う。&lt;/p>
-&lt;p>インストール先は &lt;code>~/.vim/dein&lt;/code> とした。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh &amp;gt; installer.sh
-sh ./installer.sh ~/.vim/dein
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>実際は&lt;a href="https://github.com/progrhyme/dotfiles/commit/1ef6a75f2952407d6758eb0c1cef584943ed9ecc">こんな感じ&lt;/a>で、スクリプトで対応した。&lt;/p>
-&lt;h4 id="vimrcの移行">vimrcの移行&lt;/h4>
-&lt;p>&lt;a href="https://github.com/progrhyme/dotfiles/commit/35f3be479a57e92d98a6182792b900366ab20beb">このコミット&lt;/a>で対応した。&lt;/p>
-&lt;p>とりあえず使ってるのは全部移行しようかと思ったけど、次の行のプラグインについてはどう移行すればいいのかぱっとわからず、悩んだ:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">NeoBundleLazy&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;mopp/layoutplugin.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> { &lt;span style="color:#4e9a06">&amp;#39;autoload&amp;#39;&lt;/span> : { &lt;span style="color:#4e9a06">&amp;#39;commands&amp;#39;&lt;/span> : &lt;span style="color:#4e9a06">&amp;#39;LayoutPlugin&amp;#39;&lt;/span>} }&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>そもそもこのプラグインはvim-pluginの雛形作成ツールで、今のところ使う予定がないので、消すことにした。&lt;/p>
-&lt;p>あと、TOMLに対応したプラグインがなかったので、 &lt;code>'cespare/vim-toml'&lt;/code> を入れた。&lt;/p>
-&lt;p>以上。&lt;/p>
-&lt;p>なんか、vim起動後にENTERが必要だったり、終了後に画面がクリアされなかったりする（NeoBundleの頃はそんなことはなかった）が、概ね問題なさそう。&lt;/p>
-&lt;p>（追記）引き続き確認したところ、 &lt;code>'Align'&lt;/code> プラグインで警告が出ていることに気がついた。 &lt;code>'vim-scripts/Align'&lt;/code> に修正したら上の問題はなくなった。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/dotfiles/commit/df90a50ffca16629bb0dbcf31f6405e249cac763">修正コミット&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

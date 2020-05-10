@@ -284,6 +284,10 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;li>&lt;a href="https://github.com/terraform-providers/terraform-provider-kubernetes">https://github.com/terraform-providers/terraform-provider-kubernetes&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>K8sのリソースオブジェクトを管理できる。&lt;/p>
+&lt;h3 id="resources">Resources&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/kubernetes/r/deployment.html">kubernetes_deployment&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="local">Local&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/local/">https://www.terraform.io/docs/providers/local/&lt;/a>&lt;/p>
 &lt;p>ローカルのファイルをData Sourceとして読んだり、Resourceとして作成・管理したり。&lt;/p>
@@ -336,7 +340,41 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
 &lt;span style="color:#000"> user_data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.template_file.init.rendered}&amp;#34;&lt;/span>
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-providers">Other Providers&lt;/h2></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-providers">Other Providers&lt;/h2></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/terraform/editor/</link><pubDate>Sun, 10 May 2020 08:41:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/editor/</guid><description>
+&lt;p>各種エディタやIDEでTerraformを書くための設定など。&lt;/p>
+&lt;h2 id="intellij-idea">IntelliJ IDEA&lt;/h2>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/idea/">IntelliJ IDEA&lt;/a>&lt;/p>
+&lt;h3 id="plugins">Plugins&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-support">HashiCorp Terraform / HCL language support - IntelliJ IDEs | JetBrains&lt;/a>&lt;/li>
+&lt;li>File Watcher &amp;hellip; ファイル保存時に &lt;code>terraform fmt&lt;/code> を実行するため&lt;/li>
+&lt;/ul>
+&lt;h3 id="設定">設定&lt;/h3>
+&lt;ul>
+&lt;li>File Watcherによる &lt;code>terraform fmt&lt;/code> を設定する&lt;/li>
+&lt;/ul>
+&lt;h2 id="visual-studio-code">Visual Studio Code&lt;/h2>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vscode/">Visual Studio Code&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/pypypyo14/items/5520f3defa55119f3a1a">VSCodeでTerraformを書くときの設定(2019/11/07追記: HCL2対応) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="extensions">Extensions&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=mauve.terraform">Terraform - Visual Studio Marketplace&lt;/a>
+&lt;ul>
+&lt;li>2020年5月、公式になった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.hashicorp.com/blog/supporting-the-hashicorp-terraform-extension-for-visual-studio-code/">Supporting the HashiCorp Terraform Extension for Visual Studio Code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="設定-1">設定&lt;/h3>
+&lt;ul>
+&lt;li>自動フォーマット（ &lt;code>editor.formatOnSave&lt;/code> ）をONにしておく -&amp;gt; &lt;code>terraform fmt&lt;/code> が掛かるようになる&lt;/li>
+&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
 &lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
 &lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
 &lt;h2 id="install">Install&lt;/h2>

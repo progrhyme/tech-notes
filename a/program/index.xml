@@ -371,6 +371,25 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%E3%81%A7%E8%A8%80%E8%AA%9E%E3%81%94%E3%81%A8%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%9F%E3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="自動フォーマット">自動フォーマット&lt;/h3>
+&lt;p>&lt;a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting">https://code.visualstudio.com/docs/editor/codebasics#_formatting&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>config&lt;/th>
+&lt;th>値（*）&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>editor.formatOnSave&lt;/code>&lt;/td>
+&lt;td>true, &lt;strong>false&lt;/strong>&lt;/td>
+&lt;td>保存時にコードフォーマッタをかける&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>（*）デフォルト値は太字&lt;/p>
 &lt;h3 id="インデント設定">インデント設定&lt;/h3>
 &lt;table>
 &lt;thead>
