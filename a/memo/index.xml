@@ -81,6 +81,27 @@ travis encrypt &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;Slack Workspace&a
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="次世代のシェルとは">次世代のシェルとは&lt;/h3>
+&lt;p>&lt;a href="https://ngs-lang.org/">https://ngs-lang.org/&lt;/a>&lt;/p>
+&lt;p>4年前にもブクマしてたやつ。&lt;/p>
+&lt;p>これC言語製だったか。&lt;/p>
+&lt;p>今さっきググったらGolang製のフォーマッタ/パーサ/インタープリタを見つけた。&lt;/p>
+&lt;p>&lt;a href="https://github.com/mvdan/sh">https://github.com/mvdan/sh&lt;/a>&lt;/p>
+&lt;p>なんか、そのうち全部JavaScriptになるんじゃないかな、って気もするんだよなぁ。&lt;/p>
+&lt;p>macOSはJavaScriptでOSと対話できるようになったし、GNOME ShellもJavaScriptで拡張できるらしいし。&lt;/p>
+&lt;p>まあ、よくできたプログラム言語がごろごろある現状、敢えて0から再実装する必要ないよねってことか。&lt;/p>
+&lt;p>そんなわけでclenvを再開するモチベーションが湧かない今日この頃。&lt;/p>
+&lt;p>Node.jsが筆頭だけど、JavaScriptで実装されたシェルも色々あるみたい。&lt;br>
+※ただ、OSのシェルとはどれもちょっと違うかも。&lt;/p>
+&lt;p>POSIXはもう気にしなくてもいいだろうと思うものの、どの環境でもスッと動いてほしいとは思う。&lt;br>
+そういえばfishってどうだっけと思って、改めてチラ見して&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/#fish-shell">シェル&lt;/a>にメモした。&lt;br>
+これはC++製なんですね。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/zakuroishikuro/items/1b02378bf9e940602d87">知らないうちにMacがシステム標準でJavaScriptで操作できるようになってた (JXA) - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0492">第492回 GNOME Shellの拡張機能を作ってみよう：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/JavaScript/Shells">JavaScript シェル - JavaScript リダイレクト 1 | MDN&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
 &lt;h2 id="59">5/9&lt;/h2>
 &lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
