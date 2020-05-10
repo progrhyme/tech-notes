@@ -34,4 +34,31 @@ https://fishshell.com/
 - [fish shellが結構良かった話 - Qiita](https://qiita.com/hennin/items/33758226a0de8c963ddf)
 - [シェル芸人のためのfish入門 - Qiita](https://qiita.com/kuwa72/items/f3a90fcd215938f5817e) ... Bashとの違いがわかりやすかった
 
+### Getting Started
+
+Install:
+
+- https://fishshell.com/ の「Go fish」から
+
+Documentation:
+
+- https://fishshell.com/docs/current/
+  - [Tutorial — fish-shell 3.1.2 documentation](https://fishshell.com/docs/current/tutorial.html)
+
+### Package Managers
+
+- [jorgebucaran/fisher](https://github.com/jorgebucaran/fisher) ... これが人気っぽい
+- [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) ... fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
+  - https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md ... 利用可能なテーマ一覧。
+
+```sh
+# oh-my-fishのテーマをfisherでインストール
+fisher add oh-my-fish/theme-<テーマ名>
+```
+
+参考:
+
+- [初心者がShellを知りFish〜Fisherを導入するまで - Qiita](https://qiita.com/nutsinshell/items/5f111184b50f7081c92f)
+- [fisher v3 で変わったこと | Hi120kiのメモ](https://hi120ki.github.io/blog/posts/20190123/)
+
 ## Child Pages
