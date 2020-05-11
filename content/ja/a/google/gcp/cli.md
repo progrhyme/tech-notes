@@ -58,12 +58,6 @@ gcloud compute ssh [--project=<PROJECT>] [--zone=<ZONE>] [--internal-ip | --tunn
 gcloud compute scp [--project=<PROJECT>] [--zone=<ZONE>] [--internal-ip | --tunnel-through-iap] \
   [--recurse] host:/path/to/dir path/to/local
 
-## 証明書
-gcloud compute ssl-certificates
-
-### 一覧表示
-gcloud compute ssl-certificates list
-
 ## イメージの作成
 gcloud compute images create my-image --source-disk my-vm-disk
 ```
@@ -98,6 +92,25 @@ gcloud compute instances create my-instance \
 
 - [イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja)
 
+#### ssl-certificates
+
+https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates
+
+証明書の管理。マネージド証明書が作れる。
+
+```sh
+# 一覧表示
+gcloud compute ssl-certificates list
+
+# 詳細表示
+gcloud compute ssl-certificates describe <name>
+
+# 作成
+gcloud compute ssl-certificates create <name> --domains=<fqdn1>,...
+
+# 削除
+gcloud compute ssl-certificates delete <name>
+```
 
 ### config
 
@@ -151,6 +164,21 @@ Examples:
 gcloud config set project my-project
 gcloud config set compute/region asia-northeast1
 gcloud config set compute/zone asia-northeast1-a
+```
+
+### container
+
+https://cloud.google.com/sdk/gcloud/reference/container
+
+GKE操作
+
+Examples:
+
+```sh
+gcloud container clusters list
+
+# $KUBECONFIG or ~/.kube/config に認証情報を取得
+gcloud container clusters get-credentials クラスタ名 [--region=REGION] [--project=PROJECT_ID]
 ```
 
 ### functions

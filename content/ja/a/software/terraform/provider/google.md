@@ -59,6 +59,27 @@ Providerリファレンスで、「Google Cloud Platform Resources」という�
 - [google_service_account](https://www.terraform.io/docs/providers/google/r/google_service_account.html)
 - [google_service_account_key](https://www.terraform.io/docs/providers/google/r/google_service_account_key.html)
 
+Examples:
+
+```HCL
+resource "google_service_account" "terraform" {
+  account_id   = "terraform"
+}
+
+resource "google_service_account_key" "terraform_key" {
+  service_account_id = google_service_account.terraform.name
+  private_key_type   = "TYPE_GOOGLE_CREDENTIALS_FILE"
+}
+
+# ローカルにService Account KeyのJSONを保存する
+resource local_file "terraform_key_json" {
+  filename             = "./tmp/terraform_service_account_key.json"
+  content              = base64decode(google_service_account_key.terraform_key.private_key)
+  file_permission      = "0600"
+  directory_permission = "0755"
+}
+```
+
 #### IAM policy for projects
 
 https://www.terraform.io/docs/providers/google/r/google_project_iam.html

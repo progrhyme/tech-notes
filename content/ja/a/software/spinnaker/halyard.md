@@ -49,6 +49,35 @@ hal config provider $PROVIDER account edit $ACCOUNT \
 
 - https://www.spinnaker.io/setup/security/authorization/#accounts
 
+#### canary
+
+Canary analysis settings. kayentaの設定らしい。
+
+Examples:
+
+```sh
+hal config canary <integration> account list
+hal config canary <integration> account edit ACCOUNT [parameters]
+```
+
+Integrations:
+
+- aws, datadog, google, newrelic, prometheus, signalfx
+
+
+#### storage
+
+Persistent storage.
+
+Examples:
+
+```sh
+hal config storage <integration> edit [parameters]
+```
+
+Integrations:
+
+- azs, gcs, oracle, s3
 
 ### deploy
 

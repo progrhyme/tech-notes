@@ -15,6 +15,11 @@ weight: 30
 
 - [IntelliJの使い方 - Qiita](https://qiita.com/pipi_taro/items/859d445960bb79a3ac78)
 
+### File Typeの関連付け
+
+`Preferences > Editor > File Types` で関連付けを設定できる。  
+まだ関連付けがない拡張子のファイルであれば、エディタ上で右クリックして「Associate File Type」を選んで設定することもできる。
+
 ## Plugins
 ### File Watchers
 
