@@ -2510,6 +2510,13 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;li>入門レベルで割とよく使う感じの機能がまとまってる。&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: Infrastructure as Code</title><link>https://progrhy.me/tech-notes/a/software/infra-as-code/</link><pubDate>Tue, 12 May 2020 07:01:35 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/infra-as-code/</guid><description>
+&lt;p>ITインフラの構成をコードで管理できるようにしてくれるソフトウェアについて書く。&lt;/p>
+&lt;h2 id="software">Software&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.pulumi.com/product/">Pulumi&lt;/a> &amp;hellip; 各種クラウドの構成管理を高級言語で行える&lt;/li>
+&lt;li>&lt;a href="https://gocloud.dev/">Go CDK (Cloud Development Kit)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/">Terraform&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: jq</title><link>https://progrhy.me/tech-notes/a/cli/jq/</link><pubDate>Thu, 07 May 2020 11:44:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/jq/</guid><description>
 &lt;p>JSONにクエリしてフィルタできるCLIツール。&lt;/p>
 &lt;h2 id="documents">Documents&lt;/h2>
@@ -4063,162 +4070,4 @@ Cloudflareの管理画面でDNSサーバを確認して、Google Domainsでカ�
 LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:xtel 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
 % ss -ltnp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
 LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:1313 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>そういうことですね。&lt;/p></description></item><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
-&lt;h2 id="510">5/10&lt;/h2>
-&lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
-&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/121145">TerraformのKubernetes ProviderでK8sのリソース管理にトライ - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
-&lt;h3 id="ubuntuでもanyenvを使うことにした">Ubuntuでもanyenvを使うことにした&lt;/h3>
-&lt;p>Ubuntuで最近Ruby触ってなかったので、入っているRubyが古いことに気づいたのだけど、rbenvも &lt;code>git clone&lt;/code> して入れたものなので、古い。&lt;br>
-plenv, pyenvも同様である。&lt;/p>
-&lt;p>&lt;a href="../2020/20200428/">4/28&lt;/a>にmacOSでanyenvを試したのだけど、Ubuntuでも使ってみることにした。&lt;/p>
-&lt;p>&lt;a href="https://github.com/anyenv/anyenv">https://github.com/anyenv/anyenv&lt;/a>&lt;/p>
-&lt;p>自分環境のセットアップスクリプトに &lt;code>setup-rbenv.sh&lt;/code> とか入れてるけど、anyenvで管理した方が筋がよさそう。&lt;/p>
-&lt;h4 id="anyenv-install">anyenv install&lt;/h4>
-&lt;p>Linuxbrewを入れてるので、brewでインストールできた。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% brew install &lt;span style="color:#000">anyenv&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Downloading https://linuxbrew.bintray.com/bottles/anyenv-1.1.1.x86_64_linux.bottle.tar.gz
-&lt;span style="color:#8f5902;font-style:italic">######################################################################## 100.0%&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Pouring anyenv-1.1.1.x86_64_linux.bottle.tar.gz
-🍺 /home/linuxbrew/.linuxbrew/Cellar/anyenv/1.1.1: &lt;span style="color:#0000cf;font-weight:bold">23&lt;/span> files, 48.4KB
-% anyenv init
-&lt;span style="color:#8f5902;font-style:italic"># Load anyenv automatically by adding&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># the following to ~/.zshrc:&lt;/span>
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>anyenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-% &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>anyenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-ANYENV_DEFINITION_ROOT&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>/home/quiche/.config/anyenv/anyenv-install&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> doesn&lt;span style="color:#4e9a06">&amp;#39;t exist. You can initialize it by:
-&lt;/span>&lt;span style="color:#4e9a06">&amp;gt; anyenv install --init
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">% anyenv install --init
-&lt;/span>&lt;span style="color:#4e9a06">Manifest directory doesn&amp;#39;&lt;/span>t exist: /home/quiche/.config/anyenv/anyenv-install
-Do you want to checkout ? &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>y/N&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>: y
-Cloning https://github.com/anyenv/anyenv-install.git master to /home/quiche/.config/anyenv/anyenv-install...
-Cloning into &lt;span style="color:#4e9a06">&amp;#39;/home/quiche/.config/anyenv/anyenv-install&amp;#39;&lt;/span>...
-remote: Enumerating objects: 48, &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>.
-remote: Total &lt;span style="color:#0000cf;font-weight:bold">48&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>delta 0&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, reused &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>delta 0&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, pack-reused &lt;span style="color:#0000cf;font-weight:bold">48&lt;/span>
-Unpacking objects: 100% &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>48/48&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>.
-Completed!
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここまでやって &lt;code>exec $SHELL -l&lt;/code> してもまだPATHには変化なし。&lt;br>
-どうも何かしら &lt;code>*env&lt;/code> をインストールしないといけないらしい。&lt;/p>
-&lt;p>&lt;code>anyenv install rbenv&lt;/code> してからシェルに再ログインすると、PATHに &lt;code>$HOME/.anyenv/envs/rbenv/shims&lt;/code>, &lt;code>$HOME/.anyenv/envs/rbenv/bin&lt;/code> が追加された。&lt;/p>
-&lt;h4 id="rubyのインストールでややハマった">rubyのインストールでややハマった&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% rbenv install 2.7.1 -v
-:
-ruby: error &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> loading shared libraries: libruby.so.2.7: cannot open shared object file: No such file or directory
-uncommon.mk:1130: recipe &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> target &lt;span style="color:#4e9a06">&amp;#39;revision.tmp&amp;#39;&lt;/span> failed
-make: *** &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>revision.tmp&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Error &lt;span style="color:#0000cf;font-weight:bold">127&lt;/span>
-BUILD FAILED &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Ubuntu 18.04 using ruby-build 20200401-11-g12af1c3&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>上のようなエラーで失敗した。&lt;br>
-どうもこれはrdocの生成でコケているようだ。&lt;/p>
-&lt;p>ただ、ビルドログを見たら下のようなエラーも出ていた。&lt;/p>
-&lt;pre>&lt;code>% view /tmp/ruby-build.20200510143333.6198.log
-:
-1660 *** Following extensions are not compiled:$
-1661 dbm:$
-1662 &amp;gt;-Could not be configured. It will not be installed.$
-1663 &amp;gt;-Check ext/dbm/mkmf.log for more details.$
-1664 gdbm:$
-1665 &amp;gt;-Could not be configured. It will not be installed.$
-1666 &amp;gt;-Check ext/gdbm/mkmf.log for more details.$
-1667 *** Fix the problems, then remove these directories and try again if you want.$
-:
-&lt;/code>&lt;/pre>&lt;p>よくわからないままビルドに必要そうなパッケージをインストールしてリトライした。&lt;/p>
-&lt;pre>&lt;code>sudo apt install build-essential bison libffi-dev libgdbm-dev libgdbm-compat-dev \
-libreadline-dev libssl-dev zlib1g-dev
-&lt;/code>&lt;/pre>&lt;p>参考: &lt;a href="https://qiita.com/raccy/items/cd0b39a33dbe764480be">Rubyをソースからコンパイルするときの依存ライブラリ - Qiita&lt;/a>&lt;/p>
-&lt;p>上で、いくつかのパッケージは既にインストールされていた。&lt;/p>
-&lt;p>リトライした結果、結局、さっきと同じrubyのエラーで失敗した。&lt;br>
-ビルドログから、dbm関連のエラーは消えていたので、そこは解消したらしい。&lt;/p>
-&lt;p>闇雲に別のまっさらなシェルを立ち上げて再度インストールを試みたところ、成功した。&lt;/p>
-&lt;p>まだ &lt;code>~/.rbenv&lt;/code> に古いrbenvが入っていて、 &lt;code>ruby&lt;/code> が &lt;code>~/.rbenv/shims/ruby&lt;/code> を向いていたので、その辺が悪さをしていたのかもしれない。&lt;/p>
-&lt;p>これで駄目だったらrdocの生成をオフしようかと思っていた。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://hackbaka.hatenablog.com/entry/2018/09/13/151242">Ruby インストール時の rdoc エラー[Ubuntu] - ハッキングバカ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="clenvでtravis-ciのビルド通知とバッジを修正した">clenvでTravis CIのビルド通知とバッジを修正した&lt;/h3>
-&lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
-&lt;p>昔、リポジトリを key-amb -&amp;gt; progrhyme に移したのだけど、そのせいでバッジとSlack通知がおかしくなっていた。&lt;/p>
-&lt;p>Slackのインテグレーション自体は生きていたので、 &lt;code>travis&lt;/code> コマンドで設定をし直した。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gem i travis
-travis encrypt &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;Slack Workspace&amp;gt;:&amp;lt;Slack Integration Token&amp;gt;&amp;#34;&lt;/span> --add notifications.slack.rooms
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで .travis.yml が更新されたので、GitHubにpushして完了。&lt;/p>
-&lt;p>バッジも新しいURLで取得した。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="次世代のシェルとは">次世代のシェルとは&lt;/h3>
-&lt;p>&lt;a href="https://ngs-lang.org/">https://ngs-lang.org/&lt;/a>&lt;/p>
-&lt;p>4年前にもブクマしてたやつ。&lt;/p>
-&lt;p>これC言語製だったか。&lt;/p>
-&lt;p>今さっきググったらGolang製のフォーマッタ/パーサ/インタープリタを見つけた。&lt;/p>
-&lt;p>&lt;a href="https://github.com/mvdan/sh">https://github.com/mvdan/sh&lt;/a>&lt;/p>
-&lt;p>なんか、そのうち全部JavaScriptになるんじゃないかな、って気もするんだよなぁ。&lt;/p>
-&lt;p>macOSはJavaScriptでOSと対話できるようになったし、GNOME ShellもJavaScriptで拡張できるらしいし。&lt;/p>
-&lt;p>まあ、よくできたプログラム言語がごろごろある現状、敢えて0から再実装する必要ないよねってことか。&lt;/p>
-&lt;p>そんなわけでclenvを再開するモチベーションが湧かない今日この頃。&lt;/p>
-&lt;p>Node.jsが筆頭だけど、JavaScriptで実装されたシェルも色々あるみたい。&lt;br>
-※ただ、OSのシェルとはどれもちょっと違うかも。&lt;/p>
-&lt;p>POSIXはもう気にしなくてもいいだろうと思うものの、どの環境でもスッと動いてほしいとは思う。&lt;br>
-そういえばfishってどうだっけと思って、改めてチラ見して&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/#fish-shell">シェル&lt;/a>にメモした。&lt;br>
-これはC++製なんですね。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/zakuroishikuro/items/1b02378bf9e940602d87">知らないうちにMacがシステム標準でJavaScriptで操作できるようになってた (JXA) - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0492">第492回 GNOME Shellの拡張機能を作ってみよう：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/JavaScript/Shells">JavaScript シェル - JavaScript リダイレクト 1 | MDN&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ubuntuでfishを少しだけ試してみた">Ubuntuでfishを少しだけ試してみた&lt;/h3>
-&lt;p>Install:&lt;/p>
-&lt;p>&lt;a href="https://launchpad.net/~fish-shell/+archive/ubuntu/release-3">https://launchpad.net/~fish-shell/+archive/ubuntu/release-3&lt;/a> の通り:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get install fish
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>fish&lt;/code> で起動する。&lt;/p>
-&lt;p>体感そんな悪くない。&lt;br>
-bashで書いたスクリプトはシバン書いてるから実行したら普通に動くし、特に戸惑うことはない感じ。&lt;/p>
-&lt;p>少しカスタマイズしたら十分使いやすくなりそう。&lt;/p>
-&lt;h4 id="fisherを試す">fisherを試す&lt;/h4>
-&lt;p>テーマを使ってみたかったので、fisherを入れてテーマを入れてみる。&lt;/p>
-&lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
-&lt;p>READMEに従ってインストール&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>色々ハマったんだけど、最終的に次の要領で、まあまあいい感じになった:&lt;/p>
-&lt;h5 id="powerlineのインストール">powerlineのインストール&lt;/h5>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install powerline
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gist.github.com/TrentSPalmer/63a85b582d42ab4bff665fc2dbba42e2">fish powerline on ubuntu the easy way&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>※↑に書かれている &lt;code>~/.config/fish/config.fish&lt;/code> の設定をすると、fishでpowerlineは使えるが、他のテーマを入れるとおかしくなる。（カニバってしまう？）&lt;/p>
-&lt;p>powerlineを使うには対応したフォントが必要らしい。これに中々気づかなかった。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://news.mynavi.jp/itsearch/article/hardware/4775">【連載】にわか管理者のためのLinux運用入門 [210] Powerlineでカッコよく - シェル編（bash、zsh、fish）｜サーバ/ストレージ｜IT製品の事例・解説記事&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;a href="https://github.com/microsoft/cascadia-code/releases">https://github.com/microsoft/cascadia-code/releases&lt;/a> から、最新版を &lt;code>~/.fonts&lt;/code> にインストールした。&lt;/p>
-&lt;p>参考: &lt;a href="http://omoiyari.nishinari.coop/ubuntu-tips/%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab/">フォントのインストール | Ubuntu初心者の集いブログ&lt;/a>&lt;/p>
-&lt;h5 id="テーマの追加">テーマの追加&lt;/h5>
-&lt;p>この後、fishを起動し、 &lt;code>fisher add oh-my-fish/theme-bobthefish&lt;/code> で、まあまあいい感じになった。&lt;/p>
-&lt;p>ただ、プロンプトの左端が &lt;code>I&lt;/code> となっていて、これはスクリーンショットによると本来は矢印記号が出るはずなんじゃないかと思う。&lt;/p>
-&lt;p>theme-bobthefish のガイドに従って、 &lt;a href="https://github.com/ryanoasis/nerd-fonts/releases">https://github.com/ryanoasis/nerd-fonts/releases&lt;/a> も入れてみたけど、特に変わらない。&lt;/p>
-&lt;h5 id="上手く行かなかったこと">上手く行かなかったこと&lt;/h5>
-&lt;p>上まで辿りついたが、 &lt;code>theme-budspencer&lt;/code> だと上手く行かなかった。&lt;br>
-プロンプトでENTERだけを押しても改行されない感じになってしまう。&lt;/p>
-&lt;h5 id="参考">参考&lt;/h5>
-&lt;ul>
-&lt;li>&lt;a href="https://nodaki.hatenablog.com/entry/2018/09/24/213942">【Ubuntu】 shellをfish + fisherman に変えた話 - 0.5から始める機械学習&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/minako-ph/items/dba6d65b741e3a30ad16#fisherman%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B">【2019年版】macのターミナルにFishとFishermanを導入する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="gasでwebアプリ作るテスト">GASでWebアプリ作るテスト&lt;/h3>
-&lt;p>&lt;a href="https://qiita.com/hyt48/items/2534237d96f991f31966">Google Apps ScriptでWebアプリケーションをつくる - Qiita&lt;/a>を写経。
-ステップ5の「データをGoogleスプレッドシートに保存」はまだできていない。&lt;/p>
-&lt;p>JS, CSSを分割したところから上手く行かなくなった。
-原因は以下の2つ:&lt;/p>
-&lt;ul>
-&lt;li>Qiita上ではJS, CSSのコードが省略されている。&lt;a href="https://github.com/mio3io/cr-vue/tree/master/codes/tutorial-todo">GitHubの完全版&lt;/a>からコピる必要があった。&lt;/li>
-&lt;li>コード.gsの &lt;code>doGet()&lt;/code> 関数を下に従って変更する必要があった:
-&lt;ul>
-&lt;li>&lt;a href="https://tonari-it.com/gas-web-html-css-scriptlet/">GASでWebページを作るときにHTMLとCSSを別ファイルに記述する方法&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>そういうことですね。&lt;/p></description></item></channel></rss>

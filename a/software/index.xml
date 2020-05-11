@@ -494,6 +494,13 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;li>入門レベルで割とよく使う感じの機能がまとまってる。&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: Infrastructure as Code</title><link>https://progrhy.me/tech-notes/a/software/infra-as-code/</link><pubDate>Tue, 12 May 2020 07:01:35 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/infra-as-code/</guid><description>
+&lt;p>ITインフラの構成をコードで管理できるようにしてくれるソフトウェアについて書く。&lt;/p>
+&lt;h2 id="software">Software&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.pulumi.com/product/">Pulumi&lt;/a> &amp;hellip; 各種クラウドの構成管理を高級言語で行える&lt;/li>
+&lt;li>&lt;a href="https://gocloud.dev/">Go CDK (Cloud Development Kit)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/">Terraform&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
