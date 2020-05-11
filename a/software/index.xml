@@ -302,7 +302,7 @@ git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -rf p
 &lt;/ul>
 &lt;h3 id="マージ済みブランチを掃除する">マージ済みブランチを掃除する&lt;/h3>
 &lt;p>色んな人がやっていて、aliasに設定したりサブコマンドを作ったりしている。&lt;/p>
-&lt;p>自分でも&lt;a href="https://progrhy.me/tech-notes/a/memo/20200504/#git-pull---prune%E3%81%97%E3%81%A6%E3%83%9E%E3%83%BC%E3%82%B8%E6%B8%88%E3%81%BF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8E%83%E9%99%A4%E3%81%99%E3%82%8Bgit%E3%81%AE%E3%82%B5%E3%83%96%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F">2020-05-04に作った&lt;/a>。&lt;/p>
+&lt;p>自分でも&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200504/#git-pull---prune%E3%81%97%E3%81%A6%E3%83%9E%E3%83%BC%E3%82%B8%E6%B8%88%E3%81%BF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8E%83%E9%99%A4%E3%81%99%E3%82%8Bgit%E3%81%AE%E3%82%B5%E3%83%96%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F">2020-05-04に作った&lt;/a>。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/kenshiroh/items/44dcf4b094e841bb42a2">gitでbranchをお掃除する際のチートシート - Qiita&lt;/a>&lt;/li>
