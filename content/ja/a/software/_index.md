@@ -4,7 +4,7 @@ linkTitle: "Software"
 description: ソフトウェア製品
 date: 2020-04-25T23:37:10+09:00
 simple_list: true
-weight: 300
+weight: 200
 ---
 
 - OSについては See [OS]({{< ref "/a/os/_index.md" >}})
