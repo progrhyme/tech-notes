@@ -3954,6 +3954,13 @@ ss -antu
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: 2020-05-12</title><link>https://progrhy.me/tech-notes/a/memo/20200512/</link><pubDate>Tue, 12 May 2020 08:25:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200512/</guid><description>
 &lt;h2 id="512">5/12&lt;/h2>
+&lt;h3 id="macosのターミナルでフォントサイズのプリセットを変更">macOSのターミナルでフォントサイズのプリセットを変更&lt;/h3>
+&lt;p>16ptにしたいんだけど16ptがプリセットにない、と思って試行錯誤していたら、変更方法を見つけた。&lt;/p>
+&lt;ol>
+&lt;li>環境設定からプロファイルを選択し、「テキスト」タブでフォント欄の「変更」を押す（ここまではわかっていた）&lt;/li>
+&lt;li>フォント設定画面で、左上に歯車アイコンがあり、そこを押すとプルダウンメニューが出てくる。「サイズを編集」を選ぶ&lt;/li>
+&lt;li>新しいサイズで「16」を入力し、「+」で追加できる&lt;/li>
+&lt;/ol>
 &lt;h3 id="macosでもfishを少しだけ試す">macOSでもfishを少しだけ試す&lt;/h3>
 &lt;p>&lt;a href="../20200510/#ubuntu%E3%81%A7fish%E3%82%92%E5%B0%91%E3%81%97%E3%81%A0%E3%81%91%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">5/10&lt;/a>の続き。&lt;br>
 macOSの方がハマらないんじゃないかなと思って。&lt;/p>
