@@ -1,0 +1,71 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – ネットワーク</title><link>https://progrhy.me/tech-notes/a/network/</link><description>Recent content in ネットワーク on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 12 May 2020 00:11:45 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/network/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Domain Name System</title><link>https://progrhy.me/tech-notes/a/network/dns/</link><pubDate>Tue, 12 May 2020 00:12:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/network/dns/</guid><description>
+&lt;p>DNSプロトコルやDNSサーバなどに関して。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>入門コンテンツ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.nic.ad.jp/ja/newsletter/No22/080.html">インターネット10分講座 DNS - JPNIC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="glossary">Glossary&lt;/h2>
+&lt;h3 id="スタブとフォワード">スタブとフォワード&lt;/h3>
+&lt;ul>
+&lt;li>スタブゾーン, 条件付きフォワーダ&lt;/li>
+&lt;li>いずれも別のサーバに問合せを転送することができる。&lt;/li>
+&lt;li>フォワード
+&lt;ul>
+&lt;li>問合せを外部に転送&lt;/li>
+&lt;li>DNS キャッシュサーバを指定する&lt;/li>
+&lt;li>外部へ問合せするDNSキャッシュサーバをまとめられる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>スタブ
+&lt;ul>
+&lt;li>その zone をホストする DNS コンテンツサーバを指定&lt;/li>
+&lt;li>サブドメインを委任するときとか&lt;/li>
+&lt;li>子ゾーンをスタブゾーンとする&lt;/li>
+&lt;li>親ゾーンでは子ゾーンをホストするすべての DNS サーバを認識するようにする&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/cc780434(v=ws.10).aspx">スタブ ゾーンと条件付きフォワーダとの違い&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/0306/03/news002_3.html">実用 BIND 9で作るDNSサーバ（6）：サブドメインの運用と委任 (3/3) - ＠IT&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://unbound.jp/unbound/unbound-conf/">unbound.conf(5) – 日本Unboundユーザー会&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="レコード">レコード&lt;/h2>
+&lt;p>&lt;a href="https://tools.ietf.org/html/rfc1035">https://tools.ietf.org/html/rfc1035&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>NS&lt;/li>
+&lt;li>A&lt;/li>
+&lt;li>CNAME&lt;/li>
+&lt;li>MX&lt;/li>
+&lt;li>TXT&lt;/li>
+&lt;li>SOA&lt;/li>
+&lt;li>:&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/DNS%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%80%E8%A6%A7">DNSレコードタイプの一覧 - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://manual.iij.jp/dns/help/1481516.html">DNSレコードの登録ルール（バリデーションルール）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="txt">TXT&lt;/h3>
+&lt;p>&lt;a href="https://tools.ietf.org/html/rfc1464">https://tools.ietf.org/html/rfc1464&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;pre>&lt;code>example.jp. IN TXT &amp;quot;exampleA&amp;quot; &amp;quot;exampleB&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>仕様:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;quot;&lt;/code> で括ってエントリを値を記述する。&lt;/li>
+&lt;li>&lt;code>&amp;quot;&lt;/code> で括った1エントリについて
+&lt;ul>
+&lt;li>文字数は最大255文字。&lt;code>&amp;quot;&lt;/code> も含めると最大257文字&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>エントリを複数記述できる。エントリ間に半角スペースを入れる。&lt;/li>
+&lt;li>TXTレコードの右辺全体に記述できる文字数は最大1,024文字&lt;/li>
+&lt;/ul>
+&lt;h2 id="dnssec">DNSSEC&lt;/h2>
+&lt;p>DNSのセキュリティを高める技術の1つで、主にキャッシュポイズニングを防げるっぽい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.nic.ad.jp/ja/newsletter/No43/0800.html">インターネット10分講座：DNSSEC - JPNIC&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

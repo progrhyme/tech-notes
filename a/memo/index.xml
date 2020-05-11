@@ -1,4 +1,52 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-11</title><link>https://progrhy.me/tech-notes/a/memo/20200511/</link><pubDate>Mon, 11 May 2020 23:14:25 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200511/</guid><description>
+&lt;h2 id="511">5/11&lt;/h2>
+&lt;h3 id="お名前comからgoogle-domainsに移行する">お名前.comからGoogle Domainsに移行する&lt;/h3>
+&lt;p>メールとUXがうざいし、サイトUIがとってもわかりにくくて不便なので。&lt;br>
+前々からやりたかったけど、やる気がある今の内にやってしまう。&lt;/p>
+&lt;p>手順は下を参考にした:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/fnifni/items/0daca17e0750659f2866">お名前comからgoogle domainsにドメイン移管する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>URLやUIが変わっていて、全くこのままというわけではなかったが、大まかな流れは同じだった。&lt;/p>
+&lt;p>Google Domainsは別にGCPプロジェクトなくても使えるんですね。&lt;br>
+TerraformでDNSレコード管理しようかと思ってたけど、やりたかったらCloud DNSに移譲しないといけないのかな？&lt;/p>
+&lt;h4 id="トランスファー申請不承認のご連絡">「トランスファー申請不承認のご連絡」&lt;/h4>
+&lt;p>Google Domains側で手続きして約20分後に、お名前.comから上の題のメールが。&lt;/p>
+&lt;pre>&lt;code>上記ドメインのトランスファー申請につきまして、下記いずれかに該当する
+ため申請を不承認といたしました。
+1.該当URLより不承認処理が行われた
+2.Whois情報公開代行サービスの設定が行われている
+3.ドメインの契約終了日まで7日以内（JPドメインのみ）
+4.期限内に承認処理が行われなかった
+再度申請を行う場合は、上記事項に該当しないことを確認した上で申請を
+行ってください。
+&lt;/code>&lt;/pre>&lt;p>2.のWhois情報公開代行サービスを設定しているからですね。&lt;br>
+早速解除して、Google Domainsから払い戻しが来たタイミングで再度、移管申請。&lt;/p>
+&lt;p>今度は大丈夫だろう。（フラグ）&lt;/p>
+&lt;h4 id="重要トランスファー申請に関する確認のご連絡">「【重要】トランスファー申請に関する確認のご連絡」&lt;/h4>
+&lt;pre>&lt;code>お名前.com by GMOは、上記ドメインについて に他社
+レジストラへのトランスファー申請を承りました。
+トランスファー手続きにつきまして、他社レジストラへ移管をご希望の場合は
+期日までに以下URLから承認のお手続きをお願いいたします。
+&lt;/code>&lt;/pre>&lt;p>再申請から約25分後、無事フラグを回避できた。&lt;/p>
+&lt;h4 id="google-domains---cloudflareにns移譲設定">Google Domains -&amp;gt; CloudflareにNS移譲設定&lt;/h4>
+&lt;p>お名前.comから移譲設定をしていたが、さすがにその設定は引き継がれていなかった。&lt;br>
+Cloudflareの管理画面でDNSサーバを確認して、Google Domainsでカスタムネームサーバとして設定。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2018/09/02/my-new-landing-page">プロフィールサイトをGitHub Page + CloudFlareによる独自ドメイン×SSL配信に移行しました - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ついでに、Cloudflareで&lt;a href="https://progrhy.me/tech-notes/a/network/dns/#dnssec">DNSSEC&lt;/a>の対応ができたので、DSレコードを生成して、Google Domains側で設定した。&lt;/p>
+&lt;h3 id="ss--l-オプションの誤解---解決">ss -l オプションの誤解？ -&amp;gt; 解決&lt;/h3>
+&lt;p>&lt;code>hugo server&lt;/code> はデフォルト1313ポートで起動して待ち受け状態になるので、 &lt;code>ss -l | grep '\b1313\b'&lt;/code> で取れるだろうと思ったら、取れなかった。&lt;/p>
+&lt;p>&lt;code>ss -ant | grep '\b1313\b'&lt;/code> なら取れた。&lt;/p>
+&lt;p>…と、ここまで書いて原因がわかった。&lt;br>
+&lt;code>-n&lt;/code> が足りなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% ss -ltp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
+LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:xtel 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
+% ss -ltnp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
+LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:1313 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>そういうことですね。&lt;/p></description></item><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
 &lt;h2 id="510">5/10&lt;/h2>
 &lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
 &lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/121145">TerraformのKubernetes ProviderでK8sのリソース管理にトライ - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>

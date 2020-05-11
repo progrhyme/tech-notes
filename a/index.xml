@@ -3832,7 +3832,108 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
+&lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
+&lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
+&lt;h2 id="dig">dig&lt;/h2>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/bind/man1/dig.1.html">https://linuxjm.osdn.jp/html/bind/man1/dig.1.html&lt;/a>&lt;/p>
+&lt;p>DNSクエリを送信し、結果を得る。&lt;/p>
+&lt;p>構文:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">dig &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>@ server &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> domain &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-type &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-class &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>+ Aq query-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-Aq dig-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>%comment &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>@server&lt;/code> &amp;hellip; ネームサーバを指定&lt;/li>
+&lt;/ul>
+&lt;p>query-option:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>+short&lt;/code>&lt;/td>
+&lt;td>結果のIPやホスト名だけを返す&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>+trace&lt;/code>&lt;/td>
+&lt;td>ルートDNSから問合せ&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://orebibou.com/2016/11/dig%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B911%E5%80%8B/">digコマンドで覚えておきたい使い方11個 | 俺的備忘録 〜なんかいろいろ〜&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.geocities.jp/yasasikukaitou/dig.html">digコマンド 使い方 オプション DNS BIND&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mtr">mtr&lt;/h2>
+&lt;p>デフォルトは ICMP を使う。&lt;/p>
+&lt;p>オプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-T,--tcp&lt;/code>&lt;/td>
+&lt;td>TCP SYN を使う&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-u&lt;/code>&lt;/td>
+&lt;td>UDP を使う&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-P,--port &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
+&lt;td>UDP/TCP で port を指定する。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-v,--version&lt;/code>&lt;/td>
+&lt;td>バージョン表示。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>※古いバージョンだとオプション効かないかも。man とか見て。&lt;/p>
+&lt;h2 id="ss">ss&lt;/h2>
+&lt;p>netstatとまあまあ同じ感じで使える。&lt;br>
+netstatより推奨っぽいが、作りがバギーという噂もどこかで。。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># LISTENしているポート&lt;/span>
+ss -l
+&lt;span style="color:#8f5902;font-style:italic"># TCP, UDPとも名前解決せずに全ての接続を表示&lt;/span>
+ss -antu
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sonoshou/items/cc2b740147ba1b8da1f3">Linuxでプロセスが何のポート使っているかを調べる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="traceroute">traceroute&lt;/h2>
+&lt;p>デフォルトは UDP を使う。&lt;/p>
+&lt;p>オプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-I&lt;/code>&lt;/td>
+&lt;td>ICMP を使う。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-T&lt;/code>&lt;/td>
+&lt;td>TCP を使う。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-p &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
+&lt;td>UDP/TCP で port を指定する。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
 &lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
 &lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
 &lt;h2 id="install">Install&lt;/h2>
@@ -3844,7 +3945,125 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: Domain Name System</title><link>https://progrhy.me/tech-notes/a/network/dns/</link><pubDate>Tue, 12 May 2020 00:12:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/network/dns/</guid><description>
+&lt;p>DNSプロトコルやDNSサーバなどに関して。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>入門コンテンツ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.nic.ad.jp/ja/newsletter/No22/080.html">インターネット10分講座 DNS - JPNIC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="glossary">Glossary&lt;/h2>
+&lt;h3 id="スタブとフォワード">スタブとフォワード&lt;/h3>
+&lt;ul>
+&lt;li>スタブゾーン, 条件付きフォワーダ&lt;/li>
+&lt;li>いずれも別のサーバに問合せを転送することができる。&lt;/li>
+&lt;li>フォワード
+&lt;ul>
+&lt;li>問合せを外部に転送&lt;/li>
+&lt;li>DNS キャッシュサーバを指定する&lt;/li>
+&lt;li>外部へ問合せするDNSキャッシュサーバをまとめられる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>スタブ
+&lt;ul>
+&lt;li>その zone をホストする DNS コンテンツサーバを指定&lt;/li>
+&lt;li>サブドメインを委任するときとか&lt;/li>
+&lt;li>子ゾーンをスタブゾーンとする&lt;/li>
+&lt;li>親ゾーンでは子ゾーンをホストするすべての DNS サーバを認識するようにする&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/cc780434(v=ws.10).aspx">スタブ ゾーンと条件付きフォワーダとの違い&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/0306/03/news002_3.html">実用 BIND 9で作るDNSサーバ（6）：サブドメインの運用と委任 (3/3) - ＠IT&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://unbound.jp/unbound/unbound-conf/">unbound.conf(5) – 日本Unboundユーザー会&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="レコード">レコード&lt;/h2>
+&lt;p>&lt;a href="https://tools.ietf.org/html/rfc1035">https://tools.ietf.org/html/rfc1035&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>NS&lt;/li>
+&lt;li>A&lt;/li>
+&lt;li>CNAME&lt;/li>
+&lt;li>MX&lt;/li>
+&lt;li>TXT&lt;/li>
+&lt;li>SOA&lt;/li>
+&lt;li>:&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/DNS%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%80%E8%A6%A7">DNSレコードタイプの一覧 - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://manual.iij.jp/dns/help/1481516.html">DNSレコードの登録ルール（バリデーションルール）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="txt">TXT&lt;/h3>
+&lt;p>&lt;a href="https://tools.ietf.org/html/rfc1464">https://tools.ietf.org/html/rfc1464&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;pre>&lt;code>example.jp. IN TXT &amp;quot;exampleA&amp;quot; &amp;quot;exampleB&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>仕様:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;quot;&lt;/code> で括ってエントリを値を記述する。&lt;/li>
+&lt;li>&lt;code>&amp;quot;&lt;/code> で括った1エントリについて
+&lt;ul>
+&lt;li>文字数は最大255文字。&lt;code>&amp;quot;&lt;/code> も含めると最大257文字&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>エントリを複数記述できる。エントリ間に半角スペースを入れる。&lt;/li>
+&lt;li>TXTレコードの右辺全体に記述できる文字数は最大1,024文字&lt;/li>
+&lt;/ul>
+&lt;h2 id="dnssec">DNSSEC&lt;/h2>
+&lt;p>DNSのセキュリティを高める技術の1つで、主にキャッシュポイズニングを防げるっぽい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.nic.ad.jp/ja/newsletter/No43/0800.html">インターネット10分講座：DNSSEC - JPNIC&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-11</title><link>https://progrhy.me/tech-notes/a/memo/20200511/</link><pubDate>Mon, 11 May 2020 23:14:25 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200511/</guid><description>
+&lt;h2 id="511">5/11&lt;/h2>
+&lt;h3 id="お名前comからgoogle-domainsに移行する">お名前.comからGoogle Domainsに移行する&lt;/h3>
+&lt;p>メールとUXがうざいし、サイトUIがとってもわかりにくくて不便なので。&lt;br>
+前々からやりたかったけど、やる気がある今の内にやってしまう。&lt;/p>
+&lt;p>手順は下を参考にした:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/fnifni/items/0daca17e0750659f2866">お名前comからgoogle domainsにドメイン移管する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>URLやUIが変わっていて、全くこのままというわけではなかったが、大まかな流れは同じだった。&lt;/p>
+&lt;p>Google Domainsは別にGCPプロジェクトなくても使えるんですね。&lt;br>
+TerraformでDNSレコード管理しようかと思ってたけど、やりたかったらCloud DNSに移譲しないといけないのかな？&lt;/p>
+&lt;h4 id="トランスファー申請不承認のご連絡">「トランスファー申請不承認のご連絡」&lt;/h4>
+&lt;p>Google Domains側で手続きして約20分後に、お名前.comから上の題のメールが。&lt;/p>
+&lt;pre>&lt;code>上記ドメインのトランスファー申請につきまして、下記いずれかに該当する
+ため申請を不承認といたしました。
+1.該当URLより不承認処理が行われた
+2.Whois情報公開代行サービスの設定が行われている
+3.ドメインの契約終了日まで7日以内（JPドメインのみ）
+4.期限内に承認処理が行われなかった
+再度申請を行う場合は、上記事項に該当しないことを確認した上で申請を
+行ってください。
+&lt;/code>&lt;/pre>&lt;p>2.のWhois情報公開代行サービスを設定しているからですね。&lt;br>
+早速解除して、Google Domainsから払い戻しが来たタイミングで再度、移管申請。&lt;/p>
+&lt;p>今度は大丈夫だろう。（フラグ）&lt;/p>
+&lt;h4 id="重要トランスファー申請に関する確認のご連絡">「【重要】トランスファー申請に関する確認のご連絡」&lt;/h4>
+&lt;pre>&lt;code>お名前.com by GMOは、上記ドメインについて に他社
+レジストラへのトランスファー申請を承りました。
+トランスファー手続きにつきまして、他社レジストラへ移管をご希望の場合は
+期日までに以下URLから承認のお手続きをお願いいたします。
+&lt;/code>&lt;/pre>&lt;p>再申請から約25分後、無事フラグを回避できた。&lt;/p>
+&lt;h4 id="google-domains---cloudflareにns移譲設定">Google Domains -&amp;gt; CloudflareにNS移譲設定&lt;/h4>
+&lt;p>お名前.comから移譲設定をしていたが、さすがにその設定は引き継がれていなかった。&lt;br>
+Cloudflareの管理画面でDNSサーバを確認して、Google Domainsでカスタムネームサーバとして設定。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2018/09/02/my-new-landing-page">プロフィールサイトをGitHub Page + CloudFlareによる独自ドメイン×SSL配信に移行しました - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ついでに、Cloudflareで&lt;a href="https://progrhy.me/tech-notes/a/network/dns/#dnssec">DNSSEC&lt;/a>の対応ができたので、DSレコードを生成して、Google Domains側で設定した。&lt;/p>
+&lt;h3 id="ss--l-オプションの誤解---解決">ss -l オプションの誤解？ -&amp;gt; 解決&lt;/h3>
+&lt;p>&lt;code>hugo server&lt;/code> はデフォルト1313ポートで起動して待ち受け状態になるので、 &lt;code>ss -l | grep '\b1313\b'&lt;/code> で取れるだろうと思ったら、取れなかった。&lt;/p>
+&lt;p>&lt;code>ss -ant | grep '\b1313\b'&lt;/code> なら取れた。&lt;/p>
+&lt;p>…と、ここまで書いて原因がわかった。&lt;br>
+&lt;code>-n&lt;/code> が足りなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% ss -ltp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
+LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:xtel 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
+% ss -ltnp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
+LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:1313 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>そういうことですね。&lt;/p></description></item><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200510/</guid><description>
 &lt;h2 id="510">5/10&lt;/h2>
 &lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
 &lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/121145">TerraformのKubernetes ProviderでK8sのリソース管理にトライ - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
@@ -4002,161 +4221,4 @@ bashで書いたスクリプトはシバン書いてるから実行したら普�
 &lt;li>&lt;a href="https://tonari-it.com/gas-web-html-css-scriptlet/">GASでWebページを作るときにHTMLとCSSを別ファイルに記述する方法&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200509/</guid><description>
-&lt;h2 id="59">5/9&lt;/h2>
-&lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
-&lt;p>いつだったか、何かの本でそういう書き方を見てからずっとそうやってる。&lt;/p>
-&lt;p>例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-:
-&lt;span style="color:#204a87">exit&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-: &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;&amp;#39;__EOF__&amp;#39;
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">=encoding utf8
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">=head1 NAME
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">B&amp;lt;my-script&amp;gt; - short description
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">=head1 DESCRIPTION
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">:
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">=cut
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">__EOF__&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>これでPODに食わせるとドキュメントとして解釈してくれるので、スクリプト内では &lt;code>pod2text $0&lt;/code> とかでヘルプを表示できる。&lt;/p>
-&lt;p>…が、そろそろ &lt;code>pod2text&lt;/code> がどの環境にも入っていると想定すべきでないかも…という気がしてきた。&lt;br>
-ところが、じゃあどう書いたらいいの？っていうのには決定版がない気がする。&lt;/p>
-&lt;p>シェルスクリプトにちゃんとコメントを書こうとしている人たちの間では、主に2つの派閥がある気がする:&lt;/p>
-&lt;ol>
-&lt;li>スクリプトのヘッダや関数のヘッダとしてドキュメントコメントをそれなりのフォーマットで書きましょう派。&lt;a href="https://google.github.io/styleguide/shellguide.html#s4.1-file-header">Googleのコーディング規約&lt;/a>もこれ&lt;/li>
-&lt;li>&lt;code>usage()&lt;/code> 関数内にヒアドキュメントで書きましょう派&lt;/li>
-&lt;/ol>
-&lt;p>いいとこ取りをしてる感じに見えるのは、 &lt;code>usage()&lt;/code> 関数でコメントをパースしてヘルプっぽく出力してるもの。&lt;br>
-下のような例があった:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ngyuki/items/673d6cb3b36360eaf5cc">シェルスクリプトでヘルプメッセージをコメントに書いて表示する - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/TomKid/items/ab49f8d0cd15b18e5e4a">自作シェルスクリプトにヘルプやらバージョンメッセージを実装？する面白い方法があった - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>自分で独自フォーマットのコメントを書いている、という点では、下もこの類型にあたるか:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ssh0/items/0c14ee8949512a4dc98e">シェルスクリプト群のドキュメント書くの面倒だから自動でREADME.mdを生成する - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/jmcantrell/bashful/blob/master/bin/shdoc">https://github.com/jmcantrell/bashful/blob/master/bin/shdoc&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>godocみたいなのないかな、と思って「shelldoc」とか「shdoc」とかでぐぐるとたくさん出てくる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://shellscript.sunone.me/tips.html">シェルスクリプト Tips | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="microk8sを使ってみる">Microk8sを使ってみる&lt;/h3>
-&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/110630">UbuntuでKubernetesのテスト環境としてMicrok8sをセットアップした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p></description></item><item><title>A: Argo CD</title><link>https://progrhy.me/tech-notes/a/software/argo/cd/</link><pubDate>Fri, 08 May 2020 17:20:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/argo/cd/</guid><description>
-&lt;h2 id="features">Features&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/operator-manual/sso/">SSO Overview - Argo CD - Declarative GitOps CD for Kubernetes&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/dexidp/dex">dex&lt;/a>を使ってOpen ID対応できる&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://argoproj.github.io/argo-cd/user-guide/auto_sync/">Automated Sync Policy - Argo CD - Declarative GitOps CD for Kubernetes&lt;/a>
-&lt;ul>
-&lt;li>Automatic Pruning
-&lt;ul>
-&lt;li>デフォルトではリソースの削除はやらないが、このオプションをONにすると、削除同期もやってくれる&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200508/</guid><description>
-&lt;h2 id="58">5/8&lt;/h2>
-&lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
-&lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
-ふつうに &lt;code>terraform import&lt;/code> を使えばいいのだが、terraformerのことを思い出したので、使ってみることにした。&lt;br>
-terraformerを使えばHCLファイルを生成することができる。&lt;/p>
-&lt;p>terraformerについての一般的な内容は&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/terraformer/">terraformer&lt;/a>にメモしている。&lt;/p>
-&lt;p>作業環境: macOS&lt;/p>
-&lt;p>Install:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>準備として、 &lt;code>~/.terraform.d/plugins/darwin_amd64/&lt;/code> に &lt;code>terraform-provider-google_v3.20.0_x5&lt;/code> を置く。&lt;br>
-今回はterraform実行ディレクトリの &lt;code>.terraform/plugins&lt;/code> からコピーした。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1 --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>結果:&lt;/p>
-&lt;pre>&lt;code>% tree generated
-generated
-└── google
-└── my-project
-├── networks
-│   └── asia-northeast1
-│   ├── compute_network.tf
-│   ├── outputs.tf
-│   ├── provider.tf
-│   └── terraform.tfstate
-└── subnetworks
-└── asia-northeast1
-├── compute_subnetwork.tf
-├── outputs.tf
-├── provider.tf
-├── terraform.tfstate
-└── variables.tf
-6 directories, 9 files
-&lt;/code>&lt;/pre>&lt;p>tfファイルのサンプル:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">%&lt;/span> &lt;span style="color:#204a87;font-weight:bold">cat&lt;/span> &lt;span style="color:#204a87;font-weight:bold">generated&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">google&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">my&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">networks&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">asia&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">northeast1&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">compute_network&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tf&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_network&amp;#34; &amp;#34;tfer--default&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> auto_create_subnetworks&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;true&amp;#34;&lt;/span>
-&lt;span style="color:#000"> delete_default_routes_on_create&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>
-&lt;span style="color:#000"> description&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Default network for the project&amp;#34;&lt;/span>
-&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>
-&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my-project&amp;#34;&lt;/span>
-&lt;span style="color:#000"> routing_mode&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;REGIONAL&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>tfstateのサンプル:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JSON" data-lang="JSON">&lt;span style="color:#a40000">%&lt;/span> &lt;span style="color:#a40000">cat&lt;/span> &lt;span style="color:#a40000">generated/google/my-project/subnetworks/asia-northeast&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#a40000">/terraform.tfstate&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;version&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;terraform_version&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0.12.18&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;serial&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;lineage&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;XXXXXXXXXXXX&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;modules&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;path&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;root&amp;#34;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">],&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;outputs&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;google_compute_subnetwork_tfer--default_self_link&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;sensitive&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;string&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;value&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://www.googleapis.com/compute/v1/projects/my-project/regions/asia-northeast1/subnetworks/default&amp;#34;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;resources&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;google_compute_subnetwork.tfer--default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_subnetwork&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;depends_on&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[],&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;primary&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;attributes&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;creation_timestamp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;2020-05-07T02:07:01.455-07:00&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;description&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;gateway_address&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.146.0.1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;ip_cidr_range&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.146.0.0/20&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;log_config.#&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#a40000">:&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform_version&lt;/code> がマシンにインストール済みのバージョンと違うのは、terraformerが同梱しているってことなのかな？&lt;/p>
-&lt;h3 id="kubernetesのマニフェストをvcsで管理して削除まで正しく同期する方法">KubernetesのマニフェストをVCSで管理して、削除まで正しく同期する方法&lt;/h3>
-&lt;p>※5/9 ブログを書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/09/125134">Kubernetesのマニフェストをリポジトリ管理しつつ、リソースの削除も反映したい件 - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
-&lt;p>某所で聞いたりして情報を集めた。&lt;br>
-このエントリは後掲の関連リンクの続きである。&lt;/p>
-&lt;ol>
-&lt;li>管理対象のリソースに &lt;code>label&lt;/code> でバージョン番号を振り、新しいバージョンのリソースを配置した後、古いバージョンのリソースを削除する&lt;/li>
-&lt;li>&lt;code>kubectl apply&lt;/code> 時に &lt;code>--prune&lt;/code> オプションを付ける&lt;/li>
-&lt;li>Argo CDのAutomatic Pruning機能を使う&lt;/li>
-&lt;li>リソースをTerraformで管理する&lt;/li>
-&lt;/ol>
-&lt;p>関連:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="../20200505/#kubernetes%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%81%AF%E5%85%A8%E9%83%A8export%E3%81%97%E3%81%A6%E7%AE%A1%E7%90%86%E3%81%97%E3%81%9F%E6%96%B9%E3%81%8C%E3%81%84%E3%81%84%E3%82%93%E3%81%98%E3%82%83%E3%81%AD%E3%81%A3%E3%81%A6%E6%80%9D%E3%81%A3%E3%81%9F">2020-05-05のメモ - Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

@@ -305,4 +305,105 @@ fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
 &lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
+&lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
+&lt;h2 id="dig">dig&lt;/h2>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/bind/man1/dig.1.html">https://linuxjm.osdn.jp/html/bind/man1/dig.1.html&lt;/a>&lt;/p>
+&lt;p>DNSクエリを送信し、結果を得る。&lt;/p>
+&lt;p>構文:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">dig &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>@ server &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> domain &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-type &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-class &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>+ Aq query-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-Aq dig-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>%comment &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>@server&lt;/code> &amp;hellip; ネームサーバを指定&lt;/li>
+&lt;/ul>
+&lt;p>query-option:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>+short&lt;/code>&lt;/td>
+&lt;td>結果のIPやホスト名だけを返す&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>+trace&lt;/code>&lt;/td>
+&lt;td>ルートDNSから問合せ&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://orebibou.com/2016/11/dig%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B911%E5%80%8B/">digコマンドで覚えておきたい使い方11個 | 俺的備忘録 〜なんかいろいろ〜&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.geocities.jp/yasasikukaitou/dig.html">digコマンド 使い方 オプション DNS BIND&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mtr">mtr&lt;/h2>
+&lt;p>デフォルトは ICMP を使う。&lt;/p>
+&lt;p>オプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-T,--tcp&lt;/code>&lt;/td>
+&lt;td>TCP SYN を使う&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-u&lt;/code>&lt;/td>
+&lt;td>UDP を使う&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-P,--port &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
+&lt;td>UDP/TCP で port を指定する。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-v,--version&lt;/code>&lt;/td>
+&lt;td>バージョン表示。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>※古いバージョンだとオプション効かないかも。man とか見て。&lt;/p>
+&lt;h2 id="ss">ss&lt;/h2>
+&lt;p>netstatとまあまあ同じ感じで使える。&lt;br>
+netstatより推奨っぽいが、作りがバギーという噂もどこかで。。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># LISTENしているポート&lt;/span>
+ss -l
+&lt;span style="color:#8f5902;font-style:italic"># TCP, UDPとも名前解決せずに全ての接続を表示&lt;/span>
+ss -antu
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sonoshou/items/cc2b740147ba1b8da1f3">Linuxでプロセスが何のポート使っているかを調べる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="traceroute">traceroute&lt;/h2>
+&lt;p>デフォルトは UDP を使う。&lt;/p>
+&lt;p>オプション:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-I&lt;/code>&lt;/td>
+&lt;td>ICMP を使う。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-T&lt;/code>&lt;/td>
+&lt;td>TCP を使う。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-p &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
+&lt;td>UDP/TCP で port を指定する。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
