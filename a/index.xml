@@ -615,6 +615,9 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/pipi_taro/items/859d445960bb79a3ac78">IntelliJの使い方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
+&lt;p>&lt;code>Preferences &amp;gt; Editor &amp;gt; File Types&lt;/code> で関連付けを設定できる。&lt;br>
+まだ関連付けがない拡張子のファイルであれば、エディタ上で右クリックして「Associate File Type」を選んで設定することもできる。&lt;/p>
 &lt;h2 id="plugins">Plugins&lt;/h2>
 &lt;h3 id="file-watchers">File Watchers&lt;/h3>
 &lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
@@ -873,10 +876,6 @@ gcloud compute ssh &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--
 &lt;span style="color:#8f5902;font-style:italic">## scp&lt;/span>
 gcloud compute scp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--recurse&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> host:/path/to/dir path/to/local
-&lt;span style="color:#8f5902;font-style:italic">## 証明書&lt;/span>
-gcloud compute ssl-certificates
-&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
-gcloud compute ssl-certificates list
 &lt;span style="color:#8f5902;font-style:italic">## イメージの作成&lt;/span>
 gcloud compute images create my-image --source-disk my-vm-disk
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="instances">instances&lt;/h4>
@@ -906,7 +905,18 @@ gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="config">config&lt;/h3>
+&lt;h4 id="ssl-certificates">ssl-certificates&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates">https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates&lt;/a>&lt;/p>
+&lt;p>証明書の管理。マネージド証明書が作れる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
+gcloud compute ssl-certificates list
+&lt;span style="color:#8f5902;font-style:italic"># 詳細表示&lt;/span>
+gcloud compute ssl-certificates describe &amp;lt;name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
+gcloud compute ssl-certificates create &amp;lt;name&amp;gt; --domains&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;fqdn1&amp;gt;,...
+&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
+gcloud compute ssl-certificates delete &amp;lt;name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="config">config&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 設定値一覧表示&lt;/span>
@@ -1482,6 +1492,23 @@ hal config provider &lt;span style="color:#000">$PROVIDER&lt;/span> account edit
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/#accounts">https://www.spinnaker.io/setup/security/authorization/#accounts&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="canary">canary&lt;/h4>
+&lt;p>Canary analysis settings. kayentaの設定らしい。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config canary &amp;lt;integration&amp;gt; account list
+hal config canary &amp;lt;integration&amp;gt; account edit ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Integrations:&lt;/p>
+&lt;ul>
+&lt;li>aws, datadog, google, newrelic, prometheus, signalfx&lt;/li>
+&lt;/ul>
+&lt;h4 id="storage">storage&lt;/h4>
+&lt;p>Persistent storage.&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config storage &amp;lt;integration&amp;gt; edit &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Integrations:&lt;/p>
+&lt;ul>
+&lt;li>azs, gcs, oracle, s3&lt;/li>
 &lt;/ul>
 &lt;h3 id="deploy">deploy&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerの設定変更を適用する&lt;/span>

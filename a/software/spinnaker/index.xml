@@ -26,6 +26,23 @@ hal config provider &lt;span style="color:#000">$PROVIDER&lt;/span> account edit
 &lt;ul>
 &lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/#accounts">https://www.spinnaker.io/setup/security/authorization/#accounts&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="canary">canary&lt;/h4>
+&lt;p>Canary analysis settings. kayentaの設定らしい。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config canary &amp;lt;integration&amp;gt; account list
+hal config canary &amp;lt;integration&amp;gt; account edit ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Integrations:&lt;/p>
+&lt;ul>
+&lt;li>aws, datadog, google, newrelic, prometheus, signalfx&lt;/li>
+&lt;/ul>
+&lt;h4 id="storage">storage&lt;/h4>
+&lt;p>Persistent storage.&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config storage &amp;lt;integration&amp;gt; edit &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Integrations:&lt;/p>
+&lt;ul>
+&lt;li>azs, gcs, oracle, s3&lt;/li>
+&lt;/ul>
 &lt;h3 id="deploy">deploy&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerの設定変更を適用する&lt;/span>
 hal deploy apply

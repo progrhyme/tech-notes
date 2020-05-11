@@ -327,7 +327,23 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account.html">google_service_account&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account_key.html">google_service_account_key&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="iam-policy-for-projects">IAM policy for projects&lt;/h4>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_service_account&amp;#34; &amp;#34;terraform&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> account_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;terraform&amp;#34;&lt;/span>
+}
+&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_service_account_key&amp;#34; &amp;#34;terraform_key&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> service_account_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">google_service_account&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>
+&lt;span style="color:#000"> private_key_type&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;TYPE_GOOGLE_CREDENTIALS_FILE&amp;#34;&lt;/span>
+}&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ローカルにService Account KeyのJSONを保存する
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#204a87;font-weight:bold">local_file&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;terraform_key_json&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;./tmp/terraform_service_account_key.json&amp;#34;&lt;/span>
+&lt;span style="color:#000"> content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">base64decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">google_service_account_key&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">terraform_key&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">private_key&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000"> file_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0600&amp;#34;&lt;/span>
+&lt;span style="color:#000"> directory_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0755&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="iam-policy-for-projects">IAM policy for projects&lt;/h4>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_iam.html">https://www.terraform.io/docs/providers/google/r/google_project_iam.html&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>google_project_iam_policy&lt;/code>&lt;/li>

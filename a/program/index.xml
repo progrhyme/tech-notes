@@ -186,6 +186,9 @@
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/pipi_taro/items/859d445960bb79a3ac78">IntelliJの使い方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
+&lt;p>&lt;code>Preferences &amp;gt; Editor &amp;gt; File Types&lt;/code> で関連付けを設定できる。&lt;br>
+まだ関連付けがない拡張子のファイルであれば、エディタ上で右クリックして「Associate File Type」を選んで設定することもできる。&lt;/p>
 &lt;h2 id="plugins">Plugins&lt;/h2>
 &lt;h3 id="file-watchers">File Watchers&lt;/h3>
 &lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
