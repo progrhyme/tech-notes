@@ -64,6 +64,140 @@ Integrations:
 
 - aws, datadog, google, newrelic, prometheus, signalfx
 
+#### deploy
+
+Spinnakerのデプロイメントの設定とその表示。
+
+SYNOPSIS:
+
+```sh
+# 状態表示
+hal config deploy
+
+hal config deploy SUBCOMMAND parameters
+```
+
+Subcommands:
+
+- component-sizing, edit, ha
+
+##### component-sizing
+
+各コンポーネントのリソース利用量の設定管理。
+
+Examples:
+
+```sh
+hal config deploy component-sizing COMPONENT edit \
+  --container-requests-cpu 100m \
+  --container-requests-memory 256Mi \
+  --container-limits-cpu 200m \
+  --container-limits-memory 512Mi \
+  --pod-requests-cpu 100m \
+  --pod-requests-memory 256Mi \
+  --pod-limits-cpu 200m \
+  --pod-limits-memory 512Mi \
+  --replicas 2
+```
+
+Components（一部）:
+
+- clouddriver
+- deck
+- echo
+- fiat
+- front50
+- gate
+- igor
+- kayenta
+- orca
+- rosco
+
+#### notification
+
+通知設定の管理。
+
+SYNOPSIS:
+
+```sh
+# 設定一覧表示
+hal config notification
+
+hal config notification SUBCOMMAND parameters
+```
+
+Subcommands:
+
+- github-status
+- pubsub
+- slack
+- twilio
+
+##### slack
+
+Slack通知設定。
+
+SYNOPSIS:
+
+```sh
+hal config notification slack enable
+hal config notification slack disable
+hal config notification slack edit --token $TOKEN
+```
+
+#### provider
+
+各種クラウドプロバイダなどの設定管理。
+
+Subcommands（一部）:
+
+- appengine
+- aws
+- azure
+- cloudfoundry
+- dcos
+- docker-registry
+- ecs
+- google
+- kubernetes
+- oracle
+
+##### docker-registry
+
+Docker Registryの管理。GCRもこちら
+
+Examples:
+
+```sh
+# 状態表示
+hal config provider docker-registry
+
+# 有効化・無効化
+hal config provider docker-registry enable
+hal config provider docker-registry disable
+
+# account管理
+hal config provider docker-registry account list
+hal config provider docker-registry account get ACCOUNT
+hal config provider docker-registry account add ACCOUNT [parameters]
+hal config provider docker-registry account delete ACCOUNT [parameters]
+hal config provider docker-registry account edit ACCOUNT [parameters]
+
+## GCRをService Account Key認証で追加
+hal config provider docker-registry account add asia-gcr-io \
+  --address https://asia.gcr.io --username _json_key \
+  --password-file path/to/service-account-key.json \
+```
+
+NOTE:
+
+- レジストリにリポジトリを追加する場合は `edit` サブコマンドを使う。
+
+例:
+
+```sh
+hal config provider docker-registry account edit ACCOUNT --add-repository foo/bar
+```
 
 #### storage
 

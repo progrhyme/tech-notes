@@ -258,6 +258,21 @@ curl http://localhost:8080/api/
 See https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/
 
 ## How-to
+### EvictedなPodを一括削除するワンライナー
+
+EvictionしたPodは手動削除しないといけないっぽい。
+
+```sh
+kubectl get pods | awk '{if ($3 ~ /Evicted/) system ("kubectl delete pods " $1)}'
+```
+
+PodのEvictionについてはSee [Concept#pod-eviction]({{< ref "/a/software/k8s/concept.md" >}}#pod-eviction)
+
+参考:
+
+- [k8sでEvictedされたpodを一括削除する - Qiita](https://qiita.com/keizokeizo3/items/84a3ece88cd86fde9f75)
+- [What will happen to evicted pods in kubernetes? - Stack Overflow](https://stackoverflow.com/questions/46419163/what-will-happen-to-evicted-pods-in-kubernetes)
+
 ### 全てのマニフェストを取得したい
 
 これでよさそう:

@@ -290,6 +290,9 @@ Documents:
 - メモリ使用量の大きなPodからeviction対象になる
 - memoryのrequets/limitsを適切に設定しておくこと
 
+EvictしたPodは手動で削除する必要があるっぽい。
+See [kubectl#EvictedなPodを一括削除するワンライナー]({{< ref "/a/software/k8s/kubectl.md" >}}#evictedなpodを一括削除するワンライナー)
+
 参考:
 
 - [Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム](https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html)
