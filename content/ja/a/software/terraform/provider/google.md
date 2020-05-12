@@ -51,6 +51,12 @@ See also:
 
 
 ## Resources
+
+未分類のもの:
+
+- [google_cloudfunctions_function](https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html) ... Cloud Function作成・管理
+- [google_redis_instance](https://www.terraform.io/docs/providers/google/r/redis_instance.html) ... Memorystore (Redis)
+
 ### GCP (IAM, API, Billing, Organization)
 
 Providerリファレンスで、「Google Cloud Platform Resources」というカテゴリに属するもの。
@@ -139,19 +145,12 @@ resource "google_container_cluster" "experiment" {
 }
 ```
 
+### Pub/Sub
+
+- [google_pubsub_topic](https://www.terraform.io/docs/providers/google/r/pubsub_topic.html)
+- [google_pubsub_subscription](https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html)
+
 ### storage (GCS) 系
 
 - [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) ... GCS (Cloud Storage) バケット
 - [google_storage_bucket_object](https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html) ... GCSオブジェクト。ローカルのファイルからアップロードできる
-
-### google_cloudfunctions_function
-
-https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html
-
-Cloud Function作成・管理
-
-### google_project_service
-
-https://www.terraform.io/docs/providers/google/r/google_project_service.html
-
-APIサービスの有効化

@@ -6,6 +6,19 @@ description: >
 date: 2020-05-12T12:05:51+09:00
 ---
 
+リファレンス的に各コマンドの解説を書いていく。
+
+ユースケース別の使い方は[Halyard#How-to]({{< ref "/a/software/spinnaker/halyard/_index.md" >}}#how-to)などを参照すること。
+
+## Global Parameters
+
+ オプション | 意味
+----------|------
+ `--daemon-endpoint <ADDRESS>` | 指定があればそのdaemonに接続に行く
+ `-d, --debug` | daemonの詳細なネットワークトラフィックを出力
+ `-l, --log` | CLIのログレベルを設定
+ `-h, --help` | ヘルプ表示
+
 ## backup
 
 ```sh
