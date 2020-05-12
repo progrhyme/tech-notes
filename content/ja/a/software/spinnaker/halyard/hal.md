@@ -1,34 +1,19 @@
 ---
-title: "Halyard"
-linkTitle: "Halyard"
+title: "halコマンド"
+linkTitle: "hal"
 description: >
-  https://www.spinnaker.io/reference/halyard/
-date: 2020-05-05T00:27:58+09:00
-weight: 200
+  リファレンス: https://www.spinnaker.io/reference/halyard/commands/
+date: 2020-05-12T12:05:51+09:00
 ---
 
-Spinnakerの管理ツール。
-daemon + CLI.
-
-## Installation
-
-参考:
-
-- [Install Spinnaker with Halyard on Kubernetes - Oracle Developers - Medium](https://medium.com/oracledevs/install-spinnaker-with-halyard-on-kubernetes-88277bd61d59)
-
-
-## halコマンド
-
-リファレンス: https://www.spinnaker.io/reference/halyard/commands/
-
-### backup
+## backup
 
 ```sh
 # バックアップ作成。tarballが出来る
 hal backup create
 ```
 
-### config
+## config
 
 ```sh
 # Spinnakerのコンポーネントのリソース利用量を変更
@@ -49,7 +34,7 @@ hal config provider $PROVIDER account edit $ACCOUNT \
 
 - https://www.spinnaker.io/setup/security/authorization/#accounts
 
-#### canary
+### canary
 
 Canary analysis settings. kayentaの設定らしい。
 
@@ -64,7 +49,7 @@ Integrations:
 
 - aws, datadog, google, newrelic, prometheus, signalfx
 
-#### deploy
+### deploy
 
 Spinnakerのデプロイメントの設定とその表示。
 
@@ -81,7 +66,7 @@ Subcommands:
 
 - component-sizing, edit, ha
 
-##### component-sizing
+#### component-sizing
 
 各コンポーネントのリソース利用量の設定管理。
 
@@ -113,7 +98,7 @@ Components（一部）:
 - orca
 - rosco
 
-#### notification
+### notification
 
 通知設定の管理。
 
@@ -133,7 +118,7 @@ Subcommands:
 - slack
 - twilio
 
-##### slack
+#### slack
 
 Slack通知設定。
 
@@ -145,7 +130,7 @@ hal config notification slack disable
 hal config notification slack edit --token $TOKEN
 ```
 
-#### provider
+### provider
 
 各種クラウドプロバイダなどの設定管理。
 
@@ -162,7 +147,7 @@ Subcommands（一部）:
 - kubernetes
 - oracle
 
-##### docker-registry
+#### docker-registry
 
 Docker Registryの管理。GCRもこちら
 
@@ -199,7 +184,7 @@ NOTE:
 hal config provider docker-registry account edit ACCOUNT --add-repository foo/bar
 ```
 
-#### storage
+### storage
 
 Persistent storage.
 
@@ -213,7 +198,7 @@ Integrations:
 
 - azs, gcs, oracle, s3
 
-### deploy
+## deploy
 
 ```sh
 # Spinnakerの設定変更を適用する
@@ -223,36 +208,3 @@ hal deploy connect
 # 各サービスのログを集める
 hal deploy collect-logs
 ```
-
-### Cookbooks
-#### Spinnakerのバージョン更新
-
-```sh
-# 利用可能なバージョン一覧
-hal version list
-# 現在のバージョン表示
-hal config version
-# バージョン変更
-hal config version edit --version $NEW_VERSION
-hal deploy apply
-```
-
-## How-to
-### 複数のSpinnaker環境を管理する
-
-Halyardでは `Deployment` という単位でconfigを分けることができる。「Deployment」という語はふつうのデプロイという意味やK8s用語としても使われるので、用語としてよくないと思う。 `Environment` とかにしてほしかった気がする（Environmentも何かとかぶりそうだが）。
-
-See https://www.spinnaker.io/reference/halyard/#deployments
-
-
-新しいDeploymentを作るには下のコマンドを叩く:
-
-```sh
-hal config --set-current-deployment $DEPLOYMENT
-```
-
-指定した `$DEPLOYMENT` がなければ新規作成される。  
-ちなみに、デフォルトの `$DEPLOYMENT` は `default` である。
-
-このコマンドによって新しく作ったDeploymentはまっさらな状態なので、一通りセットアップしなければならない。  
-（日記はここで終わっている。）
