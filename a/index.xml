@@ -3894,6 +3894,35 @@ ss -antu
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: halコマンド</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/hal/</link><pubDate>Tue, 12 May 2020 12:05:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/hal/</guid><description>
+&lt;p>リファレンス的に各コマンドの解説を書いていく。&lt;/p>
+&lt;p>ユースケース別の使い方は&lt;a href="https://progrhy.me/tech-notes/a/software/spinnaker/halyard/#how-to">Halyard#How-to&lt;/a>などを参照すること。&lt;/p>
+&lt;h2 id="global-parameters">Global Parameters&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--daemon-endpoint &amp;lt;ADDRESS&amp;gt;&lt;/code>&lt;/td>
+&lt;td>指定があればそのdaemonに接続に行く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-d, --debug&lt;/code>&lt;/td>
+&lt;td>daemonの詳細なネットワークトラフィックを出力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-l, --log&lt;/code>&lt;/td>
+&lt;td>CLIのログレベルを設定&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-h, --help&lt;/code>&lt;/td>
+&lt;td>ヘルプ表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="backup">backup&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バックアップ作成。tarballが出来る&lt;/span>
 hal backup create
