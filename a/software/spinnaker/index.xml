@@ -35,7 +35,101 @@ hal config canary &amp;lt;integration&amp;gt; account edit ACCOUNT &lt;span styl
 &lt;ul>
 &lt;li>aws, datadog, google, newrelic, prometheus, signalfx&lt;/li>
 &lt;/ul>
-&lt;h4 id="storage">storage&lt;/h4>
+&lt;h4 id="deploy">deploy&lt;/h4>
+&lt;p>Spinnakerのデプロイメントの設定とその表示。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 状態表示&lt;/span>
+hal config deploy
+hal config deploy SUBCOMMAND parameters
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Subcommands:&lt;/p>
+&lt;ul>
+&lt;li>component-sizing, edit, ha&lt;/li>
+&lt;/ul>
+&lt;h5 id="component-sizing">component-sizing&lt;/h5>
+&lt;p>各コンポーネントのリソース利用量の設定管理。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config deploy component-sizing COMPONENT edit &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-requests-cpu 100m &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-requests-memory 256Mi &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-limits-cpu 200m &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-limits-memory 512Mi &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-requests-cpu 100m &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-requests-memory 256Mi &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-limits-cpu 200m &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-limits-memory 512Mi &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --replicas &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Components（一部）:&lt;/p>
+&lt;ul>
+&lt;li>clouddriver&lt;/li>
+&lt;li>deck&lt;/li>
+&lt;li>echo&lt;/li>
+&lt;li>fiat&lt;/li>
+&lt;li>front50&lt;/li>
+&lt;li>gate&lt;/li>
+&lt;li>igor&lt;/li>
+&lt;li>kayenta&lt;/li>
+&lt;li>orca&lt;/li>
+&lt;li>rosco&lt;/li>
+&lt;/ul>
+&lt;h4 id="notification">notification&lt;/h4>
+&lt;p>通知設定の管理。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 設定一覧表示&lt;/span>
+hal config notification
+hal config notification SUBCOMMAND parameters
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Subcommands:&lt;/p>
+&lt;ul>
+&lt;li>github-status&lt;/li>
+&lt;li>pubsub&lt;/li>
+&lt;li>slack&lt;/li>
+&lt;li>twilio&lt;/li>
+&lt;/ul>
+&lt;h5 id="slack">slack&lt;/h5>
+&lt;p>Slack通知設定。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config notification slack &lt;span style="color:#204a87">enable&lt;/span>
+hal config notification slack disable
+hal config notification slack edit --token &lt;span style="color:#000">$TOKEN&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="provider">provider&lt;/h4>
+&lt;p>各種クラウドプロバイダなどの設定管理。&lt;/p>
+&lt;p>Subcommands（一部）:&lt;/p>
+&lt;ul>
+&lt;li>appengine&lt;/li>
+&lt;li>aws&lt;/li>
+&lt;li>azure&lt;/li>
+&lt;li>cloudfoundry&lt;/li>
+&lt;li>dcos&lt;/li>
+&lt;li>docker-registry&lt;/li>
+&lt;li>ecs&lt;/li>
+&lt;li>google&lt;/li>
+&lt;li>kubernetes&lt;/li>
+&lt;li>oracle&lt;/li>
+&lt;/ul>
+&lt;h5 id="docker-registry">docker-registry&lt;/h5>
+&lt;p>Docker Registryの管理。GCRもこちら&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 状態表示&lt;/span>
+hal config provider docker-registry
+&lt;span style="color:#8f5902;font-style:italic"># 有効化・無効化&lt;/span>
+hal config provider docker-registry &lt;span style="color:#204a87">enable&lt;/span>
+hal config provider docker-registry disable
+&lt;span style="color:#8f5902;font-style:italic"># account管理&lt;/span>
+hal config provider docker-registry account list
+hal config provider docker-registry account get ACCOUNT
+hal config provider docker-registry account add ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+hal config provider docker-registry account delete ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+hal config provider docker-registry account edit ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## GCRをService Account Key認証で追加&lt;/span>
+hal config provider docker-registry account add asia-gcr-io &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --address https://asia.gcr.io --username _json_key &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --password-file path/to/service-account-key.json &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>レジストリにリポジトリを追加する場合は &lt;code>edit&lt;/code> サブコマンドを使う。&lt;/li>
+&lt;/ul>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config provider docker-registry account edit ACCOUNT --add-repository foo/bar
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="storage">storage&lt;/h4>
 &lt;p>Persistent storage.&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config storage &amp;lt;integration&amp;gt; edit &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -43,7 +137,7 @@ hal config canary &amp;lt;integration&amp;gt; account edit ACCOUNT &lt;span styl
 &lt;ul>
 &lt;li>azs, gcs, oracle, s3&lt;/li>
 &lt;/ul>
-&lt;h3 id="deploy">deploy&lt;/h3>
+&lt;h3 id="deploy-1">deploy&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerの設定変更を適用する&lt;/span>
 hal deploy apply
 &lt;span style="color:#8f5902;font-style:italic"># Spinnakerに接続する&lt;/span>

@@ -357,6 +357,8 @@
 &lt;li>メモリ使用量の大きなPodからeviction対象になる&lt;/li>
 &lt;li>memoryのrequets/limitsを適切に設定しておくこと&lt;/li>
 &lt;/ul>
+&lt;p>EvictしたPodは手動で削除する必要があるっぽい。
+See &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#evicted%E3%81%AApod%E3%82%92%E4%B8%80%E6%8B%AC%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B%E3%83%AF%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%8A%E3%83%BC">kubectl#EvictedなPodを一括削除するワンライナー&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.scsk.jp/sp/sysdig/blog/sysdig_monitor/kubernetes_pod_evicted.html">Kubernetes pod evictedとスケジューリングの問題を理解する | Sysdigブログ - コンテナ・Kubernetes環境向けセキュリティ・モニタリング プラットフォーム&lt;/a>&lt;/li>
@@ -887,6 +889,15 @@ kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-wei
 curl http://localhost:8080/api/
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="evictedなpodを一括削除するワンライナー">EvictedなPodを一括削除するワンライナー&lt;/h3>
+&lt;p>EvictionしたPodは手動削除しないといけないっぽい。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get pods &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;{if ($3 ~ /Evicted/) system (&amp;#34;kubectl delete pods &amp;#34; $1)}&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>PodのEvictionについてはSee &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/keizokeizo3/items/84a3ece88cd86fde9f75">k8sでEvictedされたpodを一括削除する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/46419163/what-will-happen-to-evicted-pods-in-kubernetes">What will happen to evicted pods in kubernetes? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="全てのマニフェストを取得したい">全てのマニフェストを取得したい&lt;/h3>
 &lt;p>これでよさそう:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get all --export -o yaml
