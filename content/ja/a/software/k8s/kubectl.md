@@ -59,8 +59,10 @@ kubectl config get-contexts
 ### 現在のcontext
 kubectl config current-context
 
-### 変更
+### 切替え
 kubectl config use-context <context-name>
+### rename
+kubectl config rename-context <old-name> <new-name>
 ```
 
 参考:
