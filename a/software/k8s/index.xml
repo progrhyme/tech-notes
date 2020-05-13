@@ -717,6 +717,10 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;/ol>
 &lt;/blockquote>
 &lt;p>See &lt;a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files - Kubernetes&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$KUBECONFIG&lt;/code> は &lt;code>:&lt;/code> 区切りで複数ファイル設定可能で、その場合、複数ファイルがマージされた内容を扱うことができる&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2">kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita&lt;/a>&lt;/li>
@@ -725,6 +729,8 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;h3 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
 kubectl config view
+&lt;span style="color:#8f5902;font-style:italic">### 現在のcontextだけを表示&lt;/span>
+kubectl config view --minify
 &lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
 kubectl config get-contexts

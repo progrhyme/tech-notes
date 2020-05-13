@@ -1327,6 +1327,10 @@ dpkg -i foo.deb
 &lt;/ol>
 &lt;/blockquote>
 &lt;p>See &lt;a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files - Kubernetes&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$KUBECONFIG&lt;/code> は &lt;code>:&lt;/code> 区切りで複数ファイル設定可能で、その場合、複数ファイルがマージされた内容を扱うことができる&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2">kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita&lt;/a>&lt;/li>
@@ -1335,6 +1339,8 @@ dpkg -i foo.deb
 &lt;h3 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
 kubectl config view
+&lt;span style="color:#8f5902;font-style:italic">### 現在のcontextだけを表示&lt;/span>
+kubectl config view --minify
 &lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
 kubectl config get-contexts
@@ -3401,6 +3407,10 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;li>&lt;a href="https://dekiru.net/article/12612/">ExcelのVLOOKUP関数で「○以上△未満」の条件で表を検索する方法 | できるネット&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/shell/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/zsh/</guid><description>
 &lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://zsh.sourceforge.net/Doc/Release/">zsh: The Z Shell Manual&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="source-code">Source Code&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://sourceforge.net/p/zsh/code/ci/master/tree/">https://sourceforge.net/p/zsh/code/ci/master/tree/&lt;/a>&lt;/li>
@@ -3412,6 +3422,18 @@ setopt extended_history
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://orumin.blogspot.com/2017/10/unix-os.html">Unix 系 OS でコマンド実行間にタイムスタンプを付ける&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="プロンプト">プロンプト&lt;/h3>
+&lt;h4 id="vcs_info">vcs_info&lt;/h4>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>check-for-changes&lt;/code> をtrueにしても、まだgitの管理下にない新規ファイルがあるだけだと &lt;code>stagedstr&lt;/code> にも &lt;code>unstagedstr&lt;/code> にも表れない。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples">zsh/vcs_info-examples at master · zsh-users/zsh&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/">zshのターミナルにリポジトリの情報を表示してみる · けんごのお屋敷&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html">Show Git State in ZSH Prompt via vcs_info | Timothy Basanov&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Visual Studio Code</title><link>https://progrhy.me/tech-notes/a/program/vscode/</link><pubDate>Mon, 27 Apr 2020 22:33:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vscode/</guid><description>
 &lt;p>Micfosoftが提供するOSSのクロスプラットフォームなコードエディタ。&lt;br>
 Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
@@ -3763,6 +3785,37 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="単項条件演算子">単項条件演算子&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>演算子&lt;/th>
+&lt;th>真の条件&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-v VAR&lt;/td>
+&lt;td>変数VARが定義されている。※ &lt;code>-v $VAR&lt;/code> ではない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-n $str&lt;/td>
+&lt;td>$str に長さ1以上の文字列が入っている&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-z $str&lt;/td>
+&lt;td>$str が空文字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x $path&lt;/td>
+&lt;td>$path が実行可能ファイル&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828">&amp;lt;Bash, zsh&amp;gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="ループ">ループ&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
@@ -3829,6 +3882,18 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: ターミナルソフトウェア</title><link>https://progrhy.me/tech-notes/a/software/terminal/</link><pubDate>Wed, 13 May 2020 22:23:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/</guid><description>
+&lt;h2 id="macos">macOS&lt;/h2>
+&lt;ul>
+&lt;li>ターミナル.app &amp;hellip; 標準でインストールされている端末アプリ&lt;/li>
+&lt;/ul>
+&lt;h3 id="iterm2">iTerm2&lt;/h3>
+&lt;p>macOSで人気の端末アプリ。&lt;br>
+ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
 &lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
 &lt;h2 id="dig">dig&lt;/h2>
@@ -3942,262 +4007,33 @@ ss -antu
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: halコマンド</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/hal/</link><pubDate>Tue, 12 May 2020 12:05:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/hal/</guid><description>
-&lt;p>リファレンス的に各コマンドの解説を書いていく。&lt;/p>
-&lt;p>ユースケース別の使い方は&lt;a href="https://progrhy.me/tech-notes/a/software/spinnaker/halyard/#how-to">Halyard#How-to&lt;/a>などを参照すること。&lt;/p>
-&lt;h2 id="global-parameters">Global Parameters&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>--daemon-endpoint &amp;lt;ADDRESS&amp;gt;&lt;/code>&lt;/td>
-&lt;td>指定があればそのdaemonに接続に行く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-d, --debug&lt;/code>&lt;/td>
-&lt;td>daemonの詳細なネットワークトラフィックを出力&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-l, --log&lt;/code>&lt;/td>
-&lt;td>CLIのログレベルを設定&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-h, --help&lt;/code>&lt;/td>
-&lt;td>ヘルプ表示&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="backup">backup&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バックアップ作成。tarballが出来る&lt;/span>
-hal backup create
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="config">config&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerのコンポーネントのリソース利用量を変更&lt;/span>
-hal config deploy component-sizing &amp;lt;component&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>delete&lt;span style="color:#000;font-weight:bold">|&lt;/span>edit&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># IAP認証を有効化&lt;/span>
-hal config security authn iap &lt;span style="color:#204a87">enable&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 該当プロバイダのアカウント一覧&lt;/span>
-hal config provider &lt;span style="color:#000">$PROVIDER&lt;/span> account list
-&lt;span style="color:#8f5902;font-style:italic"># 該当プロバイダの該当アカウントにRBACのロール設定&lt;/span>
-hal config provider &lt;span style="color:#000">$PROVIDER&lt;/span> account edit &lt;span style="color:#000">$ACCOUNT&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --read-permissions &lt;span style="color:#000">$ROLE1&lt;/span>,&lt;span style="color:#000">$ROLE2&lt;/span>,... &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --write-permissions &lt;span style="color:#000">$ROLE1&lt;/span>,&lt;span style="color:#000">$ROLE2&lt;/span>,...
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: 2020-05-14</title><link>https://progrhy.me/tech-notes/a/memo/20200514/</link><pubDate>Thu, 14 May 2020 00:51:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200514/</guid><description>
+&lt;h2 id="514">5/14&lt;/h2>
+&lt;h3 id="kubectlのctxnsをプロンプトに表示できるようにした">kubectlのctx/nsをプロンプトに表示できるようにした&lt;/h3>
+&lt;p>とりあえず個人用のmacOSだけ。下のコミットで実現:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.spinnaker.io/setup/security/authorization/#accounts">https://www.spinnaker.io/setup/security/authorization/#accounts&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/a9363d648db469a493de55b60178ae5a2d25ce44">https://github.com/progrhyme/myenv/commit/a9363d648db469a493de55b60178ae5a2d25ce44&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="canary">canary&lt;/h3>
-&lt;p>Canary analysis settings. kayentaの設定らしい。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config canary &amp;lt;integration&amp;gt; account list
-hal config canary &amp;lt;integration&amp;gt; account edit ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Integrations:&lt;/p>
+&lt;p>どうせみんなやってるだろうと思ってググったら、案の定いっぱい出てきた。&lt;br>
+スパブラさんがzshのプラグイン的なものを作っていて、使いやすそうだったのでこれを使うことにした。&lt;/p>
 &lt;ul>
-&lt;li>aws, datadog, google, newrelic, prometheus, signalfx&lt;/li>
+&lt;li>&lt;a href="https://github.com/superbrothers/zsh-kubectl-prompt">https://github.com/superbrothers/zsh-kubectl-prompt&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="deploy">deploy&lt;/h3>
-&lt;p>Spinnakerのデプロイメントの設定とその表示。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 状態表示&lt;/span>
-hal config deploy
-hal config deploy SUBCOMMAND parameters
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Subcommands:&lt;/p>
-&lt;ul>
-&lt;li>component-sizing, edit, ha&lt;/li>
-&lt;/ul>
-&lt;h4 id="component-sizing">component-sizing&lt;/h4>
-&lt;p>各コンポーネントのリソース利用量の設定管理。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config deploy component-sizing COMPONENT edit &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-requests-cpu 100m &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-requests-memory 256Mi &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-limits-cpu 200m &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --container-limits-memory 512Mi &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-requests-cpu 100m &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-requests-memory 256Mi &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-limits-cpu 200m &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --pod-limits-memory 512Mi &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --replicas &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Components（一部）:&lt;/p>
-&lt;ul>
-&lt;li>clouddriver&lt;/li>
-&lt;li>deck&lt;/li>
-&lt;li>echo&lt;/li>
-&lt;li>fiat&lt;/li>
-&lt;li>front50&lt;/li>
-&lt;li>gate&lt;/li>
-&lt;li>igor&lt;/li>
-&lt;li>kayenta&lt;/li>
-&lt;li>orca&lt;/li>
-&lt;li>rosco&lt;/li>
-&lt;/ul>
-&lt;h3 id="notification">notification&lt;/h3>
-&lt;p>通知設定の管理。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 設定一覧表示&lt;/span>
-hal config notification
-hal config notification SUBCOMMAND parameters
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Subcommands:&lt;/p>
-&lt;ul>
-&lt;li>github-status&lt;/li>
-&lt;li>pubsub&lt;/li>
-&lt;li>slack&lt;/li>
-&lt;li>twilio&lt;/li>
-&lt;/ul>
-&lt;h4 id="slack">slack&lt;/h4>
-&lt;p>Slack通知設定。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config notification slack &lt;span style="color:#204a87">enable&lt;/span>
-hal config notification slack disable
-hal config notification slack edit --token &lt;span style="color:#000">$TOKEN&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="provider">provider&lt;/h3>
-&lt;p>各種クラウドプロバイダなどの設定管理。&lt;/p>
-&lt;p>Subcommands（一部）:&lt;/p>
-&lt;ul>
-&lt;li>appengine&lt;/li>
-&lt;li>aws&lt;/li>
-&lt;li>azure&lt;/li>
-&lt;li>cloudfoundry&lt;/li>
-&lt;li>dcos&lt;/li>
-&lt;li>docker-registry&lt;/li>
-&lt;li>ecs&lt;/li>
-&lt;li>google&lt;/li>
-&lt;li>kubernetes&lt;/li>
-&lt;li>oracle&lt;/li>
-&lt;/ul>
-&lt;h4 id="docker-registry">docker-registry&lt;/h4>
-&lt;p>Docker Registryの管理。GCRもこちら&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 状態表示&lt;/span>
-hal config provider docker-registry
-&lt;span style="color:#8f5902;font-style:italic"># 有効化・無効化&lt;/span>
-hal config provider docker-registry &lt;span style="color:#204a87">enable&lt;/span>
-hal config provider docker-registry disable
-&lt;span style="color:#8f5902;font-style:italic"># account管理&lt;/span>
-hal config provider docker-registry account list
-hal config provider docker-registry account get ACCOUNT
-hal config provider docker-registry account add ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-hal config provider docker-registry account delete ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-hal config provider docker-registry account edit ACCOUNT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## GCRをService Account Key認証で追加&lt;/span>
-hal config provider docker-registry account add asia-gcr-io &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --address https://asia.gcr.io --username _json_key &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --password-file path/to/service-account-key.json &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>レジストリにリポジトリを追加する場合は &lt;code>edit&lt;/code> サブコマンドを使う。&lt;/li>
-&lt;/ul>
-&lt;p>例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config provider docker-registry account edit ACCOUNT --add-repository foo/bar
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="storage">storage&lt;/h3>
-&lt;p>Persistent storage.&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config storage &amp;lt;integration&amp;gt; edit &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>parameters&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Integrations:&lt;/p>
-&lt;ul>
-&lt;li>azs, gcs, oracle, s3&lt;/li>
-&lt;/ul>
-&lt;h2 id="deploy-1">deploy&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Spinnakerの設定変更を適用する&lt;/span>
-hal deploy apply
-&lt;span style="color:#8f5902;font-style:italic"># Spinnakerに接続する&lt;/span>
-hal deploy connect
-&lt;span style="color:#8f5902;font-style:italic"># 各サービスのログを集める&lt;/span>
-hal deploy collect-logs
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-05-12</title><link>https://progrhy.me/tech-notes/a/memo/20200512/</link><pubDate>Tue, 12 May 2020 08:25:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200512/</guid><description>
-&lt;h2 id="512">5/12&lt;/h2>
-&lt;h3 id="macosのターミナルでフォントサイズのプリセットを変更">macOSのターミナルでフォントサイズのプリセットを変更&lt;/h3>
-&lt;p>16ptにしたいんだけど16ptがプリセットにない、と思って試行錯誤していたら、変更方法を見つけた。&lt;/p>
-&lt;ol>
-&lt;li>環境設定からプロファイルを選択し、「テキスト」タブでフォント欄の「変更」を押す（ここまではわかっていた）&lt;/li>
-&lt;li>フォント設定画面で、左上に歯車アイコンがあり、そこを押すとプルダウンメニューが出てくる。「サイズを編集」を選ぶ&lt;/li>
-&lt;li>新しいサイズで「16」を入力し、「+」で追加できる&lt;/li>
-&lt;/ol>
-&lt;h3 id="macosでもfishを少しだけ試す">macOSでもfishを少しだけ試す&lt;/h3>
-&lt;p>&lt;a href="../20200510/#ubuntu%E3%81%A7fish%E3%82%92%E5%B0%91%E3%81%97%E3%81%A0%E3%81%91%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">5/10&lt;/a>の続き。&lt;br>
-macOSの方がハマらないんじゃないかなと思って。&lt;/p>
-&lt;h4 id="fish-fisher-テーマのインストール">fish, fisher, テーマのインストール&lt;/h4>
-&lt;p>fishのInstallはbrewでOK.&lt;/p>
-&lt;p>&lt;code>fish&lt;/code> コマンドで起動してUbuntuのときと同じコマンドでfisherをインストール。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>fisher add oh-my-fish/theme-bobthefish&lt;/code> でテーマを入れたら、文字化けした。&lt;/p>
-&lt;h4 id="powerline-fontsのインストール">powerline fontsのインストール&lt;/h4>
-&lt;p>&lt;a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts&lt;/a>&lt;/p>
-&lt;p>install.sh がmacOSにも対応しているようだったので、 &lt;code>git clone&lt;/code> してinstall.shを実行。&lt;/p>
-&lt;p>…で、ターミナルのフォントをpowerline対応フォントにしたら、それっぽい見た目になった。&lt;/p>
-&lt;p>…が、bobthefishのスクリーンショットと違ってあまりカラフルでない。&lt;/p>
-&lt;p>fish自体のカラースキームをいじらないといけないのかな？&lt;/p></description></item><item><title>A: Domain Name System</title><link>https://progrhy.me/tech-notes/a/network/dns/</link><pubDate>Tue, 12 May 2020 00:12:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/network/dns/</guid><description>
-&lt;p>DNSプロトコルやDNSサーバなどに関して。&lt;/p>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;p>入門コンテンツ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.nic.ad.jp/ja/newsletter/No22/080.html">インターネット10分講座 DNS - JPNIC&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="glossary">Glossary&lt;/h2>
-&lt;h3 id="スタブとフォワード">スタブとフォワード&lt;/h3>
-&lt;ul>
-&lt;li>スタブゾーン, 条件付きフォワーダ&lt;/li>
-&lt;li>いずれも別のサーバに問合せを転送することができる。&lt;/li>
-&lt;li>フォワード
-&lt;ul>
-&lt;li>問合せを外部に転送&lt;/li>
-&lt;li>DNS キャッシュサーバを指定する&lt;/li>
-&lt;li>外部へ問合せするDNSキャッシュサーバをまとめられる&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>スタブ
-&lt;ul>
-&lt;li>その zone をホストする DNS コンテンツサーバを指定&lt;/li>
-&lt;li>サブドメインを委任するときとか&lt;/li>
-&lt;li>子ゾーンをスタブゾーンとする&lt;/li>
-&lt;li>親ゾーンでは子ゾーンをホストするすべての DNS サーバを認識するようにする&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
+&lt;p>&lt;code>vcs_info&lt;/code> と合わせるとごちゃごちゃしそうだったので、 &lt;code>precmd()&lt;/code> の中で &lt;code>RPROMPT&lt;/code> を料理するようにリファクタした。&lt;/p></description></item><item><title>A: 2020-05-13</title><link>https://progrhy.me/tech-notes/a/memo/20200513/</link><pubDate>Wed, 13 May 2020 22:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200513/</guid><description>
+&lt;h2 id="513">5/13&lt;/h2>
+&lt;h3 id="iterm2はターミナルappと比べて何が良いのか">iTerm2はターミナル.appと比べて何が良いのか？&lt;/h3>
+&lt;p>&lt;a href="https://progrhy.me/tech-notes/a/software/terminal/#iterm2">Software &amp;gt; ターミナル#iTerm2&lt;/a>にもメモったけど、「それ全部ターミナル.app + tmuxでできるな」って思った。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/cc780434(v=ws.10).aspx">スタブ ゾーンと条件付きフォワーダとの違い&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/0306/03/news002_3.html">実用 BIND 9で作るDNSサーバ（6）：サブドメインの運用と委任 (3/3) - ＠IT&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://unbound.jp/unbound/unbound-conf/">unbound.conf(5) – 日本Unboundユーザー会&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="レコード">レコード&lt;/h2>
-&lt;p>&lt;a href="https://tools.ietf.org/html/rfc1035">https://tools.ietf.org/html/rfc1035&lt;/a>&lt;/p>
+&lt;p>…って思って、Twitterで聞いてみたら、知り合いが教えてくれた。&lt;/p>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">Triggers (特定語句に反応して通知やハイライトが出来る)&lt;br>Smart Selection (ターミナル上でクアドラプル（4回）クリックすると&amp;quot;URLだけ&amp;quot;とか絶妙にいい感じの範囲選択をしてくれる)&lt;br>&lt;br>とかでしょうか！&lt;/p>&amp;mdash; たいぷらいたー (@no_clock) &lt;a href="https://twitter.com/no_clock/status/1260564766273175553?ref_src=twsrc%5Etfw">May 13, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">HotkeyとかNotificationをカスタムできることろとかですかね？ターミナル.appはあまりつかってないので、もしかしたらできるかもですが......&lt;a href="https://t.co/704RTHagLh">https://t.co/704RTHagLh&lt;/a>&lt;/p>&amp;mdash; blue (@blue_1617) &lt;a href="https://twitter.com/blue_1617/status/1260564811731161090?ref_src=twsrc%5Etfw">May 13, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;p>今度、入れてみるか。&lt;/p>
+&lt;h3 id="fishでちょっといいと思った機能はzshでもできそう">fishでちょっといいと思った機能はzshでもできそう&lt;/h3>
 &lt;ul>
-&lt;li>NS&lt;/li>
-&lt;li>A&lt;/li>
-&lt;li>CNAME&lt;/li>
-&lt;li>MX&lt;/li>
-&lt;li>TXT&lt;/li>
-&lt;li>SOA&lt;/li>
-&lt;li>:&lt;/li>
+&lt;li>プロンプトでpathを縮めるやつ: &lt;a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/shrink-path">ohmyzsh/plugins/shrink-path at master · ohmyzsh/ohmyzsh&lt;/a>&lt;/li>
+&lt;li>historyから自動補完: &lt;a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-users/zsh-autosuggestions: Fish-like autosuggestions for zsh&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/DNS%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%BF%E3%82%A4%E3%83%97%E3%81%AE%E4%B8%80%E8%A6%A7">DNSレコードタイプの一覧 - Wikipedia&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://manual.iij.jp/dns/help/1481516.html">DNSレコードの登録ルール（バリデーションルール）&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="txt">TXT&lt;/h3>
-&lt;p>&lt;a href="https://tools.ietf.org/html/rfc1464">https://tools.ietf.org/html/rfc1464&lt;/a>&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;pre>&lt;code>example.jp. IN TXT &amp;quot;exampleA&amp;quot; &amp;quot;exampleB&amp;quot;
-&lt;/code>&lt;/pre>&lt;p>仕様:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>&amp;quot;&lt;/code> で括ってエントリを値を記述する。&lt;/li>
-&lt;li>&lt;code>&amp;quot;&lt;/code> で括った1エントリについて
-&lt;ul>
-&lt;li>文字数は最大255文字。&lt;code>&amp;quot;&lt;/code> も含めると最大257文字&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>エントリを複数記述できる。エントリ間に半角スペースを入れる。&lt;/li>
-&lt;li>TXTレコードの右辺全体に記述できる文字数は最大1,024文字&lt;/li>
-&lt;/ul>
-&lt;h2 id="dnssec">DNSSEC&lt;/h2>
-&lt;p>DNSのセキュリティを高める技術の1つで、主にキャッシュポイズニングを防げるっぽい。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.nic.ad.jp/ja/newsletter/No43/0800.html">インターネット10分講座：DNSSEC - JPNIC&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>powerline fontsはzshでも使えるし、自分にとってはこっちの方向性の方がトータルとしてハッピーになれるかも。&lt;/p></description></item></channel></rss>

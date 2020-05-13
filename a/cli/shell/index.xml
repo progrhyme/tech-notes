@@ -96,6 +96,10 @@ end
 &lt;li>&lt;a href="https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519" title="Linuxで、bash プロンプトを素敵で実用的なものに変更する">Linuxで、bash プロンプトを素敵で実用的なものに変更する&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/shell/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/zsh/</guid><description>
 &lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://zsh.sourceforge.net/Doc/Release/">zsh: The Z Shell Manual&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="source-code">Source Code&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://sourceforge.net/p/zsh/code/ci/master/tree/">https://sourceforge.net/p/zsh/code/ci/master/tree/&lt;/a>&lt;/li>
@@ -107,6 +111,18 @@ setopt extended_history
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://orumin.blogspot.com/2017/10/unix-os.html">Unix 系 OS でコマンド実行間にタイムスタンプを付ける&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="プロンプト">プロンプト&lt;/h3>
+&lt;h4 id="vcs_info">vcs_info&lt;/h4>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>check-for-changes&lt;/code> をtrueにしても、まだgitの管理下にない新規ファイルがあるだけだと &lt;code>stagedstr&lt;/code> にも &lt;code>unstagedstr&lt;/code> にも表れない。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples">zsh/vcs_info-examples at master · zsh-users/zsh&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/">zshのターミナルにリポジトリの情報を表示してみる · けんごのお屋敷&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html">Show Git State in ZSH Prompt via vcs_info | Timothy Basanov&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: シェルスクリプト</title><link>https://progrhy.me/tech-notes/a/cli/shell/script/</link><pubDate>Mon, 04 May 2020 14:49:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/script/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
@@ -148,6 +164,37 @@ setopt extended_history
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="単項条件演算子">単項条件演算子&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>演算子&lt;/th>
+&lt;th>真の条件&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-v VAR&lt;/td>
+&lt;td>変数VARが定義されている。※ &lt;code>-v $VAR&lt;/code> ではない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-n $str&lt;/td>
+&lt;td>$str に長さ1以上の文字列が入っている&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-z $str&lt;/td>
+&lt;td>$str が空文字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x $path&lt;/td>
+&lt;td>$path が実行可能ファイル&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828">&amp;lt;Bash, zsh&amp;gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="ループ">ループ&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>

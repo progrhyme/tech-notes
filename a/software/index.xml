@@ -986,6 +986,18 @@ kubectl delete -f my-ns.yml
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1f57c62bed781ab8f4d7" title="Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita">Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: ターミナルソフトウェア</title><link>https://progrhy.me/tech-notes/a/software/terminal/</link><pubDate>Wed, 13 May 2020 22:23:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/</guid><description>
+&lt;h2 id="macos">macOS&lt;/h2>
+&lt;ul>
+&lt;li>ターミナル.app &amp;hellip; 標準でインストールされている端末アプリ&lt;/li>
+&lt;/ul>
+&lt;h3 id="iterm2">iTerm2&lt;/h3>
+&lt;p>macOSで人気の端末アプリ。&lt;br>
+ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><pubDate>Mon, 04 May 2020 17:17:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/</guid><description/></item><item><title>A: Static Site Generators</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/</link><pubDate>Wed, 06 May 2020 13:39:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/</guid><description>
 &lt;p>コンテンツをMarkdown等で管理して、静的サイトを作れるソフトウェア製品。&lt;br>
 製本ツールであっても、HTML形式での出力に対応しているものはここに入れると思う。&lt;/p>
