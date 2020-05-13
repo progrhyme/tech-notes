@@ -117,12 +117,51 @@ gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-n
 gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="container">container&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container">https://cloud.google.com/sdk/gcloud/reference/container&lt;/a>&lt;/p>
-&lt;p>GKE操作&lt;/p>
+&lt;p>GKE操作。&lt;/p>
+&lt;h4 id="clusters">clusters&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters">https://cloud.google.com/sdk/gcloud/reference/container/clusters&lt;/a>&lt;/p>
+&lt;p>GKEクラスタの操作。&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters list
 &lt;span style="color:#8f5902;font-style:italic"># $KUBECONFIG or ~/.kube/config に認証情報を取得&lt;/span>
 gcloud container clusters get-credentials クラスタ名 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>PROJECT_ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="create">create&lt;/h5>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;enable-master-authorized-networks&lt;/td>
+&lt;td>Master Authorized Networksの有効化&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;master-authorized-networks=NETWORK,[NETWORK,…]&lt;/td>
+&lt;td>Master Authorized Networksの設定&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h6 id="beta版2020-05-13更新">beta版（2020-05-13更新）&lt;/h6>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create">https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;release-channel=CHANNEL&lt;/td>
+&lt;td>rapid, regular, stableのどれか。リリースチャネルの設定。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="functions">functions&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
 &lt;p>Cloud Functionsの操作&lt;/p>
 &lt;h4 id="deploy">deploy&lt;/h4>
@@ -523,6 +562,16 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="ノードプールを作り直す">ノードプールを作り直す&lt;/h3>
+&lt;p>マシンタイプやサービスアカウントを変えるときなどには、ノードプールの作り直しが発生する。&lt;br>
+次の要領でやれば良い:&lt;/p>
+&lt;ol>
+&lt;li>新しいプールを作成&lt;/li>
+&lt;li>ワークロードを新しいプールに移行&lt;/li>
+&lt;li>古いプールを削除&lt;/li>
+&lt;/ol>
+&lt;p>ドキュメントでは、 &lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/migrating-node-pool?hl=ja">異なるマシンタイプへのワークロードの移行 | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a> の手順に従う形になる。&lt;/p>
+&lt;p>ただし、この手順に愚直に従うとドレインした瞬間に旧プール上のPodがevictionされ、サービス停止することもあり得るので、常時稼働のワークロードであれば、cordonでノードへのスケジューリングを停止した後、Podをスケールさせて新しいプールにPodが配置された後にドレインした方がよさそう。&lt;/p>
 &lt;h3 id="gkeのノードにssh">GKEのノードにSSH&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/connecting-advanced#sshbetweeninstances">高度な方法によるインスタンスへの接続 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
