@@ -226,6 +226,19 @@ gcloud container clusters get-credentials [CLUSTER_NAME] [--project PROJECT] [--
 
 - [kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja)
 
+### ノードプールを作り直す
+
+マシンタイプやサービスアカウントを変えるときなどには、ノードプールの作り直しが発生する。  
+次の要領でやれば良い:
+
+1. 新しいプールを作成
+1. ワークロードを新しいプールに移行
+1. 古いプールを削除
+
+ドキュメントでは、 [異なるマシンタイプへのワークロードの移行 | Kubernetes Engine のチュートリアル | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/tutorials/migrating-node-pool?hl=ja) の手順に従う形になる。
+
+ただし、この手順に愚直に従うとドレインした瞬間に旧プール上のPodがevictionされ、サービス停止することもあり得るので、常時稼働のワークロードであれば、cordonでノードへのスケジューリングを停止した後、Podをスケールさせて新しいプールにPodが配置された後にドレインした方がよさそう。
+
 ### GKEのノードにSSH
 
 - [高度な方法によるインスタンスへの接続 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/instances/connecting-advanced#sshbetweeninstances)

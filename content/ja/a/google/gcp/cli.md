@@ -170,7 +170,13 @@ gcloud config set compute/zone asia-northeast1-a
 
 https://cloud.google.com/sdk/gcloud/reference/container
 
-GKE操作
+GKE操作。
+
+#### clusters
+
+https://cloud.google.com/sdk/gcloud/reference/container/clusters
+
+GKEクラスタの操作。
 
 Examples:
 
@@ -180,6 +186,23 @@ gcloud container clusters list
 # $KUBECONFIG or ~/.kube/config に認証情報を取得
 gcloud container clusters get-credentials クラスタ名 [--region=REGION] [--project=PROJECT_ID]
 ```
+
+##### create
+
+https://cloud.google.com/sdk/gcloud/reference/container/clusters/create
+
+ オプション | 意味
+----------|-----
+ --enable-master-authorized-networks | Master Authorized Networksの有効化
+ --master-authorized-networks=NETWORK,[NETWORK,…] | Master Authorized Networksの設定
+
+###### beta版（2020-05-13更新）
+
+https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create
+
+ オプション | 意味
+----------|-----
+ --release-channel=CHANNEL | rapid, regular, stableのどれか。リリースチャネルの設定。
 
 ### functions
 
