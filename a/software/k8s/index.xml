@@ -736,8 +736,10 @@ kubectl config view --minify
 kubectl config get-contexts
 &lt;span style="color:#8f5902;font-style:italic">### 現在のcontext&lt;/span>
 kubectl config current-context
-&lt;span style="color:#8f5902;font-style:italic">### 変更&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### 切替え&lt;/span>
 kubectl config use-context &amp;lt;context-name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">### rename&lt;/span>
+kubectl config rename-context &amp;lt;old-name&amp;gt; &amp;lt;new-name&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
