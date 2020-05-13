@@ -44,6 +44,19 @@ weight: 2000
 
 - [シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita](https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc)
 
+#### 単項条件演算子
+
+ 演算子 | 真の条件
+-------|---------
+ -v VAR | 変数VARが定義されている。※ `-v $VAR` ではない
+ -n $str | $str に長さ1以上の文字列が入っている
+ -z $str | $str が空文字
+ -x $path | $path が実行可能ファイル
+
+参考:
+
+- [&lt;Bash, zsh&gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ](http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828)
+
 ### ループ
 
 ```sh

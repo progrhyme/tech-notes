@@ -36,6 +36,10 @@ Kubernetesクラスタを制御するCLI.
 
 See [Organizing Cluster Access Using kubeconfig Files - Kubernetes](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
 
+NOTE:
+
+- `$KUBECONFIG` は `:` 区切りで複数ファイル設定可能で、その場合、複数ファイルがマージされた内容を扱うことができる
+
 参考:
 
 - [kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita](https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2)
@@ -46,6 +50,8 @@ See [Organizing Cluster Access Using kubeconfig Files - Kubernetes](https://kube
 ```sh
 ## kubeconfig 表示
 kubectl config view
+### 現在のcontextだけを表示
+kubectl config view --minify
 
 ## context
 ### 一覧表示
