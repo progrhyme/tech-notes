@@ -5,6 +5,11 @@ date: 2020-04-29T22:59:42+09:00
 weight: 100
 ---
 
+Quick links:
+
+- [gcloud](#gcloud)
+- [gsutil](#gsutil)
+
 ## Cloud SDK
 
 https://cloud.google.com/sdk/docs?hl=ja
@@ -274,14 +279,51 @@ Cloud Storage用のPython製CLI
 - ドキュメント: https://cloud.google.com/storage/docs/gsutil
 - コマンドリファレンス: https://cloud.google.com/storage/docs/gsutil/commands/help
 
-### mb
+### バケット操作
 
-https://cloud.google.com/storage/docs/gsutil/commands/mb
-
-バケット作成
+- [mb](https://cloud.google.com/storage/docs/gsutil/commands/mb)
+- [rb](https://cloud.google.com/storage/docs/gsutil/commands/rb)
 
 Examples:
 
 ```sh
+# バケット作成
 gsutil mb -l asia gs://mybucket
+# バケット削除
+gsutil rb [-f] gs://<bucket_name>
+```
+
+### ls
+
+https://cloud.google.com/storage/docs/gsutil/commands/ls
+
+バケットやオブジェクトのリスト表示。
+
+Examples:
+
+```sh
+gsutil ls gs://my-bucket/
+
+# 古いバージョンも含める
+gsutil ls -a gs://my-bucket/
+```
+
+### rm
+
+https://cloud.google.com/storage/docs/gsutil/commands/rm
+
+オブジェクトの削除。
+
+Examples:
+
+```sh
+# subdir/ 直下のオブジェクトを削除
+gsutil rm gs://bucket/subdir/*
+# subdir/ 下の全てのオブジェクトを削除
+gsutil rm gs://bucket/subdir/**
+# 上と同じ
+gsutil rm -r gs://bucket/subdir/
+
+# 古いバージョンも含めて削除
+gsutil rm -a gs://bucket/path/to/object
 ```
