@@ -21,3 +21,8 @@ macOSで人気の端末アプリ。
 
 - [MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum](https://webrandum.net/iterm2/)
 - [iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita](https://qiita.com/ruwatana/items/8d9c174250061721ad11)
+
+## Topics
+### 色
+
+- [256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL](https://jonasjacek.github.io/colors/)

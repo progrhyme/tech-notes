@@ -15,6 +15,14 @@ weight: 2000
 
 shやbashはシェルソフトウェア（シェルプログラムともいう）の例。
 
+## ANSIエスケープシーケンス
+
+ターミナルの出力文字に色や装飾を付けたりできる。
+
+参考:
+
+- [ANSIエスケープシーケンス チートシート - Qiita](https://qiita.com/PruneMazui/items/8a023347772620025ad6#%E5%87%BA%E5%8A%9B%E8%89%B2%E3%81%AE%E5%A4%89%E6%9B%B4)
+
 ## fish shell
 
 https://fishshell.com/

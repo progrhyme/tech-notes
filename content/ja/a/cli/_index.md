@@ -8,12 +8,8 @@ simple_list: true
 weight: 400
 ---
 
-シェルソフトウェアやシェルスクリプトについてもこのセクションで扱う。
-
-## 端末
-### 色
-
-- [256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL](https://jonasjacek.github.io/colors/)
+シェルソフトウェアやシェルスクリプトについてもこのセクションで扱う。  
+ターミナルソフトウェアについては[Software > ターミナル]({{< ref "/a/software/terminal.md" >}})を見よ。
 
 ## ロギング
 ### script
