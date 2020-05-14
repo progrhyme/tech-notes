@@ -56,6 +56,8 @@ kubectl config view --minify
 ## context
 ### 一覧表示
 kubectl config get-contexts
+#### ヘッダ無しで名前だけ表示
+kubectl config get-contexts --no-headers -o=name
 ### 現在のcontext
 kubectl config current-context
 
@@ -68,6 +70,19 @@ kubectl config rename-context <old-name> <new-name>
 参考:
 
 - [kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja)
+
+### Namespaceの操作・設定
+
+Examples:
+
+```sh
+# コンテキストのデフォルトnamespaceを設定する
+kubectl config set-context $(kubectl config current-context) --namespace=NAMESPACE
+```
+
+参考:
+
+- [kubectl で Namespace を切り替える - Qiita](https://qiita.com/nirasan/items/9dcc7e45cf20fb72bf8a)
 
 ### 実行・公開
 
@@ -203,6 +218,9 @@ kubectl get po[ds] [-o json|yaml]
 
 ## フィルタの例
 kubectl get pods -l app=nginx
+
+## ヘッダ無し + 出力フィールド指定
+kubectl get namespaces --no-headers --output "custom-columns=NAME:.metadata.name"
 
 # describe
 kubectl describe pods # all pods

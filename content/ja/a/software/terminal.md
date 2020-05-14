@@ -10,6 +10,10 @@ weight: 2400
 
 ### iTerm2
 
+https://iterm2.com/
+
+- 機能: https://iterm2.com/features.html
+
 macOSで人気の端末アプリ。  
 ターミナル.app より細かい設定が色々できるらしい。
 

@@ -38,6 +38,7 @@ weight: 100
 
 プロンプトについて:
 
+- [Bash prompt basics - LinuxConfig.org](https://linuxconfig.org/bash-prompt-basics)
 - [PS1とPROMPT_COMMAND, GNU screenでの活用も](http://rcmdnk.github.io/blog/2013/03/21/prompt-command/)
 
 
@@ -121,6 +122,22 @@ end
 
 ### プロンプト(PS1)の変更
 
-カスタマイズしたくなったときに見るページ:
+`PS1` 変数を設定する。
+
+Examples:
+
+```sh
+PS1="\[\e[1;34m\][\u@\h \W]\\$ \[\e[m\]"
+```
+
+ 特殊文字 | 内容
+--------|------
+ \u | 現在のユーザ名
+ \h | ホスト名（ドメイン部除く）
+ \w | カレントディレクトリ（ホームディレクトリからの絶対パス）
+
+参考（カスタマイズしたくなったときに見るページ）:
+
 - [bashのプロンプトを変更するには](http://www.atmarkit.co.jp/flinux/rensai/linuxtips/002cngprmpt.html "bashのプロンプトを変更するには")
 - [Linuxで、bash プロンプトを素敵で実用的なものに変更する](https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519 "Linuxで、bash プロンプトを素敵で実用的なものに変更する")
+- [BashでPromptの色を変更する方法 - Qiita](https://qiita.com/wildeagle/items/5da17e007e2c284dc5dd)
