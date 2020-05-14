@@ -21,7 +21,36 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Datadog</title><link>https://progrhy.me/tech-notes/a/web-service/datadog/</link><pubDate>Thu, 14 May 2020 19:05:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/datadog/</guid><description>
+&lt;p>監視ソリューションをサービスとして提供している。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://docs.datadoghq.com/">https://docs.datadoghq.com/&lt;/a>&lt;/p>
+&lt;h2 id="インテグレーション">インテグレーション&lt;/h2>
+&lt;p>&lt;a href="https://docs.datadoghq.com/integrations/">https://docs.datadoghq.com/integrations/&lt;/a>&lt;/p>
+&lt;p>各種ツール、サービスと連携が可能。&lt;/p>
+&lt;h3 id="google-cloud-platform">Google Cloud Platform&lt;/h3>
+&lt;p>&lt;a href="https://docs.datadoghq.com/integrations/google_cloud_platform/">https://docs.datadoghq.com/integrations/google_cloud_platform/&lt;/a>&lt;/p>
+&lt;h4 id="セットアップ">セットアップ&lt;/h4>
+&lt;p>メトリクスの収集:&lt;/p>
+&lt;ol>
+&lt;li>サービスアカウント作成
+&lt;ul>
+&lt;li>権限「Compute Viewer」「Monitoring Viewer」「Cloud Asset Viewer」をつける&lt;/li>
+&lt;li>サービスアカウントキーをJSONで作成&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>作成したサービスアカウントキーをDatadogのGCPインテグレーションの画面でUpload&lt;/li>
+&lt;/ol>
+&lt;p>ログの収集:&lt;/p>
+&lt;ol>
+&lt;li>Cloud Pub/Sub Topicを作成&lt;/li>
+&lt;li>上のTopicのSubscriberを作成
+&lt;ul>
+&lt;li>配信タイプとして Push を選択し、 &lt;code>https://gcp-intake.logs.datadoghq.com/v1/input/&amp;lt;DATADOG_API_KEY&amp;gt;/&lt;/code> と入力&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Cloud LoggingでログをPub/Subエクスポートし、上で作ったTopicを指定する&lt;/li>
+&lt;/ol></description></item><item><title>A: GitHub</title><link>https://progrhy.me/tech-notes/a/web-service/github/</link><pubDate>Sun, 26 Apr 2020 13:50:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/github/</guid><description>
 &lt;h2 id="稼働障害-情報">稼働/障害 情報&lt;/h2>
 &lt;p>&lt;a href="https://www.githubstatus.com/">https://www.githubstatus.com/&lt;/a>&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>

@@ -166,7 +166,16 @@ gcloud container clusters get-credentials クラスタ名 &lt;span style="color:
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h3 id="functions">functions&lt;/h3>
+&lt;h3 id="endpoints">endpoints&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints">https://cloud.google.com/sdk/gcloud/reference/endpoints&lt;/a>&lt;/p>
+&lt;p>APIサービスの作成・有効化・管理を行う。&lt;/p>
+&lt;h4 id="services">services&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints/services">https://cloud.google.com/sdk/gcloud/reference/endpoints/services&lt;/a>&lt;/p>
+&lt;p>サービスの管理を行う。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud endpoints services list
+gcloud endpoints services delete ENDPOINT
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
 &lt;p>Cloud Functionsの操作&lt;/p>
 &lt;h4 id="deploy">deploy&lt;/h4>

@@ -1002,7 +1002,16 @@ gcloud container clusters get-credentials クラスタ名 &lt;span style="color:
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h3 id="functions">functions&lt;/h3>
+&lt;h3 id="endpoints">endpoints&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints">https://cloud.google.com/sdk/gcloud/reference/endpoints&lt;/a>&lt;/p>
+&lt;p>APIサービスの作成・有効化・管理を行う。&lt;/p>
+&lt;h4 id="services">services&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints/services">https://cloud.google.com/sdk/gcloud/reference/endpoints/services&lt;/a>&lt;/p>
+&lt;p>サービスの管理を行う。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud endpoints services list
+gcloud endpoints services delete ENDPOINT
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
 &lt;p>Cloud Functionsの操作&lt;/p>
 &lt;h4 id="deploy">deploy&lt;/h4>
@@ -1096,7 +1105,36 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;h3 id="vpc接続">VPC接続&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/google/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/iam/</guid><description>
+&lt;/ul></description></item><item><title>A: Datadog</title><link>https://progrhy.me/tech-notes/a/web-service/datadog/</link><pubDate>Thu, 14 May 2020 19:05:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/datadog/</guid><description>
+&lt;p>監視ソリューションをサービスとして提供している。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://docs.datadoghq.com/">https://docs.datadoghq.com/&lt;/a>&lt;/p>
+&lt;h2 id="インテグレーション">インテグレーション&lt;/h2>
+&lt;p>&lt;a href="https://docs.datadoghq.com/integrations/">https://docs.datadoghq.com/integrations/&lt;/a>&lt;/p>
+&lt;p>各種ツール、サービスと連携が可能。&lt;/p>
+&lt;h3 id="google-cloud-platform">Google Cloud Platform&lt;/h3>
+&lt;p>&lt;a href="https://docs.datadoghq.com/integrations/google_cloud_platform/">https://docs.datadoghq.com/integrations/google_cloud_platform/&lt;/a>&lt;/p>
+&lt;h4 id="セットアップ">セットアップ&lt;/h4>
+&lt;p>メトリクスの収集:&lt;/p>
+&lt;ol>
+&lt;li>サービスアカウント作成
+&lt;ul>
+&lt;li>権限「Compute Viewer」「Monitoring Viewer」「Cloud Asset Viewer」をつける&lt;/li>
+&lt;li>サービスアカウントキーをJSONで作成&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>作成したサービスアカウントキーをDatadogのGCPインテグレーションの画面でUpload&lt;/li>
+&lt;/ol>
+&lt;p>ログの収集:&lt;/p>
+&lt;ol>
+&lt;li>Cloud Pub/Sub Topicを作成&lt;/li>
+&lt;li>上のTopicのSubscriberを作成
+&lt;ul>
+&lt;li>配信タイプとして Push を選択し、 &lt;code>https://gcp-intake.logs.datadoghq.com/v1/input/&amp;lt;DATADOG_API_KEY&amp;gt;/&lt;/code> と入力&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Cloud LoggingでログをPub/Subエクスポートし、上で作ったTopicを指定する&lt;/li>
+&lt;/ol></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/google/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/iam/</guid><description>
 &lt;p>&lt;a href="https://cloud.google.com/iam/docs">https://cloud.google.com/iam/docs&lt;/a>&lt;/p>
 &lt;p>Cloud IAM. Google IDベースのアクセス管理ができる。&lt;/p>
 &lt;p>Googleグループを設定することもできる。&lt;/p>
@@ -4105,21 +4143,4 @@ toggle_kubectl_prompt&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span
 &lt;h3 id="pecoでkubectxns相当の操作">pecoでkubectx/ns相当の操作&lt;/h3>
 &lt;ul>
 &lt;li>Bash: &lt;a href="https://github.com/progrhyme/dotfiles/commit/65cb850e53a7006d065185e8ad12cb09a53c6127">https://github.com/progrhyme/dotfiles/commit/65cb850e53a7006d065185e8ad12cb09a53c6127&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-13</title><link>https://progrhy.me/tech-notes/a/memo/20200513/</link><pubDate>Wed, 13 May 2020 22:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200513/</guid><description>
-&lt;h2 id="513">5/13&lt;/h2>
-&lt;h3 id="iterm2はターミナルappと比べて何が良いのか">iTerm2はターミナル.appと比べて何が良いのか？&lt;/h3>
-&lt;p>&lt;a href="https://progrhy.me/tech-notes/a/software/terminal/#iterm2">Software &amp;gt; ターミナル#iTerm2&lt;/a>にもメモったけど、「それ全部ターミナル.app + tmuxでできるな」って思った。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>…って思って、Twitterで聞いてみたら、知り合いが教えてくれた。&lt;/p>
-&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">Triggers (特定語句に反応して通知やハイライトが出来る)&lt;br>Smart Selection (ターミナル上でクアドラプル（4回）クリックすると&amp;quot;URLだけ&amp;quot;とか絶妙にいい感じの範囲選択をしてくれる)&lt;br>&lt;br>とかでしょうか！&lt;/p>&amp;mdash; たいぷらいたー (@no_clock) &lt;a href="https://twitter.com/no_clock/status/1260564766273175553?ref_src=twsrc%5Etfw">May 13, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
-&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">HotkeyとかNotificationをカスタムできることろとかですかね？ターミナル.appはあまりつかってないので、もしかしたらできるかもですが......&lt;a href="https://t.co/704RTHagLh">https://t.co/704RTHagLh&lt;/a>&lt;/p>&amp;mdash; blue (@blue_1617) &lt;a href="https://twitter.com/blue_1617/status/1260564811731161090?ref_src=twsrc%5Etfw">May 13, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
-&lt;p>今度、入れてみるか。&lt;/p>
-&lt;h3 id="fishでちょっといいと思った機能はzshでもできそう">fishでちょっといいと思った機能はzshでもできそう&lt;/h3>
-&lt;ul>
-&lt;li>プロンプトでpathを縮めるやつ: &lt;a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/shrink-path">ohmyzsh/plugins/shrink-path at master · ohmyzsh/ohmyzsh&lt;/a>&lt;/li>
-&lt;li>historyから自動補完: &lt;a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-users/zsh-autosuggestions: Fish-like autosuggestions for zsh&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>powerline fontsはzshでも使えるし、自分にとってはこっちの方向性の方がトータルとしてハッピーになれるかも。&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
