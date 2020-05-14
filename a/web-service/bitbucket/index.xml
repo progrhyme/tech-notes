@@ -1,0 +1,121 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><description>Recent content in Bitbucket on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 28 Apr 2020 00:22:53 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/bitbucket/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Bitbucket Pipelines</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/pipeline/</link><pubDate>Thu, 14 May 2020 14:15:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/pipeline/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Build, test, and deploy with Pipelines&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html">Pipelines を使用したビルド、テスト、およびデプロイ&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/yaml-anchors-960154027.html">YAML アンカー&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デモリポジトリ: &lt;a href="https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC">https://bitbucket.org/bitbucketpipelines/workspace/projects/DOC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mochio/items/33584357e924f55f9023">【初心者向け】bitbucket-pipelinesのキーワードとTips - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="deployments">Deployments&lt;/h3>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-deployments-940695276.html">Bitbucket Deployments - アトラシアン製品ドキュメント&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html">Bitbucket Deployments のセットアップ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/rollbacks-981147477.html">ロールバック&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Deployments設定で、デプロイ先環境の管理ができる。&lt;/li>
+&lt;li>bitbucket-pipelines.ymlのstep設定で &lt;code>deployment: Production&lt;/code> などと指定すると、そのstepのビルドがデプロイ先環境と紐付けられる。&lt;/li>
+&lt;li>ダッシュボードで履歴が確認できる&lt;/li>
+&lt;li>ロールバックもGUIぽちぽちで行ける&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="プルリクエストで実行する">プルリクエストで実行する&lt;/h3>
+&lt;p>ドキュメント: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;p>&lt;code>pull-requests&lt;/code> というキーワードによって、PRをトリガーとするパイプライン処理を記述できる。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">pull-requests&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;#39;**&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#this runs as default for any branch not elsewhere defined&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">feature/*&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#any branch with a feature prefix&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/deploy-with-pull-requests-856832274.html">プル リクエストを使用したデプロイ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ステップを手動実行する">ステップを手動実行する&lt;/h3>
+&lt;p>ドキュメント: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html">bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>trigger: manual&lt;/code> をつける。&lt;/li>
+&lt;li>※最初のステップは手動にはできない&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ./run-test.sh&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">trigger&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>manual&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- ./deploy.sh&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>パイプライン全体を手動トリガーで実行する場合、customパイプラインを使う&lt;/li>
+&lt;/ul>
+&lt;h3 id="dockerイメージの利用">Dockerイメージの利用&lt;/h3>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/use-docker-images-as-build-environments-792298897.html">Docker イメージをビルド環境として使用する - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>DockerHubでは認証情報を渡すことでプライベートイメージの利用も可能&lt;/li>
+&lt;li>AWSのECRやGCPのGCRも利用可能&lt;/li>
+&lt;/ul>
+&lt;h3 id="パイプラインの変数">パイプラインの変数&lt;/h3>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html">パイプラインでの変数 - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>「secure」チェックをONにすると、パイプラインの実行ログ上でもマスクされ、表示されなくなる
+&lt;ul>
+&lt;li>&lt;code>$MY_SECRET&lt;/code> のように表示される&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="パイプラインをトリガーせずにコミット">パイプラインをトリガーせずにコミット&lt;/h3>
+&lt;p>コミットメッセージに &lt;code>[skip ci]&lt;/code> または &lt;code>[ci skip]&lt;/code> を含める。&lt;/p>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-pipelines-faq-827104769.html">Bitbucket Pipelines の FAQ - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;h3 id="パイプラインからリポジトリを変更してプッシュする">パイプラインからリポジトリを変更してプッシュする&lt;/h3>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/push-back-to-your-repository-962352710.html">リポジトリにプッシュ バックする - アトラシアン製品ドキュメント&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">pipelines&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">step&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">script&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- echo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Made a change in build ${BITBUCKET_BUILD_NUMBER}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>changes.txt&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>add&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>changes.txt&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>commit&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-m&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;[skip ci] Updating changes.txt with latest build number.&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>push&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="server版ではどうすればよいか">Server版ではどうすればよいか？&lt;/h3>
+&lt;ul>
+&lt;li>サーバ版ではBitbucket Pipelinesの提供がない（2020-05-14時点）
+&lt;ul>
+&lt;li>Cloud版向けのツールらしい。&lt;/li>
+&lt;li>&lt;a href="https://community.developer.atlassian.com/t/pipelines-in-bitbucket-server/25636">Pipelines in Bitbucket server - Bitbucket Development / Bitbucket Server - The Atlassian Developer Community&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atlassian.com/software/bamboo">Bamboo&lt;/a>のインテグレーションがあるよって言ってる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://jira.atlassian.com/browse/BSERV-9245">[BSERV-9245] Bitbucket Pipelines for Bitbucket Server - Create and track feature requests for Atlassian products.&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Bitbucketサーバ版に対応してそうなCIツール:&lt;/p>
+&lt;ul>
+&lt;li>CircleCI&lt;/li>
+&lt;/ul></description></item></channel></rss>
