@@ -1,4 +1,52 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200504/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200506/</guid><description>
+&lt;h2 id="56">5/6&lt;/h2>
+&lt;h3 id="githubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ">GitHubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ&lt;/h3>
+&lt;p>なんかないかなと思ったけど、&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>以上のものは見つからないな。&lt;/p>
+&lt;p>hubコマンドあたりで実装されてたりはしなかった。&lt;/p>
+&lt;p>&lt;a href="https://hub.github.com/hub.1.html">https://hub.github.com/hub.1.html&lt;/a>&lt;/p>
+&lt;h3 id="ghgでmdbookを入れようと思ったが失敗した">ghgでmdBookを入れようと思ったが失敗した&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% env &lt;span style="color:#000">GHG_HOME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span> ghg get rust-lang/mdBook
+fetch the GitHub release &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> rust-lang/mdBook
+no assets available
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>悲しい。&lt;br>
+結局wget -&amp;gt; tar xvfで入れました。&lt;/p></description></item><item><title>A: 2020-05-05</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200505/</link><pubDate>Tue, 05 May 2020 07:25:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200505/</guid><description>
+&lt;h2 id="55">5/5&lt;/h2>
+&lt;h3 id="kubernetesのマニフェストは全部exportして管理した方がいいんじゃねって思った">Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/h3>
+&lt;p>exportのやり方は調べて&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#%E5%85%A8%E3%81%A6%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%81%84">kubectlのページ#全てのマニフェストを取得したい&lt;/a>に書いた。&lt;/p>
+&lt;p>…というか、exportしてないと不安である。&lt;/p>
+&lt;p>kustomizeで管理していても、野良のリソースがないことを保証できない。&lt;br>
+素のマニフェスト管理でも同様。&lt;/p>
+&lt;p>&lt;code>kubectl apply&lt;/code> は、ふつうは削除同期をやってくれないので。&lt;/p>
+&lt;p>（※…と思って、リファレンスを読み返していたら、 &lt;code>--prune&lt;/code> というオプションがα機能であるようだ。これについては、&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kubectl/#apply">kubectl#apply&lt;/a>に書いた）&lt;/p>
+&lt;p>定期的にdumpして差分がないかチェックした方がいいんじゃないかな。&lt;br>
+特に、本番とstaging環境は。&lt;/p>
+&lt;p>逆に、export -&amp;gt; applyの運用にしていれば、staging環境の差分をそのまま本番に適用する運用が可能ではないだろうか。&lt;br>
+このやり方なら、仰々しいK8s対応のCI/CDツールなど使わなくても、kubectlとGitOpsだけで行けるかもしれない。&lt;/p>
+&lt;p>まだ試してないので、実際にやってみたら色々と課題も出てくるだろうけど。&lt;/p>
+&lt;h3 id="neobundleからdeinvimに乗り換えた">NeoBundleからdein.vimに乗り換えた&lt;/h3>
+&lt;p>※5/6 ブログ書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/06/122034">今更だけどNeoBundleからdein.vimに乗り換えて、プラグインを6つ追加した - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
+&lt;p>今更かよって感じだけど乗り換えた。&lt;br>
+NeoBundleは2年ぐらい前に更新が止まっていた。&lt;/p>
+&lt;p>作業マシンはUbuntu 18.04&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vim/#deinvim">Vim#deinvim&lt;/a>&lt;/p>
+&lt;h4 id="インストール">インストール&lt;/h4>
+&lt;p>&lt;a href="https://github.com/Shougo/dein.vim#quick-start">https://github.com/Shougo/dein.vim#quick-start&lt;/a> に従う。&lt;/p>
+&lt;p>インストール先は &lt;code>~/.vim/dein&lt;/code> とした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh &amp;gt; installer.sh
+sh ./installer.sh ~/.vim/dein
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実際は&lt;a href="https://github.com/progrhyme/dotfiles/commit/1ef6a75f2952407d6758eb0c1cef584943ed9ecc">こんな感じ&lt;/a>で、スクリプトで対応した。&lt;/p>
+&lt;h4 id="vimrcの移行">vimrcの移行&lt;/h4>
+&lt;p>&lt;a href="https://github.com/progrhyme/dotfiles/commit/35f3be479a57e92d98a6182792b900366ab20beb">このコミット&lt;/a>で対応した。&lt;/p>
+&lt;p>とりあえず使ってるのは全部移行しようかと思ったけど、次の行のプラグインについてはどう移行すればいいのかぱっとわからず、悩んだ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">NeoBundleLazy&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;mopp/layoutplugin.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> { &lt;span style="color:#4e9a06">&amp;#39;autoload&amp;#39;&lt;/span> : { &lt;span style="color:#4e9a06">&amp;#39;commands&amp;#39;&lt;/span> : &lt;span style="color:#4e9a06">&amp;#39;LayoutPlugin&amp;#39;&lt;/span>} }&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>そもそもこのプラグインはvim-pluginの雛形作成ツールで、今のところ使う予定がないので、消すことにした。&lt;/p>
+&lt;p>あと、TOMLに対応したプラグインがなかったので、 &lt;code>'cespare/vim-toml'&lt;/code> を入れた。&lt;/p>
+&lt;p>以上。&lt;/p>
+&lt;p>なんか、vim起動後にENTERが必要だったり、終了後に画面がクリアされなかったりする（NeoBundleの頃はそんなことはなかった）が、概ね問題なさそう。&lt;/p>
+&lt;p>（追記）引き続き確認したところ、 &lt;code>'Align'&lt;/code> プラグインで警告が出ていることに気がついた。 &lt;code>'vim-scripts/Align'&lt;/code> に修正したら上の問題はなくなった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/dotfiles/commit/df90a50ffca16629bb0dbcf31f6405e249cac763">修正コミット&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-04</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200504/</link><pubDate>Mon, 04 May 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200504/</guid><description>
 &lt;h2 id="54">5/4&lt;/h2>
 &lt;h3 id="git-pull---pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った">git pull &amp;ndash;pruneしてマージ済みローカルブランチを掃除するgitのサブコマンドを作った&lt;/h3>
 &lt;p>何番煎じだよって感じだけど、いい加減面倒になったので作った。&lt;/p>

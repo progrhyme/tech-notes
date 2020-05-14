@@ -3854,6 +3854,11 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="色">色&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://jonasjacek.github.io/colors/">256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
 &lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
 &lt;h2 id="dig">dig&lt;/h2>

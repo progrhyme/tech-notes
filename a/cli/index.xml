@@ -258,6 +258,12 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;p>シェルとは、コンピュータのOSを構成するソフトウェアの一つで、利用者からの操作の受け付けや、利用者への情報の提示などを担当するもの&lt;/p>
 &lt;/blockquote>
 &lt;p>shやbashはシェルソフトウェア（シェルプログラムともいう）の例。&lt;/p>
+&lt;h2 id="ansiエスケープシーケンス">ANSIエスケープシーケンス&lt;/h2>
+&lt;p>ターミナルの出力文字に色や装飾を付けたりできる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/PruneMazui/items/8a023347772620025ad6#%E5%87%BA%E5%8A%9B%E8%89%B2%E3%81%AE%E5%A4%89%E6%9B%B4">ANSIエスケープシーケンス チートシート - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="fish-shell">fish shell&lt;/h2>
 &lt;p>&lt;a href="https://fishshell.com/">https://fishshell.com/&lt;/a>&lt;/p>
 &lt;blockquote>
