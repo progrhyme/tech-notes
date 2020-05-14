@@ -1,36 +1,13 @@
 ---
-title: "Bitbucket"
-linkTitle: "Bitbucket"
+title: "Bitbucket Pipelines"
+linkTitle: "Pipelines"
 description: >
-  https://bitbucket.org/
-date: 2020-04-28T00:22:53+09:00
-weight: 100
+  Cloud版に付属しているCI/CDツール。
+  [製品ページ](https://www.atlassian.com/ja/software/bitbucket/features/pipelines)
+date: 2020-05-14T14:15:43+09:00
 ---
 
-Atlassian社が提供しているソースコードのホスティングサービス。  
-JIRAなど他のAtlassian製品との連携が強み（だと思う）。
-
-## 提供形態
-
-- クラウド ... Bitbucket Cloud
-- セルフホスト ... オンプレミス
-  - Bitbucket Server ... 単一サーバ
-  - Bitbucket Datacenter ... クラスタ構成
-
 ## Documentation
-
-- [Bitbucket Cloud documentation - Atlassian Documentation](https://confluence.atlassian.com/bitbucket)
-- 邦訳: [Bitbucket Cloud ドキュメント - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-cloud-documentation-221448814.html)
-  - [Webhook を管理する - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html)
-  - [Bitbucket Cloud で Web サイトを公開する - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html)
-
-## Pipelines
-
-付属のCI/CDツール。
-
-[製品ページ](https://www.atlassian.com/ja/software/bitbucket/features/pipelines)
-
-### Documentation
 
 - [Build, test, and deploy with Pipelines](https://confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
 - 邦訳: [Pipelines を使用したビルド、テスト、およびデプロイ](https://ja.confluence.atlassian.com/bitbucket/build-test-and-deploy-with-pipelines-792496469.html)
@@ -42,6 +19,23 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。
 
 - [【初心者向け】bitbucket-pipelinesのキーワードとTips - Qiita](https://qiita.com/mochio/items/33584357e924f55f9023)
 
+## Features
+### Deployments
+
+Documentation:
+
+- [Bitbucket Deployments - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-deployments-940695276.html)
+  - [Bitbucket Deployments のセットアップ](https://ja.confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html)
+  - [ロールバック](https://ja.confluence.atlassian.com/bitbucket/rollbacks-981147477.html)
+
+NOTE:
+
+- Deployments設定で、デプロイ先環境の管理ができる。
+- bitbucket-pipelines.ymlのstep設定で `deployment: Production` などと指定すると、そのstepのビルドがデプロイ先環境と紐付けられる。
+- ダッシュボードで履歴が確認できる
+- ロールバックもGUIぽちぽちで行ける
+
+## How-to
 ### プルリクエストで実行する
 
 ドキュメント: [bitbucket-pipelines.yml の設定 - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html)
@@ -106,21 +100,6 @@ Tips:
 - 「secure」チェックをONにすると、パイプラインの実行ログ上でもマスクされ、表示されなくなる
   - `$MY_SECRET` のように表示される
 
-### Deployments
-
-Documentation:
-
-- [Bitbucket Deployments - アトラシアン製品ドキュメント](https://ja.confluence.atlassian.com/bitbucket/bitbucket-deployments-940695276.html)
-  - [Bitbucket Deployments のセットアップ](https://ja.confluence.atlassian.com/bitbucket/set-up-bitbucket-deployments-968683907.html)
-  - [ロールバック](https://ja.confluence.atlassian.com/bitbucket/rollbacks-981147477.html)
-
-NOTE:
-
-- Deployments設定で、デプロイ先環境の管理ができる。
-- bitbucket-pipelines.ymlのstep設定で `deployment: Production` などと指定すると、そのstepのビルドがデプロイ先環境と紐付けられる。
-- ダッシュボードで履歴が確認できる
-- ロールバックもGUIぽちぽちで行ける
-
 ### パイプラインをトリガーせずにコミット
 
 コミットメッセージに `[skip ci]` または `[ci skip]` を含める。
@@ -143,3 +122,16 @@ pipelines:
         - git commit -m "[skip ci] Updating changes.txt with latest build number."
         - git push
 ```
+
+## Topics
+### Server版ではどうすればよいか？
+
+- サーバ版ではBitbucket Pipelinesの提供がない（2020-05-14時点）
+  - Cloud版向けのツールらしい。
+  - [Pipelines in Bitbucket server - Bitbucket Development / Bitbucket Server - The Atlassian Developer Community](https://community.developer.atlassian.com/t/pipelines-in-bitbucket-server/25636)
+    - [Bamboo](https://www.atlassian.com/software/bamboo)のインテグレーションがあるよって言ってる
+  - [\[BSERV-9245\] Bitbucket Pipelines for Bitbucket Server - Create and track feature requests for Atlassian products.](https://jira.atlassian.com/browse/BSERV-9245)
+
+Bitbucketサーバ版に対応してそうなCIツール:
+
+- CircleCI
