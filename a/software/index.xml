@@ -992,6 +992,10 @@ kubectl delete -f my-ns.yml
 &lt;li>ターミナル.app &amp;hellip; 標準でインストールされている端末アプリ&lt;/li>
 &lt;/ul>
 &lt;h3 id="iterm2">iTerm2&lt;/h3>
+&lt;p>&lt;a href="https://iterm2.com/">https://iterm2.com/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>機能: &lt;a href="https://iterm2.com/features.html">https://iterm2.com/features.html&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>macOSで人気の端末アプリ。&lt;br>
 ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
 &lt;p>参考:&lt;/p>

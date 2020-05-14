@@ -734,6 +734,8 @@ kubectl config view --minify
 &lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
 kubectl config get-contexts
+&lt;span style="color:#8f5902;font-style:italic">#### ヘッダ無しで名前だけ表示&lt;/span>
+kubectl config get-contexts --no-headers -o&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>name
 &lt;span style="color:#8f5902;font-style:italic">### 現在のcontext&lt;/span>
 kubectl config current-context
 &lt;span style="color:#8f5902;font-style:italic">### 切替え&lt;/span>
@@ -743,6 +745,14 @@ kubectl config rename-context &amp;lt;old-name&amp;gt; &amp;lt;new-name&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="namespaceの操作設定">Namespaceの操作・設定&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンテキストのデフォルトnamespaceを設定する&lt;/span>
+kubectl config set-context &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>kubectl config current-context&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NAMESPACE
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nirasan/items/9dcc7e45cf20fb72bf8a">kubectl で Namespace を切り替える - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="実行公開">実行・公開&lt;/h3>
 &lt;ul>
@@ -845,6 +855,8 @@ kubectl get deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>men
 kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-o json&lt;span style="color:#000;font-weight:bold">|&lt;/span>yaml&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## フィルタの例&lt;/span>
 kubectl get pods -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
+&lt;span style="color:#8f5902;font-style:italic">## ヘッダ無し + 出力フィールド指定&lt;/span>
+kubectl get namespaces --no-headers --output &lt;span style="color:#4e9a06">&amp;#34;custom-columns=NAME:.metadata.name&amp;#34;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># describe&lt;/span>
 kubectl describe pods &lt;span style="color:#8f5902;font-style:italic"># all pods&lt;/span>
 kubectl describe pod &amp;lt;pod-name&amp;gt;
