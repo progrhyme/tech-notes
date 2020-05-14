@@ -1,4 +1,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/google/gcp/</link><description>Recent content in Google Cloud Platform on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 10:39:24 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
+&lt;p>Quick links:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#gcloud">gcloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#gsutil">gsutil&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
 &lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
@@ -202,11 +207,35 @@ gcloud projects list
 &lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
 &lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="mb">mb&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">https://cloud.google.com/storage/docs/gsutil/commands/mb&lt;/a>&lt;/p>
-&lt;p>バケット作成&lt;/p>
+&lt;h3 id="バケット操作">バケット操作&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">mb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/rb">rb&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil mb -l asia gs://mybucket
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バケット作成&lt;/span>
+gsutil mb -l asia gs://mybucket
+&lt;span style="color:#8f5902;font-style:italic"># バケット削除&lt;/span>
+gsutil rb &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-f&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> gs://&amp;lt;bucket_name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ls">ls&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/ls">https://cloud.google.com/storage/docs/gsutil/commands/ls&lt;/a>&lt;/p>
+&lt;p>バケットやオブジェクトのリスト表示。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil ls gs://my-bucket/
+&lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含める&lt;/span>
+gsutil ls -a gs://my-bucket/
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="rm">rm&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/rm">https://cloud.google.com/storage/docs/gsutil/commands/rm&lt;/a>&lt;/p>
+&lt;p>オブジェクトの削除。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># subdir/ 直下のオブジェクトを削除&lt;/span>
+gsutil rm gs://bucket/subdir/*
+&lt;span style="color:#8f5902;font-style:italic"># subdir/ 下の全てのオブジェクトを削除&lt;/span>
+gsutil rm gs://bucket/subdir/**
+&lt;span style="color:#8f5902;font-style:italic"># 上と同じ&lt;/span>
+gsutil rm -r gs://bucket/subdir/
+&lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含めて削除&lt;/span>
+gsutil rm -a gs://bucket/path/to/object
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
