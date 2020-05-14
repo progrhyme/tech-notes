@@ -209,6 +209,25 @@ https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create
 ----------|-----
  --release-channel=CHANNEL | rapid, regular, stableのどれか。リリースチャネルの設定。
 
+### endpoints
+
+https://cloud.google.com/sdk/gcloud/reference/endpoints
+
+APIサービスの作成・有効化・管理を行う。
+
+#### services
+
+https://cloud.google.com/sdk/gcloud/reference/endpoints/services
+
+サービスの管理を行う。
+
+Examples:
+
+```sh
+gcloud endpoints services list
+gcloud endpoints services delete ENDPOINT
+```
+
 ### functions
 
 https://cloud.google.com/sdk/gcloud/reference/functions
