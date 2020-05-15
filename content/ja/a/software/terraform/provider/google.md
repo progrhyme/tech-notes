@@ -55,6 +55,7 @@ See also:
 未分類のもの:
 
 - [google_cloudfunctions_function](https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html) ... Cloud Function作成・管理
+- [google_cloud_scheduler_job](https://www.terraform.io/docs/providers/google/r/cloud_scheduler_job.html) ... Cloud Scheduler Job
 - [google_redis_instance](https://www.terraform.io/docs/providers/google/r/redis_instance.html) ... Memorystore (Redis)
 
 ### GCP (IAM, API, Billing, Organization)
