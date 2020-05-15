@@ -85,7 +85,43 @@ hugo server -D
 &lt;span style="color:#000">endLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>
 &lt;span style="color:#000">ordered&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
 &lt;span style="color:#000">startLevel&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="known-issues">Known Issues&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="writing-pages">Writing Pages&lt;/h2>
+&lt;p>記事の作成・編集で使う基本的な機能などについて書く。&lt;/p>
+&lt;h3 id="画像の挿入">画像の挿入&lt;/h3>
+&lt;p>現在は記事の近くに画像を置いて、相対パスで参照できる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Markdown" data-lang="Markdown">&lt;span style="color:#8f5902;font-style:italic">&amp;lt;!-- &amp;#34;&lt;/span>\&amp;#34;&lt;span style="color:#8f5902;font-style:italic"> は除いて書くこと --&amp;gt;&lt;/span>
+{{\&amp;lt;figure src=&amp;#34;image.png&amp;#34; alt=&amp;#34;blur&amp;#34;&amp;gt;}}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="#figure">#figure&lt;/a>&lt;/p>
+&lt;h2 id="shortcodes">Shortcodes&lt;/h2>
+&lt;p>&lt;a href="https://gohugo.io/content-management/shortcodes/">https://gohugo.io/content-management/shortcodes/&lt;/a>&lt;/p>
+&lt;p>便利な機能が &lt;code>{{\&amp;lt;function ... &amp;gt;}}&lt;/code> という構文のShortcodeという形式で提供されている。&lt;/p>
+&lt;p>自分で独自のShortcodeを作成することもできる。&lt;/p>
+&lt;h3 id="figure">figure&lt;/h3>
+&lt;p>&lt;a href="https://gohugo.io/content-management/shortcodes/#figure">https://gohugo.io/content-management/shortcodes/#figure&lt;/a>&lt;/p>
+&lt;p>HTML5の&amp;lt;figure&amp;gt;要素を作る。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>パラメータ&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>src&lt;/td>
+&lt;td>画像のURL（パス）。必須&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>alt&lt;/td>
+&lt;td>画像非表示時の代替テキスト&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>title&lt;/td>
+&lt;td>画像タイトル&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="known-issues">Known Issues&lt;/h2>
 &lt;h3 id="完全なページツリーを描画する機能がない">完全なページツリーを描画する機能がない&lt;/h3>
 &lt;p>ワークアラウンドでの対応が必要。&lt;/p>
 &lt;p>&lt;a href="https://github.com/gohugoio/hugo/issues/465">Multi-level sections (tree) · Issue #465 · gohugoio/hugo&lt;/a>&lt;/p>

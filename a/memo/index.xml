@@ -1,4 +1,106 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-14</title><link>https://progrhy.me/tech-notes/a/memo/20200514/</link><pubDate>Thu, 14 May 2020 00:51:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200514/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-16</title><link>https://progrhy.me/tech-notes/a/memo/20200516/</link><pubDate>Sat, 16 May 2020 01:56:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200516/</guid><description>
+&lt;h2 id="516">5/16&lt;/h2>
+&lt;h3 id="zshをfishっぽくいい感じにできた">zshをfishっぽくいい感じにできた&lt;/h3>
+&lt;p>&lt;a href="../20200513/#fish%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E6%A9%9F%E8%83%BD%E3%81%AFzsh%E3%81%A7%E3%82%82%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86">5/13にfishでちょっといいと思った機能はzshでもできそう&lt;/a>だと気がついたので、やってみた。&lt;br>
+…で、やってみたらできた。&lt;/p>
+&lt;p>作業環境はUbuntu 18.04.&lt;/p>
+&lt;p>やったこと:&lt;/p>
+&lt;ol>
+&lt;li>oh-my-zshをインストール&lt;/li>
+&lt;li>テーマを選ぶ&lt;/li>
+&lt;li>shrink-pathを設定し、プロンプトをいい感じに調整&lt;/li>
+&lt;li>zsh-autosuggestionsをインストールして設定&lt;/li>
+&lt;/ol>
+&lt;p>1つずつ軽く振り返っておく。&lt;/p>
+&lt;h4 id="oh-my-zshをインストール">oh-my-zshをインストール&lt;/h4>
+&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh&lt;/a>&lt;/p>
+&lt;p>README.mdの通りに。一応 tools/install.sh の中身はざっと見た。&lt;br>
+zshじゃないとデフォルトではchshされてしまうのと、インストール後に &lt;code>zsh -l&lt;/code> が走ることは確認した上で、そのまま実行:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sh -c &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>元の ~/.zshrc は退避された上で、oh-my-zshが作った ~/.zshrc が配置されていることに気づいた。&lt;br>
+とりあえず自分の ~/.zshrc に戻して、oh-my-zshが作った ~/.zshrc の記述を ~/.zshenv と ~/.zshrc に追記する。&lt;/p>
+&lt;p>これだけでも &lt;code>PROMPT&lt;/code> が変わって、見た目が変わったなという印象。&lt;/p>
+&lt;p>ただ、自分は &lt;code>RPROMPT&lt;/code> に色々詰め込んでいるので、調整が必要。&lt;/p>
+&lt;p>プロンプトについては次とその次のステップで調整する。&lt;/p>
+&lt;h4 id="テーマを選ぶ">テーマを選ぶ&lt;/h4>
+&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&lt;/a> から選ぶ。&lt;br>
+Externalなテーマもあるらしいけど、今は興味なし。&lt;br>
+上から見ていって、&lt;a href="https://github.com/agnoster/agnoster-zsh-theme">agnoster&lt;/a>がよさげだったので、君に決めた。&lt;/p>
+&lt;p>これもデフォルトだと左PROMPTが長くて、しかもリポジトリのREADMEの通りにやろうとしても &lt;code>AGNOSTER_*&lt;/code> な変数はセットされていない。&lt;/p>
+&lt;p>仕方ないので、&lt;code>~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/code> で定義されている &lt;code>build_prompt()&lt;/code> 関数を自分の ~/.zshrc の中でオーバーライドすることにした。&lt;/p>
+&lt;p>&lt;code>agnoster.zsh-theme&lt;/code> を覗くと次のようになっていたので、それで行けそうだと思った。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ tail ~/.oh-my-zsh/themes/agnoster.zsh-theme
+&lt;span style="color:#8f5902;font-style:italic">## Main prompt&lt;/span>
+build_prompt&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">RETVAL&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$?&lt;/span>
+prompt_status
+prompt_virtualenv
+prompt_aws
+prompt_context
+prompt_dir
+prompt_git
+prompt_bzr
+prompt_hg
+prompt_end
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%{%f%b%k%}$(build_prompt) &amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="shrink-pathを設定しプロンプトをいい感じに調整">shrink-pathを設定し、プロンプトをいい感じに調整&lt;/h4>
+&lt;p>shrink-pathは標準プラグインとしてoh-my-zshに同梱されている。&lt;/p>
+&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/shrink-path">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/shrink-path&lt;/a>&lt;/p>
+&lt;p>このパスにREADME.mdも置かれているので、読むと使い方がわかる。&lt;/p>
+&lt;p>利用するには .zshrc 内で &lt;code>plugins+=(shrink-path)&lt;/code> すればいい。&lt;/p>
+&lt;p>それから、 &lt;code>PROMPT&lt;/code> や &lt;code>RPROMPT&lt;/code> 内に &lt;code>'$(shrink-path -f)'&lt;/code> と記すと、ホームディレクトリからの絶対パスで、親ディレクトリは先頭1文字に縮めて表示してくれる。&lt;/p>
+&lt;p>最終的に、agnoster.zsh-themeの &lt;code>build_prompt()&lt;/code> 関数を次のように書き換えた:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">build_prompt&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">RETVAL&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$?&lt;/span>
+prompt_status
+prompt_segment blue &lt;span style="color:#000">$CURRENT_FG&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shrink_path -f&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+prompt_git
+prompt_end
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで下のような感じになった。&lt;/p>
+&lt;figure>
+&lt;img src="ohmyzsh_capture.png"
+alt="terminal screenshot with oh-my-zsh"/>
+&lt;/figure>
+&lt;h4 id="zsh-autosuggestionsをインストールして設定">zsh-autosuggestionsをインストールして設定&lt;/h4>
+&lt;p>&lt;a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions&lt;/a>&lt;/p>
+&lt;p>INSTALL.md に従って、次のコマンドを実行:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/zsh-users/zsh-autosuggestions &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">ZSH_CUSTOM&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000;font-weight:bold">~/.oh-my-zsh/custom&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>/plugins/zsh-autosuggestions
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>残念ながら今の環境は256色に対応してないみたいで、次のように設定した:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;fg=green,bold&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>下のような感じでサジェストが出る。&lt;/p>
+&lt;figure>
+&lt;img src="zsh_autosuggestions.png"
+alt="screenshot of zsh-autosuggestions"/>
+&lt;/figure>
+&lt;p>&lt;code>Ctrl+e&lt;/code> or &lt;code>Ctrl+f&lt;/code> でサジェスト候補を選択できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hinatades/items/d38be4830191f251935d">ターミナルでコマンド履歴の入力補完 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>もうこれは完全にfishと言っていいだろう。&lt;/p>
+&lt;p>…というか、自分にとってはfishをセットアップするより楽だった気がする。&lt;/p>
+&lt;p>今回の変更は次の2コミットに該当する:&lt;/p>
+&lt;ul>
+&lt;li>dotfilesの変更: &lt;a href="https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161">https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161&lt;/a>&lt;/li>
+&lt;li>セットアップスクリプトへの反映: &lt;a href="https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4">https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
+&lt;h2 id="515">5/15&lt;/h2>
+&lt;h3 id="docsy-on-hugoでlunrjsによる検索の日本語対応をした">Docsy on HugoでLunr.jsによる検索の日本語対応をした&lt;/h3>
+&lt;p>当サイトで日本語検索が上手く行かないことに気がついた。&lt;/p>
+&lt;p>現在、Lunr.jsによるローカル検索を使っているが、Lunr.jsはデフォルトでは日本語に対応してないそうだ。&lt;br>
+そろそろGoogleカスタム検索エンジンに移行する機運か…と思いつつも、まずは日本語対応できないか少し調べてみた。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.kozakana.net/2019/03/lunr-node/">JSの全文検索lunrをNode.jsで使う | Simple is Beautiful.&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>これを参考に下の対応で行けた:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/tech-notes/commit/8aad142a51747ccd9a4dbfbb6498aad5fe489905">https://github.com/progrhyme/tech-notes/commit/8aad142a51747ccd9a4dbfbb6498aad5fe489905&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>lunr.min.js は unpkg.com でホストされてるのだけど、 lunr-languages はなさそうだった。&lt;/p>
+&lt;p>なんか適当に「lunr-languages cdn」とかググってたら &lt;a href="https://www.jsdelivr.com/">https://www.jsdelivr.com/&lt;/a> に行き着いて、CDN経由でJS取得するURLが得られた。&lt;/p>
+&lt;p>インターネットって素晴らしい。&lt;/p></description></item><item><title>A: 2020-05-14</title><link>https://progrhy.me/tech-notes/a/memo/20200514/</link><pubDate>Thu, 14 May 2020 00:51:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200514/</guid><description>
 &lt;h2 id="514">5/14&lt;/h2>
 &lt;h3 id="kubectlのctxnsをプロンプトに表示できるようにした">kubectlのctx/nsをプロンプトに表示できるようにした&lt;/h3>
 &lt;p>とりあえず個人用のmacOSだけ。下のコミットで実現:&lt;/p>
