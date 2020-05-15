@@ -1107,8 +1107,41 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Datadog</title><link>https://progrhy.me/tech-notes/a/web-service/datadog/</link><pubDate>Thu, 14 May 2020 19:05:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/datadog/</guid><description>
 &lt;p>監視ソリューションをサービスとして提供している。&lt;/p>
+&lt;h2 id="料金">料金&lt;/h2>
+&lt;p>&lt;a href="https://www.datadoghq.com/ja/pricing/">https://www.datadoghq.com/ja/pricing/&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/t_ume/items/a45fcf5f464beb50d876">Datadogの課金体系について - Qiita&lt;/a>&lt;/li>
+&lt;li>2016年の記事: &lt;a href="https://qiita.com/selmertsx/items/9dd5af1d6d5d94ce6972">Datadogの請求書に怯えないためにするべきこと - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://docs.datadoghq.com/">https://docs.datadoghq.com/&lt;/a>&lt;/p>
+&lt;h2 id="status">Status&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://status.datadoghq.com/">https://status.datadoghq.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://twitter.com/datadogops">https://twitter.com/datadogops&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>Dashboards
+&lt;ul>
+&lt;li>&lt;a href="https://docs.datadoghq.com/dashboards/querying/">Querying&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="alerting">Alerting&lt;/h3>
+&lt;h4 id="logs-monitor">Logs Monitor&lt;/h4>
+&lt;p>&lt;a href="https://docs.datadoghq.com/monitors/monitor_types/log/">https://docs.datadoghq.com/monitors/monitor_types/log/&lt;/a>&lt;/p>
+&lt;p>ログに対して監視を設定できる。&lt;/p>
+&lt;h3 id="log-management">Log Management&lt;/h3>
+&lt;h4 id="generate-metrics">Generate Metrics&lt;/h4>
+&lt;p>&lt;a href="https://docs.datadoghq.com/logs/logs_to_metrics/">https://docs.datadoghq.com/logs/logs_to_metrics/&lt;/a>&lt;/p>
+&lt;p>ログからメトリクスを生成できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.datadoghq.com/ja/blog/logging-without-limits-new-features/">新機能 Metrics from Logs と Log Rehydration™ の紹介 | Datadog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.datadoghq.com/ja/blog/log-based-metrics/">ログからメトリクスを生成し、過去の傾向の表示や SLO の追跡を実行する。 | Datadog&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="インテグレーション">インテグレーション&lt;/h2>
 &lt;p>&lt;a href="https://docs.datadoghq.com/integrations/">https://docs.datadoghq.com/integrations/&lt;/a>&lt;/p>
 &lt;p>各種ツール、サービスと連携が可能。&lt;/p>
@@ -1134,7 +1167,22 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;/ul>
 &lt;/li>
 &lt;li>Cloud LoggingでログをPub/Subエクスポートし、上で作ったTopicを指定する&lt;/li>
-&lt;/ol></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/google/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/iam/</guid><description>
+&lt;/ol>
+&lt;h3 id="slack">Slack&lt;/h3>
+&lt;p>&lt;a href="https://docs.datadoghq.com/integrations/slack/">https://docs.datadoghq.com/integrations/slack/&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>Slack側でDatadogインテグレーションを追加し、Webhook URLを取得する&lt;/li>
+&lt;li>Datadog側でSlackインテグレーションを追加
+&lt;ul>
+&lt;li>「Configuration」タブで通知先チャネルを選択&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>Monitorの通知先に設定するには、通知先に &lt;code>@slack-&amp;lt;チャネル名&amp;gt;&lt;/code> を入れる。&lt;/p>
+&lt;h2 id="事例">事例&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://user-first.ikyu.co.jp/entry/application_monitoring_with_datadog_log_management">Datadog Log Management でアプリケーション稼働モニタリング - 一休.com Developers Blog&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Cloud Identity and Access Management (IAM)</title><link>https://progrhy.me/tech-notes/a/google/gcp/iam/</link><pubDate>Mon, 04 May 2020 09:26:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/iam/</guid><description>
 &lt;p>&lt;a href="https://cloud.google.com/iam/docs">https://cloud.google.com/iam/docs&lt;/a>&lt;/p>
 &lt;p>Cloud IAM. Google IDベースのアクセス管理ができる。&lt;/p>
 &lt;p>Googleグループを設定することもできる。&lt;/p>

@@ -323,6 +323,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;p>未分類のもの:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html">google_cloudfunctions_function&lt;/a> &amp;hellip; Cloud Function作成・管理&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/cloud_scheduler_job.html">google_cloud_scheduler_job&lt;/a> &amp;hellip; Cloud Scheduler Job&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/redis_instance.html">google_redis_instance&lt;/a> &amp;hellip; Memorystore (Redis)&lt;/li>
 &lt;/ul>
 &lt;h3 id="gcp-iam-api-billing-organization">GCP (IAM, API, Billing, Organization)&lt;/h3>
