@@ -85,7 +85,8 @@ alt="screenshot of zsh-autosuggestions"/>
 &lt;ul>
 &lt;li>dotfilesの変更: &lt;a href="https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161">https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161&lt;/a>&lt;/li>
 &lt;li>セットアップスクリプトへの反映: &lt;a href="https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4">https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
+&lt;/ul>
+&lt;p>※oh-my-zshが勝手に &lt;code>PAGER=less&lt;/code> と &lt;code>LESS=-R&lt;/code> を設定していやがったので、.zshrc内でunsetしている。&lt;/p></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
 &lt;h2 id="515">5/15&lt;/h2>
 &lt;h3 id="docsy-on-hugoでlunrjsによる検索の日本語対応をした">Docsy on HugoでLunr.jsによる検索の日本語対応をした&lt;/h3>
 &lt;p>当サイトで日本語検索が上手く行かないことに気がついた。&lt;/p>
