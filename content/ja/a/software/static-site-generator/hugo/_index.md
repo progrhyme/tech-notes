@@ -90,6 +90,41 @@ https://gohugo.io/getting-started/configuration-markup/#table-of-contents
     startLevel = 2
 ```
 
+## Writing Pages
+
+記事の作成・編集で使う基本的な機能などについて書く。
+
+### 画像の挿入
+
+現在は記事の近くに画像を置いて、相対パスで参照できる。
+
+```Markdown
+<!-- "\" は除いて書くこと -->
+{{\<figure src="image.png" alt="blur">}}
+```
+
+See [#figure](#figure)
+
+## Shortcodes
+
+https://gohugo.io/content-management/shortcodes/
+
+便利な機能が `{{\<function ... >}}` という構文のShortcodeという形式で提供されている。
+
+自分で独自のShortcodeを作成することもできる。
+
+### figure
+
+https://gohugo.io/content-management/shortcodes/#figure
+
+HTML5の&lt;figure&gt;要素を作る。
+
+ パラメータ | 意味
+------------|------
+ src | 画像のURL（パス）。必須
+ alt | 画像非表示時の代替テキスト
+ title | 画像タイトル
+
 ## Known Issues
 
 ### 完全なページツリーを描画する機能がない
