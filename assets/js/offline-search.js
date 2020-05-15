@@ -47,6 +47,7 @@
                     this.ref('ref');
                     this.field('title', { boost: 2 });
                     this.field('body');
+                    this.use(lunr.ja);
 
                     data.forEach((doc) => {
                         this.add(doc);
