@@ -13,6 +13,27 @@ https://vim-jp.org/vimdoc-ja/starting.html#initialization
 
 `vim -u ${file}` で任意の設定ファイルを指定できる。
 
+## colorscheme
+
+カラースキームを設定する。
+
+Example:
+
+```Vim
+colorscheme elflord
+```
+
+デフォルトで使えるもの:
+
+- `ls /usr/share/vim/vim80/colors/` などとする。
+- 参考: [デフォルトでインストールされている — 名無しのvim使い](https://nanasi.jp/colorscheme/default_install.html)
+
+みんなが作ったカラースキームが載ってるサイト: http://vimcolors.com/
+
+参考:
+
+- [vimのカラースキームの設定・編集方法（初心者〜上級者） - Qiita](https://qiita.com/sff1019/items/3f73856b78d7fa2731c7)
+
 ## filetype
 
 ```Vim
