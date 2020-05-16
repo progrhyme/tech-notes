@@ -3750,7 +3750,42 @@ ss -antu
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: iTerm2</title><link>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</link><pubDate>Sat, 16 May 2020 14:18:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
+&lt;p>旧称 Mac OS X.&lt;br>
+Apple社のPCに搭載されているOS.&lt;br>
+BSD系のUnixを元に作られているらしい。&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="画面を動画で撮影してgifアニメに変換">画面を動画で撮影してGIFアニメに変換&lt;/h3>
+&lt;p>動画のキャプチャについて:&lt;/p>
+&lt;ul>
+&lt;li>OS VersionがMojave以上 -&amp;gt; macOSの機能でできる&lt;/li>
+&lt;li>OS VersionがMojave未満 -&amp;gt; QuickTime Playerで撮影&lt;/li>
+&lt;/ul>
+&lt;p>動画 -&amp;gt; GIF変換ツール:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/gifted/id771955779?mt=12">Gifted&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">PicGIF Lite&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>キャプチャして直接GIFに保存できるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">LICEcap&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/mac-screen-gif-anime/">【小ネタ】Macの画面を録画して、GIFアニメにする方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/YosukeItabashi/items/5722395218e6e592fd39">【Mac】自分の画面を録画して、即gif動画化する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sue445.hatenablog.com/entry/2014/08/13/121512">Macでキー入力表示しつつターミナル操作をアニメーションGIFにする - くりにっき&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ターミナルアプリの場合">ターミナルアプリの場合&lt;/h4>
+&lt;p>ttyrecというツールがある。&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://download.cnet.com/KeyCastr/3000-2075_4-125977.html">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: iTerm2</title><link>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</link><pubDate>Sat, 16 May 2020 14:18:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>macOSで人気の端末アプリ。&lt;br>
 ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
@@ -4055,19 +4090,4 @@ alt="screenshot of zsh-autosuggestions"/>
 &lt;p>それにしても、Shell Integrationの機能の多くは既にpecoで実現していたな。。&lt;/p>
 &lt;p>（追記）Auto Command Completionはたくさん表示されると迷うし、タブ補完が効かなくなってちょっとお節介な感じなので、やっぱりzsh-autosuggestionに戻した。&lt;/p>
 &lt;h4 id="所感">所感&lt;/h4>
-&lt;p>慣れたら少しは生産性上がるかも。&lt;/p></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
-&lt;h2 id="515">5/15&lt;/h2>
-&lt;h3 id="docsy-on-hugoでlunrjsによる検索の日本語対応をした">Docsy on HugoでLunr.jsによる検索の日本語対応をした&lt;/h3>
-&lt;p>当サイトで日本語検索が上手く行かないことに気がついた。&lt;/p>
-&lt;p>現在、Lunr.jsによるローカル検索を使っているが、Lunr.jsはデフォルトでは日本語に対応してないそうだ。&lt;br>
-そろそろGoogleカスタム検索エンジンに移行する機運か…と思いつつも、まずは日本語対応できないか少し調べてみた。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.kozakana.net/2019/03/lunr-node/">JSの全文検索lunrをNode.jsで使う | Simple is Beautiful.&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>これを参考に下の対応で行けた:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/tech-notes/commit/8aad142a51747ccd9a4dbfbb6498aad5fe489905">https://github.com/progrhyme/tech-notes/commit/8aad142a51747ccd9a4dbfbb6498aad5fe489905&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>lunr.min.js は unpkg.com でホストされてるのだけど、 lunr-languages はなさそうだった。&lt;/p>
-&lt;p>なんか適当に「lunr-languages cdn」とかググってたら &lt;a href="https://www.jsdelivr.com/">https://www.jsdelivr.com/&lt;/a> に行き着いて、CDN経由でJS取得するURLが得られた。&lt;/p>
-&lt;p>インターネットって素晴らしい。&lt;/p></description></item></channel></rss>
+&lt;p>慣れたら少しは生産性上がるかも。&lt;/p></description></item></channel></rss>

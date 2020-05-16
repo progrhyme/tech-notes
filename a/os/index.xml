@@ -1,1 +1,36 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – オペレーティングシステム</title><link>https://progrhy.me/tech-notes/a/os/</link><description>Recent content in オペレーティングシステム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 19:20:48 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/os/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – オペレーティングシステム</title><link>https://progrhy.me/tech-notes/a/os/</link><description>Recent content in オペレーティングシステム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 19:20:48 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/os/index.xml" rel="self" type="application/rss+xml"/><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
+&lt;p>旧称 Mac OS X.&lt;br>
+Apple社のPCに搭載されているOS.&lt;br>
+BSD系のUnixを元に作られているらしい。&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="画面を動画で撮影してgifアニメに変換">画面を動画で撮影してGIFアニメに変換&lt;/h3>
+&lt;p>動画のキャプチャについて:&lt;/p>
+&lt;ul>
+&lt;li>OS VersionがMojave以上 -&amp;gt; macOSの機能でできる&lt;/li>
+&lt;li>OS VersionがMojave未満 -&amp;gt; QuickTime Playerで撮影&lt;/li>
+&lt;/ul>
+&lt;p>動画 -&amp;gt; GIF変換ツール:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/gifted/id771955779?mt=12">Gifted&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">PicGIF Lite&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>キャプチャして直接GIFに保存できるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">LICEcap&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/mac-screen-gif-anime/">【小ネタ】Macの画面を録画して、GIFアニメにする方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/YosukeItabashi/items/5722395218e6e592fd39">【Mac】自分の画面を録画して、即gif動画化する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sue445.hatenablog.com/entry/2014/08/13/121512">Macでキー入力表示しつつターミナル操作をアニメーションGIFにする - くりにっき&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ターミナルアプリの場合">ターミナルアプリの場合&lt;/h4>
+&lt;p>ttyrecというツールがある。&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://download.cnet.com/KeyCastr/3000-2075_4-125977.html">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
