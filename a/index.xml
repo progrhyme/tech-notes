@@ -3618,6 +3618,14 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://serverfault.com/questions/310098/how-to-add-a-timestamp-to-bash-script-log" title="linux - How to add a timestamp to bash script log? - Server Fault">linux - How to add a timestamp to bash script log? - Server Fault&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="osの判別">OSの判別&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d">シェルスクリプトでOSを判別する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="シェル関数が定義されているか調べる">シェル関数が定義されているか調べる&lt;/h3>
+&lt;p>コマンド同様に、 &lt;code>which function&lt;/code> or &lt;code>command -v function&lt;/code> で取れる。&lt;br>
+&lt;code>test -v function&lt;/code> ではNG.&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="オプション解析">オプション解析&lt;/h3>
 &lt;p>シェルスクリプトでコマンドラインオプションをどう解析するか。&lt;/p>
