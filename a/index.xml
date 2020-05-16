@@ -3629,27 +3629,6 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: ターミナルソフトウェア</title><link>https://progrhy.me/tech-notes/a/software/terminal/</link><pubDate>Wed, 13 May 2020 22:23:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/</guid><description>
-&lt;h2 id="macos">macOS&lt;/h2>
-&lt;ul>
-&lt;li>ターミナル.app &amp;hellip; 標準でインストールされている端末アプリ&lt;/li>
-&lt;/ul>
-&lt;h3 id="iterm2">iTerm2&lt;/h3>
-&lt;p>&lt;a href="https://iterm2.com/">https://iterm2.com/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>機能: &lt;a href="https://iterm2.com/features.html">https://iterm2.com/features.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>macOSで人気の端末アプリ。&lt;br>
-ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="色">色&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://jonasjacek.github.io/colors/">256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
 &lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
 &lt;h2 id="dig">dig&lt;/h2>
@@ -3763,7 +3742,105 @@ ss -antu
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: diff</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/diff/</link><pubDate>Sat, 16 May 2020 11:39:47 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/diff/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: iTerm2</title><link>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</link><pubDate>Sat, 16 May 2020 14:18:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>macOSで人気の端末アプリ。&lt;br>
+ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
+&lt;p>起動アプリ名は「iTerm.app」&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.iterm2.com/downloads.html">Downloads&lt;/a> &amp;lt;- インストールはここから&lt;/li>
+&lt;li>&lt;a href="https://www.iterm2.com/documentation.html">Documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="keyboard-shortcuts">Keyboard Shortcuts&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Key&lt;/th>
+&lt;th>Function&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>⌘D&lt;/code>&lt;/td>
+&lt;td>画面を左右に分割&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘⇧D&lt;/code>&lt;/td>
+&lt;td>画面を上下に分割&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘]&lt;/code>&lt;/td>
+&lt;td>画面分割時に次のペインに移動&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘[&lt;/code>&lt;/td>
+&lt;td>画面分割時に前のペインに移動&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌥⌘E&lt;/code>&lt;/td>
+&lt;td>Expose All Tabs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘⇧B&lt;/code>&lt;/td>
+&lt;td>Toolbeltの表示/非表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘;&lt;/code>&lt;/td>
+&lt;td>コマンド自動補完のポップアップを呼び出す&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘⇧;&lt;/code>&lt;/td>
+&lt;td>（Shell Integration）コマンド履歴を呼び出す&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌥⌘/&lt;/code>&lt;/td>
+&lt;td>最近のディレクトリを呼び出す&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>⌘F&lt;/code>&lt;/td>
+&lt;td>テキスト検索&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h3 id="テキスト検索モード">テキスト検索モード&lt;/h3>
+&lt;p>&lt;code>⌘F&lt;/code> で入れる。&lt;/p>
+&lt;ul>
+&lt;li>マウス操作せず、 &lt;code>TAB&lt;/code>, &lt;code>⇧TAB&lt;/code> キーで選択範囲を広げられる。&lt;/li>
+&lt;li>&lt;code>⌥ENTER&lt;/code> で現在選択されているテキストをペースト&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;p>&lt;a href="https://iterm2.com/features.html">https://iterm2.com/features.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Toolbelt &amp;hellip; もう1つの作業スペース。 &lt;code>⌘⇧B&lt;/code> で表示できる。&lt;/li>
+&lt;li>&lt;a href="https://www.iterm2.com/documentation-tmux-integration.html">tmux Integration&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="shell-integration">Shell Integration&lt;/h3>
+&lt;p>&lt;a href="https://www.iterm2.com/documentation-shell-integration.html">https://www.iterm2.com/documentation-shell-integration.html&lt;/a>&lt;/p>
+&lt;p>シェルと連携して機能強化できる。&lt;br>
+tmuxと一緒には使えないそうだ。&lt;/p>
+&lt;p>機能:&lt;/p>
+&lt;ul>
+&lt;li>Auto Command Completion &amp;hellip; メニューバーから &lt;code>View &amp;gt; Auto Command Completion&lt;/code> で有効化できる&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Auto Command Completionのツールチップ表示中は、タブキーによるシェルの補完や &lt;a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions&lt;/a> による補完は効かない。 &lt;code>Esc&lt;/code> キーでAuto Command Completionを解除できる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200516/#macbook%E3%81%ABiterm2%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">2020-05-16#MacBookにiTerm2を入れて設定してみた&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考記事">参考記事&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.rasukarusan.com/entry/2019/04/13/180443">俺よりiTerm使いこなしてるやつおる？ - ハイパーマッスルエンジニアになりたい&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: diff</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/diff/</link><pubDate>Sat, 16 May 2020 11:39:47 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/diff/</guid><description>
 &lt;p>テキストファイルの差分を取るコマンド。&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ディレクトリのdiff&lt;/span>
@@ -3799,7 +3876,17 @@ diff &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>command1
 &lt;h3 id="update">Update&lt;/h3>
 &lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh#getting-updates">https://github.com/ohmyzsh/ohmyzsh#getting-updates&lt;/a>&lt;/p>
 &lt;p>2, 3週間に1回ぐらいシェル上でアップグレードのチェックが掛かるらしい。&lt;br>
-または、 &lt;code>upgrade_oh_my_zsh&lt;/code> を実行すると手動アップデートが可能。&lt;/p></description></item><item><title>A: 2020-05-16</title><link>https://progrhy.me/tech-notes/a/memo/20200516/</link><pubDate>Sat, 16 May 2020 01:56:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200516/</guid><description>
+または、 &lt;code>upgrade_oh_my_zsh&lt;/code> を実行すると手動アップデートが可能。&lt;/p>
+&lt;h2 id="custom-plugins">Custom Plugins&lt;/h2>
+&lt;p>サードパーティー製のプラグイン。&lt;/p>
+&lt;p>&lt;code>$ZSH_CUSTOM&lt;/code> or &lt;code>${oh-my-zshのインストールディレクトリ}/custom&lt;/code> 以下に配置すればよさそう。&lt;/p>
+&lt;h3 id="zsh-autosuggestions">zsh-autosuggestions&lt;/h3>
+&lt;p>&lt;a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions&lt;/a>&lt;/p>
+&lt;p>fishみたいにhistoryから自動補完を効かせてくれるやつ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200516/#zsh-autosuggestions%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%A6%E8%A8%AD%E5%AE%9A">2020-05-16#zsh-autosuggestionsをインストールして設定&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-16</title><link>https://progrhy.me/tech-notes/a/memo/20200516/</link><pubDate>Sat, 16 May 2020 01:56:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200516/</guid><description>
 &lt;h2 id="516">5/16&lt;/h2>
 &lt;h3 id="zshをfishっぽくいい感じにできた">zshをfishっぽくいい感じにできた&lt;/h3>
 &lt;p>&lt;a href="../20200513/#fish%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E6%A9%9F%E8%83%BD%E3%81%AFzsh%E3%81%A7%E3%82%82%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86">5/13にfishでちょっといいと思った機能はzshでもできそう&lt;/a>だと気がついたので、やってみた。&lt;br>
@@ -3887,7 +3974,80 @@ alt="screenshot of zsh-autosuggestions"/>
 &lt;li>dotfilesの変更: &lt;a href="https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161">https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161&lt;/a>&lt;/li>
 &lt;li>セットアップスクリプトへの反映: &lt;a href="https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4">https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>※oh-my-zshが勝手に &lt;code>PAGER=less&lt;/code> と &lt;code>LESS=-R&lt;/code> を設定していやがったので、.zshrc内でunsetしている。&lt;/p></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
+&lt;p>※oh-my-zshが勝手に &lt;code>PAGER=less&lt;/code> と &lt;code>LESS=-R&lt;/code> を設定していやがったので、.zshrc内でunsetしている。&lt;/p>
+&lt;h3 id="macbookでもoh-my-zshをセットアップ">MacBookでもoh-my-zshをセットアップ&lt;/h3>
+&lt;p>Ubuntuと同様で、特にハマることはなかった。&lt;/p>
+&lt;p>セットアップコードのリファクタリングを行った。&lt;/p>
+&lt;ul>
+&lt;li>リファクタ: &lt;a href="https://github.com/progrhyme/myenv/commit/dac7a0695ec3d81269d0adc6bfc9c2750753be3a">https://github.com/progrhyme/myenv/commit/dac7a0695ec3d81269d0adc6bfc9c2750753be3a&lt;/a>&lt;/li>
+&lt;li>macOS用の対応: &lt;a href="https://github.com/progrhyme/myenv/commit/e35842708298c0803a2f655affc56d3c653f61af">https://github.com/progrhyme/myenv/commit/e35842708298c0803a2f655affc56d3c653f61af&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="macbookにiterm2を入れて設定してみた">MacBookにiTerm2を入れて設定してみた&lt;/h3>
+&lt;p>&lt;a href="../20200513/#iterm2%E3%81%AF%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%ABapp%E3%81%A8%E6%AF%94%E3%81%B9%E3%81%A6%E4%BD%95%E3%81%8C%E8%89%AF%E3%81%84%E3%81%AE%E3%81%8B">iTerm2良いよーっていうミームを受け取った&lt;/a>ので、試しに使ってみることにした。&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/terminal/iterm2/">Software &amp;gt; ターミナル &amp;gt; iTerm2&lt;/a>&lt;/p>
+&lt;h4 id="install">Install&lt;/h4>
+&lt;p>&lt;a href="https://iterm2.com/downloads.html">https://iterm2.com/downloads.html&lt;/a> から最新安定版を入手して普通にインストール。&lt;/p>
+&lt;h4 id="初期設定">初期設定&lt;/h4>
+&lt;p>とりあえず &lt;code>Preferences &amp;gt; Profiles&lt;/code> で「Default」プロファイルを弄る:&lt;/p>
+&lt;ul>
+&lt;li>Colors &amp;hellip; デフォルトの「Dark Background」をベースに微調整&lt;/li>
+&lt;li>Text
+&lt;ul>
+&lt;li>フォントを「Roboto Mono for Powerline」の16ptに&lt;/li>
+&lt;li>よくわからんが「Blinking text」にチェック&lt;/li>
+&lt;li>「Use built-in Powerline glyphs」にもチェックしてみた。フォントの見た目がちょっと変わった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Window
+&lt;ul>
+&lt;li>透明度を適当に設定&lt;/li>
+&lt;li>Settings for New Windows
+&lt;ul>
+&lt;li>幅と高さをいい感じに調整&lt;/li>
+&lt;li>Screen: 「Screen with Cursor」にした&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Terminal &amp;hellip; &lt;code>Scrollback lines&lt;/code> を「3000」にした&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Colors:
+&lt;ul>
+&lt;li>&lt;code>Cursor Colors &amp;gt; Cursor Boost&lt;/code> が何の設定なのかわからん&lt;/li>
+&lt;li>ディレクトリやシェルスクリプトのコメントがCyan.Brightになるのが違和感ある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>また、 &lt;code>Preferences &amp;gt; Keys &amp;gt; Hotkey&lt;/code> でホットキーも設定しておく。&lt;br>
+なんとなく &lt;code>⌥ + ⌘ + ENTER&lt;/code> にした。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/koh110/items/b7e9471330308fdb7250">iterm2の設定覚え書き - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="shell-integrationの導入">Shell Integrationの導入&lt;/h4>
+&lt;p>&lt;a href="https://www.rasukarusan.com/entry/2019/04/13/180443">俺よりiTerm使いこなしてるやつおる？ - ハイパーマッスルエンジニアになりたい&lt;/a>によれば、とりあえずShell Integrationは入れろということらしい。&lt;br>
+ので、素直に入れてみる。&lt;/p>
+&lt;p>&lt;a href="https://www.iterm2.com/documentation-shell-integration.html">https://www.iterm2.com/documentation-shell-integration.html&lt;/a>&lt;/p>
+&lt;p>のガイドに従い、次のコマンドでzsh用のスクリプトを取得:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -L https://iterm2.com/shell_integration/zsh &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-o ~/.iterm2_shell_integration.zsh
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>読み込むと、プロンプトの左端に小さな矢印がついて、実行コマンドの成否がわかる。&lt;br>
+機能がagnosterのプロンプトと被っているので、.zshrcを次のように変更して、iTerm2のShell Integrationを有効化したら、agnosterのプロンプトを調整することにした。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/232924a0cd51ab4902a3e45a6a3ff25e2d0b5bd8">https://github.com/progrhyme/myenv/commit/232924a0cd51ab4902a3e45a6a3ff25e2d0b5bd8&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>そういえばこれ、iterm2_shell_integration.zsh を読み込んだ後に &lt;code>PROMPT&lt;/code> を設定してるけど、ちゃんと動いてるな。不思議だ。。&lt;/p>
+&lt;p>Auto Command Completionも有効にしてみた。&lt;br>
+これをONにすると、zsh-autosuggestionの方はカニバって動かないようだったので、Shell Integrationが有効なときはzsh-autosuggestionを使わないようにした:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/dd1b7d023fdcd9b69343e6e57a2d7280d6071003">https://github.com/progrhyme/myenv/commit/dd1b7d023fdcd9b69343e6e57a2d7280d6071003&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>それにしても、Shell Integrationの機能の多くは既にpecoで実現していたな。。&lt;/p>
+&lt;p>（追記）Auto Command Completionはたくさん表示されると迷うし、タブ補完が効かなくなってちょっとお節介な感じなので、やっぱりzsh-autosuggestionに戻した。&lt;/p>
+&lt;h4 id="所感">所感&lt;/h4>
+&lt;p>慣れたら少しは生産性上がるかも。&lt;/p></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
 &lt;h2 id="515">5/15&lt;/h2>
 &lt;h3 id="docsy-on-hugoでlunrjsによる検索の日本語対応をした">Docsy on HugoでLunr.jsによる検索の日本語対応をした&lt;/h3>
 &lt;p>当サイトで日本語検索が上手く行かないことに気がついた。&lt;/p>
