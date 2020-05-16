@@ -2,7 +2,57 @@
 &lt;p>旧称 Mac OS X.&lt;br>
 Apple社のPCに搭載されているOS.&lt;br>
 BSD系のUnixを元に作られているらしい。&lt;/p>
+&lt;h2 id="ショートカットキーtouch-bar登場前">ショートカットキー（Touch Bar登場前）&lt;/h2>
+&lt;p>凡例&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="center">略記&lt;/th>
+&lt;th align="left">意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="center">{電源}&lt;/td>
+&lt;td align="left">電源キーまたはメディア取り出しキー&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="center">Key&lt;/th>
+&lt;th align="left">機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="center">Ctrl + Shift + {電源}&lt;/td>
+&lt;td align="left">ディスプレイをスリープにする。画面ロック&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="center">Ctrl + {電源}&lt;/td>
+&lt;td align="left">「再起動・スリープ・システム終了」ダイアログを表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support.apple.com/ja-jp/HT201236" title="Mac のキーボードショートカット - Apple サポート">Mac のキーボードショートカット - Apple サポート&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-start-up-reboot-shutdown-sleep-logout-with-mac-keyboard-shortcut.html" title="Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati">Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ごみ箱">ごみ箱&lt;/h2>
+&lt;p>&lt;code>~/.Trash&lt;/code> にある。&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
+&lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>
+後述の方法も参照。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/miyohide/items/6cb8967282d4b2db0f61" title="Macにおけるバックスラッシュ（\）の入力方法 - Qiita">Macにおけるバックスラッシュ（\）の入力方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="imeの設定でキーで入力する文字を変える">IMEの設定で「¥」キーで入力する文字を変える&lt;/h4>
+&lt;p>Google日本語入力の場合、「環境設定 &amp;gt; 一般 &amp;gt; ¥キーで入力する文字」で「バックスラッシュ（\）」を選べば良い。&lt;/p>
 &lt;h3 id="画面を動画で撮影してgifアニメに変換">画面を動画で撮影してGIFアニメに変換&lt;/h3>
 &lt;p>動画のキャプチャについて:&lt;/p>
 &lt;ul>
