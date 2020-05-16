@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Zsh</title><link>https://progrhy.me/tech-notes/a/cli/shell/zsh/</link><description>Recent content in Zsh on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 28 Apr 2020 00:14:04 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/cli/shell/zsh/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Oh My Zsh</title><link>https://progrhy.me/tech-notes/a/cli/shell/zsh/ohmyzsh/</link><pubDate>Sat, 16 May 2020 09:12:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/zsh/ohmyzsh/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>OSSのZshコンフィグレーションフレームワーク。&lt;/p>
+&lt;ul>
+&lt;li>ソースコード: &lt;a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>Install &amp;hellip; ソースコードのREADME.mdの通り。&lt;/li>
+&lt;li>Documents: &lt;a href="https://github.com/ohmyzsh/ohmyzsh/wiki">GitHub Wiki&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">Themes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">Plugins&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h3 id="update">Update&lt;/h3>
+&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh#getting-updates">https://github.com/ohmyzsh/ohmyzsh#getting-updates&lt;/a>&lt;/p>
+&lt;p>2, 3週間に1回ぐらいシェル上でアップグレードのチェックが掛かるらしい。&lt;br>
+または、 &lt;code>upgrade_oh_my_zsh&lt;/code> を実行すると手動アップデートが可能。&lt;/p></description></item></channel></rss>

@@ -101,7 +101,11 @@ git commit --amend
 git diff -w
 &lt;span style="color:#8f5902;font-style:italic">## ファイル名のみ表示&lt;/span>
 git diff --name-only
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fetch">fetch&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://inaz2.hatenablog.com/entry/2014/07/03/003551">colordiffを使わずにdiffをカラー表示する - ももいろテクノロジー&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="fetch">fetch&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
 git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="for-each-ref">for-each-ref&lt;/h3>
