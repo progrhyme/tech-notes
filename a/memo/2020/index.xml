@@ -1,4 +1,144 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200506/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200509/</guid><description>
+&lt;h2 id="59">5/9&lt;/h2>
+&lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
+&lt;p>いつだったか、何かの本でそういう書き方を見てからずっとそうやってる。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+:
+&lt;span style="color:#204a87">exit&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+: &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;&amp;#39;__EOF__&amp;#39;
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=encoding utf8
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=head1 NAME
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">B&amp;lt;my-script&amp;gt; - short description
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=head1 DESCRIPTION
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">:
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">=cut
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">__EOF__&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これでPODに食わせるとドキュメントとして解釈してくれるので、スクリプト内では &lt;code>pod2text $0&lt;/code> とかでヘルプを表示できる。&lt;/p>
+&lt;p>…が、そろそろ &lt;code>pod2text&lt;/code> がどの環境にも入っていると想定すべきでないかも…という気がしてきた。&lt;br>
+ところが、じゃあどう書いたらいいの？っていうのには決定版がない気がする。&lt;/p>
+&lt;p>シェルスクリプトにちゃんとコメントを書こうとしている人たちの間では、主に2つの派閥がある気がする:&lt;/p>
+&lt;ol>
+&lt;li>スクリプトのヘッダや関数のヘッダとしてドキュメントコメントをそれなりのフォーマットで書きましょう派。&lt;a href="https://google.github.io/styleguide/shellguide.html#s4.1-file-header">Googleのコーディング規約&lt;/a>もこれ&lt;/li>
+&lt;li>&lt;code>usage()&lt;/code> 関数内にヒアドキュメントで書きましょう派&lt;/li>
+&lt;/ol>
+&lt;p>いいとこ取りをしてる感じに見えるのは、 &lt;code>usage()&lt;/code> 関数でコメントをパースしてヘルプっぽく出力してるもの。&lt;br>
+下のような例があった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ngyuki/items/673d6cb3b36360eaf5cc">シェルスクリプトでヘルプメッセージをコメントに書いて表示する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/TomKid/items/ab49f8d0cd15b18e5e4a">自作シェルスクリプトにヘルプやらバージョンメッセージを実装？する面白い方法があった - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>自分で独自フォーマットのコメントを書いている、という点では、下もこの類型にあたるか:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ssh0/items/0c14ee8949512a4dc98e">シェルスクリプト群のドキュメント書くの面倒だから自動でREADME.mdを生成する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jmcantrell/bashful/blob/master/bin/shdoc">https://github.com/jmcantrell/bashful/blob/master/bin/shdoc&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>godocみたいなのないかな、と思って「shelldoc」とか「shdoc」とかでぐぐるとたくさん出てくる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://shellscript.sunone.me/tips.html">シェルスクリプト Tips | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="microk8sを使ってみる">Microk8sを使ってみる&lt;/h3>
+&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/110630">UbuntuでKubernetesのテスト環境としてMicrok8sをセットアップした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-08</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200508/</link><pubDate>Fri, 08 May 2020 10:26:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200508/</guid><description>
+&lt;h2 id="58">5/8&lt;/h2>
+&lt;h3 id="terraformerをgcpで使ってみた">terraformerをGCPで使ってみた&lt;/h3>
+&lt;p>GCPでdefault networkをimportしたいと思った。&lt;br>
+ふつうに &lt;code>terraform import&lt;/code> を使えばいいのだが、terraformerのことを思い出したので、使ってみることにした。&lt;br>
+terraformerを使えばHCLファイルを生成することができる。&lt;/p>
+&lt;p>terraformerについての一般的な内容は&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/terraformer/">terraformer&lt;/a>にメモしている。&lt;/p>
+&lt;p>作業環境: macOS&lt;/p>
+&lt;p>Install:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>準備として、 &lt;code>~/.terraform.d/plugins/darwin_amd64/&lt;/code> に &lt;code>terraform-provider-google_v3.20.0_x5&lt;/code> を置く。&lt;br>
+今回はterraform実行ディレクトリの &lt;code>.terraform/plugins&lt;/code> からコピーした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1 --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>結果:&lt;/p>
+&lt;pre>&lt;code>% tree generated
+generated
+└── google
+└── my-project
+├── networks
+│   └── asia-northeast1
+│   ├── compute_network.tf
+│   ├── outputs.tf
+│   ├── provider.tf
+│   └── terraform.tfstate
+└── subnetworks
+└── asia-northeast1
+├── compute_subnetwork.tf
+├── outputs.tf
+├── provider.tf
+├── terraform.tfstate
+└── variables.tf
+6 directories, 9 files
+&lt;/code>&lt;/pre>&lt;p>tfファイルのサンプル:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">%&lt;/span> &lt;span style="color:#204a87;font-weight:bold">cat&lt;/span> &lt;span style="color:#204a87;font-weight:bold">generated&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">google&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">my&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">networks&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">asia&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">northeast1&lt;/span>&lt;span style="color:#a40000">/&lt;/span>&lt;span style="color:#204a87;font-weight:bold">compute_network&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tf&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_network&amp;#34; &amp;#34;tfer--default&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> auto_create_subnetworks&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;true&amp;#34;&lt;/span>
+&lt;span style="color:#000"> delete_default_routes_on_create&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>
+&lt;span style="color:#000"> description&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Default network for the project&amp;#34;&lt;/span>
+&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>
+&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my-project&amp;#34;&lt;/span>
+&lt;span style="color:#000"> routing_mode&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;REGIONAL&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>tfstateのサンプル:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JSON" data-lang="JSON">&lt;span style="color:#a40000">%&lt;/span> &lt;span style="color:#a40000">cat&lt;/span> &lt;span style="color:#a40000">generated/google/my-project/subnetworks/asia-northeast&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#a40000">/terraform.tfstate&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;version&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;terraform_version&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0.12.18&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;serial&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;lineage&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;XXXXXXXXXXXX&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;modules&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;path&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;root&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">],&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;outputs&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;google_compute_subnetwork_tfer--default_self_link&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;sensitive&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;string&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;value&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://www.googleapis.com/compute/v1/projects/my-project/regions/asia-northeast1/subnetworks/default&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;resources&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;google_compute_subnetwork.tfer--default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_subnetwork&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;depends_on&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[],&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;primary&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;attributes&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;creation_timestamp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;2020-05-07T02:07:01.455-07:00&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;description&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;gateway_address&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.146.0.1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;ip_cidr_range&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.146.0.0/20&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;log_config.#&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#a40000">:&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>terraform_version&lt;/code> がマシンにインストール済みのバージョンと違うのは、terraformerが同梱しているってことなのかな？&lt;/p>
+&lt;h3 id="kubernetesのマニフェストをvcsで管理して削除まで正しく同期する方法">KubernetesのマニフェストをVCSで管理して、削除まで正しく同期する方法&lt;/h3>
+&lt;p>※5/9 ブログを書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/09/125134">Kubernetesのマニフェストをリポジトリ管理しつつ、リソースの削除も反映したい件 - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
+&lt;p>某所で聞いたりして情報を集めた。&lt;br>
+このエントリは後掲の関連リンクの続きである。&lt;/p>
+&lt;ol>
+&lt;li>管理対象のリソースに &lt;code>label&lt;/code> でバージョン番号を振り、新しいバージョンのリソースを配置した後、古いバージョンのリソースを削除する&lt;/li>
+&lt;li>&lt;code>kubectl apply&lt;/code> 時に &lt;code>--prune&lt;/code> オプションを付ける&lt;/li>
+&lt;li>Argo CDのAutomatic Pruning機能を使う&lt;/li>
+&lt;li>リソースをTerraformで管理する&lt;/li>
+&lt;/ol>
+&lt;p>関連:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../20200505/#kubernetes%E3%81%AE%E3%83%9E%E3%83%8B%E3%83%95%E3%82%A7%E3%82%B9%E3%83%88%E3%81%AF%E5%85%A8%E9%83%A8export%E3%81%97%E3%81%A6%E7%AE%A1%E7%90%86%E3%81%97%E3%81%9F%E6%96%B9%E3%81%8C%E3%81%84%E3%81%84%E3%82%93%E3%81%98%E3%82%83%E3%81%AD%E3%81%A3%E3%81%A6%E6%80%9D%E3%81%A3%E3%81%9F">2020-05-05のメモ - Kubernetesのマニフェストは全部exportして管理した方がいいんじゃね？って思った&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-06</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200506/</link><pubDate>Wed, 06 May 2020 13:29:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200506/</guid><description>
 &lt;h2 id="56">5/6&lt;/h2>
 &lt;h3 id="githubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ">GitHubのreleasesから実行ファイルを取ってきていい感じに管理できるやつ&lt;/h3>
 &lt;p>なんかないかなと思ったけど、&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>以上のものは見つからないな。&lt;/p>
