@@ -131,6 +131,17 @@ do_something | while IFS= read -r line; do echo "$(date) $line"; done
 
 - [linux - How to add a timestamp to bash script log? - Server Fault](https://serverfault.com/questions/310098/how-to-add-a-timestamp-to-bash-script-log "linux - How to add a timestamp to bash script log? - Server Fault")
 
+### OSの判別
+
+参考:
+
+- [シェルスクリプトでOSを判別する - Qiita](https://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d)
+
+### シェル関数が定義されているか調べる
+
+コマンド同様に、 `which function` or `command -v function` で取れる。  
+`test -v function` ではNG.
+
 ## Topics
 ### オプション解析
 
