@@ -9,7 +9,41 @@ date: 2020-05-16T16:17:52+09:00
 Apple社のPCに搭載されているOS.  
 BSD系のUnixを元に作られているらしい。
 
+## ショートカットキー（Touch Bar登場前）
+
+凡例
+
+| 略記 | 意味 |
+|:------:|:-------|
+| {電源} | 電源キーまたはメディア取り出しキー |
+
+| Key | 機能 |
+|:-----:|:-------|
+| Ctrl + Shift + {電源} | ディスプレイをスリープにする。画面ロック |
+| Ctrl + {電源} | 「再起動・スリープ・システム終了」ダイアログを表示 |
+
+参考:
+- [Mac のキーボードショートカット - Apple サポート](https://support.apple.com/ja-jp/HT201236 "Mac のキーボードショートカット - Apple サポート")
+- [Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati](http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-start-up-reboot-shutdown-sleep-logout-with-mac-keyboard-shortcut.html "Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati")
+
+## ごみ箱
+
+`~/.Trash` にある。
+
 ## How-to
+### JIS キーボードでの `\` の入力方法
+
+`option + ¥` で `\` が入力できる。  
+後述の方法も参照。
+
+参考:
+
+- [Macにおけるバックスラッシュ（\）の入力方法 - Qiita](http://qiita.com/miyohide/items/6cb8967282d4b2db0f61 "Macにおけるバックスラッシュ（\）の入力方法 - Qiita")
+
+#### IMEの設定で「¥」キーで入力する文字を変える
+
+Google日本語入力の場合、「環境設定 > 一般 > ¥キーで入力する文字」で「バックスラッシュ（\）」を選べば良い。
+
 ### 画面を動画で撮影してGIFアニメに変換
 
 動画のキャプチャについて:
