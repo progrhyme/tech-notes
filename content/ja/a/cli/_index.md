@@ -9,7 +9,7 @@ weight: 400
 ---
 
 シェルソフトウェアやシェルスクリプトについてもこのセクションで扱う。  
-ターミナルソフトウェアについては[Software > ターミナル]({{< ref "/a/software/terminal.md" >}})を見よ。
+ターミナルソフトウェアについては[Software > ターミナル]({{< ref "/a/software/terminal/_index.md" >}})を見よ。
 
 ## ロギング
 ### script
