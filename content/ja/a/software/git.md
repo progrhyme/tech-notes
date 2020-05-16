@@ -121,6 +121,10 @@ git diff -w
 git diff --name-only
 ```
 
+参考:
+
+- [colordiffを使わずにdiffをカラー表示する - ももいろテクノロジー](http://inaz2.hatenablog.com/entry/2014/07/03/003551)
+
 ### fetch
 
 ```bash
