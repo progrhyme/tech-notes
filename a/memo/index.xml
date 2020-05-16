@@ -159,7 +159,12 @@ alt="screenshot of zsh-autosuggestions"/>
 &lt;p>それにしても、Shell Integrationの機能の多くは既にpecoで実現していたな。。&lt;/p>
 &lt;p>（追記）Auto Command Completionはたくさん表示されると迷うし、タブ補完が効かなくなってちょっとお節介な感じなので、やっぱりzsh-autosuggestionに戻した。&lt;/p>
 &lt;h4 id="所感">所感&lt;/h4>
-&lt;p>慣れたら少しは生産性上がるかも。&lt;/p></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
+&lt;p>慣れたら少しは生産性上がるかも。&lt;/p>
+&lt;h3 id="iterm2だとvimのdefault-colorschemeの設定が変わっている">iTerm2だとVimのdefault colorschemeの設定が変わっている&lt;/h3>
+&lt;p>なぜかわからないが、ターミナル.appと比べると &lt;code>:highlight&lt;/code> の結果にだいぶ差があった。&lt;/p>
+&lt;p>iTerm2が256色対応だから？&lt;/p>
+&lt;p>.vimrc で &lt;code>colorscheme elflord&lt;/code> を設定するとややマシになった。&lt;/p>
+&lt;p>参考: &lt;a href="https://progrhy.me/tech-notes/a/program/vim/vimrc/#colorscheme">vimrc#colorscheme&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-15</title><link>https://progrhy.me/tech-notes/a/memo/20200515/</link><pubDate>Fri, 15 May 2020 23:01:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200515/</guid><description>
 &lt;h2 id="515">5/15&lt;/h2>
 &lt;h3 id="docsy-on-hugoでlunrjsによる検索の日本語対応をした">Docsy on HugoでLunr.jsによる検索の日本語対応をした&lt;/h3>
 &lt;p>当サイトで日本語検索が上手く行かないことに気がついた。&lt;/p>

@@ -40,6 +40,20 @@
 &lt;h2 id="どのファイルが読み込まれるか">どのファイルが読み込まれるか&lt;/h2>
 &lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/starting.html#initialization">https://vim-jp.org/vimdoc-ja/starting.html#initialization&lt;/a>&lt;/p>
 &lt;p>&lt;code>vim -u ${file}&lt;/code> で任意の設定ファイルを指定できる。&lt;/p>
+&lt;h2 id="colorscheme">colorscheme&lt;/h2>
+&lt;p>カラースキームを設定する。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">colorscheme&lt;/span> &lt;span style="color:#000">elflord&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>デフォルトで使えるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>ls /usr/share/vim/vim80/colors/&lt;/code> などとする。&lt;/li>
+&lt;li>参考: &lt;a href="https://nanasi.jp/colorscheme/default_install.html">デフォルトでインストールされている — 名無しのvim使い&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>みんなが作ったカラースキームが載ってるサイト: &lt;a href="http://vimcolors.com/">http://vimcolors.com/&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sff1019/items/3f73856b78d7fa2731c7">vimのカラースキームの設定・編集方法（初心者〜上級者） - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="filetype">filetype&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34;filetype検出の有効化&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">filetype&lt;/span> &lt;span style="color:#000">on&lt;/span>&lt;span style="color:#a40000">
