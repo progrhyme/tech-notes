@@ -109,6 +109,36 @@ head -c 256 [file...]
 head --bytes 256k [file...]
 ```
 
+### sed
+
+https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html
+
+与えられたテキストに対して、sedスクリプトで指定された文字列置換を行って結果のテキストを表示するストリームエディタ。
+
+macOSとLinuxで挙動が違うので、注意が必要。
+
+Examples:
+
+```sh
+# 各行のxを1つyに置換した結果を表示
+sed s/x/y/ foo.txt
+# 各行のxをすべてyに置換した結果を表示
+sed -e s/x/y/g foo.txt
+# 全文字をすべてyに置換した結果を表示
+cat foo.txt | sed 's/./y/g'
+# xをyに、aをbに置換
+sed -e s/x/y/ -e s/a/b/ foo.txt
+```
+
+ オプション | 効果
+----------|------
+ --[e]xpression=SCRIPT | 実行するコマンドとしてスクリプトを追加
+ --[f]ile=FILE | 実行するコマンドとしてスクリプトファイルを追加
+ --[r]egexp-extended | （※Linux）拡張正規表現を使う
+ -E | （※macOS）拡張正規表現を使う
+
+※ `-e`, `-f` のどちらの指定もなければ、最初のオプションでない引数がsedスクリプトとして解釈される。
+
 ### sort
 
 ```bash

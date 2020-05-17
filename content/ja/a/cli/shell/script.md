@@ -10,6 +10,10 @@ weight: 2000
 
 - [Bash > Cookbooks]({{< ref "/a/cli/shell/bash/cookbook.md" >}})
 
+NOTE:
+
+- BashのことはなるべくBashのページに書こうと思うが、調査が甘くてBashじゃないと動かないコードがここに書かれることもあるかもしれない。
+
 ## About
 
 シェル上で動作する簡易なプログラミング言語、あるいはそれによって書かれたプログラム。
@@ -22,9 +26,10 @@ weight: 2000
 ### リファレンス
 
 - [POSIX 1003.1 - man page for sh (posix section 1p) - Unix & Linux Commands](http://www.unix.com/man-page/posix/1p/sh/)
+- [CONTENTS - Shell & Utilities: Detailed TOC | The Open Group](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html)
+  - [Shell Command Language](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18)
 - [Shell Command Language (www.unix.org))](http://www.unix.org/whitepapers/shdiffs.html)
   - System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気
-- [Shell Command Language (pubs.opengroup.org)](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html) ... 上と同じ内容のようだ
 
 ### コーディング規約
 
@@ -38,7 +43,24 @@ weight: 2000
 - [シェルスクリプトの基礎知識まとめ - Qiita](https://qiita.com/katsukii/items/383b241209fe96eae6e7)
 
 ## Spec
+### ビルトイン
+#### . (dot)
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18
+
+#### : (colon)
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16
+
 ### 演算子
+
+NOTE:
+- `[ 条件式 ]` は `test 条件式` と同じ。
+  - See [test](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html)
+
+ドキュメント:
+
+- [Bash Reference Manual](https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions)
 
 参考:
 
@@ -52,10 +74,27 @@ weight: 2000
  -n $str | $str に長さ1以上の文字列が入っている
  -z $str | $str が空文字
  -x $path | $path が実行可能ファイル
+ -L $path | $path がシンボリックリンク
+ -S $path | $path がソケット
 
 参考:
 
 - [&lt;Bash, zsh&gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ](http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828)
+
+#### 二項条件演算子
+
+ 構文 | 真の条件
+-----|---------
+ "$str1" = "$str2" | $str1と$str2が等しい
+ "$str1" != "$str2" | $str1と$str2が等しくない
+ $x -eq $y | 数値$xと$yが等しい
+ $x -ne $y | 数値$xと$yが等しくない
+ $x -gt $y | 数値$xが$yより大きい
+ $x -lt $y | 数値$xが$yより小さい
+ $x -ge $y | 数値$xが$y以上
+ $x -le $y | 数値$xが$y以下
+ $path1 -nt $path2 | $path1 のタイムスタンプが $path2 より新しい
+ $path1 -ot $path2 | $path1 のタイムスタンプが $path2 より古い
 
 ### ループ
 

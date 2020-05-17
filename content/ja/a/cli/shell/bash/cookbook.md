@@ -15,6 +15,34 @@ NOTE:
 
 - このページに書いているが、実はPOSIX対応の機能もあるかもしれない。
 
+## joinとsplit
+
+join:
+
+```sh
+arr=(a "b c" $'d\ne' f)
+
+# ',' で結合
+str="$(IFS=,; echo "${arr[*]}")"
+IFS=, eval 'str="${arr[*]}"'
+
+# ', ' で結合
+str=$(printf ", %s" "${arr[@]}")
+str=${str:2}
+```
+
+split:
+
+```sh
+str=$'a,b c,d\ne,f'
+
+IFS=, eval 'arr=($str)'
+```
+
+参考:
+
+- [Bashの配列でjoinやsplitする - Qiita](https://qiita.com/kawaz/items/b82da76ac93b32ddc364)
+
 ## 複数行のコメントアウト
 
 `:` とヒアドキュメントを組み合わせる。
