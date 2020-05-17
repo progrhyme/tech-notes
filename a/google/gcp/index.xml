@@ -135,6 +135,7 @@ gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
 &lt;h4 id="regions">regions&lt;/h4>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/regions">https://cloud.google.com/sdk/gcloud/reference/compute/regions&lt;/a>&lt;/p>
 &lt;p>GCEリージョンの表示。&lt;/p>
+&lt;p>SYNPSIS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute regions list
 gcloud compute regions describe REGION
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="ssl-certificates">ssl-certificates&lt;/h4>
@@ -151,6 +152,7 @@ gcloud compute ssl-certificates delete &amp;lt;name&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="zones">zones&lt;/h4>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/zones">https://cloud.google.com/sdk/gcloud/reference/compute/zones&lt;/a>&lt;/p>
 &lt;p>GCEゾーンの表示。&lt;/p>
+&lt;p>SYNPSIS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute zones list
 gcloud compute zones describe ZONE
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="config">config&lt;/h3>
