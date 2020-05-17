@@ -339,11 +339,6 @@ setopt extended_history
 &lt;li>&lt;a href="https://qiita.com/katsukii/items/383b241209fe96eae6e7">シェルスクリプトの基礎知識まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
-&lt;h3 id="ビルトイン">ビルトイン&lt;/h3>
-&lt;h4 id="-dot">. (dot)&lt;/h4>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
-&lt;h4 id="-colon">: (colon)&lt;/h4>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/p>
 &lt;h3 id="演算子">演算子&lt;/h3>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
@@ -481,12 +476,29 @@ setopt extended_history
 &lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="built-ins">Built-Ins&lt;/h2>
-&lt;h3 id="-colon-1">&lt;code>:&lt;/code> (colon)&lt;/h3>
+&lt;h3 id="-dot">. (dot)&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
+&lt;h3 id="-colon">: (colon)&lt;/h3>
+&lt;p>null utility&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/li>
 &lt;li>Bash: &lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>何もしないコマンド&lt;/p>
+&lt;h3 id="return">return&lt;/h3>
+&lt;p>関数かdot scriptを終了する&lt;/p>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 0以外だと異常終了扱い&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 引数省略時は最後のコマンドのexit statusになる&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="ユーザー入力を受け付ける">ユーザー入力を受け付ける&lt;/h3>
 &lt;p>&lt;code>read&lt;/code> を使う。&lt;/p>
@@ -514,6 +526,8 @@ setopt extended_history
 &lt;h3 id="シェル関数が定義されているか調べる">シェル関数が定義されているか調べる&lt;/h3>
 &lt;p>コマンド同様に、 &lt;code>which function&lt;/code> or &lt;code>command -v function&lt;/code> で取れる。&lt;br>
 &lt;code>test -v function&lt;/code> ではNG.&lt;/p>
+&lt;h3 id="数字を3桁ずつカンマ区切りで出力">数字を3桁ずつカンマ区切りで出力&lt;/h3>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#printf1">UNIX系コマンド#printf(1)&lt;/a>&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="オプション解析">オプション解析&lt;/h3>
 &lt;p>シェルスクリプトでコマンドラインオプションをどう解析するか。&lt;/p>

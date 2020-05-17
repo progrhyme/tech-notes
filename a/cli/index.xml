@@ -89,7 +89,20 @@ head -n &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span> &lt;span st
 head -c &lt;span style="color:#0000cf;font-weight:bold">256&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 先頭256KBを表示&lt;/span>
 head --bytes 256k &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sed">sed&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="printf1">printf(1)&lt;/h3>
+&lt;p>書式を指定して文字列を標準出力に出力。&lt;/p>
+&lt;p>シェルのビルトイン関数と /usr/bin/printf がある。
+違いはよくわからない。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%s %02d&amp;#34;&lt;/span> foo &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; foo 01&lt;/span>
+env &lt;span style="color:#000">LANG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>ja_JP.UTF-8 &lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%&amp;#39;d&amp;#34;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1234567890&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 1,234,567,890&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1907/05/news012.html">【 printf 】コマンド――データを整形して表示する：Linux基本コマンドTips（319） - ＠IT&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.cles.jp/item/5819">シェルスクリプトで数字を３桁ごとのカンマ区切りにする&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="sed">sed&lt;/h3>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html">https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html&lt;/a>&lt;/p>
 &lt;p>与えられたテキストに対して、sedスクリプトで指定された文字列置換を行って結果のテキストを表示するストリームエディタ。&lt;/p>
 &lt;p>macOSとLinuxで挙動が違うので、注意が必要。&lt;/p>

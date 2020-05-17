@@ -719,6 +719,7 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;p>&lt;code>vim -u ${file}&lt;/code> で任意の設定ファイルを指定できる。&lt;/p>
 &lt;h2 id="colorscheme">colorscheme&lt;/h2>
 &lt;p>カラースキームを設定する。&lt;/p>
+&lt;p>See also &lt;a href="#highlight">#highlight&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000">colorscheme&lt;/span> &lt;span style="color:#000">elflord&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>デフォルトで使えるもの:&lt;/p>
@@ -743,6 +744,61 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://wonderwall.hatenablog.com/entry/2016/03/20/222308">Vimメモ : filetypeの確認 - もた日記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="highlight">highlight&lt;/h2>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/syntax.html#:highlight">https://vim-jp.org/vimdoc-ja/syntax.html#:highlight&lt;/a>&lt;/p>
+&lt;p>特定のグループの文字色を変える。&lt;br>
+&lt;code>:highlight&lt;/code> で現在の設定を得ることができる。&lt;/p>
+&lt;p>See also &lt;a href="#colorscheme">#colorscheme&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 構文&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 特定のグループの設定を追加&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">hi&lt;/span>[&lt;span style="color:#000">ghlight&lt;/span>] {&lt;span style="color:#000">group&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">name&lt;/span>} {&lt;span style="color:#000">key&lt;/span>}&lt;span style="color:#000;font-weight:bold">=&lt;/span>{&lt;span style="color:#000">arg&lt;/span>}...&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 特定のグループの設定をリセット&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">hi&lt;/span>[&lt;span style="color:#000">ghlight&lt;/span>] &lt;span style="color:#000">clear&lt;/span>{&lt;span style="color:#000">group&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">name&lt;/span>}&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 例&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">highlight&lt;/span> &lt;span style="color:#000">Search&lt;/span> &lt;span style="color:#000">term&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">bold&lt;/span> &lt;span style="color:#000">ctermfg&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#000">Black&lt;/span> &lt;span style="color:#000">ctermbg&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#000">Blue&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="highlight-args">highlight-args&lt;/h3>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/syntax.html#highlight-args">https://vim-jp.org/vimdoc-ja/syntax.html#highlight-args&lt;/a>&lt;/p>
+&lt;p>&lt;code>highlight&lt;/code> コマンドに与える &lt;code>{key}={arg}&lt;/code> の引数の一部を下に示す。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>key&lt;/th>
+&lt;th>端末種別&lt;/th>
+&lt;th>args&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>term&lt;/td>
+&lt;td>通常&lt;/td>
+&lt;td>bold,italic,underline,reverse,NONEなど。NONEは属性リセット用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>cterm&lt;/td>
+&lt;td>色付き&lt;/td>
+&lt;td>termと同じ&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctermfg&lt;/td>
+&lt;td>色付き&lt;/td>
+&lt;td>色名や番号を指定する&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ctermbg&lt;/td>
+&lt;td>色付き&lt;/td>
+&lt;td>ctermfgと同じ&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="cterm-colors">cterm-colors&lt;/h3>
+&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/syntax.html#cterm-colors">https://vim-jp.org/vimdoc-ja/syntax.html#cterm-colors&lt;/a>&lt;/p>
+&lt;p>ctermfgやctermbgの値には0〜15の色番号やBlack, Blueなどの色名を指定できる。&lt;/p>
+&lt;p>色はVim上で &lt;code>:so $VIMRUNTIME/syntax/colortest.vim&lt;/code> を実行して確認できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wazalab.com/2018/10/01/vim%e3%81%ae%e6%a4%9c%e7%b4%a2%e5%8d%98%e8%aa%9e%e3%83%8f%e3%82%a4%e3%83%a9%e3%82%a4%e3%83%88%e6%99%82%e3%81%ae%e8%83%8c%e6%99%af%e8%89%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e6%96%b9%e6%b3%95/">Vimの検索単語ハイライト時の背景色の変更方法 | Waza Lab&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="キーマッピング">キーマッピング&lt;/h2>
 &lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/map.html">map - Vim日本語ドキュメント&lt;/a>&lt;/p>
@@ -3568,11 +3624,6 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/katsukii/items/383b241209fe96eae6e7">シェルスクリプトの基礎知識まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
-&lt;h3 id="ビルトイン">ビルトイン&lt;/h3>
-&lt;h4 id="-dot">. (dot)&lt;/h4>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
-&lt;h4 id="-colon">: (colon)&lt;/h4>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/p>
 &lt;h3 id="演算子">演算子&lt;/h3>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
@@ -3710,12 +3761,29 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="built-ins">Built-Ins&lt;/h2>
-&lt;h3 id="-colon-1">&lt;code>:&lt;/code> (colon)&lt;/h3>
+&lt;h3 id="-dot">. (dot)&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
+&lt;h3 id="-colon">: (colon)&lt;/h3>
+&lt;p>null utility&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/li>
 &lt;li>Bash: &lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>何もしないコマンド&lt;/p>
+&lt;h3 id="return">return&lt;/h3>
+&lt;p>関数かdot scriptを終了する&lt;/p>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 0以外だと異常終了扱い&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 引数省略時は最後のコマンドのexit statusになる&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="ユーザー入力を受け付ける">ユーザー入力を受け付ける&lt;/h3>
 &lt;p>&lt;code>read&lt;/code> を使う。&lt;/p>
@@ -3743,6 +3811,8 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;h3 id="シェル関数が定義されているか調べる">シェル関数が定義されているか調べる&lt;/h3>
 &lt;p>コマンド同様に、 &lt;code>which function&lt;/code> or &lt;code>command -v function&lt;/code> で取れる。&lt;br>
 &lt;code>test -v function&lt;/code> ではNG.&lt;/p>
+&lt;h3 id="数字を3桁ずつカンマ区切りで出力">数字を3桁ずつカンマ区切りで出力&lt;/h3>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#printf1">UNIX系コマンド#printf(1)&lt;/a>&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="オプション解析">オプション解析&lt;/h3>
 &lt;p>シェルスクリプトでコマンドラインオプションをどう解析するか。&lt;/p>
