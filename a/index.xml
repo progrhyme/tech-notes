@@ -3695,6 +3695,18 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/katsukii/items/383b241209fe96eae6e7">シェルスクリプトの基礎知識まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
+&lt;h3 id="パラメータと変数">パラメータと変数&lt;/h3>
+&lt;h4 id="parameter-expansion">Parameter Expansion&lt;/h4>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">Shell Command Language#2.6.2 Parameter Expansion&lt;/a>&lt;/p>
+&lt;p>&lt;code>${expression}&lt;/code> こういうやつ。最もシンプルなのは &lt;code>${parameter}&lt;/code> とそのままブレースで囲むだけ。&lt;/p>
+&lt;p>種類:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>${#parameter}&lt;/code> &amp;hellip; 文字列の長さを表す&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231152/">【 文字列の長さを調べる 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="演算子">演算子&lt;/h3>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
@@ -3820,7 +3832,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/">【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="parameter-expansion">Parameter Expansion&lt;/h3>
+&lt;h3 id="parameter-expansion-1">Parameter Expansion&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/li>
 &lt;/ul>
@@ -3878,6 +3890,17 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d">シェルスクリプトでOSを判別する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="絵文字を使う">絵文字を使う&lt;/h3>
+&lt;ol>
+&lt;li>絵文字のユニコードを探す&lt;/li>
+&lt;li>&lt;code>U+1F3A3&lt;/code> だったら &lt;code>\U1F3A3&lt;/code> とする&lt;/li>
+&lt;/ol>
+&lt;p>4桁だったら小文字のuで、 &lt;code>\u2122&lt;/code> としてもいいっぽい。&lt;/p>
+&lt;p>絵文字を探すには &lt;a href="http://www.fileformat.info/info/emoji/list.htm">http://www.fileformat.info/info/emoji/list.htm&lt;/a> とか &lt;a href="https://emojipedia.org/">https://emojipedia.org/&lt;/a> を使うといい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nyango/items/671a14ae2834c045fe27">シェル上で🍣🍣（Unicode絵文字）を表示させる - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="シェル関数が定義されているか調べる">シェル関数が定義されているか調べる&lt;/h3>
 &lt;p>コマンド同様に、 &lt;code>which function&lt;/code> or &lt;code>command -v function&lt;/code> で取れる。&lt;br>
