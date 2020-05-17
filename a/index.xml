@@ -3528,6 +3528,10 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/bash/cookbook/">Bash &amp;gt; Cookbooks&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>BashのことはなるべくBashのページに書こうと思うが、調査が甘くてBashじゃないと動かないコードがここに書かれることもあるかもしれない。&lt;/li>
+&lt;/ul>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>シェル上で動作する簡易なプログラミング言語、あるいはそれによって書かれたプログラム。&lt;/p>
 &lt;p>参考:&lt;/p>
@@ -3538,12 +3542,16 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;h3 id="リファレンス">リファレンス&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="http://www.unix.com/man-page/posix/1p/sh/">POSIX 1003.1 - man page for sh (posix section 1p) - Unix &amp;amp; Linux Commands&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html">CONTENTS - Shell &amp;amp; Utilities: Detailed TOC | The Open Group&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18">Shell Command Language&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>&lt;a href="http://www.unix.org/whitepapers/shdiffs.html">Shell Command Language (www.unix.org))&lt;/a>
 &lt;ul>
 &lt;li>System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html">Shell Command Language (pubs.opengroup.org)&lt;/a> &amp;hellip; 上と同じ内容のようだ&lt;/li>
 &lt;/ul>
 &lt;h3 id="コーディング規約">コーディング規約&lt;/h3>
 &lt;ul>
@@ -3560,7 +3568,24 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/katsukii/items/383b241209fe96eae6e7">シェルスクリプトの基礎知識まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
+&lt;h3 id="ビルトイン">ビルトイン&lt;/h3>
+&lt;h4 id="-dot">. (dot)&lt;/h4>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
+&lt;h4 id="-colon">: (colon)&lt;/h4>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/p>
 &lt;h3 id="演算子">演算子&lt;/h3>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>[ 条件式 ]&lt;/code> は &lt;code>test 条件式&lt;/code> と同じ。
+&lt;ul>
+&lt;li>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html">test&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions">Bash Reference Manual&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
@@ -3590,12 +3615,71 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>-x $path&lt;/td>
 &lt;td>$path が実行可能ファイル&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>-L $path&lt;/td>
+&lt;td>$path がシンボリックリンク&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-S $path&lt;/td>
+&lt;td>$path がソケット&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828">&amp;lt;Bash, zsh&amp;gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="二項条件演算子">二項条件演算子&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>構文&lt;/th>
+&lt;th>真の条件&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ldquo;$str1&amp;rdquo; = &amp;ldquo;$str2&amp;rdquo;&lt;/td>
+&lt;td>$str1と$str2が等しい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ldquo;$str1&amp;rdquo; != &amp;ldquo;$str2&amp;rdquo;&lt;/td>
+&lt;td>$str1と$str2が等しくない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -eq $y&lt;/td>
+&lt;td>数値$xと$yが等しい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -ne $y&lt;/td>
+&lt;td>数値$xと$yが等しくない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -gt $y&lt;/td>
+&lt;td>数値$xが$yより大きい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -lt $y&lt;/td>
+&lt;td>数値$xが$yより小さい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -ge $y&lt;/td>
+&lt;td>数値$xが$y以上&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -le $y&lt;/td>
+&lt;td>数値$xが$y以下&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$path1 -nt $path2&lt;/td>
+&lt;td>$path1 のタイムスタンプが $path2 より新しい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$path1 -ot $path2&lt;/td>
+&lt;td>$path1 のタイムスタンプが $path2 より古い&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="ループ">ループ&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
@@ -3626,7 +3710,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="built-ins">Built-Ins&lt;/h2>
-&lt;h3 id="-colon">&lt;code>:&lt;/code> (colon)&lt;/h3>
+&lt;h3 id="-colon-1">&lt;code>:&lt;/code> (colon)&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon&lt;/a>&lt;/li>
 &lt;li>Bash: &lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins&lt;/a>&lt;/li>

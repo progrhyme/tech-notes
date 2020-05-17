@@ -89,7 +89,47 @@ head -n &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span> &lt;span st
 head -c &lt;span style="color:#0000cf;font-weight:bold">256&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 先頭256KBを表示&lt;/span>
 head --bytes 256k &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sort">sort&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sed">sed&lt;/h3>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html">https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html&lt;/a>&lt;/p>
+&lt;p>与えられたテキストに対して、sedスクリプトで指定された文字列置換を行って結果のテキストを表示するストリームエディタ。&lt;/p>
+&lt;p>macOSとLinuxで挙動が違うので、注意が必要。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 各行のxを1つyに置換した結果を表示&lt;/span>
+sed s/x/y/ foo.txt
+&lt;span style="color:#8f5902;font-style:italic"># 各行のxをすべてyに置換した結果を表示&lt;/span>
+sed -e s/x/y/g foo.txt
+&lt;span style="color:#8f5902;font-style:italic"># 全文字をすべてyに置換した結果を表示&lt;/span>
+cat foo.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> sed &lt;span style="color:#4e9a06">&amp;#39;s/./y/g&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># xをyに、aをbに置換&lt;/span>
+sed -e s/x/y/ -e s/a/b/ foo.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>効果&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;[e]xpression=SCRIPT&lt;/td>
+&lt;td>実行するコマンドとしてスクリプトを追加&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;[f]ile=FILE&lt;/td>
+&lt;td>実行するコマンドとしてスクリプトファイルを追加&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;[r]egexp-extended&lt;/td>
+&lt;td>（※Linux）拡張正規表現を使う&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-E&lt;/td>
+&lt;td>（※macOS）拡張正規表現を使う&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>※ &lt;code>-e&lt;/code>, &lt;code>-f&lt;/code> のどちらの指定もなければ、最初のオプションでない引数がsedスクリプトとして解釈される。&lt;/p>
+&lt;h3 id="sort">sort&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 第2フィールドで数値の降順ソート&lt;/span>
 cat file &lt;span style="color:#000;font-weight:bold">|&lt;/span> sort -nr -k2
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
