@@ -1,4 +1,40 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-16</title><link>https://progrhy.me/tech-notes/a/memo/20200516/</link><pubDate>Sat, 16 May 2020 01:56:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200516/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
+&lt;h2 id="517">5/17&lt;/h2>
+&lt;h3 id="gcloud-prompt作った">gcloud-prompt作った&lt;/h3>
+&lt;p>これ: &lt;a href="https://github.com/progrhyme/gcloud-prompt">https://github.com/progrhyme/gcloud-prompt&lt;/a>&lt;/p>
+&lt;p>作り始める前に、一応既存のがないかは調べた。
+下が見つかった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/antoniomo/gcloud-ps1">https://github.com/antoniomo/gcloud-ps1&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ocadaruma/zsh-gcloud-prompt">https://github.com/ocadaruma/zsh-gcloud-prompt&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>上はactiveなconfigurationを表示しているだけ。&lt;br>
+下は逆に、 &lt;code>default&lt;/code> configuration前提で、 &lt;code>account&lt;/code>, &lt;code>project&lt;/code> の情報を表示している。&lt;/p>
+&lt;p>自分のニーズとしては、 &lt;code>project&lt;/code> や &lt;code>compute.region&lt;/code> を入れたい。&lt;br>
+あまりconfigurationsを活用できてないけど、なるべくconfigurationsで管理していきたい気持ちはあるので、activeなconfigurationも表示したいと思った。&lt;/p>
+&lt;p>…で、上のgcloud-ps1のコードを参考にしながら、とりあえずMacの.zshrcにベタに実装していたが、愚直に実装するとgcloudコマンドが遅すぎて使い物にならないことに気がついた。&lt;/p>
+&lt;p>コマンド1回で0.3sぐらいかかってたので、configuration, project, compute.regionをそれぞれ取得していたら、ENTERを打つたびに1秒待つことになる。&lt;br>
+さすがに無理である。&lt;/p>
+&lt;h4 id="activeなconfigurationの取得">activeなconfigurationの取得&lt;/h4>
+&lt;p>そこで、activeなconfigurationの取得については、環境変数CLOUDSDK_ACTIVE_CONFIG_NAMEが設定されていればそちらを、そうでなければ &lt;code>$HOME/.config/gcloud/active_config&lt;/code> を直接見ることにした。&lt;/p>
+&lt;h4 id="configパラメータの取得">configパラメータの取得&lt;/h4>
+&lt;p>…で、configパラメータの取得だが、現在の設定リストは &lt;code>default&lt;/code> configurationであれば &lt;code>$HOME/.config/gcloud/configurations/config_default&lt;/code> に保存されている。&lt;br>
+ただし、INIファイル形式で、さすがにシェルスクリプトで自前でパースするのはしんどそう。&lt;/p>
+&lt;p>CLIリファレンスを読み込んでいると、 &lt;code>gcloud config list --format=FORMAT&lt;/code> オプションで任意のキーを所望のフォーマットで取得できることがわかった。&lt;/p>
+&lt;p>これも毎回実行していると遅いので、コマンドの実行結果をキャッシュファイルに書いて、上のファイルとのタイムスタンプを比較して、更新されていなければキャッシュファイルをcatして返すようにした。&lt;/p>
+&lt;h4 id="clenv対応">clenv対応&lt;/h4>
+&lt;p>submoduleにしたくなかったので、&lt;a href="https://github.com/progrhyme/clenv/blob/master/bin/clam">clenv/bin/clam&lt;/a>でinstallできるようにした。&lt;br>
+なにげに自作のシェルスクリプトライブラリを自分のシェル環境で常にロードして使うのは初めてだったのかも？&lt;/p>
+&lt;p>自分で作ったclenvの使い方をすっかり忘れていたので、ソースを解読して使い方を把握した。&lt;/p>
+&lt;pre>&lt;code>name=gcloud-prompt
+version=0.5.0
+libraries=&amp;quot;gcloud-prompt.sh&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>上を &lt;code>clam.spec&lt;/code> ってファイルで作っておくとclamでインストールして、 &lt;code>gcloud-prompt.sh&lt;/code> を&lt;a href="https://github.com/progrhyme/clenv/blob/master/bin/cload">clenv/bin/cload&lt;/a>で読み込めるところに配置してくれる。&lt;/p>
+&lt;p>シェル環境の方の対応コミットは下:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/7d9b708187836fcafc03591808e17eda88dded62">https://github.com/progrhyme/myenv/commit/7d9b708187836fcafc03591808e17eda88dded62&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>clenvのライブラリをロードするコードがなかったので、追加した。&lt;/p></description></item><item><title>A: 2020-05-16</title><link>https://progrhy.me/tech-notes/a/memo/20200516/</link><pubDate>Sat, 16 May 2020 01:56:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200516/</guid><description>
 &lt;h2 id="516">5/16&lt;/h2>
 &lt;h3 id="zshをfishっぽくいい感じにできた">zshをfishっぽくいい感じにできた&lt;/h3>
 &lt;p>&lt;a href="../20200513/#fish%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E6%A9%9F%E8%83%BD%E3%81%AFzsh%E3%81%A7%E3%82%82%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86">5/13にfishでちょっといいと思った機能はzshでもできそう&lt;/a>だと気がついたので、やってみた。&lt;br>
