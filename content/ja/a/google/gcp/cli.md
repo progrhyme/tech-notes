@@ -173,6 +173,19 @@ gcloud compute instances create my-instance \
 
 - [イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja)
 
+#### regions
+
+https://cloud.google.com/sdk/gcloud/reference/compute/regions
+
+GCEリージョンの表示。
+
+SYNPSIS:
+
+```sh
+gcloud compute regions list
+gcloud compute regions describe REGION
+```
+
 #### ssl-certificates
 
 https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates
@@ -191,6 +204,19 @@ gcloud compute ssl-certificates create <name> --domains=<fqdn1>,...
 
 # 削除
 gcloud compute ssl-certificates delete <name>
+```
+
+#### zones
+
+https://cloud.google.com/sdk/gcloud/reference/compute/zones
+
+GCEゾーンの表示。
+
+SYNPSIS:
+
+```sh
+gcloud compute zones list
+gcloud compute zones describe ZONE
 ```
 
 ### config
