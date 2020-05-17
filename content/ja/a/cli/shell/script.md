@@ -43,6 +43,21 @@ NOTE:
 - [シェルスクリプトの基礎知識まとめ - Qiita](https://qiita.com/katsukii/items/383b241209fe96eae6e7)
 
 ## Spec
+### パラメータと変数
+#### Parameter Expansion
+
+[Shell Command Language#2.6.2 Parameter Expansion](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02)
+
+`${expression}` こういうやつ。最もシンプルなのは `${parameter}` とそのままブレースで囲むだけ。
+
+種類:
+
+- `${#parameter}` ... 文字列の長さを表す
+
+参考:
+
+- [【 文字列の長さを調べる 】 | 日経クロステック（xTECH）](https://xtech.nikkei.com/it/article/COLUMN/20060228/231152/)
+
 ### 演算子
 
 NOTE:
@@ -194,6 +209,19 @@ do_something | while IFS= read -r line; do echo "$(date) $line"; done
 参考:
 
 - [シェルスクリプトでOSを判別する - Qiita](https://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d)
+
+### 絵文字を使う
+
+1. 絵文字のユニコードを探す
+1. `U+1F3A3` だったら `\U1F3A3` とする
+
+4桁だったら小文字のuで、 `\u2122` としてもいいっぽい。
+
+絵文字を探すには http://www.fileformat.info/info/emoji/list.htm とか https://emojipedia.org/ を使うといい。
+
+参考:
+
+- [シェル上で🍣🍣（Unicode絵文字）を表示させる - Qiita](https://qiita.com/nyango/items/671a14ae2834c045fe27)
 
 ### シェル関数が定義されているか調べる
 

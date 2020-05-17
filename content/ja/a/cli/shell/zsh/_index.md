@@ -80,6 +80,16 @@ PROMPT='%{${fg[cyan]}%} $n %{${reset_color}%}'
  6 | cyan
  7 | white
 
+#### 複数行対応
+
+左側のPROMPTなら改行文字を入れればいいが、 `precmd()` でプリントするという手もある。  
+`print -P` オプションを付けると、PROMPTのフォーマットで出力できるみたい。
+
+参考:
+
+- [zsh の右プロンプトを2行にする - Qiita](https://qiita.com/eexiech8aNahShee/items/355cd4d884ce03656285)
+- [prompt - Multiline RPROMPT in zsh - Super User](https://superuser.com/questions/974908/multiline-rprompt-in-zsh)
+
 #### vcs_info
 
 メモ:
