@@ -942,7 +942,7 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;h2 id="gcloud">gcloud&lt;/h2>
 &lt;ul>
 &lt;li>Getting Started: &lt;a href="https://cloud.google.com/sdk/gcloud/?hl=ja">https://cloud.google.com/sdk/gcloud/?hl=ja&lt;/a>&lt;/li>
-&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference/?hl=ja">https://cloud.google.com/sdk/gcloud/reference/?hl=ja&lt;/a>&lt;/li>
+&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
@@ -963,7 +963,44 @@ gcloud auth print-access-token
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="compute">compute&lt;/h3>
+&lt;h3 id="全体で使えるオプション">全体で使えるオプション&lt;/h3>
+&lt;p>リファレンスで「GCLOUD WIDE FLAGS」とされているもの。&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a> に簡単な説明がある。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>--configuration&lt;/code> &amp;hellip; コマンドを実行するconfiguration. See &lt;a href="#configurations">#configurations&lt;/a>&lt;/li>
+&lt;li>&lt;code>--project&lt;/code> &amp;hellip; コマンドの対象となるプロジェクトをプロジェクトIDで指定する&lt;/li>
+&lt;/ul>
+&lt;h4 id="filter">filter&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/filters">https://cloud.google.com/sdk/gcloud/reference/topic/filters&lt;/a>&lt;/p>
+&lt;p>結果をリストで出力するコマンドに対し、フィルタ条件を記すことができる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute instances list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;machineType:f1-micro&amp;#34;&lt;/span>
+gcloud compute instances list &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;zone ~ ^us AND -machineType:f1-micro&amp;#34;&lt;/span>
+gcloud compute instances list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;tags.items=my-tag&amp;#34;&lt;/span>
+gcloud projects list &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;table(projectNumber,projectId,createTime)&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;createTime&amp;gt;=2018-01-15&amp;#34;&lt;/span>
+gcloud config configurations list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;IS_ACTIVE=true&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="format">format&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/formats">https://cloud.google.com/sdk/gcloud/reference/topic/formats&lt;/a>&lt;/p>
+&lt;p>結果を出力するコマンドに対し、出力フォーマットや、抽出するプロパティ、ヘッダの有無などを指定できる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># デフォルトのテーブル表示にボックス装飾を付ける&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;[box]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># JSON形式&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>json
+&lt;span style="color:#8f5902;font-style:italic"># YAML形式&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>yaml
+&lt;span style="color:#8f5902;font-style:italic"># ヘッダ無しCSV形式&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;csv[no-heading]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ヘッダ無しCSVで、特定のカラム値だけ取得&lt;/span>
+gcloud config list --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;csv[no-heading](core.project,core.account)&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 特定の値だけ取得&lt;/span>
+gcloud config configurations list --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(name)&amp;#39;&lt;/span>
+gcloud info --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(config.paths.global_config_dir)&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compute">compute&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute">https://cloud.google.com/sdk/gcloud/reference/compute&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## ssh&lt;/span>
@@ -1014,16 +1051,32 @@ gcloud compute ssl-certificates create &amp;lt;name&amp;gt; --domains&lt;span st
 gcloud compute ssl-certificates delete &amp;lt;name&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="config">config&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
+&lt;p>Subcommands:&lt;/p>
+&lt;ul>
+&lt;li>configurations &amp;hellip; See below&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/get-value">get-value&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/list">list&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">set&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>configurationという単位でプロパティ値のセットを管理できる。&lt;br>
+configurations以外のサブコマンドは現在のconfigurationに対する操作を行う。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 設定値一覧表示&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 設定プロパティ値一覧表示&lt;/span>
 gcloud config list
+&lt;span style="color:#8f5902;font-style:italic"># プロパティ値の取得&lt;/span>
+gcloud config get-value account
+gcloud config get-value artifacts/location
+&lt;span style="color:#8f5902;font-style:italic"># プロパティ値の設定&lt;/span>
+gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d">gcloud configで複数の設定を持って切り替える - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="configurations">configurations&lt;/h4>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
-&lt;p>設定プロファイルの管理&lt;/p>
+&lt;p>設定プロファイルの管理。各プロファイルでは、プロパティ値のセットを管理することができる。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロファイル一覧表示&lt;/span>
 gcloud config configurations list
@@ -1038,14 +1091,9 @@ gcloud config configurations activate プロファイル名
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/configurations">https://cloud.google.com/sdk/gcloud/reference/topic/configurations&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="set">set&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">https://cloud.google.com/sdk/gcloud/reference/config/set&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
-gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
-gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="container">container&lt;/h3>
+&lt;h3 id="container">container&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container">https://cloud.google.com/sdk/gcloud/reference/container&lt;/a>&lt;/p>
 &lt;p>GKE操作。&lt;/p>
 &lt;h4 id="clusters">clusters&lt;/h4>
@@ -1113,6 +1161,17 @@ gcloud functions deploy &amp;lt;Function Name&amp;gt; &lt;span style="color:#4e9
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --runtime nodejs10 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set-env-vars &lt;span style="color:#4e9a06">&amp;#34;FOO=foo,BAR=bar&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project my-project
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="info">info&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/info">https://cloud.google.com/sdk/gcloud/reference/info&lt;/a>&lt;/p>
+&lt;p>gcloudのconfigファイルのパスなど環境構成情報を表示する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud info
+&lt;span style="color:#8f5902;font-style:italic"># 特定の値を抽出&lt;/span>
+gcloud info --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(config.paths.global_config_dir)&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ネットワーク接続や隠し属性のチェック&lt;/span>
+gcloud info --run-diagnostics
+&lt;span style="color:#8f5902;font-style:italic"># 直近のログを表示&lt;/span>
+gcloud info --show-log
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logging">logging&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging">https://cloud.google.com/sdk/gcloud/reference/logging&lt;/a>&lt;/p>
 &lt;p>NOTE:&lt;/p>
