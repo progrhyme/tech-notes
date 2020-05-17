@@ -132,7 +132,12 @@ gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="ssl-certificates">ssl-certificates&lt;/h4>
+&lt;h4 id="regions">regions&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/regions">https://cloud.google.com/sdk/gcloud/reference/compute/regions&lt;/a>&lt;/p>
+&lt;p>GCEリージョンの表示。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute regions list
+gcloud compute regions describe REGION
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="ssl-certificates">ssl-certificates&lt;/h4>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates">https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates&lt;/a>&lt;/p>
 &lt;p>証明書の管理。マネージド証明書が作れる。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
@@ -143,6 +148,11 @@ gcloud compute ssl-certificates describe &amp;lt;name&amp;gt;
 gcloud compute ssl-certificates create &amp;lt;name&amp;gt; --domains&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;fqdn1&amp;gt;,...
 &lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
 gcloud compute ssl-certificates delete &amp;lt;name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="zones">zones&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/zones">https://cloud.google.com/sdk/gcloud/reference/compute/zones&lt;/a>&lt;/p>
+&lt;p>GCEゾーンの表示。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute zones list
+gcloud compute zones describe ZONE
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="config">config&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
 &lt;p>Subcommands:&lt;/p>
