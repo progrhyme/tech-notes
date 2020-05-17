@@ -43,15 +43,6 @@ NOTE:
 - [シェルスクリプトの基礎知識まとめ - Qiita](https://qiita.com/katsukii/items/383b241209fe96eae6e7)
 
 ## Spec
-### ビルトイン
-#### . (dot)
-
-https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18
-
-#### : (colon)
-
-https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16
-
 ### 演算子
 
 NOTE:
@@ -135,12 +126,40 @@ if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; 
 - [shell - How to check if a variable is set in Bash? - Stack Overflow](https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash)
 
 ## Built-Ins
-### `:` (colon)
+### . (dot)
 
-- https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#colon
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18
+
+### : (colon)
+
+null utility
+
+- https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16
 - Bash: https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins
 
 何もしないコマンド
+
+### return
+
+関数かdot scriptを終了する
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24
+
+Examples:
+
+```sh
+return 0
+# 0以外だと異常終了扱い
+return 1
+
+# 引数省略時は最後のコマンドのexit statusになる
+return
+```
+
+参考:
+
+- [シェルスクリプト return コマンド - Qiita](https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a)
+- https://github.com/progrhyme/experiments/tree/master/bash/source-scripts
 
 ## How-to
 ### ユーザー入力を受け付ける
@@ -180,6 +199,10 @@ do_something | while IFS= read -r line; do echo "$(date) $line"; done
 
 コマンド同様に、 `which function` or `command -v function` で取れる。  
 `test -v function` ではNG.
+
+### 数字を3桁ずつカンマ区切りで出力
+
+See [UNIX系コマンド#printf(1)]({{<ref "/a/cli/unix-cmd/_index.md">}}#printf1)
 
 ## Topics
 ### オプション解析

@@ -17,6 +17,8 @@ https://vim-jp.org/vimdoc-ja/starting.html#initialization
 
 カラースキームを設定する。
 
+See also [#highlight](#highlight)
+
 Example:
 
 ```Vim
@@ -50,6 +52,51 @@ autocmd BufNewFile,BufRead *.rb setfiletype ruby
 参考:
 
 - [Vimメモ : filetypeの確認 - もた日記](https://wonderwall.hatenablog.com/entry/2016/03/20/222308)
+
+## highlight
+
+https://vim-jp.org/vimdoc-ja/syntax.html#:highlight
+
+特定のグループの文字色を変える。  
+`:highlight` で現在の設定を得ることができる。
+
+See also [#colorscheme](#colorscheme)
+
+```Vim
+" 構文
+" 特定のグループの設定を追加
+hi[ghlight] {group-name} {key}={arg}...
+" 特定のグループの設定をリセット
+hi[ghlight] clear{group-name}
+
+" 例
+highlight Search term=bold ctermfg=Black ctermbg=Blue
+```
+
+### highlight-args
+
+https://vim-jp.org/vimdoc-ja/syntax.html#highlight-args
+
+`highlight` コマンドに与える `{key}={arg}` の引数の一部を下に示す。
+
+ key | 端末種別 | args
+-----|-----|-----
+ term | 通常 | bold,italic,underline,reverse,NONEなど。NONEは属性リセット用
+ cterm | 色付き | termと同じ
+ ctermfg | 色付き | 色名や番号を指定する
+ ctermbg | 色付き | ctermfgと同じ
+
+### cterm-colors
+
+https://vim-jp.org/vimdoc-ja/syntax.html#cterm-colors
+
+ctermfgやctermbgの値には0〜15の色番号やBlack, Blueなどの色名を指定できる。
+
+色はVim上で `:so $VIMRUNTIME/syntax/colortest.vim` を実行して確認できる。
+
+参考:
+
+- [Vimの検索単語ハイライト時の背景色の変更方法 | Waza Lab](https://www.wazalab.com/2018/10/01/vim%e3%81%ae%e6%a4%9c%e7%b4%a2%e5%8d%98%e8%aa%9e%e3%83%8f%e3%82%a4%e3%83%a9%e3%82%a4%e3%83%88%e6%99%82%e3%81%ae%e8%83%8c%e6%99%af%e8%89%b2%e3%81%ae%e5%a4%89%e6%9b%b4%e6%96%b9%e6%b3%95/)
 
 ## キーマッピング
 

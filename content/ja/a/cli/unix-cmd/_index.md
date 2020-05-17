@@ -109,6 +109,25 @@ head -c 256 [file...]
 head --bytes 256k [file...]
 ```
 
+### printf(1)
+
+書式を指定して文字列を標準出力に出力。
+
+シェルのビルトイン関数と /usr/bin/printf がある。
+違いはよくわからない。
+
+```sh
+printf "%s %02d" foo 1
+#=> foo 01
+env LANG=ja_JP.UTF-8 printf "%'d" 1234567890
+#=> 1,234,567,890
+```
+
+参考:
+
+- [【 printf 】コマンド――データを整形して表示する：Linux基本コマンドTips（319） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1907/05/news012.html)
+- [シェルスクリプトで数字を３桁ごとのカンマ区切りにする](https://blog.cles.jp/item/5819)
+
 ### sed
 
 https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html
