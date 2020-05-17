@@ -41,7 +41,7 @@ https://cloud.google.com/sdk/docs/downloads-docker
 ## gcloud
 
 - Getting Started: https://cloud.google.com/sdk/gcloud/?hl=ja
-- リファレンス: https://cloud.google.com/sdk/gcloud/reference/?hl=ja
+- リファレンス: https://cloud.google.com/sdk/gcloud/reference
 
 NOTE:
 
@@ -66,6 +66,63 @@ gcloud auth print-access-token
 参考:
 - [Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud](https://cloud.google.com/sdk/docs/authorizing?hl=ja)
 
+### 全体で使えるオプション
+
+リファレンスで「GCLOUD WIDE FLAGS」とされているもの。
+
+https://cloud.google.com/sdk/gcloud/reference に簡単な説明がある。
+
+例:
+
+- `--configuration` ... コマンドを実行するconfiguration. See [#configurations](#configurations)
+- `--project` ... コマンドの対象となるプロジェクトをプロジェクトIDで指定する
+
+#### filter
+
+https://cloud.google.com/sdk/gcloud/reference/topic/filters
+
+結果をリストで出力するコマンドに対し、フィルタ条件を記すことができる。
+
+Examples:
+
+```sh
+gcloud compute instances list --filter="machineType:f1-micro"
+gcloud compute instances list \
+  --filter="zone ~ ^us AND -machineType:f1-micro"
+gcloud compute instances list --filter="tags.items=my-tag"
+
+gcloud projects list \
+  --format="table(projectNumber,projectId,createTime)" \
+  --filter="createTime>=2018-01-15"
+
+gcloud config configurations list --filter='IS_ACTIVE=true'
+```
+
+#### format
+
+https://cloud.google.com/sdk/gcloud/reference/topic/formats
+
+結果を出力するコマンドに対し、出力フォーマットや、抽出するプロパティ、ヘッダの有無などを指定できる。
+
+Examples:
+
+```sh
+# デフォルトのテーブル表示にボックス装飾を付ける
+gcloud ... --format='[box]'
+# JSON形式
+gcloud ... --format=json
+# YAML形式
+gcloud ... --format=yaml
+# ヘッダ無しCSV形式
+gcloud ... --format='csv[no-heading]'
+
+# ヘッダ無しCSVで、特定のカラム値だけ取得
+gcloud config list --format="csv[no-heading](core.project,core.account)"
+
+# 特定の値だけ取得
+gcloud config configurations list --format='value(name)'
+gcloud info --format='value(config.paths.global_config_dir)'
+```
 
 ### compute
 
@@ -140,11 +197,30 @@ gcloud compute ssl-certificates delete <name>
 
 https://cloud.google.com/sdk/gcloud/reference/config
 
+Subcommands:
+
+- configurations ... See below
+- [get-value](https://cloud.google.com/sdk/gcloud/reference/config/get-value)
+- [list](https://cloud.google.com/sdk/gcloud/reference/config/list)
+- [set](https://cloud.google.com/sdk/gcloud/reference/config/set)
+
+configurationという単位でプロパティ値のセットを管理できる。  
+configurations以外のサブコマンドは現在のconfigurationに対する操作を行う。
+
 SYNOPSIS:
 
 ```sh
-## 設定値一覧表示
+# 設定プロパティ値一覧表示
 gcloud config list
+
+# プロパティ値の取得
+gcloud config get-value account
+gcloud config get-value artifacts/location
+
+# プロパティ値の設定
+gcloud config set project my-project
+gcloud config set compute/region asia-northeast1
+gcloud config set compute/zone asia-northeast1-a
 ```
 
 参考:
@@ -155,7 +231,7 @@ gcloud config list
 
 https://cloud.google.com/sdk/gcloud/reference/config/configurations
 
-設定プロファイルの管理
+設定プロファイルの管理。各プロファイルでは、プロパティ値のセットを管理することができる。
 
 SYNOPSIS:
 
@@ -176,19 +252,7 @@ gcloud config configurations activate プロファイル名
 参考:
 
 - [SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud](https://cloud.google.com/sdk/docs/configurations?hl=ja)
-
-
-#### set
-
-https://cloud.google.com/sdk/gcloud/reference/config/set
-
-Examples:
-
-```sh
-gcloud config set project my-project
-gcloud config set compute/region asia-northeast1
-gcloud config set compute/zone asia-northeast1-a
-```
+- https://cloud.google.com/sdk/gcloud/reference/topic/configurations
 
 ### container
 
@@ -270,6 +334,23 @@ gcloud functions deploy <Function Name> \
   --project my-project
 ```
 
+### info
+
+https://cloud.google.com/sdk/gcloud/reference/info
+
+gcloudのconfigファイルのパスなど環境構成情報を表示する。
+
+Examples:
+
+```sh
+gcloud info
+# 特定の値を抽出
+gcloud info --format='value(config.paths.global_config_dir)'
+# ネットワーク接続や隠し属性のチェック
+gcloud info --run-diagnostics
+# 直近のログを表示
+gcloud info --show-log
+```
 
 ### logging
 
