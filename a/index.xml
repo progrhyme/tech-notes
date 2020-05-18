@@ -4154,6 +4154,10 @@ ss -antu
 &lt;/li>
 &lt;li>環境を分けて管理する機能も要らない。自分でも &lt;code>default&lt;/code> しか使ってないし&lt;/li>
 &lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h4 id="新プロジェクト構想">新プロジェクト構想&lt;/h4>
 &lt;p>①実行ファイル取って来る君&lt;/p>
 &lt;p>仮称「binpack」とする。&lt;/p>
@@ -4181,7 +4185,10 @@ ss -antu
 &lt;p>これでいいんじゃないか？&lt;/p>
 &lt;p>……うーん、実行ファイルを含むパッケージの場合、各ディレクトリごとにPATHに入れることはできるようだが、まとめて &lt;code>$SHLDON_ROOT/bin/&lt;/code> とかに入れれるかわからん。&lt;br>
 どっちかというと、シェルプラグイン管理に重きを置かれている印象。&lt;br>
-少し拡張すればできそうだけど。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
+少し拡張すればできそうだけど。&lt;/p>
+&lt;h4 id="追記-completion対応">追記: COMPLETION対応&lt;/h4>
+&lt;p>実行ファイルとセットでcompletionファイルをロードするようにしたいこともある。&lt;br>
+そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
 &lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">https://www.freedesktop.org/software/systemd/man/journalctl.html&lt;/a>&lt;/p>
 &lt;p>systemdのログをクエリするためのCLI.&lt;/p>
 &lt;p>Examples:&lt;/p>

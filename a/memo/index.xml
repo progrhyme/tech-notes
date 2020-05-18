@@ -28,6 +28,10 @@
 &lt;/li>
 &lt;li>環境を分けて管理する機能も要らない。自分でも &lt;code>default&lt;/code> しか使ってないし&lt;/li>
 &lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h4 id="新プロジェクト構想">新プロジェクト構想&lt;/h4>
 &lt;p>①実行ファイル取って来る君&lt;/p>
 &lt;p>仮称「binpack」とする。&lt;/p>
@@ -55,7 +59,10 @@
 &lt;p>これでいいんじゃないか？&lt;/p>
 &lt;p>……うーん、実行ファイルを含むパッケージの場合、各ディレクトリごとにPATHに入れることはできるようだが、まとめて &lt;code>$SHLDON_ROOT/bin/&lt;/code> とかに入れれるかわからん。&lt;br>
 どっちかというと、シェルプラグイン管理に重きを置かれている印象。&lt;br>
-少し拡張すればできそうだけど。&lt;/p></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
+少し拡張すればできそうだけど。&lt;/p>
+&lt;h4 id="追記-completion対応">追記: COMPLETION対応&lt;/h4>
+&lt;p>実行ファイルとセットでcompletionファイルをロードするようにしたいこともある。&lt;br>
+そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
 &lt;h2 id="517">5/17&lt;/h2>
 &lt;h3 id="gcloud-prompt作った">gcloud-prompt作った&lt;/h3>
 &lt;p>これ: &lt;a href="https://github.com/progrhyme/gcloud-prompt">https://github.com/progrhyme/gcloud-prompt&lt;/a>&lt;/p>
