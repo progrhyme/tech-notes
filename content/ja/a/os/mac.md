@@ -30,6 +30,18 @@ BSD系のUnixを元に作られているらしい。
 
 `~/.Trash` にある。
 
+## Configuration
+### Touch Bar
+
+ボタン配置を変える方法:
+
+- 「システム環境設定 > キーボード > Touch Barをカスタマイズ」
+  - 2020-05-18 macOS Mojaveで確認
+
+参考:
+
+- [macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO](https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/)
+
 ## How-to
 ### JIS キーボードでの `\` の入力方法
 

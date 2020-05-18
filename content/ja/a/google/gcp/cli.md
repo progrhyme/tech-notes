@@ -59,6 +59,12 @@ gcloud init
 参考:
 - [Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud](https://cloud.google.com/sdk/docs/authorizing?hl=ja)
 
+### 環境変数
+
+ Variable | 用途
+----------|-----
+ CLOUDSDK_ACTIVE_CONFIG_NAME | 利用するconfigurationを設定する。See [#configurations](#configurations)
+
 ### 全体で使えるオプション
 
 リファレンスで「GCLOUD WIDE FLAGS」とされているもの。
@@ -272,18 +278,23 @@ https://cloud.google.com/sdk/gcloud/reference/config/configurations
 SYNOPSIS:
 
 ```sh
-## プロファイル一覧表示
+# プロファイル一覧表示
 gcloud config configurations list
 
-## 表示
+# 表示
 gcloud config configurations describe プロファイル名
-## 作成
+# 作成
 gcloud config configurations create プロファイル名
-## 削除
+# 削除
 gcloud config configurations delete プロファイル名
-## 有効化
+# 有効化
 gcloud config configurations activate プロファイル名
 ```
+
+Tips:
+
+- gcloudコマンドは現在アクティブなconfigurationの設定プロパティをデフォルト値として参照する
+- アクティブなconfigurationは `--configuration` 引数か、環境変数 `CLOUDSDK_ACTIVE_CONFIG_NAME` で上書き指定することもできる
 
 参考:
 

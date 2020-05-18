@@ -28,6 +28,9 @@ cat foo.json | jq '.[] | .some_key'
 # 配列の個々のオブジェクトからいくつかの要素を選んでそれぞれ配列に格納
 cat foo.json | jq '.[] | [.keyA, .keyB, .keyC.keyAinC]'
 
+# CSV形式で出力
+cat foo.json | jq '.[] | [.keyA, .keyB, .keyC] | @csv'
+
 # 配列の個々のオブジェクトからいくつかの要素を選んで新たなオブジェクトを作り、それぞれ出力
 cat foo.json | jq '.[] | {a: .keyA, b: .keyB, ca: .keyC.keyAinC}'
 ```
@@ -35,3 +38,4 @@ cat foo.json | jq '.[] | {a: .keyA, b: .keyB, ca: .keyC.keyAinC}'
 参考:
 
 - [jq チートシート - Qoosky](https://www.qoosky.io/techs/1ee07c140f)
+- [jq コマンドで JSON を CSV に変換する - VELTRA Engineering - Medium](https://medium.com/veltra-engineering/jq-supports-json-to-csv-fb5c951a9575)

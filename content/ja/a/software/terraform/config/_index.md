@@ -18,7 +18,6 @@ v0.11以前は子ページを見よ。
 
 - `$` をそのまま文字列内で扱いたいときは `"$$"` とエスケープする。
 
-
 ## 変数管理
 ### Variables
 
@@ -47,8 +46,42 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 
 - [【モダンTerraform】VariableとLocal Valuesの使い分けについて \- febc技術メモ](http://febc-yamamoto.hatenablog.jp/entry/2018/01/30/185416)
 
+## Types (v0.12〜)
 
-## Expressions(v0.12〜)
+https://www.terraform.io/docs/configuration/types.html
+
+### Primitive Types
+
+- `string`
+- `number`
+- `bool`
+
+NOTE:
+
+- `string` <=> [`number`, `bool`] の型変換が必要に応じて自動的に行われる
+  - 例:
+    - `true` <=> `"true"`
+    - `false` <=> `"false"`
+
+### Complex Types
+
+Collection Types:
+
+- `list(...)`
+  - 例: `list(string)`
+- `map(...)`
+  - 各要素のラベル（キー）はstring型
+  - 例: `map(string)` だったら、各要素の値がstring型ということ
+- `set(...)`
+
+Structural Types:
+
+- `ojbect(...)`
+  - 例: `object({ name=string, age=number })`
+- `tuple(...)`
+  - 例: `tuple([string, number, bool])`
+
+## Expressions (v0.12〜)
 
 https://www.terraform.io/docs/configuration/expressions.html
 
@@ -101,7 +134,7 @@ resource "aws_elastic_beanstalk_environment" "tfenvtest" {
 
 ※あまり使いすぎない方がいいと書いてある。
 
-## Functions(v0.12〜)
+## Functions (v0.12〜)
 https://www.terraform.io/docs/configuration/functions.html
 
 v0.11以前は `Interpolation Syntax` だったもの。
@@ -142,6 +175,27 @@ Examples:
 true
 ```
 
+### String
+#### format
+
+https://www.terraform.io/docs/configuration/functions/format.html
+
+printfのような書式指定出力機能を提供する。
+
+構文:
+
+```HCL
+format(spec, values...)
+```
+
+Examples:
+
+```HCL
+> format("Hello, %s!", "Ander")
+Hello, Ander!
+> format("There are %d lights", 4)
+There are 4 lights
+```
 
 ## メタパラメータ
 
