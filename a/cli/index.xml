@@ -351,15 +351,11 @@ fish is a smart and user-friendly command line shell for Linux, macOS, and the r
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="package-managers">Package Managers&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher&lt;/a> &amp;hellip; これが人気っぽい&lt;/li>
-&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish&lt;/a> &amp;hellip; fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
+&lt;h3 id="fisher">fisher&lt;/h3>
+&lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
+&lt;p>人気のパッケージ管理ツール。&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/#fish">パッケージ管理#fish&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># oh-my-fishのテーマをfisherでインストール&lt;/span>
 fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>

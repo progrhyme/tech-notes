@@ -570,4 +570,51 @@ setopt extended_history
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
+&lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
+たまに調べるのでこのページにまとめる。&lt;/p>
+&lt;h2 id="汎用">汎用&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher: A package manager for shell scripts.&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
+&lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう&lt;/li>
+&lt;li>&lt;a href="https://github.com/rerun/rerun">rerun&lt;/a> &amp;hellip; フレームワーク色がある&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/clenv">progrhyme/clenv&lt;/a> &amp;hellip; 拙作。未完&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://juanibiapina.github.io/articles/basher-a-package-manager-for-shell-scripts/">A Package Manager For Shell Scripts - Juan Ibiapina&lt;/a> &amp;hellip; basherの作者による紹介記事&lt;/li>
+&lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/clenv-release-v0.1">&amp;quot;clenv&amp;quot; というシェルスクリプトのパッケージ管理ツールのようなものを作った - weblog of key_amb&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="bash">Bash&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.bpkg.sh/">bpkg&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ash-shell/ash">ash-shell/ash&lt;/a> &amp;hellip; フレームワークだそうだ&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Cj-bc/items/3ce2d9e451f3a06a4b4d">bash package manager: bpkgの紹介 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="zsh">Zsh&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/zsh/ohmyzsh/">Oh My Zsh&lt;/a> &amp;hellip; プラグインマネージャーというよりはフレームワークなのかな&lt;/li>
+&lt;li>&lt;a href="https://github.com/zsh-users/antigen">zsh-users/antigen&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/zplug/zplug">zplug&lt;/a>&lt;/li>
+&lt;li>zplugin&lt;/li>
+&lt;li>&lt;a href="https://github.com/tarjoilija/zgen">tarjoilija/zgen&lt;/a>&lt;/li>
+&lt;li>antibody&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/cd326cd31e01955b788b">おい、Antigen もいいけど zplug 使えよ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/f37aadef0b3f740e8c14">もっと便利になれる zsh プラグインによる CLI ライフ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/zsh/comments/ak0vgi/a_comparison_of_all_the_zsh_plugin_mangers_i_used/">A comparison of all the ZSH plugin mangers I used : zsh&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="fish">fish&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher&lt;/a> &amp;hellip; これが人気っぽい&lt;/li>
+&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish&lt;/a> &amp;hellip; fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item></channel></rss>

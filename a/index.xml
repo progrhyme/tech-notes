@@ -4065,7 +4065,54 @@ ss -antu
 &lt;td>UDP/TCP で port を指定する。&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
+&lt;/table></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
+&lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
+たまに調べるのでこのページにまとめる。&lt;/p>
+&lt;h2 id="汎用">汎用&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher: A package manager for shell scripts.&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
+&lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう&lt;/li>
+&lt;li>&lt;a href="https://github.com/rerun/rerun">rerun&lt;/a> &amp;hellip; フレームワーク色がある&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/clenv">progrhyme/clenv&lt;/a> &amp;hellip; 拙作。未完&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://juanibiapina.github.io/articles/basher-a-package-manager-for-shell-scripts/">A Package Manager For Shell Scripts - Juan Ibiapina&lt;/a> &amp;hellip; basherの作者による紹介記事&lt;/li>
+&lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/clenv-release-v0.1">&amp;quot;clenv&amp;quot; というシェルスクリプトのパッケージ管理ツールのようなものを作った - weblog of key_amb&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="bash">Bash&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.bpkg.sh/">bpkg&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ash-shell/ash">ash-shell/ash&lt;/a> &amp;hellip; フレームワークだそうだ&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Cj-bc/items/3ce2d9e451f3a06a4b4d">bash package manager: bpkgの紹介 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="zsh">Zsh&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/zsh/ohmyzsh/">Oh My Zsh&lt;/a> &amp;hellip; プラグインマネージャーというよりはフレームワークなのかな&lt;/li>
+&lt;li>&lt;a href="https://github.com/zsh-users/antigen">zsh-users/antigen&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/zplug/zplug">zplug&lt;/a>&lt;/li>
+&lt;li>zplugin&lt;/li>
+&lt;li>&lt;a href="https://github.com/tarjoilija/zgen">tarjoilija/zgen&lt;/a>&lt;/li>
+&lt;li>antibody&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/cd326cd31e01955b788b">おい、Antigen もいいけど zplug 使えよ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/f37aadef0b3f740e8c14">もっと便利になれる zsh プラグインによる CLI ライフ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/zsh/comments/ak0vgi/a_comparison_of_all_the_zsh_plugin_mangers_i_used/">A comparison of all the ZSH plugin mangers I used : zsh&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="fish">fish&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher&lt;/a> &amp;hellip; これが人気っぽい&lt;/li>
+&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish&lt;/a> &amp;hellip; fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
 &lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
 &lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
 &lt;h2 id="install">Install&lt;/h2>
@@ -4077,7 +4124,64 @@ ss -antu
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: 2020-05-18</title><link>https://progrhy.me/tech-notes/a/memo/20200518/</link><pubDate>Mon, 18 May 2020 22:29:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200518/</guid><description>
+&lt;h2 id="518">5/18&lt;/h2>
+&lt;h3 id="clenvは2つのプロジェクトに分割した方がいいかもしれない">clenvは2つのプロジェクトに分割した方がいいかもしれない&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
+&lt;p>拙作のシェル環境管理ツールだが、やりたいことと実現方法がマッチしてないかも？ OR やりたいことが曖昧かも？ という気がしてきた。&lt;/p>
+&lt;p>主なユースケース:&lt;/p>
+&lt;ol>
+&lt;li>実行ファイルをPATHの通ったところに置きたい&lt;/li>
+&lt;li>シェルスクリプトモジュールを管理したい。任意のスクリプトから好きなときに呼び出して使ったり、自分のシェル環境で読み込んで使いたい&lt;/li>
+&lt;/ol>
+&lt;p>備考:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;ol>
+&lt;li>はシェルスクリプトだけでなく、バイナリ形式で配布されているものも取得できた方が便利。参考: &lt;a href="https://github.com/Songmu/ghg">https://github.com/Songmu/ghg&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>シェルスクリプトの中には単独で完結してなくて、リポジトリに同梱しているシェルスクリプトに依存しているものもあるので、そういうのは上手くやらないといけない。これはclenvで既に達成している（はず）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>現状の（構想の）問題点:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;ol>
+&lt;li>をやるにしろ、2. をやるにしろ、モジュールのバージョン管理はtoo muchである&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>環境を分けて管理する機能も要らない。自分でも &lt;code>default&lt;/code> しか使ってないし&lt;/li>
+&lt;/ul>
+&lt;h4 id="新プロジェクト構想">新プロジェクト構想&lt;/h4>
+&lt;p>①実行ファイル取って来る君&lt;/p>
+&lt;p>仮称「binpack」とする。&lt;/p>
+&lt;ul>
+&lt;li>ghgとclamの機能を混ぜる&lt;/li>
+&lt;li>clenvみたいに複数環境は要らなくて、最低限、実行ファイルを所定のパスに展開できればいい&lt;/li>
+&lt;li>シェルスクリプトで書く必要なし。配布が面倒なのは嫌なので1バイナリにできて書きやすいGoかRustで、GitHubのライブラリがあるといいな&lt;/li>
+&lt;/ul>
+&lt;p>Issues:&lt;/p>
+&lt;ul>
+&lt;li>実行ファイル名が衝突したらどうするか？&lt;/li>
+&lt;/ul>
+&lt;p>②シェルスクリプトのモジュール管理&lt;/p>
+&lt;p>仮称「shellter」とする。&lt;/p>
+&lt;ul>
+&lt;li>clenvみたいに &lt;code>lib/&lt;/code> にsymlink貼る必要なし。 &lt;code>modules/$module&lt;/code> とかに展開したら、所定のルールで読み込めればいい&lt;/li>
+&lt;li>cllibみたいに動的にロードするシェル関数もあるといい&lt;/li>
+&lt;li>&lt;code>load $module&lt;/code> とやったら、 &lt;code>$module&lt;/code> で所定のパスにあるスクリプトが読めればいいだろう&lt;/li>
+&lt;/ul>
+&lt;h4 id="既にやられていたかも">既にやられていたかも&lt;/h4>
+&lt;p>RustのGitHubライブラリ探してたら、丁度作ろうとしていたものを見つけたかも？&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://crates.io/crates/sheldon">sheldon - crates.io: Rust Package Registry&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>これでいいんじゃないか？&lt;/p>
+&lt;p>……うーん、実行ファイルを含むパッケージの場合、各ディレクトリごとにPATHに入れることはできるようだが、まとめて &lt;code>$SHLDON_ROOT/bin/&lt;/code> とかに入れれるかわからん。&lt;br>
+どっちかというと、シェルプラグイン管理に重きを置かれている印象。&lt;br>
+少し拡張すればできそうだけど。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
 &lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">https://www.freedesktop.org/software/systemd/man/journalctl.html&lt;/a>&lt;/p>
 &lt;p>systemdのログをクエリするためのCLI.&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -4122,139 +4226,4 @@ man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="
 &lt;li>雑多なこと(マクロや規約を含む)&lt;/li>
 &lt;li>システム管理コマンド(通常はroot用)&lt;/li>
 &lt;li>カーネルルーチン ※非標準&lt;/li>
-&lt;/ol></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
-&lt;h2 id="517">5/17&lt;/h2>
-&lt;h3 id="gcloud-prompt作った">gcloud-prompt作った&lt;/h3>
-&lt;p>これ: &lt;a href="https://github.com/progrhyme/gcloud-prompt">https://github.com/progrhyme/gcloud-prompt&lt;/a>&lt;/p>
-&lt;p>作り始める前に、一応既存のがないかは調べた。
-下が見つかった:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/antoniomo/gcloud-ps1">https://github.com/antoniomo/gcloud-ps1&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/ocadaruma/zsh-gcloud-prompt">https://github.com/ocadaruma/zsh-gcloud-prompt&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>上はactiveなconfigurationを表示しているだけ。&lt;br>
-下は逆に、 &lt;code>default&lt;/code> configuration前提で、 &lt;code>account&lt;/code>, &lt;code>project&lt;/code> の情報を表示している。&lt;/p>
-&lt;p>自分のニーズとしては、 &lt;code>project&lt;/code> や &lt;code>compute.region&lt;/code> を入れたい。&lt;br>
-あまりconfigurationsを活用できてないけど、なるべくconfigurationsで管理していきたい気持ちはあるので、activeなconfigurationも表示したいと思った。&lt;/p>
-&lt;p>…で、上のgcloud-ps1のコードを参考にしながら、とりあえずMacの.zshrcにベタに実装していたが、愚直に実装するとgcloudコマンドが遅すぎて使い物にならないことに気がついた。&lt;/p>
-&lt;p>コマンド1回で0.3sぐらいかかってたので、configuration, project, compute.regionをそれぞれ取得していたら、ENTERを打つたびに1秒待つことになる。&lt;br>
-さすがに無理である。&lt;/p>
-&lt;h4 id="activeなconfigurationの取得">activeなconfigurationの取得&lt;/h4>
-&lt;p>そこで、activeなconfigurationの取得については、環境変数CLOUDSDK_ACTIVE_CONFIG_NAMEが設定されていればそちらを、そうでなければ &lt;code>$HOME/.config/gcloud/active_config&lt;/code> を直接見ることにした。&lt;/p>
-&lt;h4 id="configパラメータの取得">configパラメータの取得&lt;/h4>
-&lt;p>…で、configパラメータの取得だが、現在の設定リストは &lt;code>default&lt;/code> configurationであれば &lt;code>$HOME/.config/gcloud/configurations/config_default&lt;/code> に保存されている。&lt;br>
-ただし、INIファイル形式で、さすがにシェルスクリプトで自前でパースするのはしんどそう。&lt;/p>
-&lt;p>CLIリファレンスを読み込んでいると、 &lt;code>gcloud config list --format=FORMAT&lt;/code> オプションで任意のキーを所望のフォーマットで取得できることがわかった。&lt;/p>
-&lt;p>これも毎回実行していると遅いので、コマンドの実行結果をキャッシュファイルに書いて、上のファイルとのタイムスタンプを比較して、更新されていなければキャッシュファイルをcatして返すようにした。&lt;/p>
-&lt;h4 id="clenv対応">clenv対応&lt;/h4>
-&lt;p>submoduleにしたくなかったので、&lt;a href="https://github.com/progrhyme/clenv/blob/master/bin/clam">clenv/bin/clam&lt;/a>でinstallできるようにした。&lt;br>
-なにげに自作のシェルスクリプトライブラリを自分のシェル環境で常にロードして使うのは初めてだったのかも？&lt;/p>
-&lt;p>自分で作ったclenvの使い方をすっかり忘れていたので、ソースを解読して使い方を把握した。&lt;/p>
-&lt;pre>&lt;code>name=gcloud-prompt
-version=0.5.0
-libraries=&amp;quot;gcloud-prompt.sh&amp;quot;
-&lt;/code>&lt;/pre>&lt;p>上を &lt;code>clam.spec&lt;/code> ってファイルで作っておくとclamでインストールして、 &lt;code>gcloud-prompt.sh&lt;/code> を&lt;a href="https://github.com/progrhyme/clenv/blob/master/bin/cload">clenv/bin/cload&lt;/a>で読み込めるところに配置してくれる。&lt;/p>
-&lt;p>シェル環境の方の対応コミットは下:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/7d9b708187836fcafc03591808e17eda88dded62">https://github.com/progrhyme/myenv/commit/7d9b708187836fcafc03591808e17eda88dded62&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>clenvのライブラリをロードするコードがなかったので、追加した。&lt;/p></description></item><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
-&lt;p>旧称 Mac OS X.&lt;br>
-Apple社のPCに搭載されているOS.&lt;br>
-BSD系のUnixを元に作られているらしい。&lt;/p>
-&lt;h2 id="ショートカットキーtouch-bar登場前">ショートカットキー（Touch Bar登場前）&lt;/h2>
-&lt;p>凡例&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th align="center">略記&lt;/th>
-&lt;th align="left">意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td align="center">{電源}&lt;/td>
-&lt;td align="left">電源キーまたはメディア取り出しキー&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th align="center">Key&lt;/th>
-&lt;th align="left">機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td align="center">Ctrl + Shift + {電源}&lt;/td>
-&lt;td align="left">ディスプレイをスリープにする。画面ロック&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td align="center">Ctrl + {電源}&lt;/td>
-&lt;td align="left">「再起動・スリープ・システム終了」ダイアログを表示&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://support.apple.com/ja-jp/HT201236" title="Mac のキーボードショートカット - Apple サポート">Mac のキーボードショートカット - Apple サポート&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-start-up-reboot-shutdown-sleep-logout-with-mac-keyboard-shortcut.html" title="Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati">Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ごみ箱">ごみ箱&lt;/h2>
-&lt;p>&lt;code>~/.Trash&lt;/code> にある。&lt;/p>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;h3 id="touch-bar">Touch Bar&lt;/h3>
-&lt;p>ボタン配置を変える方法:&lt;/p>
-&lt;ul>
-&lt;li>「システム環境設定 &amp;gt; キーボード &amp;gt; Touch Barをカスタマイズ」
-&lt;ul>
-&lt;li>2020-05-18 macOS Mojaveで確認&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/">macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
-&lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>
-後述の方法も参照。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/miyohide/items/6cb8967282d4b2db0f61" title="Macにおけるバックスラッシュ（\）の入力方法 - Qiita">Macにおけるバックスラッシュ（\）の入力方法 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="imeの設定でキーで入力する文字を変える">IMEの設定で「¥」キーで入力する文字を変える&lt;/h4>
-&lt;p>Google日本語入力の場合、「環境設定 &amp;gt; 一般 &amp;gt; ¥キーで入力する文字」で「バックスラッシュ（\）」を選べば良い。&lt;/p>
-&lt;h3 id="画面を動画で撮影してgifアニメに変換">画面を動画で撮影してGIFアニメに変換&lt;/h3>
-&lt;p>動画のキャプチャについて:&lt;/p>
-&lt;ul>
-&lt;li>OS VersionがMojave以上 -&amp;gt; macOSの機能でできる&lt;/li>
-&lt;li>OS VersionがMojave未満 -&amp;gt; QuickTime Playerで撮影&lt;/li>
-&lt;/ul>
-&lt;p>動画 -&amp;gt; GIF変換ツール:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://apps.apple.com/jp/app/gifted/id771955779?mt=12">Gifted&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">PicGIF Lite&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>キャプチャして直接GIFに保存できるもの:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">LICEcap&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/mac-screen-gif-anime/">【小ネタ】Macの画面を録画して、GIFアニメにする方法 | Developers.IO&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/YosukeItabashi/items/5722395218e6e592fd39">【Mac】自分の画面を録画して、即gif動画化する方法 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://sue445.hatenablog.com/entry/2014/08/13/121512">Macでキー入力表示しつつターミナル操作をアニメーションGIFにする - くりにっき&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="ターミナルアプリの場合">ターミナルアプリの場合&lt;/h4>
-&lt;p>ttyrecというツールがある。&lt;/p>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://download.cnet.com/KeyCastr/3000-2075_4-125977.html">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ol></description></item></channel></rss>

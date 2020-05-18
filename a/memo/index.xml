@@ -1,4 +1,61 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-18</title><link>https://progrhy.me/tech-notes/a/memo/20200518/</link><pubDate>Mon, 18 May 2020 22:29:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200518/</guid><description>
+&lt;h2 id="518">5/18&lt;/h2>
+&lt;h3 id="clenvは2つのプロジェクトに分割した方がいいかもしれない">clenvは2つのプロジェクトに分割した方がいいかもしれない&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
+&lt;p>拙作のシェル環境管理ツールだが、やりたいことと実現方法がマッチしてないかも？ OR やりたいことが曖昧かも？ という気がしてきた。&lt;/p>
+&lt;p>主なユースケース:&lt;/p>
+&lt;ol>
+&lt;li>実行ファイルをPATHの通ったところに置きたい&lt;/li>
+&lt;li>シェルスクリプトモジュールを管理したい。任意のスクリプトから好きなときに呼び出して使ったり、自分のシェル環境で読み込んで使いたい&lt;/li>
+&lt;/ol>
+&lt;p>備考:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;ol>
+&lt;li>はシェルスクリプトだけでなく、バイナリ形式で配布されているものも取得できた方が便利。参考: &lt;a href="https://github.com/Songmu/ghg">https://github.com/Songmu/ghg&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>シェルスクリプトの中には単独で完結してなくて、リポジトリに同梱しているシェルスクリプトに依存しているものもあるので、そういうのは上手くやらないといけない。これはclenvで既に達成している（はず）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>現状の（構想の）問題点:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;ol>
+&lt;li>をやるにしろ、2. をやるにしろ、モジュールのバージョン管理はtoo muchである&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>環境を分けて管理する機能も要らない。自分でも &lt;code>default&lt;/code> しか使ってないし&lt;/li>
+&lt;/ul>
+&lt;h4 id="新プロジェクト構想">新プロジェクト構想&lt;/h4>
+&lt;p>①実行ファイル取って来る君&lt;/p>
+&lt;p>仮称「binpack」とする。&lt;/p>
+&lt;ul>
+&lt;li>ghgとclamの機能を混ぜる&lt;/li>
+&lt;li>clenvみたいに複数環境は要らなくて、最低限、実行ファイルを所定のパスに展開できればいい&lt;/li>
+&lt;li>シェルスクリプトで書く必要なし。配布が面倒なのは嫌なので1バイナリにできて書きやすいGoかRustで、GitHubのライブラリがあるといいな&lt;/li>
+&lt;/ul>
+&lt;p>Issues:&lt;/p>
+&lt;ul>
+&lt;li>実行ファイル名が衝突したらどうするか？&lt;/li>
+&lt;/ul>
+&lt;p>②シェルスクリプトのモジュール管理&lt;/p>
+&lt;p>仮称「shellter」とする。&lt;/p>
+&lt;ul>
+&lt;li>clenvみたいに &lt;code>lib/&lt;/code> にsymlink貼る必要なし。 &lt;code>modules/$module&lt;/code> とかに展開したら、所定のルールで読み込めればいい&lt;/li>
+&lt;li>cllibみたいに動的にロードするシェル関数もあるといい&lt;/li>
+&lt;li>&lt;code>load $module&lt;/code> とやったら、 &lt;code>$module&lt;/code> で所定のパスにあるスクリプトが読めればいいだろう&lt;/li>
+&lt;/ul>
+&lt;h4 id="既にやられていたかも">既にやられていたかも&lt;/h4>
+&lt;p>RustのGitHubライブラリ探してたら、丁度作ろうとしていたものを見つけたかも？&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://crates.io/crates/sheldon">sheldon - crates.io: Rust Package Registry&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>これでいいんじゃないか？&lt;/p>
+&lt;p>……うーん、実行ファイルを含むパッケージの場合、各ディレクトリごとにPATHに入れることはできるようだが、まとめて &lt;code>$SHLDON_ROOT/bin/&lt;/code> とかに入れれるかわからん。&lt;br>
+どっちかというと、シェルプラグイン管理に重きを置かれている印象。&lt;br>
+少し拡張すればできそうだけど。&lt;/p></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
 &lt;h2 id="517">5/17&lt;/h2>
 &lt;h3 id="gcloud-prompt作った">gcloud-prompt作った&lt;/h3>
 &lt;p>これ: &lt;a href="https://github.com/progrhyme/gcloud-prompt">https://github.com/progrhyme/gcloud-prompt&lt;/a>&lt;/p>
