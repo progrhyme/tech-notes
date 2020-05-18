@@ -64,6 +64,13 @@ setopt extended_history
 こんな感じで色を付けられれる。
 
 ```sh
+# ①依存なし
+PROMPT='%F{cyan} $n %f'
+
+# ②colorsを使う
+autoload -Uz colors
+colors
+
 PROMPT='%{${fg[cyan]}%} $n %{${reset_color}%}'
 ```
 
@@ -79,6 +86,20 @@ PROMPT='%{${fg[cyan]}%} $n %{${reset_color}%}'
  5 | magenta
  6 | cyan
  7 | white
+
+参考:
+
+- [zshでプロンプトをカラー表示する - Qiita](https://qiita.com/mollifier/items/40d57e1da1b325903659)
+
+#### 色: 256色対応
+
+参考:
+
+- [zshのプロンプトを256色表示にする＋好きなフォーマットで時刻表示 - Qiita](https://qiita.com/butaosuinu/items/770a040bc9cfe22c71f4)
+
+NOTE:
+
+- （2020-05-19）上のZshパラメータを使う方法がUbuntu 18.04デスクトップ環境 + 端末アプリだと上手く行ってない
 
 #### 複数行対応
 

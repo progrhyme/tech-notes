@@ -41,7 +41,6 @@ weight: 100
 - [Bash prompt basics - LinuxConfig.org](https://linuxconfig.org/bash-prompt-basics)
 - [PS1とPROMPT_COMMAND, GNU screenでの活用も](http://rcmdnk.github.io/blog/2013/03/21/prompt-command/)
 
-
 ## bashコマンド
 
 Examples:
@@ -118,8 +117,20 @@ end
 - [[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記](http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html "[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記")
 - [bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！](http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514)
 
-## How-to
+### ANSI-C Quoting
 
+https://tiswww.case.edu/php/chet/bash/bashref.html#ANSI_002dC-Quoting
+
+`$'string'` 形式のもの。ユニコードとかエスケープシーケンスで使える。
+
+Examples:
+
+```sh
+echo $'\e[031mThis text will be colored Red.\e[0m'
+echo $'\U25c0'
+```
+
+## How-to
 ### プロンプト(PS1)の変更
 
 `PS1` 変数を設定する。
