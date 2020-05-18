@@ -49,18 +49,11 @@ NOTE:
 
 ### 認証
 
+See also [#auth](#auth)
+
 ```sh
 ## 初期設定(認証込)
 gcloud init
-
-## ログイン認証
-gcloud auth login
-## 現在認証済みのアカウント一覧
-gcloud auth list
-## サービスアカウントの認証
-gcloud auth activate-service-account --key-file <KEYFILE>
-## アクセストークンの表示
-gcloud auth print-access-token
 ```
 
 参考:
@@ -122,6 +115,23 @@ gcloud config list --format="csv[no-heading](core.project,core.account)"
 # 特定の値だけ取得
 gcloud config configurations list --format='value(name)'
 gcloud info --format='value(config.paths.global_config_dir)'
+```
+
+### auth
+
+https://cloud.google.com/sdk/gcloud/reference/auth
+
+Examples:
+
+```sh
+# ログイン認証
+gcloud auth login
+# 現在認証済みのアカウント一覧
+gcloud auth list
+# サービスアカウントの認証
+gcloud auth activate-service-account --key-file <KEYFILE>
+# アクセストークンの表示
+gcloud auth print-access-token
 ```
 
 ### compute

@@ -36,6 +36,20 @@ macOSで人気の端末アプリ。
 
 - [MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum](https://webrandum.net/iterm2/)
 
+## Configuration
+
+参考:
+
+- [2020-05-16#MacBookにiTerm2を入れて設定してみた]({{<ref "20200516.md">}}#macbookにiterm2を入れて設定してみた)
+
+### 背景画像の設定
+
+`Profiles > Window > Background Image` で「Enabled」にチェックを入れると、ローカルのファイルシステムにある画像を選べる。
+
+参考:
+
+- [iTerm2を使いこなす - おしゃれな気分でプログラミング](http://neko-mac.blogspot.com/2015/02/iterm2.html)
+
 ## Usage
 ### テキスト検索モード
 
@@ -50,6 +64,19 @@ https://iterm2.com/features.html
 
 - Toolbelt ... もう1つの作業スペース。 `⌘⇧B` で表示できる。
 - [tmux Integration](https://www.iterm2.com/documentation-tmux-integration.html)
+
+### シェル変数
+
+後掲の[Shell Integration](#shell-integration)を有効にしないと使えないものもあるかもしれない。
+
+ Name | Type | 意味
+------|------|-----
+ ITERM_PROFILE | 環境変数 | 現在の設定プロファイル。例: `Default`
+ ITERM_SESSION_ID | 環境変数 | 
+
+参考:
+
+- [iTerm2 のカレントのプロファイルは $ITERM_PROFILE で取得できる。 - 全力で怠けたい](https://ebc-2in2crc.hatenablog.jp/entry/2019/08/31/170022)
 
 ### Shell Integration
 
@@ -69,6 +96,39 @@ NOTE:
 参考:
 
 - [2020-05-16#MacBookにiTerm2を入れて設定してみた]({{<ref "20200516.md">}}#macbookにiterm2を入れて設定してみた)
+
+## How-to
+### SSH接続時に背景を変更する
+
+背景色のみを変えることもできるが、リモート接続用の設定プロファイルを（複数）用意し、接続先によって切り替えるということも可能。
+
+某現場では `gcloud compute ssh` を使うことが多いので、下のようなスクリプトを作り、 `gcloud-ssh` とaliasした。
+
+```sh
+#!/usr/bin/env bash
+
+set -eu
+
+NEW_ITERM_PROFILE=${NEW_ITERM_PROFILE:-remote}
+original_profile=$ITERM_PROFILE
+
+# Ctrl-C
+trap "echo -e \"Interrupted. \033]1337;SetProfile=${original_profile}\a\" exit;" INT
+
+# Set given profile
+echo -ne "\033]1337;SetProfile=${NEW_ITERM_PROFILE}\a"
+
+gcloud compute ssh "$@"
+
+echo -ne "\033]1337;SetProfile=${original_profile}\a"
+
+exit
+```
+
+参考:
+
+- [iTerm2でSSHログイン先別にプロファイルを自動的に切替えて事故防止する方法 | Developers.IO](https://dev.classmethod.jp/articles/iterm2-ssh-change-profile/)
+- [\[macOS\] SSHログインしたときだけターミナルの背景色を変えたい (iTerm2) | Developers.IO](https://dev.classmethod.jp/articles/do-ssh-and-change-bg-color-iterm2/)
 
 ## 参考記事
 
