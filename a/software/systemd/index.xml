@@ -1,0 +1,14 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><description>Recent content in systemd on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 18 May 2020 16:14:32 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/systemd/index.xml" rel="self" type="application/rss+xml"/><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">https://www.freedesktop.org/software/systemd/man/journalctl.html&lt;/a>&lt;/p>
+&lt;p>systemdのログをクエリするためのCLI.&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># tail -f する&lt;/span>
+journalctl -f
+&lt;span style="color:#8f5902;font-style:italic"># 最新のログを表示&lt;/span>
+journalctl -e
+&lt;span style="color:#8f5902;font-style:italic"># ユニット(sshd, httpd, etc.)を指定&lt;/span>
+journalctl -u ユニット名
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/aosho235/items/9fbff75e9cccf351345c">journalctl 最低限覚えておくコマンド - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

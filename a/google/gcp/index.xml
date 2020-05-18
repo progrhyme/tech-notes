@@ -404,7 +404,62 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/iam/docs/faq?hl=ja" title="よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud">よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ameblo.jp/principia-ca/entry-12144854519.html" title="GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ">GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gce/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
+&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>IP anycast対応&lt;/li>
+&lt;li>アーキテクチャ:
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>マネージド証明書
+&lt;ul>
+&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
+&lt;li>DV&lt;/li>
+&lt;li>自動更新&lt;/li>
+&lt;li>ワイルドカードドメインは不可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
+&lt;blockquote>
+&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
+&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
+&lt;/blockquote>
+&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
+&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
+&lt;ul>
+&lt;li>HTTP(S) ロードバランサ&lt;/li>
+&lt;li>TCP プロキシ ロードバランサ&lt;/li>
+&lt;li>SSL プロキシ ロードバランサ&lt;/li>
+&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
+&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
+&lt;/ul>
+&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
+&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
+&lt;h2 id="logging">Logging&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
+従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
+特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gce/</guid><description>
 &lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-types?hl=ja">マシンタイプ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
@@ -768,59 +823,23 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
-&lt;h2 id="概要">概要&lt;/h2>
+&lt;/ul></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;h3 id="cloud-sql-proxy">Cloud SQL Proxy&lt;/h3>
+&lt;p>Cloud SQL第2世代インスタンスにアクセスできる公式のプロキシサーバ。&lt;/p>
+&lt;p>Getting Started:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja">Cloud SQL Proxy について | Cloud SQL for MySQL | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja">Cloud SQL Proxy を使用して MySQL クライアントを接続する | Cloud SQL for MySQL&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
+&lt;h4 id="systemd対応">systemd対応&lt;/h4>
+&lt;p>下の記事にあるように、SystemdのTemplate Unit Filesを使うと、1台で複数のDBに接続したいときに便利。&lt;/p>
+&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>IP anycast対応&lt;/li>
-&lt;li>アーキテクチャ:
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/kumanoryo/items/ef3fbec70b4138ffe1c2">Cloud SQL Proxy (TCP Socket)を systemd で起動させる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/systemd/#template-unit-files">systemd#Template Unit Files&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>マネージド証明書
-&lt;ul>
-&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
-&lt;li>DV&lt;/li>
-&lt;li>自動更新&lt;/li>
-&lt;li>ワイルドカードドメインは不可&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
-&lt;blockquote>
-&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
-&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
-&lt;/blockquote>
-&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
-&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
-&lt;ul>
-&lt;li>HTTP(S) ロードバランサ&lt;/li>
-&lt;li>TCP プロキシ ロードバランサ&lt;/li>
-&lt;li>SSL プロキシ ロードバランサ&lt;/li>
-&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
-&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
-&lt;/ul>
-&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
-&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
-&lt;h2 id="logging">Logging&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
-従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
-特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item></channel></rss>
+&lt;h3 id="外部ipアドレス">外部IPアドレス&lt;/h3>
+&lt;p>第2世代のインスタンスのIPアドレスはデフォルトで固定。&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-external-app">https://cloud.google.com/sql/docs/mysql/connect-external-app&lt;/a>&lt;/p></description></item></channel></rss>

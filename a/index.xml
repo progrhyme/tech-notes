@@ -1696,7 +1696,62 @@ curl http://localhost:8080/api/
 &lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/pull/73787">Deprecate &amp;ndash;export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/tkusumi/items/a824e040475fc47d311a">Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec">Dump Kubernetes cluster resources as YAML&lt;/a> &amp;hellip; シェルスクリプトで頑張っている事例&lt;/li>
-&lt;/ul></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
+&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>IP anycast対応&lt;/li>
+&lt;li>アーキテクチャ:
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>マネージド証明書
+&lt;ul>
+&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
+&lt;li>DV&lt;/li>
+&lt;li>自動更新&lt;/li>
+&lt;li>ワイルドカードドメインは不可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
+&lt;blockquote>
+&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
+&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
+&lt;/blockquote>
+&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
+&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
+&lt;ul>
+&lt;li>HTTP(S) ロードバランサ&lt;/li>
+&lt;li>TCP プロキシ ロードバランサ&lt;/li>
+&lt;li>SSL プロキシ ロードバランサ&lt;/li>
+&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
+&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
+&lt;/ul>
+&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
+&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
+&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
+&lt;h2 id="logging">Logging&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
+従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
+特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
 &lt;p>Kubernetesのマニフェスト管理ツール。&lt;/p>
 &lt;p>リポジトリ: &lt;a href="https://github.com/kubernetes-sigs/kustomize">https://github.com/kubernetes-sigs/kustomize&lt;/a>&lt;/p>
 &lt;p>kubectl 1.14からkustomizeが統合されている。&lt;/p>
@@ -2706,62 +2761,7 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.qoosky.io/techs/1ee07c140f">jq チートシート - Qoosky&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
-&lt;h2 id="概要">概要&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
-&lt;ul>
-&lt;li>IP anycast対応&lt;/li>
-&lt;li>アーキテクチャ:
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>マネージド証明書
-&lt;ul>
-&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
-&lt;li>DV&lt;/li>
-&lt;li>自動更新&lt;/li>
-&lt;li>ワイルドカードドメインは不可&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
-&lt;blockquote>
-&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
-&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
-&lt;/blockquote>
-&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
-&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
-&lt;ul>
-&lt;li>HTTP(S) ロードバランサ&lt;/li>
-&lt;li>TCP プロキシ ロードバランサ&lt;/li>
-&lt;li>SSL プロキシ ロードバランサ&lt;/li>
-&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
-&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
-&lt;/ul>
-&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
-&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
-&lt;h2 id="logging">Logging&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
-従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
-特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
+&lt;/ul></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
 &lt;/blockquote>
@@ -3240,7 +3240,26 @@ MWYyZDFlMmU2N2Rm
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja">Service | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-09/">Kubernetes道場 9日目 - Serviceについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: UEFI</title><link>https://progrhy.me/tech-notes/a/firmware/uefi/</link><pubDate>Mon, 04 May 2020 08:45:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/uefi/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;h3 id="cloud-sql-proxy">Cloud SQL Proxy&lt;/h3>
+&lt;p>Cloud SQL第2世代インスタンスにアクセスできる公式のプロキシサーバ。&lt;/p>
+&lt;p>Getting Started:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja">Cloud SQL Proxy について | Cloud SQL for MySQL | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja">Cloud SQL Proxy を使用して MySQL クライアントを接続する | Cloud SQL for MySQL&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="systemd対応">systemd対応&lt;/h4>
+&lt;p>下の記事にあるように、SystemdのTemplate Unit Filesを使うと、1台で複数のDBに接続したいときに便利。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kumanoryo/items/ef3fbec70b4138ffe1c2">Cloud SQL Proxy (TCP Socket)を systemd で起動させる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/systemd/#template-unit-files">systemd#Template Unit Files&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="外部ipアドレス">外部IPアドレス&lt;/h3>
+&lt;p>第2世代のインスタンスのIPアドレスはデフォルトで固定。&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-external-app">https://cloud.google.com/sql/docs/mysql/connect-external-app&lt;/a>&lt;/p></description></item><item><title>A: UEFI</title><link>https://progrhy.me/tech-notes/a/firmware/uefi/</link><pubDate>Mon, 04 May 2020 08:45:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/uefi/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>&lt;a href="http://e-words.jp/w/UEFI.html">UEFI（EFI）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
 &lt;blockquote>
@@ -4035,7 +4054,20 @@ ss -antu
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: man page</title><link>https://progrhy.me/tech-notes/a/document/man/</link><pubDate>Sun, 17 May 2020 20:39:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/document/man/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">https://www.freedesktop.org/software/systemd/man/journalctl.html&lt;/a>&lt;/p>
+&lt;p>systemdのログをクエリするためのCLI.&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># tail -f する&lt;/span>
+journalctl -f
+&lt;span style="color:#8f5902;font-style:italic"># 最新のログを表示&lt;/span>
+journalctl -e
+&lt;span style="color:#8f5902;font-style:italic"># ユニット(sshd, httpd, etc.)を指定&lt;/span>
+journalctl -u ユニット名
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/aosho235/items/9fbff75e9cccf351345c">journalctl 最低限覚えておくコマンド - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: man page</title><link>https://progrhy.me/tech-notes/a/document/man/</link><pubDate>Sun, 17 May 2020 20:39:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/document/man/</guid><description>
 &lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>man pageはUnix系システムで広く使われるマニュアルページのフォーマットである。&lt;br>
 POSIXとLinuxではやや仕様が異なるようだ。&lt;/p>
@@ -4188,177 +4220,4 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: iTerm2</title><link>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</link><pubDate>Sat, 16 May 2020 14:18:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/iterm2/</guid><description>
-&lt;h2 id="about">About&lt;/h2>
-&lt;p>macOSで人気の端末アプリ。&lt;br>
-ターミナル.app より細かい設定が色々できるらしい。&lt;/p>
-&lt;p>起動アプリ名は「iTerm.app」&lt;/p>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.iterm2.com/downloads.html">Downloads&lt;/a> &amp;lt;- インストールはここから&lt;/li>
-&lt;li>&lt;a href="https://www.iterm2.com/documentation.html">Documentation&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="keyboard-shortcuts">Keyboard Shortcuts&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Key&lt;/th>
-&lt;th>Function&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>⌘D&lt;/code>&lt;/td>
-&lt;td>画面を左右に分割&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘⇧D&lt;/code>&lt;/td>
-&lt;td>画面を上下に分割&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘]&lt;/code>&lt;/td>
-&lt;td>画面分割時に次のペインに移動&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘[&lt;/code>&lt;/td>
-&lt;td>画面分割時に前のペインに移動&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌥⌘E&lt;/code>&lt;/td>
-&lt;td>Expose All Tabs&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘⇧B&lt;/code>&lt;/td>
-&lt;td>Toolbeltの表示/非表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘;&lt;/code>&lt;/td>
-&lt;td>コマンド自動補完のポップアップを呼び出す&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘⇧;&lt;/code>&lt;/td>
-&lt;td>（Shell Integration）コマンド履歴を呼び出す&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌥⌘/&lt;/code>&lt;/td>
-&lt;td>最近のディレクトリを呼び出す&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>⌘F&lt;/code>&lt;/td>
-&lt;td>テキスト検索&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200516/#macbook%E3%81%ABiterm2%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">2020-05-16#MacBookにiTerm2を入れて設定してみた&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="背景画像の設定">背景画像の設定&lt;/h3>
-&lt;p>&lt;code>Profiles &amp;gt; Window &amp;gt; Background Image&lt;/code> で「Enabled」にチェックを入れると、ローカルのファイルシステムにある画像を選べる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://neko-mac.blogspot.com/2015/02/iterm2.html">iTerm2を使いこなす - おしゃれな気分でプログラミング&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="usage">Usage&lt;/h2>
-&lt;h3 id="テキスト検索モード">テキスト検索モード&lt;/h3>
-&lt;p>&lt;code>⌘F&lt;/code> で入れる。&lt;/p>
-&lt;ul>
-&lt;li>マウス操作せず、 &lt;code>TAB&lt;/code>, &lt;code>⇧TAB&lt;/code> キーで選択範囲を広げられる。&lt;/li>
-&lt;li>&lt;code>⌥ENTER&lt;/code> で現在選択されているテキストをペースト&lt;/li>
-&lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
-&lt;p>&lt;a href="https://iterm2.com/features.html">https://iterm2.com/features.html&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>Toolbelt &amp;hellip; もう1つの作業スペース。 &lt;code>⌘⇧B&lt;/code> で表示できる。&lt;/li>
-&lt;li>&lt;a href="https://www.iterm2.com/documentation-tmux-integration.html">tmux Integration&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="シェル変数">シェル変数&lt;/h3>
-&lt;p>後掲の&lt;a href="#shell-integration">Shell Integration&lt;/a>を有効にしないと使えないものもあるかもしれない。&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Name&lt;/th>
-&lt;th>Type&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>ITERM_PROFILE&lt;/td>
-&lt;td>環境変数&lt;/td>
-&lt;td>現在の設定プロファイル。例: &lt;code>Default&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ITERM_SESSION_ID&lt;/td>
-&lt;td>環境変数&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ebc-2in2crc.hatenablog.jp/entry/2019/08/31/170022">iTerm2 のカレントのプロファイルは $ITERM_PROFILE で取得できる。 - 全力で怠けたい&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="shell-integration">Shell Integration&lt;/h3>
-&lt;p>&lt;a href="https://www.iterm2.com/documentation-shell-integration.html">https://www.iterm2.com/documentation-shell-integration.html&lt;/a>&lt;/p>
-&lt;p>シェルと連携して機能強化できる。&lt;br>
-tmuxと一緒には使えないそうだ。&lt;/p>
-&lt;p>機能:&lt;/p>
-&lt;ul>
-&lt;li>Auto Command Completion &amp;hellip; メニューバーから &lt;code>View &amp;gt; Auto Command Completion&lt;/code> で有効化できる&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>Auto Command Completionのツールチップ表示中は、タブキーによるシェルの補完や &lt;a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions&lt;/a> による補完は効かない。 &lt;code>Esc&lt;/code> キーでAuto Command Completionを解除できる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200516/#macbook%E3%81%ABiterm2%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">2020-05-16#MacBookにiTerm2を入れて設定してみた&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="ssh接続時に背景を変更する">SSH接続時に背景を変更する&lt;/h3>
-&lt;p>背景色のみを変えることもできるが、リモート接続用の設定プロファイルを（複数）用意し、接続先によって切り替えるということも可能。&lt;/p>
-&lt;p>某現場では &lt;code>gcloud compute ssh&lt;/code> を使うことが多いので、下のようなスクリプトを作り、 &lt;code>gcloud-ssh&lt;/code> とaliasした。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -eu
-&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">remote&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ITERM_PROFILE&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Ctrl-C&lt;/span>
-&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo -e \&amp;#34;Interrupted. \033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a\&amp;#34; exit;&amp;#34;&lt;/span> INT
-&lt;span style="color:#8f5902;font-style:italic"># Set given profile&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
-gcloud compute ssh &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">exit&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/iterm2-ssh-change-profile/">iTerm2でSSHログイン先別にプロファイルを自動的に切替えて事故防止する方法 | Developers.IO&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/do-ssh-and-change-bg-color-iterm2/">[macOS] SSHログインしたときだけターミナルの背景色を変えたい (iTerm2) | Developers.IO&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="参考記事">参考記事&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.rasukarusan.com/entry/2019/04/13/180443">俺よりiTerm使いこなしてるやつおる？ - ハイパーマッスルエンジニアになりたい&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: diff</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/diff/</link><pubDate>Sat, 16 May 2020 11:39:47 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/diff/</guid><description>
-&lt;p>テキストファイルの差分を取るコマンド。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ディレクトリのdiff&lt;/span>
-diff -r dir1/ dir2/
-&lt;span style="color:#8f5902;font-style:italic"># コマンドの出力結果を比較&lt;/span>
-diff &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>command1&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>command2&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="関連ツール">関連ツール&lt;/h2>
-&lt;ul>
-&lt;li>git diff &amp;hellip; See &lt;a href="https://progrhy.me/tech-notes/a/software/git/#diff">git#diff&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="colordiff">colordiff&lt;/h3>
-&lt;p>&lt;a href="https://www.colordiff.org/">https://www.colordiff.org/&lt;/a>&lt;/p>
-&lt;p>差分に色を付けて見やすくしてくれる。&lt;/p>
-&lt;p>公式ドキュメントには見つからないが、macOSならbrewでインストールできる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install colordiff
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

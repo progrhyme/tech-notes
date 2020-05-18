@@ -991,6 +991,7 @@ kubectl delete -f my-ns.yml
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1f57c62bed781ab8f4d7" title="Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita">Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ターミナルソフトウェア</title><link>https://progrhy.me/tech-notes/a/software/terminal/</link><pubDate>Wed, 13 May 2020 22:23:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/</guid><description>
+&lt;p>端末エミュレータ、ターミナルエミュレータなどとも呼ばれる。&lt;/p>
 &lt;h2 id="macos">macOS&lt;/h2>
 &lt;ul>
 &lt;li>ターミナル.app &amp;hellip; 標準でインストールされている端末アプリ&lt;/li>
@@ -1006,4 +1007,23 @@ kubectl delete -f my-ns.yml
 製本ツールであっても、HTML形式での出力に対応しているものはここに入れると思う。&lt;/p>
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;p>&lt;a href="https://www.staticgen.com/">https://www.staticgen.com/&lt;/a> &amp;hellip; OSS比較サイト&lt;/p>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
+&lt;p>&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/">https://www.freedesktop.org/wiki/Software/systemd/&lt;/a>&lt;/p>
+&lt;p>昨今のLinuxのinit（最初に起動するプログラム）としてほぼデファクトになっているソフトウェア。&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="systemdunit">systemd.unit&lt;/h3>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.html">https://www.freedesktop.org/software/systemd/man/systemd.unit.html&lt;/a>&lt;/p>
+&lt;h4 id="template-unit-files">Template Unit Files&lt;/h4>
+&lt;p>コマンドとかほぼ同じなんだけど、パラメータの異なるServiceを複数動かしたいようなときに使う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://redj.hatenablog.com/entry/2020/02/08/180950">systemdのユニットファイルをテンプレート化する - redj’s blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="systemctl">systemctl&lt;/h2>
+&lt;p>CLI&lt;/p>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html">https://www.freedesktop.org/software/systemd/man/systemctl.html&lt;/a>&lt;/p>
+&lt;h3 id="daemon-reload">daemon-reload&lt;/h3>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload">https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload&lt;/a>&lt;/p>
+&lt;p>configと全unit fileを再読込みする。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">systemctl daemon-reload
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
