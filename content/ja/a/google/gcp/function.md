@@ -1,6 +1,6 @@
 ---
 title: "Cloud Functions"
-linkTitle: "Cloud Functions"
+linkTitle: "Functions"
 description: https://cloud.google.com/functions
 date: 2020-05-04T09:26:37+09:00
 weight: 110

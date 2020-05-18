@@ -1,6 +1,6 @@
 ---
 title: "Cloud Identity and Access Management (IAM)"
-linkTitle: "Cloud IAM"
+linkTitle: "IAM"
 description: https://cloud.google.com/iam
 date: 2020-05-04T09:26:28+09:00
 weight: 120

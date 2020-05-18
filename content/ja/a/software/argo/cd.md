@@ -12,3 +12,7 @@ date: 2020-05-08T17:20:10+09:00
 - [Automated Sync Policy - Argo CD - Declarative GitOps CD for Kubernetes](https://argoproj.github.io/argo-cd/user-guide/auto_sync/)
   - Automatic Pruning
     - デフォルトではリソースの削除はやらないが、このオプションをONにすると、削除同期もやってくれる
+
+## Demo
+
+https://cd.apps.argoproj.io/applications
