@@ -63,6 +63,17 @@
 &lt;ul>
 &lt;li>&lt;a href="https://webrandum.net/iterm2/">MacのターミナルアプリはiTerm2で決まり!!オススメの設定と基本的な機能まとめ – Webrandum&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200516/#macbook%E3%81%ABiterm2%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">2020-05-16#MacBookにiTerm2を入れて設定してみた&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="背景画像の設定">背景画像の設定&lt;/h3>
+&lt;p>&lt;code>Profiles &amp;gt; Window &amp;gt; Background Image&lt;/code> で「Enabled」にチェックを入れると、ローカルのファイルシステムにある画像を選べる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://neko-mac.blogspot.com/2015/02/iterm2.html">iTerm2を使いこなす - おしゃれな気分でプログラミング&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;h3 id="テキスト検索モード">テキスト検索モード&lt;/h3>
 &lt;p>&lt;code>⌘F&lt;/code> で入れる。&lt;/p>
@@ -75,6 +86,33 @@
 &lt;ul>
 &lt;li>Toolbelt &amp;hellip; もう1つの作業スペース。 &lt;code>⌘⇧B&lt;/code> で表示できる。&lt;/li>
 &lt;li>&lt;a href="https://www.iterm2.com/documentation-tmux-integration.html">tmux Integration&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="シェル変数">シェル変数&lt;/h3>
+&lt;p>後掲の&lt;a href="#shell-integration">Shell Integration&lt;/a>を有効にしないと使えないものもあるかもしれない。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Type&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ITERM_PROFILE&lt;/td>
+&lt;td>環境変数&lt;/td>
+&lt;td>現在の設定プロファイル。例: &lt;code>Default&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ITERM_SESSION_ID&lt;/td>
+&lt;td>環境変数&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ebc-2in2crc.hatenablog.jp/entry/2019/08/31/170022">iTerm2 のカレントのプロファイルは $ITERM_PROFILE で取得できる。 - 全力で怠けたい&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="shell-integration">Shell Integration&lt;/h3>
 &lt;p>&lt;a href="https://www.iterm2.com/documentation-shell-integration.html">https://www.iterm2.com/documentation-shell-integration.html&lt;/a>&lt;/p>
@@ -91,6 +129,27 @@ tmuxと一緒には使えないそうだ。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200516/#macbook%E3%81%ABiterm2%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">2020-05-16#MacBookにiTerm2を入れて設定してみた&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="ssh接続時に背景を変更する">SSH接続時に背景を変更する&lt;/h3>
+&lt;p>背景色のみを変えることもできるが、リモート接続用の設定プロファイルを（複数）用意し、接続先によって切り替えるということも可能。&lt;/p>
+&lt;p>某現場では &lt;code>gcloud compute ssh&lt;/code> を使うことが多いので、下のようなスクリプトを作り、 &lt;code>gcloud-ssh&lt;/code> とaliasした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -eu
+&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">remote&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ITERM_PROFILE&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Ctrl-C&lt;/span>
+&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo -e \&amp;#34;Interrupted. \033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a\&amp;#34; exit;&amp;#34;&lt;/span> INT
+&lt;span style="color:#8f5902;font-style:italic"># Set given profile&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
+gcloud compute ssh &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">exit&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/iterm2-ssh-change-profile/">iTerm2でSSHログイン先別にプロファイルを自動的に切替えて事故防止する方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/do-ssh-and-change-bg-color-iterm2/">[macOS] SSHログインしたときだけターミナルの背景色を変えたい (iTerm2) | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="参考記事">参考記事&lt;/h2>
 &lt;ul>
