@@ -43,6 +43,20 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;/ul>
 &lt;h2 id="ごみ箱">ごみ箱&lt;/h2>
 &lt;p>&lt;code>~/.Trash&lt;/code> にある。&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="touch-bar">Touch Bar&lt;/h3>
+&lt;p>ボタン配置を変える方法:&lt;/p>
+&lt;ul>
+&lt;li>「システム環境設定 &amp;gt; キーボード &amp;gt; Touch Barをカスタマイズ」
+&lt;ul>
+&lt;li>2020-05-18 macOS Mojaveで確認&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/">macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
 &lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>

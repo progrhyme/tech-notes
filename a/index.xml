@@ -956,6 +956,21 @@ gcloud init
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="環境変数">環境変数&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Variable&lt;/th>
+&lt;th>用途&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/td>
+&lt;td>利用するconfigurationを設定する。See &lt;a href="#configurations">#configurations&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="全体で使えるオプション">全体で使えるオプション&lt;/h3>
 &lt;p>リファレンスで「GCLOUD WIDE FLAGS」とされているもの。&lt;/p>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a> に簡単な説明がある。&lt;/p>
@@ -1094,17 +1109,22 @@ gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-nor
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
 &lt;p>設定プロファイルの管理。各プロファイルでは、プロパティ値のセットを管理することができる。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロファイル一覧表示&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># プロファイル一覧表示&lt;/span>
 gcloud config configurations list
-&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
 gcloud config configurations describe プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
 gcloud config configurations create プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
 gcloud config configurations delete プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 有効化&lt;/span>
 gcloud config configurations activate プロファイル名
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>gcloudコマンドは現在アクティブなconfigurationの設定プロパティをデフォルト値として参照する&lt;/li>
+&lt;li>アクティブなconfigurationは &lt;code>--configuration&lt;/code> 引数か、環境変数 &lt;code>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/code> で上書き指定することもできる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/configurations">https://cloud.google.com/sdk/gcloud/reference/topic/configurations&lt;/a>&lt;/li>
@@ -2756,11 +2776,14 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | .some_key&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトからいくつかの要素を選んでそれぞれ配列に格納&lt;/span>
 cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | [.keyA, .keyB, .keyC.keyAinC]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># CSV形式で出力&lt;/span>
+cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | [.keyA, .keyB, .keyC] | @csv&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトからいくつかの要素を選んで新たなオブジェクトを作り、それぞれ出力&lt;/span>
 cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | {a: .keyA, b: .keyB, ca: .keyC.keyAinC}&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.qoosky.io/techs/1ee07c140f">jq チートシート - Qoosky&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/veltra-engineering/jq-supports-json-to-csv-fb5c951a9575">jq コマンドで JSON を CSV に変換する - VELTRA Engineering - Medium&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
@@ -4180,6 +4203,20 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;/ul>
 &lt;h2 id="ごみ箱">ごみ箱&lt;/h2>
 &lt;p>&lt;code>~/.Trash&lt;/code> にある。&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="touch-bar">Touch Bar&lt;/h3>
+&lt;p>ボタン配置を変える方法:&lt;/p>
+&lt;ul>
+&lt;li>「システム環境設定 &amp;gt; キーボード &amp;gt; Touch Barをカスタマイズ」
+&lt;ul>
+&lt;li>2020-05-18 macOS Mojaveで確認&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/">macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
 &lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>

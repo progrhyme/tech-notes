@@ -50,6 +50,21 @@ gcloud init
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="環境変数">環境変数&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Variable&lt;/th>
+&lt;th>用途&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/td>
+&lt;td>利用するconfigurationを設定する。See &lt;a href="#configurations">#configurations&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="全体で使えるオプション">全体で使えるオプション&lt;/h3>
 &lt;p>リファレンスで「GCLOUD WIDE FLAGS」とされているもの。&lt;/p>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a> に簡単な説明がある。&lt;/p>
@@ -188,17 +203,22 @@ gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-nor
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
 &lt;p>設定プロファイルの管理。各プロファイルでは、プロパティ値のセットを管理することができる。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロファイル一覧表示&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># プロファイル一覧表示&lt;/span>
 gcloud config configurations list
-&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
 gcloud config configurations describe プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
 gcloud config configurations create プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
 gcloud config configurations delete プロファイル名
-&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 有効化&lt;/span>
 gcloud config configurations activate プロファイル名
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>gcloudコマンドは現在アクティブなconfigurationの設定プロパティをデフォルト値として参照する&lt;/li>
+&lt;li>アクティブなconfigurationは &lt;code>--configuration&lt;/code> 引数か、環境変数 &lt;code>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/code> で上書き指定することもできる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/configurations">https://cloud.google.com/sdk/gcloud/reference/topic/configurations&lt;/a>&lt;/li>
