@@ -62,7 +62,11 @@
 少し拡張すればできそうだけど。&lt;/p>
 &lt;h4 id="追記-completion対応">追記: COMPLETION対応&lt;/h4>
 &lt;p>実行ファイルとセットでcompletionファイルをロードするようにしたいこともある。&lt;br>
-そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
+そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p>
+&lt;h3 id="clenvはbasherで完全に置き換えられそう">clenvはbasherで完全に置き換えられそう&lt;/h3>
+&lt;p>&lt;a href="https://github.com/basherpm/basher">https://github.com/basherpm/basher&lt;/a>&lt;/p>
+&lt;p>ライブラリのロードが &lt;code>include user/repo lib/file.sh&lt;/code> みたいにして行けるので、一昨日作った gcloud-prompt だったら、 &lt;code>include progrhyme/gcloud-prompt gcloud-prompt.sh&lt;/code> で行ける。簡単。&lt;/p>
+&lt;p>どうもパッケージの &lt;code>bin/&lt;/code> 以下に置いたものが自動でデフォルトだと &lt;code>$HOME/.basher/celler/bin/&lt;/code> に展開されるっぽい。symlinkかもしれんが。&lt;/p></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
 &lt;h2 id="517">5/17&lt;/h2>
 &lt;h3 id="gcloud-prompt作った">gcloud-prompt作った&lt;/h3>
 &lt;p>これ: &lt;a href="https://github.com/progrhyme/gcloud-prompt">https://github.com/progrhyme/gcloud-prompt&lt;/a>&lt;/p>

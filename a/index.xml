@@ -4188,7 +4188,11 @@ ss -antu
 少し拡張すればできそうだけど。&lt;/p>
 &lt;h4 id="追記-completion対応">追記: COMPLETION対応&lt;/h4>
 &lt;p>実行ファイルとセットでcompletionファイルをロードするようにしたいこともある。&lt;br>
-そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
+そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p>
+&lt;h3 id="clenvはbasherで完全に置き換えられそう">clenvはbasherで完全に置き換えられそう&lt;/h3>
+&lt;p>&lt;a href="https://github.com/basherpm/basher">https://github.com/basherpm/basher&lt;/a>&lt;/p>
+&lt;p>ライブラリのロードが &lt;code>include user/repo lib/file.sh&lt;/code> みたいにして行けるので、一昨日作った gcloud-prompt だったら、 &lt;code>include progrhyme/gcloud-prompt gcloud-prompt.sh&lt;/code> で行ける。簡単。&lt;/p>
+&lt;p>どうもパッケージの &lt;code>bin/&lt;/code> 以下に置いたものが自動でデフォルトだと &lt;code>$HOME/.basher/celler/bin/&lt;/code> に展開されるっぽい。symlinkかもしれんが。&lt;/p></description></item><item><title>A: journalctl</title><link>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</link><pubDate>Mon, 18 May 2020 16:16:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/journalctl/</guid><description>
 &lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">https://www.freedesktop.org/software/systemd/man/journalctl.html&lt;/a>&lt;/p>
 &lt;p>systemdのログをクエリするためのCLI.&lt;/p>
 &lt;p>Examples:&lt;/p>
