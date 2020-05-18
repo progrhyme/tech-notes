@@ -89,7 +89,13 @@ end
 &lt;li>&lt;a href="http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html" title="[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記">[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514">bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="ansi-c-quoting">ANSI-C Quoting&lt;/h3>
+&lt;p>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#ANSI_002dC-Quoting">https://tiswww.case.edu/php/chet/bash/bashref.html#ANSI_002dC-Quoting&lt;/a>&lt;/p>
+&lt;p>&lt;code>$'string'&lt;/code> 形式のもの。ユニコードとかエスケープシーケンスで使える。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\e[031mThis text will be colored Red.\e[0m&amp;#39;&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\U25c0&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
 &lt;p>&lt;code>PS1&lt;/code> 変数を設定する。&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -239,7 +245,12 @@ setopt extended_history
 &lt;/table>
 &lt;h4 id="色">色&lt;/h4>
 &lt;p>こんな感じで色を付けられれる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%{${fg[cyan]}%} $n %{${reset_color}%}&amp;#39;&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ①依存なし&lt;/span>
+&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%F{cyan} $n %f&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ②colorsを使う&lt;/span>
+autoload -Uz colors
+colors
+&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%{${fg[cyan]}%} $n %{${reset_color}%}&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>色の文字か番号で色を指定できる。&lt;/p>
 &lt;table>
 &lt;thead>
@@ -283,6 +294,19 @@ setopt extended_history
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mollifier/items/40d57e1da1b325903659">zshでプロンプトをカラー表示する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="色-256色対応">色: 256色対応&lt;/h4>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/butaosuinu/items/770a040bc9cfe22c71f4">zshのプロンプトを256色表示にする＋好きなフォーマットで時刻表示 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>（2020-05-19）上のZshパラメータを使う方法がUbuntu 18.04デスクトップ環境 + 端末アプリだと上手く行ってない&lt;/li>
+&lt;/ul>
 &lt;h4 id="複数行対応">複数行対応&lt;/h4>
 &lt;p>左側のPROMPTなら改行文字を入れればいいが、 &lt;code>precmd()&lt;/code> でプリントするという手もある。&lt;br>
 &lt;code>print -P&lt;/code> オプションを付けると、PROMPTのフォーマットで出力できるみたい。&lt;/p>
