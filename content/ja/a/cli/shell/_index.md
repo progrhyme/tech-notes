@@ -53,11 +53,15 @@ Documentation:
 - https://fishshell.com/docs/current/
   - [Tutorial — fish-shell 3.1.2 documentation](https://fishshell.com/docs/current/tutorial.html)
 
-### Package Managers
+### fisher
 
-- [jorgebucaran/fisher](https://github.com/jorgebucaran/fisher) ... これが人気っぽい
-- [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) ... fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
-  - https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md ... 利用可能なテーマ一覧。
+https://github.com/jorgebucaran/fisher
+
+人気のパッケージ管理ツール。
+
+See also [パッケージ管理#fish]({{<ref "/a/cli/shell/pkg-man.md">}}#fish)
+
+Examples:
 
 ```sh
 # oh-my-fishのテーマをfisherでインストール
