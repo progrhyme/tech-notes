@@ -1,4 +1,233 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200509/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-12</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200512/</link><pubDate>Tue, 12 May 2020 08:25:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200512/</guid><description>
+&lt;h2 id="512">5/12&lt;/h2>
+&lt;h3 id="macosのターミナルでフォントサイズのプリセットを変更">macOSのターミナルでフォントサイズのプリセットを変更&lt;/h3>
+&lt;p>16ptにしたいんだけど16ptがプリセットにない、と思って試行錯誤していたら、変更方法を見つけた。&lt;/p>
+&lt;ol>
+&lt;li>環境設定からプロファイルを選択し、「テキスト」タブでフォント欄の「変更」を押す（ここまではわかっていた）&lt;/li>
+&lt;li>フォント設定画面で、左上に歯車アイコンがあり、そこを押すとプルダウンメニューが出てくる。「サイズを編集」を選ぶ&lt;/li>
+&lt;li>新しいサイズで「16」を入力し、「+」で追加できる&lt;/li>
+&lt;/ol>
+&lt;h3 id="macosでもfishを少しだけ試す">macOSでもfishを少しだけ試す&lt;/h3>
+&lt;p>&lt;a href="../20200510/#ubuntu%E3%81%A7fish%E3%82%92%E5%B0%91%E3%81%97%E3%81%A0%E3%81%91%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F">5/10&lt;/a>の続き。&lt;br>
+macOSの方がハマらないんじゃないかなと思って。&lt;/p>
+&lt;h4 id="fish-fisher-テーマのインストール">fish, fisher, テーマのインストール&lt;/h4>
+&lt;p>fishのInstallはbrewでOK.&lt;/p>
+&lt;p>&lt;code>fish&lt;/code> コマンドで起動してUbuntuのときと同じコマンドでfisherをインストール。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>fisher add oh-my-fish/theme-bobthefish&lt;/code> でテーマを入れたら、文字化けした。&lt;/p>
+&lt;h4 id="powerline-fontsのインストール">powerline fontsのインストール&lt;/h4>
+&lt;p>&lt;a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts&lt;/a>&lt;/p>
+&lt;p>install.sh がmacOSにも対応しているようだったので、 &lt;code>git clone&lt;/code> してinstall.shを実行。&lt;/p>
+&lt;p>…で、ターミナルのフォントをpowerline対応フォントにしたら、それっぽい見た目になった。&lt;/p>
+&lt;p>…が、bobthefishのスクリーンショットと違ってあまりカラフルでない。&lt;/p>
+&lt;p>fish自体のカラースキームをいじらないといけないのかな？&lt;/p></description></item><item><title>A: 2020-05-11</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200511/</link><pubDate>Mon, 11 May 2020 23:14:25 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200511/</guid><description>
+&lt;h2 id="511">5/11&lt;/h2>
+&lt;h3 id="お名前comからgoogle-domainsに移行する">お名前.comからGoogle Domainsに移行する&lt;/h3>
+&lt;p>（5/17追記）ブログ書いた: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/17/233811">お名前.comからGoogle Domainsに移行した - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
+&lt;p>メールとUXがうざいし、サイトUIがとってもわかりにくくて不便なので。&lt;br>
+前々からやりたかったけど、やる気がある今の内にやってしまう。&lt;/p>
+&lt;p>手順は下を参考にした:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/fnifni/items/0daca17e0750659f2866">お名前comからgoogle domainsにドメイン移管する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>URLやUIが変わっていて、全くこのままというわけではなかったが、大まかな流れは同じだった。&lt;/p>
+&lt;p>Google Domainsは別にGCPプロジェクトなくても使えるんですね。&lt;br>
+TerraformでDNSレコード管理しようかと思ってたけど、やりたかったらCloud DNSに移譲しないといけないのかな？&lt;/p>
+&lt;h4 id="トランスファー申請不承認のご連絡">「トランスファー申請不承認のご連絡」&lt;/h4>
+&lt;p>Google Domains側で手続きして約20分後に、お名前.comから上の題のメールが。&lt;/p>
+&lt;pre>&lt;code>上記ドメインのトランスファー申請につきまして、下記いずれかに該当する
+ため申請を不承認といたしました。
+1.該当URLより不承認処理が行われた
+2.Whois情報公開代行サービスの設定が行われている
+3.ドメインの契約終了日まで7日以内（JPドメインのみ）
+4.期限内に承認処理が行われなかった
+再度申請を行う場合は、上記事項に該当しないことを確認した上で申請を
+行ってください。
+&lt;/code>&lt;/pre>&lt;p>2.のWhois情報公開代行サービスを設定しているからですね。&lt;br>
+早速解除して、Google Domainsから払い戻しが来たタイミングで再度、移管申請。&lt;/p>
+&lt;p>今度は大丈夫だろう。（フラグ）&lt;/p>
+&lt;h4 id="重要トランスファー申請に関する確認のご連絡">「【重要】トランスファー申請に関する確認のご連絡」&lt;/h4>
+&lt;pre>&lt;code>お名前.com by GMOは、上記ドメインについて に他社
+レジストラへのトランスファー申請を承りました。
+トランスファー手続きにつきまして、他社レジストラへ移管をご希望の場合は
+期日までに以下URLから承認のお手続きをお願いいたします。
+&lt;/code>&lt;/pre>&lt;p>再申請から約25分後、無事フラグを回避できた。&lt;/p>
+&lt;h4 id="google-domains---cloudflareにns移譲設定">Google Domains -&amp;gt; CloudflareにNS移譲設定&lt;/h4>
+&lt;p>お名前.comから移譲設定をしていたが、さすがにその設定は引き継がれていなかった。&lt;br>
+Cloudflareの管理画面でDNSサーバを確認して、Google Domainsでカスタムネームサーバとして設定。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2018/09/02/my-new-landing-page">プロフィールサイトをGitHub Page + CloudFlareによる独自ドメイン×SSL配信に移行しました - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ついでに、Cloudflareで&lt;a href="https://progrhy.me/tech-notes/a/network/dns/#dnssec">DNSSEC&lt;/a>の対応ができたので、DSレコードを生成して、Google Domains側で設定した。&lt;/p>
+&lt;h3 id="ss--l-オプションの誤解---解決">ss -l オプションの誤解？ -&amp;gt; 解決&lt;/h3>
+&lt;p>&lt;code>hugo server&lt;/code> はデフォルト1313ポートで起動して待ち受け状態になるので、 &lt;code>ss -l | grep '\b1313\b'&lt;/code> で取れるだろうと思ったら、取れなかった。&lt;/p>
+&lt;p>&lt;code>ss -ant | grep '\b1313\b'&lt;/code> なら取れた。&lt;/p>
+&lt;p>…と、ここまで書いて原因がわかった。&lt;br>
+&lt;code>-n&lt;/code> が足りなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% ss -ltp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
+LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:xtel 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
+% ss -ltnp &lt;span style="color:#000;font-weight:bold">|&lt;/span>grep LISTEN &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep hugo
+LISTEN &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">128&lt;/span> 127.0.0.1:1313 0.0.0.0:* users:&lt;span style="color:#ce5c00;font-weight:bold">((&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugo&amp;#34;&lt;/span>,pid&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1532,fd&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>11&lt;span style="color:#ce5c00;font-weight:bold">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>そういうことですね。&lt;/p></description></item><item><title>A: 2020-05-10</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200510/</link><pubDate>Sun, 10 May 2020 15:19:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200510/</guid><description>
+&lt;h2 id="510">5/10&lt;/h2>
+&lt;h3 id="terraformのkubernetes-providerを試してみる">TerraformのKubernetes Providerを試してみる&lt;/h3>
+&lt;p>※ブログに移した: &lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/05/10/121145">TerraformのKubernetes ProviderでK8sのリソース管理にトライ - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/p>
+&lt;h3 id="ubuntuでもanyenvを使うことにした">Ubuntuでもanyenvを使うことにした&lt;/h3>
+&lt;p>Ubuntuで最近Ruby触ってなかったので、入っているRubyが古いことに気づいたのだけど、rbenvも &lt;code>git clone&lt;/code> して入れたものなので、古い。&lt;br>
+plenv, pyenvも同様である。&lt;/p>
+&lt;p>&lt;a href="../2020/20200428/">4/28&lt;/a>にmacOSでanyenvを試したのだけど、Ubuntuでも使ってみることにした。&lt;/p>
+&lt;p>&lt;a href="https://github.com/anyenv/anyenv">https://github.com/anyenv/anyenv&lt;/a>&lt;/p>
+&lt;p>自分環境のセットアップスクリプトに &lt;code>setup-rbenv.sh&lt;/code> とか入れてるけど、anyenvで管理した方が筋がよさそう。&lt;/p>
+&lt;h4 id="anyenv-install">anyenv install&lt;/h4>
+&lt;p>Linuxbrewを入れてるので、brewでインストールできた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% brew install &lt;span style="color:#000">anyenv&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Downloading https://linuxbrew.bintray.com/bottles/anyenv-1.1.1.x86_64_linux.bottle.tar.gz
+&lt;span style="color:#8f5902;font-style:italic">######################################################################## 100.0%&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Pouring anyenv-1.1.1.x86_64_linux.bottle.tar.gz
+🍺 /home/linuxbrew/.linuxbrew/Cellar/anyenv/1.1.1: &lt;span style="color:#0000cf;font-weight:bold">23&lt;/span> files, 48.4KB
+% anyenv init
+&lt;span style="color:#8f5902;font-style:italic"># Load anyenv automatically by adding&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># the following to ~/.zshrc:&lt;/span>
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>anyenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+% &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>anyenv init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+ANYENV_DEFINITION_ROOT&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>/home/quiche/.config/anyenv/anyenv-install&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> doesn&lt;span style="color:#4e9a06">&amp;#39;t exist. You can initialize it by:
+&lt;/span>&lt;span style="color:#4e9a06">&amp;gt; anyenv install --init
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06">% anyenv install --init
+&lt;/span>&lt;span style="color:#4e9a06">Manifest directory doesn&amp;#39;&lt;/span>t exist: /home/quiche/.config/anyenv/anyenv-install
+Do you want to checkout ? &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>y/N&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>: y
+Cloning https://github.com/anyenv/anyenv-install.git master to /home/quiche/.config/anyenv/anyenv-install...
+Cloning into &lt;span style="color:#4e9a06">&amp;#39;/home/quiche/.config/anyenv/anyenv-install&amp;#39;&lt;/span>...
+remote: Enumerating objects: 48, &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>.
+remote: Total &lt;span style="color:#0000cf;font-weight:bold">48&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>delta 0&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, reused &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>delta 0&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, pack-reused &lt;span style="color:#0000cf;font-weight:bold">48&lt;/span>
+Unpacking objects: 100% &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>48/48&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>, &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>.
+Completed!
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここまでやって &lt;code>exec $SHELL -l&lt;/code> してもまだPATHには変化なし。&lt;br>
+どうも何かしら &lt;code>*env&lt;/code> をインストールしないといけないらしい。&lt;/p>
+&lt;p>&lt;code>anyenv install rbenv&lt;/code> してからシェルに再ログインすると、PATHに &lt;code>$HOME/.anyenv/envs/rbenv/shims&lt;/code>, &lt;code>$HOME/.anyenv/envs/rbenv/bin&lt;/code> が追加された。&lt;/p>
+&lt;h4 id="rubyのインストールでややハマった">rubyのインストールでややハマった&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">% rbenv install 2.7.1 -v
+:
+ruby: error &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> loading shared libraries: libruby.so.2.7: cannot open shared object file: No such file or directory
+uncommon.mk:1130: recipe &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> target &lt;span style="color:#4e9a06">&amp;#39;revision.tmp&amp;#39;&lt;/span> failed
+make: *** &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>revision.tmp&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Error &lt;span style="color:#0000cf;font-weight:bold">127&lt;/span>
+BUILD FAILED &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Ubuntu 18.04 using ruby-build 20200401-11-g12af1c3&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>上のようなエラーで失敗した。&lt;br>
+どうもこれはrdocの生成でコケているようだ。&lt;/p>
+&lt;p>ただ、ビルドログを見たら下のようなエラーも出ていた。&lt;/p>
+&lt;pre>&lt;code>% view /tmp/ruby-build.20200510143333.6198.log
+:
+1660 *** Following extensions are not compiled:$
+1661 dbm:$
+1662 &amp;gt;-Could not be configured. It will not be installed.$
+1663 &amp;gt;-Check ext/dbm/mkmf.log for more details.$
+1664 gdbm:$
+1665 &amp;gt;-Could not be configured. It will not be installed.$
+1666 &amp;gt;-Check ext/gdbm/mkmf.log for more details.$
+1667 *** Fix the problems, then remove these directories and try again if you want.$
+:
+&lt;/code>&lt;/pre>&lt;p>よくわからないままビルドに必要そうなパッケージをインストールしてリトライした。&lt;/p>
+&lt;pre>&lt;code>sudo apt install build-essential bison libffi-dev libgdbm-dev libgdbm-compat-dev \
+libreadline-dev libssl-dev zlib1g-dev
+&lt;/code>&lt;/pre>&lt;p>参考: &lt;a href="https://qiita.com/raccy/items/cd0b39a33dbe764480be">Rubyをソースからコンパイルするときの依存ライブラリ - Qiita&lt;/a>&lt;/p>
+&lt;p>上で、いくつかのパッケージは既にインストールされていた。&lt;/p>
+&lt;p>リトライした結果、結局、さっきと同じrubyのエラーで失敗した。&lt;br>
+ビルドログから、dbm関連のエラーは消えていたので、そこは解消したらしい。&lt;/p>
+&lt;p>闇雲に別のまっさらなシェルを立ち上げて再度インストールを試みたところ、成功した。&lt;/p>
+&lt;p>まだ &lt;code>~/.rbenv&lt;/code> に古いrbenvが入っていて、 &lt;code>ruby&lt;/code> が &lt;code>~/.rbenv/shims/ruby&lt;/code> を向いていたので、その辺が悪さをしていたのかもしれない。&lt;/p>
+&lt;p>これで駄目だったらrdocの生成をオフしようかと思っていた。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hackbaka.hatenablog.com/entry/2018/09/13/151242">Ruby インストール時の rdoc エラー[Ubuntu] - ハッキングバカ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="clenvでtravis-ciのビルド通知とバッジを修正した">clenvでTravis CIのビルド通知とバッジを修正した&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
+&lt;p>昔、リポジトリを key-amb -&amp;gt; progrhyme に移したのだけど、そのせいでバッジとSlack通知がおかしくなっていた。&lt;/p>
+&lt;p>Slackのインテグレーション自体は生きていたので、 &lt;code>travis&lt;/code> コマンドで設定をし直した。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gem i travis
+travis encrypt &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;Slack Workspace&amp;gt;:&amp;lt;Slack Integration Token&amp;gt;&amp;#34;&lt;/span> --add notifications.slack.rooms
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで .travis.yml が更新されたので、GitHubにpushして完了。&lt;/p>
+&lt;p>バッジも新しいURLで取得した。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications">https://docs.travis-ci.com/user/notifications/#configuring-slack-notifications&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="次世代のシェルとは">次世代のシェルとは&lt;/h3>
+&lt;p>&lt;a href="https://ngs-lang.org/">https://ngs-lang.org/&lt;/a>&lt;/p>
+&lt;p>4年前にもブクマしてたやつ。&lt;/p>
+&lt;p>これC言語製だったか。&lt;/p>
+&lt;p>今さっきググったらGolang製のフォーマッタ/パーサ/インタープリタを見つけた。&lt;/p>
+&lt;p>&lt;a href="https://github.com/mvdan/sh">https://github.com/mvdan/sh&lt;/a>&lt;/p>
+&lt;p>なんか、そのうち全部JavaScriptになるんじゃないかな、って気もするんだよなぁ。&lt;/p>
+&lt;p>macOSはJavaScriptでOSと対話できるようになったし、GNOME ShellもJavaScriptで拡張できるらしいし。&lt;/p>
+&lt;p>まあ、よくできたプログラム言語がごろごろある現状、敢えて0から再実装する必要ないよねってことか。&lt;/p>
+&lt;p>そんなわけでclenvを再開するモチベーションが湧かない今日この頃。&lt;/p>
+&lt;p>Node.jsが筆頭だけど、JavaScriptで実装されたシェルも色々あるみたい。&lt;br>
+※ただ、OSのシェルとはどれもちょっと違うかも。&lt;/p>
+&lt;p>POSIXはもう気にしなくてもいいだろうと思うものの、どの環境でもスッと動いてほしいとは思う。&lt;br>
+そういえばfishってどうだっけと思って、改めてチラ見して&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/#fish-shell">シェル&lt;/a>にメモした。&lt;br>
+これはC++製なんですね。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/zakuroishikuro/items/1b02378bf9e940602d87">知らないうちにMacがシステム標準でJavaScriptで操作できるようになってた (JXA) - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0492">第492回 GNOME Shellの拡張機能を作ってみよう：Ubuntu Weekly Recipe｜gihyo.jp … 技術評論社&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/JavaScript/Shells">JavaScript シェル - JavaScript リダイレクト 1 | MDN&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ubuntuでfishを少しだけ試してみた">Ubuntuでfishを少しだけ試してみた&lt;/h3>
+&lt;p>Install:&lt;/p>
+&lt;p>&lt;a href="https://launchpad.net/~fish-shell/+archive/ubuntu/release-3">https://launchpad.net/~fish-shell/+archive/ubuntu/release-3&lt;/a> の通り:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
+sudo apt-get install fish
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>fish&lt;/code> で起動する。&lt;/p>
+&lt;p>体感そんな悪くない。&lt;br>
+bashで書いたスクリプトはシバン書いてるから実行したら普通に動くし、特に戸惑うことはない感じ。&lt;/p>
+&lt;p>少しカスタマイズしたら十分使いやすくなりそう。&lt;/p>
+&lt;h4 id="fisherを試す">fisherを試す&lt;/h4>
+&lt;p>テーマを使ってみたかったので、fisherを入れてテーマを入れてみる。&lt;/p>
+&lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
+&lt;p>READMEに従ってインストール&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>色々ハマったんだけど、最終的に次の要領で、まあまあいい感じになった:&lt;/p>
+&lt;h5 id="powerlineのインストール">powerlineのインストール&lt;/h5>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install powerline
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gist.github.com/TrentSPalmer/63a85b582d42ab4bff665fc2dbba42e2">fish powerline on ubuntu the easy way&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>※↑に書かれている &lt;code>~/.config/fish/config.fish&lt;/code> の設定をすると、fishでpowerlineは使えるが、他のテーマを入れるとおかしくなる。（カニバってしまう？）&lt;/p>
+&lt;p>powerlineを使うには対応したフォントが必要らしい。これに中々気づかなかった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://news.mynavi.jp/itsearch/article/hardware/4775">【連載】にわか管理者のためのLinux運用入門 [210] Powerlineでカッコよく - シェル編（bash、zsh、fish）｜サーバ/ストレージ｜IT製品の事例・解説記事&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/microsoft/cascadia-code/releases">https://github.com/microsoft/cascadia-code/releases&lt;/a> から、最新版を &lt;code>~/.fonts&lt;/code> にインストールした。&lt;/p>
+&lt;p>参考: &lt;a href="http://omoiyari.nishinari.coop/ubuntu-tips/%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab/">フォントのインストール | Ubuntu初心者の集いブログ&lt;/a>&lt;/p>
+&lt;h5 id="テーマの追加">テーマの追加&lt;/h5>
+&lt;p>この後、fishを起動し、 &lt;code>fisher add oh-my-fish/theme-bobthefish&lt;/code> で、まあまあいい感じになった。&lt;/p>
+&lt;p>ただ、プロンプトの左端が &lt;code>I&lt;/code> となっていて、これはスクリーンショットによると本来は矢印記号が出るはずなんじゃないかと思う。&lt;/p>
+&lt;p>theme-bobthefish のガイドに従って、 &lt;a href="https://github.com/ryanoasis/nerd-fonts/releases">https://github.com/ryanoasis/nerd-fonts/releases&lt;/a> も入れてみたけど、特に変わらない。&lt;/p>
+&lt;h5 id="上手く行かなかったこと">上手く行かなかったこと&lt;/h5>
+&lt;p>上まで辿りついたが、 &lt;code>theme-budspencer&lt;/code> だと上手く行かなかった。&lt;br>
+プロンプトでENTERだけを押しても改行されない感じになってしまう。&lt;/p>
+&lt;h5 id="参考">参考&lt;/h5>
+&lt;ul>
+&lt;li>&lt;a href="https://nodaki.hatenablog.com/entry/2018/09/24/213942">【Ubuntu】 shellをfish + fisherman に変えた話 - 0.5から始める機械学習&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/minako-ph/items/dba6d65b741e3a30ad16#fisherman%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B">【2019年版】macのターミナルにFishとFishermanを導入する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="gasでwebアプリ作るテスト">GASでWebアプリ作るテスト&lt;/h3>
+&lt;p>&lt;a href="https://qiita.com/hyt48/items/2534237d96f991f31966">Google Apps ScriptでWebアプリケーションをつくる - Qiita&lt;/a>を写経。
+ステップ5の「データをGoogleスプレッドシートに保存」はまだできていない。&lt;/p>
+&lt;p>JS, CSSを分割したところから上手く行かなくなった。
+原因は以下の2つ:&lt;/p>
+&lt;ul>
+&lt;li>Qiita上ではJS, CSSのコードが省略されている。&lt;a href="https://github.com/mio3io/cr-vue/tree/master/codes/tutorial-todo">GitHubの完全版&lt;/a>からコピる必要があった。&lt;/li>
+&lt;li>コード.gsの &lt;code>doGet()&lt;/code> 関数を下に従って変更する必要があった:
+&lt;ul>
+&lt;li>&lt;a href="https://tonari-it.com/gas-web-html-css-scriptlet/">GASでWebページを作るときにHTMLとCSSを別ファイルに記述する方法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-09</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200509/</link><pubDate>Sat, 09 May 2020 15:48:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200509/</guid><description>
 &lt;h2 id="59">5/9&lt;/h2>
 &lt;h3 id="シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな">シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/h3>
 &lt;p>いつだったか、何かの本でそういう書き方を見てからずっとそうやってる。&lt;/p>
