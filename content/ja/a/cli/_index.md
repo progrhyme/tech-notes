@@ -11,6 +11,10 @@ weight: 400
 シェルソフトウェアやシェルスクリプトについてもこのセクションで扱う。  
 ターミナルソフトウェアについては[Software > ターミナル]({{< ref "/a/software/terminal/_index.md" >}})を見よ。
 
+## リファレンス
+
+- [SS64 Command line reference](https://ss64.com/) ... Linux, macOS etc.
+
 ## ロギング
 ### script
 

@@ -13,36 +13,90 @@ weight: 800
 
 参考:
 
-- [List of Unix commands - Wikipedia](https://en.wikipedia.org/wiki/List_of_Unix_commands) ... IEEE規格らしい。
+- [List of Unix commands - Wikipedia](https://en.wikipedia.org/wiki/List_of_Unix_commands) ... IEEE規格らしい
+
+## リファレンス
+
+- [SS64 Command line reference](https://ss64.com/) ... Linux, macOS etc.
 
 ## 日付・時刻・時間
 ### date
 
-```bash
-## 書式指定
-date +%Y%m%d # YYYYMMDD
-date +%FT%T # ISO8601風
-date +%s # unixtime
+https://linuxjm.osdn.jp/html/GNU_coreutils/man1/date.1.html
 
-## 日時指定/相対
+Examples:
+
+```sh
+# 書式指定
+date +%Y%m%d # YYYYMMDD
+date +%FT%T  # ISO8601風
+date +%s     # unixtime
+date +%s.%N  # ナノ秒まで取得
+date +%s.%3N # ミリ秒まで取得
+
+# 日時指定/相対
 date -d tomorrow # 明日
 date -d '1 hour' # 1時間後
 date -d '1 days ago' # 昨日
 
-## 日時指定/絶対
+# 日時指定/絶対
 date -d @1530675922 # unixtime
+
+# ファイルのタイムスタンプを取得
+date -r FILE
+## unixtime形式で取得
+date +%s -r FILE
 ```
 
 NOTE:
 
 - Mac だと `-d '〜'` オプションが使えない
+- `%N` はGNU拡張らしい
 
 参考:
 
 - [日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス](http://shellscript.sunone.me/date.html "日付を取得する | UNIX & Linux コマンド・シェルスクリプト リファレンス")
 - [date コマンド \| コマンドの使い方\(Linux\) \| hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
+- [date コマンドで日時のミリ秒単位まで表示する - Qiita](https://qiita.com/niwasawa/items/9502e97b6c4d28d24042)
+- [dateコマンドで、ファイルのタイムスタンプを取得 | ex1-lab](https://ex1.m-yabe.com/archives/4311)
 
 ## ファイル操作
+### find
+
+ファイルやディレクトリを検索する。  
+`-exec` オプションで見つけたファイルに対してコマンド実行することもできる。
+
+Examples:
+
+```sh
+# path以下のファイル、ディレクトリを全てリストアップ
+find <path>
+# ファイルのみリストアップ
+find <path> -type f
+
+# 3日以内に更新されたファイルを探す
+find <path> -mtime -mtime -3
+
+# 3日以上前のファイルを探して全て削除
+find <path> -type f -mtime +3 -exec rm -f {} \;
+```
+
+時間指定オプション:
+
+ オプション | 意味
+------------|------
+ -mmin | ファイルのデータが最後に修正された日時（分指定）
+ -mtime | ファイルのデータが最後に修正された日時（日指定）
+ -amin | ファイルのデータに最後にアクセスされた日時（分指定）
+ -atime | ファイルのデータに最後にアクセスされた日時（日指定）
+ -cmin | ファイルのデータとステータスが最後に修正された日時（分指定）
+ -ctime | ファイルのデータとステータスが最後に修正された日時（日指定）
+
+参考:
+
+- [find で日数が過ぎたファイルを検索・削除する | キュア子の開発ブログ](https://curecode.jp/tech/find-mtime-delete/)
+- [findコマンドのmtimeオプションまとめ - Qiita](https://qiita.com/narumi_/items/9ea27362a1eb502e2dbc)
+
 ### tee
 
 標準出力に書きつつファイルにも書く、ということをやりたいときに使う。
@@ -367,3 +421,22 @@ N秒ごとにコマンドを実行して出力を表示。
 参考:
 
 - [watch コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/watch.html "watch コマンド | コマンドの使い方(Linux) | hydroculのメモ")
+
+### xargs
+
+NOTE:
+
+- ※Qiitaに記事を書いており、そちらを更新するケースもある:
+  - [xargsコマンドの備忘録 - Qiita](https://qiita.com/progrhyme/items/2e2d58aba3b1be804e19)
+
+ オプション | GNU | macOS | 機能
+------------|-----|-------|------
+ -r | Yes | ? | 入力が空白しかないときはコマンド実行しない
+
+参考:
+
+- [Man page of XARGS](https://linuxjm.osdn.jp/html/GNU_findutils/man1/xargs.1.html)
+- [xargs - FreeBSD Manual Pages](https://www.freebsd.org/cgi/man.cgi?query=xargs&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+8.0-RELEASE&amp;format=html)
+- [xargs Man Page - macOS - SS64.com](https://ss64.com/osx/xargs.html)
+
+## Child Pages
