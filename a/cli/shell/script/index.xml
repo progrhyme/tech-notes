@@ -59,4 +59,17 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yudoufu/items/48cb6fb71e5b498b2532">bash/zshでsourceされたスクリプト内で、ファイル自身の絶対パスをとるシンプルな記法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="排他制御">排他制御&lt;/h2>
+&lt;p>スクリプトのポータビリティを保ちつつ、簡単に実現するなら、ロック取得コマンドとして次の2つのコマンドが使える:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>mkdir $lock_dir&lt;/code>&lt;/li>
+&lt;li>&lt;code>ln -s $$ $lock_file&lt;/code> &amp;hellip; 自身のプロセスIDでsymlinkを作成&lt;/li>
+&lt;/ul>
+&lt;p>自分では前者を使うことが多かったが、後者だとロック確保したプロセスを特定できるので、よりスマートだと思う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/bsdhack/items/2492e9bdad0d3e17b7bb">シェルスクリプトでの排他処理 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/richmikan@github/items/6ca1ec3b354ae2f5505d">シェルスクリプトで排他・共有ロック&amp;amp;セマフォ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://fj.hatenablog.jp/entry/2016/03/12/223319">Bashでロックを取る方法 - 超ウィザード級ハッカーのたのしみ&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

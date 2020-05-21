@@ -118,6 +118,16 @@ find &amp;lt;path&amp;gt; -type f -mtime +3 -exec rm -f &lt;span style="color:#c
 &lt;li>&lt;a href="https://curecode.jp/tech/find-mtime-delete/">find で日数が過ぎたファイルを検索・削除する | キュア子の開発ブログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/narumi_/items/9ea27362a1eb502e2dbc">findコマンドのmtimeオプションまとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="mktemp">mktemp&lt;/h3>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_coreutils/man1/mktemp.1.html">Man page of MKTEMP&lt;/a>&lt;/p>
+&lt;p>一時ファイル、またはディレクトリを作成する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">mktemp
+&lt;span style="color:#8f5902;font-style:italic"># ディレクトリを作成&lt;/span>
+mktemp -d
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ss64.com/osx/mktemp.html">mktemp Man Page - macOS - SS64.com&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="tee">tee&lt;/h3>
 &lt;p>標準出力に書きつつファイルにも書く、ということをやりたいときに使う。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log

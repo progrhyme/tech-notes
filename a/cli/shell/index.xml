@@ -109,7 +109,19 @@ end
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\e[031mThis text will be colored Red.\e[0m&amp;#39;&lt;/span>
 &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\U25c0&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="built-ins">Built-ins&lt;/h2>
+&lt;h3 id="help">help&lt;/h3>
+&lt;p>ビルトインコマンドの説明を表示する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># helpコマンド自身のヘルプを表示&lt;/span>
+&lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#204a87">help&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 擬似man pageモード&lt;/span>
+&lt;span style="color:#204a87">help&lt;/span> -m &lt;span style="color:#204a87">unset&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html">【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
 &lt;p>&lt;code>PS1&lt;/code> 変数を設定する。&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -556,6 +568,17 @@ colors
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="unset">unset&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シェル変数または環境変数を削除&lt;/span>
+&lt;span style="color:#204a87">unset&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FOO
+&lt;span style="color:#8f5902;font-style:italic"># 関数名を削除&lt;/span>
+&lt;span style="color:#204a87">unset&lt;/span> -f my_func
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html">【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
 &lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
 たまに調べるのでこのページにまとめる。&lt;/p>
