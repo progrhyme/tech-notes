@@ -556,18 +556,6 @@ colors
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="オプション解析">オプション解析&lt;/h3>
-&lt;p>シェルスクリプトでコマンドラインオプションをどう解析するか。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/b4b4r07/items/dcd6be0bb9c9185475bb">bash によるオプション解析 - Qiita&lt;/a>
-&lt;ul>
-&lt;li>getopts, getopt, 自前解析のメリット・デメリット。自前解析推し&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://gist.github.com/cosimo/3760587">Example of how to parse options with bash/getopt&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
 &lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
 たまに調べるのでこのページにまとめる。&lt;/p>
