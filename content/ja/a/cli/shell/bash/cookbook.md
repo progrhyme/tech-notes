@@ -7,9 +7,10 @@ description: >
 date: 2020-04-28T12:04:10+09:00
 ---
 
-関連ページ:
+See Also:
 
-- [シェルスクリプト]({{< ref "/a/cli/shell/script.md" >}})
+- [シェルスクリプト]({{< ref "/a/cli/shell/script/_index.md" >}})
+  - [Cookbooks]({{< ref "/a/cli/shell/script/cookbook.md" >}})
 
 NOTE:
 
