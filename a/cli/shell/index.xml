@@ -557,46 +557,6 @@ colors
 &lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="ユーザー入力を受け付ける">ユーザー入力を受け付ける&lt;/h3>
-&lt;p>&lt;code>read&lt;/code> を使う。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;Are you sure? (y/N) &amp;#34;&lt;/span>
-&lt;span style="color:#204a87">read&lt;/span> answer
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$answer&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> !&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;y&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Canceled.&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">exit&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://eng-entrance.com/linux-shellscript-keyboard">【Linux】シェルスクリプトでキーボード入力を受付ける方法&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="コマンドの出力結果にタイムスタンプをつける">コマンドの出力結果にタイムスタンプをつける&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">do_something &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#000">IFS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">read&lt;/span> -r line&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>date&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06"> &lt;/span>&lt;span style="color:#000">$line&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://serverfault.com/questions/310098/how-to-add-a-timestamp-to-bash-script-log" title="linux - How to add a timestamp to bash script log? - Server Fault">linux - How to add a timestamp to bash script log? - Server Fault&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="osの判別">OSの判別&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d">シェルスクリプトでOSを判別する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="絵文字を使う">絵文字を使う&lt;/h3>
-&lt;ol>
-&lt;li>絵文字のユニコードを探す&lt;/li>
-&lt;li>&lt;code>U+1F3A3&lt;/code> だったら &lt;code>\U1F3A3&lt;/code> とする&lt;/li>
-&lt;/ol>
-&lt;p>4桁だったら小文字のuで、 &lt;code>\u2122&lt;/code> としてもいいっぽい。&lt;/p>
-&lt;p>絵文字を探すには &lt;a href="http://www.fileformat.info/info/emoji/list.htm">http://www.fileformat.info/info/emoji/list.htm&lt;/a> とか &lt;a href="https://emojipedia.org/">https://emojipedia.org/&lt;/a> を使うといい。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/nyango/items/671a14ae2834c045fe27">シェル上で🍣🍣（Unicode絵文字）を表示させる - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="シェル関数が定義されているか調べる">シェル関数が定義されているか調べる&lt;/h3>
-&lt;p>コマンド同様に、 &lt;code>which function&lt;/code> or &lt;code>command -v function&lt;/code> で取れる。&lt;br>
-&lt;code>test -v function&lt;/code> ではNG.&lt;/p>
-&lt;h3 id="数字を3桁ずつカンマ区切りで出力">数字を3桁ずつカンマ区切りで出力&lt;/h3>
-&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#printf1">UNIX系コマンド#printf(1)&lt;/a>&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="オプション解析">オプション解析&lt;/h3>
 &lt;p>シェルスクリプトでコマンドラインオプションをどう解析するか。&lt;/p>

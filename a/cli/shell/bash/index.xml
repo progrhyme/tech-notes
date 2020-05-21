@@ -1,7 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Bash</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/</link><description>Recent content in Bash on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 28 Apr 2020 09:14:42 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/cli/shell/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Cookbooks</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/cookbook/</link><pubDate>Tue, 28 Apr 2020 12:04:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/bash/cookbook/</guid><description>
-&lt;p>関連ページ:&lt;/p>
+&lt;p>See Also:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/script/">シェルスクリプト&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/script/">シェルスクリプト&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/script/cookbook/">Cookbooks&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
