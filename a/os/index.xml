@@ -1,4 +1,146 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – オペレーティングシステム</title><link>https://progrhy.me/tech-notes/a/os/</link><description>Recent content in オペレーティングシステム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 19:20:48 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/os/index.xml" rel="self" type="application/rss+xml"/><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – オペレーティングシステム</title><link>https://progrhy.me/tech-notes/a/os/</link><description>Recent content in オペレーティングシステム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 19:20:48 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/os/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Linux</title><link>https://progrhy.me/tech-notes/a/os/linux/</link><pubDate>Thu, 21 May 2020 21:32:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/linux/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="http://e-words.jp/w/Linux.html">Linux（リナックス）とは - IT用語辞典 e-Words&lt;/a>によれば、「世界で最も普及している、オープンソースのOS」。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.kernel.org/">The Linux Kernel Archives&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.linuxfoundation.org/">The Linux Foundation – Supporting Open Source Ecosystems&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.linux.org/">Linux.org&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="kernel">Kernel&lt;/h2>
+&lt;h3 id="signal">Signal&lt;/h3>
+&lt;p>&lt;a href="http://linuxjm.osdn.jp/html/LDP_man-pages/man7/signal.7.html">Man page of SIGNAL&lt;/a>&lt;/p>
+&lt;p>プロセス間通信の仕組みの1つ。&lt;/p>
+&lt;p>シグナルの一部:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>番号&lt;/th>
+&lt;th>シグナル名&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>HUP&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>INT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>QUIT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9&lt;/td>
+&lt;td>KILL&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10&lt;/td>
+&lt;td>USR1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>11&lt;/td>
+&lt;td>SEGV&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>13&lt;/td>
+&lt;td>PIPE&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>14&lt;/td>
+&lt;td>ALRM&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>15&lt;/td>
+&lt;td>TERM&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>17&lt;/td>
+&lt;td>CHLD&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>18&lt;/td>
+&lt;td>CONT&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>シグナルの一覧は &lt;code>kill -l&lt;/code> などのコマンドで確認できる。&lt;/p>
+&lt;p>See Also:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#kill1">UNIX系コマンド#kill(1)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB_(Unix)">シグナル (Unix) - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://capm-network.com/?tag=UNIX%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E4%B8%80%E8%A6%A7">UNIXシグナル一覧 CapmNetwork&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="process">Process&lt;/h3>
+&lt;h4 id="exit-code">Exit Code&lt;/h4>
+&lt;p>予約済みExit Codes:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Code&lt;/th>
+&lt;th>Meaning&lt;/th>
+&lt;th>備考&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>エラー全般&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>シェルビルトイン関数の誤用&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>126&lt;/td>
+&lt;td>コマンド実行不可&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>127&lt;/td>
+&lt;td>command not found&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>128&lt;/td>
+&lt;td>exitに不正な引数&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>128+n&lt;/td>
+&lt;td>シグナル n で致命的エラー&lt;/td>
+&lt;td>KILL =&amp;gt; 137, TERM =&amp;gt; 143&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>130&lt;/td>
+&lt;td>Ctrl-C&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>255*&lt;/td>
+&lt;td>範囲外のステータス&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://tldp.org/LDP/abs/html/exitcodes.html" title="Exit Codes With Special Meanings">Exit Codes With Special Meanings&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Linda_pp/items/1104d2d9a263b60e104b" title="コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita">コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
+&lt;h3 id="selinux">SELinux&lt;/h3>
+&lt;p>RHEL系の機能かな（？）&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hanaita0102/items/5d3675e4dc1530b255ba" title="SELinuxの無効化 - Qiita">SELinuxの無効化 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-working_with_selinux-enabling_and_disabling_selinux" title="5.4. SELinux の有効化および無効化 - Red Hat Customer Portal">5.4. SELinux の有効化および無効化 - Red Hat Customer Portal&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
 &lt;p>旧称 Mac OS X.&lt;br>
 Apple社のPCに搭載されているOS.&lt;br>
 BSD系のUnixを元に作られているらしい。&lt;/p>
@@ -97,4 +239,29 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: UNIX</title><link>https://progrhy.me/tech-notes/a/os/unix/</link><pubDate>Thu, 21 May 2020 21:32:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/unix/</guid><description>
+&lt;h2 id="unix">UNIX&lt;/h2>
+&lt;p>&lt;a href="http://e-words.jp/w/UNIX.html">UNIX（ユニックス）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>1969年にAT&amp;amp;T社ベル研究所で開発が始まったオペレーティングシステム（OS）。また、その流れを汲むOSの総称。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>広義には、正規のUNIXシステムとUNIX系OSすべてを含む総称としてUNIXという語を用いることもある。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="unix系os">UNIX系OS&lt;/h2>
+&lt;p>UNIX風の仕様や操作感、振る舞いのOS。&lt;/p>
+&lt;p>&lt;a href="http://e-words.jp/w/UNIX%E7%B3%BBOS.html">UNIX系OS（UNIX-like OS）とは - IT用語辞典 e-Words&lt;/a>によれば、&lt;/p>
+&lt;blockquote>
+&lt;p>現在、「UNIX」の商標権は米業界団体The Open Group（オープングループ）が所有している。同団体の定めた「Single UNIX Specification」という仕様を満たし、認証を受けて商標利用のライセンス料を支払った製品のみが公式にUNIX互換であると名乗ることができる。&lt;/p>
+&lt;/blockquote>
+&lt;p>とのことであり、これらにはSolaris, HP-UX, AIXなどのいわゆる商用UNIXと呼ばれるOS製品が該当するそうだ。&lt;/p>
+&lt;p>その他、一般にUNIX系OSと呼ばれるもの:&lt;/p>
+&lt;ul>
+&lt;li>Linux&lt;/li>
+&lt;li>BSD系
+&lt;ul>
+&lt;li>FreeBSD, OpenBSD, NetBSD&lt;/li>
+&lt;li>macOS&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item></channel></rss>

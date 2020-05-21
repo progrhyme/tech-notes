@@ -42,6 +42,20 @@
 &lt;li>&lt;a href="https://qiita.com/dharry/items/f593d96c1b0269182922">シェルスクリプトのlint - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="syntax">Syntax&lt;/h2>
+&lt;h3 id="配列">配列&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 配列の生成&lt;/span>
+&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 空配列&lt;/span>
+&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 配列の要素数&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${#&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">[@]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 末尾に要素追加&lt;/span>
+&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;x&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 先頭に追加&lt;/span>
+&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;x&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">[@]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/e56a8e3471fb45df2f59">bash 配列まとめ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="リダイレクト">リダイレクト&lt;/h3>
 &lt;p>Qiitaにまとめを書いた:&lt;/p>
 &lt;ul>

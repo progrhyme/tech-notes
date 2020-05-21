@@ -2828,6 +2828,148 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 &lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: Linux</title><link>https://progrhy.me/tech-notes/a/os/linux/</link><pubDate>Thu, 21 May 2020 21:32:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/linux/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="http://e-words.jp/w/Linux.html">Linux（リナックス）とは - IT用語辞典 e-Words&lt;/a>によれば、「世界で最も普及している、オープンソースのOS」。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.kernel.org/">The Linux Kernel Archives&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.linuxfoundation.org/">The Linux Foundation – Supporting Open Source Ecosystems&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.linux.org/">Linux.org&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="kernel">Kernel&lt;/h2>
+&lt;h3 id="signal">Signal&lt;/h3>
+&lt;p>&lt;a href="http://linuxjm.osdn.jp/html/LDP_man-pages/man7/signal.7.html">Man page of SIGNAL&lt;/a>&lt;/p>
+&lt;p>プロセス間通信の仕組みの1つ。&lt;/p>
+&lt;p>シグナルの一部:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>番号&lt;/th>
+&lt;th>シグナル名&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>HUP&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>INT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>QUIT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>9&lt;/td>
+&lt;td>KILL&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10&lt;/td>
+&lt;td>USR1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>11&lt;/td>
+&lt;td>SEGV&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>13&lt;/td>
+&lt;td>PIPE&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>14&lt;/td>
+&lt;td>ALRM&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>15&lt;/td>
+&lt;td>TERM&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>17&lt;/td>
+&lt;td>CHLD&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>18&lt;/td>
+&lt;td>CONT&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>シグナルの一覧は &lt;code>kill -l&lt;/code> などのコマンドで確認できる。&lt;/p>
+&lt;p>See Also:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#kill1">UNIX系コマンド#kill(1)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB_(Unix)">シグナル (Unix) - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://capm-network.com/?tag=UNIX%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E4%B8%80%E8%A6%A7">UNIXシグナル一覧 CapmNetwork&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="process">Process&lt;/h3>
+&lt;h4 id="exit-code">Exit Code&lt;/h4>
+&lt;p>予約済みExit Codes:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Code&lt;/th>
+&lt;th>Meaning&lt;/th>
+&lt;th>備考&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>エラー全般&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>シェルビルトイン関数の誤用&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>126&lt;/td>
+&lt;td>コマンド実行不可&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>127&lt;/td>
+&lt;td>command not found&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>128&lt;/td>
+&lt;td>exitに不正な引数&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>128+n&lt;/td>
+&lt;td>シグナル n で致命的エラー&lt;/td>
+&lt;td>KILL =&amp;gt; 137, TERM =&amp;gt; 143&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>130&lt;/td>
+&lt;td>Ctrl-C&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>255*&lt;/td>
+&lt;td>範囲外のステータス&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://tldp.org/LDP/abs/html/exitcodes.html" title="Exit Codes With Special Meanings">Exit Codes With Special Meanings&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Linda_pp/items/1104d2d9a263b60e104b" title="コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita">コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
+&lt;h3 id="selinux">SELinux&lt;/h3>
+&lt;p>RHEL系の機能かな（？）&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hanaita0102/items/5d3675e4dc1530b255ba" title="SELinuxの無効化 - Qiita">SELinuxの無効化 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-working_with_selinux-enabling_and_disabling_selinux" title="5.4. SELinux の有効化および無効化 - Red Hat Customer Portal">5.4. SELinux の有効化および無効化 - Red Hat Customer Portal&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: mdBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/mdbook/</link><pubDate>Wed, 06 May 2020 13:52:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/mdbook/</guid><description>
 &lt;p>Rust製のGitBookみたいなもの。&lt;br>
 高速でよさそう。&lt;/p>
@@ -2883,6 +3025,105 @@ mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&
 &lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
+&lt;p>旧称 Mac OS X.&lt;br>
+Apple社のPCに搭載されているOS.&lt;br>
+BSD系のUnixを元に作られているらしい。&lt;/p>
+&lt;h2 id="ショートカットキーtouch-bar登場前">ショートカットキー（Touch Bar登場前）&lt;/h2>
+&lt;p>凡例&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="center">略記&lt;/th>
+&lt;th align="left">意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="center">{電源}&lt;/td>
+&lt;td align="left">電源キーまたはメディア取り出しキー&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="center">Key&lt;/th>
+&lt;th align="left">機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="center">Ctrl + Shift + {電源}&lt;/td>
+&lt;td align="left">ディスプレイをスリープにする。画面ロック&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="center">Ctrl + {電源}&lt;/td>
+&lt;td align="left">「再起動・スリープ・システム終了」ダイアログを表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support.apple.com/ja-jp/HT201236" title="Mac のキーボードショートカット - Apple サポート">Mac のキーボードショートカット - Apple サポート&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-start-up-reboot-shutdown-sleep-logout-with-mac-keyboard-shortcut.html" title="Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati">Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ごみ箱">ごみ箱&lt;/h2>
+&lt;p>&lt;code>~/.Trash&lt;/code> にある。&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="touch-bar">Touch Bar&lt;/h3>
+&lt;p>ボタン配置を変える方法:&lt;/p>
+&lt;ul>
+&lt;li>「システム環境設定 &amp;gt; キーボード &amp;gt; Touch Barをカスタマイズ」
+&lt;ul>
+&lt;li>2020-05-18 macOS Mojaveで確認&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/">macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
+&lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>
+後述の方法も参照。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/miyohide/items/6cb8967282d4b2db0f61" title="Macにおけるバックスラッシュ（\）の入力方法 - Qiita">Macにおけるバックスラッシュ（\）の入力方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="imeの設定でキーで入力する文字を変える">IMEの設定で「¥」キーで入力する文字を変える&lt;/h4>
+&lt;p>Google日本語入力の場合、「環境設定 &amp;gt; 一般 &amp;gt; ¥キーで入力する文字」で「バックスラッシュ（\）」を選べば良い。&lt;/p>
+&lt;h3 id="画面を動画で撮影してgifアニメに変換">画面を動画で撮影してGIFアニメに変換&lt;/h3>
+&lt;p>動画のキャプチャについて:&lt;/p>
+&lt;ul>
+&lt;li>OS VersionがMojave以上 -&amp;gt; macOSの機能でできる&lt;/li>
+&lt;li>OS VersionがMojave未満 -&amp;gt; QuickTime Playerで撮影&lt;/li>
+&lt;/ul>
+&lt;p>動画 -&amp;gt; GIF変換ツール:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/gifted/id771955779?mt=12">Gifted&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">PicGIF Lite&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>キャプチャして直接GIFに保存できるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">LICEcap&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/mac-screen-gif-anime/">【小ネタ】Macの画面を録画して、GIFアニメにする方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/YosukeItabashi/items/5722395218e6e592fd39">【Mac】自分の画面を録画して、即gif動画化する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sue445.hatenablog.com/entry/2014/08/13/121512">Macでキー入力表示しつつターミナル操作をアニメーションGIFにする - くりにっき&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ターミナルアプリの場合">ターミナルアプリの場合&lt;/h4>
+&lt;p>ttyrecというツールがある。&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://download.cnet.com/KeyCastr/3000-2075_4-125977.html">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Namespace</title><link>https://progrhy.me/tech-notes/a/software/k8s/namespace/</link><pubDate>Mon, 04 May 2020 21:45:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/namespace/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
 &lt;p>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/p>
@@ -3319,6 +3560,31 @@ MWYyZDFlMmU2N2Rm
 &lt;ul>
 &lt;li>開発当初は「EFI」（Extensible Firmware Interface）という名称だった。&lt;/li>
 &lt;li>2005年、業界団体のUEFIフォーラムへ移管され、同時に名称もUEFI（Unified EFI）に改められた。&lt;/li>
+&lt;/ul></description></item><item><title>A: UNIX</title><link>https://progrhy.me/tech-notes/a/os/unix/</link><pubDate>Thu, 21 May 2020 21:32:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/unix/</guid><description>
+&lt;h2 id="unix">UNIX&lt;/h2>
+&lt;p>&lt;a href="http://e-words.jp/w/UNIX.html">UNIX（ユニックス）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
+&lt;blockquote>
+&lt;p>1969年にAT&amp;amp;T社ベル研究所で開発が始まったオペレーティングシステム（OS）。また、その流れを汲むOSの総称。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>広義には、正規のUNIXシステムとUNIX系OSすべてを含む総称としてUNIXという語を用いることもある。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="unix系os">UNIX系OS&lt;/h2>
+&lt;p>UNIX風の仕様や操作感、振る舞いのOS。&lt;/p>
+&lt;p>&lt;a href="http://e-words.jp/w/UNIX%E7%B3%BBOS.html">UNIX系OS（UNIX-like OS）とは - IT用語辞典 e-Words&lt;/a>によれば、&lt;/p>
+&lt;blockquote>
+&lt;p>現在、「UNIX」の商標権は米業界団体The Open Group（オープングループ）が所有している。同団体の定めた「Single UNIX Specification」という仕様を満たし、認証を受けて商標利用のライセンス料を支払った製品のみが公式にUNIX互換であると名乗ることができる。&lt;/p>
+&lt;/blockquote>
+&lt;p>とのことであり、これらにはSolaris, HP-UX, AIXなどのいわゆる商用UNIXと呼ばれるOS製品が該当するそうだ。&lt;/p>
+&lt;p>その他、一般にUNIX系OSと呼ばれるもの:&lt;/p>
+&lt;ul>
+&lt;li>Linux&lt;/li>
+&lt;li>BSD系
+&lt;ul>
+&lt;li>FreeBSD, OpenBSD, NetBSD&lt;/li>
+&lt;li>macOS&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: Google Sheets</title><link>https://progrhy.me/tech-notes/a/google/sheet/</link><pubDate>Sat, 09 May 2020 09:38:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/sheet/</guid><description>
 &lt;h2 id="関数">関数&lt;/h2>
 &lt;p>&lt;a href="https://support.google.com/docs/table/25273?hl=ja">Google スプレッドシートの関数リスト - ドキュメント エディタ ヘルプ&lt;/a>&lt;/p>
@@ -4135,203 +4401,4 @@ ss -antu
 &lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
-&lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
-&lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
-&lt;h2 id="install">Install&lt;/h2>
-&lt;p>Homebrew:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item><item><title>A: 2020-05-19</title><link>https://progrhy.me/tech-notes/a/memo/20200519/</link><pubDate>Tue, 19 May 2020 20:59:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200519/</guid><description>
-&lt;h2 id="519">5/19&lt;/h2>
-&lt;h3 id="basherを使ってみた">basherを使ってみた&lt;/h3>
-&lt;p>&lt;a href="../20200518/#clenv%E3%81%AFbasher%E3%81%A7%E5%AE%8C%E5%85%A8%E3%81%AB%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%89%E3%82%8C%E3%81%9D%E3%81%86">昨日見つけたbasherがclenvを置き換えられそうだった&lt;/a>ので、試してみた。&lt;/p>
-&lt;p>作業環境はUbuntu 18.04.&lt;/p>
-&lt;h4 id="install">Install&lt;/h4>
-&lt;p>READMEの通りにやってみる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git clone https://github.com/basherpm/basher.git ~/.basher
-$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">PATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#4e9a06">/.basher/bin:&lt;/span>&lt;span style="color:#000">$PATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-$ &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>basher init -&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-basher init usage has changed, please specify the name of your shell as an argument:
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>basher init - bash&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># or zsh, fish, sh etc&lt;/span>
-For more information, check this PR: https://github.com/basherpm/basher/pull/77
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>初期化コマンドが変わったらしいので、やり直す。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>basher init - zsh&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-$ basher
-Usage: basher &amp;lt;command&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;args&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-Some useful basher commands are:
-&lt;span style="color:#204a87">help&lt;/span> Display &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> a &lt;span style="color:#204a87">command&lt;/span>
-commands List all available basher commands
-init Configure the shell environment &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> basher
-See &lt;span style="color:#4e9a06">&amp;#39;basher help &amp;lt;command&amp;gt;&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> information on a specific command.
-$ basher commands
-commands
-completions
-&lt;span style="color:#204a87">help&lt;/span>
-init
-install
-link
-list
-outdated
-package-path
-uninstall
-upgrade
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使ってみる">使ってみる&lt;/h4>
-&lt;p>まずはシェルスクリプトモジュールをinstallし、includeでシェルに読み込むというのを試す。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 自作のgcloud-promptをインストール&lt;/span>
-$ basher install progrhyme/gcloud-prompt
-Cloning into &lt;span style="color:#4e9a06">&amp;#39;/home/progrhyme/.basher/cellar/packages/progrhyme/gcloud-prompt&amp;#39;&lt;/span>...
-: &lt;span style="color:#8f5902;font-style:italic"># 略&lt;/span>
-$ basher list
-progrhyme/gcloud-prompt
-$ include progrhyme/gcloud-prompt gcloud-prompt.sh
-$ gcloud_prompt
-default&lt;span style="color:#000;font-weight:bold">|&lt;/span>my-project1,asia-northeast1
-&lt;span style="color:#8f5902;font-style:italic"># kube-ps1をインストール&lt;/span>
-$ basher install jonmosco/kube-ps1
-Cloning into &lt;span style="color:#4e9a06">&amp;#39;/home/progrhyme/.basher/cellar/packages/jonmosco/kube-ps1&amp;#39;&lt;/span>...
-: &lt;span style="color:#8f5902;font-style:italic"># 略&lt;/span>
-$ include jonmosco/kube-ps1 kube-ps1.sh
-$ kube_ps1
-&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>%&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>%F&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>4&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>%&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>⎈ %&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>%f%&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>%&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>%F&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>1&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>%&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>reagent_experiment%&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>%f%&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>:%&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>%F&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>6&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>%&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>default%&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>%f%&lt;span style="color:#ce5c00;font-weight:bold">})&lt;/span>
-$ kubeoff
-$ kube_ps1
-$
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>次は実行ファイルを含むリポジトリをinstallしてみる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ basher install progrhyme/git-wraps
-$ ll ~/.basher/cellar/bin/git-*
-lrwxrwxrwx &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> progrhyme progrhyme &lt;span style="color:#0000cf;font-weight:bold">77&lt;/span> 5月 &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 20:55 /home/progrhyme/.basher/cellar/bin/git-branch-clean -&amp;gt; /home/progrhyme/.basher/cellar/package
-s/progrhyme/git-wraps/bin/git-branch-clean
-lrwxrwxrwx &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> progrhyme progrhyme &lt;span style="color:#0000cf;font-weight:bold">70&lt;/span> 5月 &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 20:55 /home/progrhyme/.basher/cellar/bin/git-pulls -&amp;gt; /home/progrhyme/.basher/cellar/packages/progr
-hyme/git-wraps/bin/git-pulls
-lrwxrwxrwx &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> progrhyme progrhyme &lt;span style="color:#0000cf;font-weight:bold">74&lt;/span> 5月 &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 20:55 /home/progrhyme/.basher/cellar/bin/git-pulls-all -&amp;gt; /home/progrhyme/.basher/cellar/packages/p
-rogrhyme/git-wraps/bin/git-pulls-all
-lrwxrwxrwx &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> progrhyme progrhyme &lt;span style="color:#0000cf;font-weight:bold">72&lt;/span> 5月 &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 20:55 /home/progrhyme/.basher/cellar/bin/git-skelton -&amp;gt; /home/progrhyme/.basher/cellar/packages/pro
-grhyme/git-wraps/bin/git-skelton
-lrwxrwxrwx &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> progrhyme progrhyme &lt;span style="color:#0000cf;font-weight:bold">83&lt;/span> 5月 &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 20:55 /home/progrhyme/.basher/cellar/bin/git-submodule-all-pull -&amp;gt; /home/progrhyme/.basher/cellar/p
-ackages/progrhyme/git-wraps/bin/git-submodule-all-pull
-lrwxrwxrwx &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> progrhyme progrhyme &lt;span style="color:#0000cf;font-weight:bold">81&lt;/span> 5月 &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 20:55 /home/progrhyme/.basher/cellar/bin/git-submodule-delete -&amp;gt; /home/progrhyme/.basher/cellar/pac
-kages/progrhyme/git-wraps/bin/git-submodule-delete
-$ basher list
-jonmosco/kube-ps1
-progrhyme/gcloud-prompt
-progrhyme/git-wraps
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ふつうに使えそう。&lt;br>
-bin/* 以下のものはsymlinkなので、例えば実行ファイルが「同じリポジトリに含まれる lib/foo.sh に依存するシェルスクリプト」だとしても問題なく動くはず。&lt;/p>
-&lt;p>一応このケースも試しておく:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ basher install progrhyme/shove
-$ ~/.basher/cellar/bin/shove
-Run tests by /bin/zsh
--------------------------
-Test Summary Report
--------------------
-All tests successful.
-&lt;span style="color:#000">Files&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>0, &lt;span style="color:#000">Tests&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>0, &lt;span style="color:#000">Successes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>0, &lt;span style="color:#000">Failures&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-Result: PASS
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>問題なし。&lt;/p>
-&lt;h4 id="パッケージリストの管理ができるかどうか">パッケージリストの管理ができるかどうか&lt;/h4>
-&lt;p>Brewfileとかbundlerのようなことをやりたい。&lt;br>
-clenvだと、 &lt;code>Clamfile&lt;/code> っていうので管理できるようにしていた。&lt;/p>
-&lt;p>どうやらそれそのものの機能はないようだけど、ローカルのディレクトリをパッケージとしてインストールする &lt;code>link&lt;/code> サブコマンドと、 &lt;code>package.sh&lt;/code> に記した依存するパッケージを追加でインストールする、という機能によって、できなくはない、ということがわかった。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ mkdir test-basher-package
-$ cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;EOS &amp;gt; test-basher-package/package.sh
-&lt;/span>&lt;span style="color:#4e9a06">DEPS=progrhyme/shove:progrhyme/toolbox
-&lt;/span>&lt;span style="color:#4e9a06">EOS&lt;/span>
-$ basher link test-basher-package progrhyme/test-basher-package
-Package &lt;span style="color:#4e9a06">&amp;#39;progrhyme/shove&amp;#39;&lt;/span> is already present
-Cloning into &lt;span style="color:#4e9a06">&amp;#39;/home/progrhyme/.basher/cellar/packages/progrhyme/toolbox&amp;#39;&lt;/span>...
-: &lt;span style="color:#8f5902;font-style:italic"># 略&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>shoveはさっきインストールしたのでスキップされている。&lt;/p>
-&lt;p>このテスト用のパッケージをuninstallしても、依存パッケージは残ったまま。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ basher uninstall progrhyme/test-basher-package
-$ basher list
-jonmosco/kube-ps1
-progrhyme/gcloud-prompt
-progrhyme/git-wraps
-progrhyme/shove
-progrhyme/toolbox
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ちなみにこの &lt;code>basher link&lt;/code> で実際に起こることしては &lt;code>~/.basher/cellar/packages/&lt;/code> にsymlinkされるだけなので、処理としては軽い。&lt;/p>
-&lt;p>なので、例えば適当なディレクトリに &lt;code>package.sh&lt;/code> を置いて、そこに DEPS で自分が使いたいパッケージのリストを記しておき、一時的にそのディレクトリを &lt;code>basher link&lt;/code> でローカルインストールした後、削除する、ということをすれば、DEPSに記したパッケージリストをインストールできる。&lt;/p>
-&lt;p>…が、わざわざそんなことをするぐらいなら、パッケージリストを配列にでも入れてforループで処理してしまえば十分だと思った。&lt;/p>
-&lt;p>（追記）自分では&lt;a href="https://github.com/progrhyme/myenv/compare/de911093ac1493edb80b402df97f2e55a6e38a47...96760448e5f819aeaa5d00af19590c724995e703#diff-c52f04761593f00b4f12c50e8460a1ee">こんな感じ&lt;/a>で実装した。&lt;br>
-後で、この &lt;code>basher_bundle_install&lt;/code> を実行するだけのコマンド &lt;code>basher-bundle-install&lt;/code> を作った。&lt;/p>
-&lt;h3 id="ubuntu-zshでbasherに乗り換えてみた">Ubuntu Zshでbasherに乗り換えてみた&lt;/h3>
-&lt;p>挙動を確認できたので、clenv -&amp;gt; basherへの移行を進めようかと思って、やってみた。&lt;/p>
-&lt;p>下のような形で対応できた。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/myenv/compare/de911093ac1493edb80b402df97f2e55a6e38a47...96760448e5f819aeaa5d00af19590c724995e703">Comparing de911093ac&amp;hellip;96760448e · progrhyme/myenv&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>一応他の環境には影響を与えないようにやったけど、他の環境でもすぐに乗り換えてしまおうと思っている。&lt;/p></description></item><item><title>A: 2020-05-18</title><link>https://progrhy.me/tech-notes/a/memo/20200518/</link><pubDate>Mon, 18 May 2020 22:29:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200518/</guid><description>
-&lt;h2 id="518">5/18&lt;/h2>
-&lt;h3 id="clenvは2つのプロジェクトに分割した方がいいかもしれない">clenvは2つのプロジェクトに分割した方がいいかもしれない&lt;/h3>
-&lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
-&lt;p>拙作のシェル環境管理ツールだが、やりたいことと実現方法がマッチしてないかも？ OR やりたいことが曖昧かも？ という気がしてきた。&lt;/p>
-&lt;p>主なユースケース:&lt;/p>
-&lt;ol>
-&lt;li>実行ファイルをPATHの通ったところに置きたい&lt;/li>
-&lt;li>シェルスクリプトモジュールを管理したい。任意のスクリプトから好きなときに呼び出して使ったり、自分のシェル環境で読み込んで使いたい&lt;/li>
-&lt;/ol>
-&lt;p>備考:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;ol>
-&lt;li>はシェルスクリプトだけでなく、バイナリ形式で配布されているものも取得できた方が便利。参考: &lt;a href="https://github.com/Songmu/ghg">https://github.com/Songmu/ghg&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>シェルスクリプトの中には単独で完結してなくて、リポジトリに同梱しているシェルスクリプトに依存しているものもあるので、そういうのは上手くやらないといけない。これはclenvで既に達成している（はず）&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>現状の（構想の）問題点:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;ol>
-&lt;li>をやるにしろ、2. をやるにしろ、モジュールのバージョン管理はtoo muchである&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>環境を分けて管理する機能も要らない。自分でも &lt;code>default&lt;/code> しか使ってないし&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="新プロジェクト構想">新プロジェクト構想&lt;/h4>
-&lt;p>①実行ファイル取って来る君&lt;/p>
-&lt;p>仮称「binpack」とする。&lt;/p>
-&lt;ul>
-&lt;li>ghgとclamの機能を混ぜる&lt;/li>
-&lt;li>clenvみたいに複数環境は要らなくて、最低限、実行ファイルを所定のパスに展開できればいい&lt;/li>
-&lt;li>シェルスクリプトで書く必要なし。配布が面倒なのは嫌なので1バイナリにできて書きやすいGoかRustで、GitHubのライブラリがあるといいな&lt;/li>
-&lt;/ul>
-&lt;p>Issues:&lt;/p>
-&lt;ul>
-&lt;li>実行ファイル名が衝突したらどうするか？&lt;/li>
-&lt;/ul>
-&lt;p>②シェルスクリプトのモジュール管理&lt;/p>
-&lt;p>仮称「shellter」とする。&lt;/p>
-&lt;ul>
-&lt;li>clenvみたいに &lt;code>lib/&lt;/code> にsymlink貼る必要なし。 &lt;code>modules/$module&lt;/code> とかに展開したら、所定のルールで読み込めればいい&lt;/li>
-&lt;li>cllibみたいに動的にロードするシェル関数もあるといい&lt;/li>
-&lt;li>&lt;code>load $module&lt;/code> とやったら、 &lt;code>$module&lt;/code> で所定のパスにあるスクリプトが読めればいいだろう&lt;/li>
-&lt;/ul>
-&lt;h4 id="既にやられていたかも">既にやられていたかも&lt;/h4>
-&lt;p>RustのGitHubライブラリ探してたら、丁度作ろうとしていたものを見つけたかも？&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://crates.io/crates/sheldon">sheldon - crates.io: Rust Package Registry&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>これでいいんじゃないか？&lt;/p>
-&lt;p>……うーん、実行ファイルを含むパッケージの場合、各ディレクトリごとにPATHに入れることはできるようだが、まとめて &lt;code>$SHLDON_ROOT/bin/&lt;/code> とかに入れれるかわからん。&lt;br>
-どっちかというと、シェルプラグイン管理に重きを置かれている印象。&lt;br>
-少し拡張すればできそうだけど。&lt;/p>
-&lt;h4 id="追記-completion対応">追記: COMPLETION対応&lt;/h4>
-&lt;p>実行ファイルとセットでcompletionファイルをロードするようにしたいこともある。&lt;br>
-そういう場合はやっぱりclenvやbasherみたいにセットで管理できた方が便利かな。&lt;/p>
-&lt;h3 id="clenvはbasherで完全に置き換えられそう">clenvはbasherで完全に置き換えられそう&lt;/h3>
-&lt;p>&lt;a href="https://github.com/basherpm/basher">https://github.com/basherpm/basher&lt;/a>&lt;/p>
-&lt;p>ライブラリのロードが &lt;code>include user/repo lib/file.sh&lt;/code> みたいにして行けるので、一昨日作った gcloud-prompt だったら、 &lt;code>include progrhyme/gcloud-prompt gcloud-prompt.sh&lt;/code> で行ける。簡単。&lt;/p>
-&lt;p>どうもパッケージの &lt;code>bin/&lt;/code> 以下に置いたものが自動でデフォルトだと &lt;code>$HOME/.basher/celler/bin/&lt;/code> に展開されるっぽい。symlinkかもしれんが。&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
