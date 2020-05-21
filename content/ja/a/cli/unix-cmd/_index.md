@@ -233,7 +233,6 @@ exportfs -a  # /etc/exports の全てのディレクトリをエクスポート
 exportfs -v  # 現在エクスポート中のディレクトリ一覧
 ```
 
-
 参考:
 
 - [exportfs コマンド](https://www.ibm.com/support/knowledgecenter/ja/ssw_aix_71/com.ibm.aix.cmds2/exportfs.htm)
@@ -265,7 +264,6 @@ See also:
 umount <mount先>
 umount <mount元>
 ```
-
 
 ## ユーザ管理
 ### getent
@@ -314,7 +312,6 @@ passwd -u <login> # アンロック
 
 - [Linux ユーザーアカウントをロック・アンロックする](http://kazmax.zpp.jp/linux/account_lock.html "Linux ユーザーアカウントをロック・アンロックする")
 
-
 ### useradd
 
 ユーザ追加。オプション多数
@@ -348,29 +345,7 @@ usermod -aG ops,app,... <login> # 副グループ追加
 
 - [usermodコマンドについて詳しくまとめました 【Linuxコマンド集】](https://eng-entrance.com/linux-command-usermod "usermodコマンドについて詳しくまとめました 【Linuxコマンド集】")
 
-
 ## リソース管理
-### ps
-
-[Man page of PS](https://linuxjm.osdn.jp/html/procps/man1/ps.1.html)
-
-Examples:
-
-```sh
-ps aux
-ps aufxwww
-ps auxwww -L
-ps -ef
-ps -efL
-```
-
-Options:
-
-option | 意味
----------|---------
-`f` | forest, プロセスをツリー状に表示
-`-L` | スレッド表示。 `f` と同時に指定はできない
-
 ### top(1)
 
 [top(1): tasks - Linux man page](https://linux.die.net/man/1/top)
@@ -408,6 +383,114 @@ Mac版の違い:
 
 - [\[Linux\] top コマンドをインタラクティブに操作する | バシャログ。](http://bashalog.c-brains.jp/11/05/24-220315.php)
 
+## プロセス管理
+### kill(1)
+
+[Man page of KILL](https://linuxjm.osdn.jp/html/util-linux/man1/kill.1.html)
+
+Examples:
+
+```sh
+# シグナル名のリストを表示
+kill -l
+
+# プロセスにSIGTERMを送信
+kill <PID>...
+
+# SIGHUPを送信
+kill -HUP <PID>...
+
+# プロセスの生存確認
+kill -0 <PID>
+```
+
+NOTE:
+
+- macOSだと少しオプションが違うかも
+- シェルのビルトインと /bin/kill でも少しオプションが違う
+
+See Also:
+
+- [OS > Linux#Signal]({{<ref "/a/os/linux.md">}}#signal)
+
+参考:
+
+- [kill Man Page - macOS - SS64.com](https://ss64.com/osx/kill.html)
+- [killでプロセスに「0」を送ると、プロセスの生存確認ができる - Perl日記](http://r9.hateblo.jp/entry/2018/01/15/193444)
+
+### pgrep
+
+プロセス名で検索して該当するプロセス番号を表示。
+
+Examples:
+
+```sh
+pgrep perl
+```
+
+### pkill
+
+プロセス名で指定してシグナルを送信する。
+
+Examples:
+
+```sh
+pkill perl
+```
+
+### ps
+
+[Man page of PS](https://linuxjm.osdn.jp/html/procps/man1/ps.1.html)
+
+Examples:
+
+```sh
+ps aux
+ps aufxwww
+ps auxwww -L
+ps -ef
+ps -efL
+```
+
+Options:
+
+option | 意味
+---------|---------
+`f` | forest, プロセスをツリー状に表示
+`-L` | スレッド表示。 `f` と同時に指定はできない
+
+### trap
+
+シグナルによってプロセスが中断・停止させられたときに、実行するコマンドを指定する。
+
+Syntax:
+
+```sh
+trap 'コマンド' シグナルリスト
+```
+
+Examples:
+
+```sh
+trap 'echo trapped.' 1 2 3 15
+
+# trapをリセットする
+trap 1 2 3 15
+```
+
+NOTE:
+
+- SIGKILL (9) はtrapできない
+
+See Also:
+
+- [OS > Linux#Signal]({{<ref "/a/os/linux.md">}}#signal)
+
+参考:
+
+- [シグナルと trap コマンド | UNIX &amp; Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/signal_and_trap.html)
+- [shellのtrapについて覚え書き - Qiita](https://qiita.com/ine1127/items/5523b1b674492f14532a)
+- [trap コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/trap.html)
 
 ## ユーティリティー
 ### watch

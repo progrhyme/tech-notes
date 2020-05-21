@@ -3,6 +3,7 @@ title: "macOS"
 linkTitle: "macOS"
 description: https://www.apple.com/macos/what-is/
 date: 2020-05-16T16:17:52+09:00
+weight: 410
 ---
 
 旧称 Mac OS X.  

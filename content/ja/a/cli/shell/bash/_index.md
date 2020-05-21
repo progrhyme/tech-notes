@@ -54,6 +54,27 @@ bash -n script.sh # シンタックスチェック
 - [シェルスクリプトのlint - Qiita](https://qiita.com/dharry/items/f593d96c1b0269182922)
 
 ## Syntax
+### 配列
+
+```sh
+# 配列の生成
+array=() # 空配列
+array=("a" "b" "c")
+
+# 配列の要素数
+echo ${#array[@]}
+
+# 末尾に要素追加
+array+=("x")
+
+# 先頭に追加
+array=("x" "${array[@]}")
+```
+
+参考:
+
+- [bash 配列まとめ - Qiita](https://qiita.com/b4b4r07/items/e56a8e3471fb45df2f59)
+
 ### リダイレクト
 
 Qiitaにまとめを書いた:
