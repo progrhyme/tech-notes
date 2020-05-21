@@ -151,6 +151,24 @@ echo $'\e[031mThis text will be colored Red.\e[0m'
 echo $'\U25c0'
 ```
 
+## Built-ins
+### help
+
+ビルトインコマンドの説明を表示する。
+
+Examples:
+
+```sh
+# helpコマンド自身のヘルプを表示
+help help
+# 擬似man pageモード
+help -m unset
+```
+
+参考:
+
+- [【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html)
+
 ## How-to
 ### プロンプト(PS1)の変更
 

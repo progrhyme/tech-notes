@@ -97,6 +97,22 @@ find <path> -type f -mtime +3 -exec rm -f {} \;
 - [find で日数が過ぎたファイルを検索・削除する | キュア子の開発ブログ](https://curecode.jp/tech/find-mtime-delete/)
 - [findコマンドのmtimeオプションまとめ - Qiita](https://qiita.com/narumi_/items/9ea27362a1eb502e2dbc)
 
+### mktemp
+
+[Man page of MKTEMP](https://linuxjm.osdn.jp/html/GNU_coreutils/man1/mktemp.1.html)
+
+一時ファイル、またはディレクトリを作成する。
+
+```sh
+mktemp
+# ディレクトリを作成
+mktemp -d
+```
+
+参考:
+
+- [mktemp Man Page - macOS - SS64.com](https://ss64.com/osx/mktemp.html)
+
 ### tee
 
 標準出力に書きつつファイルにも書く、ということをやりたいときに使う。

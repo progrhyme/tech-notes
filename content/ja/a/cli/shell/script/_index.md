@@ -175,3 +175,20 @@ return
 
 - [シェルスクリプト return コマンド - Qiita](https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a)
 - https://github.com/progrhyme/experiments/tree/master/bash/source-scripts
+
+### unset
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29
+
+Examples:
+
+```sh
+# シェル変数または環境変数を削除
+unset [-v] FOO
+# 関数名を削除
+unset -f my_func
+```
+
+参考:
+
+- [【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html)

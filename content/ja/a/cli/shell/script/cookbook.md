@@ -87,3 +87,18 @@ script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 参考:
 
 - [bash/zshでsourceされたスクリプト内で、ファイル自身の絶対パスをとるシンプルな記法 - Qiita](https://qiita.com/yudoufu/items/48cb6fb71e5b498b2532)
+
+## 排他制御
+
+スクリプトのポータビリティを保ちつつ、簡単に実現するなら、ロック取得コマンドとして次の2つのコマンドが使える:
+
+- `mkdir $lock_dir`
+- `ln -s $$ $lock_file` ... 自身のプロセスIDでsymlinkを作成
+
+自分では前者を使うことが多かったが、後者だとロック確保したプロセスを特定できるので、よりスマートだと思う。
+
+参考:
+
+- [シェルスクリプトでの排他処理 - Qiita](https://qiita.com/bsdhack/items/2492e9bdad0d3e17b7bb)
+- [シェルスクリプトで排他・共有ロック&amp;セマフォ - Qiita](https://qiita.com/richmikan@github/items/6ca1ec3b354ae2f5505d)
+- [Bashでロックを取る方法 - 超ウィザード級ハッカーのたのしみ](https://fj.hatenablog.jp/entry/2016/03/12/223319)
