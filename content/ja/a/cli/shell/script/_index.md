@@ -125,6 +125,40 @@ done
 
 - [【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）](https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/)
 
+### case構文
+
+[Shell Command Language#Case Conditional Construct](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_04_05)
+
+構文:
+
+```sh
+case 値 in
+  パターン1 ) 処理1 ;;
+  パターン2 ) 処理2 ;;
+  パターン3 ) 処理3 ;;
+  …
+  パターンn ) 処理n ;;
+esac
+```
+
+NOTE:
+
+- シェルの[パターンマッチ](#パターンマッチ)を使うこともできる
+
+参考:
+
+- [case 文の使用方法 | UNIX &amp; Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/case.html)
+
+### パターンマッチ
+
+[Shell Command Language#2.13. Pattern Matching Notation](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_13)
+
+ パターン | マッチ文字列
+----------|--------------
+ `?` | 任意のアスキー1字
+ `*` | ヌル文字を含む任意の文字列
+ `[` | `[...]` で `[]` 内の任意の1字にマッチする
+
 ### Parameter Expansion
 
 - https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02

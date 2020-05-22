@@ -16,6 +16,21 @@ http://www.zsh.org/
 - https://sourceforge.net/p/zsh/code/ci/master/tree/
 - https://github.com/zsh-users/zsh ... Mirror
 
+## Syntax
+### 配列
+
+Bashと違って、配列の添字が `1` から始まることに注意が必要。
+
+```sh
+a=(x y z)
+echo $a[1] #=> x
+echo $a[2] #=> y
+```
+
+参考:
+
+- [zsh の配列操作の基本から応用まで - Qiita](https://qiita.com/mollifier/items/f897b3fddd2d10369333)
+
 ## Configuration
 
 ```zsh
@@ -27,6 +42,22 @@ setopt extended_history
 
 - [Unix 系 OS でコマンド実行間にタイムスタンプを付ける](https://orumin.blogspot.com/2017/10/unix-os.html)
 - [zsh 設定 - プロンプト -](http://tegetegekibaru.blogspot.com/2012/08/zsh_2.html)
+
+### helpコマンド
+
+[Zsh - ArchWiki#ヘルプコマンド](https://wiki.archlinux.jp/index.php/Zsh#.E3.83.98.E3.83.AB.E3.83.97.E3.82.B3.E3.83.9E.E3.83.B3.E3.83.89)より。
+
+> Bashとは違って、Zshは組み込まれている `help` コマンドを有効にしていません。Zshでhelpを使うには、以下をzshrcに追加してください:
+
+```sh
+autoload -U run-help
+autoload run-help-git
+autoload run-help-svn
+autoload run-help-svk
+unalias run-help
+alias help=run-help
+```
+
 
 ### プロンプト
 
@@ -122,5 +153,15 @@ NOTE:
 - [zsh/vcs_info-examples at master · zsh-users/zsh](https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples)
 - [zshのターミナルにリポジトリの情報を表示してみる · けんごのお屋敷](http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/)
 - [Show Git State in ZSH Prompt via vcs_info | Timothy Basanov](https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html)
+
+## Tools
+
+パッケージ管理ツールについては、[シェル > パッケージ管理]({{<ref "/a/cli/shell/pkg-man.md">}})参照。
+
+### Packages / Plugins
+
+- https://github.com/zsh-users/zsh-syntax-highlighting
+  - fish shellのようなシンタックスハイライトを提供してくれる
+  - See [2020-05-22#Ubuntu 18.04でzsh-syntax-highlightingを入れた]({{<ref "20200522.md">}}#ubuntu-1804でzsh-syntax-highlightingを入れた)
 
 ## Child Pages
