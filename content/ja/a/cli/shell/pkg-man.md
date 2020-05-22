@@ -10,13 +10,14 @@ weight: 2600
 
 ## 汎用
 
-- [basherpm/basher: A package manager for shell scripts.](https://github.com/basherpm/basher) ... clenvと似てる。複数環境切替えなんて機能はもちろんない
+- [basherpm/basher](https://github.com/basherpm/basher) ... clenvと似てる。複数環境切替えなんて機能はもちろんない
 - [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) ... Rust製。Zshに向いてそう。なんでもできそう
 - [rerun](https://github.com/rerun/rerun) ... フレームワーク色がある
 - [progrhyme/clenv](https://github.com/progrhyme/clenv) ... 拙作。未完
 
 参考:
 
+- [シェルスクリプトのパッケージマネージャー「basher」の機能概要と使い方 - Qiita](https://qiita.com/progrhyme/items/3a31282dfd0512a402cc) ... 2020年に書いたbasherの紹介記事
 - [A Package Manager For Shell Scripts - Juan Ibiapina](https://juanibiapina.github.io/articles/basher-a-package-manager-for-shell-scripts/) ... basherの作者による紹介記事
 - [&quot;clenv&quot; というシェルスクリプトのパッケージ管理ツールのようなものを作った - weblog of key_amb](https://keyamb.hatenablog.com/entry/clenv-release-v0.1)
 
