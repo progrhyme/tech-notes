@@ -168,7 +168,21 @@ git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;s
 &lt;p>&lt;a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># リファレンスには書いてないが、fetch時に--pruneしてくれるらしい&lt;/span>
 git pull --prune
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>効果&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;depth=N&lt;/td>
+&lt;td>取得する履歴数を制限する。shallowリポジトリの場合、履歴数を指定した数に増減させる&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
@@ -829,7 +843,26 @@ kubectl delete -f my-ns.yml
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/takasp/items/a74c8acdf3a8851b8da7">GKE で Spinnaker を構築する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
+&lt;p>&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/">https://www.freedesktop.org/wiki/Software/systemd/&lt;/a>&lt;/p>
+&lt;p>昨今のLinuxのinit（最初に起動するプログラム）としてほぼデファクトになっているソフトウェア。&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="systemdunit">systemd.unit&lt;/h3>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.html">https://www.freedesktop.org/software/systemd/man/systemd.unit.html&lt;/a>&lt;/p>
+&lt;h4 id="template-unit-files">Template Unit Files&lt;/h4>
+&lt;p>コマンドとかほぼ同じなんだけど、パラメータの異なるServiceを複数動かしたいようなときに使う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://redj.hatenablog.com/entry/2020/02/08/180950">systemdのユニットファイルをテンプレート化する - redj’s blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="systemctl">systemctl&lt;/h2>
+&lt;p>CLI&lt;/p>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html">https://www.freedesktop.org/software/systemd/man/systemctl.html&lt;/a>&lt;/p>
+&lt;h3 id="daemon-reload">daemon-reload&lt;/h3>
+&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload">https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload&lt;/a>&lt;/p>
+&lt;p>configと全unit fileを再読込みする。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">systemctl daemon-reload
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
 &lt;li>初心者向けガイド: &lt;a href="https://www.terraform.io/guides/">https://www.terraform.io/guides/&lt;/a>&lt;/li>
@@ -1002,28 +1035,36 @@ kubectl delete -f my-ns.yml
 &lt;ul>
 &lt;li>&lt;a href="https://jonasjacek.github.io/colors/">256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><pubDate>Mon, 04 May 2020 17:17:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/</guid><description/></item><item><title>A: Static Site Generators</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/</link><pubDate>Wed, 06 May 2020 13:39:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/</guid><description>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Software Test</title><link>https://progrhy.me/tech-notes/a/software/test/</link><pubDate>Sat, 23 May 2020 17:38:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/test/</guid><description>
+&lt;p>Software Test Engineeringまで入るかも。&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="スタブとモックの違い">スタブとモックの違い&lt;/h3>
+&lt;p>どっちがどっちかいつもよくわからなくなる。&lt;/p>
+&lt;p>スタブの定義らしきもの:&lt;/p>
+&lt;ul>
+&lt;li>テスト対象モジュールが依存するモジュールの代用品として動作し、決められた動きをするもの&lt;/li>
+&lt;/ul>
+&lt;p>モックの定義らしきもの:&lt;/p>
+&lt;ul>
+&lt;li>テスト対象モジュール、またはスタブが利用するモジュールの代用品として動作し、どのような使われ方をしたかをチェックするもの
+&lt;ul>
+&lt;li>例えばどのメソッドが何回呼ばれたか、とか&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/k5trismegistus/items/10ce381d29ab62ca0ea6">スタブとモックの違い - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gotohayato.com/content/483/">自動テストのスタブ・スパイ・モックの違い | gotohayato.com&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.weblio.jp/content/%E3%82%B9%E3%82%BF%E3%83%96">スタブとは何？ Weblio辞書&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.weblio.jp/content/%E3%83%A2%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97">モックアップとは何？ Weblio辞書&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>2020-05-23 旧Wikiに載せていたリンクは切れてしまっていた。&lt;/li>
+&lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><pubDate>Mon, 04 May 2020 17:17:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/</guid><description/></item><item><title>A: Static Site Generators</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/</link><pubDate>Wed, 06 May 2020 13:39:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/</guid><description>
 &lt;p>コンテンツをMarkdown等で管理して、静的サイトを作れるソフトウェア製品。&lt;br>
 製本ツールであっても、HTML形式での出力に対応しているものはここに入れると思う。&lt;/p>
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;p>&lt;a href="https://www.staticgen.com/">https://www.staticgen.com/&lt;/a> &amp;hellip; OSS比較サイト&lt;/p>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
-&lt;p>&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/">https://www.freedesktop.org/wiki/Software/systemd/&lt;/a>&lt;/p>
-&lt;p>昨今のLinuxのinit（最初に起動するプログラム）としてほぼデファクトになっているソフトウェア。&lt;/p>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;h3 id="systemdunit">systemd.unit&lt;/h3>
-&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.html">https://www.freedesktop.org/software/systemd/man/systemd.unit.html&lt;/a>&lt;/p>
-&lt;h4 id="template-unit-files">Template Unit Files&lt;/h4>
-&lt;p>コマンドとかほぼ同じなんだけど、パラメータの異なるServiceを複数動かしたいようなときに使う。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://redj.hatenablog.com/entry/2020/02/08/180950">systemdのユニットファイルをテンプレート化する - redj’s blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="systemctl">systemctl&lt;/h2>
-&lt;p>CLI&lt;/p>
-&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html">https://www.freedesktop.org/software/systemd/man/systemctl.html&lt;/a>&lt;/p>
-&lt;h3 id="daemon-reload">daemon-reload&lt;/h3>
-&lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload">https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload&lt;/a>&lt;/p>
-&lt;p>configと全unit fileを再読込みする。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">systemctl daemon-reload
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

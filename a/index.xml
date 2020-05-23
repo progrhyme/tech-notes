@@ -2072,7 +2072,21 @@ git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;s
 &lt;p>&lt;a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># リファレンスには書いてないが、fetch時に--pruneしてくれるらしい&lt;/span>
 git pull --prune
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>効果&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;depth=N&lt;/td>
+&lt;td>取得する履歴数を制限する。shallowリポジトリの場合、履歴数を指定した数に増減させる&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
@@ -3124,6 +3138,26 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;p>システム仕様、内部仕様などをここに記す。&lt;/p>
+&lt;h3 id="ファイルシステム">ファイルシステム&lt;/h3>
+&lt;ul>
+&lt;li>APFS (Apple File System) &amp;hellip; Hi Sierra (10.13) 以降
+&lt;ul>
+&lt;li>タイムスタンプの精度がナノ秒になった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HFS+ &amp;hellip; APFS以前
+&lt;ul>
+&lt;li>タイムスタンプの精度が秒単位だった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cyberforensic.focus-s.com/knowledge/articles_detail/356/">ファイルシステムがAPFSになった事による変更点 - ナレッジ | フォーカスシステムズ サイバーフォレンジックセンター&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/18403588/how-to-return-millisecond-information-for-file-access-on-mac-os-x-in-java">macos - How to return millisecond information for File Access on Mac Os X (in Java)? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Namespace</title><link>https://progrhy.me/tech-notes/a/software/k8s/namespace/</link><pubDate>Mon, 04 May 2020 21:45:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/namespace/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
 &lt;p>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/p>
@@ -3985,6 +4019,33 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;h3 id="設定-1">設定&lt;/h3>
 &lt;ul>
 &lt;li>自動フォーマット（ &lt;code>editor.formatOnSave&lt;/code> ）をONにしておく -&amp;gt; &lt;code>terraform fmt&lt;/code> が掛かるようになる&lt;/li>
+&lt;/ul></description></item><item><title>A: Software Test</title><link>https://progrhy.me/tech-notes/a/software/test/</link><pubDate>Sat, 23 May 2020 17:38:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/test/</guid><description>
+&lt;p>Software Test Engineeringまで入るかも。&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="スタブとモックの違い">スタブとモックの違い&lt;/h3>
+&lt;p>どっちがどっちかいつもよくわからなくなる。&lt;/p>
+&lt;p>スタブの定義らしきもの:&lt;/p>
+&lt;ul>
+&lt;li>テスト対象モジュールが依存するモジュールの代用品として動作し、決められた動きをするもの&lt;/li>
+&lt;/ul>
+&lt;p>モックの定義らしきもの:&lt;/p>
+&lt;ul>
+&lt;li>テスト対象モジュール、またはスタブが利用するモジュールの代用品として動作し、どのような使われ方をしたかをチェックするもの
+&lt;ul>
+&lt;li>例えばどのメソッドが何回呼ばれたか、とか&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/k5trismegistus/items/10ce381d29ab62ca0ea6">スタブとモックの違い - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gotohayato.com/content/483/">自動テストのスタブ・スパイ・モックの違い | gotohayato.com&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.weblio.jp/content/%E3%82%B9%E3%82%BF%E3%83%96">スタブとは何？ Weblio辞書&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.weblio.jp/content/%E3%83%A2%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97">モックアップとは何？ Weblio辞書&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>2020-05-23 旧Wikiに載せていたリンクは切れてしまっていた。&lt;/li>
 &lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
 &lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
 &lt;h2 id="dig">dig&lt;/h2>
@@ -4134,16 +4195,4 @@ ss -antu
 &lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
-&lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
-&lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
-&lt;h2 id="install">Install&lt;/h2>
-&lt;p>Homebrew:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

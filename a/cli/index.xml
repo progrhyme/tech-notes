@@ -64,6 +64,11 @@ date +%s -r FILE
 &lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/date.html">date コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/niwasawa/items/9502e97b6c4d28d24042">date コマンドで日時のミリ秒単位まで表示する - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ex1.m-yabe.com/archives/4311">dateコマンドで、ファイルのタイムスタンプを取得 | ex1-lab&lt;/a>&lt;/li>
+&lt;li>macOS:
+&lt;ul>
+&lt;li>&lt;a href="https://www.unix.com/man-page/osx/1/date/">date(1) [osx man page]&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="ファイル操作">ファイル操作&lt;/h2>
 &lt;h3 id="find">find&lt;/h3>
@@ -138,8 +143,24 @@ mktemp -d
 &lt;li>&lt;a href="https://qiita.com/wnoguchi/items/2fc3ec11043d139dc6bb" title="teeコマンドの使い方 - Qiita">teeコマンドの使い方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="touch">touch&lt;/h3>
+&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/gnumaniak/man1/touch.1.html">Man page of TOUCH&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">touch -t &lt;span style="color:#0000cf;font-weight:bold">201807040100&lt;/span> path/to/file &lt;span style="color:#8f5902;font-style:italic"># mtimeを2018/7/4 01:00に変更&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>GNUオプション: ※macOSでは使えない&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>効果&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--[d]ate=日時&lt;/code>&lt;/td>
+&lt;td>日時を指定する際に、 &lt;code>-t&lt;/code> オプションの代わりに使える。dateコマンドの書式で日時を渡せるようだ&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1606/14/news013.html">【 touch 】コマンド――タイムスタンプを変更する／新規ファイルを作成する：Linux基本コマンドTips（23） - ＠IT&lt;/a>&lt;/li>
 &lt;/ul>

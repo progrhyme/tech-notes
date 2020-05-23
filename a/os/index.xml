@@ -239,6 +239,26 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;p>システム仕様、内部仕様などをここに記す。&lt;/p>
+&lt;h3 id="ファイルシステム">ファイルシステム&lt;/h3>
+&lt;ul>
+&lt;li>APFS (Apple File System) &amp;hellip; Hi Sierra (10.13) 以降
+&lt;ul>
+&lt;li>タイムスタンプの精度がナノ秒になった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HFS+ &amp;hellip; APFS以前
+&lt;ul>
+&lt;li>タイムスタンプの精度が秒単位だった&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cyberforensic.focus-s.com/knowledge/articles_detail/356/">ファイルシステムがAPFSになった事による変更点 - ナレッジ | フォーカスシステムズ サイバーフォレンジックセンター&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/18403588/how-to-return-millisecond-information-for-file-access-on-mac-os-x-in-java">macos - How to return millisecond information for File Access on Mac Os X (in Java)? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: UNIX</title><link>https://progrhy.me/tech-notes/a/os/unix/</link><pubDate>Thu, 21 May 2020 21:32:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/unix/</guid><description>
 &lt;h2 id="unix">UNIX&lt;/h2>
 &lt;p>&lt;a href="http://e-words.jp/w/UNIX.html">UNIX（ユニックス）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>

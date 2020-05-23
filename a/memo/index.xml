@@ -1,4 +1,18 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-22</title><link>https://progrhy.me/tech-notes/a/memo/20200522/</link><pubDate>Fri, 22 May 2020 21:47:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200522/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
+&lt;h2 id="523">5/23&lt;/h2>
+&lt;h3 id="gcloud-promptにテストとciを足した">gcloud-promptにテストとCIを足した&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/gcloud-prompt/pull/1">https://github.com/progrhyme/gcloud-prompt/pull/1&lt;/a>&lt;/p>
+&lt;p>複数のシェルから同時に触っても表示が壊れたりしないように、排他制御機構を入れたのだけど、逆にエンバグしそうで怖くなったので、テストを足した。&lt;/p>
+&lt;p>テストのため、 &lt;code>gcloud&lt;/code> コマンドの挙動をなんちゃって実装したシェルスクリプトを書いたけど、これはスタブなのだろうか、モックなのだろうかというのが気になった。&lt;br>
+とりあえずコメントでは「stub」ということにしておいたけど。&lt;/p>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/software/test/#%E3%82%B9%E3%82%BF%E3%83%96%E3%81%A8%E3%83%A2%E3%83%83%E3%82%AF%E3%81%AE%E9%81%95%E3%81%84">Software &amp;gt; テスト#スタブとモックの違い&lt;/a>&lt;/p>
+&lt;p>今回実装した機能を鑑みるに、&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gcloud info&lt;/code> や &lt;code>gcloud config&lt;/code> が呼ばれたときに決まった結果を返す -&amp;gt; スタブ&lt;/li>
+&lt;li>gcloud-prompt.shから &lt;code>gcloud config&lt;/code> コマンドが呼ばれたときに、呼ばれた回数を記録 -&amp;gt; モック&lt;/li>
+&lt;/ul>
+&lt;p>両方の性質を合わせ持ってることになるのかな？&lt;/p>
+&lt;p>詳しい人いたら教えてほしい。&lt;/p></description></item><item><title>A: 2020-05-22</title><link>https://progrhy.me/tech-notes/a/memo/20200522/</link><pubDate>Fri, 22 May 2020 21:47:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200522/</guid><description>
 &lt;h2 id="522">5/22&lt;/h2>
 &lt;h3 id="ubuntu-1804でzsh-syntax-highlightingを入れた">Ubuntu 18.04でzsh-syntax-highlightingを入れた&lt;/h3>
 &lt;p>zshでの &lt;code>help&lt;/code> コマンドを探していたら &lt;a href="https://wiki.archlinux.jp/index.php/Zsh">https://wiki.archlinux.jp/index.php/Zsh&lt;/a> にたどり着き、&lt;a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting&lt;/a>の存在を知った。&lt;/p>
@@ -14,7 +28,8 @@ texinfo and zsh
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>けっこう依存が色々あったが、無事にインストールできた。&lt;/p>
 &lt;p>試しに &lt;code>source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&lt;/code> を実行してみると、ちゃんとコマンドなどにハイライトが効くようになった。&lt;/p>
 &lt;p>dotfilesの対応は &lt;a href="https://github.com/progrhyme/myenv/commit/63ce3a305e6cfa6b5b247e9eba1f8ef58edb94b5">https://github.com/progrhyme/myenv/commit/63ce3a305e6cfa6b5b247e9eba1f8ef58edb94b5&lt;/a> こんな感じで。&lt;/p>
-&lt;p>これで私のZsh環境がまた一歩fish shellに近づいた。&lt;/p></description></item><item><title>A: 2020-05-19</title><link>https://progrhy.me/tech-notes/a/memo/20200519/</link><pubDate>Tue, 19 May 2020 20:59:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200519/</guid><description>
+&lt;p>これで私のZsh環境がまた一歩fish shellに近づいた。&lt;/p>
+&lt;p>（追記）macOSにも入れた: &lt;a href="https://github.com/progrhyme/myenv/commit/71cf5a49b5ebc5fbd3dc190e5d3f46fa25d23d3b">https://github.com/progrhyme/myenv/commit/71cf5a49b5ebc5fbd3dc190e5d3f46fa25d23d3b&lt;/a>&lt;/p></description></item><item><title>A: 2020-05-19</title><link>https://progrhy.me/tech-notes/a/memo/20200519/</link><pubDate>Tue, 19 May 2020 20:59:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200519/</guid><description>
 &lt;h2 id="519">5/19&lt;/h2>
 &lt;h3 id="basherを使ってみた">basherを使ってみた&lt;/h3>
 &lt;p>&lt;a href="../20200518/#clenv%E3%81%AFbasher%E3%81%A7%E5%AE%8C%E5%85%A8%E3%81%AB%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%89%E3%82%8C%E3%81%9D%E3%81%86">昨日見つけたbasherがclenvを置き換えられそうだった&lt;/a>ので、試してみた。&lt;/p>
@@ -139,6 +154,11 @@ progrhyme/toolbox
 &lt;li>5/22 Ubuntu Bashで乗り換え
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/f3430b33ecd261684b518224ff0eb1f42d3ad594">https://github.com/progrhyme/myenv/commit/f3430b33ecd261684b518224ff0eb1f42d3ad594&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>5/23 Mac Book Airで乗り換え
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/2e581fcbd0142250708aeaf7152f76569b72ad7a">https://github.com/progrhyme/myenv/commit/2e581fcbd0142250708aeaf7152f76569b72ad7a&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-05-18</title><link>https://progrhy.me/tech-notes/a/memo/20200518/</link><pubDate>Mon, 18 May 2020 22:29:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200518/</guid><description>

@@ -121,6 +121,17 @@ end
 &lt;ul>
 &lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html">【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;p>その他の仕様など。&lt;/p>
+&lt;h3 id="配列はexportできない">配列はexportできない&lt;/h3>
+&lt;p>&lt;a href="https://www.mail-archive.com/bug-bash@gnu.org/msg01774.html">Re: export does not work on array&lt;/a>&lt;/p>
+&lt;p>これは2006年のメールなのだけど、2020-05-23のmacOS + bash v5.0.17でも駄目だった。&lt;/p>
+&lt;p>サブシェルでは見えるんだけど、子プロセスとして起動したスクリプトからだと見えなかった。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/5564418/exporting-an-array-in-bash-script">Exporting an array in bash script - Stack Overflow&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.mazn.net/blog/2008/11/29/161.html">bashで配列のエクスポートができない@bash 3.2 | Mazn.net&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
 &lt;p>&lt;code>PS1&lt;/code> 変数を設定する。&lt;/p>

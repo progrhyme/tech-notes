@@ -114,12 +114,32 @@
 &lt;p>複数のOSプラットフォームや、ランタイムのバージョンに対応する方法。&lt;br>
 下のようなbuild matrixを設定すると良い。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">runs-on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>matrix.os&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">strategy&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">jobs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">node-test&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">runs-on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>matrix.os&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">strategy&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">os&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>ubuntu&lt;span style="color:#0000cf;font-weight:bold">-16.04&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ubuntu&lt;span style="color:#0000cf;font-weight:bold">-18.04&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">node&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dockerコンテナ上でビルド実行">Dockerコンテナ上でビルド実行&lt;/h3>
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/checkout@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/setup-node@v1&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">node-version&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>matrix.node&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NG例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>runs-on: [ubuntu-16.04, ubuntu-18.04]&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">jobs.&amp;lt;job_id&amp;gt;.runs-on&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy">jobs.&amp;lt;job_id&amp;gt;.strategy&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://jyn.jp/github-actions-usage/">GitHub Actionsの使い方 | 純規の暇人趣味ブログ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="dockerコンテナ上でビルド実行">Dockerコンテナ上でビルド実行&lt;/h3>
 &lt;p>&lt;code>jobs.&amp;lt;job_id&amp;gt;.container&lt;/code> で指定する。&lt;/p>
 &lt;p>&lt;a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer">https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -234,4 +254,18 @@
 &lt;p>&lt;a href="https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token">Authenticating with the GITHUB_TOKEN - GitHub Help&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>GitHubは、ワークフローで利用する &lt;code>GITHUB_TOKEN&lt;/code> シークレットを自動的に生成します。 この &lt;code>GITHUB_TOKEN&lt;/code> は、ワークフローの実行内での認証に利用できます。&lt;/p>
-&lt;/blockquote></description></item></channel></rss>
+&lt;/blockquote>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="workflow内でパッケージインストール">Workflow内でパッケージインストール&lt;/h3>
+&lt;p>Ubuntuだったら単純に &lt;code>sudo apt install &amp;lt;package&amp;gt;&lt;/code> を &lt;code>run&lt;/code> すればいい。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">jobs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">install-zsh&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">runs-on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ubuntu-latest&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>sudo&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apt&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>install&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>zsh&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>zsh&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--version&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners">Virtual environments for GitHub-hosted runners - GitHub Help&lt;/a> &amp;hellip; 特権の必要な操作には &lt;code>sudo&lt;/code> が使えるよと書いてある&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/57982945/how-to-apt-get-install-in-a-github-action">How to apt-get install in a GitHub action? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
