@@ -4091,13 +4091,14 @@ ss -antu
 たまに調べるのでこのページにまとめる。&lt;/p>
 &lt;h2 id="汎用">汎用&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher: A package manager for shell scripts.&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
+&lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
 &lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう&lt;/li>
 &lt;li>&lt;a href="https://github.com/rerun/rerun">rerun&lt;/a> &amp;hellip; フレームワーク色がある&lt;/li>
 &lt;li>&lt;a href="https://github.com/progrhyme/clenv">progrhyme/clenv&lt;/a> &amp;hellip; 拙作。未完&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/3a31282dfd0512a402cc">シェルスクリプトのパッケージマネージャー「basher」の機能概要と使い方 - Qiita&lt;/a> &amp;hellip; 2020年に書いたbasherの紹介記事&lt;/li>
 &lt;li>&lt;a href="https://juanibiapina.github.io/articles/basher-a-package-manager-for-shell-scripts/">A Package Manager For Shell Scripts - Juan Ibiapina&lt;/a> &amp;hellip; basherの作者による紹介記事&lt;/li>
 &lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/clenv-release-v0.1">&amp;quot;clenv&amp;quot; というシェルスクリプトのパッケージ管理ツールのようなものを作った - weblog of key_amb&lt;/a>&lt;/li>
 &lt;/ul>

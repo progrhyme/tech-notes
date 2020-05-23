@@ -133,7 +133,15 @@ progrhyme/toolbox
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/progrhyme/myenv/compare/de911093ac1493edb80b402df97f2e55a6e38a47...96760448e5f819aeaa5d00af19590c724995e703">Comparing de911093ac&amp;hellip;96760448e · progrhyme/myenv&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>一応他の環境には影響を与えないようにやったけど、他の環境でもすぐに乗り換えてしまおうと思っている。&lt;/p></description></item><item><title>A: 2020-05-18</title><link>https://progrhy.me/tech-notes/a/memo/20200518/</link><pubDate>Mon, 18 May 2020 22:29:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200518/</guid><description>
+&lt;p>一応他の環境には影響を与えないようにやったけど、他の環境でもすぐに乗り換えてしまおうと思っている。&lt;/p>
+&lt;h4 id="追記-その後の対応">追記: その後の対応&lt;/h4>
+&lt;ul>
+&lt;li>5/22 Ubuntu Bashで乗り換え
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/f3430b33ecd261684b518224ff0eb1f42d3ad594">https://github.com/progrhyme/myenv/commit/f3430b33ecd261684b518224ff0eb1f42d3ad594&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-18</title><link>https://progrhy.me/tech-notes/a/memo/20200518/</link><pubDate>Mon, 18 May 2020 22:29:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200518/</guid><description>
 &lt;h2 id="518">5/18&lt;/h2>
 &lt;h3 id="clenvは2つのプロジェクトに分割した方がいいかもしれない">clenvは2つのプロジェクトに分割した方がいいかもしれない&lt;/h3>
 &lt;p>&lt;a href="https://github.com/progrhyme/clenv">https://github.com/progrhyme/clenv&lt;/a>&lt;/p>
