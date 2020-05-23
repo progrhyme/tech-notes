@@ -103,12 +103,16 @@ git clone --branch BRANCH URL
 
 ### commit
 
+https://git-scm.com/docs/git-commit
+
 ```bash
-## 変更点を表示してコミット
+# 変更・削除したファイルを全てコミットする
+git commit --[a]ll
+# 変更点を表示してコミット
 git commit -v
-## 空コミット
+# 空コミット
 git commit --allow-empty
-## コミットメッセージを変更
+# コミットメッセージを変更
 git commit --amend
 ```
 
