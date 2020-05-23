@@ -43,6 +43,19 @@ BSD系のUnixを元に作られているらしい。
 
 - [macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO](https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/)
 
+## 機能
+### Quick Look（クイックルック）
+
+Tips:
+
+- GIFアニメや動画ファイルをFinderなどで選択し、スペースキーを押すと簡単に再生画面が見られる
+- 他のファイルにも対応しており、色々便利っぽい
+
+参考:
+
+- [Quick Look（クイックルック）について押さえておきたい基礎知識｜Mac - 週刊アスキー](https://weekly.ascii.jp/elem/000/002/615/2615764/)
+- [MacでGIFアニメを簡単に再生する方法 | iTea4.0](http://itea40.jp/technic/mac-tips-summary/how-to-play-gif-animation-easily-with-mac/)
+
 ## How-to
 ### JIS キーボードでの `\` の入力方法
 
