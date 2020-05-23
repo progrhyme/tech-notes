@@ -1,4 +1,46 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-24</title><link>https://progrhy.me/tech-notes/a/memo/20200524/</link><pubDate>Sun, 24 May 2020 05:11:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200524/</guid><description>
+&lt;h2 id="524">5/24&lt;/h2>
+&lt;h3 id="macosでターミナルの操作動画をタイプしたキーと共に録画する">macOSでターミナルの操作動画をタイプしたキーと共に録画する&lt;/h3>
+&lt;p>ブログ用にキャプチャ動画を撮りたいと思った。&lt;/p>
+&lt;p>やり方は前に調べて&lt;a href="https://progrhy.me/tech-notes/a/os/mac/#%E7%94%BB%E9%9D%A2%E3%82%92%E5%8B%95%E7%94%BB%E3%81%A7%E6%92%AE%E5%BD%B1%E3%81%97%E3%81%A6gif%E3%82%A2%E3%83%8B%E3%83%A1%E3%81%AB%E5%A4%89%E6%8F%9B">OS &amp;gt; macOS#画面を動画で撮影してGIFアニメに変換&lt;/a>に書いておいた。&lt;/p>
+&lt;h4 id="keycastrのインストールとセットアップ">KeyCastrのインストールとセットアップ&lt;/h4>
+&lt;p>まず、キー入力を表示するためにKeyCastrを入れる。これは一択である。&lt;/p>
+&lt;p>dmgボリュームをマウントし、アプリケーションをいつものフォルダにインストール。&lt;/p>
+&lt;p>開発者が未確認のため実行できないようなので、FinderからCtrlキーを押しながらアプリをクリックして「開く」を選ぶ。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://support.apple.com/ja-jp/guide/mac-help/mh40616/mac">開発元が未確認のMacアプリケーションを開く - Apple サポート&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>また、たぶんキーボード入力とかディスプレイとか（想像）にアクセスするため、アプリにアクセシビリティを与えてあげないといけない。　　
+macOSの「システム環境設定」を開き、「セキュリティとプライバシー &amp;gt; アクセシビリティ &amp;gt; プライバシー」設定画面で、「下のアプリケーションにコンピュータの制御を許可。」のリストにKeyCastrを加える。&lt;br>
+設定したら、KeyCastrを再起動する。&lt;/p>
+&lt;p>これでタイプしたキーがKeyCastrのウィンドウに表示されるようになった。&lt;br>
+ウィンドウが消える前にクリックアンドドラッグすることで、画面上の任意の位置に動かすことができる。&lt;br>
+録画のため、ターミナル画面の右下隅あたりに移動しておく。&lt;br>
+5文字ぐらいタイプしてみて、右側にはみ出さない程度の位置がベスト。&lt;/p>
+&lt;h4 id="ターミナル画面の録画">ターミナル画面の録画&lt;/h4>
+&lt;p>いま私はmacOS Mojaveを使っているので、「⌘⇧5」キーを押すことでスクリーンキャプチャを録ることができる。&lt;br>
+やってみて気づいたが、このショートカットキーから静止画も撮れるようだ。&lt;/p>
+&lt;p>ショートカットキーを押すと撮影位置を表す破線枠と、その下にメニューバーが現れる。
+動画を録るには、破線枠で撮影位置を調整した後、メニューバーの真ん中右側の「選択部分を収録」を選んでENTERキーを押す。
+すると、録画が開始される。&lt;/p>
+&lt;p>録画が終わったらもう一度「⌘⇧5」キーを押して、メニューバーを呼び出し、停止ボタンを押す。すると、動画がデスクトップに保存される。&lt;/p>
+&lt;p>なお、ターミナル画面を撮影するときは、以下に気をつけるとよいと思う:&lt;/p>
+&lt;ul>
+&lt;li>ウィンドウの透過はオフにしておく&lt;/li>
+&lt;li>文字サイズを大きめにしておく&lt;/li>
+&lt;li>入力するコマンドやキーのアンチョコを用意しておく&lt;/li>
+&lt;/ul>
+&lt;h4 id="動画をgifアニメ化">動画をGIFアニメ化&lt;/h4>
+&lt;p>GIFアニメ化のアプリには、GiftedかPicGIF Liteかの選択肢があったが、Appストアの評価を見てPicGIF Liteに決めた。&lt;br>
+使ってみたところ、無料でも機能が充実していて素晴らしいと思った。&lt;/p>
+&lt;p>PicGIF Liteを起動し、先ほど録画した動画のmovファイルをドラッグアンドドロップすると、取り込むことができる。&lt;br>
+ここでフレームレートを指定できる。
+今回は秒間4フレームとした。&lt;/p>
+&lt;p>動画を取り込んだ後、余分なフレームを削除したり、順番を入れ替えたりできるようだ。
+最初と最後の余計な部分を削った。&lt;/p>
+&lt;p>初期状態だとキャンバスが360x240と小さく、画像がぼやけてしまうので、大きめにしておくといい。&lt;br>
+今回はプリセットに合わせることを考えておらず、余白が少し大きくなってしまったので、カスタムのキャンバスサイズを定義した。&lt;/p>
+&lt;p>以上。&lt;/p></description></item><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
 &lt;h2 id="523">5/23&lt;/h2>
 &lt;h3 id="gcloud-promptにテストとciを足した">gcloud-promptにテストとCIを足した&lt;/h3>
 &lt;p>&lt;a href="https://github.com/progrhyme/gcloud-prompt/pull/1">https://github.com/progrhyme/gcloud-prompt/pull/1&lt;/a>&lt;/p>

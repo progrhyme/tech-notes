@@ -1994,11 +1994,14 @@ git clone --depth &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &a
 &lt;span style="color:#8f5902;font-style:italic">## ブランチ指定&lt;/span>
 git clone --branch BRANCH URL
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="commit">commit&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 変更点を表示してコミット&lt;/span>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-commit">https://git-scm.com/docs/git-commit&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># 変更・削除したファイルを全てコミットする&lt;/span>
+git commit --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>ll
+&lt;span style="color:#8f5902;font-style:italic"># 変更点を表示してコミット&lt;/span>
 git commit -v
-&lt;span style="color:#8f5902;font-style:italic">## 空コミット&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 空コミット&lt;/span>
 git commit --allow-empty
-&lt;span style="color:#8f5902;font-style:italic">## コミットメッセージを変更&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># コミットメッセージを変更&lt;/span>
 git commit --amend
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="diff">diff&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## スペース等の差分を無視&lt;/span>
@@ -3097,6 +3100,18 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/">macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="機能">機能&lt;/h2>
+&lt;h3 id="quick-lookクイックルック">Quick Look（クイックルック）&lt;/h3>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>GIFアニメや動画ファイルをFinderなどで選択し、スペースキーを押すと簡単に再生画面が見られる&lt;/li>
+&lt;li>他のファイルにも対応しており、色々便利っぽい&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://weekly.ascii.jp/elem/000/002/615/2615764/">Quick Look（クイックルック）について押さえておきたい基礎知識｜Mac - 週刊アスキー&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://itea40.jp/technic/mac-tips-summary/how-to-play-gif-animation-easily-with-mac/">MacでGIFアニメを簡単に再生する方法 | iTea4.0&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
