@@ -357,13 +357,27 @@ colors
 &lt;li>&lt;a href="https://qiita.com/mollifier/items/40d57e1da1b325903659">zshでプロンプトをカラー表示する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="色-256色対応">色: 256色対応&lt;/h4>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Zshパラメータ利用&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># - %F{文字色番号}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># - %K{背景色番号}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># - %f ... 文字色リセット&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># - %k ... 背景色リセット&lt;/span>
+&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%K{082}%F{001}[%n@%m]%f%k&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># エスケープシーケンス利用&lt;/span>
+&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">$&amp;#39;%{\e[30;48;5;082m%}%{\e[38;5;001m%}[%n@%m]%{\e[0m%}&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>上2つはどちらも同じ効果を表す&lt;/li>
+&lt;li>エスケープシーケンスについては See &lt;a href="https://progrhy.me/tech-notes/a/cli/shell/#ansi%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9">シェル#ANSIエスケープシーケンス&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/butaosuinu/items/770a040bc9cfe22c71f4">zshのプロンプトを256色表示にする＋好きなフォーマットで時刻表示 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>NOTE:&lt;/p>
+&lt;p>MEMO:&lt;/p>
 &lt;ul>
 &lt;li>（2020-05-19）上のZshパラメータを使う方法がUbuntu 18.04デスクトップ環境 + 端末アプリだと上手く行ってない&lt;/li>
+&lt;li>（2020-05-24）macOS + iTerm2なら上手く行った^&lt;/li>
 &lt;/ul>
 &lt;h4 id="複数行対応">複数行対応&lt;/h4>
 &lt;p>左側のPROMPTなら改行文字を入れればいいが、 &lt;code>precmd()&lt;/code> でプリントするという手もある。&lt;br>
