@@ -15,6 +15,10 @@ weight: 800
 
 - [List of Unix commands - Wikipedia](https://en.wikipedia.org/wiki/List_of_Unix_commands) ... IEEE規格らしい
 
+### 関連ページ
+
+- [macOS#GNUコマンドを使う]({{<ref "/a/os/mac.md">}}#gnuコマンドを使う)
+
 ## リファレンス
 
 - [SS64 Command line reference](https://ss64.com/) ... Linux, macOS etc.
@@ -114,6 +118,27 @@ mktemp -d
 参考:
 
 - [mktemp Man Page - macOS - SS64.com](https://ss64.com/osx/mktemp.html)
+
+### readlink(1)
+
+[Man page of READLINK](https://linuxjm.osdn.jp/html/GNU_coreutils/man1/readlink.1.html)
+
+Examples:
+
+```sh
+# シンボリックリンクのリンク先を返す。再帰的に探索はしない
+readlink <link>
+
+# realpathと同じ働きをする
+readlink -f <file>
+```
+
+### realpath(1)
+
+[Man page of REALPATH](https://linuxjm.osdn.jp/html/GNU_coreutils/man1/realpath.1.html)
+
+引数として与えられたファイル or ディレクトリの絶対パスを返す。
+シンボリックリンクであれば、リンク先を再帰的に解決する。
 
 ### tee
 

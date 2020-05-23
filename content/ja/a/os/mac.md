@@ -91,6 +91,33 @@ Tips:
 
 - [ttygifでターミナルを録画してgifにする - Qiita](https://qiita.com/okamos/items/33f46de83485d744fd4b)
 
+### GNUコマンドを使う
+
+macOSのコマンドは慣れ親しんでいるLinuxのコマンドと微妙なオプション差異があってハマることが度々ある。
+
+下記表のHomebrewパッケージを入れることで、多くのLinuxで使われているGNU版のコマンドが使えるようになる。
+
+※()内がGNU版の対応するコマンド。prefix `g` がつくことが多い
+
+ パッケージ | 使えるコマンド
+----------|--------------
+ coreutils | realpath, cp, mv, ls, ...
+ gnu-sed | gsed (sed)
+ gawk | gawk (awk)
+ gzip |
+ gnu-tar |
+ gnu-time |
+ gnu-getopt |
+ binutils | ar, gar, ...
+ diffutils | diff, cmp, ...
+ findutils | find, locate, xargs, ...
+ moreutils | pee, ...
+
+参考:
+
+- [Homebrewを用いてGNU系コマンドをインストール（macOS） - Qiita](https://qiita.com/kkdd/items/e9c8b46a89dea7862661)
+- [macで使いにくいコマンドをLinuxに合わせる - Qiita](https://qiita.com/toyama0919/items/661437d86a95b02484a2)
+
 ## Spec
 
 システム仕様、内部仕様などをここに記す。
