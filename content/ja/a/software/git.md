@@ -190,6 +190,10 @@ https://git-scm.com/docs/git-pull
 git pull --prune
 ```
 
+ Option | 効果
+--------|-----
+ --depth=N | 取得する履歴数を制限する。shallowリポジトリの場合、履歴数を指定した数に増減させる
+
 参考:
 
 - [リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita](https://qiita.com/yuichielectric/items/84cd61915a1236f19221)

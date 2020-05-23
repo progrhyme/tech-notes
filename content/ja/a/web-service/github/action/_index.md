@@ -128,12 +128,32 @@ NOTE:
 Example:
 
 ```YAML
-runs-on: ${{ matrix.os }}
-strategy:
-  matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+jobs:
+  node-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
+        node: [6, 8, 10]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
 ```
+
+NG例:
+
+- `runs-on: [ubuntu-16.04, ubuntu-18.04]`
+
+リファレンス:
+
+- [jobs\.\<job_id\>\.runs-on](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)
+- [jobs\.\<job_id\>\.strategy](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy)
+
+参考:
+
+- [GitHub Actionsの使い方 | 純規の暇人趣味ブログ](https://jyn.jp/github-actions-usage/)
 
 ### Dockerコンテナ上でビルド実行
 
