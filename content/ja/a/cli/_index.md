@@ -14,6 +14,20 @@ weight: 400
 ## リファレンス
 
 - [SS64 Command line reference](https://ss64.com/) ... Linux, macOS etc.
+  - macOSのmanはやや古いかも。不備が散見される
+
+## direnv
+
+https://github.com/direnv/direnv
+
+Documentation:
+
+- [Installation](https://github.com/direnv/direnv/blob/master/docs/installation.md)
+  - macOSはHomebrewを使える
+  - Ubuntuはaptかsnapで入れられる
+- [Setup](https://github.com/direnv/direnv/blob/master/docs/hook.md)
+  - Bash: `eval "$(direnv hook bash)"` をbashrcに書く
+  - Zsh: `eval "$(direnv hook zsh)"` をzshrcに書く
 
 ## ロギング
 ### script

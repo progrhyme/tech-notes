@@ -169,6 +169,24 @@ help -m unset
 
 - [【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html)
 
+## Spec
+
+その他の仕様など。
+
+### 配列はexportできない
+
+[Re: export does not work on array](https://www.mail-archive.com/bug-bash@gnu.org/msg01774.html)
+
+これは2006年のメールなのだけど、2020-05-23のmacOS + bash v5.0.17でも駄目だった。
+
+サブシェルでは見えるんだけど、子プロセスとして起動したスクリプトからだと見えなかった。
+
+参考:
+
+- [Exporting an array in bash script - Stack Overflow](https://stackoverflow.com/questions/5564418/exporting-an-array-in-bash-script)
+- [bashで配列のエクスポートができない@bash 3.2 | Mazn.net](https://www.mazn.net/blog/2008/11/29/161.html)
+
+
 ## How-to
 ### プロンプト(PS1)の変更
 

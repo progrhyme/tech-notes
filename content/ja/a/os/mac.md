@@ -90,3 +90,19 @@ Tips:
 参考:
 
 - [ttygifでターミナルを録画してgifにする - Qiita](https://qiita.com/okamos/items/33f46de83485d744fd4b)
+
+## Spec
+
+システム仕様、内部仕様などをここに記す。
+
+### ファイルシステム
+
+- APFS (Apple File System) ... Hi Sierra (10.13) 以降
+  - タイムスタンプの精度がナノ秒になった
+- HFS+ ... APFS以前
+  - タイムスタンプの精度が秒単位だった
+
+参考:
+
+- [ファイルシステムがAPFSになった事による変更点 - ナレッジ | フォーカスシステムズ サイバーフォレンジックセンター](https://cyberforensic.focus-s.com/knowledge/articles_detail/356/)
+- [macos - How to return millisecond information for File Access on Mac Os X (in Java)? - Stack Overflow](https://stackoverflow.com/questions/18403588/how-to-return-millisecond-information-for-file-access-on-mac-os-x-in-java)

@@ -3,6 +3,7 @@ title: "systemd"
 linkTitle: "systemd"
 description: System and Service Manager
 date: 2020-05-18T16:14:32+09:00
+weight: 680
 ---
 
 https://www.freedesktop.org/wiki/Software/systemd/

@@ -59,6 +59,8 @@ NOTE:
 - [date コマンド \| コマンドの使い方\(Linux\) \| hydroculのメモ](https://hydrocul.github.io/wiki/commands/date.html)
 - [date コマンドで日時のミリ秒単位まで表示する - Qiita](https://qiita.com/niwasawa/items/9502e97b6c4d28d24042)
 - [dateコマンドで、ファイルのタイムスタンプを取得 | ex1-lab](https://ex1.m-yabe.com/archives/4311)
+- macOS:
+  - [date(1) \[osx man page\]](https://www.unix.com/man-page/osx/1/date/)
 
 ## ファイル操作
 ### find
@@ -130,9 +132,17 @@ mktemp -d
 
 ### touch
 
+[Man page of TOUCH](https://linuxjm.osdn.jp/html/gnumaniak/man1/touch.1.html)
+
 ```bash
 touch -t 201807040100 path/to/file # mtimeを2018/7/4 01:00に変更
 ```
+
+GNUオプション: ※macOSでは使えない
+
+ Option | 効果
+--------|-----
+ `--[d]ate=日時` | 日時を指定する際に、 `-t` オプションの代わりに使える。dateコマンドの書式で日時を渡せるようだ
 
 参考:
 

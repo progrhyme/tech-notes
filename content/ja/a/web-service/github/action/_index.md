@@ -267,3 +267,22 @@ Documents:
 [Authenticating with the GITHUB_TOKEN - GitHub Help](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)
 
 > GitHubは、ワークフローで利用する `GITHUB_TOKEN` シークレットを自動的に生成します。 この `GITHUB_TOKEN` は、ワークフローの実行内での認証に利用できます。
+
+## How-to
+### Workflow内でパッケージインストール
+
+Ubuntuだったら単純に `sudo apt install <package>` を `run` すればいい。
+
+```YAML
+jobs:
+  install-zsh:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt install zsh
+      - run: zsh --version
+```
+
+参考:
+
+- [Virtual environments for GitHub-hosted runners - GitHub Help](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners) ... 特権の必要な操作には `sudo` が使えるよと書いてある
+- [How to apt-get install in a GitHub action? - Stack Overflow](https://stackoverflow.com/questions/57982945/how-to-apt-get-install-in-a-github-action)
