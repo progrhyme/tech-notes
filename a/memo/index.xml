@@ -12,7 +12,18 @@
 &lt;li>gcloud-prompt.shから &lt;code>gcloud config&lt;/code> コマンドが呼ばれたときに、呼ばれた回数を記録 -&amp;gt; モック&lt;/li>
 &lt;/ul>
 &lt;p>両方の性質を合わせ持ってることになるのかな？&lt;/p>
-&lt;p>詳しい人いたら教えてほしい。&lt;/p></description></item><item><title>A: 2020-05-22</title><link>https://progrhy.me/tech-notes/a/memo/20200522/</link><pubDate>Fri, 22 May 2020 21:47:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200522/</guid><description>
+&lt;p>詳しい人いたら教えてほしい。&lt;/p>
+&lt;h3 id="basher-link-がmacosで動かなかった">&lt;code>basher link&lt;/code> がmacOSで動かなかった&lt;/h3>
+&lt;p>&lt;a href="https://qiita.com/progrhyme/items/3a31282dfd0512a402cc#macos%E3%81%A7coreutils%E3%81%8C%E5%BF%85%E8%A6%81">シェルスクリプトのパッケージマネージャー「basher」の機能概要と使い方 - Qiita&lt;/a>に追記した通り。&lt;/p>
+&lt;p>既に修正PRも送っている:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/basherpm/basher/pull/80">modify: Don&amp;rsquo;t use &amp;quot;readlink -f&amp;quot; in &amp;quot;resolve_link&amp;quot; by progrhyme · Pull Request #80 · basherpm/basher&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>デバッグに苦しんだ副産物として、 &lt;code>realpath&lt;/code> をエミュレートするBashスクリプトが出来た:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/progrhyme/bash-realpath">https://github.com/progrhyme/bash-realpath&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>デバッグコードがたくさん残っているので、実験的な意味合いが強いが。&lt;/p></description></item><item><title>A: 2020-05-22</title><link>https://progrhy.me/tech-notes/a/memo/20200522/</link><pubDate>Fri, 22 May 2020 21:47:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200522/</guid><description>
 &lt;h2 id="522">5/22&lt;/h2>
 &lt;h3 id="ubuntu-1804でzsh-syntax-highlightingを入れた">Ubuntu 18.04でzsh-syntax-highlightingを入れた&lt;/h3>
 &lt;p>zshでの &lt;code>help&lt;/code> コマンドを探していたら &lt;a href="https://wiki.archlinux.jp/index.php/Zsh">https://wiki.archlinux.jp/index.php/Zsh&lt;/a> にたどり着き、&lt;a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting&lt;/a>の存在を知った。&lt;/p>

@@ -240,6 +240,69 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="gnuコマンドを使う">GNUコマンドを使う&lt;/h3>
+&lt;p>macOSのコマンドは慣れ親しんでいるLinuxのコマンドと微妙なオプション差異があってハマることが度々ある。&lt;/p>
+&lt;p>下記表のHomebrewパッケージを入れることで、多くのLinuxで使われているGNU版のコマンドが使えるようになる。&lt;/p>
+&lt;p>※()内がGNU版の対応するコマンド。prefix &lt;code>g&lt;/code> がつくことが多い&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>パッケージ&lt;/th>
+&lt;th>使えるコマンド&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>coreutils&lt;/td>
+&lt;td>realpath, cp, mv, ls, &amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gnu-sed&lt;/td>
+&lt;td>gsed (sed)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gawk&lt;/td>
+&lt;td>gawk (awk)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gzip&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gnu-tar&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gnu-time&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>gnu-getopt&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>binutils&lt;/td>
+&lt;td>ar, gar, &amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>diffutils&lt;/td>
+&lt;td>diff, cmp, &amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>findutils&lt;/td>
+&lt;td>find, locate, xargs, &amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>moreutils&lt;/td>
+&lt;td>pee, &amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kkdd/items/e9c8b46a89dea7862661">Homebrewを用いてGNU系コマンドをインストール（macOS） - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/toyama0919/items/661437d86a95b02484a2">macで使いにくいコマンドをLinuxに合わせる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
 &lt;p>システム仕様、内部仕様などをここに記す。&lt;/p>
 &lt;h3 id="ファイルシステム">ファイルシステム&lt;/h3>
