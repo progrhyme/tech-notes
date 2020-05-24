@@ -398,6 +398,20 @@ colors
 &lt;li>&lt;a href="http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/">zshのターミナルにリポジトリの情報を表示してみる · けんごのお屋敷&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html">Show Git State in ZSH Prompt via vcs_info | Timothy Basanov&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="feature">Feature&lt;/h2>
+&lt;h3 id="zle">ZLE&lt;/h3>
+&lt;p>&lt;a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html">Zsh Line Editor&lt;/a>.&lt;/p>
+&lt;p>Zshのコマンドライン編集機能。&lt;/p>
+&lt;p>たぶん、peco等でキーボードショートカットを作るときに使う人が多いのではないかな。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 編集を終了し、入力されたコマンドを実行する&lt;/span>
+zle accept-line
+&lt;span style="color:#8f5902;font-style:italic"># 画面をクリアする&lt;/span>
+zle clear-screen
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/8db0257d2e6f6b19ecb9">コマンドライン編集機能 Zsh Line Editor を使いこなす - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="tools">Tools&lt;/h2>
 &lt;p>パッケージ管理ツールについては、&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>参照。&lt;/p>
 &lt;h3 id="packages--plugins">Packages / Plugins&lt;/h3>

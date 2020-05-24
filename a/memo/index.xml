@@ -68,7 +68,11 @@ GitHub, GitLabの既存プロジェクトをインポートしてワンクリッ
 &lt;ul>
 &lt;li>&lt;a href="https://thehikaku.net/security/hikaku.html">セキュリティソフトの比較 2020 - the比較&lt;/a> &amp;hellip; これ表になっててわかりやすい&lt;/li>
 &lt;li>&lt;a href="http://monomania.sblo.jp/article/60532423.html">比較2020&amp;rsquo;【Mac用】ウイルス対策ソフト31点のおすすめ；軽いセキュリティソフト: 家電批評モノマニア&lt;/a> &amp;hellip; 縦に長い。ざっと流し見した&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
+&lt;/ul>
+&lt;h3 id="久しぶりにrustを触った">久しぶりにRustを触った&lt;/h3>
+&lt;p>最後に触ったのは2年前ぐらいかな？&lt;br>
+MacBookにツールチェインをインストールしていたが、 &lt;code>rustup update&lt;/code> で最新化できたっぽい。
+1回目は一部コンポーネントの更新に失敗したが、再実行したら完璧になったっぽい。&lt;/p></description></item><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
 &lt;h2 id="523">5/23&lt;/h2>
 &lt;h3 id="gcloud-promptにテストとciを足した">gcloud-promptにテストとCIを足した&lt;/h3>
 &lt;p>&lt;a href="https://github.com/progrhyme/gcloud-prompt/pull/1">https://github.com/progrhyme/gcloud-prompt/pull/1&lt;/a>&lt;/p>
