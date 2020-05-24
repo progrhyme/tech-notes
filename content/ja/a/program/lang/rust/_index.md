@@ -17,7 +17,27 @@ weight: 800
 
 ### Documentation
 
-- https://www.rust-lang.org/documentation.html
+https://www.rust-lang.org/learn ... ランディングページ
+
+- [Edition Guide](https://doc.rust-lang.org/edition-guide/)
+- [Standard Library](https://doc.rust-lang.org/std/)
+  - See [std Library]({{<ref "std.md">}})
+- [Cargo Book](https://doc.rust-lang.org/cargo/)
+- [rustc book](https://doc.rust-lang.org/rustc/)
+- [Rust Compiler Error Index](https://doc.rust-lang.org/error-index.html)
+- [rustdoc book](https://doc.rust-lang.org/rustdoc/)
+
+### Style Guide
+
+- [Rust Style Guide](https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md) ... 2020-05-25現在の正式版はこちらのようだ
+
+古い（と思われる）もの:
+
+- https://doc.rust-lang.org/1.0.0/style/
+
+参考:
+
+- [Outdated documentation on doc.rust-lang.org is exposed to search engines · Issue #695 · rust-lang/www.rust-lang.org](https://github.com/rust-lang/www.rust-lang.org/issues/695)
 
 ### 開発環境
 
