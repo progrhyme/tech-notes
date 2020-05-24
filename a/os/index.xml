@@ -215,6 +215,14 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;li>&lt;a href="https://weekly.ascii.jp/elem/000/002/615/2615764/">Quick Look（クイックルック）について押さえておきたい基礎知識｜Mac - 週刊アスキー&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://itea40.jp/technic/mac-tips-summary/how-to-play-gif-animation-easily-with-mac/">MacでGIFアニメを簡単に再生する方法 | iTea4.0&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="標準アプリ">標準アプリ&lt;/h2>
+&lt;h3 id="コンソール">コンソール&lt;/h3>
+&lt;p>console.app&lt;/p>
+&lt;p>アプリケーションのクラッシュレポートなどが見れる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://discussionsjapan.apple.com/thread/10167236">ReportCrashを解決する方法を… - Apple コミュニティ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
 &lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>
