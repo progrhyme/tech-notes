@@ -60,6 +60,17 @@ Tips:
 - [Quick Look（クイックルック）について押さえておきたい基礎知識｜Mac - 週刊アスキー](https://weekly.ascii.jp/elem/000/002/615/2615764/)
 - [MacでGIFアニメを簡単に再生する方法 | iTea4.0](http://itea40.jp/technic/mac-tips-summary/how-to-play-gif-animation-easily-with-mac/)
 
+## 標準アプリ
+### コンソール
+
+console.app
+
+アプリケーションのクラッシュレポートなどが見れる。
+
+参考:
+
+- [ReportCrashを解決する方法を… - Apple コミュニティ](https://discussionsjapan.apple.com/thread/10167236)
+
 ## How-to
 ### JIS キーボードでの `\` の入力方法
 
