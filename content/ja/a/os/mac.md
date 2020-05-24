@@ -103,6 +103,7 @@ Tips:
 参考:
 
 - [ttygifでターミナルを録画してgifにする - Qiita](https://qiita.com/okamos/items/33f46de83485d744fd4b)
+- 2019-10-28 [Macでのキー入力をディスプレイ上に表示してくれるオープンソースのキーストロークビジュアライザー「KeyCastr」がダークモードに対応し、GPU切り替えの不具合を修正。 | AAPL Ch.](https://applech2.com/archives/20191028-keycastr-for-mac-support-dark-mode-and-fix-gpu-bug.html)
 
 ### GNUコマンドを使う
 
