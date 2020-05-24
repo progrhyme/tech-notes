@@ -18,7 +18,7 @@ diff <(command1) <(command2)
 
 ## 関連ツール
 
-- git diff ... See [git#diff]({{<ref "/a/software/git.md">}}#diff)
+- git diff ... See [git#diff]({{<ref "/a/software/git/_index.md">}}#diff)
 
 ### colordiff
 
