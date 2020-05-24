@@ -218,4 +218,61 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/gfx/20140823/1408750107">comaint(1)でCPAN moduleのcomaintainerを追加する - Islands in the byte stream&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://keyamb.hatenablog.com/entry/2014/03/15/204118">Minilla を使って CPAN にモジュールを上げてみた - weblog of key_amb&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2017/20170509#TOC-CPAN-">久しぶりにCPANリリース / 20170509 - progrhyme&amp;rsquo;s Tech Wiki&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>A: Rust</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/</link><pubDate>Sun, 24 May 2020 15:28:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-lang/rust">https://github.com/rust-lang/rust&lt;/a> &amp;hellip; ソースコードもRust&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/&lt;/a>
+&lt;ul>
+&lt;li>日本語訳: &lt;a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="documentation">Documentation&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.rust-lang.org/documentation.html">https://www.rust-lang.org/documentation.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="開発環境">開発環境&lt;/h3>
+&lt;p>2018/8/22現在、VSCode, IntelliJが人気のようだ。&lt;br>
+もちろん、Atomでも開発できそうだし、Eclipseもある。&lt;/p>
+&lt;h2 id="community">Community&lt;/h2>
+&lt;p>&lt;a href="https://www.rustaceans.org/">https://www.rustaceans.org/&lt;/a>&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>Rustを書く人のことを「Rustacean」という。&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;ul>
+&lt;li>rustup &amp;hellip; Rustコンパイラインストール。最新バージョンへのアップデート。クロスコンパイル&lt;/li>
+&lt;li>rustc &amp;hellip; Rustコンパイラ&lt;/li>
+&lt;/ul>
+&lt;h3 id="cargo">cargo&lt;/h3>
+&lt;p>Rustのビルドシステム兼パッケージマネージャ。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">cargo --version
+&lt;span style="color:#8f5902;font-style:italic">## プロジェクト作成&lt;/span>
+cargo new &amp;lt;project&amp;gt;
+cargo new --bin &amp;lt;project&amp;gt;
+cargo check &lt;span style="color:#8f5902;font-style:italic"># コンパイル可能かチェック&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## コンパイル。バイナリ生成&lt;/span>
+cargo build
+cargo build --release &lt;span style="color:#8f5902;font-style:italic"># 最適化込み&lt;/span>
+cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作らずに直接実行&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/book/2018-edition/ch01-03-hello-cargo.html">Hello, Cargo! - The Rust Programming Language&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="crates">Crates&lt;/h2>
+&lt;p>Rustのパッケージ管理システム。&lt;br>
+Rustプログラムの単位でもある。&lt;br>
+&lt;code>cargo new&lt;/code> するとcrateが作られる。&lt;/p>
+&lt;p>&lt;a href="https://crates.io/">https://crates.io/&lt;/a> : 公式レジストリっぽい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/skitaoka/items/753a519d720a1ccebb0d">Rust のモジュールシステム - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="randhttpscratesiocratesrand">&lt;a href="https://crates.io/crates/rand">rand&lt;/a>&lt;/h3>
+&lt;p>乱数生成&lt;/p></description></item></channel></rss>
