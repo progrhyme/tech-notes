@@ -2,6 +2,7 @@
 title: "man page"
 linkTitle: "man page"
 date: 2020-05-17T20:39:04+09:00
+weight: 450
 ---
 
 ## はじめに
