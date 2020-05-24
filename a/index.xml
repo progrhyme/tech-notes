@@ -3071,6 +3071,64 @@ mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&
 &lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: man page</title><link>https://progrhy.me/tech-notes/a/document/man/</link><pubDate>Sun, 17 May 2020 20:39:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/document/man/</guid><description>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>man pageはUnix系システムで広く使われるマニュアルページのフォーマットである。&lt;br>
+POSIXとLinuxではやや仕様が異なるようだ。&lt;/p>
+&lt;p>筆者はLinuxに馴染みが深いので、以下は基本的にLinuxについて記す。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.unix.com/man-page/posix/1P/man/">POSIX 1003.1 - man page for man (posix section 1P) - Unix &amp;amp; Linux Commands&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli-usage">CLI Usage&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">man ls
+&lt;span style="color:#8f5902;font-style:italic">## セクション番号を指定する&lt;/span>
+man &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#204a87">printf&lt;/span>
+man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#204a87">printf&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ドキュメント">ドキュメント&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://man7.org/linux/man-pages/man1/man.1.html">http://man7.org/linux/man-pages/man1/man.1.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://man7.org/linux/man-pages/man7/man-pages.7.html">http://man7.org/linux/man-pages/man7/man-pages.7.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;h3 id="セクション番号とその意味">セクション番号とその意味&lt;/h3>
+&lt;ol>
+&lt;li>実行可能プログラム、またはシェルコマンド&lt;/li>
+&lt;li>システムコール&lt;/li>
+&lt;li>ライブラリ関数&lt;/li>
+&lt;li>スペシャルファイル(/dev/ にある)&lt;/li>
+&lt;li>ファイルの書式や規約&lt;/li>
+&lt;li>ゲーム&lt;/li>
+&lt;li>雑多なこと(マクロや規約を含む)&lt;/li>
+&lt;li>システム管理コマンド(通常はroot用)&lt;/li>
+&lt;li>カーネルルーチン ※非標準&lt;/li>
+&lt;/ol></description></item><item><title>A: Markdown</title><link>https://progrhy.me/tech-notes/a/document/markdown/</link><pubDate>Sun, 24 May 2020 17:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/document/markdown/</guid><description>
+&lt;h2 id="commonmark">CommonMark&lt;/h2>
+&lt;p>&lt;a href="https://commonmark.org/">https://commonmark.org/&lt;/a>&lt;/p>
+&lt;p>Markdownの原典というべき仕様だが、表現力が乏しかったので亜種がたくさん生まれた。&lt;/p>
+&lt;h2 id="markdownの亜種">Markdownの亜種&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.github.com/gfm/">GitHub Flavored Markdown&lt;/a>
+&lt;ul>
+&lt;li>おそらく最も普及している亜種。GitHubでサポートされている。他の亜種もこの仕様を参考にしているものが多そう。デファクトといってもいいかも&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="バックティックのエスケープ">バックティック「`」のエスケープ&lt;/h3>
+&lt;p>字の文で「`」を表示するには、 &lt;code>\`&lt;/code> のようにエスケープすればいい。&lt;/p>
+&lt;p>「`」で囲んだコード内で「`」を入力するにはどうすればよいか？&lt;br>
+このケースでは、エスケープはしなくていい。&lt;/p>
+&lt;p>下のように「``」で囲み、ホワイトスペースを挟んで記述すると、 &lt;code>`&lt;/code> と表示される。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Markdown" data-lang="Markdown">`` &lt;span style="color:#4e9a06">` `&lt;/span>`
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>2020-05-24 やり方がわからなくてググっていたら下の参考記事を見つけた。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://yu8mada.com/2018/06/15/how-to-escape-a-backtick-or-a-backslash-inside-inline-code-in-markdown/">Markdown のインラインコードでバックティックやバックスラッシュをエスケープする方法 - yu8mada&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Namespace</title><link>https://progrhy.me/tech-notes/a/software/k8s/namespace/</link><pubDate>Mon, 04 May 2020 21:45:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/namespace/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
 &lt;p>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/p>
@@ -3908,9 +3966,14 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>拡張機能を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+@&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+@&lt;/code>&lt;/td>
-&lt;td>ターミナルを開く&lt;/td>
+&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
+&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
+&lt;td>ターミナルの表示/非表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>&lt;/td>
+&lt;td>&lt;code>Ctrl+Shift+^&lt;/code>&lt;/td>
+&lt;td>新しいターミナルの作成&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>Ctrl+k v&lt;/code>&lt;/td>
@@ -4038,153 +4101,4 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;p>MEMO:&lt;/p>
 &lt;ul>
 &lt;li>2020-05-23 旧Wikiに載せていたリンクは切れてしまっていた。&lt;/li>
-&lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
-&lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
-&lt;h2 id="dig">dig&lt;/h2>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/bind/man1/dig.1.html">https://linuxjm.osdn.jp/html/bind/man1/dig.1.html&lt;/a>&lt;/p>
-&lt;p>DNSクエリを送信し、結果を得る。&lt;/p>
-&lt;p>構文:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">dig &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>@ server &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> domain &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-type &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-class &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>+ Aq query-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-Aq dig-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>%comment &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>&lt;code>@server&lt;/code> &amp;hellip; ネームサーバを指定&lt;/li>
-&lt;/ul>
-&lt;p>query-option:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>+short&lt;/code>&lt;/td>
-&lt;td>結果のIPやホスト名だけを返す&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>+trace&lt;/code>&lt;/td>
-&lt;td>ルートDNSから問合せ&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://orebibou.com/2016/11/dig%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B911%E5%80%8B/">digコマンドで覚えておきたい使い方11個 | 俺的備忘録 〜なんかいろいろ〜&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.geocities.jp/yasasikukaitou/dig.html">digコマンド 使い方 オプション DNS BIND&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="mtr">mtr&lt;/h2>
-&lt;p>デフォルトは ICMP を使う。&lt;/p>
-&lt;p>オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-T,--tcp&lt;/code>&lt;/td>
-&lt;td>TCP SYN を使う&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-u&lt;/code>&lt;/td>
-&lt;td>UDP を使う&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-P,--port &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
-&lt;td>UDP/TCP で port を指定する。&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-v,--version&lt;/code>&lt;/td>
-&lt;td>バージョン表示。&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>※古いバージョンだとオプション効かないかも。man とか見て。&lt;/p>
-&lt;h2 id="ss">ss&lt;/h2>
-&lt;p>netstatとまあまあ同じ感じで使える。&lt;br>
-netstatより推奨っぽいが、作りがバギーという噂もどこかで。。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># LISTENしているポート&lt;/span>
-ss -l
-&lt;span style="color:#8f5902;font-style:italic"># TCP, UDPとも名前解決せずに全ての接続を表示&lt;/span>
-ss -antu
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/sonoshou/items/cc2b740147ba1b8da1f3">Linuxでプロセスが何のポート使っているかを調べる - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="traceroute">traceroute&lt;/h2>
-&lt;p>デフォルトは UDP を使う。&lt;/p>
-&lt;p>オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-I&lt;/code>&lt;/td>
-&lt;td>ICMP を使う。&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-T&lt;/code>&lt;/td>
-&lt;td>TCP を使う。&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-p &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
-&lt;td>UDP/TCP で port を指定する。&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
-&lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
-たまに調べるのでこのページにまとめる。&lt;/p>
-&lt;h2 id="汎用">汎用&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
-&lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう&lt;/li>
-&lt;li>&lt;a href="https://github.com/rerun/rerun">rerun&lt;/a> &amp;hellip; フレームワーク色がある&lt;/li>
-&lt;li>&lt;a href="https://github.com/progrhyme/clenv">progrhyme/clenv&lt;/a> &amp;hellip; 拙作。未完&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/progrhyme/items/3a31282dfd0512a402cc">シェルスクリプトのパッケージマネージャー「basher」の機能概要と使い方 - Qiita&lt;/a> &amp;hellip; 2020年に書いたbasherの紹介記事&lt;/li>
-&lt;li>&lt;a href="https://juanibiapina.github.io/articles/basher-a-package-manager-for-shell-scripts/">A Package Manager For Shell Scripts - Juan Ibiapina&lt;/a> &amp;hellip; basherの作者による紹介記事&lt;/li>
-&lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/clenv-release-v0.1">&amp;quot;clenv&amp;quot; というシェルスクリプトのパッケージ管理ツールのようなものを作った - weblog of key_amb&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="bash">Bash&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.bpkg.sh/">bpkg&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/ash-shell/ash">ash-shell/ash&lt;/a> &amp;hellip; フレームワークだそうだ&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/Cj-bc/items/3ce2d9e451f3a06a4b4d">bash package manager: bpkgの紹介 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="zsh">Zsh&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/zsh/ohmyzsh/">Oh My Zsh&lt;/a> &amp;hellip; プラグインマネージャーというよりはフレームワークなのかな&lt;/li>
-&lt;li>&lt;a href="https://github.com/zsh-users/antigen">zsh-users/antigen&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/zplug/zplug">zplug&lt;/a>&lt;/li>
-&lt;li>zplugin&lt;/li>
-&lt;li>&lt;a href="https://github.com/tarjoilija/zgen">tarjoilija/zgen&lt;/a>&lt;/li>
-&lt;li>antibody&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/cd326cd31e01955b788b">おい、Antigen もいいけど zplug 使えよ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/f37aadef0b3f740e8c14">もっと便利になれる zsh プラグインによる CLI ライフ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
-&lt;li>&lt;a href="https://www.reddit.com/r/zsh/comments/ak0vgi/a_comparison_of_all_the_zsh_plugin_mangers_i_used/">A comparison of all the ZSH plugin mangers I used : zsh&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="fish">fish&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher&lt;/a> &amp;hellip; これが人気っぽい&lt;/li>
-&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish&lt;/a> &amp;hellip; fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
-&lt;/ul>
-&lt;/li>
 &lt;/ul></description></item></channel></rss>

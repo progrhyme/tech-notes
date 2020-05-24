@@ -499,9 +499,14 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>拡張機能を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+@&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+@&lt;/code>&lt;/td>
-&lt;td>ターミナルを開く&lt;/td>
+&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
+&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
+&lt;td>ターミナルの表示/非表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>&lt;/td>
+&lt;td>&lt;code>Ctrl+Shift+^&lt;/code>&lt;/td>
+&lt;td>新しいターミナルの作成&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;code>Ctrl+k v&lt;/code>&lt;/td>
