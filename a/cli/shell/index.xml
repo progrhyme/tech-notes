@@ -121,6 +121,20 @@ end
 &lt;ul>
 &lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html">【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="history">history&lt;/h3>
+&lt;p>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-History-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-History-Builtins&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 10件表示&lt;/span>
+&lt;span style="color:#204a87">history&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>シェル変数 &lt;code>HISTTIMEFORMAT&lt;/code> をstrftime書式で設定しておくとタイムスタンプを記録してくれる。
+また、表示時にその書式でタイムスタンプを表示してくれる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/khotta/items/948c8fd9cae32b392424">historyコマンドの実行日時のフォーマットについて - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
 &lt;p>その他の仕様など。&lt;/p>
 &lt;h3 id="配列はexportできない">配列はexportできない&lt;/h3>
