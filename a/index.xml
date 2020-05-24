@@ -3509,86 +3509,81 @@ MWYyZDFlMmU2N2Rm
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja">Service | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-09/">Kubernetes道場 9日目 - Serviceについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Rust</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/</link><pubDate>Sun, 24 May 2020 15:28:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/</guid><description>
-&lt;h2 id="about">About&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/rust-lang/rust">https://github.com/rust-lang/rust&lt;/a> &amp;hellip; ソースコードもRust&lt;/li>
-&lt;/ul>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/&lt;/a>
-&lt;ul>
-&lt;li>日本語訳: &lt;a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="documentation">Documentation&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://www.rust-lang.org/documentation.html">https://www.rust-lang.org/documentation.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="開発環境">開発環境&lt;/h3>
-&lt;p>2018/8/22現在、VSCode, IntelliJが人気のようだ。&lt;br>
-もちろん、Atomでも開発できそうだし、Eclipseもある。&lt;/p>
-&lt;h2 id="community">Community&lt;/h2>
-&lt;p>&lt;a href="https://www.rustaceans.org/">https://www.rustaceans.org/&lt;/a>&lt;/p>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>Rustを書く人のことを「Rustacean」という。&lt;/li>
-&lt;/ul>
-&lt;h2 id="cli">CLI&lt;/h2>
-&lt;ul>
-&lt;li>rustup &amp;hellip; Rustコンパイラインストール。最新バージョンへのアップデート。クロスコンパイル&lt;/li>
-&lt;li>rustc &amp;hellip; Rustコンパイラ&lt;/li>
-&lt;/ul>
-&lt;h3 id="cargo">cargo&lt;/h3>
-&lt;p>Rustのビルドシステム兼パッケージマネージャ。&lt;/p>
+&lt;/ul></description></item><item><title>A: std Library</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/std/</link><pubDate>Mon, 25 May 2020 01:21:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/std/</guid><description>
+&lt;p>Rustの標準ライブラリ。&lt;/p>
+&lt;h2 id="プリミティブ型">プリミティブ型&lt;/h2>
+&lt;h3 id="str">str&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/primitive.str.html">https://doc.rust-lang.org/std/primitive.str.html&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="#str-1">Module std::str&lt;/a>&lt;/p>
+&lt;p>&amp;ldquo;string slice&amp;rdquo; とも呼ばれる。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
-cargo --version
-&lt;span style="color:#8f5902;font-style:italic"># プロジェクト作成&lt;/span>
-cargo new &amp;lt;project&amp;gt;
-cargo new --bin &amp;lt;project&amp;gt;
-cargo check &lt;span style="color:#8f5902;font-style:italic"># コンパイル可能かチェック&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># コンパイル。バイナリ生成&lt;/span>
-cargo build
-cargo build --release &lt;span style="color:#8f5902;font-style:italic"># 最適化込み&lt;/span>
-cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作らずに直接実行&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://doc.rust-lang.org/book/2018-edition/ch01-03-hello-cargo.html">Hello, Cargo! - The Rust Programming Language&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="rustup">rustup&lt;/h3>
-&lt;p>Rust toolchain installer.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// with an explicit type annotation
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87">&amp;#39;static&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">str&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="io">io&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/index.html">Module std::io&lt;/a>&lt;/p>
+&lt;p>基礎的なI/O機能を提供する。&lt;/p>
+&lt;h3 id="stdin">stdin&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdin.html">Function std::io::stdin&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn stdin() -&amp;gt; Stdin&lt;/code>&lt;/p>
+&lt;p>当該プロセスの新しい標準入力ハンドルを生成する。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
-rustup &lt;span style="color:#204a87">help&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Update Rust toolchains and rustup&lt;/span>
-rustup update
-&lt;span style="color:#8f5902;font-style:italic"># 更新の有無を確認&lt;/span>
-rustup check
-&lt;span style="color:#8f5902;font-style:italic"># ブラウザでローカルにインストールされたドキュメントを開く&lt;/span>
-rustup doc
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="rustc">rustc&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Read&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_to_string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="stdin-1">Stdin&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdin.html">Struct std::io::Stdin&lt;/a>&lt;/p>
+&lt;p>プロセスの標準入力ストリームのハンドル。&lt;br>
+個々のハンドルは、当該プロセスに対する入力データのグローバルバッファの参照を共有する。
+ハンドルは &lt;code>BufRead&lt;/code> メソッドにフルアクセスを得るためにロックされることがある。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンパイル&lt;/span>
-rustc main.rs
-&lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
-rustc --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>h&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>elp
-&lt;span style="color:#8f5902;font-style:italic">## 全コマンドオプションを表示&lt;/span>
-rustc --help -v
-&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
-rustc --version&lt;span style="color:#000;font-weight:bold">|&lt;/span>-V
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="crates">Crates&lt;/h2>
-&lt;p>Rustのパッケージ管理システム。&lt;br>
-Rustプログラムの単位でもある。&lt;br>
-&lt;code>cargo new&lt;/code> するとcrateが作られる。&lt;/p>
-&lt;p>&lt;a href="https://crates.io/">https://crates.io/&lt;/a> : 公式レジストリっぽい。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/skitaoka/items/753a519d720a1ccebb0d">Rust のモジュールシステム - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="randhttpscratesiocratesrand">&lt;a href="https://crates.io/crates/rand">rand&lt;/a>&lt;/h3>
-&lt;p>乱数生成&lt;/p></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">match&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{} bytes read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;error: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="read_line">read_line&lt;/h4>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method Stdin::read_line&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn read_line(&amp;amp;self, buf: &amp;amp;mut String) -&amp;gt; Result&amp;lt;usize&amp;gt;&lt;/code>&lt;/p>
+&lt;p>当該ハンドルをロックして入力行を読み込む。&lt;/p>
+&lt;p>詳しくは &lt;a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">BufRead::read_line&lt;/a> を見よ。&lt;/p>
+&lt;h2 id="prelude">prelude&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/prelude/">Module std::prelude&lt;/a>&lt;/p>
+&lt;p>全てのRustプログラムで自動的にimportされる必要最小限のライブラリ。&lt;br>
+&lt;code>std::io::prelude&lt;/code> のように、独自のpreludeを持つライブラリも多いそうだ。&lt;/p>
+&lt;h2 id="str-1">str&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/str/">Module std::str&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="#str">プリミティブ型 str&lt;/a>&lt;/p>
+&lt;h2 id="string">string&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/">Module std::string&lt;/a>&lt;/p>
+&lt;h3 id="string-1">String&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html">Struct std::string::String&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="#str">プリミティブ型 str&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">from&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">from&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">hello2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">push&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;w&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">hello2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">push_str&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;orld!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="new">new&lt;/h4>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method String::new&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub const fn new() -&amp;gt; String&lt;/code>&lt;/p>
+&lt;p>空の &lt;code>String&lt;/code> を生成する。
+デフォルトでバッファを割り当てないので低コストだが、利用するバッファ量がわかっているならば、 &lt;code>with_capacity&lt;/code> メソッドを代わりに使うことを検討せよ。&lt;/p></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
 &lt;h2 id="tools">Tools&lt;/h2>
 &lt;h3 id="cloud-sql-proxy">Cloud SQL Proxy&lt;/h3>
 &lt;p>Cloud SQL第2世代インスタンスにアクセスできる公式のプロキシサーバ。&lt;/p>

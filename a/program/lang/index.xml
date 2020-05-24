@@ -232,8 +232,30 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="documentation">Documentation&lt;/h3>
+&lt;p>&lt;a href="https://www.rust-lang.org/learn">https://www.rust-lang.org/learn&lt;/a> &amp;hellip; ランディングページ&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.rust-lang.org/documentation.html">https://www.rust-lang.org/documentation.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/edition-guide/">Edition Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/std/">Standard Library&lt;/a>
+&lt;ul>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/">std Library&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/cargo/">Cargo Book&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/rustc/">rustc book&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/error-index.html">Rust Compiler Error Index&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/rustdoc/">rustdoc book&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="style-guide">Style Guide&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md">Rust Style Guide&lt;/a> &amp;hellip; 2020-05-25現在の正式版はこちらのようだ&lt;/li>
+&lt;/ul>
+&lt;p>古い（と思われる）もの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/1.0.0/style/">https://doc.rust-lang.org/1.0.0/style/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-lang/www.rust-lang.org/issues/695">Outdated documentation on doc.rust-lang.org is exposed to search engines · Issue #695 · rust-lang/www.rust-lang.org&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="開発環境">開発環境&lt;/h3>
 &lt;p>2018/8/22現在、VSCode, IntelliJが人気のようだ。&lt;br>
