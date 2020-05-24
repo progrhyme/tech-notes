@@ -10,6 +10,10 @@ weight: 410
 Apple社のPCに搭載されているOS.  
 BSD系のUnixを元に作られているらしい。
 
+関連ページ:
+
+- [Software > パッケージ管理 > Homebrew]({{<ref "/a/software/pkg-man/brew.md">}})
+
 ## ショートカットキー（Touch Bar登場前）
 
 凡例
@@ -98,7 +102,7 @@ ttyrecというツールがある。
 
 Tips:
 
-- [KeyCastr](https://download.cnet.com/KeyCastr/3000-2075_4-125977.html)というソフトを使うと、キー入力を動画に入れることができる。
+- [KeyCastr](https://github.com/keycastr/keycastr)というソフトを使うと、キー入力を動画に入れることができる。
 
 参考:
 

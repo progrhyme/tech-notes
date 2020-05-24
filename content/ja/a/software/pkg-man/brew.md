@@ -8,6 +8,10 @@ weight: 200
 
 かねてからmacOSでユーザーランドで動くパッケージ管理ソフトとして開発者に親しまれてきたツールだが、2019年にLinuxにも正式に対応した。
 
+関連ページ:
+
+- [OS > macOS]({{<ref "/a/os/mac/_index.md">}})
+
 ## Getting Started
 
 - インストール ... https://brew.sh/ に従う
@@ -55,3 +59,32 @@ brew bundle dump [OPTIONS]
 参考:
 
 - [Macでのアプリケーションインストールの自動化 - 理系学生日記](https://kiririmode.hatenablog.jp/entry/20200103/1578033722)
+
+### Brewfile
+
+Example:
+
+```Ruby
+tap "homebrew/bundle"
+tap "homebrew/core"
+
+# macOSでcaskを使う
+tap "homebrew/cask"
+cask_args appdir: "/Applications"
+cask "google-chrome"
+
+brew "bash"
+brew "zsh"
+brew "git"
+brew "vim"
+brew "tmux"
+brew "direnv"
+brew "jq"
+brew "the_silver_searcher"
+brew "coreutils"
+```
+
+NOTE:
+
+- RubyのDSLなので普通に `# ...` でコメントが書けるらしい
+  - [Allow comments in Brewfile · Issue #146 · Homebrew/homebrew-bundle](https://github.com/Homebrew/homebrew-bundle/issues/146)

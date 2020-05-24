@@ -17,7 +17,7 @@ weight: 800
 
 ### 関連ページ
 
-- [macOS#GNUコマンドを使う]({{<ref "/a/os/mac.md">}}#gnuコマンドを使う)
+- [macOS#GNUコマンドを使う]({{<ref "/a/os/mac/_index.md">}}#gnuコマンドを使う)
 
 ## リファレンス
 
