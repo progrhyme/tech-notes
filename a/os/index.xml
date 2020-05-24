@@ -144,6 +144,10 @@
 &lt;p>旧称 Mac OS X.&lt;br>
 Apple社のPCに搭載されているOS.&lt;br>
 BSD系のUnixを元に作られているらしい。&lt;/p>
+&lt;p>関連ページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/pkg-man/brew/">Software &amp;gt; パッケージ管理 &amp;gt; Homebrew&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="ショートカットキーtouch-bar登場前">ショートカットキー（Touch Bar登場前）&lt;/h2>
 &lt;p>凡例&lt;/p>
 &lt;table>
@@ -246,7 +250,7 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>ttyrecというツールがある。&lt;/p>
 &lt;p>Tips:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://download.cnet.com/KeyCastr/3000-2075_4-125977.html">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
+&lt;li>&lt;a href="https://github.com/keycastr/keycastr">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>

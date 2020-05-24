@@ -1811,6 +1811,10 @@ kubectl get -k .
 &lt;li>&lt;a href="https://blog.mosuke.tech/entry/2019/06/21/kustomize/">Kustomizeで環境ごとに異なるマニフェストを作る | Goldstine研究所&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Homebrew</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</link><pubDate>Mon, 04 May 2020 17:19:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</guid><description>
 &lt;p>かねてからmacOSでユーザーランドで動くパッケージ管理ソフトとして開発者に親しまれてきたツールだが、2019年にLinuxにも正式に対応した。&lt;/p>
+&lt;p>関連ページ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/os/mac/">OS &amp;gt; macOS&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
 &lt;li>インストール &amp;hellip; &lt;a href="https://brew.sh/">https://brew.sh/&lt;/a> に従う&lt;/li>
@@ -1861,6 +1865,31 @@ brew bundle dump &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTI
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://kiririmode.hatenablog.jp/entry/20200103/1578033722">Macでのアプリケーションインストールの自動化 - 理系学生日記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="brewfile">Brewfile&lt;/h3>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#000">tap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;homebrew/bundle&amp;#34;&lt;/span>
+&lt;span style="color:#000">tap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;homebrew/core&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># macOSでcaskを使う&lt;/span>
+&lt;span style="color:#000">tap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;homebrew/cask&amp;#34;&lt;/span>
+&lt;span style="color:#000">cask_args&lt;/span> &lt;span style="color:#4e9a06">appdir&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;/Applications&amp;#34;&lt;/span>
+&lt;span style="color:#000">cask&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google-chrome&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;bash&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;zsh&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;git&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;vim&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tmux&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;direnv&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;jq&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;the_silver_searcher&amp;#34;&lt;/span>
+&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;coreutils&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>RubyのDSLなので普通に &lt;code># ...&lt;/code> でコメントが書けるらしい
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Homebrew/homebrew-bundle/issues/146">Allow comments in Brewfile · Issue #146 · Homebrew/homebrew-bundle&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gce/</guid><description>
 &lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-types?hl=ja">マシンタイプ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
@@ -3042,201 +3071,6 @@ mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&
 &lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: macOS</title><link>https://progrhy.me/tech-notes/a/os/mac/</link><pubDate>Sat, 16 May 2020 16:17:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/mac/</guid><description>
-&lt;p>旧称 Mac OS X.&lt;br>
-Apple社のPCに搭載されているOS.&lt;br>
-BSD系のUnixを元に作られているらしい。&lt;/p>
-&lt;h2 id="ショートカットキーtouch-bar登場前">ショートカットキー（Touch Bar登場前）&lt;/h2>
-&lt;p>凡例&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th align="center">略記&lt;/th>
-&lt;th align="left">意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td align="center">{電源}&lt;/td>
-&lt;td align="left">電源キーまたはメディア取り出しキー&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th align="center">Key&lt;/th>
-&lt;th align="left">機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td align="center">Ctrl + Shift + {電源}&lt;/td>
-&lt;td align="left">ディスプレイをスリープにする。画面ロック&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td align="center">Ctrl + {電源}&lt;/td>
-&lt;td align="left">「再起動・スリープ・システム終了」ダイアログを表示&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://support.apple.com/ja-jp/HT201236" title="Mac のキーボードショートカット - Apple サポート">Mac のキーボードショートカット - Apple サポート&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-start-up-reboot-shutdown-sleep-logout-with-mac-keyboard-shortcut.html" title="Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati">Macの起動・スリープ・再起動・終了のキーボードショートカットまとめ（27種類） / Inforati&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ごみ箱">ごみ箱&lt;/h2>
-&lt;p>&lt;code>~/.Trash&lt;/code> にある。&lt;/p>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;h3 id="touch-bar">Touch Bar&lt;/h3>
-&lt;p>ボタン配置を変える方法:&lt;/p>
-&lt;ul>
-&lt;li>「システム環境設定 &amp;gt; キーボード &amp;gt; Touch Barをカスタマイズ」
-&lt;ul>
-&lt;li>2020-05-18 macOS Mojaveで確認&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/macos-screen-lock-by-touch-bar/">macOSで画面ロック/スクリーンセーバ起動を 1 操作で実行する 3 通りの方法 | Developers.IO&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="機能">機能&lt;/h2>
-&lt;h3 id="quick-lookクイックルック">Quick Look（クイックルック）&lt;/h3>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>GIFアニメや動画ファイルをFinderなどで選択し、スペースキーを押すと簡単に再生画面が見られる&lt;/li>
-&lt;li>他のファイルにも対応しており、色々便利っぽい&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://weekly.ascii.jp/elem/000/002/615/2615764/">Quick Look（クイックルック）について押さえておきたい基礎知識｜Mac - 週刊アスキー&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://itea40.jp/technic/mac-tips-summary/how-to-play-gif-animation-easily-with-mac/">MacでGIFアニメを簡単に再生する方法 | iTea4.0&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
-&lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>
-後述の方法も参照。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/miyohide/items/6cb8967282d4b2db0f61" title="Macにおけるバックスラッシュ（\）の入力方法 - Qiita">Macにおけるバックスラッシュ（\）の入力方法 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="imeの設定でキーで入力する文字を変える">IMEの設定で「¥」キーで入力する文字を変える&lt;/h4>
-&lt;p>Google日本語入力の場合、「環境設定 &amp;gt; 一般 &amp;gt; ¥キーで入力する文字」で「バックスラッシュ（\）」を選べば良い。&lt;/p>
-&lt;h3 id="画面を動画で撮影してgifアニメに変換">画面を動画で撮影してGIFアニメに変換&lt;/h3>
-&lt;p>動画のキャプチャについて:&lt;/p>
-&lt;ul>
-&lt;li>OS VersionがMojave以上 -&amp;gt; macOSの機能でできる&lt;/li>
-&lt;li>OS VersionがMojave未満 -&amp;gt; QuickTime Playerで撮影&lt;/li>
-&lt;/ul>
-&lt;p>動画 -&amp;gt; GIF変換ツール:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://apps.apple.com/jp/app/gifted/id771955779?mt=12">Gifted&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">PicGIF Lite&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>キャプチャして直接GIFに保存できるもの:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://apps.apple.com/jp/app/picgif-lite/id844918735?mt=12">LICEcap&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/mac-screen-gif-anime/">【小ネタ】Macの画面を録画して、GIFアニメにする方法 | Developers.IO&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/YosukeItabashi/items/5722395218e6e592fd39">【Mac】自分の画面を録画して、即gif動画化する方法 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://sue445.hatenablog.com/entry/2014/08/13/121512">Macでキー入力表示しつつターミナル操作をアニメーションGIFにする - くりにっき&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="ターミナルアプリの場合">ターミナルアプリの場合&lt;/h4>
-&lt;p>ttyrecというツールがある。&lt;/p>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://download.cnet.com/KeyCastr/3000-2075_4-125977.html">KeyCastr&lt;/a>というソフトを使うと、キー入力を動画に入れることができる。&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
-&lt;li>2019-10-28 &lt;a href="https://applech2.com/archives/20191028-keycastr-for-mac-support-dark-mode-and-fix-gpu-bug.html">Macでのキー入力をディスプレイ上に表示してくれるオープンソースのキーストロークビジュアライザー「KeyCastr」がダークモードに対応し、GPU切り替えの不具合を修正。 | AAPL Ch.&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="gnuコマンドを使う">GNUコマンドを使う&lt;/h3>
-&lt;p>macOSのコマンドは慣れ親しんでいるLinuxのコマンドと微妙なオプション差異があってハマることが度々ある。&lt;/p>
-&lt;p>下記表のHomebrewパッケージを入れることで、多くのLinuxで使われているGNU版のコマンドが使えるようになる。&lt;/p>
-&lt;p>※()内がGNU版の対応するコマンド。prefix &lt;code>g&lt;/code> がつくことが多い&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>パッケージ&lt;/th>
-&lt;th>使えるコマンド&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>coreutils&lt;/td>
-&lt;td>realpath, cp, mv, ls, &amp;hellip;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>gnu-sed&lt;/td>
-&lt;td>gsed (sed)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>gawk&lt;/td>
-&lt;td>gawk (awk)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>gzip&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>gnu-tar&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>gnu-time&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>gnu-getopt&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>binutils&lt;/td>
-&lt;td>ar, gar, &amp;hellip;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>diffutils&lt;/td>
-&lt;td>diff, cmp, &amp;hellip;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>findutils&lt;/td>
-&lt;td>find, locate, xargs, &amp;hellip;&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>moreutils&lt;/td>
-&lt;td>pee, &amp;hellip;&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/kkdd/items/e9c8b46a89dea7862661">Homebrewを用いてGNU系コマンドをインストール（macOS） - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/toyama0919/items/661437d86a95b02484a2">macで使いにくいコマンドをLinuxに合わせる - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
-&lt;p>システム仕様、内部仕様などをここに記す。&lt;/p>
-&lt;h3 id="ファイルシステム">ファイルシステム&lt;/h3>
-&lt;ul>
-&lt;li>APFS (Apple File System) &amp;hellip; Hi Sierra (10.13) 以降
-&lt;ul>
-&lt;li>タイムスタンプの精度がナノ秒になった&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>HFS+ &amp;hellip; APFS以前
-&lt;ul>
-&lt;li>タイムスタンプの精度が秒単位だった&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cyberforensic.focus-s.com/knowledge/articles_detail/356/">ファイルシステムがAPFSになった事による変更点 - ナレッジ | フォーカスシステムズ サイバーフォレンジックセンター&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/18403588/how-to-return-millisecond-information-for-file-access-on-mac-os-x-in-java">macos - How to return millisecond information for File Access on Mac Os X (in Java)? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Namespace</title><link>https://progrhy.me/tech-notes/a/software/k8s/namespace/</link><pubDate>Mon, 04 May 2020 21:45:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/namespace/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
 &lt;p>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/p>
@@ -4274,4 +4108,16 @@ ss -antu
 &lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
+&lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>
+&lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
+&lt;h2 id="install">Install&lt;/h2>
+&lt;p>Homebrew:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item></channel></rss>
