@@ -169,6 +169,26 @@ help -m unset
 
 - [【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html)
 
+### history
+
+https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-History-Builtins
+
+Examples:
+
+```sh
+# 10件表示
+history 10
+```
+
+Tips:
+
+- シェル変数 `HISTTIMEFORMAT` をstrftime書式で設定しておくとタイムスタンプを記録してくれる。
+また、表示時にその書式でタイムスタンプを表示してくれる
+
+参考:
+
+- [historyコマンドの実行日時のフォーマットについて - Qiita](https://qiita.com/khotta/items/948c8fd9cae32b392424)
+
 ## Spec
 
 その他の仕様など。
