@@ -251,6 +251,7 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/okamos/items/33f46de83485d744fd4b">ttygifでターミナルを録画してgifにする - Qiita&lt;/a>&lt;/li>
+&lt;li>2019-10-28 &lt;a href="https://applech2.com/archives/20191028-keycastr-for-mac-support-dark-mode-and-fix-gpu-bug.html">Macでのキー入力をディスプレイ上に表示してくれるオープンソースのキーストロークビジュアライザー「KeyCastr」がダークモードに対応し、GPU切り替えの不具合を修正。 | AAPL Ch.&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="gnuコマンドを使う">GNUコマンドを使う&lt;/h3>
 &lt;p>macOSのコマンドは慣れ親しんでいるLinuxのコマンドと微妙なオプション差異があってハマることが度々ある。&lt;/p>

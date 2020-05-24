@@ -40,7 +40,18 @@ macOSの「システム環境設定」を開き、「セキュリティとプラ
 最初と最後の余計な部分を削った。&lt;/p>
 &lt;p>初期状態だとキャンバスが360x240と小さく、画像がぼやけてしまうので、大きめにしておくといい。&lt;br>
 今回はプリセットに合わせることを考えておらず、余白が少し大きくなってしまったので、カスタムのキャンバスサイズを定義した。&lt;/p>
-&lt;p>以上。&lt;/p></description></item><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
+&lt;p>以上。&lt;/p>
+&lt;h3 id="gitpodというクラウドideがよさそう">GitpodというクラウドIDEがよさそう&lt;/h3>
+&lt;p>&lt;a href="https://www.gitpod.io/">https://www.gitpod.io/&lt;/a>&lt;/p>
+&lt;p>クラウドIDEでもあるEclipse TheiaベースのオンラインIDE.&lt;br>
+GitHub, GitLabの既存プロジェクトをインポートしてワンクリックで開発環境を立ち上げられるそうだ。&lt;/p>
+&lt;p>Eclipse TheiaとともにTypeFox社がファウンダー / 開発元。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kai_kou/items/40a7a579f1bce31d6a16">クラウドIDE「Gitpod」を試してみたら予想以上に使えそうだった - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/mouse_484/items/394a4984f749cc201422">Gitpodが最強過ぎる件について - Qiita&lt;/a>&lt;/li>
+&lt;li>2020-04-03 &lt;a href="https://thinkit.co.jp/news/bn/17456">クラウド・デスクトップ環境コードエディタ「Eclipse Theia 1.0」リリース | Think IT（シンクイット）&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-23</title><link>https://progrhy.me/tech-notes/a/memo/20200523/</link><pubDate>Sat, 23 May 2020 16:42:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200523/</guid><description>
 &lt;h2 id="523">5/23&lt;/h2>
 &lt;h3 id="gcloud-promptにテストとciを足した">gcloud-promptにテストとCIを足した&lt;/h3>
 &lt;p>&lt;a href="https://github.com/progrhyme/gcloud-prompt/pull/1">https://github.com/progrhyme/gcloud-prompt/pull/1&lt;/a>&lt;/p>
