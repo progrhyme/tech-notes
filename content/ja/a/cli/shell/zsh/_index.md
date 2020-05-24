@@ -172,6 +172,28 @@ MEMO:
 - [zshのターミナルにリポジトリの情報を表示してみる · けんごのお屋敷](http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/)
 - [Show Git State in ZSH Prompt via vcs_info | Timothy Basanov](https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html)
 
+## Feature
+### ZLE
+
+[Zsh Line Editor](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html).
+
+Zshのコマンドライン編集機能。
+
+たぶん、peco等でキーボードショートカットを作るときに使う人が多いのではないかな。
+
+Examples:
+
+```sh
+# 編集を終了し、入力されたコマンドを実行する
+zle accept-line
+# 画面をクリアする
+zle clear-screen
+```
+
+参考:
+
+- [コマンドライン編集機能 Zsh Line Editor を使いこなす - Qiita](https://qiita.com/b4b4r07/items/8db0257d2e6f6b19ecb9)
+
 ## Tools
 
 パッケージ管理ツールについては、[シェル > パッケージ管理]({{<ref "/a/cli/shell/pkg-man.md">}})参照。

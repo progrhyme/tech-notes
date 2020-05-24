@@ -44,15 +44,16 @@ Rustのビルドシステム兼パッケージマネージャ。
 Examples:
 
 ```sh
+# バージョン表示
 cargo --version
 
-## プロジェクト作成
+# プロジェクト作成
 cargo new <project>
 cargo new --bin <project>
 
 cargo check # コンパイル可能かチェック
 
-## コンパイル。バイナリ生成
+# コンパイル。バイナリ生成
 cargo build
 cargo build --release # 最適化込み
 
@@ -63,6 +64,41 @@ cargo run   # バイナリを作らずに直接実行
 
 - [Hello, Cargo! - The Rust Programming Language](https://doc.rust-lang.org/book/2018-edition/ch01-03-hello-cargo.html)
 
+### rustup
+
+Rust toolchain installer.
+
+Examples:
+
+```sh
+# ヘルプ表示
+rustup help
+
+# Update Rust toolchains and rustup
+rustup update
+# 更新の有無を確認
+rustup check
+
+# ブラウザでローカルにインストールされたドキュメントを開く
+rustup doc
+```
+
+### rustc
+
+Examples:
+
+```sh
+# コンパイル
+rustc main.rs
+
+# ヘルプ表示
+rustc --[h]elp
+## 全コマンドオプションを表示
+rustc --help -v
+
+# バージョン表示
+rustc --version|-V
+```
 
 ## Crates
 
