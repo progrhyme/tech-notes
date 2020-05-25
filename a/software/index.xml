@@ -812,7 +812,8 @@ kubectl delete -f my-ns.yml
 &lt;li>&lt;a href="https://jonasjacek.github.io/colors/">256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Software Test</title><link>https://progrhy.me/tech-notes/a/software/test/</link><pubDate>Sat, 23 May 2020 17:38:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/test/</guid><description>
-&lt;p>Software Test Engineeringまで入るかも。&lt;/p>
+&lt;p>Software Test Engineeringまで入るかも。&lt;br>
+一旦、負荷テストもここに入れる。&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="スタブとモックの違い">スタブとモックの違い&lt;/h3>
 &lt;p>どっちがどっちかいつもよくわからなくなる。&lt;/p>

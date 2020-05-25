@@ -1,0 +1,185 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Software Test</title><link>https://progrhy.me/tech-notes/a/software/test/</link><description>Recent content in Software Test on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 23 May 2020 17:38:12 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/test/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Locust</title><link>https://progrhy.me/tech-notes/a/software/test/locust/</link><pubDate>Mon, 25 May 2020 18:28:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/test/locust/</guid><description>
+&lt;p>Python製で割とよく使われている負荷試験ツール。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.locust.io/en/stable/index.html">https://docs.locust.io/en/stable/index.html&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.locust.io/en/stable/installation.html">https://docs.locust.io/en/stable/installation.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.locust.io/en/stable/quickstart.html">https://docs.locust.io/en/stable/quickstart.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>installはpipで。&lt;/li>
+&lt;li>発射台が1台なら &lt;code>locust -f path/to/locustfile.py --host=https://your-site.com/&lt;/code> で実行される。
+&lt;ul>
+&lt;li>&lt;code>--no-web&lt;/code> オプションをつけない限りwebサーバが立ち上がり(デフォルトは http://localhost:8089 )、テスト実行状況やメトリクスが見れて便利&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>発射台をmaster + slave複数台で構成することもできる&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>APIリファレンス : &lt;a href="https://docs.locust.io/en/stable/api.html">https://docs.locust.io/en/stable/api.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="locustコマンド">locustコマンド&lt;/h2>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com
+locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com --no-web -c &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span> -r &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> -t 30m
+&lt;span style="color:#8f5902;font-style:italic">## 20分毎に20クライアントずつ増加させる&lt;/span>
+locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com --no-web -c &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span> -r &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> -t 1h40m &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --step-load --step-clients &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span> --step-time 20m
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Options:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-f &lt;LOCUSTFILE>, &amp;ndash;locustfile &lt;LOCUSTFILE>&lt;/td>
+&lt;td>locust python script file&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;no-web&lt;/td>
+&lt;td>Web UIを起動しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-c &amp;lt;クライアント数&amp;gt;, &amp;ndash;clients &amp;lt;クライアント数&amp;gt;&lt;/td>
+&lt;td>最大同時クライアント数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-r &amp;lt;HATCH_RATE&amp;gt;, &amp;ndash;hatch-rate &amp;lt;HATCH_RATE&amp;gt;&lt;/td>
+&lt;td>秒間でいくつクライアントを生成するか&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-t &amp;lt;実行時間&amp;gt;, &amp;ndash;run-time &amp;lt;実行時間&amp;gt;&lt;/td>
+&lt;td>&amp;lt;実行時間&amp;gt; 実行した後、停止する。ex: &lt;code>300s&lt;/code>, &lt;code>20m&lt;/code>, &lt;code>3h&lt;/code>, &lt;code>1h30m&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;csv &lt;CSVFILEBASE>&lt;/td>
+&lt;td>CSVに統計情報を保存&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;logfile &lt;LOGFILE>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;step-load&lt;/td>
+&lt;td>一定時間ごとにクライアント数を増加させる。&amp;ndash;step-clients, &amp;ndash;step-timeの指定が必要&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;step-clients &amp;lt;クライアント数&amp;gt;&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;step-time &amp;lt;時間&amp;gt;&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="locustfile">locustfile&lt;/h3>
+&lt;p>&lt;a href="https://docs.locust.io/en/stable/writing-a-locustfile.html">https://docs.locust.io/en/stable/writing-a-locustfile.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Locust class
+&lt;ul>
+&lt;li>&lt;code>wait_time&lt;/code> &amp;hellip; クライアントがタスク間に挟むインターバルを設定する
+&lt;ul>
+&lt;li>&lt;a href="https://docs.locust.io/en/stable/api.html#module-locust.wait_time">https://docs.locust.io/en/stable/api.html#module-locust.wait_time&lt;/a>&lt;/li>
+&lt;li>&lt;code>between(min_wait, max_wait)&lt;/code> &amp;hellip; 最小時間、最大時間の間のランダムな時間&lt;/li>
+&lt;li>&lt;code>constant(wait_time)&lt;/code> &amp;hellip; 一定時間&lt;/li>
+&lt;li>&lt;code>constant_pacing(wait_time)&lt;/code> &amp;hellip; 実行時間によらず、一定間隔でタスクを実行する。例えば、 &lt;code>wait_time = constant_pacing(1)&lt;/code> としたとき、実行時間が0.3秒なら次の待ち時間は0.7秒に、実行時間が0.2秒なら待ち時間は0.8秒になる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="step-load-mode">Step Load Mode&lt;/h3>
+&lt;p>&lt;a href="https://docs.locust.io/en/stable/running-locust-in-step-load-mode.html">https://docs.locust.io/en/stable/running-locust-in-step-load-mode.html&lt;/a>&lt;/p>
+&lt;p>&lt;code>--step-load&lt;/code> オプションを使って、一定時間ごとに負荷を増加させる。&lt;/p>
+&lt;h3 id="master-slave構成で分散実行">master-slave構成で分散実行&lt;/h3>
+&lt;p>&lt;a href="https://docs.locust.io/en/stable/running-locust-distributed.html">https://docs.locust.io/en/stable/running-locust-distributed.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>1台のマシンでもコアが複数あればマルチコアの恩恵を受けられる&lt;/li>
+&lt;/ul>
+&lt;p>※Qiitaにも書いた。&lt;a href="https://qiita.com/progrhyme/items/2bf7e9ad24baf2c24951">Locustを1台のマシンで分散実行する（CLI編） - Qiita&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">##!bash&lt;/span>
+&lt;span style="color:#000">host&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
+&lt;span style="color:#000">locustfile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>yourlocustfile.py
+&lt;span style="color:#000">slave_num&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">15&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># slave数（並列数 - 1）&lt;/span>
+&lt;span style="color:#000">max_clients&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">200&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 最大クライアント数&lt;/span>
+&lt;span style="color:#000">duration&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>90m &lt;span style="color:#8f5902;font-style:italic"># 総実行時間&lt;/span>
+&lt;span style="color:#000">step_clients&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># クライアントの増加数 / インターバル&lt;/span>
+&lt;span style="color:#000">step_interval&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1m &lt;span style="color:#8f5902;font-style:italic"># インターバル&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## master&lt;/span>
+nohup taskset -c &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> locust -f &lt;span style="color:#000">$locustfile&lt;/span> --no-web &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -c &lt;span style="color:#000">$max_clients&lt;/span> -t &lt;span style="color:#000">$duration&lt;/span> -H &lt;span style="color:#000">$host&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --master --expect-slaves &lt;span style="color:#000">$slave_num&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --step-load --step-clients &lt;span style="color:#000">$step_clients&lt;/span> --step-time &lt;span style="color:#000">$step_interval&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --logfile output/locust.master.log -L WARNING --csv output/locust.master.&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>date +&lt;span style="color:#4e9a06">&amp;#39;%Y%m%d_%H%M&amp;#39;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&amp;gt; /dev/null &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## slaves&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> no in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>seq &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">slave_num&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+nohup taskset -c &lt;span style="color:#000">$no&lt;/span> locust -f &lt;span style="color:#000">$locustfile&lt;/span> --no-web &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -c &lt;span style="color:#000">$max_clients&lt;/span> -H &lt;span style="color:#000">$host&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --slave --master-host 127.0.0.1 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --logfile output/locust.slave&lt;span style="color:#000">$no&lt;/span>.log -L WARNING --csv output/locust.slave&lt;span style="color:#000">$no&lt;/span>.&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>date +&lt;span style="color:#4e9a06">&amp;#39;%Y%m%d_%H%M&amp;#39;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&amp;gt; /dev/null &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>master:
+&lt;ul>
+&lt;li>&lt;code>--master&lt;/code> オプションを付ける&lt;/li>
+&lt;li>&lt;code>--expect-slaves=N&lt;/code> オプションで接続を待ち受けるslaveの数を指定する。指定のslave数に達してから試験開始する&lt;/li>
+&lt;li>&lt;code>--step-load&lt;/code> オプションはmasterで指定する&lt;/li>
+&lt;li>待受けポート番号を変える場合は &lt;code>--master-bind-port=&amp;lt;ポート番号&amp;gt;&lt;/code> オプションで。デフォルトは &lt;code>5557&lt;/code> ポート&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>slave:
+&lt;ul>
+&lt;li>&lt;code>--slave&lt;/code>, &lt;code>--master-host &amp;lt;masterのアドレス&amp;gt;&lt;/code> を指定する&lt;/li>
+&lt;li>ポート番号がデフォルトと異なるなら &lt;code>--master-port=&amp;lt;ポート番号&amp;gt;&lt;/code> オプションで指定&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>slaveの数を増やすとmasterの負荷が上がる気がする&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="locustでプロキシサーバ経由でテストリクエスト送信">Locustでプロキシサーバ経由でテストリクエスト送信&lt;/h3>
+&lt;p>&lt;a href="https://github.com/locustio/locust/issues/203">https://github.com/locustio/locust/issues/203&lt;/a> によると環境変数を設定するだけでも行けるということなのだが、私が試したときは駄目だったので、下のようにした&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">proxies&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;HTTP_PROXY&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">proxies&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;http&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;HTTP_PROXY&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;HTTPS_PROXY&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">proxies&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;https&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;HTTPS_PROXY&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">client&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/api&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">params&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">params&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">proxies&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">proxies&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※このやり方はpython-requestsに依存している&lt;/p>
+&lt;h3 id="fasthttplocustを使ってパフォーマンスアップ">FastHttpLocustを使ってパフォーマンスアップ&lt;/h3>
+&lt;p>&lt;a href="https://docs.locust.io/en/stable/increase-performance.html">Increase Locust’s performance with a faster HTTP client — Locust 0.14.5 documentation&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>デフォルトのHTTPクライアントとしてpython-requestsを使っているが、geventhttpclientを使うFastHttpLocustを代わりに使うことができる
+&lt;ul>
+&lt;li>python-requestsと非互換なところもあるので注意&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">locust&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">TaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">task&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">between&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">locust.contrib.fasthttp&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">FastHttpLocust&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyTaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">TaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#5c35cc;font-weight:bold">@task&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">response&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">client&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;/&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyLocust&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">FastHttpLocust&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">task_set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">MyTaskSet&lt;/span>
+&lt;span style="color:#000">wait_time&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">between&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">60&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
