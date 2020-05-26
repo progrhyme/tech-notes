@@ -139,14 +139,18 @@ tmuxと一緒には使えないそうだ。&lt;/p>
 &lt;span style="color:#204a87">set&lt;/span> -eu
 &lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">remote&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
 &lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ITERM_PROFILE&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Ctrl-C&lt;/span>
-&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo -e \&amp;#34;Interrupted. \033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a\&amp;#34; exit;&amp;#34;&lt;/span> INT
+&lt;span style="color:#8f5902;font-style:italic"># Restore profile in any case&lt;/span>
+&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo -ne \&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a\&amp;#34;&amp;#34;&lt;/span> EXIT
 &lt;span style="color:#8f5902;font-style:italic"># Set given profile&lt;/span>
 &lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
 gcloud compute ssh &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
 &lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
 &lt;span style="color:#204a87">exit&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>最初 &lt;code>INT&lt;/code> でtrapしていたけど、gcloudコマンドが途中でコケたときにtrapできなかったので、 &lt;code>EXIT&lt;/code> にした&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/iterm2-ssh-change-profile/">iTerm2でSSHログイン先別にプロファイルを自動的に切替えて事故防止する方法 | Developers.IO&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/do-ssh-and-change-bg-color-iterm2/">[macOS] SSHログインしたときだけターミナルの背景色を変えたい (iTerm2) | Developers.IO&lt;/a>&lt;/li>
