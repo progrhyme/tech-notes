@@ -112,8 +112,8 @@ set -eu
 NEW_ITERM_PROFILE=${NEW_ITERM_PROFILE:-remote}
 original_profile=$ITERM_PROFILE
 
-# Ctrl-C
-trap "echo -e \"Interrupted. \033]1337;SetProfile=${original_profile}\a\" exit;" INT
+# Restore profile in any case
+trap "echo -ne \"\033]1337;SetProfile=${original_profile}\a\"" EXIT
 
 # Set given profile
 echo -ne "\033]1337;SetProfile=${NEW_ITERM_PROFILE}\a"
@@ -124,6 +124,10 @@ echo -ne "\033]1337;SetProfile=${original_profile}\a"
 
 exit
 ```
+
+NOTE:
+
+- 最初 `INT` でtrapしていたけど、gcloudコマンドが途中でコケたときにtrapできなかったので、 `EXIT` にした
 
 参考:
 
