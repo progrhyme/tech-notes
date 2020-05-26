@@ -1716,6 +1716,18 @@ curl http://localhost:8080/api/
 &lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/pull/73787">Deprecate &amp;ndash;export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/tkusumi/items/a824e040475fc47d311a">Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec">Dump Kubernetes cluster resources as YAML&lt;/a> &amp;hellip; シェルスクリプトで頑張っている事例&lt;/li>
+&lt;/ul></description></item><item><title>A: Artifact Registry</title><link>https://progrhy.me/tech-notes/a/google/gcp/gar/</link><pubDate>Tue, 26 May 2020 17:25:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gar/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>The next generation of Container Registry.&lt;/p>
+&lt;p>Beta in 2020-05-26&lt;/p>
+&lt;ul>
+&lt;li>組織のレジストリを1箇所にまとめられる（？）&lt;/li>
+&lt;li>コンテナイメージだけでなく、Mavenやnpmなどのパッケージのレジストリとしても使える。&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/artifact-registry/docs">https://cloud.google.com/artifact-registry/docs&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>[&lt;a href="https://cloud.google.com/artifact-registry/docs/transition-from-gcr?hl=ja">Transitioning from Container Registry&lt;/a>]&lt;/li>
 &lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
@@ -2031,53 +2043,7 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-terminating-with-grace">Kubernetes best practices: terminating with grace | Google Cloud Blog&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="仕様">仕様&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler?hl=ja">クラスタ オートスケーラー | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler?hl=ja">クラスタの自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="quota">Quota&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas">https://cloud.google.com/kubernetes-engine/quotas&lt;/a>&lt;/p>
-&lt;p>Last updated at 2020-04-13&lt;/p>
-&lt;ul>
-&lt;li>GKEクラスタごと
-&lt;ul>
-&lt;li>クラスタあたりの最大ノード数: 5,000&lt;/li>
-&lt;li>ノードプールあたりの最大ノード数: 1,000&lt;/li>
-&lt;li>ノードあたりの最大ポッド数: 110&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="限定公開クラスタ">限定公開クラスタ&lt;/h3>
-&lt;p>Documents:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja">限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/nat/docs/gke-example">Example GKE Setup | Cloud NAT | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>要点:&lt;/p>
-&lt;ul>
-&lt;li>ノードは内部IPアドレスのみを持つため、インターネットから隔離される&lt;/li>
-&lt;li>限定公開クラスタでは、マスターへのアクセスを制御できる&lt;/li>
-&lt;li>LB経由で受信トラフィックを受けられる。また、内部LB経由でVPC内のトラフィックを受けることもできる&lt;/li>
-&lt;li>外と通信したいときは、上記の「Example GKE Setup」にあるように、Cloud NAT + Cloud Routerをセットアップする&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>(2019-12-02現在) &lt;code>gcloud container clusters create&lt;/code> コマンドでは &lt;code>--enable-private-nodes --master-ipv4-cidr &amp;lt;CIDR&amp;gt;&lt;/code> オプションをつける&lt;/li>
-&lt;/ul>
-&lt;h4 id="制限事項">制限事項&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja#req_res_lim">限定公開クラスタの作成 | Kubernetes Engine ドキュメント | Google Cloud#要件、制約、制限&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/vpc/docs/alias-ip?hl=ja">エイリアスIP範囲&lt;/a>が有効なVPCネイティブクラスタである必要がある
-&lt;ul>
-&lt;li>See &lt;a href="#vpc%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">VPCネイティブクラスタを作成する&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
+&lt;h2 id="機能">機能&lt;/h2>
 &lt;h3 id="負荷分散">負荷分散&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress&lt;/a>&lt;/li>
@@ -2175,7 +2141,64 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">timeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">40&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">connectionDraining&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">drainingTimeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="workload-identity">Workload Identity&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity?hl=ja">Workload Identity | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>GCP Service AccountとK8s Service Accountの紐付け設定をすることができる&lt;/li>
+&lt;li>GKE Metadata Serverを有効にしている必要があるようだ&lt;/li>
+&lt;/ul>
+&lt;p>メリット:&lt;/p>
+&lt;ul>
+&lt;li>GCP Service Account Keyが不要になる&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler?hl=ja">クラスタ オートスケーラー | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler?hl=ja">クラスタの自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="quota">Quota&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas">https://cloud.google.com/kubernetes-engine/quotas&lt;/a>&lt;/p>
+&lt;p>Last updated at 2020-04-13&lt;/p>
+&lt;ul>
+&lt;li>GKEクラスタごと
+&lt;ul>
+&lt;li>クラスタあたりの最大ノード数: 5,000&lt;/li>
+&lt;li>ノードプールあたりの最大ノード数: 1,000&lt;/li>
+&lt;li>ノードあたりの最大ポッド数: 110&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="限定公開クラスタ">限定公開クラスタ&lt;/h3>
+&lt;p>Documents:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja">限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/nat/docs/gke-example">Example GKE Setup | Cloud NAT | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>要点:&lt;/p>
+&lt;ul>
+&lt;li>ノードは内部IPアドレスのみを持つため、インターネットから隔離される&lt;/li>
+&lt;li>限定公開クラスタでは、マスターへのアクセスを制御できる&lt;/li>
+&lt;li>LB経由で受信トラフィックを受けられる。また、内部LB経由でVPC内のトラフィックを受けることもできる&lt;/li>
+&lt;li>外と通信したいときは、上記の「Example GKE Setup」にあるように、Cloud NAT + Cloud Routerをセットアップする&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>(2019-12-02現在) &lt;code>gcloud container clusters create&lt;/code> コマンドでは &lt;code>--enable-private-nodes --master-ipv4-cidr &amp;lt;CIDR&amp;gt;&lt;/code> オプションをつける&lt;/li>
+&lt;/ul>
+&lt;h4 id="制限事項">制限事項&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja#req_res_lim">限定公開クラスタの作成 | Kubernetes Engine ドキュメント | Google Cloud#要件、制約、制限&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/vpc/docs/alias-ip?hl=ja">エイリアスIP範囲&lt;/a>が有効なVPCネイティブクラスタである必要がある
+&lt;ul>
+&lt;li>See &lt;a href="#vpc%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">VPCネイティブクラスタを作成する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
 &lt;p>HPA.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler?hl=ja">水平ポッド自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
@@ -2192,6 +2215,31 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler">https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.doit-intl.com/autoscaling-k8s-hpa-with-google-http-s-load-balancer-rps-stackdriver-metric-92db0a28e1ea">Autoscaling K8s HPA with Google HTTP/S Load-Balancer RPS EXTERNAL Stackdriver Metrics&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="コンテナネイティブの負荷分散">コンテナネイティブの負荷分散&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja">コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>TL;DR:&lt;/p>
+&lt;ul>
+&lt;li>ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる&lt;/li>
+&lt;li>従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues">既知の問題&lt;/a>（2020-04-27時点）:&lt;/p>
+&lt;ul>
+&lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
+&lt;/ul>
+&lt;h3 id="vpcネイティブクラスタ">VPCネイティブクラスタ&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/alias-ips?hl=ja">VPC ネイティブ クラスタを作成する | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>2020-05-04現在、GCPコンソールから作成する場合はデフォルトでVPCネイティブクラスタになるが、REST APIやgcloudコマンドでは&lt;a href="https://cloud.google.com/vpc/docs/routes?hl=ja">ルートベースクラスタ&lt;/a>になるので注意。&lt;/p>
+&lt;p>2つのやり方がある:&lt;/p>
+&lt;ol>
+&lt;li>既存のサブネットにクラスタを作成する。アドレス範囲の割り当て方は下の2つ:
+&lt;ul>
+&lt;li>GKE管理のセカンダリ範囲割り当て&lt;/li>
+&lt;li>ユーザー管理のセカンダリ範囲割り当て&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる&lt;/li>
+&lt;/ol>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="アップグレード">アップグレード&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster&lt;/a>&lt;/p>
@@ -2226,31 +2274,6 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;ul>
 &lt;li>&lt;a href="https://acloud.guru/forums/gcp-certified-associate-cloud-engineer/discussion/-Lh3ET0aNrv3FwNbNvh6/Insufficient%20Permission:%20Request%20had%20insufficient%20authentication%20scopes.">Insufficient Permission: Request had insufficient authentication scopes. - Course: Google Certified Associate Cloud Engineer 2020&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="コンテナネイティブの負荷分散を使う">コンテナネイティブの負荷分散を使う&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja">コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>TL;DR:&lt;/p>
-&lt;ul>
-&lt;li>ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる&lt;/li>
-&lt;li>従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた&lt;/li>
-&lt;/ul>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues">既知の問題&lt;/a>（2020-04-27時点）:&lt;/p>
-&lt;ul>
-&lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
-&lt;/ul>
-&lt;h3 id="vpcネイティブクラスタを作成する">VPCネイティブクラスタを作成する&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/alias-ips?hl=ja">VPC ネイティブ クラスタを作成する | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>2020-05-04現在、GCPコンソールから作成する場合はデフォルトでVPCネイティブクラスタになるが、REST APIやgcloudコマンドでは&lt;a href="https://cloud.google.com/vpc/docs/routes?hl=ja">ルートベースクラスタ&lt;/a>になるので注意。&lt;/p>
-&lt;p>2つのやり方がある:&lt;/p>
-&lt;ol>
-&lt;li>既存のサブネットにクラスタを作成する。アドレス範囲の割り当て方は下の2つ:
-&lt;ul>
-&lt;li>GKE管理のセカンダリ範囲割り当て&lt;/li>
-&lt;li>ユーザー管理のセカンダリ範囲割り当て&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる&lt;/li>
-&lt;/ol>
 &lt;h3 id="メンテナンス時間枠と除外枠の設定">メンテナンス時間枠と除外枠の設定&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions?hl=ja">メンテナンスの時間枠と除外の構成 | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;ul>
@@ -3838,52 +3861,4 @@ ss -antu
 &lt;td>UDP/TCP で port を指定する。&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
-&lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
-たまに調べるのでこのページにまとめる。&lt;/p>
-&lt;h2 id="汎用">汎用&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
-&lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう&lt;/li>
-&lt;li>&lt;a href="https://github.com/rerun/rerun">rerun&lt;/a> &amp;hellip; フレームワーク色がある&lt;/li>
-&lt;li>&lt;a href="https://github.com/progrhyme/clenv">progrhyme/clenv&lt;/a> &amp;hellip; 拙作。未完&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/progrhyme/items/3a31282dfd0512a402cc">シェルスクリプトのパッケージマネージャー「basher」の機能概要と使い方 - Qiita&lt;/a> &amp;hellip; 2020年に書いたbasherの紹介記事&lt;/li>
-&lt;li>&lt;a href="https://juanibiapina.github.io/articles/basher-a-package-manager-for-shell-scripts/">A Package Manager For Shell Scripts - Juan Ibiapina&lt;/a> &amp;hellip; basherの作者による紹介記事&lt;/li>
-&lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/clenv-release-v0.1">&amp;quot;clenv&amp;quot; というシェルスクリプトのパッケージ管理ツールのようなものを作った - weblog of key_amb&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="bash">Bash&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.bpkg.sh/">bpkg&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/ash-shell/ash">ash-shell/ash&lt;/a> &amp;hellip; フレームワークだそうだ&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/Cj-bc/items/3ce2d9e451f3a06a4b4d">bash package manager: bpkgの紹介 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="zsh">Zsh&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/zsh/ohmyzsh/">Oh My Zsh&lt;/a> &amp;hellip; プラグインマネージャーというよりはフレームワークなのかな&lt;/li>
-&lt;li>&lt;a href="https://github.com/zsh-users/antigen">zsh-users/antigen&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/zplug/zplug">zplug&lt;/a>&lt;/li>
-&lt;li>zplugin&lt;/li>
-&lt;li>&lt;a href="https://github.com/tarjoilija/zgen">tarjoilija/zgen&lt;/a>&lt;/li>
-&lt;li>antibody&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/cd326cd31e01955b788b">おい、Antigen もいいけど zplug 使えよ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/b4b4r07/items/f37aadef0b3f740e8c14">もっと便利になれる zsh プラグインによる CLI ライフ - Qiita&lt;/a> &amp;hellip; b4b4r07氏のエントリ&lt;/li>
-&lt;li>&lt;a href="https://www.reddit.com/r/zsh/comments/ak0vgi/a_comparison_of_all_the_zsh_plugin_mangers_i_used/">A comparison of all the ZSH plugin mangers I used : zsh&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="fish">fish&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher&lt;/a> &amp;hellip; これが人気っぽい&lt;/li>
-&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish&lt;/a> &amp;hellip; fisher以前はこれが人気だったっぽい。fishで使えるテーマがたくさんある
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md">https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md&lt;/a> &amp;hellip; 利用可能なテーマ一覧。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/table></description></item></channel></rss>
