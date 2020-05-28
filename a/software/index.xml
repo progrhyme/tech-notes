@@ -7,6 +7,15 @@
 &lt;li>Rollouts&lt;/li>
 &lt;li>Events&lt;/li>
 &lt;/ul>
+&lt;h3 id="events">Events&lt;/h3>
+&lt;p>&lt;a href="https://argoproj.github.io/argo-events/">https://argoproj.github.io/argo-events/&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>an event-driven workflow automation framework for Kubernetes which helps you trigger K8s objects, Argo Workflows, Serverless workloads, etc. on events from variety of sources like webhook, s3, schedules, messaging queues, gcp pubsub, sns, sqs, etc.&lt;/p>
+&lt;/blockquote>
+&lt;p>Features:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://argoproj.github.io/argo-events/triggers/argo-workflow/">Argo Workflow Trigger - Argo Events - The Event-Based Dependency Manager for Kubernetes&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Docker</title><link>https://progrhy.me/tech-notes/a/software/docker/</link><pubDate>Wed, 29 Apr 2020 11:59:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/docker/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>公式:&lt;/p>

@@ -12,12 +12,22 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;h3 id="cloud版">Cloud版&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://confluence.atlassian.com/bitbucket">Bitbucket Cloud documentation - Atlassian Documentation&lt;/a>&lt;/li>
 &lt;li>邦訳: &lt;a href="https://ja.confluence.atlassian.com/bitbucket/bitbucket-cloud-documentation-221448814.html">Bitbucket Cloud ドキュメント - アトラシアン製品ドキュメント&lt;/a>
 &lt;ul>
 &lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html">Webhook を管理する - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html">Bitbucket Cloud で Web サイトを公開する - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="server版">Server版&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://confluence.atlassian.com/bitbucketserver/bitbucket-server-documentation-776639749.html">Bitbucket Server documentation - Atlassian Documentation&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="https://ja.confluence.atlassian.com/bitbucketserver/bitbucket-server-documentation-776639749.html">Bitbucket Server documentation - Atlassian Documentation&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/bitbucketserver/managing-webhooks-in-bitbucket-server-938025878.html">Bitbucket Server での Webhook の管理 - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
