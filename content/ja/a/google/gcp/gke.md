@@ -160,6 +160,18 @@ apiVersion: cloud.google.com/v1beta1
 
 - GCP Service Account Keyが不要になる
 
+### Config Connector
+
+[Config Connector の概要 | Config Connector のドキュメント | Google Cloud](https://cloud.google.com/config-connector/docs/overview?hl=ja)
+
+- K8s addon.
+- K8sのCRDと関連するコントローラを提供してくれる
+- あたかもK8sのリソースかのようにGCPリソースを管理できるようになる
+
+参考:
+
+- 2020-02-05 [もっとGCPが使いやすくなる!? GKE Config Connectorを試してみた！ - google-cloud-jp - Medium](https://medium.com/google-cloud-jp/%E3%82%82%E3%81%A3%E3%81%A8gcp%E3%81%8C%E4%BD%BF%E3%81%84%E3%82%84%E3%81%99%E3%81%8F%E3%81%AA%E3%82%8B-gke-config-connector%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F-e1a3370010ea)
+
 ## 仕様
 
 - [クラスタ オートスケーラー | Kubernetes Engine のドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler?hl=ja)

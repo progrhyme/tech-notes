@@ -16,4 +16,14 @@ Kubernetes向けのワークフローエンジン、CI/CDソリューション�
 - Rollouts
 - Events
 
+### Events
+
+https://argoproj.github.io/argo-events/
+
+> an event-driven workflow automation framework for Kubernetes which helps you trigger K8s objects, Argo Workflows, Serverless workloads, etc. on events from variety of sources like webhook, s3, schedules, messaging queues, gcp pubsub, sns, sqs, etc.
+
+Features:
+
+- [Argo Workflow Trigger - Argo Events - The Event-Based Dependency Manager for Kubernetes](https://argoproj.github.io/argo-events/triggers/argo-workflow/)
+
 ## Child Pages
