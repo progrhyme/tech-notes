@@ -295,6 +295,72 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;li>&lt;a href="https://www.pulumi.com/product/">Pulumi&lt;/a> &amp;hellip; 各種クラウドの構成管理を高級言語で行える&lt;/li>
 &lt;li>&lt;a href="https://gocloud.dev/">Go CDK (Cloud Development Kit)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/">Terraform&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Jenkins</title><link>https://progrhy.me/tech-notes/a/software/jenkins/</link><pubDate>Thu, 28 May 2020 11:12:22 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/jenkins/</guid><description>
+&lt;p>CI/CDなどの自動化ツール。&lt;br>
+何でもできる英国紳士。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://jenkins.io/doc/">https://jenkins.io/doc/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Pipeline機能: &lt;a href="https://jenkins.io/doc/book/pipeline/">https://jenkins.io/doc/book/pipeline/&lt;/a>
+&lt;ul>
+&lt;li>Syntax: &lt;a href="https://jenkins.io/doc/book/pipeline/syntax/">https://jenkins.io/doc/book/pipeline/syntax/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="pipeline">Pipeline&lt;/h2>
+&lt;ul>
+&lt;li>Declarative Pipeline &amp;hellip; 比較的新しい。 &lt;code>pipeline { ... }&lt;/code> で定義する。&lt;/li>
+&lt;li>Scripted Pipeline &amp;hellip; やや古い。 &lt;code>node { ... }&lt;/code> で定義する。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://cocodrips.hateblo.jp/entry/2017/10/23/205801">Jenkinsのpipelineのスクリプトの書き方まとめ - ぴよぴよ.py&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="steps-reference">Steps Reference&lt;/h3>
+&lt;p>&lt;a href="https://jenkins.io/doc/pipeline/steps/">https://jenkins.io/doc/pipeline/steps/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://jenkins.io/doc/pipeline/steps/workflow-durable-task-step/">Pipeline: Nodes and Processes&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>sh&lt;/code> 等&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="basic-steps">Basic Steps&lt;/h4>
+&lt;p>&lt;a href="https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/">https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/&lt;/a>&lt;/p>
+&lt;h5 id="withenv">&lt;code>withEnv&lt;/code>&lt;/h5>
+&lt;p>環境変数をセットしたブロックを作る。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-groovy" data-lang="groovy">&lt;span style="color:#000">node&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">withEnv&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;MYTOOL_HOME=/usr/local/mytool&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">])&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">sh&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;$MYTOOL_HOME/bin/start&amp;#39;&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>withEnv(['PATH+WHATEVER=/something'])&lt;/code> のようにすることで、 &lt;code>/something&lt;/code> を &lt;code>$PATH&lt;/code> エントリの前に加えることができる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/44378221/export-command-in-jenkins-pipeline/44380495#44380495">path - Export command in Jenkins pipeline - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;h3 id="cloudbees-folders">CloudBees Folders&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://go.cloudbees.com/docs/cloudbees-documentation/cje-user-guide/index.html#folder">User Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://plugins.jenkins.io/cloudbees-folder">https://plugins.jenkins.io/cloudbees-folder&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.jenkins.io/display/JENKINS/CloudBees+Folders+Plugin">https://wiki.jenkins.io/display/JENKINS/CloudBees+Folders+Plugin&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ジョブをフォルダという単位に整理することができる。&lt;br>
+UI上はタブで表示される。&lt;/p>
+&lt;h4 id="使い方">使い方&lt;/h4>
+&lt;ul>
+&lt;li>ジョブの編集(フォルダへの追加・削除)
+&lt;ol>
+&lt;li>タブをクリックすると &lt;code>/view/xxx&lt;/code> というパスに遷移する。&lt;/li>
+&lt;li>左列メニューの「ビューの変更」(英語だと「Edit View」)をクリック&lt;/li>
+&lt;li>ジョブをチェックボックスで選択し、「保存」&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://code.i-harness.com/ja/q/1b3d4ea" title="Jenkinsで既存のジョブを別のビューに移動するにはどうすればいいですか？ | CODE Q&amp;amp;A [日本語]">Jenkinsで既存のジョブを別のビューに移動するにはどうすればいいですか？ | CODE Q&amp;amp;A [日本語]&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Kubernetes</title><link>https://progrhy.me/tech-notes/a/software/k8s/</link><pubDate>Mon, 27 Apr 2020 10:39:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
