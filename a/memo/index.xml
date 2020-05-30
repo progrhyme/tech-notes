@@ -26,7 +26,97 @@ rustup install stable
 &lt;p>絶対必要というほどではないが、便利かも。&lt;/p>
 &lt;h3 id="rustのcli作成チュートリアル">RustのCLI作成チュートリアル&lt;/h3>
 &lt;p>&lt;a href="https://rust-cli.github.io/book/tutorial/">A command line app in 15 minutes - Command Line Applications in Rust&lt;/a>をやっている。&lt;/p>
-&lt;p>初めて出くわしたライブラリや言語仕様を都度、調べながらなので遅々として進まないが、いま&lt;a href="https://rust-cli.github.io/book/tutorial/impl-draft.html">1.3. First implementation&lt;/a>まで来たところ。&lt;/p></description></item><item><title>A: 2020-05-24</title><link>https://progrhy.me/tech-notes/a/memo/20200524/</link><pubDate>Sun, 24 May 2020 05:11:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200524/</guid><description>
+&lt;p>初めて出くわしたライブラリや言語仕様を都度、調べながらなので遅々として進まないが、いま&lt;a href="https://rust-cli.github.io/book/tutorial/impl-draft.html">1.3. First implementation&lt;/a>まで来たところ。&lt;/p>
+&lt;h4 id="わからなかったこと">わからなかったこと&lt;/h4>
+&lt;p>&lt;a href="https://rust-cli.github.io/book/tutorial/errors.html">Nicer error reporting - Command Line Applications in Rust&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Box&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">dyn&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">error&lt;/span>::&lt;span style="color:#000">Error&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>:
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>のように、main()でResult型を返すようにしたところ、下のようにコンパイルエラーになってしまう。&lt;/p>
+&lt;pre>&lt;code>error[E0308]: mismatched types
+--&amp;gt; src/main.rs:13:14
+|
+13 | fn main() -&amp;gt; Result&amp;lt;(), Box&amp;lt;dyn std::error::Error&amp;gt;&amp;gt; {
+| ---- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected enum `std::result::Result`, found `()`
+| |
+| implicitly returns `()` as its body has no tail or `return` expression
+...
+28 | Ok(());
+| - help: consider removing this semicolon
+|
+= note: expected enum `std::result::Result&amp;lt;(), std::boxed::Box&amp;lt;(dyn std::error::Error + 'static)&amp;gt;&amp;gt;`
+found unit type `()`
+error: aborting due to previous error
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `grrs`.
+&lt;/code>&lt;/pre>&lt;p>そういえばエラー情報を見てなかったので、見てみた。&lt;/p>
+&lt;pre>&lt;code>$ rustc --explain E0308 | cat
+This error occurs when the compiler was unable to infer the concrete type of a
+variable. It can occur for several cases, the most common of which is a
+mismatch in the expected type that the compiler inferred for a variable's
+initializing expression, and the actual type explicitly assigned to the
+variable.
+For example:
+let x: i32 = &amp;quot;I am not a number!&amp;quot;;
+// ~~~ ~~~~~~~~~~~~~~~~~~~~
+// | |
+// | initializing expression;
+// | compiler infers type `&amp;amp;str`
+// |
+// type `i32` assigned to variable `x`
+&lt;/code>&lt;/pre>&lt;p>まあ型のミスマッチが起こっているようだが、動かないコードを初心者向けのサンプルにしないでほしいという気持ちはなきにしもあらず。&lt;/p>
+&lt;p>また、次のように書き換えたところ、別のエラーが出た。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">#[derive(Debug)]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">CustomError&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">CustomError&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">args&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Cli&lt;/span>::&lt;span style="color:#000">from_args&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">content&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">fs&lt;/span>::&lt;span style="color:#000">read_to_string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">args&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">map_err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">CustomError&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Error reading `{}`: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">args&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)))&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>:
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>エラー:&lt;/p>
+&lt;pre>&lt;code>error[E0277]: `std::path::PathBuf` doesn't implement `std::fmt::Display`
+--&amp;gt; src/main.rs:20:70
+|
+20 | .map_err(|err| CustomError(format!(&amp;quot;Error reading `{}`: {}&amp;quot;, &amp;amp;args.path, err)))?;
+| ^^^^^^^^^^ `std::path::PathBuf` cannot be formatted with the default formatter
+|
+= help: the trait `std::fmt::Display` is not implemented for `std::path::PathBuf`
+= note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+= note: required because of the requirements on the impl of `std::fmt::Display` for `&amp;amp;std::path::PathBuf`
+= note: required by `std::fmt::Display::fmt`
+= note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)
+&lt;/code>&lt;/pre>&lt;p>&lt;code>rustc --explain E0277&lt;/code> を見ると下のようだった:&lt;/p>
+&lt;blockquote>
+&lt;p>You tried to use a type which doesn&amp;rsquo;t implement some trait in a place which expected that trait.&lt;/p>
+&lt;/blockquote>
+&lt;p>traitが期待されているところで、traitが実装されていない型を使ってしまった、ということのようだ。&lt;/p>
+&lt;blockquote>
+&lt;p>Erroneous code example:&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">// here we declare the Foo trait with a bar method
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">trait&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Foo&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">bar&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// we now declare a function which takes an object implementing the Foo trait
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">some_func&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">T&lt;/span>: &lt;span style="color:#000">Foo&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">foo&lt;/span>: &lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">bar&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// we now call the method with the i32 type, which doesn&amp;#39;t implement
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// the Foo trait
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">some_func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#204a87;font-weight:bold">i32&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// error: the trait bound `i32 : Foo` is not satisfied
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以下、略。&lt;/p>
+&lt;p>これはPathBufの型がイカンようなので、&lt;code>format!&lt;/code> 氏が期待している型にしてあげれば動きそうな気がする。&lt;/p>
+&lt;p>&lt;code>&amp;amp;args.path.display()&lt;/code> としたら動くようになった🎉&lt;/p>
+&lt;ul>
+&lt;li>該当コミット: &lt;a href="https://github.com/progrhyme/tutorials/commit/06cc24ffd7493dd2c3707db5c89e536e2941680d">https://github.com/progrhyme/tutorials/commit/06cc24ffd7493dd2c3707db5c89e536e2941680d&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-24</title><link>https://progrhy.me/tech-notes/a/memo/20200524/</link><pubDate>Sun, 24 May 2020 05:11:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200524/</guid><description>
 &lt;h2 id="524">5/24&lt;/h2>
 &lt;h3 id="macosでターミナルの操作動画をタイプしたキーと共に録画する">macOSでターミナルの操作動画をタイプしたキーと共に録画する&lt;/h3>
 &lt;p>ブログ用にキャプチャ動画を撮りたいと思った。&lt;/p>

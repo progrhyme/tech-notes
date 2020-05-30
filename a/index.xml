@@ -1379,7 +1379,85 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;h3 id="vpc接続">VPC接続&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Datadog</title><link>https://progrhy.me/tech-notes/a/web-service/datadog/</link><pubDate>Thu, 14 May 2020 19:05:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/datadog/</guid><description>
+&lt;/ul></description></item><item><title>A: Crates</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/crate/</link><pubDate>Sat, 30 May 2020 22:17:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/crate/</guid><description>
+&lt;h2 id="crates">Crates&lt;/h2>
+&lt;p>クレートはRustプログラムのパッケージを表す。&lt;br>
+&lt;code>cargo new&lt;/code> するとcrateが作られる。&lt;/p>
+&lt;p>&lt;a href="https://crates.io/">https://crates.io/&lt;/a> はクレートの公開レジストリ。
+自作のクレートをここに登録することでユーザーに配布することができる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-jp.rs/book/second-edition/ch14-02-publishing-to-crates-io.html">Crates.ioにクレートを公開する - The Rust Programming Language&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/skitaoka/items/753a519d720a1ccebb0d">Rust のモジュールシステム - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="clap">clap&lt;/h2>
+&lt;p>&lt;a href="https://crates.io/crates/clap">https://crates.io/crates/clap&lt;/a>&lt;/p>
+&lt;p>人気のCLIライブラリ。&lt;/p>
+&lt;h2 id="exitfailure">exitfailure&lt;/h2>
+&lt;p>&lt;a href="https://crates.io/crates/exitfailure">https://crates.io/crates/exitfailure&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Some newtype wrappers to help with using ? in main()&lt;/p>
+&lt;/blockquote>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>下のfailureと合わせて参考に挙げたガイドで紹介されているが、2020-05-30現在、2018-08-03で更新が止まっている。それだけ枯れてるのならいいのかもしれないが。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/errors.html">Nicer error reporting - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="failure">failure&lt;/h2>
+&lt;p>&lt;a href="https://docs.rs/failure/">https://docs.rs/failure/&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>An experimental new error-handling library.&lt;/p>
+&lt;/blockquote>
+&lt;p>ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-lang-nursery.github.io/failure/">https://rust-lang-nursery.github.io/failure/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/errors.html">Nicer error reporting - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="context">Context&lt;/h3>
+&lt;p>&lt;a href="https://docs.rs/failure/0.1.8/failure/struct.Context.html">Struct failure::Context&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>An error with context around it.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="resultext">ResultExt&lt;/h3>
+&lt;p>&lt;a href="https://docs.rs/failure/0.1.8/failure/trait.ResultExt.html">Trait failure::ResultExt&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Extension methods for Result.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="with_context">with_context&lt;/h4>
+&lt;p>&lt;a href="https://docs.rs/failure/0.1.8/failure/trait.ResultExt.html#tymethod.with_context">https://docs.rs/failure/0.1.8/failure/trait.ResultExt.html#tymethod.with_context&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">with_context&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">F&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">D&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">f&lt;/span>: &lt;span style="color:#000">F&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Context&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">D&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// F: FnOnce(&amp;amp;E) -&amp;gt; D,
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// D: Display + Send + Sync + &amp;#39;static,
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Wraps the error type in a context type generated by looking at the error value.&lt;/p>
+&lt;/blockquote>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">#[derive(Fail, Debug)]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">#[fail(display = &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;My custom error message&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">)]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">CustomError&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">failure&lt;/span>::&lt;span style="color:#000">Error&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">CustomError&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">})().&lt;/span>&lt;span style="color:#000">with_context&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;An error occured: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}).&lt;/span>&lt;span style="color:#000">unwrap_err&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">assert_eq&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;An error occured: My custom error message&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="rand">rand&lt;/h2>
+&lt;p>&lt;a href="https://crates.io/crates/rand">https://crates.io/crates/rand&lt;/a>&lt;/p>
+&lt;p>乱数生成&lt;/p>
+&lt;h2 id="structopt">structopt&lt;/h2>
+&lt;p>&lt;a href="https://crates.io/crates/structopt">https://crates.io/crates/structopt&lt;/a>&lt;/p>
+&lt;p>clapに依存したCLIライブラリ。&lt;br>
+structを定義することでコマンドライン引数を解析する。&lt;/p></description></item><item><title>A: Datadog</title><link>https://progrhy.me/tech-notes/a/web-service/datadog/</link><pubDate>Thu, 14 May 2020 19:05:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/datadog/</guid><description>
 &lt;p>監視ソリューションをサービスとして提供している。&lt;/p>
 &lt;h2 id="料金">料金&lt;/h2>
 &lt;p>&lt;a href="https://www.datadoghq.com/ja/pricing/">https://www.datadoghq.com/ja/pricing/&lt;/a>&lt;/p>
@@ -1497,7 +1575,64 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/iam/docs/faq?hl=ja" title="よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud">よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ameblo.jp/principia-ca/entry-12144854519.html" title="GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ">GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: dpkg</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</link><pubDate>Mon, 04 May 2020 17:18:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</guid><description>
+&lt;/ul></description></item><item><title>A: std::fmt</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/std/fmt/</link><pubDate>Sun, 31 May 2020 01:23:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/std/fmt/</guid><description>
+&lt;p>このモジュールで &lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/#format">format!&lt;/a> の書式が実装されている（という意味だと思う）。&lt;/p>
+&lt;h2 id="format書式解説">format書式解説&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/fmt/">Module std::fmt&lt;/a>に書かれている。&lt;/p>
+&lt;h3 id="positional-parameters">Positional parameters&lt;/h3>
+&lt;p>どの引数を参照するか、0からの連番で指定できる。&lt;br>
+指定しない場合は「次の引数」になる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{1} {} {0} {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// =&amp;gt; &amp;#34;2 1 1 2&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="named-parameters">Named parameters&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{argument}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">argument&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;test&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// =&amp;gt; &amp;#34;test&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{name} {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// =&amp;gt; &amp;#34;2 1&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{a} {c} {b}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">c&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// =&amp;gt; &amp;#34;a 3 b&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>まだたくさんあるが、出くわしたら追記していく。&lt;/p>
+&lt;h2 id="debug-trait">Debug (Trait)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html">Trait std::fmt::Debug&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>?&lt;/code> formatting&lt;/p>
+&lt;/blockquote>
+&lt;p>プログラマーに役立つ出力を行う。&lt;br>
+一般に、単に &lt;code>derive&lt;/code> して使えばいい。&lt;br>
+&lt;code>#?&lt;/code> という書式指定と共に使われると、見やすく出力される。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">#[derive(Debug)]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i32&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">y&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i32&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">origin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>: &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">y&lt;/span>: &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">assert_eq&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;The origin is: {:?}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">origin&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;The origin is: Point { x: 0, y: 0 }&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="display-trait">Display (Trait)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/fmt/trait.Display.html">Trait std::fmt::Display&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Format trait for an empty format, &lt;code>{}&lt;/code>.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a href="#debug-trait">Debug&lt;/a>に似ているが、ユーザー向けの出力をする。 &lt;code>derive&lt;/code> 不可。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i32&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">y&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">i32&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">impl&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">fmt&lt;/span>::&lt;span style="color:#000">Display&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">f&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">fmt&lt;/span>::&lt;span style="color:#000">Formatter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#c4a000">&amp;#39;_&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">fmt&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">write&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;({}, {})&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">y&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">origin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">x&lt;/span>: &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">y&lt;/span>: &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">assert_eq&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;The origin is: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">origin&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;The origin is: (0, 0)&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fmt-required-method">fmt (Required Method)&lt;/h3>
+&lt;p>&lt;code>fn fmt(&amp;amp;self, f: &amp;amp;mut Formatter) -&amp;gt; Result&amp;lt;(), Error&amp;gt;&lt;/code>&lt;/p>
+&lt;p>値を与えられたフォーマッタでフォーマットする。&lt;/p></description></item><item><title>A: dpkg</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</link><pubDate>Mon, 04 May 2020 17:18:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</guid><description>
 &lt;p>ハイレベルのインタフェースとして &lt;strong>apt&lt;/strong>, &lt;strong>apt-get&lt;/strong>, &lt;strong>aptitude&lt;/strong> がある。&lt;br>
 昔からあるのがaptitudeで、最近あまり使われてない気がするが、2017年11月18日現在、これにしかない機能もあるそうだ。&lt;br>
 aptは最先端のようだが、すべてaptで賄えるというわけではまだなさそう。&lt;/p>
@@ -1873,7 +2008,78 @@ curl http://localhost:8080/api/
 &lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
 従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
-特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
+特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item><item><title>A: std::io</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/std/io/</link><pubDate>Sun, 31 May 2020 01:23:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/std/io/</guid><description>
+&lt;p>基礎的なI/O機能を提供する。&lt;/p>
+&lt;h2 id="stderr-function">stderr (Function)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stderr.html">Function std::io::stderr&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn stderr() -&amp;gt; Stderr&lt;/code>&lt;/p>
+&lt;p>当該プロセスの新しい標準エラー出力ハンドルを生成する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">write_all&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&amp;#34;hello world&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Using explicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">lock&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">write_all&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&amp;#34;hello world&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stdin-function">stdin (Function)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdin.html">Function std::io::stdin&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn stdin() -&amp;gt; Stdin&lt;/code>&lt;/p>
+&lt;p>当該プロセスの新しい標準入力ハンドルを生成する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Read&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_to_string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stdout-function">stdout (Function)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdout.html">Function std::io::stdout&lt;/a>&lt;/p>
+&lt;p>当該プロセスの新しい標準出力ハンドルを生成する。&lt;/p>
+&lt;h2 id="stderr-struct">Stderr (Struct)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stderr.html">Struct std::io::Stderr&lt;/a>&lt;/p>
+&lt;p>プロセスの標準エラー出力ストリームのハンドル。&lt;/p>
+&lt;p>詳しくは&lt;a href="">io::stderr&lt;/a>を見よ。&lt;/p>
+&lt;h2 id="stdin-struct">Stdin (Struct)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdin.html">Struct std::io::Stdin&lt;/a>&lt;/p>
+&lt;p>プロセスの標準入力ストリームのハンドル。&lt;br>
+個々のハンドルは、当該プロセスに対する入力データのグローバルバッファの参照を共有する。
+ハンドルは &lt;code>BufRead&lt;/code> メソッドにフルアクセスを得るためにロックされることがある。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">match&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{} bytes read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;error: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="read_line-method">read_line (Method)&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method Stdin::read_line&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn read_line(&amp;amp;self, buf: &amp;amp;mut String) -&amp;gt; Result&amp;lt;usize&amp;gt;&lt;/code>&lt;/p>
+&lt;p>当該ハンドルをロックして入力行を読み込む。&lt;/p>
+&lt;p>詳しくは &lt;a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">BufRead::read_line&lt;/a> を見よ。&lt;/p>
+&lt;h2 id="stdout-struct">Stdout (Struct)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdout.html">Struct std::io::Stdout&lt;/a>&lt;/p>
+&lt;p>プロセスの標準出力ストリームのハンドル。&lt;br>
+&lt;a href="#stdout-function">io::stdout&lt;/a>関数によって生成される。&lt;/p>
+&lt;h2 id="write-trait">Write (Trait)&lt;/h2>
+&lt;h3 id="flush-required-method">flush (Required Method)&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush">https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush&lt;/a>&lt;/p>
+&lt;p>&lt;code>fn flush(&amp;amp;mut self) -&amp;gt; Result&amp;lt;()&amp;gt;&lt;/code>&lt;/p>
+&lt;p>出力ストリームをフラッシュする。&lt;/p></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
 &lt;p>Kubernetesのマニフェスト管理ツール。&lt;/p>
 &lt;p>リポジトリ: &lt;a href="https://github.com/kubernetes-sigs/kustomize">https://github.com/kubernetes-sigs/kustomize&lt;/a>&lt;/p>
 &lt;p>kubectl 1.14からkustomizeが統合されている。&lt;/p>
@@ -3301,81 +3507,7 @@ MWYyZDFlMmU2N2Rm
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/service?hl=ja">Service | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-09/">Kubernetes道場 9日目 - Serviceについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: std Library</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/std/</link><pubDate>Mon, 25 May 2020 01:21:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/std/</guid><description>
-&lt;p>Rustの標準ライブラリ。&lt;/p>
-&lt;h2 id="プリミティブ型">プリミティブ型&lt;/h2>
-&lt;h3 id="str">str&lt;/h3>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/primitive.str.html">https://doc.rust-lang.org/std/primitive.str.html&lt;/a>&lt;/p>
-&lt;p>See also &lt;a href="#str-1">Module std::str&lt;/a>&lt;/p>
-&lt;p>&amp;ldquo;string slice&amp;rdquo; とも呼ばれる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// with an explicit type annotation
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello&lt;/span>: &lt;span style="color:#204a87;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87">&amp;#39;static&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">str&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="io">io&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/index.html">Module std::io&lt;/a>&lt;/p>
-&lt;p>基礎的なI/O機能を提供する。&lt;/p>
-&lt;h3 id="stdin">stdin&lt;/h3>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdin.html">Function std::io::stdin&lt;/a>&lt;/p>
-&lt;p>&lt;code>pub fn stdin() -&amp;gt; Stdin&lt;/code>&lt;/p>
-&lt;p>当該プロセスの新しい標準入力ハンドルを生成する。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Read&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_to_string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="stdin-1">Stdin&lt;/h3>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdin.html">Struct std::io::Stdin&lt;/a>&lt;/p>
-&lt;p>プロセスの標準入力ストリームのハンドル。&lt;br>
-個々のハンドルは、当該プロセスに対する入力データのグローバルバッファの参照を共有する。
-ハンドルは &lt;code>BufRead&lt;/code> メソッドにフルアクセスを得るためにロックされることがある。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">match&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{} bytes read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;error: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="read_line">read_line&lt;/h4>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method Stdin::read_line&lt;/a>&lt;/p>
-&lt;p>&lt;code>pub fn read_line(&amp;amp;self, buf: &amp;amp;mut String) -&amp;gt; Result&amp;lt;usize&amp;gt;&lt;/code>&lt;/p>
-&lt;p>当該ハンドルをロックして入力行を読み込む。&lt;/p>
-&lt;p>詳しくは &lt;a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">BufRead::read_line&lt;/a> を見よ。&lt;/p>
-&lt;h2 id="prelude">prelude&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/prelude/">Module std::prelude&lt;/a>&lt;/p>
-&lt;p>全てのRustプログラムで自動的にimportされる必要最小限のライブラリ。&lt;br>
-&lt;code>std::io::prelude&lt;/code> のように、独自のpreludeを持つライブラリも多いそうだ。&lt;/p>
-&lt;h2 id="str-1">str&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/str/">Module std::str&lt;/a>&lt;/p>
-&lt;p>See also &lt;a href="#str">プリミティブ型 str&lt;/a>&lt;/p>
-&lt;h2 id="string">string&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/">Module std::string&lt;/a>&lt;/p>
-&lt;h3 id="string-1">String&lt;/h3>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html">Struct std::string::String&lt;/a>&lt;/p>
-&lt;p>See also &lt;a href="#str">プリミティブ型 str&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">from&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, world!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">hello2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">from&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">hello2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">push&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;w&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">hello2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">push_str&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;orld!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="new">new&lt;/h4>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method String::new&lt;/a>&lt;/p>
-&lt;p>&lt;code>pub const fn new() -&amp;gt; String&lt;/code>&lt;/p>
-&lt;p>空の &lt;code>String&lt;/code> を生成する。
-デフォルトでバッファを割り当てないので低コストだが、利用するバッファ量がわかっているならば、 &lt;code>with_capacity&lt;/code> メソッドを代わりに使うことを検討せよ。&lt;/p></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
 &lt;h2 id="tools">Tools&lt;/h2>
 &lt;h3 id="cloud-sql-proxy">Cloud SQL Proxy&lt;/h3>
 &lt;p>Cloud SQL第2世代インスタンスにアクセスできる公式のプロキシサーバ。&lt;/p>
@@ -3547,318 +3679,4 @@ MWYyZDFlMmU2N2Rm
 &lt;li>&lt;a href="https://www.benricho.org/symbol/kigou_05.html">【みんなの知識 ちょっと便利帳】記号/符号の種類・名称・読み方 =しるし物/目印・装飾類=&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: Visual Studio Code</title><link>https://progrhy.me/tech-notes/a/program/vscode/</link><pubDate>Mon, 27 Apr 2020 22:33:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vscode/</guid><description>
-&lt;p>Micfosoftが提供するOSSのクロスプラットフォームなコードエディタ。&lt;br>
-Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
-&lt;p>3rd Partyの拡張機能も多数あり、機能を拡充することができる。&lt;/p>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/docs">https://code.visualstudio.com/docs&lt;/a>
-&lt;ul>
-&lt;li>Get Started:
-&lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/docs/getstarted/keybindings">Visual Studio Code Key Bindings&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>User Guide:
-&lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/docs/editor/extension-gallery">Managing Extensions in Visual Studio Code&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
-&lt;h3 id="スニペット機能">スニペット機能&lt;/h3>
-&lt;ul>
-&lt;li>ユーザ定義のスニペットを作成可能
-&lt;ul>
-&lt;li>&lt;code>File &amp;gt; Preferences &amp;gt; User Snippets&lt;/code>&lt;/li>
-&lt;li>コメント付きJSON形式で書く&lt;/li>
-&lt;li>グローバルなスニペット&lt;/li>
-&lt;li>ワークスペースごとのスニペット&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>スニペットが有効になると、補完で選択可能になる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://vscode-doc-jp.github.io/docs/userguide/userdefinedsnippets.html">独自のスニペットを作成 | 非公式 - Visual Studio Code Docs&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.lisz-works.com/entry/vscode-snippets">VS Codeをスニペット作成は簡単で便利だった！ - lisz-works&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="preferences">Preferences&lt;/h2>
-&lt;p>昔はJSON設定ファイルを直接編集するようなスタイルだったが、2018年9月現在、GUIで設定できる項目も増えてきたようだ。&lt;/p>
-&lt;p>2種類の設定がある。&lt;/p>
-&lt;ul>
-&lt;li>ユーザ設定 &amp;hellip; ワークスペースによらない、ユーザ環境で常に有効になる設定。&lt;/li>
-&lt;li>ワークスペース設定 &amp;hellip; ワークスペースの &lt;code>.vscode/settings.json&lt;/code> に保存される。&lt;/li>
-&lt;/ul>
-&lt;p>Quick Reference:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.insertSpaces&lt;/code>&lt;/td>
-&lt;td>true, false&lt;/td>
-&lt;td>ソフトタブ（タブキーで半角スペースを挿入）のon/off&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>editor.renderWhitespace&lt;/code>&lt;/td>
-&lt;td>none, all, boundary&lt;/td>
-&lt;td>スペースやタブを描画するかどうか。 &lt;code>boundary&lt;/code> では単語境界は描画しない&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/spica/items/cfae8492804b8d3f8726">VSCodeのエディター設定の話 - タブ文字がなぜか半角スペースになってしまう - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="言語ごとの設定を行う">言語ごとの設定を行う&lt;/h3>
-&lt;p>インデントなどの設定を言語ごとに変えることができる。&lt;/p>
-&lt;p>settings.jsonで &lt;code>&amp;quot;[ruby]&amp;quot;: {}&lt;/code> などのエントリを作って、その中に設定を記述すればいい。&lt;br>
-コマンドパレットで &lt;code>Preferences: Configure language specific settings&lt;/code> と入力し、設定したい言語を選ぶやり方もある。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%E3%81%A7%E8%A8%80%E8%AA%9E%E3%81%94%E3%81%A8%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%9F%E3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="自動フォーマット">自動フォーマット&lt;/h3>
-&lt;p>&lt;a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting">https://code.visualstudio.com/docs/editor/codebasics#_formatting&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.formatOnSave&lt;/code>&lt;/td>
-&lt;td>true, &lt;strong>false&lt;/strong>&lt;/td>
-&lt;td>保存時にコードフォーマッタをかける&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;h3 id="インデント設定">インデント設定&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.detectIndentation&lt;/code>&lt;/td>
-&lt;td>&lt;strong>true&lt;/strong>, false&lt;/td>
-&lt;td>ファイルタイプごとのインデント設定を有効にする&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>editor.insertSpaces&lt;/code>&lt;/td>
-&lt;td>true, false&lt;/td>
-&lt;td>ソフトタブ（タブキーで半角スペースを挿入）のon/off&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>editor.tabSize&lt;/code>&lt;/td>
-&lt;td>&lt;strong>4&lt;/strong>&lt;/td>
-&lt;td>インデント幅&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;p>なぜか設定が反映されないときや、一時的に設定を変更したいときは、画面右下のインデント設定をクリックすることでアドホックに変更が可能。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1805/25/news039.html">VS Codeでインデントを設定するには：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://oua-iea-programmer.blogspot.com/2017/04/visual-studio-code.html">【Visual Studio Code】インデント幅の変更方法と、変えても反映されない時の対処法&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%e3%81%a7%e8%a8%80%e8%aa%9e%e3%81%94%e3%81%a8%e3%81%ab%e3%82%a4%e3%83%b3%e3%83%87%e3%83%b3%e3%83%88%e3%81%ae%e8%a8%ad%e5%ae%9a%e3%82%92%e3%81%97%e3%81%9f%e3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="フォント設定">フォント設定&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.fontSize&lt;/code>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>エディタのフォントサイズ&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tkyaji/items/45d5f88047e99c29dda2">Visual Studio Codeでフォントサイズをいい感じにする - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ファイルを常に新しいタブで開く">ファイルを常に新しいタブで開く&lt;/h3>
-&lt;p>&lt;code>workbench.editor.enablePreview: false&lt;/code> に設定し、プレビューを無効化する。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://code.i-harness.com/">[Visual-Studio-Code] ファイルを常に新しいタブで開くようにvscodeを設定するには？ | CODE Q&amp;amp;A 問題解決 [日本語]&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="テキストの折り返し">テキストの折り返し&lt;/h3>
-&lt;p>デフォルトは &lt;code>editor.wordWrap&lt;/code> が折り返さない設定(= &lt;code>off&lt;/code>)になっている。&lt;br>
-その他、次のオプションが有る:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>on&lt;/code> &amp;hellip; エディタの右端で折り返す&lt;/li>
-&lt;li>&lt;code>wordWrapColumn&lt;/code> &amp;hellip; &lt;code>editor.wordWrapColumn&lt;/code> で設定した値で折り返す&lt;/li>
-&lt;li>&lt;code>bounded&lt;/code> &amp;hellip; &lt;code>editor.wordWrapColumn&lt;/code> 設定値とエディタの幅の小さい方で折り返す&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1807/27/news035.html">VS Codeでテキストの折り返しを設定するには：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ショートカットキー">ショートカットキー&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Win/Linux&lt;/th>
-&lt;th>Mac&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+,&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+,&lt;/code>&lt;/td>
-&lt;td>設定画面を開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+p&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+p&lt;/code>&lt;/td>
-&lt;td>ファイルを検索して開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
-&lt;td>コマンドパレットを開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+x&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+x&lt;/code>&lt;/td>
-&lt;td>拡張機能を開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
-&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
-&lt;td>ターミナルの表示/非表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>, &lt;code>Ctrl+Shift+0&lt;/code>&lt;/td>
-&lt;td>&lt;code>Ctrl+Shift+^&lt;/code>&lt;/td>
-&lt;td>新しいターミナルの作成&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+k v&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+k v&lt;/code>&lt;/td>
-&lt;td>Markdownファイルのプレビュー画面をサイドバイサイドで表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+v&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+v&lt;/code>&lt;/td>
-&lt;td>Markdownファイルのプレビュー画面を別タブで表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+k Ctrl+s&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+k ⌘+s&lt;/code>&lt;/td>
-&lt;td>キーバインド一覧を開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+k Ctrl+t&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+k ⌘+t&lt;/code>&lt;/td>
-&lt;td>カラーテーマ(配色)設定&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>リファレンス:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">keyboard-shortcuts-linux.pdf&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">keyboard-shortcuts-macos.pdf&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">keyboard-shortcuts-windows.pdf&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/oruponu/items/ae9c720d4522c1606daf">Visual Studio Code キーボード ショートカット - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1804/20/news030.html">VS CodeでMarkdownをプレビューするには？：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="キーバインドの変更">キーバインドの変更&lt;/h3>
-&lt;p>↑のキーバインド一覧から変更可能&lt;/p>
-&lt;h2 id="extensions">Extensions&lt;/h2>
-&lt;h3 id="改行コードの表示">改行コードの表示&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=sohamkamani.code-eol">code-eol&lt;/a>
-&lt;ul>
-&lt;li>設定値: &lt;code>code-eol.color&lt;/code> &amp;hellip; 改行を表す記号の文字色を16進数のカラーコードで指定。
-&lt;ul>
-&lt;li>例: &lt;code>&amp;quot;#841a75&amp;quot;&lt;/code> (ラズベリー色)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=steditor.line-endings">line-endings&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>2018年9月、code-eolを入れて使っている。&lt;/p>
-&lt;h3 id="textlint">textlint&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint">vscode-textlint&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>日本語の書き方など指摘・修正してくれるLintツール。&lt;/p>
-&lt;p>使い方:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/azu/items/2c565a38df5ed4c9f4e1#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">VS Codeでtextlintを使って文章をチェックする - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="vs-codeの更新">VS Codeの更新&lt;/h3>
-&lt;p>Ubuntu:&lt;/p>
-&lt;ol>
-&lt;li>debパッケージをダウンロード&lt;/li>
-&lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/terraform/editor/</link><pubDate>Sun, 10 May 2020 08:41:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/editor/</guid><description>
-&lt;p>各種エディタやIDEでTerraformを書くための設定など。&lt;/p>
-&lt;h2 id="intellij-idea">IntelliJ IDEA&lt;/h2>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/idea/">IntelliJ IDEA&lt;/a>&lt;/p>
-&lt;h3 id="plugins">Plugins&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-support">HashiCorp Terraform / HCL language support - IntelliJ IDEs | JetBrains&lt;/a>&lt;/li>
-&lt;li>File Watcher &amp;hellip; ファイル保存時に &lt;code>terraform fmt&lt;/code> を実行するため&lt;/li>
-&lt;/ul>
-&lt;h3 id="設定">設定&lt;/h3>
-&lt;ul>
-&lt;li>File Watcherによる &lt;code>terraform fmt&lt;/code> を設定する&lt;/li>
-&lt;/ul>
-&lt;h2 id="visual-studio-code">Visual Studio Code&lt;/h2>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vscode/">Visual Studio Code&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/pypypyo14/items/5520f3defa55119f3a1a">VSCodeでTerraformを書くときの設定(2019/11/07追記: HCL2対応) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="extensions">Extensions&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=mauve.terraform">Terraform - Visual Studio Marketplace&lt;/a>
-&lt;ul>
-&lt;li>2020年5月、公式になった&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.hashicorp.com/blog/supporting-the-hashicorp-terraform-extension-for-visual-studio-code/">Supporting the HashiCorp Terraform Extension for Visual Studio Code&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="設定-1">設定&lt;/h3>
-&lt;ul>
-&lt;li>自動フォーマット（ &lt;code>editor.formatOnSave&lt;/code> ）をONにしておく -&amp;gt; &lt;code>terraform fmt&lt;/code> が掛かるようになる&lt;/li>
 &lt;/ul></description></item></channel></rss>

@@ -260,6 +260,8 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;h3 id="開発環境">開発環境&lt;/h3>
 &lt;p>2018/8/22現在、VSCode, IntelliJが人気のようだ。&lt;br>
 もちろん、Atomでも開発できそうだし、Eclipseもある。&lt;/p>
+&lt;h3 id="play-ground">Play Ground&lt;/h3>
+&lt;p>&lt;a href="https://play.rust-lang.org/">https://play.rust-lang.org/&lt;/a> &amp;hellip; Web上でコードの動作を試せる環境。&lt;/p>
 &lt;h2 id="learn-rust">Learn Rust&lt;/h2>
 &lt;p>Rustをより深く学ぶための教材など。&lt;/p>
 &lt;ul>
@@ -298,23 +300,43 @@ rustc --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>h&lt;span sty
 rustc --help -v
 &lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
 rustc --version&lt;span style="color:#000;font-weight:bold">|&lt;/span>-V
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="crates">Crates&lt;/h2>
-&lt;p>クレートはRustプログラムのパッケージを表す。&lt;br>
-&lt;code>cargo new&lt;/code> するとcrateが作られる。&lt;/p>
-&lt;p>&lt;a href="https://crates.io/">https://crates.io/&lt;/a> はクレートの公開レジストリ。
-自作のクレートをここに登録することでユーザーに配布することができる。&lt;/p>
-&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="road-to-rustacean">Road to Rustacean&lt;/h2>
+&lt;p>Rustでコードを書く上で知っておくべき基礎的なトピックやHow toについて書く。&lt;/p>
+&lt;h3 id="例外処理">例外処理&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://doc.rust-jp.rs/book/second-edition/ch14-02-publishing-to-crates-io.html">Crates.ioにクレートを公開する - The Rust Programming Language&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/skitaoka/items/753a519d720a1ccebb0d">Rust のモジュールシステム - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/errors.html">Nicer error reporting - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-jp.rs/book/second-edition/ch09-02-recoverable-errors-with-result.html">Resultで回復可能なエラー - The Rust Programming Language&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="clap">clap&lt;/h3>
-&lt;p>&lt;a href="https://crates.io/crates/clap">https://crates.io/crates/clap&lt;/a>&lt;/p>
-&lt;p>人気のCLIライブラリ。&lt;/p>
-&lt;h3 id="rand">rand&lt;/h3>
-&lt;p>&lt;a href="https://crates.io/crates/rand">https://crates.io/crates/rand&lt;/a>&lt;/p>
-&lt;p>乱数生成&lt;/p>
-&lt;h3 id="structopt">structopt&lt;/h3>
-&lt;p>&lt;a href="https://crates.io/crates/structopt">https://crates.io/crates/structopt&lt;/a>&lt;/p>
-&lt;p>clapに依存したCLIライブラリ。&lt;br>
-structを定義することでコマンドライン引数を解析する。&lt;/p></description></item></channel></rss>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/spec/#heading">言語仕様 &amp;gt; 演算子 &amp;gt; ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/#result-module">std::result&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/crate/#failure">Crates &amp;gt; failure&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="標準入出力">標準入出力&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/output.html">Output for humans and machines - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/#print">std::print&lt;/a>などのマクロファミリー&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/fmt/">std::fmt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/io/">std::io&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ファイル入出力">ファイル入出力&lt;/h3>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/std/#path-module">std::path&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コマンドライン引数">コマンドライン引数&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/cli-args.html">Parsing command line arguments - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/crate/#clap">Crates &amp;gt; clap&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/crate/#structopt">Crates &amp;gt; structopt&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
