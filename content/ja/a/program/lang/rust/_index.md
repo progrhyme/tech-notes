@@ -44,6 +44,12 @@ https://www.rust-lang.org/learn ... ランディングページ
 2018/8/22現在、VSCode, IntelliJが人気のようだ。  
 もちろん、Atomでも開発できそうだし、Eclipseもある。
 
+## Learn Rust
+
+Rustをより深く学ぶための教材など。
+
+- [Command Line Book](https://rust-cli.github.io/book/) ... RustでCLIを書くためのチュートリアルと関連トピック
+
 ## Community
 
 https://www.rustaceans.org/
@@ -54,35 +60,9 @@ Tips:
 
 ## CLI
 
+- [cargo]({{<ref "cargo.md">}}#cli)
 - rustup ... Rustコンパイラインストール。最新バージョンへのアップデート。クロスコンパイル
 - rustc ... Rustコンパイラ
-
-### cargo
-
-Rustのビルドシステム兼パッケージマネージャ。
-
-Examples:
-
-```sh
-# バージョン表示
-cargo --version
-
-# プロジェクト作成
-cargo new <project>
-cargo new --bin <project>
-
-cargo check # コンパイル可能かチェック
-
-# コンパイル。バイナリ生成
-cargo build
-cargo build --release # 最適化込み
-
-cargo run   # バイナリを作らずに直接実行
-```
-
-参考:
-
-- [Hello, Cargo! - The Rust Programming Language](https://doc.rust-lang.org/book/2018-edition/ch01-03-hello-cargo.html)
 
 ### rustup
 
@@ -122,16 +102,32 @@ rustc --version|-V
 
 ## Crates
 
-Rustのパッケージ管理システム。  
-Rustプログラムの単位でもある。  
+クレートはRustプログラムのパッケージを表す。  
 `cargo new` するとcrateが作られる。
 
-https://crates.io/ : 公式レジストリっぽい。
+https://crates.io/ はクレートの公開レジストリ。
+自作のクレートをここに登録することでユーザーに配布することができる。
 
 参考:
 
+- [Crates.ioにクレートを公開する - The Rust Programming Language](https://doc.rust-jp.rs/book/second-edition/ch14-02-publishing-to-crates-io.html)
 - [Rust のモジュールシステム - Qiita](https://qiita.com/skitaoka/items/753a519d720a1ccebb0d)
 
-### [rand](https://crates.io/crates/rand)
+### clap
+
+https://crates.io/crates/clap
+
+人気のCLIライブラリ。
+
+### rand
+
+https://crates.io/crates/rand
 
 乱数生成
+
+### structopt
+
+https://crates.io/crates/structopt
+
+clapに依存したCLIライブラリ。  
+structを定義することでコマンドライン引数を解析する。

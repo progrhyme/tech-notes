@@ -144,7 +144,7 @@ https://code.visualstudio.com/docs/editor/codebasics#_formatting
  `Ctrl+Shift+p`, `F1` | `⌘+Shift+p`, `F1` | コマンドパレットを開く
  `Ctrl+Shift+x` | `⌘+Shift+x` | 拡張機能を開く
  `` Ctrl+` `` | `` Ctrl+` `` | ターミナルの表示/非表示
- `` Ctrl+Shift+` `` | `` Ctrl+Shift+^ `` | 新しいターミナルの作成
+ `` Ctrl+Shift+` ``, `Ctrl+Shift+0` | `` Ctrl+Shift+^ `` | 新しいターミナルの作成
  `Ctrl+k v` | `⌘+k v` | Markdownファイルのプレビュー画面をサイドバイサイドで表示
  `Ctrl+Shift+v` | `⌘+Shift+v` | Markdownファイルのプレビュー画面を別タブで表示
  `Ctrl+k Ctrl+s` | `⌘+k ⌘+s` | キーバインド一覧を開く
