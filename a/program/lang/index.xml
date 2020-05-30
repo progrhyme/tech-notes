@@ -260,6 +260,11 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;h3 id="開発環境">開発環境&lt;/h3>
 &lt;p>2018/8/22現在、VSCode, IntelliJが人気のようだ。&lt;br>
 もちろん、Atomでも開発できそうだし、Eclipseもある。&lt;/p>
+&lt;h2 id="learn-rust">Learn Rust&lt;/h2>
+&lt;p>Rustをより深く学ぶための教材など。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/">Command Line Book&lt;/a> &amp;hellip; RustでCLIを書くためのチュートリアルと関連トピック&lt;/li>
+&lt;/ul>
 &lt;h2 id="community">Community&lt;/h2>
 &lt;p>&lt;a href="https://www.rustaceans.org/">https://www.rustaceans.org/&lt;/a>&lt;/p>
 &lt;p>Tips:&lt;/p>
@@ -268,25 +273,9 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;/ul>
 &lt;h2 id="cli">CLI&lt;/h2>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/rust/cargo/#cli">cargo&lt;/a>&lt;/li>
 &lt;li>rustup &amp;hellip; Rustコンパイラインストール。最新バージョンへのアップデート。クロスコンパイル&lt;/li>
 &lt;li>rustc &amp;hellip; Rustコンパイラ&lt;/li>
-&lt;/ul>
-&lt;h3 id="cargo">cargo&lt;/h3>
-&lt;p>Rustのビルドシステム兼パッケージマネージャ。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
-cargo --version
-&lt;span style="color:#8f5902;font-style:italic"># プロジェクト作成&lt;/span>
-cargo new &amp;lt;project&amp;gt;
-cargo new --bin &amp;lt;project&amp;gt;
-cargo check &lt;span style="color:#8f5902;font-style:italic"># コンパイル可能かチェック&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># コンパイル。バイナリ生成&lt;/span>
-cargo build
-cargo build --release &lt;span style="color:#8f5902;font-style:italic"># 最適化込み&lt;/span>
-cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作らずに直接実行&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://doc.rust-lang.org/book/2018-edition/ch01-03-hello-cargo.html">Hello, Cargo! - The Rust Programming Language&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="rustup">rustup&lt;/h3>
 &lt;p>Rust toolchain installer.&lt;/p>
@@ -310,13 +299,22 @@ rustc --help -v
 &lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
 rustc --version&lt;span style="color:#000;font-weight:bold">|&lt;/span>-V
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="crates">Crates&lt;/h2>
-&lt;p>Rustのパッケージ管理システム。&lt;br>
-Rustプログラムの単位でもある。&lt;br>
+&lt;p>クレートはRustプログラムのパッケージを表す。&lt;br>
 &lt;code>cargo new&lt;/code> するとcrateが作られる。&lt;/p>
-&lt;p>&lt;a href="https://crates.io/">https://crates.io/&lt;/a> : 公式レジストリっぽい。&lt;/p>
+&lt;p>&lt;a href="https://crates.io/">https://crates.io/&lt;/a> はクレートの公開レジストリ。
+自作のクレートをここに登録することでユーザーに配布することができる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://doc.rust-jp.rs/book/second-edition/ch14-02-publishing-to-crates-io.html">Crates.ioにクレートを公開する - The Rust Programming Language&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/skitaoka/items/753a519d720a1ccebb0d">Rust のモジュールシステム - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="randhttpscratesiocratesrand">&lt;a href="https://crates.io/crates/rand">rand&lt;/a>&lt;/h3>
-&lt;p>乱数生成&lt;/p></description></item></channel></rss>
+&lt;h3 id="clap">clap&lt;/h3>
+&lt;p>&lt;a href="https://crates.io/crates/clap">https://crates.io/crates/clap&lt;/a>&lt;/p>
+&lt;p>人気のCLIライブラリ。&lt;/p>
+&lt;h3 id="rand">rand&lt;/h3>
+&lt;p>&lt;a href="https://crates.io/crates/rand">https://crates.io/crates/rand&lt;/a>&lt;/p>
+&lt;p>乱数生成&lt;/p>
+&lt;h3 id="structopt">structopt&lt;/h3>
+&lt;p>&lt;a href="https://crates.io/crates/structopt">https://crates.io/crates/structopt&lt;/a>&lt;/p>
+&lt;p>clapに依存したCLIライブラリ。&lt;br>
+structを定義することでコマンドライン引数を解析する。&lt;/p></description></item></channel></rss>

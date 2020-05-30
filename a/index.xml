@@ -904,7 +904,97 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/TakiTake@github/items/bfc977baf4b909b1e118">KubernetesのRolling updateを安全に行う - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://rahmonov.me/posts/zero-downtime-deployment-with-kubernetes/">Zero Downtime Deployment with Kubernetes&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
+&lt;/ul></description></item><item><title>A: Cargo</title><link>https://progrhy.me/tech-notes/a/program/lang/rust/cargo/</link><pubDate>Sat, 30 May 2020 09:37:39 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/rust/cargo/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/cargo/">https://doc.rust-lang.org/cargo/&lt;/a>&lt;/p>
+&lt;p>CargoはRustのパッケージ管理ツール。
+以下の機能を有する:&lt;/p>
+&lt;ul>
+&lt;li>依存パッケージのダウンロード&lt;/li>
+&lt;li>コンパイル&lt;/li>
+&lt;li>配布可能なパッケージの作成&lt;/li>
+&lt;li>crates.io へのアップロード&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;p>&lt;code>cargo&lt;/code>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
+cargo --version
+&lt;span style="color:#8f5902;font-style:italic"># プロジェクト作成&lt;/span>
+cargo new &amp;lt;project&amp;gt;
+cargo new --bin &amp;lt;project&amp;gt;
+cargo check &lt;span style="color:#8f5902;font-style:italic"># コンパイル可能かチェック&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># コンパイル。バイナリ生成&lt;/span>
+cargo build
+cargo build --release &lt;span style="color:#8f5902;font-style:italic"># 最適化込み&lt;/span>
+cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作らずに直接実行&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/book/2018-edition/ch01-03-hello-cargo.html">Hello, Cargo! - The Rust Programming Language&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cargotoml-manifest">Cargo.toml (manifest)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/cargo/reference/manifest.html">https://doc.rust-lang.org/cargo/reference/manifest.html&lt;/a>&lt;/p>
+&lt;p>パッケージのメタデータや依存パッケージを記すマニフェストファイル。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tanakh/items/8cfa328ed652d71b1017">cargo publish する前に埋めておきたい Cargo.toml の項目に関するメモ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="dependency-tables">Dependency tables&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html">https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html&lt;/a>&lt;/p>
+&lt;p>依存パッケージの情報を示すセクション。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>[dependencies]&lt;/code> &amp;hellip; 実行時に必要なパッケージ&lt;/li>
+&lt;li>&lt;code>[dev-dependencies]&lt;/code> &amp;hellip; テストやベンチマークなどで必要なパッケージ&lt;/li>
+&lt;li>&lt;code>[build-dependencies]&lt;/code> &amp;hellip; ビルドに必要なパッケージ&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-TOML" data-lang="TOML">&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">dependencies&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">time&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0.1.12&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>上は &lt;code>&amp;quot;^0.1.12&amp;quot;&lt;/code> (caret requirement) と同じ扱いになる。&lt;br>
+バージョン固定したい場合、 &lt;code>&amp;quot;= 0.1.12&amp;quot;&lt;/code> と書く。詳しくは下を見よ。&lt;/p>
+&lt;h4 id="バージョンの指定方法">バージョンの指定方法&lt;/h4>
+&lt;p>様々な形式でバージョンを指定することができる。&lt;/p>
+&lt;p>Caret requirements（キャレット）:&lt;/p>
+&lt;pre>&lt;code>^1.2.3 := &amp;gt;=1.2.3, &amp;lt;2.0.0
+^1.2 := &amp;gt;=1.2.0, &amp;lt;2.0.0
+^1 := &amp;gt;=1.0.0, &amp;lt;2.0.0
+^0.2.3 := &amp;gt;=0.2.3, &amp;lt;0.3.0
+^0.2 := &amp;gt;=0.2.0, &amp;lt;0.3.0
+^0.0.3 := &amp;gt;=0.0.3, &amp;lt;0.0.4
+^0.0 := &amp;gt;=0.0.0, &amp;lt;0.1.0
+^0 := &amp;gt;=0.0.0, &amp;lt;1.0.0
+&lt;/code>&lt;/pre>&lt;p>Tilde requirements（チルダ）:&lt;/p>
+&lt;pre>&lt;code>~1.2.3 := &amp;gt;=1.2.3, &amp;lt;1.3.0
+~1.2 := &amp;gt;=1.2.0, &amp;lt;1.3.0
+~1 := &amp;gt;=1.0.0, &amp;lt;2.0.0
+&lt;/code>&lt;/pre>&lt;p>Wildcard requirements（ワイルドカード）:&lt;/p>
+&lt;pre>&lt;code>* := &amp;gt;=0.0.0
+1.* := &amp;gt;=1.0.0, &amp;lt;2.0.0
+1.2.* := &amp;gt;=1.2.0, &amp;lt;1.3.0
+&lt;/code>&lt;/pre>&lt;p>Note:&lt;/p>
+&lt;ul>
+&lt;li>crates.io では &lt;code>*&lt;/code> だけの指定はNG&lt;/li>
+&lt;/ul>
+&lt;p>Comparison requirements:&lt;/p>
+&lt;pre>&lt;code>&amp;gt;= 1.2.0
+&amp;gt; 1
+&amp;lt; 2
+= 1.2.3
+&lt;/code>&lt;/pre>&lt;p>Multiple requirements:&lt;/p>
+&lt;ul>
+&lt;li>例: &lt;code>&amp;gt;= 1.2, &amp;lt; 1.5&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 id="パッケージ取得先の指定">パッケージ取得先の指定&lt;/h4>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-TOML" data-lang="TOML">&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">dependencies&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 独自レジストリ&lt;/span>
+&lt;span style="color:#000">some&lt;/span>&lt;span style="color:#a40000">-&lt;/span>&lt;span style="color:#000">crate&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">{&lt;/span> &lt;span style="color:#000">version&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">registry&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my-registry&amp;#34;&lt;/span> &lt;span style="color:#a40000">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Gitロケーション&lt;/span>
+&lt;span style="color:#000">rand&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">{&lt;/span> &lt;span style="color:#000">git&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/rust-lang-nursery/rand&amp;#34;&lt;/span> &lt;span style="color:#a40000">}&lt;/span>
+&lt;span style="color:#000">rand&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">{&lt;/span> &lt;span style="color:#000">git&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/rust-lang-nursery/rand&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">branch&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;next&amp;#34;&lt;/span> &lt;span style="color:#a40000">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ファイルシステム&lt;/span>
+&lt;span style="color:#000">hello_utils&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">{&lt;/span> &lt;span style="color:#000">path&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hello_utils&amp;#34;&lt;/span> &lt;span style="color:#a40000">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
 &lt;p>Quick links:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="#gcloud">gcloud&lt;/a>&lt;/li>
@@ -3668,7 +3758,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>ターミナルの表示/非表示&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>&lt;/td>
+&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>, &lt;code>Ctrl+Shift+0&lt;/code>&lt;/td>
 &lt;td>&lt;code>Ctrl+Shift+^&lt;/code>&lt;/td>
 &lt;td>新しいターミナルの作成&lt;/td>
 &lt;/tr>
@@ -3771,105 +3861,4 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;h3 id="設定-1">設定&lt;/h3>
 &lt;ul>
 &lt;li>自動フォーマット（ &lt;code>editor.formatOnSave&lt;/code> ）をONにしておく -&amp;gt; &lt;code>terraform fmt&lt;/code> が掛かるようになる&lt;/li>
-&lt;/ul></description></item><item><title>A: ネットワーク関係のCLI</title><link>https://progrhy.me/tech-notes/a/cli/network/</link><pubDate>Mon, 11 May 2020 23:30:10 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/network/</guid><description>
-&lt;p>ネットワーク関係のUnixコマンドやCLIツールについて、ここに記す。&lt;/p>
-&lt;h2 id="dig">dig&lt;/h2>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/bind/man1/dig.1.html">https://linuxjm.osdn.jp/html/bind/man1/dig.1.html&lt;/a>&lt;/p>
-&lt;p>DNSクエリを送信し、結果を得る。&lt;/p>
-&lt;p>構文:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">dig &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>@ server &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> domain &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-type &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Aq query-class &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>+ Aq query-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-Aq dig-option &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>%comment &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>&lt;code>@server&lt;/code> &amp;hellip; ネームサーバを指定&lt;/li>
-&lt;/ul>
-&lt;p>query-option:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>+short&lt;/code>&lt;/td>
-&lt;td>結果のIPやホスト名だけを返す&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>+trace&lt;/code>&lt;/td>
-&lt;td>ルートDNSから問合せ&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://orebibou.com/2016/11/dig%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B911%E5%80%8B/">digコマンドで覚えておきたい使い方11個 | 俺的備忘録 〜なんかいろいろ〜&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.geocities.jp/yasasikukaitou/dig.html">digコマンド 使い方 オプション DNS BIND&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="mtr">mtr&lt;/h2>
-&lt;p>デフォルトは ICMP を使う。&lt;/p>
-&lt;p>オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-T,--tcp&lt;/code>&lt;/td>
-&lt;td>TCP SYN を使う&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-u&lt;/code>&lt;/td>
-&lt;td>UDP を使う&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-P,--port &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
-&lt;td>UDP/TCP で port を指定する。&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-v,--version&lt;/code>&lt;/td>
-&lt;td>バージョン表示。&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>※古いバージョンだとオプション効かないかも。man とか見て。&lt;/p>
-&lt;h2 id="ss">ss&lt;/h2>
-&lt;p>netstatとまあまあ同じ感じで使える。&lt;br>
-netstatより推奨っぽいが、作りがバギーという噂もどこかで。。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># LISTENしているポート&lt;/span>
-ss -l
-&lt;span style="color:#8f5902;font-style:italic"># TCP, UDPとも名前解決せずに全ての接続を表示&lt;/span>
-ss -antu
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/sonoshou/items/cc2b740147ba1b8da1f3">Linuxでプロセスが何のポート使っているかを調べる - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="traceroute">traceroute&lt;/h2>
-&lt;p>デフォルトは UDP を使う。&lt;/p>
-&lt;p>オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-I&lt;/code>&lt;/td>
-&lt;td>ICMP を使う。&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-T&lt;/code>&lt;/td>
-&lt;td>TCP を使う。&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-p &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
-&lt;td>UDP/TCP で port を指定する。&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

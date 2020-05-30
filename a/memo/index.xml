@@ -1,4 +1,32 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-24</title><link>https://progrhy.me/tech-notes/a/memo/20200524/</link><pubDate>Sun, 24 May 2020 05:11:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200524/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
+&lt;h2 id="530">5/30&lt;/h2>
+&lt;h3 id="ubuntuデスクトップのvs-codeでフォント変更">UbuntuデスクトップのVS Codeでフォント変更&lt;/h3>
+&lt;p>ターミナルで記号が豆腐になってしまったので、Nerdフォントにしたのだが、すぐに反映されないような気がしたら、VS Codeの再起動が必要だった。&lt;/p>
+&lt;p>キーワード: Visual Studio Code, Powerline Fonts&lt;/p>
+&lt;h3 id="vs-codeでrustのプラグインがインストールできない">VS CodeでRustのプラグインがインストールできない&lt;/h3>
+&lt;p>作業環境はUbuntuデスクトップ。&lt;br>
+久しぶりにRustを触ったのがいけなかったのか、本来はVS Code上でポップアップ通知に従ってrlsやanalyzerをインストールすればいいはずなのだが、次のエラーで失敗した。&lt;/p>
+&lt;pre>&lt;code>error: toolchain 'stable-x86_64-unknown-linux-gnu' does not contain component 'rls' for target 'x86_64-unknown-linux-gnu'
+&lt;/code>&lt;/pre>&lt;p>ググると次のイシューにヒットし、再インストールで解消した。&lt;/p>
+&lt;p>&lt;a href="https://github.com/rust-lang/rls/issues/1273">https://github.com/rust-lang/rls/issues/1273&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">rustup uninstall stable
+rustup install stable
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/chikoski/items/53590914cc6aacc8916d">Visual Studio Code で Rust 開発を始めるには - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="cargo-editというのがある">cargo-editというのがある&lt;/h3>
+&lt;p>2018-02-06更新の記事: &lt;a href="https://qiita.com/i2tsuki/items/8d90f7aa872671404a15">Cargo.toml の編集に cargo-edit を使う - Qiita&lt;/a>&lt;/p>
+&lt;p>Rustのパッケージ管理ツールである &lt;code>cargo&lt;/code> CLIに以下の機能を追加してくれる:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cargo add &amp;lt;Package&amp;gt;&lt;/code> &amp;hellip; 依存パッケージを追加&lt;/li>
+&lt;li>&lt;code>cargo rm &amp;lt;Package&amp;gt;&lt;/code> &amp;hellip; 依存パッケージの削除&lt;/li>
+&lt;li>&lt;code>cargo list&lt;/code> &amp;hellip; 依存パッケージ一覧&lt;/li>
+&lt;/ul>
+&lt;p>絶対必要というほどではないが、便利かも。&lt;/p>
+&lt;h3 id="rustのcli作成チュートリアル">RustのCLI作成チュートリアル&lt;/h3>
+&lt;p>&lt;a href="https://rust-cli.github.io/book/tutorial/">A command line app in 15 minutes - Command Line Applications in Rust&lt;/a>をやっている。&lt;/p>
+&lt;p>初めて出くわしたライブラリや言語仕様を都度、調べながらなので遅々として進まないが、いま&lt;a href="https://rust-cli.github.io/book/tutorial/impl-draft.html">1.3. First implementation&lt;/a>まで来たところ。&lt;/p></description></item><item><title>A: 2020-05-24</title><link>https://progrhy.me/tech-notes/a/memo/20200524/</link><pubDate>Sun, 24 May 2020 05:11:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200524/</guid><description>
 &lt;h2 id="524">5/24&lt;/h2>
 &lt;h3 id="macosでターミナルの操作動画をタイプしたキーと共に録画する">macOSでターミナルの操作動画をタイプしたキーと共に録画する&lt;/h3>
 &lt;p>ブログ用にキャプチャ動画を撮りたいと思った。&lt;/p>

@@ -504,7 +504,7 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;td>ターミナルの表示/非表示&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>&lt;/td>
+&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>, &lt;code>Ctrl+Shift+0&lt;/code>&lt;/td>
 &lt;td>&lt;code>Ctrl+Shift+^&lt;/code>&lt;/td>
 &lt;td>新しいターミナルの作成&lt;/td>
 &lt;/tr>
