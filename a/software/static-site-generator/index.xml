@@ -77,6 +77,29 @@ hugo new posts/my-first-post.md
 hugo server -D
 &lt;span style="color:#8f5902;font-style:italic">## -D を付けることで draft のページも表示される&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>&lt;a href="https://gohugo.io/getting-started/configuration/">https://gohugo.io/getting-started/configuration/&lt;/a>&lt;/p>
+&lt;h3 id="設定ファイル">設定ファイル&lt;/h3>
+&lt;p>デフォルトでは config.toml → config.yaml → config.json の順で参照される。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>hugo --config CONFIG&lt;/code> オプションで任意の設定ファイルを指定可能&lt;/li>
+&lt;li>&lt;code>hugo --config a.toml,b.toml&lt;/code> のように、カンマ区切りで複数ファイルを指定することも可能&lt;/li>
+&lt;/ul>
+&lt;h3 id="環境変数による設定">環境変数による設定&lt;/h3>
+&lt;p>&lt;a href="https://gohugo.io/getting-started/configuration/#configure-with-environment-variables">https://gohugo.io/getting-started/configuration/#configure-with-environment-variables&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>トップレベルの設定値は、 &lt;code>HUGO_TITLE=&amp;quot;hoge hoge&amp;quot; hugo&lt;/code> のように上書きできるようだ。 &lt;code>HUGO_TITLE&lt;/code> で &lt;code>title&lt;/code> を上書き&lt;/li>
+&lt;li>&lt;code>[params]&lt;/code> の設定値であれば、 &lt;code>HUGO_PARAMS_&lt;/code> をprefixとして設定すればよいそうだ&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>2020-05-31 おそらくこのやり方では設定ファイルで設定した値の削除/無効化はできないと思われる。Docsyで &lt;code>HUGO_PARAMS_GCS_ENGINE_ID=&amp;quot;&amp;quot;&lt;/code> のようにしても、Googleカスタム検索エンジンを無効化できなかった
+&lt;ul>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/memo/20200531/#docsy%E3%81%A7google%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%92%E4%BD%BF%E3%81%86">2020-05-31#DocsyでGoogleカスタム検索エンジンを使う&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="設定項目">設定項目&lt;/h2>
+&lt;p>設定ファイルの設定項目について。&lt;/p>
 &lt;h3 id="table-of-contents">Table Of Contents&lt;/h3>
 &lt;p>&lt;a href="https://gohugo.io/getting-started/configuration-markup/#table-of-contents">https://gohugo.io/getting-started/configuration-markup/#table-of-contents&lt;/a>&lt;/p>
 &lt;p>※Goldmarkのみ&lt;/p>

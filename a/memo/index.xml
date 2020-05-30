@@ -1,4 +1,42 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-31</title><link>https://progrhy.me/tech-notes/a/memo/20200531/</link><pubDate>Sun, 31 May 2020 07:47:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200531/</guid><description>
+&lt;h2 id="531">5/31&lt;/h2>
+&lt;h3 id="docsyでgoogleカスタム検索エンジンを使う">DocsyでGoogleカスタム検索エンジンを使う&lt;/h3>
+&lt;p>そろそろLunr.jsに限界を感じてきたので、導入する。&lt;br>
+具体的には「k8s」や「k9s」などが検索でヒットしない。&lt;/p>
+&lt;p>やり方は公式ドキュメントの&lt;a href="https://www.docsy.dev/docs/adding-content/navigation/#configure-search-with-a-google-custom-search-engine">Navigation and Search | Docsy&lt;/a>の通り。&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://cse.google.com/cse/all">https://cse.google.com/cse/all&lt;/a> にアクセスし、新しい検索エンジンを追加。
+&lt;ul>
+&lt;li>対象は「progrhy.me/tech-notes/*」&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>オプションの設定
+&lt;ul>
+&lt;li>「デザイン &amp;gt; レイアウト」で「結果のみ」を選ぶ&lt;/li>
+&lt;li>「検索機能 &amp;gt; 詳細設定 &amp;gt; ウェブ検索の設定」で、「リンクターゲット」を「_parent」にする。これで現在のタブで（新しいタブを開かずに）検索結果に遷移できる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>config.toml 編集
+&lt;ul>
+&lt;li>&lt;code>params.gcs_engine_id&lt;/code> に作成した検索エンジンのIDを設定&lt;/li>
+&lt;li>&lt;code>params.offlineSearch = false&lt;/code> として、Lunr.jsを無効化&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="ローカルではlunrjsを使う">ローカルではLunr.jsを使う&lt;/h4>
+&lt;p>カスタム検索エンジンを使うと当然 &lt;a href="https://progrhy.me/tech-notes/">https://progrhy.me/tech-notes/&lt;/a> に遷移してしまうので、ローカル作業時はLunr.jsの方が都合が良い。&lt;/p>
+&lt;p>Hugoで、オプションによって設定を切替える方法について調べて&lt;a href="https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/#configuration">Hugo#Configuration&lt;/a>に記した。&lt;/p>
+&lt;p>初め、環境変数で以下を指定してやろうとした:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">HUGO_PARAMS_GCS_ENGINE_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">HUGO_PARAMS_OFFLINESEARCH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>試したところ、 &lt;code>offlineSearch = true&lt;/code> は設定できたようだが、 &lt;code>gcs_engine_id&lt;/code> の指定を無効化することはできなかった。&lt;br>
+config.tomlではコメントアウトしておいて、公開サイトビルド時に環境変数で &lt;code>gcs_engine_id&lt;/code> を設定するやり方も考えられるが、バグったときに面倒なので、CIの設定はなるべく変えたくない。&lt;/p>
+&lt;p>同じページ（Hugoのドキュメント）を見ていたところ、 &lt;code>hugo --config a.toml,b.toml&lt;/code> のように設定ファイルを複数指定できることに気がついたので、下のような &lt;code>config-local.toml&lt;/code> を用意した:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-TOML" data-lang="TOML">&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">params&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">gcs_engine_id&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#000">offlineSearch&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>…で、ローカルでは &lt;code>hugo server --config config.toml,config-local.toml&lt;/code> と指定してサーバを起動するようにしたら、上手く行った。&lt;/p>
+&lt;p>ちなみに、こんなの毎回打ってられないので、少し前から&lt;a href="https://github.com/progrhyme/dotfiles/blob/9ae6af2874f5ffabd9560df8d5b0205b64230ce8/script/run-hugo-server.sh">ラッパースクリプト&lt;/a>を使っていて、 &lt;code>HUGO_CONFIG=config.toml,config-local.toml&lt;/code> とシェル変数を設定ファイルに書いて読み込ませて対応している。&lt;/p></description></item><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
 &lt;h2 id="530">5/30&lt;/h2>
 &lt;h3 id="ubuntuデスクトップのvs-codeでフォント変更">UbuntuデスクトップのVS Codeでフォント変更&lt;/h3>
 &lt;p>ターミナルで記号が豆腐になってしまったので、Nerdフォントにしたのだが、すぐに反映されないような気がしたら、VS Codeの再起動が必要だった。&lt;/p>
@@ -432,206 +470,4 @@ progrhyme/toolbox
 &lt;h3 id="clenvはbasherで完全に置き換えられそう">clenvはbasherで完全に置き換えられそう&lt;/h3>
 &lt;p>&lt;a href="https://github.com/basherpm/basher">https://github.com/basherpm/basher&lt;/a>&lt;/p>
 &lt;p>ライブラリのロードが &lt;code>include user/repo lib/file.sh&lt;/code> みたいにして行けるので、一昨日作った gcloud-prompt だったら、 &lt;code>include progrhyme/gcloud-prompt gcloud-prompt.sh&lt;/code> で行ける。簡単。&lt;/p>
-&lt;p>どうもパッケージの &lt;code>bin/&lt;/code> 以下に置いたものが自動でデフォルトだと &lt;code>$HOME/.basher/celler/bin/&lt;/code> に展開されるっぽい。symlinkかもしれんが。&lt;/p></description></item><item><title>A: 2020-05-17</title><link>https://progrhy.me/tech-notes/a/memo/20200517/</link><pubDate>Sun, 17 May 2020 16:22:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200517/</guid><description>
-&lt;h2 id="517">5/17&lt;/h2>
-&lt;h3 id="gcloud-prompt作った">gcloud-prompt作った&lt;/h3>
-&lt;p>これ: &lt;a href="https://github.com/progrhyme/gcloud-prompt">https://github.com/progrhyme/gcloud-prompt&lt;/a>&lt;/p>
-&lt;p>作り始める前に、一応既存のがないかは調べた。
-下が見つかった:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/antoniomo/gcloud-ps1">https://github.com/antoniomo/gcloud-ps1&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/ocadaruma/zsh-gcloud-prompt">https://github.com/ocadaruma/zsh-gcloud-prompt&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>上はactiveなconfigurationを表示しているだけ。&lt;br>
-下は逆に、 &lt;code>default&lt;/code> configuration前提で、 &lt;code>account&lt;/code>, &lt;code>project&lt;/code> の情報を表示している。&lt;/p>
-&lt;p>自分のニーズとしては、 &lt;code>project&lt;/code> や &lt;code>compute.region&lt;/code> を入れたい。&lt;br>
-あまりconfigurationsを活用できてないけど、なるべくconfigurationsで管理していきたい気持ちはあるので、activeなconfigurationも表示したいと思った。&lt;/p>
-&lt;p>…で、上のgcloud-ps1のコードを参考にしながら、とりあえずMacの.zshrcにベタに実装していたが、愚直に実装するとgcloudコマンドが遅すぎて使い物にならないことに気がついた。&lt;/p>
-&lt;p>コマンド1回で0.3sぐらいかかってたので、configuration, project, compute.regionをそれぞれ取得していたら、ENTERを打つたびに1秒待つことになる。&lt;br>
-さすがに無理である。&lt;/p>
-&lt;h4 id="activeなconfigurationの取得">activeなconfigurationの取得&lt;/h4>
-&lt;p>そこで、activeなconfigurationの取得については、環境変数CLOUDSDK_ACTIVE_CONFIG_NAMEが設定されていればそちらを、そうでなければ &lt;code>$HOME/.config/gcloud/active_config&lt;/code> を直接見ることにした。&lt;/p>
-&lt;h4 id="configパラメータの取得">configパラメータの取得&lt;/h4>
-&lt;p>…で、configパラメータの取得だが、現在の設定リストは &lt;code>default&lt;/code> configurationであれば &lt;code>$HOME/.config/gcloud/configurations/config_default&lt;/code> に保存されている。&lt;br>
-ただし、INIファイル形式で、さすがにシェルスクリプトで自前でパースするのはしんどそう。&lt;/p>
-&lt;p>CLIリファレンスを読み込んでいると、 &lt;code>gcloud config list --format=FORMAT&lt;/code> オプションで任意のキーを所望のフォーマットで取得できることがわかった。&lt;/p>
-&lt;p>これも毎回実行していると遅いので、コマンドの実行結果をキャッシュファイルに書いて、上のファイルとのタイムスタンプを比較して、更新されていなければキャッシュファイルをcatして返すようにした。&lt;/p>
-&lt;h4 id="clenv対応">clenv対応&lt;/h4>
-&lt;p>submoduleにしたくなかったので、&lt;a href="https://github.com/progrhyme/clenv/blob/master/bin/clam">clenv/bin/clam&lt;/a>でinstallできるようにした。&lt;br>
-なにげに自作のシェルスクリプトライブラリを自分のシェル環境で常にロードして使うのは初めてだったのかも？&lt;/p>
-&lt;p>自分で作ったclenvの使い方をすっかり忘れていたので、ソースを解読して使い方を把握した。&lt;/p>
-&lt;pre>&lt;code>name=gcloud-prompt
-version=0.5.0
-libraries=&amp;quot;gcloud-prompt.sh&amp;quot;
-&lt;/code>&lt;/pre>&lt;p>上を &lt;code>clam.spec&lt;/code> ってファイルで作っておくとclamでインストールして、 &lt;code>gcloud-prompt.sh&lt;/code> を&lt;a href="https://github.com/progrhyme/clenv/blob/master/bin/cload">clenv/bin/cload&lt;/a>で読み込めるところに配置してくれる。&lt;/p>
-&lt;p>シェル環境の方の対応コミットは下:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/7d9b708187836fcafc03591808e17eda88dded62">https://github.com/progrhyme/myenv/commit/7d9b708187836fcafc03591808e17eda88dded62&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>clenvのライブラリをロードするコードがなかったので、追加した。&lt;/p></description></item><item><title>A: 2020-05-16</title><link>https://progrhy.me/tech-notes/a/memo/20200516/</link><pubDate>Sat, 16 May 2020 01:56:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200516/</guid><description>
-&lt;h2 id="516">5/16&lt;/h2>
-&lt;h3 id="zshをfishっぽくいい感じにできた">zshをfishっぽくいい感じにできた&lt;/h3>
-&lt;p>&lt;a href="../20200513/#fish%E3%81%A7%E3%81%A1%E3%82%87%E3%81%A3%E3%81%A8%E3%81%84%E3%81%84%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E6%A9%9F%E8%83%BD%E3%81%AFzsh%E3%81%A7%E3%82%82%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86">5/13にfishでちょっといいと思った機能はzshでもできそう&lt;/a>だと気がついたので、やってみた。&lt;br>
-…で、やってみたらできた。&lt;/p>
-&lt;p>作業環境はUbuntu 18.04.&lt;/p>
-&lt;p>やったこと:&lt;/p>
-&lt;ol>
-&lt;li>oh-my-zshをインストール&lt;/li>
-&lt;li>テーマを選ぶ&lt;/li>
-&lt;li>shrink-pathを設定し、プロンプトをいい感じに調整&lt;/li>
-&lt;li>zsh-autosuggestionsをインストールして設定&lt;/li>
-&lt;/ol>
-&lt;p>1つずつ軽く振り返っておく。&lt;/p>
-&lt;h4 id="oh-my-zshをインストール">oh-my-zshをインストール&lt;/h4>
-&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh&lt;/a>&lt;/p>
-&lt;p>README.mdの通りに。一応 tools/install.sh の中身はざっと見た。&lt;br>
-zshじゃないとデフォルトではchshされてしまうのと、インストール後に &lt;code>zsh -l&lt;/code> が走ることは確認した上で、そのまま実行:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sh -c &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>元の ~/.zshrc は退避された上で、oh-my-zshが作った ~/.zshrc が配置されていることに気づいた。&lt;br>
-とりあえず自分の ~/.zshrc に戻して、oh-my-zshが作った ~/.zshrc の記述を ~/.zshenv と ~/.zshrc に追記する。&lt;/p>
-&lt;p>これだけでも &lt;code>PROMPT&lt;/code> が変わって、見た目が変わったなという印象。&lt;/p>
-&lt;p>ただ、自分は &lt;code>RPROMPT&lt;/code> に色々詰め込んでいるので、調整が必要。&lt;/p>
-&lt;p>プロンプトについては次とその次のステップで調整する。&lt;/p>
-&lt;h4 id="テーマを選ぶ">テーマを選ぶ&lt;/h4>
-&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&lt;/a> から選ぶ。&lt;br>
-Externalなテーマもあるらしいけど、今は興味なし。&lt;br>
-上から見ていって、&lt;a href="https://github.com/agnoster/agnoster-zsh-theme">agnoster&lt;/a>がよさげだったので、君に決めた。&lt;/p>
-&lt;p>これもデフォルトだと左PROMPTが長くて、しかもリポジトリのREADMEの通りにやろうとしても &lt;code>AGNOSTER_*&lt;/code> な変数はセットされていない。&lt;/p>
-&lt;p>仕方ないので、&lt;code>~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/code> で定義されている &lt;code>build_prompt()&lt;/code> 関数を自分の ~/.zshrc の中でオーバーライドすることにした。&lt;/p>
-&lt;p>&lt;code>agnoster.zsh-theme&lt;/code> を覗くと次のようになっていたので、それで行けそうだと思った。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ tail ~/.oh-my-zsh/themes/agnoster.zsh-theme
-&lt;span style="color:#8f5902;font-style:italic">## Main prompt&lt;/span>
-build_prompt&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">RETVAL&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$?&lt;/span>
-prompt_status
-prompt_virtualenv
-prompt_aws
-prompt_context
-prompt_dir
-prompt_git
-prompt_bzr
-prompt_hg
-prompt_end
-&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%{%f%b%k%}$(build_prompt) &amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="shrink-pathを設定しプロンプトをいい感じに調整">shrink-pathを設定し、プロンプトをいい感じに調整&lt;/h4>
-&lt;p>shrink-pathは標準プラグインとしてoh-my-zshに同梱されている。&lt;/p>
-&lt;p>&lt;a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/shrink-path">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/shrink-path&lt;/a>&lt;/p>
-&lt;p>このパスにREADME.mdも置かれているので、読むと使い方がわかる。&lt;/p>
-&lt;p>利用するには .zshrc 内で &lt;code>plugins+=(shrink-path)&lt;/code> すればいい。&lt;/p>
-&lt;p>それから、 &lt;code>PROMPT&lt;/code> や &lt;code>RPROMPT&lt;/code> 内に &lt;code>'$(shrink-path -f)'&lt;/code> と記すと、ホームディレクトリからの絶対パスで、親ディレクトリは先頭1文字に縮めて表示してくれる。&lt;/p>
-&lt;p>最終的に、agnoster.zsh-themeの &lt;code>build_prompt()&lt;/code> 関数を次のように書き換えた:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">build_prompt&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">RETVAL&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$?&lt;/span>
-prompt_status
-prompt_segment blue &lt;span style="color:#000">$CURRENT_FG&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shrink_path -f&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-prompt_git
-prompt_end
-&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで下のような感じになった。&lt;/p>
-&lt;figure>
-&lt;img src="ohmyzsh_capture.png"
-alt="terminal screenshot with oh-my-zsh"/>
-&lt;/figure>
-&lt;h4 id="zsh-autosuggestionsをインストールして設定">zsh-autosuggestionsをインストールして設定&lt;/h4>
-&lt;p>&lt;a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions&lt;/a>&lt;/p>
-&lt;p>INSTALL.md に従って、次のコマンドを実行:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/zsh-users/zsh-autosuggestions &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">ZSH_CUSTOM&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000;font-weight:bold">~/.oh-my-zsh/custom&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>/plugins/zsh-autosuggestions
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>残念ながら今の環境は256色に対応してないみたいで、次のように設定した:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;fg=green,bold&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>下のような感じでサジェストが出る。&lt;/p>
-&lt;figure>
-&lt;img src="zsh_autosuggestions.png"
-alt="screenshot of zsh-autosuggestions"/>
-&lt;/figure>
-&lt;p>&lt;code>Ctrl+e&lt;/code> or &lt;code>Ctrl+f&lt;/code> でサジェスト候補を選択できる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/hinatades/items/d38be4830191f251935d">ターミナルでコマンド履歴の入力補完 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>もうこれは完全にfishと言っていいだろう。&lt;/p>
-&lt;p>…というか、自分にとってはfishをセットアップするより楽だった気がする。&lt;/p>
-&lt;p>今回の変更は次の2コミットに該当する:&lt;/p>
-&lt;ul>
-&lt;li>dotfilesの変更: &lt;a href="https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161">https://github.com/progrhyme/myenv/commit/b4ef98a8b1ef9ae6f0a39532590d79c8161fc161&lt;/a>&lt;/li>
-&lt;li>セットアップスクリプトへの反映: &lt;a href="https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4">https://github.com/progrhyme/myenv/commit/96a552660c9b79dcf73a1e87a8fc6664d33864f4&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>※oh-my-zshが勝手に &lt;code>PAGER=less&lt;/code> と &lt;code>LESS=-R&lt;/code> を設定していやがったので、.zshrc内でunsetしている。&lt;/p>
-&lt;h3 id="macbookでもoh-my-zshをセットアップ">MacBookでもoh-my-zshをセットアップ&lt;/h3>
-&lt;p>Ubuntuと同様で、特にハマることはなかった。&lt;/p>
-&lt;p>セットアップコードのリファクタリングを行った。&lt;/p>
-&lt;ul>
-&lt;li>リファクタ: &lt;a href="https://github.com/progrhyme/myenv/commit/dac7a0695ec3d81269d0adc6bfc9c2750753be3a">https://github.com/progrhyme/myenv/commit/dac7a0695ec3d81269d0adc6bfc9c2750753be3a&lt;/a>&lt;/li>
-&lt;li>macOS用の対応: &lt;a href="https://github.com/progrhyme/myenv/commit/e35842708298c0803a2f655affc56d3c653f61af">https://github.com/progrhyme/myenv/commit/e35842708298c0803a2f655affc56d3c653f61af&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="macbookにiterm2を入れて設定してみた">MacBookにiTerm2を入れて設定してみた&lt;/h3>
-&lt;p>&lt;a href="../20200513/#iterm2%E3%81%AF%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%ABapp%E3%81%A8%E6%AF%94%E3%81%B9%E3%81%A6%E4%BD%95%E3%81%8C%E8%89%AF%E3%81%84%E3%81%AE%E3%81%8B">iTerm2良いよーっていうミームを受け取った&lt;/a>ので、試しに使ってみることにした。&lt;/p>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/terminal/iterm2/">Software &amp;gt; ターミナル &amp;gt; iTerm2&lt;/a>&lt;/p>
-&lt;h4 id="install">Install&lt;/h4>
-&lt;p>&lt;a href="https://iterm2.com/downloads.html">https://iterm2.com/downloads.html&lt;/a> から最新安定版を入手して普通にインストール。&lt;/p>
-&lt;h4 id="初期設定">初期設定&lt;/h4>
-&lt;p>とりあえず &lt;code>Preferences &amp;gt; Profiles&lt;/code> で「Default」プロファイルを弄る:&lt;/p>
-&lt;ul>
-&lt;li>Colors &amp;hellip; デフォルトの「Dark Background」をベースに微調整&lt;/li>
-&lt;li>Text
-&lt;ul>
-&lt;li>フォントを「Roboto Mono for Powerline」の16ptに&lt;/li>
-&lt;li>よくわからんが「Blinking text」にチェック&lt;/li>
-&lt;li>「Use built-in Powerline glyphs」にもチェックしてみた。フォントの見た目がちょっと変わった&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Window
-&lt;ul>
-&lt;li>透明度を適当に設定&lt;/li>
-&lt;li>Settings for New Windows
-&lt;ul>
-&lt;li>幅と高さをいい感じに調整&lt;/li>
-&lt;li>Screen: 「Screen with Cursor」にした&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Terminal &amp;hellip; &lt;code>Scrollback lines&lt;/code> を「3000」にした&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>Colors:
-&lt;ul>
-&lt;li>&lt;code>Cursor Colors &amp;gt; Cursor Boost&lt;/code> が何の設定なのかわからん&lt;/li>
-&lt;li>ディレクトリやシェルスクリプトのコメントがCyan.Brightになるのが違和感ある&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>また、 &lt;code>Preferences &amp;gt; Keys &amp;gt; Hotkey&lt;/code> でホットキーも設定しておく。&lt;br>
-なんとなく &lt;code>⌥ + ⌘ + ENTER&lt;/code> にした。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/koh110/items/b7e9471330308fdb7250">iterm2の設定覚え書き - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="shell-integrationの導入">Shell Integrationの導入&lt;/h4>
-&lt;p>&lt;a href="https://www.rasukarusan.com/entry/2019/04/13/180443">俺よりiTerm使いこなしてるやつおる？ - ハイパーマッスルエンジニアになりたい&lt;/a>によれば、とりあえずShell Integrationは入れろということらしい。&lt;br>
-ので、素直に入れてみる。&lt;/p>
-&lt;p>&lt;a href="https://www.iterm2.com/documentation-shell-integration.html">https://www.iterm2.com/documentation-shell-integration.html&lt;/a>&lt;/p>
-&lt;p>のガイドに従い、次のコマンドでzsh用のスクリプトを取得:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -L https://iterm2.com/shell_integration/zsh &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-o ~/.iterm2_shell_integration.zsh
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>読み込むと、プロンプトの左端に小さな矢印がついて、実行コマンドの成否がわかる。&lt;br>
-機能がagnosterのプロンプトと被っているので、.zshrcを次のように変更して、iTerm2のShell Integrationを有効化したら、agnosterのプロンプトを調整することにした。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/232924a0cd51ab4902a3e45a6a3ff25e2d0b5bd8">https://github.com/progrhyme/myenv/commit/232924a0cd51ab4902a3e45a6a3ff25e2d0b5bd8&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>そういえばこれ、iterm2_shell_integration.zsh を読み込んだ後に &lt;code>PROMPT&lt;/code> を設定してるけど、ちゃんと動いてるな。不思議だ。。&lt;/p>
-&lt;p>Auto Command Completionも有効にしてみた。&lt;br>
-これをONにすると、zsh-autosuggestionの方はカニバって動かないようだったので、Shell Integrationが有効なときはzsh-autosuggestionを使わないようにした:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/progrhyme/myenv/commit/dd1b7d023fdcd9b69343e6e57a2d7280d6071003">https://github.com/progrhyme/myenv/commit/dd1b7d023fdcd9b69343e6e57a2d7280d6071003&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>それにしても、Shell Integrationの機能の多くは既にpecoで実現していたな。。&lt;/p>
-&lt;p>（追記）Auto Command Completionはたくさん表示されると迷うし、タブ補完が効かなくなってちょっとお節介な感じなので、やっぱりzsh-autosuggestionに戻した。&lt;/p>
-&lt;h4 id="所感">所感&lt;/h4>
-&lt;p>慣れたら少しは生産性上がるかも。&lt;/p>
-&lt;h3 id="iterm2だとvimのdefault-colorschemeの設定が変わっている">iTerm2だとVimのdefault colorschemeの設定が変わっている&lt;/h3>
-&lt;p>なぜかわからないが、ターミナル.appと比べると &lt;code>:highlight&lt;/code> の結果にだいぶ差があった。&lt;/p>
-&lt;p>iTerm2が256色対応だから？&lt;/p>
-&lt;p>.vimrc で &lt;code>colorscheme elflord&lt;/code> を設定するとややマシになった。&lt;/p>
-&lt;p>参考: &lt;a href="https://progrhy.me/tech-notes/a/program/vim/vimrc/#colorscheme">vimrc#colorscheme&lt;/a>&lt;/p></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>
+&lt;p>どうもパッケージの &lt;code>bin/&lt;/code> 以下に置いたものが自動でデフォルトだと &lt;code>$HOME/.basher/celler/bin/&lt;/code> に展開されるっぽい。symlinkかもしれんが。&lt;/p></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>

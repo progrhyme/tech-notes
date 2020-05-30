@@ -20,7 +20,15 @@ kubeflow, Knative, Apache Airflowなどで使われている。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/google/docsy-example.git mydocs
 &lt;span style="color:#204a87">cd&lt;/span> mydocs
 git submodule update --init --recursive
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h3 id="サイト内検索">サイト内検索&lt;/h3>
+&lt;p>&lt;a href="https://www.docsy.dev/docs/adding-content/navigation/">Navigation and Search&lt;/a>&lt;/p>
+&lt;p>2020-05-31現在、以下の3つの検索方法から1つを選べる:&lt;/p>
+&lt;ul>
+&lt;li>Googleカスタム検索エンジン &lt;a href="https://cse.google.com/cse/all">https://cse.google.com/cse/all&lt;/a>&lt;/li>
+&lt;li>Algolia DocSearch &lt;a href="https://docsearch.algolia.com/">https://docsearch.algolia.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://lunrjs.com/">Lunr.js&lt;/a>によるローカル検索&lt;/li>
+&lt;/ul></description></item><item><title>A: LEARN</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</link><pubDate>Sat, 25 Apr 2020 23:43:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/theme/learn/</guid><description>
 &lt;p>&lt;a href="https://learn.netlify.com/en/">https://learn.netlify.com/en/&lt;/a>&lt;/p>
 &lt;p>ドキュメンテーションに向いた高機能なHugoのテーマ。&lt;/p>
 &lt;h2 id="コンテンツ管理">コンテンツ管理&lt;/h2>
