@@ -38,3 +38,14 @@ git clone https://github.com/google/docsy-example.git mydocs
 cd mydocs
 git submodule update --init --recursive
 ```
+
+## Configuration
+### サイト内検索
+
+[Navigation and Search](https://www.docsy.dev/docs/adding-content/navigation/)
+
+2020-05-31現在、以下の3つの検索方法から1つを選べる:
+
+- Googleカスタム検索エンジン https://cse.google.com/cse/all
+- Algolia DocSearch https://docsearch.algolia.com/
+- [Lunr.js](https://lunrjs.com/)によるローカル検索

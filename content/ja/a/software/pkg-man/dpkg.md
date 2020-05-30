@@ -35,6 +35,9 @@ dpkg <=> aptの関係は、RHEL系におけるrpm <=> yumの関係と似てい�
 apt update
 
 # パッケージの更新
+## 更新可能なパッケージの一覧
+apt list --upgradable
+
 ## 最低限可能なアップグレードを行う
 apt upgrade
 apt-get upgrade

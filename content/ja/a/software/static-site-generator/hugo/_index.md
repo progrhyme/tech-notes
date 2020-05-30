@@ -76,6 +76,30 @@ hugo server -D
 
 ## Configuration
 
+https://gohugo.io/getting-started/configuration/
+
+### 設定ファイル
+
+デフォルトでは config.toml → config.yaml → config.json の順で参照される。
+
+- `hugo --config CONFIG` オプションで任意の設定ファイルを指定可能
+- `hugo --config a.toml,b.toml` のように、カンマ区切りで複数ファイルを指定することも可能
+
+### 環境変数による設定
+
+https://gohugo.io/getting-started/configuration/#configure-with-environment-variables
+
+- トップレベルの設定値は、 `HUGO_TITLE="hoge hoge" hugo` のように上書きできるようだ。 `HUGO_TITLE` で `title` を上書き
+- `[params]` の設定値であれば、 `HUGO_PARAMS_` をprefixとして設定すればよいそうだ
+
+NOTE:
+
+- 2020-05-31 おそらくこのやり方では設定ファイルで設定した値の削除/無効化はできないと思われる。Docsyで `HUGO_PARAMS_GCS_ENGINE_ID=""` のようにしても、Googleカスタム検索エンジンを無効化できなかった
+  - See [2020-05-31#DocsyでGoogleカスタム検索エンジンを使う]({{<ref "20200531.md">}}#docsyでgoogleカスタム検索エンジンを使う)
+
+## 設定項目
+設定ファイルの設定項目について。
+
 ### Table Of Contents
 
 https://gohugo.io/getting-started/configuration-markup/#table-of-contents
