@@ -21,7 +21,7 @@ https://www.rust-lang.org/learn ... ランディングページ
 
 - [Edition Guide](https://doc.rust-lang.org/edition-guide/)
 - [Standard Library](https://doc.rust-lang.org/std/)
-  - See [std Library]({{<ref "std.md">}})
+  - See [std Library]({{<ref "std/_index.md">}})
 - [Cargo Book](https://doc.rust-lang.org/cargo/)
 - [rustc book](https://doc.rust-lang.org/rustc/)
 - [Rust Compiler Error Index](https://doc.rust-lang.org/error-index.html)
@@ -43,6 +43,10 @@ https://www.rust-lang.org/learn ... ランディングページ
 
 2018/8/22現在、VSCode, IntelliJが人気のようだ。  
 もちろん、Atomでも開発できそうだし、Eclipseもある。
+
+### Play Ground
+
+https://play.rust-lang.org/ ... Web上でコードの動作を試せる環境。
 
 ## Learn Rust
 
@@ -100,34 +104,48 @@ rustc --help -v
 rustc --version|-V
 ```
 
-## Crates
+## Road to Rustacean
 
-クレートはRustプログラムのパッケージを表す。  
-`cargo new` するとcrateが作られる。
+Rustでコードを書く上で知っておくべき基礎的なトピックやHow toについて書く。
 
-https://crates.io/ はクレートの公開レジストリ。
-自作のクレートをここに登録することでユーザーに配布することができる。
+### 例外処理
 
-参考:
+入門ガイド:
 
-- [Crates.ioにクレートを公開する - The Rust Programming Language](https://doc.rust-jp.rs/book/second-edition/ch14-02-publishing-to-crates-io.html)
-- [Rust のモジュールシステム - Qiita](https://qiita.com/skitaoka/items/753a519d720a1ccebb0d)
+- [Nicer error reporting - Command Line Applications in Rust](https://rust-cli.github.io/book/tutorial/errors.html)
+- [Resultで回復可能なエラー - The Rust Programming Language](https://doc.rust-jp.rs/book/second-edition/ch09-02-recoverable-errors-with-result.html)
 
-### clap
+関連項目:
 
-https://crates.io/crates/clap
+- [言語仕様 > 演算子 > ?]({{<ref "spec.md">}}#heading)
+- [std::result]({{<ref "std/_index.md">}}#result-module)
+- [Crates > failure]({{<ref "crate.md">}}#failure)
 
-人気のCLIライブラリ。
+### 標準入出力
 
-### rand
+入門ガイド:
 
-https://crates.io/crates/rand
+- [Output for humans and machines - Command Line Applications in Rust](https://rust-cli.github.io/book/tutorial/output.html)
 
-乱数生成
+関連項目:
 
-### structopt
+- [std::print]({{<ref "std/_index.md">}}#print)などのマクロファミリー
+- [std::fmt]({{<ref "std/fmt.md">}})
+- [std::io]({{<ref "std/io.md">}})
 
-https://crates.io/crates/structopt
+### ファイル入出力
 
-clapに依存したCLIライブラリ。  
-structを定義することでコマンドライン引数を解析する。
+関連項目:
+
+- [std::path]({{<ref "std/_index.md">}}#path-module)
+
+### コマンドライン引数
+
+入門ガイド:
+
+- [Parsing command line arguments - Command Line Applications in Rust](https://rust-cli.github.io/book/tutorial/cli-args.html)
+
+関連項目:
+
+- [Crates > clap]({{<ref "crate.md">}}#clap)
+- [Crates > structopt]({{<ref "crate.md">}}#structopt)

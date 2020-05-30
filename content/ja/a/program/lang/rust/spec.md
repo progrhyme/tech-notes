@@ -22,9 +22,51 @@ let mut bar = 5; // mutable
 
 - [Variables and Mutability - The Rust Programming Language](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#variables-and-mutability)
 
+## 演算子
+### ?
+
+- [The ? operator for easier error handling - The Edition Guide](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html)
+
+Rust 1.13で導入された、エラーハンドリングのシンタックスシュガー的な演算子。
+
+`Result<T, E>` 型か `Option<T>` 型をレシーバとする。
+
+Examples:
+
+```Rust
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut f = File::open("username.txt")?;
+    let mut s = String::new();
+
+    f.read_to_string(&mut s)?;
+
+    Ok(s)
+}
+```
+
+↑は下と同じコード:
+
+```Rust
+fn read_username_from_file() -> Result<String, io::Error> {
+    let f = File::open("username.txt");
+
+    let mut f = match f {
+        Ok(file) => file,
+        Err(e) => return Err(e),
+    };
+
+    let mut s = String::new();
+
+    match f.read_to_string(&mut s) {
+        Ok(_) => Ok(s),
+        Err(e) => Err(e),
+    }
+}
+```
+
 ## 型
 
-- String provided by [Struct std::string::String]({{<ref "std.md">}}#string-1)
+- String provided by [Struct std::string::String]({{<ref "std/_index.md">}}#string-1)
 
 ### Associated Function
 
