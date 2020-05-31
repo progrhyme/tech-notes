@@ -48,7 +48,42 @@ config.tomlではコメントアウトしておいて、公開サイトビルド
 &lt;ul>
 &lt;li>&lt;a href="https://support.google.com/webmasters/answer/6065812?hl=ja">URL の再クロールを Google にリクエストする - Search Console ヘルプ&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>そして見つけた時には既にサイトマップを送信済みだった。&lt;/p></description></item><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
+&lt;p>そして見つけた時には既にサイトマップを送信済みだった。&lt;/p>
+&lt;p>（追記）&lt;/p>
+&lt;p>なぜかページの古い状態がキャッシュ（？）に残ってるっぽくて、アーカイブ済みのメモページにヒットすると404になったりすることがしばし。&lt;/p>
+&lt;h3 id="golangのcliパッケージを改めて探した">GolangのCLIパッケージを改めて探した&lt;/h3>
+&lt;p>たぶん3〜4年ぶりぐらいかな。&lt;br>
+高機能なものは相変わらず下の2つが強そう:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/spf13/cobra">https://github.com/spf13/cobra&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/urfave/cli">https://github.com/urfave/cli&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>サブコマンドやフラグに対応しており、だいたいできないことはなさそう。&lt;/p>
+&lt;h4 id="jessevdkgo-flags">jessevdk/go-flags&lt;/h4>
+&lt;p>もう少し軽量な感じのだと以前は &lt;a href="https://github.com/jessevdk/go-flags">https://github.com/jessevdk/go-flags&lt;/a> というのが人気だったのだが、2年前で更新が止まっている。&lt;br>
+go.mod がないのでGo Modulesにも対応してないみたい。&lt;br>
+いま使うのはちょっとイマイチかも？&lt;/p>
+&lt;h4 id="spf13pflag">spf13/pflag&lt;/h4>
+&lt;p>その代わりになるかわからないが、 &lt;a href="https://github.com/spf13/pflag">https://github.com/spf13/pflag&lt;/a> というのを見つけた。&lt;br>
+これも標準パッケージの flag の強化版で、ショートオプションを簡単に加えられたり、GNUスタイルの &lt;code>--help&lt;/code> のようなロングオプションを追加できる。&lt;/p>
+&lt;p>flagの拡張版のようで、サブコマンドにも対応できるようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/go/3rd-pkg/#spf13pflag">プログラミング &amp;gt; Golang &amp;gt; pkg (3rd)#spf13/pflag&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="googlesubcommands">google/subcommands&lt;/h4>
+&lt;p>サブコマンドで行くと &lt;a href="https://github.com/google/subcommands">https://github.com/google/subcommands&lt;/a> というのも見つけた。&lt;br>
+これも依存がなくてシンプルのようだが、README読んだだけだと、使い方がイマイチわからん。&lt;/p>
+&lt;p>検索したり、 pkg.go.dev で使っているコードを探して見たりした。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.soushi.me/entry/2017/01/22/214441/">みんGO を読んでec2インスンスリストをタグ検索するコマンドラインツールを作ってみた - 平日インプット週末アウトプットぶろぐ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://chromium.googlesource.com/infra/infra/+/1adef5a2cd6b/go/src/infra/cros/cmd/lucifer/admintaskcmd.go">https://chromium.googlesource.com/infra/infra/+/1adef5a2cd6b/go/src/infra/cros/cmd/lucifer/admintaskcmd.go&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>フラグにも対応しており、いい感じにヘルプが生成できたりと、シンプルだけど必要十分な機能がまとまってるっぽい雰囲気を感じる。&lt;/p>
+&lt;h4 id="posenercmd">posener/cmd&lt;/h4>
+&lt;p>&lt;a href="https://github.com/posener/cmd">posener/cmd: The standard library flag package with its missing features&lt;/a>&lt;/p>
+&lt;p>これは&lt;a href="https://awesome-go.com/#command-line">Awesome Go&lt;/a>から気になって開いて見た。&lt;br>
+17 starsしかないが、google/subcommands相当のことはできそうで、google/subcommandsよりドキュメントがわかりやすい。&lt;/p></description></item><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
 &lt;h2 id="530">5/30&lt;/h2>
 &lt;h3 id="ubuntuデスクトップのvs-codeでフォント変更">UbuntuデスクトップのVS Codeでフォント変更&lt;/h3>
 &lt;p>ターミナルで記号が豆腐になってしまったので、Nerdフォントにしたのだが、すぐに反映されないような気がしたら、VS Codeの再起動が必要だった。&lt;/p>

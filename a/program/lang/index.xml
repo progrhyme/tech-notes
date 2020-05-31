@@ -19,7 +19,11 @@
 &lt;h2 id="goを学ぶ">Goを学ぶ&lt;/h2>
 &lt;p>&lt;a href="https://learn.go.dev/">https://learn.go.dev/&lt;/a> に教材がたくさん転がっている。&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://gobyexample.com/">Go by Example&lt;/a> &amp;hellip; 言語仕様や標準パッケージの使い方がハンズオンで学べる&lt;/li>
+&lt;li>&lt;a href="https://gobyexample.com/">Go by Example&lt;/a> &amp;hellip; 言語仕様や標準パッケージの使い方がハンズオンで学べる
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://oohira.github.io/gobyexample-jp/">Go by Example&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments · golang/go Wiki&lt;/a> &amp;hellip; Goらしい書き方を学べる
 &lt;ul>
 &lt;li>邦訳: &lt;a href="https://knsh14.github.io/translations/go-codereview-comments/">Go Codereview Comments&lt;/a>&lt;/li>
@@ -38,6 +42,17 @@
 &lt;/ul>
 &lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
 &lt;p>Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。&lt;/p>
+&lt;h3 id="コマンドライン引数">コマンドライン引数&lt;/h3>
+&lt;p>入門サンプル:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/command-line-arguments">Go by Example: Command-Line Arguments&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gobyexample.com/command-line-flags">Go by Example: Command-Line Flags&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gobyexample.com/command-line-subcommands">Go by Example: Command-Line Subcommands&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200531/#golang%E3%81%AEcli%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E6%94%B9%E3%82%81%E3%81%A6%E6%8E%A2%E3%81%97%E3%81%9F">2020-05-31#GolangのCLIパッケージを改めて探した&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="ライブラリ管理">ライブラリ管理&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/doc/go1.14">Go 1.14&lt;/a>からGo Modulesが標準機能になったので、これを使いましょう。&lt;/p>
 &lt;p>ドキュメント:&lt;/p>
