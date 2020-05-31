@@ -1,6 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – プログラム言語</title><link>https://progrhy.me/tech-notes/a/program/lang/</link><description>Recent content in プログラム言語 on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 07:54:05 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/lang/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Go</title><link>https://progrhy.me/tech-notes/a/program/lang/go/</link><pubDate>Sun, 26 Apr 2020 08:01:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;h3 id="ドキュメント">ドキュメント&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://tour.golang.org/">A Tour of Go&lt;/a> &amp;hellip; Web上でコードを動かしてGoプログラミングを体験できるチュートリアル&lt;/li>
+&lt;li>&lt;a href="https://go.dev/">https://go.dev/&lt;/a> &amp;hellip; Gopher向けのポータルみたいなサイト&lt;/li>
+&lt;/ul>
+&lt;h3 id="play-ground">Play Ground&lt;/h3>
+&lt;p>&lt;a href="https://play.golang.org/">https://play.golang.org/&lt;/a>&lt;/p>
+&lt;p>Web上で動作するSandbox環境。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://golang.org/doc/">https://golang.org/doc/&lt;/a>
 &lt;ul>
@@ -9,49 +16,62 @@
 &lt;/li>
 &lt;li>&lt;a href="http://golang-jp.org/">http://golang-jp.org/&lt;/a> &amp;hellip; golang.orgの日本語訳プロジェクト&lt;/li>
 &lt;/ul>
-&lt;h4 id="3rd-party-がまとめた資料">3rd Party がまとめた資料&lt;/h4>
+&lt;h2 id="goを学ぶ">Goを学ぶ&lt;/h2>
+&lt;p>&lt;a href="https://learn.go.dev/">https://learn.go.dev/&lt;/a> に教材がたくさん転がっている。&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://motemen.github.io/go-for-go-book/">GoのためのGo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gobyexample.com/">Go by Example&lt;/a> &amp;hellip; 言語仕様や標準パッケージの使い方がハンズオンで学べる&lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments · golang/go Wiki&lt;/a> &amp;hellip; Goらしい書き方を学べる
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://knsh14.github.io/translations/go-codereview-comments/">Go Codereview Comments&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/">The Go Programming Language Blog&lt;/a> / 公式ブログ&lt;/li>
+&lt;/ul>
+&lt;p>非公式サイト:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://motemen.github.io/go-for-go-book/">GoのためのGo&lt;/a> &amp;hellip; オンライン教本 by motemen氏&lt;/li>
 &lt;li>&lt;a href="http://www.golangprograms.com/" title="Go Language Programs, Tutorial, Articles and Examples">Go Language Programs, Tutorial, Articles and Examples&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="play-ground">Play Ground&lt;/h3>
-&lt;p>Sandbox &lt;a href="https://play.golang.org/">https://play.golang.org/&lt;/a>&lt;/p>
 &lt;h3 id="記事">記事&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
+&lt;li>2016年 &lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="開発ツール">開発ツール&lt;/h2>
-&lt;h3 id="goimports">goimports&lt;/h3>
-&lt;p>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/goimports">https://godoc.org/golang.org/x/tools/cmd/goimports&lt;/a>&lt;/p>
-&lt;p>Install:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">go get golang.org/x/tools/cmd/goimports
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>goimports&lt;/code> というコマンドが入る。&lt;br>
-&lt;code>go fmt&lt;/code> のときに使われてないpkgの &lt;code>import&lt;/code> 文を削除してくれる。&lt;/p>
-&lt;p>Goglandだと &lt;code>Settings &amp;gt; Go &amp;gt; On Save &amp;gt; On save run&lt;/code> で設定できる。&lt;/p>
+&lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
+&lt;p>Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。&lt;/p>
+&lt;h3 id="ライブラリ管理">ライブラリ管理&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/doc/go1.14">Go 1.14&lt;/a>からGo Modulesが標準機能になったので、これを使いましょう。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/Modules">https://github.com/golang/go/wiki/Modules&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.org/ref/mod">Go Modules Reference - The Go Programming Language&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="http://y0m0r.hateblo.jp/entry/20140112/1389501259" title="goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes">goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://qiita.com/kuro_milk/items/6adbf544dcb333d0f472" title="Gogland で保存時に go fmt を走らせる - Qiita">Gogland で保存時に go fmt を走らせる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/using-go-modules">Using Go Modules - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/uchiko/items/64fb3020dd64cf211d4e">Go言語の依存モジュール管理ツール Modules の使い方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="ビルトイン関数">ビルトイン関数&lt;/h2>
-&lt;h3 id="append">append&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/pkg/builtin/#append">https://golang.org/pkg/builtin/#append&lt;/a>&lt;/p>
-&lt;p>&lt;code>func append(slice []Type, elems ...Type) []Type&lt;/code>&lt;/p>
-&lt;p>sliceに要素、またはsliceを結合し、新たなsliceを返す。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">elem1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">elem2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">anotherSlice&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="vendoring">vendoring&lt;/h3>
-&lt;p>アプリケーションなどで、依存パッケージを管理する仕組み。&lt;br>
-Go 1.6から正式にサポートされた。&lt;br>
-Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>GO15VENDOREXPERIMENT&lt;/code> を設定してコンパイルする必要がある。&lt;/p>
-&lt;p>vendoringのためのツールとして、glideやgomなどがある。&lt;/p>
+&lt;h3 id="プロファイリング">プロファイリング&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/pkg/runtime/pprof/" title="pprof - The Go Programming Language">runtime/pprof&lt;/a>という標準pkgを使うのが基本な感じ。
+&lt;ul>
+&lt;li>その内 &lt;a href="https://sites.google.com/site/progrhymetechwiki/programming/go/std-pkg" title="標準パッケージ - progrhyme's Tech Wiki">標準パッケージ - progrhyme&amp;rsquo;s Tech Wiki&lt;/a> に書くと思う。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>runtimeのデバッグに役立つ環境変数の話:
+&lt;ul>
+&lt;li>&lt;a href="https://dave.cheney.net/tag/godebug" title="GODEBUG | Dave Cheney">GODEBUG | Dave Cheney&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="http://qiita.com/okamos/items/587a5693a3ae9cae9b88" title="今更だけどGoのVendoringについて思いをはせる - Qiita">今更だけどGoのVendoringについて思いをはせる - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://yoru9zine.hatenablog.com/entry/2016/02/02/054922" title="go vendoring - 隙あらば寝る">go vendoring - 隙あらば寝る&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://librabuch.jp/blog/2016/04/go-lang-vendoring-glide/" title="Glide で Go 言語のパッケージ管理と vendoring - Librabuch">Glide で Go 言語のパッケージ管理と vendoring - Librabuch&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/profiling-go-programs" title="Profiling Go Programs - The Go Blog">Profiling Go Programs - The Go Blog&lt;/a> &amp;hellip; pprof&lt;/li>
+&lt;li>&lt;a href="http://hakobe932.hatenablog.com/entry/2014/04/10/010619" title="golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨">golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a> &amp;hellip; pprof, net/http/pprof&lt;/li>
+&lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="programming-tips">Programming Tips&lt;/h2>
+&lt;p>コーディングする上で知っておくと便利なTips.&lt;/p>
 &lt;h3 id="enum">enum&lt;/h3>
 &lt;p>Goにはenumがない。&lt;br>
 intの独自型を定義するのがイディオムになっている。&lt;/p>
@@ -83,6 +103,7 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;li>&lt;a href="https://arslan.io/2015/10/08/ten-useful-techniques-in-go/" title="Ten Useful Techniques in Go – Fatih Arslan">Ten Useful Techniques in Go – Fatih Arslan&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="build">build&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
 &lt;p>&lt;code>Build Constraints&lt;/code> という機能は「build tag」としても知られている。&lt;br>
@@ -98,25 +119,42 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://shinpei.github.io/blog/2014/10/07/use-build-constrains-or-build-tag-in-golang/" title="go build -tagsを使ってRelease/Debugを切り替える - flyhigh">go build -tagsを使ってRelease/Debugを切り替える - flyhigh&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="プロファイリング">プロファイリング&lt;/h3>
+&lt;h3 id="webassembly対応">WebAssembly対応&lt;/h3>
+&lt;p>2020-05-31記載。&lt;/p>
+&lt;p>LLVMベースのコンパイラなのでWASMに対応しているという&lt;a href="https://tinygo.org/">TinyGo&lt;/a>の存在をいま知ったところだけど、Go本体も1.11でWASMを実験的にサポートしたそうだ。&lt;/p>
+&lt;p>GitHub WikiにWebAssemblyのページがある:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://golang.org/pkg/runtime/pprof/" title="pprof - The Go Programming Language">runtime/pprof&lt;/a>という標準pkgを使うのが基本な感じ。
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/WebAssembly">https://github.com/golang/go/wiki/WebAssembly&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Go 1.11 added an experimental port to WebAssembly. Go 1.12 has improved some parts of it, with further improvements expected in Go 1.13.&lt;/p>
+&lt;/blockquote>
+&lt;p>気になったので、1.13, 1.14のリリースノートを確認した。&lt;/p>
+&lt;p>&lt;a href="https://golang.org/doc/go1.14#wasm">https://golang.org/doc/go1.14#wasm&lt;/a>&lt;/p>
+&lt;p>&lt;code>js.Value&lt;/code> オブジェクト（Goから参照されるJavaScriptの値）がガベージコレクションの対象になったとか。&lt;/p>
+&lt;p>&lt;a href="https://golang.org/doc/go1.13#ports">https://golang.org/doc/go1.13#ports&lt;/a>&lt;/p>
+&lt;p>&lt;code>GOARCH=wasm&lt;/code> でWASMコンパイルするとき、 &lt;code>GOWASM&lt;/code> 環境変数にカンマ区切りで実験的なフィーチャーリストを指定できるようになった。&lt;br>
+有効な値は &lt;a href="https://golang.org/cmd/go/#hdr-Environment_variables">https://golang.org/cmd/go/#hdr-Environment_variables&lt;/a> に記されている。&lt;br>
+2020-05-31現在は &lt;code>setconv&lt;/code>, &lt;code>signext&lt;/code> が指定可能。&lt;/p>
+&lt;h2 id="歴史">歴史&lt;/h2>
+&lt;h3 id="ライブラリ管理-1">ライブラリ管理&lt;/h3>
+&lt;h4 id="dep">dep&lt;/h4>
+&lt;p>&lt;a href="https://golang.github.io/dep/">https://golang.github.io/dep/&lt;/a>&lt;/p>
+&lt;p>「Dep」という依存パッケージ管理ツール。
+Go 1.11〜1.13で公式の実験的な扱いだった。&lt;/p>
 &lt;ul>
-&lt;li>その内 &lt;a href="https://sites.google.com/site/progrhymetechwiki/programming/go/std-pkg" title="標準パッケージ - progrhyme's Tech Wiki">標準パッケージ - progrhyme&amp;rsquo;s Tech Wiki&lt;/a> に書くと思う。&lt;/li>
+&lt;li>ドキュメント: &lt;a href="https://golang.github.io/dep/docs/">https://golang.github.io/dep/docs/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;li>runtimeのデバッグに役立つ環境変数の話:
-&lt;ul>
-&lt;li>&lt;a href="https://dave.cheney.net/tag/godebug" title="GODEBUG | Dave Cheney">GODEBUG | Dave Cheney&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
+&lt;h4 id="vendoring">vendoring&lt;/h4>
+&lt;p>アプリケーションなどで、依存パッケージを管理する仕組み。&lt;br>
+Go 1.6から正式にサポートされた。&lt;br>
+Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>GO15VENDOREXPERIMENT&lt;/code> を設定してコンパイルする必要がある。&lt;/p>
+&lt;p>vendoringのためのツールとして、glideやgomなどがある。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://blog.golang.org/profiling-go-programs" title="Profiling Go Programs - The Go Blog">Profiling Go Programs - The Go Blog&lt;/a> &amp;hellip; pprof&lt;/li>
-&lt;li>&lt;a href="http://hakobe932.hatenablog.com/entry/2014/04/10/010619" title="golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨">golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a> &amp;hellip; pprof, net/http/pprof&lt;/li>
-&lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
-&lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/okamos/items/587a5693a3ae9cae9b88" title="今更だけどGoのVendoringについて思いをはせる - Qiita">今更だけどGoのVendoringについて思いをはせる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://yoru9zine.hatenablog.com/entry/2016/02/02/054922" title="go vendoring - 隙あらば寝る">go vendoring - 隙あらば寝る&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://librabuch.jp/blog/2016/04/go-lang-vendoring-glide/" title="Glide で Go 言語のパッケージ管理と vendoring - Librabuch">Glide で Go 言語のパッケージ管理と vendoring - Librabuch&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: JavaScript</title><link>https://progrhy.me/tech-notes/a/program/lang/js/</link><pubDate>Sun, 26 Apr 2020 20:47:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/js/</guid><description>
 &lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript">JavaScript | MDN&lt;/a>&lt;/p>

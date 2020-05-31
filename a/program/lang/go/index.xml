@@ -7,7 +7,15 @@
 sudo apt update
 sudo apt install golang-go
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/lang/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/spec/</guid><description>
-&lt;p>リファレンス &lt;a href="https://golang.org/ref/spec">https://golang.org/ref/spec&lt;/a>&lt;/p>
+&lt;h2 id="リテラル">リテラル&lt;/h2>
+&lt;h3 id="rune">rune&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Rune_literals">https://golang.org/ref/spec#Rune_literals&lt;/a>&lt;/p>
+&lt;p>int32のaliasで、Unicode文字を扱うためのもの。&lt;/p>
+&lt;p>&lt;code>'x'&lt;/code>, &lt;code>'\n'&lt;/code> のように、シングルクォートで囲んで表現する。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/seihmd/items/4a878e7fa340d7963fee">Goのruneを理解するためのUnicode知識 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="変数">変数&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Variables">https://golang.org/ref/spec#Variables&lt;/a>&lt;/p>
 &lt;h3 id="パッケージ変数">パッケージ変数&lt;/h3>
@@ -79,6 +87,79 @@ sudo apt install golang-go
 &lt;li>&lt;a href="http://qiita.com/cotrpepe/items/b8e7f70f27813a846431" title="[Go] 構造体の初期化方法まとめ - Qiita">[Go] 構造体の初期化方法まとめ - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://gitpub.hatenablog.com/entry/2015/01/24/213223" title="【Go】structにデフォルトの値を設定したい - /dev/null">【Go】structにデフォルトの値を設定したい - /dev/null&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="型宣言">型宣言&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Type_declarations">https://golang.org/ref/spec#Type_declarations&lt;/a>&lt;/p>
+&lt;p>基底型に別名をつけることができる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 組み込み型を基にする
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">MyInt&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 他 パッケージ 型を基にする
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">MyWriter&lt;/span> &lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Writer&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 型リテラルを基にする
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Person&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="型エイリアス">型エイリアス&lt;/h4>
+&lt;p>型の別名を定義できる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Applicant&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">http&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Client&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://text.baldanders.info/golang/go-1_9-and-type-alias/">Go 1.9 と Type Alias — プログラミング言語 Go | text.Baldanders.info&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ポインタ">ポインタ&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8" title="Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita">Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="制御構文">制御構文&lt;/h2>
+&lt;h3 id="switch">switch&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Switch_statements">https://golang.org/ref/spec#Switch_statements&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">tag&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">s3&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">s1&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">s2&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// missing switch expression means &amp;#34;true&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#000">x&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">x&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#000">y&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">f1&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#000">z&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">f2&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">f3&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 型で分岐
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hoge&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ループ">ループ&lt;/h3>
+&lt;p>&lt;code>for&lt;/code> しかない&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 無限ループ
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// iが[1, 100)の間
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// collection要素のイテレーション
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">dayOfWeeks&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;月&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;火&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;水&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;木&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;金&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;土&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;日&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">arrayIndex&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">dayOfWeek&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">dayOfWeeks&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%d番目の曜日は%s曜日です。\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">arrayIndex&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">dayOfWeek&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※mapをイテレーションする場合、取り出し順はランダムになる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://cuto.unirita.co.jp/gostudy/post/loop-statement/">繰り返し - はじめてのGo言語&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="日付時刻">日付・時刻&lt;/h2>
 &lt;h3 id="日時フォーマット">日時フォーマット&lt;/h3>
 &lt;p>Go言語の日時のフォーマット関数（timeパッケージの&lt;a href="https://golang.org/pkg/time/#Time.Format">func (Time) Format)&lt;/a>）に与えられる引数は、2006-01-02T15:04:05（月曜）の日時となっている。&lt;/p>
@@ -86,11 +167,6 @@ sudo apt install golang-go
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/ruiu/items/5936b4c3bd6eb487c182">Goのtimeパッケージのリファレンスタイム（2006年1月2日）は何の日？ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ポインタ">ポインタ&lt;/h2>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8" title="Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita">Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="goroutine">goroutine&lt;/h2>
 &lt;p>OSのネイティブスレッドより扱いやすくしたもの。
@@ -152,26 +228,14 @@ sudo apt install golang-go
 &lt;li>&lt;a href="https://qiita.com/najeira/items/71a0bcd079c9066347b4">Go言語でチャネルとselect - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://cuto.unirita.co.jp/gostudy/post/go_select/">select - はじめてのGo言語&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="文法">文法&lt;/h2>
-&lt;h3 id="ループ">ループ&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 無限ループ
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// iが[1, 100)の間
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// collection要素のイテレーション
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">dayOfWeeks&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;月&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;火&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;水&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;木&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;金&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;土&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;日&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">arrayIndex&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">dayOfWeek&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">dayOfWeeks&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%d番目の曜日は%s曜日です。\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">arrayIndex&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">dayOfWeek&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※mapをイテレーションする場合、取り出し順はランダムになる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://cuto.unirita.co.jp/gostudy/post/loop-statement/">繰り返し - はじめてのGo言語&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="パッケージ">パッケージ&lt;/h2>
+&lt;h2 id="ビルトイン関数">ビルトイン関数&lt;/h2>
+&lt;h3 id="append">append&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/builtin/#append">https://golang.org/pkg/builtin/#append&lt;/a>&lt;/p>
+&lt;p>&lt;code>func append(slice []Type, elems ...Type) []Type&lt;/code>&lt;/p>
+&lt;p>sliceに要素、またはsliceを結合し、新たなsliceを返す。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">elem1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">elem2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">anotherSlice&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="パッケージ">パッケージ&lt;/h2>
 &lt;h3 id="init関数による初期化">init()関数による初期化&lt;/h3>
 &lt;ul>
 &lt;li>ソースファイルに1つ &lt;code>func init()&lt;/code> を記述できる&lt;/li>
@@ -187,93 +251,6 @@ sudo apt install golang-go
 &lt;ul>
 &lt;li>&lt;a href="http://golang.jp/tag/effective-go/page/2" title="Effective Go - golang.jp">Effective Go - golang.jp&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 標準パッケージ</title><link>https://progrhy.me/tech-notes/a/program/lang/go/std-pkg/</link><pubDate>Sun, 31 May 2020 16:18:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/std-pkg/</guid><description>
-&lt;h2 id="os">os&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/pkg/os/">https://golang.org/pkg/os/&lt;/a>&lt;/p>
-&lt;h3 id="環境変数の操作">環境変数の操作&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gobyexample.com/environment-variables" title="Go by Example: Environment Variables">Go by Example: Environment Variables&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ファイル操作">ファイル操作&lt;/h3>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// ファイル内容読み取り
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87">panic&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>
-&lt;span style="color:#000">buf&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ioutil&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ReadAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// ファイル作成
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Create&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// エラー処理省略
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>
-&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">text&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// ファイル or ディレクトリ削除
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Remove&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-getenv">func Getenv&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/pkg/os/#Getenv">https://golang.org/pkg/os/#Getenv&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>keyの環境変数を返す。&lt;/p>
-&lt;h3 id="func-getwd">func Getwd&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/pkg/os/#Getwd">https://golang.org/pkg/os/#Getwd&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getwd&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dir&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>カレントディレクトリの絶対パスを返す。&lt;/p>
-&lt;h3 id="type-file">type File&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/pkg/os/#File">https://golang.org/pkg/os/#File&lt;/a>&lt;/p>
-&lt;p>オープンしたファイルディスクリプタを表現する構造体。&lt;/p>
-&lt;h4 id="func-create">func Create&lt;/h4>
-&lt;p>&lt;a href="https://golang.org/pkg/os/#Create">https://golang.org/pkg/os/#Create&lt;/a>&lt;/p>
-&lt;p>ファイル作成。&lt;/p>
-&lt;h2 id="osexec">os/exec&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/pkg/os/exec/">https://golang.org/pkg/os/exec/&lt;/a>&lt;/p>
-&lt;p>コマンド実行で使う。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">cmd&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Command&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;sh&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo stdout; echo 1&amp;gt;&amp;amp;2 stderr&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// コマンド実行
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Run&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// コマンド実行し、stdoutを取得
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Output&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// stdout, stderrをまとめて受け取る
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">stdoutStderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CombinedOutput&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="filepath">filepath&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/pkg/path/filepath/">https://golang.org/pkg/path/filepath/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>func Walk(root string, walkFn WalkFunc) error&lt;/code>
-&lt;ul>
-&lt;li>Perl5の &lt;code>File::Find::find&lt;/code> に似てる。&lt;/li>
-&lt;li>ディレクトリを再帰的に探索して、関数 &lt;code>WalkFunc&lt;/code> を実行&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang">https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="time">time&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/pkg/time/">https://golang.org/pkg/time/&lt;/a>&lt;/p>
-&lt;p>SYNOPSYS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">td&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Seconds&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Duration型で30秒&lt;/span>
-&lt;span style="color:#000">t1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Now&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">現在日時を&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Time型で返す&lt;/span>
-&lt;span style="color:#000">t2&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">t1&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Add&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">td&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000">秒後の日時を&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Time型で&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gobyexample.com/timeouts">https://gobyexample.com/timeouts&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="func-after">func After&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/pkg/time/#After">https://golang.org/pkg/time/#After&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">After&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#000">Duration&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">chan&lt;/span> &lt;span style="color:#000">Time&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>タイムアウトを実現するときによく使われる。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">select&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">m&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;-&lt;/span>&lt;span style="color:#000">c&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;-&lt;/span>&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">After&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Minute&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;timed out&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>More examples:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gobyexample.com/timeouts">https://gobyexample.com/timeouts&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="context">context&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/context/">https://golang.org/pkg/context/&lt;/a>&lt;/p>
 &lt;p>Webサーバとかで引きずり回すコンテキスト。&lt;/p>
@@ -285,6 +262,13 @@ sudo apt install golang-go
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://deeeet.com/writing/2016/07/22/context/" title="Go1.7のcontextパッケージ | SOTA">Go1.7のcontextパッケージ | SOTA&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="errors">errors&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/errors/">https://golang.org/pkg/errors/&lt;/a>&lt;/p>
+&lt;p>Go 1.13で &lt;code>.Is&lt;/code>, &lt;code>.As&lt;/code>, &lt;code>.Unwrap&lt;/code> が加わり、かなり強化されたようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/12/27/193348">pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="flag">flag&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/flag/">https://golang.org/pkg/flag/&lt;/a>&lt;/p>
@@ -333,6 +317,93 @@ sudo apt install golang-go
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://blog.satotaichi.info/logging-frameworks-for-go/" title="go言語におけるロギングについて">go言語におけるロギングについて&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="os">os&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/os/">https://golang.org/pkg/os/&lt;/a>&lt;/p>
+&lt;h3 id="環境変数の操作">環境変数の操作&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/environment-variables" title="Go by Example: Environment Variables">Go by Example: Environment Variables&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ファイル操作">ファイル操作&lt;/h3>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// ファイル内容読み取り
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87">panic&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>
+&lt;span style="color:#000">buf&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ioutil&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ReadAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// ファイル作成
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Create&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// エラー処理省略
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>
+&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">text&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// ファイル or ディレクトリ削除
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Remove&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-getenv">func Getenv&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Getenv">https://golang.org/pkg/os/#Getenv&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>keyの環境変数を返す。&lt;/p>
+&lt;h3 id="func-getwd">func Getwd&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Getwd">https://golang.org/pkg/os/#Getwd&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getwd&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dir&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>カレントディレクトリの絶対パスを返す。&lt;/p>
+&lt;h3 id="type-file">type File&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#File">https://golang.org/pkg/os/#File&lt;/a>&lt;/p>
+&lt;p>オープンしたファイルディスクリプタを表現する構造体。&lt;/p>
+&lt;h4 id="func-create">func Create&lt;/h4>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Create">https://golang.org/pkg/os/#Create&lt;/a>&lt;/p>
+&lt;p>ファイル作成。&lt;/p>
+&lt;h2 id="osexec">os/exec&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/os/exec/">https://golang.org/pkg/os/exec/&lt;/a>&lt;/p>
+&lt;p>コマンド実行で使う。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">cmd&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Command&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;sh&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo stdout; echo 1&amp;gt;&amp;amp;2 stderr&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// コマンド実行
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Run&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// コマンド実行し、stdoutを取得
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Output&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// stdout, stderrをまとめて受け取る
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">stdoutStderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CombinedOutput&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pathfilepath">path/filepath&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/path/filepath/">https://golang.org/pkg/path/filepath/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>func Walk(root string, walkFn WalkFunc) error&lt;/code>
+&lt;ul>
+&lt;li>Perl5の &lt;code>File::Find::find&lt;/code> に似てる。&lt;/li>
+&lt;li>ディレクトリを再帰的に探索して、関数 &lt;code>WalkFunc&lt;/code> を実行&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang">https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="time">time&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/time/">https://golang.org/pkg/time/&lt;/a>&lt;/p>
+&lt;p>SYNOPSYS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">td&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Seconds&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Duration型で30秒&lt;/span>
+&lt;span style="color:#000">t1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Now&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">現在日時を&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Time型で返す&lt;/span>
+&lt;span style="color:#000">t2&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">t1&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Add&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">td&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000">秒後の日時を&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Time型で&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/timeouts">https://gobyexample.com/timeouts&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-after">func After&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/time/#After">https://golang.org/pkg/time/#After&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">After&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#000">Duration&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">chan&lt;/span> &lt;span style="color:#000">Time&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>タイムアウトを実現するときによく使われる。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">select&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">m&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;-&lt;/span>&lt;span style="color:#000">c&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;-&lt;/span>&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">After&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Minute&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;timed out&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>More examples:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/timeouts">https://gobyexample.com/timeouts&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Testing</title><link>https://progrhy.me/tech-notes/a/program/lang/go/test/</link><pubDate>Sun, 31 May 2020 16:18:23 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/test/</guid><description>
 &lt;p>Goのテストに関する情報をまとめる。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
@@ -340,11 +411,19 @@ sudo apt install golang-go
 &lt;li>基本的に、標準の &lt;a href="https://golang.org/pkg/testing/">testing&lt;/a> pkgを使う&lt;/li>
 &lt;li>フレームワークは使わない。愚直に書く&lt;/li>
 &lt;/ul>
-&lt;h2 id="go-blog関連エントリ">Go Blog関連エントリ&lt;/h2>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="テストデータを用意する">テストデータを用意する&lt;/h3>
+&lt;p>testdata/ というディレクトリに入れる。&lt;br>
+これはパッケージとみなされない。&lt;/p>
+&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>2016-10-03 &lt;a href="https://blog.golang.org/subtests">Using Subtests and Sub-benchmarks - The Go Blog&lt;/a> &amp;hellip; Go 1.7で導入されたsubtests, sub-benchmarksについて&lt;/li>
-&lt;li>2015-05-07 &lt;a href="https://blog.golang.org/examples">Testable Examples in Go - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.org/cmd/go/#hdr-Test_packages">https://golang.org/cmd/go/#hdr-Test_packages&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="pkg">pkg&lt;/h2>
+&lt;p>テストで使えるパッケージ。&lt;/p>
+&lt;h3 id="googlego-cmp">google/go-cmp&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/google/go-cmp/cmp">https://pkg.go.dev/github.com/google/go-cmp/cmp&lt;/a>&lt;/p>
+&lt;p>値の比較のためのユーティリティ。&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="goで結合統合外部テストを書く">Goで結合・統合・外部テストを書く&lt;/h3>
 &lt;p>pkgに対する単体テスト以外のテストにもGoのtesting pkgを使うことができる。&lt;br>
@@ -357,19 +436,75 @@ sudo apt install golang-go
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://amzn.to/2tXDqfc">プログラミング言語Go&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="go-blog関連エントリ">Go Blog関連エントリ&lt;/h2>
+&lt;ul>
+&lt;li>2016-10-03 &lt;a href="https://blog.golang.org/subtests">Using Subtests and Sub-benchmarks - The Go Blog&lt;/a> &amp;hellip; Go 1.7で導入されたsubtests, sub-benchmarksについて&lt;/li>
+&lt;li>2015-05-07 &lt;a href="https://blog.golang.org/examples">Testable Examples in Go - The Go Blog&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: tools</title><link>https://progrhy.me/tech-notes/a/program/lang/go/tools/</link><pubDate>Sun, 31 May 2020 16:18:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/tools/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>Go言語による開発を支援する様々な公式ツール&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/golang/tools">https://github.com/golang/tools&lt;/a> Mirror&lt;/li>
 &lt;/ul>
-&lt;h2 id="packages">packages&lt;/h2>
-&lt;h3 id="cmdpresent">cmd/present&lt;/h3>
+&lt;h2 id="cmdgoimports">cmd/goimports&lt;/h2>
+&lt;p>&lt;a href="https://pkg.go.dev/golang.org/x/tools/cmd/goimports">https://pkg.go.dev/golang.org/x/tools/cmd/goimports&lt;/a>&lt;/p>
+&lt;p>Install:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">go get golang.org/x/tools/cmd/goimports
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>goimports&lt;/code> というコマンドが入る。&lt;br>
+&lt;code>go fmt&lt;/code> のときに使われてないpkgの &lt;code>import&lt;/code> 文を削除してくれる。&lt;/p>
+&lt;p>Goglandだと &lt;code>Settings &amp;gt; Go &amp;gt; On Save &amp;gt; On save run&lt;/code> で設定できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://y0m0r.hateblo.jp/entry/20140112/1389501259" title="goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes">goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/kuro_milk/items/6adbf544dcb333d0f472" title="Gogland で保存時に go fmt を走らせる - Qiita">Gogland で保存時に go fmt を走らせる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cmdpresent">cmd/present&lt;/h2>
 &lt;p>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/present">https://godoc.org/golang.org/x/tools/cmd/present&lt;/a>&lt;/p>
 &lt;p>プレゼンテーションを表示するWebサーバを起動する。&lt;/p>
-&lt;h3 id="present">present&lt;/h3>
+&lt;h2 id="present">present&lt;/h2>
 &lt;p>&lt;a href="https://godoc.org/golang.org/x/tools/present">https://godoc.org/golang.org/x/tools/present&lt;/a>&lt;/p>
-&lt;p>プレゼンテーションのファイル・フォーマットを規定する。&lt;/p></description></item><item><title>A: 『Goならわかるシステムプログラミング』</title><link>https://progrhy.me/tech-notes/a/program/lang/go/gosyspro/</link><pubDate>Sun, 31 May 2020 16:18:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/gosyspro/</guid><description>
+&lt;p>プレゼンテーションのファイル・フォーマットを規定する。&lt;/p></description></item><item><title>A: Public Packages</title><link>https://progrhy.me/tech-notes/a/program/lang/go/3rd-pkg/</link><pubDate>Sun, 31 May 2020 21:16:45 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/3rd-pkg/</guid><description>
+&lt;p>公式ではないが、公開されていて利用できるパッケージの情報を記す。&lt;/p>
+&lt;h2 id="jinzhuconfigor">jinzhu/configor&lt;/h2>
+&lt;p>&lt;a href="https://github.com/jinzhu/configor">https://github.com/jinzhu/configor&lt;/a>&lt;/p>
+&lt;p>YAML, JSON, TOML, 環境変数に対応した設定ツール。&lt;/p>
+&lt;p>Usage:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">package&lt;/span> &lt;span style="color:#000">main&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;github.com/jinzhu/configor&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">Config&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">APPName&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`default:&amp;#34;app name&amp;#34;`&lt;/span>
+&lt;span style="color:#000">DB&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">User&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`default:&amp;#34;root&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Password&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`required:&amp;#34;true&amp;#34; env:&amp;#34;DBPassword&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Port&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint&lt;/span> &lt;span style="color:#4e9a06">`default:&amp;#34;3306&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">Contacts&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">Email&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`required:&amp;#34;true&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}{}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">configor&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Load&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">Config&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;config.yml&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;config: %#v&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">Config&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>上のコード用のconfig.ymlの例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">appname&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>test&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">db&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>test&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">user&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>test&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">password&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>test&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1234&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">contacts&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>i&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>test&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">email&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>test@test.com&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 『Goならわかるシステムプログラミング』</title><link>https://progrhy.me/tech-notes/a/program/lang/go/gosyspro/</link><pubDate>Sun, 31 May 2020 16:18:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/gosyspro/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>渋川さん（@shibu_jp）の著書。&lt;/p>
 &lt;p>関連リンク:&lt;/p>
