@@ -1,11 +1,23 @@
 ---
 title: "言語仕様"
 linkTitle: "言語仕様"
+description: https://golang.org/ref/spec
 date: 2020-04-26T08:10:52+09:00
 weight: 30
 ---
 
-リファレンス https://golang.org/ref/spec
+## リテラル
+### rune
+
+https://golang.org/ref/spec#Rune_literals
+
+int32のaliasで、Unicode文字を扱うためのもの。
+
+`'x'`, `'\n'` のように、シングルクォートで囲んで表現する。
+
+参考:
+
+- [Goのruneを理解するためのUnicode知識 - Qiita](https://qiita.com/seihmd/items/4a878e7fa340d7963fee)
 
 ## 変数
 
@@ -116,6 +128,111 @@ f := Foo{Age: 5, Name: "foo"} // 任意フィールドの省略が可能。順�
 - [[Go] 構造体の初期化方法まとめ - Qiita](http://qiita.com/cotrpepe/items/b8e7f70f27813a846431 "[Go] 構造体の初期化方法まとめ - Qiita")
 - [【Go】structにデフォルトの値を設定したい - /dev/null](http://gitpub.hatenablog.com/entry/2015/01/24/213223 "【Go】structにデフォルトの値を設定したい - /dev/null")
 
+### 型宣言
+
+https://golang.org/ref/spec#Type_declarations
+
+基底型に別名をつけることができる。
+
+Examples:
+
+```go
+// 組み込み型を基にする
+type MyInt int
+// 他 パッケージ 型を基にする
+type MyWriter io.Writer
+// 型リテラルを基にする
+type Person struct {
+    Name string
+}
+```
+
+#### 型エイリアス
+
+型の別名を定義できる。
+
+Examples:
+
+```go
+type Applicant = http.Client
+```
+
+参考:
+
+- [Go 1.9 と Type Alias — プログラミング言語 Go | text.Baldanders.info](https://text.baldanders.info/golang/go-1_9-and-type-alias/)
+
+## ポインタ
+
+参考:
+
+- [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
+
+## 制御構文
+### switch
+
+https://golang.org/ref/spec#Switch_statements
+
+Examples:
+
+```go
+switch tag {
+default: s3()
+case 0, 1, 2, 3: s1()
+case 4, 5, 6, 7: s2()
+}
+
+switch x := f(); {  // missing switch expression means "true"
+case x < 0: return -x
+default: return x
+}
+
+switch {
+case x < y: f1()
+case x < z: f2()
+case x == 4: f3()
+}
+
+// 型で分岐
+var i interface{}
+i = 100
+switch v := i.(type) {
+case int:
+    fmt.Println(v*2)
+case string:
+    fmt.Println(v+"hoge")
+default:
+    fmt.Println("default")
+}
+```
+
+### ループ
+
+`for` しかない
+
+Examples:
+
+```go
+for {
+  // 無限ループ
+}
+
+for i := 1; i < 100; i++ {
+  // iが[1, 100)の間
+}
+
+// collection要素のイテレーション
+dayOfWeeks := [...]string{"月", "火", "水", "木", "金", "土", "日"}
+for arrayIndex, dayOfWeek := range dayOfWeeks {
+    fmt.Printf("%d番目の曜日は%s曜日です。\n", arrayIndex + 1, dayOfWeek)
+}
+```
+
+※mapをイテレーションする場合、取り出し順はランダムになる。
+
+参考:
+
+- [繰り返し - はじめてのGo言語](http://cuto.unirita.co.jp/gostudy/post/loop-statement/)
+
 ## 日付・時刻
 
 ### 日時フォーマット
@@ -127,12 +244,6 @@ Go言語の日時のフォーマット関数（timeパッケージの[func (Time
 参考:
 
 - [Goのtimeパッケージのリファレンスタイム（2006年1月2日）は何の日？ - Qiita](https://qiita.com/ruiu/items/5936b4c3bd6eb487c182)
-
-## ポインタ
-
-参考:
-
-- [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
 
 ## goroutine
 
@@ -155,7 +266,6 @@ go func() {
 参考:
 
 - [Go言語で非同期処理の結果を受け取る - Qiita](https://qiita.com/najeira/items/47539ab346fa0c00dc62)
-
 
 ## チャネル
 
@@ -182,7 +292,6 @@ task, ok := <-tasks
 Examples:
 
 - https://gobyexample.com/channels
-
 
 ### select文
 
@@ -217,37 +326,21 @@ default:
 - [Go言語でチャネルとselect - Qiita](https://qiita.com/najeira/items/71a0bcd079c9066347b4)
 - [select - はじめてのGo言語](http://cuto.unirita.co.jp/gostudy/post/go_select/)
 
+## ビルトイン関数
+### append
 
-## 文法
-### ループ
+https://golang.org/pkg/builtin/#append
 
-Examples:
+`func append(slice []Type, elems ...Type) []Type`
+
+sliceに要素、またはsliceを結合し、新たなsliceを返す。
 
 ```go
-for {
-  // 無限ループ
-}
-
-for i := 1; i < 100; i++ {
-  // iが[1, 100)の間
-}
-
-// collection要素のイテレーション
-dayOfWeeks := [...]string{"月", "火", "水", "木", "金", "土", "日"}
-for arrayIndex, dayOfWeek := range dayOfWeeks {
-    fmt.Printf("%d番目の曜日は%s曜日です。\n", arrayIndex + 1, dayOfWeek)
-}
+slice = append(slice, elem1, elem2)
+slice = append(slice, anotherSlice...)
 ```
 
-※mapをイテレーションする場合、取り出し順はランダムになる。
-
-参考:
-
-- [繰り返し - はじめてのGo言語](http://cuto.unirita.co.jp/gostudy/post/loop-statement/)
-
-
 ## パッケージ
-
 ### init()関数による初期化
 
 * ソースファイルに1つ `func init()` を記述できる

@@ -1,10 +1,110 @@
 ---
 title: "標準パッケージ"
-linkTitle: "pkg"
+linkTitle: "pkg (stdlib)"
 description: https://golang.org/pkg/
 date: 2020-05-31T16:18:58+09:00
 weight: 50
 ---
+
+## context
+
+https://golang.org/pkg/context/
+
+Webサーバとかで引きずり回すコンテキスト。  
+
+SYNOPSIS:
+
+```go
+ctx := context.Background() # context.Contextな構造体を生成
+
+## タイムアウト付きコンテキストを生成。cancelはタイムアウト時に実行される
+ctx2, cancel := context.WithDeadline(ctx, time.Now().Add(timeout))
+defer cancel()
+```
+
+参考:
+
+- [Go1.7のcontextパッケージ | SOTA](http://deeeet.com/writing/2016/07/22/context/ "Go1.7のcontextパッケージ | SOTA")
+
+## errors
+
+https://golang.org/pkg/errors/
+
+Go 1.13で `.Is`, `.As`, `.Unwrap` が加わり、かなり強化されたようだ。
+
+参考:
+
+- [pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm](https://syfm.hatenablog.com/entry/2019/12/27/193348)
+
+## flag
+
+https://golang.org/pkg/flag/
+
+コマンドラインオプションをパースしてくれる君。
+
+- ヘルプ付き
+- ショートオプションとロングオプション両対応したいときはちょっとめんどい（後述）
+
+SYNOPSIS:
+
+```go
+var (
+  verbose bool
+  num int
+  text string
+)
+
+// flag登録
+// 第2引数 ... コマンドラインオプション
+// 第3引数 ... デフォルト値
+// 第4引数 ... ヘルプで表示される文言
+flag.BoolVar(&verbose, "v", false, "Verbose output")
+flag.IntVar(&verbose, "n", 0, "Number")
+flag.StringVar(&verbose, "t", "", "Text")
+
+// コマンド引数のパース
+flag.Parse()
+```
+
+ロングオプション対応するときは、上の例だと
+
+```go
+flag.BoolVar(&verbose, "verbose", false, "Verbose output")
+```
+
+を足すと `-v` と合わせて `-verbose` でも行けるようになる。  
+ただちょっとコードの見た目がアレな感じになるので、そこまで行くと `flags` なりを使うかーという気持ちにならないでもない。
+
+参考:
+
+- [Go言語のflagパッケージを使う - uragami note](http://ryochack.hatenablog.com/entry/2013/04/17/232753 "Go言語のflagパッケージを使う - uragami note")
+- https://gobyexample.com/command-line-flags
+
+## log
+
+https://golang.org/pkg/log/
+
+ロガー。ログレベルの概念はない。
+
+`log.Print` など、標準のロガーを使うやり方と、 `log.New(...)` で `Logger` を作って使うやり方がある。
+
+SYNOPSIS:
+
+```go
+// 標準のロガーを使う
+log.SetPrefix("[info] ")
+log.Printf("a = %v", a)
+
+// ロガーを生成して使う
+logger := log.New(os.Stderr, "[error] ", flag.LstdFlags|flag.Llongfile)
+if err != nil {
+  logger.Fatalf("Error! %v", err) // ログ出力後、 os.Exit(1)
+}
+```
+
+参考:
+
+- [go言語におけるロギングについて](http://blog.satotaichi.info/logging-frameworks-for-go/ "go言語におけるロギングについて")
 
 ## os
 
@@ -92,7 +192,7 @@ out, err := cmd.Output()
 stdoutStderr, err := cmd.CombinedOutput()
 ```
 
-## filepath
+## path/filepath
 
 https://golang.org/pkg/path/filepath/
 
@@ -147,92 +247,3 @@ More examples:
 - https://gobyexample.com/timeouts
 
 
-## context
-
-https://golang.org/pkg/context/
-
-Webサーバとかで引きずり回すコンテキスト。  
-
-SYNOPSIS:
-
-```go
-ctx := context.Background() # context.Contextな構造体を生成
-
-## タイムアウト付きコンテキストを生成。cancelはタイムアウト時に実行される
-ctx2, cancel := context.WithDeadline(ctx, time.Now().Add(timeout))
-defer cancel()
-```
-
-参考:
-
-- [Go1.7のcontextパッケージ | SOTA](http://deeeet.com/writing/2016/07/22/context/ "Go1.7のcontextパッケージ | SOTA")
-
-## flag
-
-https://golang.org/pkg/flag/
-
-コマンドラインオプションをパースしてくれる君。
-
-- ヘルプ付き
-- ショートオプションとロングオプション両対応したいときはちょっとめんどい（後述）
-
-SYNOPSIS:
-
-```go
-var (
-  verbose bool
-  num int
-  text string
-)
-
-// flag登録
-// 第2引数 ... コマンドラインオプション
-// 第3引数 ... デフォルト値
-// 第4引数 ... ヘルプで表示される文言
-flag.BoolVar(&verbose, "v", false, "Verbose output")
-flag.IntVar(&verbose, "n", 0, "Number")
-flag.StringVar(&verbose, "t", "", "Text")
-
-// コマンド引数のパース
-flag.Parse()
-```
-
-ロングオプション対応するときは、上の例だと
-
-```go
-flag.BoolVar(&verbose, "verbose", false, "Verbose output")
-```
-
-を足すと `-v` と合わせて `-verbose` でも行けるようになる。  
-ただちょっとコードの見た目がアレな感じになるので、そこまで行くと `flags` なりを使うかーという気持ちにならないでもない。
-
-参考:
-
-- [Go言語のflagパッケージを使う - uragami note](http://ryochack.hatenablog.com/entry/2013/04/17/232753 "Go言語のflagパッケージを使う - uragami note")
-- https://gobyexample.com/command-line-flags
-
-## log
-
-https://golang.org/pkg/log/
-
-ロガー。ログレベルの概念はない。
-
-`log.Print` など、標準のロガーを使うやり方と、 `log.New(...)` で `Logger` を作って使うやり方がある。
-
-SYNOPSIS:
-
-```go
-// 標準のロガーを使う
-log.SetPrefix("[info] ")
-log.Printf("a = %v", a)
-
-// ロガーを生成して使う
-logger := log.New(os.Stderr, "[error] ", flag.LstdFlags|flag.Llongfile)
-if err != nil {
-  logger.Fatalf("Error! %v", err) // ログ出力後、 os.Exit(1)
-}
-```
-
-参考:
-
-- [go言語におけるロギングについて](http://blog.satotaichi.info/logging-frameworks-for-go/ "go言語におけるロギングについて")

@@ -12,10 +12,25 @@ Goのテストに関する情報をまとめる。
 - 基本的に、標準の [testing](https://golang.org/pkg/testing/) pkgを使う
 - フレームワークは使わない。愚直に書く
 
-## Go Blog関連エントリ
+## How-to
+### テストデータを用意する
 
-- 2016-10-03 [Using Subtests and Sub-benchmarks - The Go Blog](https://blog.golang.org/subtests) ... Go 1.7で導入されたsubtests, sub-benchmarksについて
-- 2015-05-07 [Testable Examples in Go - The Go Blog](https://blog.golang.org/examples)
+testdata/ というディレクトリに入れる。  
+これはパッケージとみなされない。
+
+参考:
+
+- https://golang.org/cmd/go/#hdr-Test_packages
+
+## pkg
+
+テストで使えるパッケージ。
+
+### google/go-cmp
+
+https://pkg.go.dev/github.com/google/go-cmp/cmp
+
+値の比較のためのユーティリティ。
 
 ## Topics
 ### Goで結合・統合・外部テストを書く
@@ -36,3 +51,8 @@ func TestFoo(t *testing.T) {
 参考:
 
 - [プログラミング言語Go](http://amzn.to/2tXDqfc)
+
+## Go Blog関連エントリ
+
+- 2016-10-03 [Using Subtests and Sub-benchmarks - The Go Blog](https://blog.golang.org/subtests) ... Go 1.7で導入されたsubtests, sub-benchmarksについて
+- 2015-05-07 [Testable Examples in Go - The Go Blog](https://blog.golang.org/examples)
