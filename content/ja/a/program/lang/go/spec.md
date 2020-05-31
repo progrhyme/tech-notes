@@ -2,6 +2,7 @@
 title: "言語仕様"
 linkTitle: "言語仕様"
 date: 2020-04-26T08:10:52+09:00
+weight: 30
 ---
 
 リファレンス https://golang.org/ref/spec

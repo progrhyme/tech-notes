@@ -2,6 +2,7 @@
 title: "Install"
 linkTitle: "インストール"
 date: 2020-04-26T19:02:34+09:00
+weight: 10
 ---
 
 ## Ubuntu
