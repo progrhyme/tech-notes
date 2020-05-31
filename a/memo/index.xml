@@ -36,7 +36,15 @@ config.tomlではコメントアウトしておいて、公開サイトビルド
 &lt;span style="color:#000">gcs_engine_id&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>
 &lt;span style="color:#000">offlineSearch&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>…で、ローカルでは &lt;code>hugo server --config config.toml,config-local.toml&lt;/code> と指定してサーバを起動するようにしたら、上手く行った。&lt;/p>
-&lt;p>ちなみに、こんなの毎回打ってられないので、少し前から&lt;a href="https://github.com/progrhyme/dotfiles/blob/9ae6af2874f5ffabd9560df8d5b0205b64230ce8/script/run-hugo-server.sh">ラッパースクリプト&lt;/a>を使っていて、 &lt;code>HUGO_CONFIG=config.toml,config-local.toml&lt;/code> とシェル変数を設定ファイルに書いて読み込ませて対応している。&lt;/p></description></item><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
+&lt;p>ちなみに、こんなの毎回打ってられないので、少し前から&lt;a href="https://github.com/progrhyme/dotfiles/blob/9ae6af2874f5ffabd9560df8d5b0205b64230ce8/script/run-hugo-server.sh">ラッパースクリプト&lt;/a>を使っていて、 &lt;code>HUGO_CONFIG=config.toml,config-local.toml&lt;/code> とシェル変数を設定ファイルに書いて読み込ませて対応している。&lt;/p>
+&lt;h3 id="新しいgoogle-search-consoleでurlの再クロールをgoogleにリクエスト">新しいGoogle Search ConsoleでURLの再クロールをGoogleにリクエスト&lt;/h3>
+&lt;p>&lt;a href="https://search.google.com/search-console">https://search.google.com/search-console&lt;/a>&lt;/p>
+&lt;p>最近全然使ってなかったから、いつ変わったのかわからないけど、Search ConsoleがスタイリッシュなUIに生まれ変わっていた。&lt;/p>
+&lt;p>URLの再クロールの依頼方法がわからなかったが、ググったらヘルプページが見つかった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support.google.com/webmasters/answer/6065812?hl=ja">URL の再クロールを Google にリクエストする - Search Console ヘルプ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>そして見つけた時には既にサイトマップを送信済みだった。&lt;/p></description></item><item><title>A: 2020-05-30</title><link>https://progrhy.me/tech-notes/a/memo/20200530/</link><pubDate>Sat, 30 May 2020 07:05:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200530/</guid><description>
 &lt;h2 id="530">5/30&lt;/h2>
 &lt;h3 id="ubuntuデスクトップのvs-codeでフォント変更">UbuntuデスクトップのVS Codeでフォント変更&lt;/h3>
 &lt;p>ターミナルで記号が豆腐になってしまったので、Nerdフォントにしたのだが、すぐに反映されないような気がしたら、VS Codeの再起動が必要だった。&lt;/p>
