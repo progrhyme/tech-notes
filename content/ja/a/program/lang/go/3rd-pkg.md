@@ -7,6 +7,10 @@ weight: 1000
 
 公式ではないが、公開されていて利用できるパッケージの情報を記す。
 
+## まとめサイト
+
+- https://awesome-go.com/
+
 ## jinzhu/configor
 
 https://github.com/jinzhu/configor
@@ -60,3 +64,61 @@ contacts:
 - name: i test
   email: test@test.com
 ```
+
+## spf13/pflag
+
+標準パッケージ flag の高機能版。  
+GNUスタイルのロングオプションが作れる。
+
+Examples:
+
+```go
+import flag "github.com/spf13/pflag"
+
+// Set as pointer
+var ip *int
+ip = flag.Int("flagname", 1234, "help message for flagname")
+
+// Set as variable
+var flagvar int
+flag.IntVar(&flagvar, "flagname", 1234, "help message for flagname")
+
+// Custom flags which satifsfy Value interface
+flag.Var(&flagVal, "name", "help message for flagname")
+
+// Parse arguments into flags
+flag.Parse()
+
+switch flag.NArg() {
+case 0:
+	// 引数なし
+case 1:
+	// 引数1個
+default:
+	// それ以上
+}
+```
+
+参考:
+
+- [How to set subcommand specific flags · Issue #195 · spf13/pflag](https://github.com/spf13/pflag/issues/195)
+- [spf13/pflagの使い方](https://naoty.dev/posts/110.html)
+
+### func Arg
+
+`func Arg(i int) string`
+
+フラグでないi番目のコマンドライン引数を返す。
+`Arg(0)` が最初の引数。
+
+### func Args
+
+`func Args() []string`
+
+フラグでないコマンドライン引数のリストを返す。
+
+### func (*FlagSet) NArg
+
+`func (f *FlagSet) NArg() int`
+
+フラグ処理後に残った引数の数を返す。

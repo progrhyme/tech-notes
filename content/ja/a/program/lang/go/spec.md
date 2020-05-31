@@ -163,6 +163,41 @@ type Applicant = http.Client
 
 ## ポインタ
 
+https://golang.org/ref/spec#Pointer_types
+
+Examples:
+
+```go
+func zeroval(ival int) {
+    ival = 0
+}
+
+func zeroptr(iptr *int) {
+    *iptr = 0
+}
+
+i := 1
+fmt.Println("initial:", i)
+zeroval(i)
+fmt.Println("zeroval:", i)
+zeroptr(&i)
+fmt.Println("zeroptr:", i)
+fmt.Println("pointer:", &i)
+```
+
+上の実行結果の例:
+
+```
+initial: 1
+zeroval: 1
+zeroptr: 0
+pointer: 0x42131100
+```
+
+入門ガイド:
+
+- [Go by Example: Pointers](https://gobyexample.com/pointers)
+
 参考:
 
 - [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
@@ -232,6 +267,28 @@ for arrayIndex, dayOfWeek := range dayOfWeeks {
 参考:
 
 - [繰り返し - はじめてのGo言語](http://cuto.unirita.co.jp/gostudy/post/loop-statement/)
+
+## 関数
+
+https://golang.org/ref/spec#Function_types
+
+シグネチャの例:
+
+```go
+func()
+func(x int) int
+func(a, _ int, z float32) bool
+func(a, b int, z float32) (bool)
+func(prefix string, values ...int)
+func(a, b int, z float64, opt ...interface{}) (success bool)
+func(int, int, float64) (float64, *[]int)
+func(n int) func(p *T)
+```
+
+入門ガイド:
+
+- [Go by Example: Functions](https://gobyexample.com/functions)
+
 
 ## 日付・時刻
 

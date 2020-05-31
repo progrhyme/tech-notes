@@ -29,6 +29,7 @@ Web上で動作するSandbox環境。
 https://learn.go.dev/ に教材がたくさん転がっている。
 
 - [Go by Example](https://gobyexample.com/) ... 言語仕様や標準パッケージの使い方がハンズオンで学べる
+  - 邦訳: [Go by Example](https://oohira.github.io/gobyexample-jp/)
 - [CodeReviewComments · golang/go Wiki](https://github.com/golang/go/wiki/CodeReviewComments) ... Goらしい書き方を学べる
   - 邦訳: [Go Codereview Comments](https://knsh14.github.io/translations/go-codereview-comments/)
 - [The Go Programming Language Blog](https://blog.golang.org/) / 公式ブログ
@@ -45,6 +46,18 @@ https://learn.go.dev/ に教材がたくさん転がっている。
 ## Road to Gopher
 
 Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。
+
+### コマンドライン引数
+
+入門サンプル:
+
+- [Go by Example: Command-Line Arguments](https://gobyexample.com/command-line-arguments)
+- [Go by Example: Command-Line Flags](https://gobyexample.com/command-line-flags)
+- [Go by Example: Command-Line Subcommands](https://gobyexample.com/command-line-subcommands)
+
+参考:
+
+- [2020-05-31#GolangのCLIパッケージを改めて探した]({{<ref "20200531.md">}}#golangのcliパッケージを改めて探した)
 
 ### ライブラリ管理
 
