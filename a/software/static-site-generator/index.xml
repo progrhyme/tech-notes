@@ -84,6 +84,35 @@ hugo server -D
 &lt;li>&lt;code>hugo --config CONFIG&lt;/code> オプションで任意の設定ファイルを指定可能&lt;/li>
 &lt;li>&lt;code>hugo --config a.toml,b.toml&lt;/code> のように、カンマ区切りで複数ファイルを指定することも可能&lt;/li>
 &lt;/ul>
+&lt;h3 id="ディレクトリ構成">ディレクトリ構成&lt;/h3>
+&lt;p>&lt;a href="https://gohugo.io/getting-started/configuration/#configuration-directory">https://gohugo.io/getting-started/configuration/#configuration-directory&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>設定ファイルを &lt;code>config/&lt;/code> ディレクトリ（&lt;code>--configDir DIRECTORY&lt;/code> で変更可能）に配置することで複数ファイルに分割できる&lt;/li>
+&lt;li>&lt;code>--environment ENVIRONMENT&lt;/code> オプションと組合せて、設定ファイルを更に高度に組織化することもできる。
+&lt;ul>
+&lt;li>&lt;code>config/ENVIRONMENT/&lt;/code> 下の設定がマージされる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ローカリゼーション対応も可能&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+&lt;pre>&lt;code>├── config
+│ ├── _default
+│ │ ├── config.toml
+│ │ ├── languages.toml
+│ │ ├── menus.en.toml
+│ │ ├── menus.zh.toml
+│ │ └── params.toml
+│ ├── production
+│ │ ├── config.toml
+│ │ └── params.toml
+│ └── staging
+│ ├── config.toml
+│ └── params.toml
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nananao-dev.hatenablog.com/entry/hugo-config-separate">Hugo を利用していると baseURL など prod環境、dev環境で別の値を利用したい場合があります。 今回は config.toml を分割する方法をまとめます。 - n/a n/a nao&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="環境変数による設定">環境変数による設定&lt;/h3>
 &lt;p>&lt;a href="https://gohugo.io/getting-started/configuration/#configure-with-environment-variables">https://gohugo.io/getting-started/configuration/#configure-with-environment-variables&lt;/a>&lt;/p>
 &lt;ul>

@@ -37,6 +37,10 @@ config.tomlではコメントアウトしておいて、公開サイトビルド
 &lt;span style="color:#000">offlineSearch&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>…で、ローカルでは &lt;code>hugo server --config config.toml,config-local.toml&lt;/code> と指定してサーバを起動するようにしたら、上手く行った。&lt;/p>
 &lt;p>ちなみに、こんなの毎回打ってられないので、少し前から&lt;a href="https://github.com/progrhyme/dotfiles/blob/9ae6af2874f5ffabd9560df8d5b0205b64230ce8/script/run-hugo-server.sh">ラッパースクリプト&lt;/a>を使っていて、 &lt;code>HUGO_CONFIG=config.toml,config-local.toml&lt;/code> とシェル変数を設定ファイルに書いて読み込ませて対応している。&lt;/p>
+&lt;h4 id="--config-オプションを使わなくてもよかった">&lt;code>--config&lt;/code> オプションを使わなくてもよかった&lt;/h4>
+&lt;p>Hugoには所定のディレクトリに設定ファイルを配置すると、コンテキストに基づいて設定ファイルを読み込んでマージしてくれる機能があると知った。&lt;br>
+やり方は&lt;a href="https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90">Hugo#Configuration-ディレクトリ構成&lt;/a>に記した。&lt;/p>
+&lt;p>&lt;code>hugo server&lt;/code> ではデフォルトで &lt;code>development&lt;/code> で起動するので、 &lt;code>config-local.toml&lt;/code> を &lt;code>config/development/config.toml&lt;/code> に移動することで、 &lt;code>--config&lt;/code> オプション無しでも読み込んでくれるようになった。&lt;/p>
 &lt;h3 id="新しいgoogle-search-consoleでurlの再クロールをgoogleにリクエスト">新しいGoogle Search ConsoleでURLの再クロールをGoogleにリクエスト&lt;/h3>
 &lt;p>&lt;a href="https://search.google.com/search-console">https://search.google.com/search-console&lt;/a>&lt;/p>
 &lt;p>最近全然使ってなかったから、いつ変わったのかわからないけど、Search ConsoleがスタイリッシュなUIに生まれ変わっていた。&lt;/p>
