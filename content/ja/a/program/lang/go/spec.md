@@ -23,6 +23,31 @@ int32のaliasで、Unicode文字を扱うためのもの。
 
 https://golang.org/ref/spec#Variables
 
+Examples:
+
+```go
+// 型が同じものをまとめて宣言
+var c, python, java bool
+
+// 宣言と同時に初期化
+var i, j int = 1, 2
+```
+
+### 定数
+
+Examples:
+
+```go
+const (
+    Pi = 3.14
+    Big = 1 << 100
+)
+```
+
+- 文字(character)、文字列(string)、boolean、数値(numeric)のみで使える
+- `:=` を使って宣言できない
+- 数値の定数は高精度な値。intの上限を越える値も保持できる
+
 ### パッケージ変数
 
 ```go
@@ -36,9 +61,39 @@ var PublicVar string = "this is public"   // 外部から見える
 
 - [Go言語のスコープについて - ryochack.clipboard](http://d.hatena.ne.jp/ryochack/20120115/1326567659 "Go言語のスコープについて - ryochack.clipboard")
 
+### ゼロ値
+
+変数に初期値を与えずに宣言すると、ゼロ値が与えられる。  
+型によって以下のようになる:
+
+- 数値型（int, floatなど）: `0`
+- bool型: `false`
+- string型: "" （空文字列）
+- ポインタ型: `nil`
+
 ## データ型
 
 https://golang.org/ref/spec#Types
+
+### 基本型
+
+```go
+bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+
+byte // uint8 の別名
+
+rune // int32 の別名
+     // Unicode のコードポイントを表す
+
+float32 float64
+
+complex64 complex128
+```
 
 ### 配列・スライス
 
@@ -128,6 +183,21 @@ f := Foo{Age: 5, Name: "foo"} // 任意フィールドの省略が可能。順�
 - [[Go] 構造体の初期化方法まとめ - Qiita](http://qiita.com/cotrpepe/items/b8e7f70f27813a846431 "[Go] 構造体の初期化方法まとめ - Qiita")
 - [【Go】structにデフォルトの値を設定したい - /dev/null](http://gitpub.hatenablog.com/entry/2015/01/24/213223 "【Go】structにデフォルトの値を設定したい - /dev/null")
 
+### 型変換
+
+Examples:
+
+```go
+var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+
+// より縮めて下のように書ける
+i := 42
+f := float64(i)
+u := uint(f)
+```
+
 ### 型宣言
 
 https://golang.org/ref/spec#Type_declarations
@@ -165,33 +235,22 @@ type Applicant = http.Client
 
 https://golang.org/ref/spec#Pointer_types
 
+- `*p` はポインタ `p` の指す変数の値を表す
+- `&v` は `v` のポインタを表す
+
 Examples:
 
 ```go
-func zeroval(ival int) {
-    ival = 0
-}
+i, j := 42, 2701
 
-func zeroptr(iptr *int) {
-    *iptr = 0
-}
+p := &i         // point to i
+fmt.Println(*p) // read i through the pointer
+*p = 21         // set i through the pointer
+fmt.Println(i)  // see the new value of i
 
-i := 1
-fmt.Println("initial:", i)
-zeroval(i)
-fmt.Println("zeroval:", i)
-zeroptr(&i)
-fmt.Println("zeroptr:", i)
-fmt.Println("pointer:", &i)
-```
-
-上の実行結果の例:
-
-```
-initial: 1
-zeroval: 1
-zeroptr: 0
-pointer: 0x42131100
+p = &j         // point to j
+*p = *p / 37   // divide j through the pointer
+fmt.Println(j) // see the new value of j
 ```
 
 入門ガイド:
@@ -277,6 +336,7 @@ https://golang.org/ref/spec#Function_types
 ```go
 func()
 func(x int) int
+// 連続する複数の引数の型が同じときは、最後の型以外を省略できる
 func(a, _ int, z float32) bool
 func(a, b int, z float32) (bool)
 func(prefix string, values ...int)
