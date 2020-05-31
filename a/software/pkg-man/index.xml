@@ -144,4 +144,48 @@ brew bundle dump &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTI
 &lt;li>&lt;a href="https://github.com/Homebrew/homebrew-bundle/issues/146">Allow comments in Brewfile · Issue #146 · Homebrew/homebrew-bundle&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: Snap</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/snap/</link><pubDate>Sun, 31 May 2020 10:18:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/snap/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>Ubuntuの開発元であるCanonical社が作った、Linux向けのパッケージマネージャー。
+ディストリビューションに依存しない。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://en.wikipedia.org/wiki/Snap_(package_manager)">https://en.wikipedia.org/wiki/Snap_(package_manager)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Snappy">https://ja.wikipedia.org/wiki/Snappy&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="snapコマンド">snapコマンド&lt;/h2>
+&lt;p>&lt;a href="http://manpages.ubuntu.com/manpages/bionic/man1/snap.1.html">Ubuntu Manpage: snap - Tool to interact with snaps&lt;/a>&lt;/p>
+&lt;p>ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://snapcraft.io/docs/getting-started">Getting started | Snapcraft documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># インストール&lt;/span>
+sudo snap install &lt;span style="color:#000">$pkg&lt;/span>
+sudo snap install --channel&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$channel&lt;/span> &lt;span style="color:#000">$pkg&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージ一覧&lt;/span>
+snap list
+&lt;span style="color:#8f5902;font-style:italic"># アンインストール&lt;/span>
+sudo snap remove &lt;span style="color:#000">$pkg&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># パッケージを探す&lt;/span>
+snap find &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;package name&amp;gt;&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの情報（channel等）を確認&lt;/span>
+snap info &lt;span style="color:#000">$pkg&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 利用できるリビジョンを一覧&lt;/span>
+snap list --all &lt;span style="color:#000">$pkg&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの更新&lt;/span>
+sudo snap refresh &lt;span style="color:#000">$pkg&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## channel変更も可能&lt;/span>
+sudo snap refresh --channel&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$channel&lt;/span> &lt;span style="color:#000">$pkg&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
+snap version
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="snapcraft">Snapcraft&lt;/h2>
+&lt;p>Wikipediaによればビルドツールらしいが、レジストリの役割もあるのかな。&lt;br>
+ストアもある。 &lt;a href="https://snapcraft.io/store">https://snapcraft.io/store&lt;/a>&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="snap-or-snappy">Snap or Snappy?&lt;/h3>
+&lt;p>元々は「Snappy」という名前だったっぽくて、2020-05-31現在でも「Snappy」という記述がそこかしこで見られる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>2018-04-11のQA &lt;a href="https://forum.snapcraft.io/t/snap-or-snappy/4944">Snap or Snappy? - other - snapcraft.io&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

@@ -78,6 +78,10 @@ hugo server -D
 &lt;span style="color:#8f5902;font-style:italic">## -D を付けることで draft のページも表示される&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>&lt;a href="https://gohugo.io/getting-started/configuration/">https://gohugo.io/getting-started/configuration/&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/b31882398f2ddac924cf">Hugoで環境によって設定を変える方法 - Qiita&lt;/a> &amp;hellip; 自分で書いた記事&lt;/li>
+&lt;/ul>
 &lt;h3 id="設定ファイル">設定ファイル&lt;/h3>
 &lt;p>デフォルトでは config.toml → config.yaml → config.json の順で参照される。&lt;/p>
 &lt;ul>
