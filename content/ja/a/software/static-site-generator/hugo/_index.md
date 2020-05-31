@@ -78,6 +78,10 @@ hugo server -D
 
 https://gohugo.io/getting-started/configuration/
 
+参考:
+
+- [Hugoで環境によって設定を変える方法 - Qiita](https://qiita.com/progrhyme/items/b31882398f2ddac924cf) ... 自分で書いた記事
+
 ### 設定ファイル
 
 デフォルトでは config.toml → config.yaml → config.json の順で参照される。
