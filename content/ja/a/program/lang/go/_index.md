@@ -52,8 +52,10 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 入門サンプル:
 
 - [Go by Example: Command-Line Arguments](https://gobyexample.com/command-line-arguments)
-- [Go by Example: Command-Line Flags](https://gobyexample.com/command-line-flags)
-- [Go by Example: Command-Line Subcommands](https://gobyexample.com/command-line-subcommands)
+
+関連項目:
+
+- [pkg > flag]({{<ref "std-pkg.md">}}#flag)
 
 参考:
 

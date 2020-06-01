@@ -78,7 +78,113 @@ flag.BoolVar(&verbose, "verbose", false, "Verbose output")
 参考:
 
 - [Go言語のflagパッケージを使う - uragami note](http://ryochack.hatenablog.com/entry/2013/04/17/232753 "Go言語のflagパッケージを使う - uragami note")
-- https://gobyexample.com/command-line-flags
+- [Go by Example: Command-Line Flags](https://gobyexample.com/command-line-flags)
+
+### サブコマンド対応
+
+Examples:
+
+```go
+package main
+
+import (
+    "flag"
+    "fmt"
+    "os"
+)
+
+func main() {
+    fooCmd := flag.NewFlagSet("foo", flag.ExitOnError)
+    fooEnable := fooCmd.Bool("enable", false, "enable")
+    fooName := fooCmd.String("name", "", "name")
+
+    barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
+    barLevel := barCmd.Int("level", 0, "level")
+
+    if len(os.Args) < 2 {
+        fmt.Println("expected 'foo' or 'bar' subcommands")
+        os.Exit(1)
+    }
+
+    switch os.Args[1] {
+
+    case "foo":
+        fooCmd.Parse(os.Args[2:])
+        fmt.Println("subcommand 'foo'")
+        fmt.Println("  enable:", *fooEnable)
+        fmt.Println("  name:", *fooName)
+        fmt.Println("  tail:", fooCmd.Args())
+    case "bar":
+        barCmd.Parse(os.Args[2:])
+        fmt.Println("subcommand 'bar'")
+        fmt.Println("  level:", *barLevel)
+        fmt.Println("  tail:", barCmd.Args())
+    default:
+        fmt.Println("expected 'foo' or 'bar' subcommands")
+        os.Exit(1)
+    }
+}
+```
+
+参考:
+
+- [Go by Example: Command-Line Subcommands](https://gobyexample.com/command-line-subcommands)
+
+### ヘルプメッセージのカスタマイズ
+
+パッケージ変数 `Usage` に独自関数を設定することでカスタマイズできる。
+
+Examples:
+
+```go
+func usage() {
+	fmt.Fprintln(os.Stderr, "blah blah blah")
+	fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
+	flag.PrintDefaults()
+}
+
+func main() {
+  flag.Usage = usage
+}
+```
+
+### func Arg
+
+`func Arg(i int) string`
+
+フラグでないi番目のコマンドライン引数を返す。
+`Arg(0)` が最初の引数。
+
+### func Args
+
+`func Args() []string`
+
+フラグでないコマンドライン引数のリストを返す。
+
+### func (*FlagSet) NArg
+
+`func (f *FlagSet) NArg() int`
+
+フラグ処理後に残った引数の数を返す。
+
+## fmt
+
+https://pkg.go.dev/fmt
+
+書式付きの入出力機能を提供するパッケージ。
+
+Examples:
+
+```go
+const name, age = "Kim", 22
+fmt.Println(name, "is", age, "years old.")
+_, err := fmt.Printf("%s is %d years old.\n", name, age)
+
+if err != nil {
+    fmt.Fprintln(os.Stderr, "Error occured!!")
+    fmt.Fprintf(os.Stderr, "Fprintf: %v\n", err)
+}
+```
 
 ## log
 
@@ -196,9 +302,30 @@ stdoutStderr, err := cmd.CombinedOutput()
 
 https://golang.org/pkg/path/filepath/
 
-- `func Walk(root string, walkFn WalkFunc) error`
-  - Perl5の `File::Find::find` に似てる。
-  - ディレクトリを再帰的に探索して、関数 `WalkFunc` を実行
+- `func Base` ... basenameコマンド相当
+- `func Dir` ... dirnameコマンド相当
+
+Examples:
+
+```go
+fmt.Println("On Unix:")
+
+fmt.Println(filepath.Base("/foo/bar/baz.js")) //=> baz.js
+fmt.Println(filepath.Base("/foo/bar/baz/"))   //=> baz
+fmt.Println(filepath.Base("dev.txt"))         //=> dev.txt
+
+fmt.Println(filepath.Dir("/foo/bar/baz.js")) //=> /foo/bar
+fmt.Println(filepath.Dir("/foo/bar/baz/"))   //=> /foo/bar/baz
+fmt.Println(filepath.Dir("dev.txt"))         //=> .
+fmt.Println(filepath.Dir("../todo.txt"))     //=> ..
+```
+
+### func Walk
+
+`func Walk(root string, walkFn WalkFunc) error`
+
+- Perl5の `File::Find::find` に似てる。
+- ディレクトリを再帰的に探索して、関数 `WalkFunc` を実行
 
 参考:
 

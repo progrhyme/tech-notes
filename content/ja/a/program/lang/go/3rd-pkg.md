@@ -11,6 +11,23 @@ weight: 1000
 
 - https://awesome-go.com/
 
+## go-git/go-git
+
+- https://github.com/go-git/go-git
+- https://pkg.go.dev/github.com/go-git/go-git/v5
+
+pure GoによるGitライブラリ。  
+[Gitの公式ページ](https://git-scm.com/book/en/v2/Appendix-B%3A-Embedding-Git-in-your-Applications-go-git)でも紹介されている。
+
+インメモリで処理され、コマンドをフォークしないので、gitコマンドをラップして使うよりはいいかもしれない。
+ただし、2020-06-02現在、gitコマンドの全てを網羅しているわけではない。
+
+互換性については、 https://github.com/go-git/go-git/blob/master/COMPATIBILITY.md を見るべし。
+
+参考:
+
+- [golangのgit ライブラリ「go-git」を使ってインメモリでgit操作をする | Developers.IO](https://dev.classmethod.jp/articles/in-memory-git-commit-and-push/)
+
 ## jinzhu/configor
 
 https://github.com/jinzhu/configor
@@ -67,8 +84,14 @@ contacts:
 
 ## spf13/pflag
 
-標準パッケージ flag の高機能版。  
+- https://github.com/spf13/pflag
+- https://pkg.go.dev/github.com/spf13/pflag
+
+標準パッケージ [flag]({{<ref "std-pkg.md">}}#flag) の高機能版。  
 GNUスタイルのロングオプションが作れる。
+
+flagを拡張しているので、flagでできることは基本的にpflagでもできる。  
+ので、flagについても併せて見ること。
 
 Examples:
 
@@ -103,22 +126,3 @@ default:
 
 - [How to set subcommand specific flags · Issue #195 · spf13/pflag](https://github.com/spf13/pflag/issues/195)
 - [spf13/pflagの使い方](https://naoty.dev/posts/110.html)
-
-### func Arg
-
-`func Arg(i int) string`
-
-フラグでないi番目のコマンドライン引数を返す。
-`Arg(0)` が最初の引数。
-
-### func Args
-
-`func Args() []string`
-
-フラグでないコマンドライン引数のリストを返す。
-
-### func (*FlagSet) NArg
-
-`func (f *FlagSet) NArg() int`
-
-フラグ処理後に残った引数の数を返す。

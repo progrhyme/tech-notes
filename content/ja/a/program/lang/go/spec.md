@@ -7,6 +7,22 @@ weight: 30
 ---
 
 ## リテラル
+### 文字列
+
+https://golang.org/ref/spec#String_literals
+
+`` `foo` `` ... raw string literal. ヒアドキュメントのように使える。
+
+Examples:
+
+```go
+help := `Usage:
+  hogehoge
+  fugafuga
+`
+fmt.Println(help)
+```
+
 ### rune
 
 https://golang.org/ref/spec#Rune_literals
@@ -48,18 +64,33 @@ const (
 - `:=` を使って宣言できない
 - 数値の定数は高精度な値。intの上限を越える値も保持できる
 
-### パッケージ変数
+### 変数のエクスポート
+
+https://golang.org/ref/spec#Exported_identifiers
 
 ```go
 package foo
 
-var privateVar string = "this is private" // 外部から見えない
-var PublicVar string = "this is public"   // 外部から見える
+var privateVar string = "this is private" // パッケージ外から見えない
+var PublicVar string = "this is public"   // パッケージ外から見える
+
+// パッケージ外から見える
+type Person struct {
+    Name string // パッケージ外から見える
+    age  int    // パッケージ外から見えない
+}
+
+// パッケージ外から見えない
+type ninja struct {
+    skill *Skill
+    hp    int
+}
 ```
 
 参考:
 
 - [Go言語のスコープについて - ryochack.clipboard](http://d.hatena.ne.jp/ryochack/20120115/1326567659 "Go言語のスコープについて - ryochack.clipboard")
+- [json - Capitals in struct fields - Stack Overflow](https://stackoverflow.com/questions/24837432/capitals-in-struct-fields)
 
 ### ゼロ値
 
@@ -104,6 +135,19 @@ a := [...]int{1, 2, 3} // 配列
 
 s1 := []int{1, 2, 3} // スライス
 s2 := []int{5, 6, 7}
+
+// 構造体のスライス
+ss := []struct {
+    i int
+    b bool
+}{
+    {2, true},
+    {3, false},
+    {5, true},
+    {7, true},
+    {11, false},
+    {13, true},
+}
 
 // スライスの結合
 s1 = append(s1, 4)
@@ -155,7 +199,25 @@ if ok {
 
 ### 構造体
 
+Examples:
+
+```go
+type Vertex struct {
+	X int
+	Y int
+}
+
+v := Vertex{}
+v.X = 5
+
+p := &v // ポインタ
+p.Y = 1e9 // ポインタでも . でメンバ変数にアクセスできる
+fmt.Println(v) //=> {5 1000000000}
+```
+
 #### 初期化
+
+構造体の初期化方法を示すサンプルコード:
 
 ```go
 // 例
@@ -242,15 +304,16 @@ Examples:
 
 ```go
 i, j := 42, 2701
+var p1 *int  // declare a pointer
 
-p := &i         // point to i
-fmt.Println(*p) // read i through the pointer
-*p = 21         // set i through the pointer
-fmt.Println(i)  // see the new value of i
+p1 = &i          // point to i
+fmt.Println(*p1) // read i through the pointer
+*p1 = 21         // set i through the pointer
+fmt.Println(i)   // see the new value of i
 
-p = &j         // point to j
-*p = *p / 37   // divide j through the pointer
-fmt.Println(j) // see the new value of j
+p2 := &j         // point to j
+*p2 = *p2 / 37   // divide j through the pointer
+fmt.Println(j)   // see the new value of j
 ```
 
 入門ガイド:

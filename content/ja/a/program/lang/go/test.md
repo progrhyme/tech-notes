@@ -12,6 +12,10 @@ Goのテストに関する情報をまとめる。
 - 基本的に、標準の [testing](https://golang.org/pkg/testing/) pkgを使う
 - フレームワークは使わない。愚直に書く
 
+参考:
+
+- [春の入門祭り 🌸 #01 Goのテストに入門してみよう！ | フューチャー技術ブログ](https://future-architect.github.io/articles/20200601/)
+
 ## How-to
 ### テストデータを用意する
 
