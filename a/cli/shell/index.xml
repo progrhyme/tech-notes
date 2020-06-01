@@ -1,4 +1,253 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – シェル</title><link>https://progrhy.me/tech-notes/a/cli/shell/</link><description>Recent content in シェル on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 10 May 2020 18:04:56 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/cli/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Bash</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/</link><pubDate>Tue, 28 Apr 2020 09:14:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/bash/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – シェル</title><link>https://progrhy.me/tech-notes/a/cli/shell/</link><description>Recent content in シェル on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 10 May 2020 18:04:56 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/cli/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>A: POSIXシェル</title><link>https://progrhy.me/tech-notes/a/cli/shell/posix/</link><pubDate>Mon, 01 Jun 2020 16:04:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/posix/</guid><description>
+&lt;p>POSIXシェルの仕様などについて書く。&lt;/p>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>sh, bash, ksh, ash, dashなど。&lt;/p>
+&lt;p>POSIX準拠だったり、互換だったりするシェル。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa">スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://www.unix.com/man-page/posix/1p/sh/">POSIX 1003.1 - man page for sh (posix section 1p) - Unix &amp;amp; Linux Commands&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html">CONTENTS - Shell &amp;amp; Utilities: Detailed TOC | The Open Group&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18">Shell Command Language&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="http://www.unix.org/whitepapers/shdiffs.html">Shell Command Language (www.unix.org))&lt;/a>
+&lt;ul>
+&lt;li>System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;p>※調査が甘くてPOSIXの仕様じゃないものが混ざっているかもしれない。&lt;/p>
+&lt;h3 id="パラメータと変数">パラメータと変数&lt;/h3>
+&lt;h4 id="parameter-expansion">Parameter Expansion&lt;/h4>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">Shell Command Language#2.6.2 Parameter Expansion&lt;/a>&lt;/p>
+&lt;p>&lt;code>${expression}&lt;/code> こういうやつ。最もシンプルなのは &lt;code>${parameter}&lt;/code> とそのままブレースで囲むだけ。&lt;/p>
+&lt;p>種類:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>${#parameter}&lt;/code> &amp;hellip; 文字列の長さを表す&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231152/">【 文字列の長さを調べる 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="演算子">演算子&lt;/h3>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>[ 条件式 ]&lt;/code> は &lt;code>test 条件式&lt;/code> と同じ。
+&lt;ul>
+&lt;li>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html">test&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions">Bash Reference Manual&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="単項条件演算子">単項条件演算子&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>演算子&lt;/th>
+&lt;th>真の条件&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-v VAR&lt;/td>
+&lt;td>変数VARが定義されている。※ &lt;code>-v $VAR&lt;/code> ではない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-n $str&lt;/td>
+&lt;td>$str に長さ1以上の文字列が入っている&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-z $str&lt;/td>
+&lt;td>$str が空文字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x $path&lt;/td>
+&lt;td>$path が実行可能ファイル&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-L $path&lt;/td>
+&lt;td>$path がシンボリックリンク&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-S $path&lt;/td>
+&lt;td>$path がソケット&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828">&amp;lt;Bash, zsh&amp;gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="二項条件演算子">二項条件演算子&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>構文&lt;/th>
+&lt;th>真の条件&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ldquo;$str1&amp;rdquo; = &amp;ldquo;$str2&amp;rdquo;&lt;/td>
+&lt;td>$str1と$str2が等しい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ldquo;$str1&amp;rdquo; != &amp;ldquo;$str2&amp;rdquo;&lt;/td>
+&lt;td>$str1と$str2が等しくない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -eq $y&lt;/td>
+&lt;td>数値$xと$yが等しい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -ne $y&lt;/td>
+&lt;td>数値$xと$yが等しくない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -gt $y&lt;/td>
+&lt;td>数値$xが$yより大きい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -lt $y&lt;/td>
+&lt;td>数値$xが$yより小さい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -ge $y&lt;/td>
+&lt;td>数値$xが$y以上&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$x -le $y&lt;/td>
+&lt;td>数値$xが$y以下&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$path1 -nt $path2&lt;/td>
+&lt;td>$path1 のタイムスタンプが $path2 より新しい&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$path1 -ot $path2&lt;/td>
+&lt;td>$path1 のタイムスタンプが $path2 より古い&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="ループ">ループ&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">continue&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 後続の処理をスキップして次の周回へ&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
+:
+&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+:
+&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## イテレータでループ&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>get_some_list&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+:
+&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/">【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="case構文">case構文&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_04_05">Shell Command Language#Case Conditional Construct&lt;/a>&lt;/p>
+&lt;p>構文:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> 値 in
+パターン1 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理1 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+パターン2 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理2 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+パターン3 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理3 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+…
+パターンn &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理n &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">esac&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>シェルの&lt;a href="#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%81">パターンマッチ&lt;/a>を使うこともできる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://shellscript.sunone.me/case.html">case 文の使用方法 | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="パターンマッチ">パターンマッチ&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_13">Shell Command Language#2.13. Pattern Matching Notation&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>パターン&lt;/th>
+&lt;th>マッチ文字列&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>?&lt;/code>&lt;/td>
+&lt;td>任意のアスキー1字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>*&lt;/code>&lt;/td>
+&lt;td>ヌル文字を含む任意の文字列&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>[&lt;/code>&lt;/td>
+&lt;td>&lt;code>[...]&lt;/code> で &lt;code>[]&lt;/code> 内の任意の1字にマッチする&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="parameter-expansion-1">Parameter Expansion&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">word&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -z &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">var&lt;/span>&lt;span style="color:#000;font-weight:bold">+x&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is unset&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is set to &amp;#39;&lt;/span>&lt;span style="color:#000">$var&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="built-ins">Built-Ins&lt;/h2>
+&lt;h3 id="-dot">. (dot)&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
+&lt;h3 id="-colon">: (colon)&lt;/h3>
+&lt;p>null utility&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/li>
+&lt;li>Bash: &lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>何もしないコマンド&lt;/p>
+&lt;h3 id="return">return&lt;/h3>
+&lt;p>関数かdot scriptを終了する&lt;/p>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 0以外だと異常終了扱い&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 引数省略時は最後のコマンドのexit statusになる&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="unset">unset&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シェル変数または環境変数を削除&lt;/span>
+&lt;span style="color:#204a87">unset&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FOO
+&lt;span style="color:#8f5902;font-style:italic"># 関数名を削除&lt;/span>
+&lt;span style="color:#204a87">unset&lt;/span> -f my_func
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html">【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Bash</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/</link><pubDate>Tue, 28 Apr 2020 09:14:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/bash/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>入門コンテンツ:&lt;/p>
 &lt;ul>
@@ -440,11 +689,8 @@ zle clear-screen
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: シェルスクリプト</title><link>https://progrhy.me/tech-notes/a/cli/shell/script/</link><pubDate>Mon, 04 May 2020 14:49:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/script/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/posix/">POSIXシェル&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/bash/cookbook/">Bash &amp;gt; Cookbooks&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>BashのことはなるべくBashのページに書こうと思うが、調査が甘くてBashじゃないと動かないコードがここに書かれることもあるかもしれない。&lt;/li>
 &lt;/ul>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>シェル上で動作する簡易なプログラミング言語、あるいはそれによって書かれたプログラム。&lt;/p>
@@ -453,20 +699,6 @@ zle clear-screen
 &lt;li>&lt;a href="http://e-words.jp/w/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88.html">シェルスクリプトとは - IT用語辞典 e-Words&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;h3 id="リファレンス">リファレンス&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="http://www.unix.com/man-page/posix/1p/sh/">POSIX 1003.1 - man page for sh (posix section 1p) - Unix &amp;amp; Linux Commands&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html">CONTENTS - Shell &amp;amp; Utilities: Detailed TOC | The Open Group&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18">Shell Command Language&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="http://www.unix.org/whitepapers/shdiffs.html">Shell Command Language (www.unix.org))&lt;/a>
-&lt;ul>
-&lt;li>System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
 &lt;h3 id="コーディング規約">コーディング規約&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://google.github.io/styleguide/shell.xml" title="Shell Style Guide">Shell Style Guide&lt;/a> &amp;hellip; Google の
@@ -481,231 +713,20 @@ zle clear-screen
 &lt;li>&lt;a href="http://motw.mods.jp/shellscript/tutorial.html">シェルスクリプト入門 書き方のまとめ | Memo on the Web&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/katsukii/items/383b241209fe96eae6e7">シェルスクリプトの基礎知識まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
-&lt;h3 id="パラメータと変数">パラメータと変数&lt;/h3>
-&lt;h4 id="parameter-expansion">Parameter Expansion&lt;/h4>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">Shell Command Language#2.6.2 Parameter Expansion&lt;/a>&lt;/p>
-&lt;p>&lt;code>${expression}&lt;/code> こういうやつ。最もシンプルなのは &lt;code>${parameter}&lt;/code> とそのままブレースで囲むだけ。&lt;/p>
-&lt;p>種類:&lt;/p>
+&lt;h2 id="テスト">テスト&lt;/h2>
+&lt;p>シェルスクリプトのテストフレームワークは意外とけっこうある。&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>${#parameter}&lt;/code> &amp;hellip; 文字列の長さを表す&lt;/li>
+&lt;li>&lt;a href="https://github.com/bats-core/bats-core">Bats&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/kward/shunit2">shUnit2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/pgrange/bash_unit">bash_unit&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://shellspec.info/">ShellSpec&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rylnd/shpec">rylnd/shpec&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/shove">progrhyme/shove&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231152/">【 文字列の長さを調べる 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="演算子">演算子&lt;/h3>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>[ 条件式 ]&lt;/code> は &lt;code>test 条件式&lt;/code> と同じ。
-&lt;ul>
-&lt;li>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html">test&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>ドキュメント:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions">Bash Reference Manual&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="単項条件演算子">単項条件演算子&lt;/h4>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>演算子&lt;/th>
-&lt;th>真の条件&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>-v VAR&lt;/td>
-&lt;td>変数VARが定義されている。※ &lt;code>-v $VAR&lt;/code> ではない&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-n $str&lt;/td>
-&lt;td>$str に長さ1以上の文字列が入っている&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-z $str&lt;/td>
-&lt;td>$str が空文字&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-x $path&lt;/td>
-&lt;td>$path が実行可能ファイル&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-L $path&lt;/td>
-&lt;td>$path がシンボリックリンク&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-S $path&lt;/td>
-&lt;td>$path がソケット&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://nekoyukimmm.hatenablog.com/entry/2018/01/21/101828">&amp;lt;Bash, zsh&amp;gt; シェル変数が定義されているかを判定する方法 - ねこゆきのメモ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="二項条件演算子">二項条件演算子&lt;/h4>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>構文&lt;/th>
-&lt;th>真の条件&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&amp;ldquo;$str1&amp;rdquo; = &amp;ldquo;$str2&amp;rdquo;&lt;/td>
-&lt;td>$str1と$str2が等しい&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;ldquo;$str1&amp;rdquo; != &amp;ldquo;$str2&amp;rdquo;&lt;/td>
-&lt;td>$str1と$str2が等しくない&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$x -eq $y&lt;/td>
-&lt;td>数値$xと$yが等しい&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$x -ne $y&lt;/td>
-&lt;td>数値$xと$yが等しくない&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$x -gt $y&lt;/td>
-&lt;td>数値$xが$yより大きい&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$x -lt $y&lt;/td>
-&lt;td>数値$xが$yより小さい&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$x -ge $y&lt;/td>
-&lt;td>数値$xが$y以上&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$x -le $y&lt;/td>
-&lt;td>数値$xが$y以下&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$path1 -nt $path2&lt;/td>
-&lt;td>$path1 のタイムスタンプが $path2 より新しい&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>$path1 -ot $path2&lt;/td>
-&lt;td>$path1 のタイムスタンプが $path2 より古い&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="ループ">ループ&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">continue&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 後続の処理をスキップして次の周回へ&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
-:
-&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
-:
-&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## イテレータでループ&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>get_some_list&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-:
-&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/">【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="case構文">case構文&lt;/h3>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_04_05">Shell Command Language#Case Conditional Construct&lt;/a>&lt;/p>
-&lt;p>構文:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> 値 in
-パターン1 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理1 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-パターン2 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理2 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-パターン3 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理3 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-…
-パターンn &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理n &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">esac&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>シェルの&lt;a href="#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%81">パターンマッチ&lt;/a>を使うこともできる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://shellscript.sunone.me/case.html">case 文の使用方法 | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="パターンマッチ">パターンマッチ&lt;/h3>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_13">Shell Command Language#2.13. Pattern Matching Notation&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>パターン&lt;/th>
-&lt;th>マッチ文字列&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>?&lt;/code>&lt;/td>
-&lt;td>任意のアスキー1字&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>*&lt;/code>&lt;/td>
-&lt;td>ヌル文字を含む任意の文字列&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>[&lt;/code>&lt;/td>
-&lt;td>&lt;code>[...]&lt;/code> で &lt;code>[]&lt;/code> 内の任意の1字にマッチする&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="parameter-expansion-1">Parameter Expansion&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">word&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -z &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">var&lt;/span>&lt;span style="color:#000;font-weight:bold">+x&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is unset&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is set to &amp;#39;&lt;/span>&lt;span style="color:#000">$var&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="built-ins">Built-Ins&lt;/h2>
-&lt;h3 id="-dot">. (dot)&lt;/h3>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_18&lt;/a>&lt;/p>
-&lt;h3 id="-colon">: (colon)&lt;/h3>
-&lt;p>null utility&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_16&lt;/a>&lt;/li>
-&lt;li>Bash: &lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bourne-Shell-Builtins&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>何もしないコマンド&lt;/p>
-&lt;h3 id="return">return&lt;/h3>
-&lt;p>関数かdot scriptを終了する&lt;/p>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 0以外だと異常終了扱い&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 引数省略時は最後のコマンドのexit statusになる&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="unset">unset&lt;/h3>
-&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シェル変数または環境変数を削除&lt;/span>
-&lt;span style="color:#204a87">unset&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FOO
-&lt;span style="color:#8f5902;font-style:italic"># 関数名を削除&lt;/span>
-&lt;span style="color:#204a87">unset&lt;/span> -f my_func
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html">【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/dodie/testing-in-bash">dodie/testing-in-bash: Bash test framework comparison 2020&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/shove-release-v0.7">&amp;quot;shove&amp;quot; というシェルスクリプト用のテストツールを作った - weblog of key_amb&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
 &lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
 たまに調べるのでこのページにまとめる。&lt;/p>

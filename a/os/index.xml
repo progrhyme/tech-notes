@@ -134,6 +134,12 @@
 &lt;li>&lt;a href="http://tldp.org/LDP/abs/html/exitcodes.html" title="Exit Codes With Special Meanings">Exit Codes With Special Meanings&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/Linda_pp/items/1104d2d9a263b60e104b" title="コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita">コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;h3 id="ブートシーケンス">ブートシーケンス&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/taichitk/items/b3b69705be0e270e9f6e">Linuxのブートシーケンス - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
 &lt;h3 id="selinux">SELinux&lt;/h3>
 &lt;p>RHEL系の機能かな（？）&lt;/p>

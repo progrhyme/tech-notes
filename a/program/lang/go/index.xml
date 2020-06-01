@@ -6,7 +6,17 @@
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
 sudo apt install golang-go
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/lang/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/spec/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="複数バージョンのgoをインストール">複数バージョンのGoをインストール&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/doc/install#extra_versions">https://golang.org/doc/install#extra_versions&lt;/a> に公式のガイドがある。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ go get golang.org/dl/go1.10.7
+$ go1.10.7 download
+$ go1.10.7 version
+go version go1.10.7 linux/amd64
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>サードパーティーのツールもある。goenvとか&lt;/li>
+&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/lang/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/go/spec/</guid><description>
 &lt;h2 id="リテラル">リテラル&lt;/h2>
 &lt;h3 id="rune">rune&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Rune_literals">https://golang.org/ref/spec#Rune_literals&lt;/a>&lt;/p>
