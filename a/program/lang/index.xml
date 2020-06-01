@@ -46,8 +46,10 @@
 &lt;p>入門サンプル:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://gobyexample.com/command-line-arguments">Go by Example: Command-Line Arguments&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://gobyexample.com/command-line-flags">Go by Example: Command-Line Flags&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://gobyexample.com/command-line-subcommands">Go by Example: Command-Line Subcommands&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/go/std-pkg/#flag">pkg &amp;gt; flag&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
