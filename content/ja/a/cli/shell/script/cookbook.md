@@ -3,7 +3,7 @@ title: "Cookbooks"
 linkTitle: "Cookbooks"
 description: >
   スクリプティングのための応用的なコードスニペット集っぽいもの。
-  基本的な文法機能の解説は[シェルスクリプト](../)の方に書く。
+  基本的な言語仕様については[POSIXシェル](/tech-notes/a/cli/shell/posix/)を参照。
 date: 2020-05-21T22:21:53+09:00
 ---
 

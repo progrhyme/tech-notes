@@ -68,6 +68,13 @@ See Also:
 - [Exit Codes With Special Meanings](http://tldp.org/LDP/abs/html/exitcodes.html "Exit Codes With Special Meanings")
 - [コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita](https://qiita.com/Linda_pp/items/1104d2d9a263b60e104b "コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita")
 
+## 仕様
+### ブートシーケンス
+
+参考:
+
+- [Linuxのブートシーケンス - Qiita](https://qiita.com/taichitk/items/b3b69705be0e270e9f6e)
+
 ## セキュリティ
 ### SELinux
 
