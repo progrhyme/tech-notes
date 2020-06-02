@@ -123,4 +123,49 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;li>&lt;a href="https://help.github.com/en/github/administering-a-repository/viewing-deployment-activity-for-your-repository">Viewing deployment activity for your repository - GitHub Help&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://developer.github.com/v3/repos/deployments/">Deployments | GitHub Developer Guide&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: JIRA</title><link>https://progrhy.me/tech-notes/a/web-service/jira/</link><pubDate>Wed, 03 Jun 2020 00:22:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/jira/</guid><description>
+&lt;p>Atlassian社製のITS.&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="リマインダ">リマインダ&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://community.atlassian.com/t5/Jira-articles/Jira%E3%81%AB%E3%81%A6%E6%9C%9F%E9%99%90%E3%81%AE%E8%BF%91%E3%81%84%E8%AA%B2%E9%A1%8C%E3%81%AE%E9%80%9A%E7%9F%A5%E3%82%92%E5%8F%97%E3%81%91%E5%8F%96%E3%82%8A%E3%81%9F%E3%81%84/ba-p/770716">Jiraにて期限の近い課題の通知を受け取りたい - Atlassian Community&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="jql">JQL&lt;/h3>
+&lt;p>JIRA固有の問合せ言語。SQLライク。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.confluence.atlassian.com/jirasoftwarecloud/advanced-searching-functions-reference-764478342.html">詳細検索 - 関数リファレンス - アトラシアン製品ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/takahirono7/items/4052321fe26130957c03">JIRAのチケット検索で使うJQLの例(適宜追加) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ラベルが空">ラベルが空&lt;/h4>
+&lt;pre>&lt;code>labels is EMPTY
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://community.atlassian.com/t5/Jira-questions/How-can-I-search-for-issues-that-do-NOT-have-a-certain-label/qaq-p/324533">Solved: How can I search for issues that do NOT have a cer&amp;hellip;&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="日付関連">日付関連&lt;/h4>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;pre>&lt;code>duedate &amp;lt; 1w // 期限1週間以内
+duedate &amp;lt; 30d // 期限30日以内
+&lt;/code>&lt;/pre>&lt;p>※ &lt;code>duedate &amp;lt; 1m&lt;/code> や &lt;code>duedate &amp;lt; 1M&lt;/code> は1ヶ月以内としては機能しない&lt;/p>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://fulstech.wordpress.com/markin-markdown-editor-for-jira/">Markin – Markdown Editor for JIRA – Fulstech&lt;/a>
+&lt;ul>
+&lt;li>良い感じのMarkdownプラグイン&lt;/li>
+&lt;li>&lt;a href="https://github.com/fulstech/markin">https://github.com/fulstech/markin&lt;/a> &amp;hellip; Issueでサポートサイト的な使い方をしている&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="管理機能">管理機能&lt;/h2>
+&lt;h3 id="ccというフィールドを作る">&amp;ldquo;Cc&amp;quot;というフィールドを作る&lt;/h3>
+&lt;p>カスタムフィールドを作れば良いみたい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://community.atlassian.com/t5/Jira-Service-Desk-questions/How-to-add-CC-field-in-open-ticket-screen/qaq-p/2152">How to add CC field in open ticket screen?&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="優先度のフィールドをカスタマイズ">優先度のフィールドをカスタマイズ&lt;/h3>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item></channel></rss>
