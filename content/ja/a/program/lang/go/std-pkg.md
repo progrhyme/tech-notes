@@ -253,7 +253,8 @@ https://golang.org/pkg/os/#Getenv
 func Getenv(key string) string
 ```
 
-keyの環境変数を返す。
+keyの環境変数を返す。  
+取得できなかった場合は空文字が返る。
 
 ### func Getwd
 
@@ -264,6 +265,16 @@ func Getwd() (dir string, err error)
 ```
 
 カレントディレクトリの絶対パスを返す。
+
+### func UserHomeDir
+
+https://golang.org/pkg/os/#UserHomeDir
+
+```go
+func UserHomeDir() (string, error)
+```
+
+Unix系システムなら `$HOME`, Windowsなら `%USERPROFILE%` の値を返す。
 
 ### type File
 
@@ -320,9 +331,34 @@ fmt.Println(filepath.Dir("dev.txt"))         //=> .
 fmt.Println(filepath.Dir("../todo.txt"))     //=> ..
 ```
 
+### func Join
+
+https://golang.org/pkg/path/filepath/#Join
+
+Signature:
+
+```go
+func Join(elem ...string) string
+```
+
+ファイルパスの要素を結合してファイルパス文字列を作って返す。
+
+Examples:
+
+```go
+// Unix
+filepath.Join("a", "b", "c") //=> a/b/c
+```
+
 ### func Walk
 
-`func Walk(root string, walkFn WalkFunc) error`
+https://golang.org/pkg/path/filepath/#Walk
+
+Signature:
+
+```go
+func Walk(root string, walkFn WalkFunc) error
+```
 
 - Perl5の `File::Find::find` に似てる。
 - ディレクトリを再帰的に探索して、関数 `WalkFunc` を実行

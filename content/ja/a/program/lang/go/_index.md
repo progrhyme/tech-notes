@@ -47,6 +47,21 @@ https://learn.go.dev/ に教材がたくさん転がっている。
 
 Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。
 
+### 例外処理
+
+入門ガイド:
+
+- [Go by Example: Panic](https://gobyexample.com/panic)
+- https://golang.org/ref/spec#Handling_panics
+
+関連項目:
+
+- [言語仕様#panic]({{<ref "spec.md">}}#panic)
+
+参考:
+
+- [Defer, Panic, and Recover - The Go Blog](https://blog.golang.org/defer-panic-and-recover)
+
 ### コマンドライン引数
 
 入門サンプル:

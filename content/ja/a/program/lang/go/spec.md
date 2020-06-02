@@ -324,6 +324,30 @@ fmt.Println(j)   // see the new value of j
 
 - [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
 
+## 真偽判定
+
+真偽判定（ifの条件式）に使えるのはbool型の値のみのようだ。  
+LLみたいに数値や文字列を真偽判定に用いることはできない。
+
+```go
+true  //=> true
+false //=> false
+s := ""
+if s { //=> エラー。文字列は判定できない
+    :
+}
+len(s) > 0 //=> false
+s == "" //=> true
+i := 1
+if i { //=> エラー。数値は判定できない
+    :
+}
+```
+
+参考:
+
+- [What is the best way to test for an empty string in Go? - Stack Overflow](https://stackoverflow.com/questions/18594330/what-is-the-best-way-to-test-for-an-empty-string-in-go)
+
 ## 制御構文
 ### switch
 
@@ -519,6 +543,27 @@ sliceに要素、またはsliceを結合し、新たなsliceを返す。
 slice = append(slice, elem1, elem2)
 slice = append(slice, anotherSlice...)
 ```
+
+### panic
+
+https://golang.org/pkg/builtin/#panic
+
+`func panic(v interface{})`
+
+Examples:
+
+```go
+panic("a problem")
+
+_, err := os.Create("/tmp/file")
+if err != nil {
+    panic(err)
+}
+```
+
+関連項目:
+
+- [Go#例外処理]({{<ref "_index.md">}}#例外処理)
 
 ## パッケージ
 ### init()関数による初期化
