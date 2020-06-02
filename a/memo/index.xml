@@ -69,7 +69,7 @@ go.mod がないのでGo Modulesにも対応してないみたい。&lt;br>
 &lt;p>flagの拡張版のようで、サブコマンドにも対応できるようだ。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/lang/go/3rd-pkg/#spf13pflag">プログラミング &amp;gt; Golang &amp;gt; pkg (3rd)#spf13/pflag&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#spf13pflag">プログラミング &amp;gt; Golang &amp;gt; pkg (3rd)#spf13/pflag&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="googlesubcommands">google/subcommands&lt;/h4>
 &lt;p>サブコマンドで行くと &lt;a href="https://github.com/google/subcommands">https://github.com/google/subcommands&lt;/a> というのも見つけた。&lt;br>

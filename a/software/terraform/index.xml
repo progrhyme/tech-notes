@@ -404,7 +404,7 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-providers">Other Providers&lt;/h2></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/terraform/editor/</link><pubDate>Sun, 10 May 2020 08:41:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/editor/</guid><description>
 &lt;p>各種エディタやIDEでTerraformを書くための設定など。&lt;/p>
 &lt;h2 id="intellij-idea">IntelliJ IDEA&lt;/h2>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/idea/">IntelliJ IDEA&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/editor/idea/">IntelliJ IDEA&lt;/a>&lt;/p>
 &lt;h3 id="plugins">Plugins&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-support">HashiCorp Terraform / HCL language support - IntelliJ IDEs | JetBrains&lt;/a>&lt;/li>
@@ -415,7 +415,7 @@ terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"
 &lt;li>File Watcherによる &lt;code>terraform fmt&lt;/code> を設定する&lt;/li>
 &lt;/ul>
 &lt;h2 id="visual-studio-code">Visual Studio Code&lt;/h2>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/vscode/">Visual Studio Code&lt;/a>&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/editor/vscode/">Visual Studio Code&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/pypypyo14/items/5520f3defa55119f3a1a">VSCodeでTerraformを書くときの設定(2019/11/07追記: HCL2対応) - Qiita&lt;/a>&lt;/li>

@@ -1,576 +1,411 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – プログラミング</title><link>https://progrhy.me/tech-notes/a/program/</link><description>Recent content in プログラミング on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 07:50:29 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/index.xml" rel="self" type="application/rss+xml"/><item><title>A: プログラム言語</title><link>https://progrhy.me/tech-notes/a/program/lang/</link><pubDate>Sun, 26 Apr 2020 07:54:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/lang/</guid><description>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="変数や関数の命名">変数や関数の命名&lt;/h3>
-&lt;p>便利なサービス:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://codic.jp/">https://codic.jp/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考になる記事:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.aerith.net/design/bool-j.html" title="ブール値を返すメンバー関数の命名規則">ブール値を返すメンバー関数の命名規則&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="言語の習得">言語の習得&lt;/h3>
-&lt;h4 id="a-to-z">a to z&lt;/h4>
-&lt;p>ある言語を一通り学ぶということがどういうことかをまとめる。&lt;/p>
-&lt;ul>
-&lt;li>文法
-&lt;ul>
-&lt;li>ソースコードの構造、形式
-&lt;ul>
-&lt;li>ステートメント
-&lt;ul>
-&lt;li>区切り文字&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>コメント&lt;/li>
-&lt;li>式&lt;/li>
-&lt;li>演算子&lt;/li>
-&lt;li>キーワード&lt;/li>
-&lt;li>リテラル
-&lt;ul>
-&lt;li>数値, 文字列, ヒアドキュメント, etc.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>その他記号&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>数値演算&lt;/li>
-&lt;li>プリミティブな文字列処理
-&lt;ul>
-&lt;li>結合, 分解, 書式, &amp;hellip;&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>型&lt;/li>
-&lt;li>制御構文
-&lt;ul>
-&lt;li>ループ&lt;/li>
-&lt;li>条件分岐&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>例外処理&lt;/li>
-&lt;li>関数&lt;/li>
-&lt;li>構造体, 拡張型&lt;/li>
-&lt;li>オブジェクト&lt;/li>
-&lt;li>外部ファイルの利用&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>言語機能
-&lt;ul>
-&lt;li>基本的なデータ型
-&lt;ul>
-&lt;li>配列&lt;/li>
-&lt;li>連想配列(マッピング構造体, ハッシュ)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>日付、時刻、時間&lt;/li>
-&lt;li>標準入出力&lt;/li>
-&lt;li>ファイル入出力&lt;/li>
-&lt;li>テキスト処理
-&lt;ul>
-&lt;li>正規表現&lt;/li>
-&lt;li>エンコーディング&lt;/li>
-&lt;li>マルチバイト文字対応&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>オブジェクト指向プログラミング
-&lt;ul>
-&lt;li>クラス, メソッド&lt;/li>
-&lt;li>継承&lt;/li>
-&lt;li>Mixin&lt;/li>
-&lt;li>オーバーライド, オーバーロード&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>バイナリ処理&lt;/li>
-&lt;li>並行処理&lt;/li>
-&lt;li>関数型プログラミング
-&lt;ul>
-&lt;li>高階関数&lt;/li>
-&lt;li>curry化&lt;/li>
-&lt;li>クロージャ, 無名関数, lambda式&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>ライブラリの利用
-&lt;ul>
-&lt;li>標準ライブラリ&lt;/li>
-&lt;li>3rd Partyのライブラリ&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>テスト&lt;/li>
-&lt;li>メタプログラミング
-&lt;ul>
-&lt;li>リフレクション&lt;/li>
-&lt;li>ジェネリクス&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>実行
-&lt;ul>
-&lt;li>対話IFによる実行
-&lt;ul>
-&lt;li>REPL&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>テスト
-&lt;ul>
-&lt;li>単体テスト&lt;/li>
-&lt;li>フレームワーク, ライブラリ&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>典型的な問題解決
-&lt;ul>
-&lt;li>乱数&lt;/li>
-&lt;li>典型的アルゴリズム
-&lt;ul>
-&lt;li>ソート, ハッシュ表, etc.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>典型的データ構造
-&lt;ul>
-&lt;li>連結リスト, 木, グラフ, etc.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>プログラミング手法
-&lt;ul>
-&lt;li>ダックタイピング&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>デバッグ&lt;/li>
-&lt;li>プロファイリング&lt;/li>
-&lt;li>内部構造
-&lt;ul>
-&lt;li>実行プロセス
-&lt;ul>
-&lt;li>スレッド&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>コンパイラ&lt;/li>
-&lt;li>インタープリタ&lt;/li>
-&lt;li>VM&lt;/li>
-&lt;li>GC
-&lt;ul>
-&lt;li>アルゴリズム&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>ソフトウェア開発
-&lt;ul>
-&lt;li>CLI&lt;/li>
-&lt;li>バッチ処理&lt;/li>
-&lt;li>デーモン&lt;/li>
-&lt;li>ライブラリ&lt;/li>
-&lt;li>Webアプリケーション&lt;/li>
-&lt;li>システムプログラミング&lt;/li>
-&lt;li>etc.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>開発環境・ツール
-&lt;ul>
-&lt;li>エディタ&lt;/li>
-&lt;li>IDE&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>コミュニティ&lt;/li>
-&lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: IntelliJ IDEA</title><link>https://progrhy.me/tech-notes/a/program/idea/</link><pubDate>Wed, 29 Apr 2020 10:44:28 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/idea/</guid><description>
-&lt;h2 id="usage">Usage&lt;/h2>
-&lt;ul>
-&lt;li>画面分割 &amp;hellip; &lt;code>Window &amp;gt; Editor Tabs &amp;gt; (Split Vertically|Split Horizontally)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/pipi_taro/items/859d445960bb79a3ac78">IntelliJの使い方 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
-&lt;p>&lt;code>Preferences &amp;gt; Editor &amp;gt; File Types&lt;/code> で関連付けを設定できる。&lt;br>
-まだ関連付けがない拡張子のファイルであれば、エディタ上で右クリックして「Associate File Type」を選んで設定することもできる。&lt;/p>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;h3 id="file-watchers">File Watchers&lt;/h3>
-&lt;p>ファイルを監視して自動で実行されるアクションを設定できる。&lt;br>
-例えば、ファイルの変更を監視してコードフォーマッタを適用するとか。&lt;/p>
-&lt;p>&lt;a href="https://pleiades.io/help/idea/using-file-watchers.html">ファイル監視 - 公式ヘルプ | IntelliJ IDEA&lt;/a>&lt;/p>
-&lt;h2 id="how-to-upgrade">How to Upgrade&lt;/h2>
-&lt;h3 id="ubuntu">Ubuntu&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200429/#ubuntu-1804%E3%81%A7intellij-idea%E3%82%9220201%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88">2020年に2018年版から2020.1にアップデートしたときのログ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018年に2017年版から2018.1にアップデートしたときのログ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Vim</title><link>https://progrhy.me/tech-notes/a/program/vim/</link><pubDate>Wed, 29 Apr 2020 20:37:00 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vim/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – プログラミング言語</title><link>https://progrhy.me/tech-notes/a/program/</link><description>Recent content in プログラミング言語 on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 07:50:29 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Go</title><link>https://progrhy.me/tech-notes/a/program/go/</link><pubDate>Sun, 26 Apr 2020 08:01:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
-&lt;li>エディタの操作 → &lt;a href="https://progrhy.me/tech-notes/a/program/vim/edit/">エディタ&lt;/a>&lt;/li>
-&lt;li>Vimの設定 → &lt;a href="https://progrhy.me/tech-notes/a/program/vim/vimrc/">vimrc&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tour.golang.org/">A Tour of Go&lt;/a> &amp;hellip; Web上でコードを動かしてGoプログラミングを体験できるチュートリアル&lt;/li>
+&lt;li>&lt;a href="https://go.dev/">https://go.dev/&lt;/a> &amp;hellip; Gopher向けのポータルみたいなサイト&lt;/li>
 &lt;/ul>
-&lt;h2 id="install">Install&lt;/h2>
-&lt;h3 id="ubuntuに新しいvimを入れる">Ubuntuに新しいVimを入れる&lt;/h3>
-&lt;p>2020-05-06現在、Ubuntu 18.04に入っているVimのバージョンが8.0だった。&lt;br>
-より新しいバージョンを使うには、aptで &lt;code>ppa:jonathonf/vim&lt;/code> のようなリポジトリの追加が必要そう。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>2019年12月の記事: &lt;a href="http://ubuntuhandbook.org/index.php/2019/12/install-vim-8-2-ubuntu-18-04-16-04-19-10/">How to Install Vim 8.2 in Ubuntu 18.04, 16.04, 19.10 | UbuntuHandbook&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
-&lt;p>Vim 8から標準機能になった。&lt;/p>
-&lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/repeat.html#packages">https://vim-jp.org/vimdoc-ja/repeat.html#packages&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>Vim script のパッケージは1つかそれ以上のプラグインを含むディレクトリである&lt;/p>
-&lt;/blockquote>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/thinca/items/cdc0169e3bcc5a55a5ba">Vim 8.0 Advent Calendar 6 日目 パッケージ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="プラグインマネージャー">プラグインマネージャー&lt;/h2>
-&lt;p>サードパーティーのものが色々ある。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/VundleVim/Vundle.vim">Vundle&lt;/a> &amp;hellip; 一番人気っぽいがここ数年、全然更新されてない（2020-05-05現在）&lt;/li>
-&lt;li>&lt;a href="https://github.com/junegunn/vim-plug">vim-plug&lt;/a> &amp;hellip; ミニマリストにオススメっぽい&lt;/li>
-&lt;li>&lt;a href="#deinvim">dein.vim&lt;/a> &amp;hellip; 闇の力を得たプラグインマネージャー（笑） NeoBundleの後継&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tanabee/items/e2064c5ce59c85915940">Vim におけるプラグイン管理についてまとめてみた - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="deinvim">dein.vim&lt;/h3>
-&lt;p>&lt;a href="https://github.com/Shougo/dein.vim">https://github.com/Shougo/dein.vim&lt;/a>&lt;/p>
-&lt;p>ヘルプ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt">https://github.com/Shougo/dein.vim/blob/master/doc/dein.txt&lt;/a>&lt;/li>
-&lt;li>&lt;code>:help dein&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/okamos/items/2259d5c770d51b88d75b">NeoVim、そしてdein.vimへ - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/delphinus/items/cd221a450fd23506e81a">[dein.vim] hook の便利な使い方 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="specs">Specs&lt;/h2>
-&lt;h3 id="正規表現">正規表現&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/kawaz/items/d0708a4ab08e572f38f3">vim正規表現リファレンス - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="オプションのグローバルな値とローカルな値">オプションのグローバルな値とローカルな値&lt;/h3>
-&lt;p>&lt;a href="https://whileimautomaton.net/2008/01/14011600">Vim: オプションのグローバルな値とローカルな値 - while (“im automaton”);&lt;/a> より。&lt;/p>
-&lt;ul>
-&lt;li>ふつうは &lt;code>set&lt;/code> を使う&lt;/li>
-&lt;li>ローカルに設定したい値は &lt;code>setlocal&lt;/code> を使う。そうでないとグローバル値も変化してしまう
-&lt;ul>
-&lt;li>例えば &lt;code>ftplugin/xxx&lt;/code> でファイルタイプごとの設定をするときに &lt;code>set&lt;/code> を使ってしまうと、ファイルを開くたびにグローバルの設定値が変化しかねない&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://wonderwall.hatenablog.com/entry/2016/03/20/222308">Vimメモ : filetypeの確認 - もた日記&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="現在編集してるファイルのfiletypeを確認">現在編集してるファイルのfiletypeを確認&lt;/h3>
-&lt;p>エディタ上でどちらかを実行&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">filetype&lt;/span>?&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &amp;amp;&lt;span style="color:#000">filetype&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="filetype一覧の確認">filetype一覧の確認&lt;/h3>
-&lt;p>エディタ上で以下を実行:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/ftplugin/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/indent/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/syntax/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;#34; 拡張子との関係を一覧&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">autocmd&lt;/span> &lt;span style="color:#000">filetypedetect&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="関連プロジェクト">関連プロジェクト&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://neovim.io/">Neovim&lt;/a>
-&lt;ul>
-&lt;li>Vimのメンテナンシビリティと拡張性を高め、モダン化するプロジェクト&lt;/li>
-&lt;li>参考:
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/lighttiger2505/items/440c32e40082dc310c1e">Neovimがどういうプロジェクトなのかまとめ - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://vim.blue/what-is-neovim/">neovim とは何か？ | Vim入門&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Visual Studio Code</title><link>https://progrhy.me/tech-notes/a/program/vscode/</link><pubDate>Mon, 27 Apr 2020 22:33:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/vscode/</guid><description>
-&lt;p>Micfosoftが提供するOSSのクロスプラットフォームなコードエディタ。&lt;br>
-Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
-&lt;p>3rd Partyの拡張機能も多数あり、機能を拡充することができる。&lt;/p>
+&lt;h3 id="play-ground">Play Ground&lt;/h3>
+&lt;p>&lt;a href="https://play.golang.org/">https://play.golang.org/&lt;/a>&lt;/p>
+&lt;p>Web上で動作するSandbox環境。&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/docs">https://code.visualstudio.com/docs&lt;/a>
+&lt;li>&lt;a href="https://golang.org/doc/">https://golang.org/doc/&lt;/a>
 &lt;ul>
-&lt;li>Get Started:
-&lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/docs/getstarted/keybindings">Visual Studio Code Key Bindings&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html">https://golang.org/doc/effective_go.html&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>User Guide:
+&lt;li>&lt;a href="http://golang-jp.org/">http://golang-jp.org/&lt;/a> &amp;hellip; golang.orgの日本語訳プロジェクト&lt;/li>
+&lt;/ul>
+&lt;h2 id="goを学ぶ">Goを学ぶ&lt;/h2>
+&lt;p>&lt;a href="https://learn.go.dev/">https://learn.go.dev/&lt;/a> に教材がたくさん転がっている。&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/docs/editor/extension-gallery">Managing Extensions in Visual Studio Code&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gobyexample.com/">Go by Example&lt;/a> &amp;hellip; 言語仕様や標準パッケージの使い方がハンズオンで学べる
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://oohira.github.io/gobyexample-jp/">Go by Example&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments · golang/go Wiki&lt;/a> &amp;hellip; Goらしい書き方を学べる
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://knsh14.github.io/translations/go-codereview-comments/">Go Codereview Comments&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/">The Go Programming Language Blog&lt;/a> / 公式ブログ&lt;/li>
 &lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
-&lt;h3 id="スニペット機能">スニペット機能&lt;/h3>
+&lt;p>非公式サイト:&lt;/p>
 &lt;ul>
-&lt;li>ユーザ定義のスニペットを作成可能
+&lt;li>&lt;a href="https://motemen.github.io/go-for-go-book/">GoのためのGo&lt;/a> &amp;hellip; オンライン教本 by motemen氏&lt;/li>
+&lt;li>&lt;a href="http://www.golangprograms.com/" title="Go Language Programs, Tutorial, Articles and Examples">Go Language Programs, Tutorial, Articles and Examples&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="記事">記事&lt;/h3>
 &lt;ul>
-&lt;li>&lt;code>File &amp;gt; Preferences &amp;gt; User Snippets&lt;/code>&lt;/li>
-&lt;li>コメント付きJSON形式で書く&lt;/li>
-&lt;li>グローバルなスニペット&lt;/li>
-&lt;li>ワークスペースごとのスニペット&lt;/li>
+&lt;li>2016年 &lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
+&lt;p>Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。&lt;/p>
+&lt;h3 id="例外処理">例外処理&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/panic">Go by Example: Panic&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.org/ref/spec#Handling_panics">https://golang.org/ref/spec#Handling_panics&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#panic">言語仕様#panic&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover - The Go Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コマンドライン引数">コマンドライン引数&lt;/h3>
+&lt;p>入門サンプル:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/command-line-arguments">Go by Example: Command-Line Arguments&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#flag">pkg &amp;gt; flag&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200531/#golang%E3%81%AEcli%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E6%94%B9%E3%82%81%E3%81%A6%E6%8E%A2%E3%81%97%E3%81%9F">2020-05-31#GolangのCLIパッケージを改めて探した&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ライブラリ管理">ライブラリ管理&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/doc/go1.14">Go 1.14&lt;/a>からGo Modulesが標準機能になったので、これを使いましょう。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/Modules">https://github.com/golang/go/wiki/Modules&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.org/ref/mod">Go Modules Reference - The Go Programming Language&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/using-go-modules">Using Go Modules - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/uchiko/items/64fb3020dd64cf211d4e">Go言語の依存モジュール管理ツール Modules の使い方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="プロファイリング">プロファイリング&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/pkg/runtime/pprof/" title="pprof - The Go Programming Language">runtime/pprof&lt;/a>という標準pkgを使うのが基本な感じ。
+&lt;ul>
+&lt;li>その内 &lt;a href="https://sites.google.com/site/progrhymetechwiki/programming/go/std-pkg" title="標準パッケージ - progrhyme's Tech Wiki">標準パッケージ - progrhyme&amp;rsquo;s Tech Wiki&lt;/a> に書くと思う。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>スニペットが有効になると、補完で選択可能になる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
+&lt;li>runtimeのデバッグに役立つ環境変数の話:
 &lt;ul>
-&lt;li>&lt;a href="https://vscode-doc-jp.github.io/docs/userguide/userdefinedsnippets.html">独自のスニペットを作成 | 非公式 - Visual Studio Code Docs&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.lisz-works.com/entry/vscode-snippets">VS Codeをスニペット作成は簡単で便利だった！ - lisz-works&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="preferences">Preferences&lt;/h2>
-&lt;p>昔はJSON設定ファイルを直接編集するようなスタイルだったが、2018年9月現在、GUIで設定できる項目も増えてきたようだ。&lt;/p>
-&lt;p>2種類の設定がある。&lt;/p>
-&lt;ul>
-&lt;li>ユーザ設定 &amp;hellip; ワークスペースによらない、ユーザ環境で常に有効になる設定。&lt;/li>
-&lt;li>ワークスペース設定 &amp;hellip; ワークスペースの &lt;code>.vscode/settings.json&lt;/code> に保存される。&lt;/li>
-&lt;/ul>
-&lt;p>Quick Reference:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.insertSpaces&lt;/code>&lt;/td>
-&lt;td>true, false&lt;/td>
-&lt;td>ソフトタブ（タブキーで半角スペースを挿入）のon/off&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>editor.renderWhitespace&lt;/code>&lt;/td>
-&lt;td>none, all, boundary&lt;/td>
-&lt;td>スペースやタブを描画するかどうか。 &lt;code>boundary&lt;/code> では単語境界は描画しない&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/spica/items/cfae8492804b8d3f8726">VSCodeのエディター設定の話 - タブ文字がなぜか半角スペースになってしまう - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="言語ごとの設定を行う">言語ごとの設定を行う&lt;/h3>
-&lt;p>インデントなどの設定を言語ごとに変えることができる。&lt;/p>
-&lt;p>settings.jsonで &lt;code>&amp;quot;[ruby]&amp;quot;: {}&lt;/code> などのエントリを作って、その中に設定を記述すればいい。&lt;br>
-コマンドパレットで &lt;code>Preferences: Configure language specific settings&lt;/code> と入力し、設定したい言語を選ぶやり方もある。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%E3%81%A7%E8%A8%80%E8%AA%9E%E3%81%94%E3%81%A8%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E3%81%97%E3%81%9F%E3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="自動フォーマット">自動フォーマット&lt;/h3>
-&lt;p>&lt;a href="https://code.visualstudio.com/docs/editor/codebasics#_formatting">https://code.visualstudio.com/docs/editor/codebasics#_formatting&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.formatOnSave&lt;/code>&lt;/td>
-&lt;td>true, &lt;strong>false&lt;/strong>&lt;/td>
-&lt;td>保存時にコードフォーマッタをかける&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;h3 id="インデント設定">インデント設定&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.detectIndentation&lt;/code>&lt;/td>
-&lt;td>&lt;strong>true&lt;/strong>, false&lt;/td>
-&lt;td>ファイルタイプごとのインデント設定を有効にする&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>editor.insertSpaces&lt;/code>&lt;/td>
-&lt;td>true, false&lt;/td>
-&lt;td>ソフトタブ（タブキーで半角スペースを挿入）のon/off&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>editor.tabSize&lt;/code>&lt;/td>
-&lt;td>&lt;strong>4&lt;/strong>&lt;/td>
-&lt;td>インデント幅&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;p>なぜか設定が反映されないときや、一時的に設定を変更したいときは、画面右下のインデント設定をクリックすることでアドホックに変更が可能。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1805/25/news039.html">VS Codeでインデントを設定するには：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://oua-iea-programmer.blogspot.com/2017/04/visual-studio-code.html">【Visual Studio Code】インデント幅の変更方法と、変えても反映されない時の対処法&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ja.stackoverflow.com/questions/34014/visual-studio-code%e3%81%a7%e8%a8%80%e8%aa%9e%e3%81%94%e3%81%a8%e3%81%ab%e3%82%a4%e3%83%b3%e3%83%87%e3%83%b3%e3%83%88%e3%81%ae%e8%a8%ad%e5%ae%9a%e3%82%92%e3%81%97%e3%81%9f%e3%81%84">vscode - Visual Studio Codeで言語ごとにインデントの設定をしたい - スタック・オーバーフロー&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="フォント設定">フォント設定&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>config&lt;/th>
-&lt;th>値（*）&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>editor.fontSize&lt;/code>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>エディタのフォントサイズ&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>（*）デフォルト値は太字&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tkyaji/items/45d5f88047e99c29dda2">Visual Studio Codeでフォントサイズをいい感じにする - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ファイルを常に新しいタブで開く">ファイルを常に新しいタブで開く&lt;/h3>
-&lt;p>&lt;code>workbench.editor.enablePreview: false&lt;/code> に設定し、プレビューを無効化する。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://code.i-harness.com/">[Visual-Studio-Code] ファイルを常に新しいタブで開くようにvscodeを設定するには？ | CODE Q&amp;amp;A 問題解決 [日本語]&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="テキストの折り返し">テキストの折り返し&lt;/h3>
-&lt;p>デフォルトは &lt;code>editor.wordWrap&lt;/code> が折り返さない設定(= &lt;code>off&lt;/code>)になっている。&lt;br>
-その他、次のオプションが有る:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>on&lt;/code> &amp;hellip; エディタの右端で折り返す&lt;/li>
-&lt;li>&lt;code>wordWrapColumn&lt;/code> &amp;hellip; &lt;code>editor.wordWrapColumn&lt;/code> で設定した値で折り返す&lt;/li>
-&lt;li>&lt;code>bounded&lt;/code> &amp;hellip; &lt;code>editor.wordWrapColumn&lt;/code> 設定値とエディタの幅の小さい方で折り返す&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1807/27/news035.html">VS Codeでテキストの折り返しを設定するには：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ショートカットキー">ショートカットキー&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Win/Linux&lt;/th>
-&lt;th>Mac&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+,&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+,&lt;/code>&lt;/td>
-&lt;td>設定画面を開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+p&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+p&lt;/code>&lt;/td>
-&lt;td>ファイルを検索して開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+p&lt;/code>, &lt;code>F1&lt;/code>&lt;/td>
-&lt;td>コマンドパレットを開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+x&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+x&lt;/code>&lt;/td>
-&lt;td>拡張機能を開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
-&lt;td>&lt;code>Ctrl+`&lt;/code>&lt;/td>
-&lt;td>ターミナルの表示/非表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+`&lt;/code>, &lt;code>Ctrl+Shift+0&lt;/code>&lt;/td>
-&lt;td>&lt;code>Ctrl+Shift+^&lt;/code>&lt;/td>
-&lt;td>新しいターミナルの作成&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+k v&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+k v&lt;/code>&lt;/td>
-&lt;td>Markdownファイルのプレビュー画面をサイドバイサイドで表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+Shift+v&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+Shift+v&lt;/code>&lt;/td>
-&lt;td>Markdownファイルのプレビュー画面を別タブで表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+k Ctrl+s&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+k ⌘+s&lt;/code>&lt;/td>
-&lt;td>キーバインド一覧を開く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>Ctrl+k Ctrl+t&lt;/code>&lt;/td>
-&lt;td>&lt;code>⌘+k ⌘+t&lt;/code>&lt;/td>
-&lt;td>カラーテーマ(配色)設定&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>リファレンス:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">keyboard-shortcuts-linux.pdf&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">keyboard-shortcuts-macos.pdf&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">keyboard-shortcuts-windows.pdf&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/oruponu/items/ae9c720d4522c1606daf">Visual Studio Code キーボード ショートカット - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1804/20/news030.html">VS CodeでMarkdownをプレビューするには？：Visual Studio Code TIPS - ＠IT&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="キーバインドの変更">キーバインドの変更&lt;/h3>
-&lt;p>↑のキーバインド一覧から変更可能&lt;/p>
-&lt;h2 id="extensions">Extensions&lt;/h2>
-&lt;h3 id="改行コードの表示">改行コードの表示&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=sohamkamani.code-eol">code-eol&lt;/a>
-&lt;ul>
-&lt;li>設定値: &lt;code>code-eol.color&lt;/code> &amp;hellip; 改行を表す記号の文字色を16進数のカラーコードで指定。
-&lt;ul>
-&lt;li>例: &lt;code>&amp;quot;#841a75&amp;quot;&lt;/code> (ラズベリー色)&lt;/li>
+&lt;li>&lt;a href="https://dave.cheney.net/tag/godebug" title="GODEBUG | Dave Cheney">GODEBUG | Dave Cheney&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/profiling-go-programs" title="Profiling Go Programs - The Go Blog">Profiling Go Programs - The Go Blog&lt;/a> &amp;hellip; pprof&lt;/li>
+&lt;li>&lt;a href="http://hakobe932.hatenablog.com/entry/2014/04/10/010619" title="golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨">golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a> &amp;hellip; pprof, net/http/pprof&lt;/li>
+&lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="programming-tips">Programming Tips&lt;/h2>
+&lt;p>コーディングする上で知っておくと便利なTips.&lt;/p>
+&lt;h3 id="enum">enum&lt;/h3>
+&lt;p>Goにはenumがない。&lt;br>
+intの独自型を定義するのがイディオムになっている。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#000">Apple&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">iota&lt;/span>
+&lt;span style="color:#000">Orange&lt;/span>
+&lt;span style="color:#000">Banana&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">myFruit&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>この独自型に対して &lt;code>String()&lt;/code> メソッドを実装しておくと、名前が引けて便利:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Apple&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Apple&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Orange&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Orange&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Banana&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Banana&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Unknown&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>golang.org/x/tools/cmd/stringer&lt;/code> で &lt;code>String()&lt;/code> メソッドを含むコードを自動生成することもできる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/awakia/items/c81c7816b9aea5422250" title="GoのEnumイディオム - Qiita">GoのEnumイディオム - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20141208093852.htm" title="Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話">Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://arslan.io/2015/10/08/ten-useful-techniques-in-go/" title="Ten Useful Techniques in Go – Fatih Arslan">Ten Useful Techniques in Go – Fatih Arslan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="build">build&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
+&lt;p>&lt;code>Build Constraints&lt;/code> という機能は「build tag」としても知られている。&lt;br>
+こんなの:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// (A)
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// +build foo
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// (B)
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// +build !foo
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>(A) &lt;code>go build -tags=foo&lt;/code> でビルドされる。&lt;br>
+(B) &lt;code>go build&lt;/code> でビルドされる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://shinpei.github.io/blog/2014/10/07/use-build-constrains-or-build-tag-in-golang/" title="go build -tagsを使ってRelease/Debugを切り替える - flyhigh">go build -tagsを使ってRelease/Debugを切り替える - flyhigh&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="webassembly対応">WebAssembly対応&lt;/h3>
+&lt;p>2020-05-31記載。&lt;/p>
+&lt;p>LLVMベースのコンパイラなのでWASMに対応しているという&lt;a href="https://tinygo.org/">TinyGo&lt;/a>の存在をいま知ったところだけど、Go本体も1.11でWASMを実験的にサポートしたそうだ。&lt;/p>
+&lt;p>GitHub WikiにWebAssemblyのページがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/WebAssembly">https://github.com/golang/go/wiki/WebAssembly&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Go 1.11 added an experimental port to WebAssembly. Go 1.12 has improved some parts of it, with further improvements expected in Go 1.13.&lt;/p>
+&lt;/blockquote>
+&lt;p>気になったので、1.13, 1.14のリリースノートを確認した。&lt;/p>
+&lt;p>&lt;a href="https://golang.org/doc/go1.14#wasm">https://golang.org/doc/go1.14#wasm&lt;/a>&lt;/p>
+&lt;p>&lt;code>js.Value&lt;/code> オブジェクト（Goから参照されるJavaScriptの値）がガベージコレクションの対象になったとか。&lt;/p>
+&lt;p>&lt;a href="https://golang.org/doc/go1.13#ports">https://golang.org/doc/go1.13#ports&lt;/a>&lt;/p>
+&lt;p>&lt;code>GOARCH=wasm&lt;/code> でWASMコンパイルするとき、 &lt;code>GOWASM&lt;/code> 環境変数にカンマ区切りで実験的なフィーチャーリストを指定できるようになった。&lt;br>
+有効な値は &lt;a href="https://golang.org/cmd/go/#hdr-Environment_variables">https://golang.org/cmd/go/#hdr-Environment_variables&lt;/a> に記されている。&lt;br>
+2020-05-31現在は &lt;code>setconv&lt;/code>, &lt;code>signext&lt;/code> が指定可能。&lt;/p>
+&lt;h2 id="歴史">歴史&lt;/h2>
+&lt;h3 id="ライブラリ管理-1">ライブラリ管理&lt;/h3>
+&lt;h4 id="dep">dep&lt;/h4>
+&lt;p>&lt;a href="https://golang.github.io/dep/">https://golang.github.io/dep/&lt;/a>&lt;/p>
+&lt;p>「Dep」という依存パッケージ管理ツール。
+Go 1.11〜1.13で公式の実験的な扱いだった。&lt;/p>
+&lt;ul>
+&lt;li>ドキュメント: &lt;a href="https://golang.github.io/dep/docs/">https://golang.github.io/dep/docs/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="vendoring">vendoring&lt;/h4>
+&lt;p>アプリケーションなどで、依存パッケージを管理する仕組み。&lt;br>
+Go 1.6から正式にサポートされた。&lt;br>
+Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>GO15VENDOREXPERIMENT&lt;/code> を設定してコンパイルする必要がある。&lt;/p>
+&lt;p>vendoringのためのツールとして、glideやgomなどがある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/okamos/items/587a5693a3ae9cae9b88" title="今更だけどGoのVendoringについて思いをはせる - Qiita">今更だけどGoのVendoringについて思いをはせる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://yoru9zine.hatenablog.com/entry/2016/02/02/054922" title="go vendoring - 隙あらば寝る">go vendoring - 隙あらば寝る&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://librabuch.jp/blog/2016/04/go-lang-vendoring-glide/" title="Glide で Go 言語のパッケージ管理と vendoring - Librabuch">Glide で Go 言語のパッケージ管理と vendoring - Librabuch&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: JavaScript</title><link>https://progrhy.me/tech-notes/a/program/js/</link><pubDate>Sun, 26 Apr 2020 20:47:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/js/</guid><description>
+&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript">JavaScript | MDN&lt;/a>&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide" title="JavaScript ガイド - JavaScript | MDN">JavaScript ガイド - JavaScript | MDN&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Reference:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference" title="JavaScript リファレンス - JavaScript | MDN">JavaScript リファレンス - JavaScript | MDN&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.w3schools.com/jsref/" title="JavaScript and HTML DOM Reference">JavaScript and HTML DOM Reference&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>コーディング規約:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://google.github.io/styleguide/javascriptguide.xml" title="Google JavaScript Style Guide">Google JavaScript Style Guide&lt;/a>
+&lt;ul>
+&lt;li>非公式和訳: &lt;a href="http://cou929.nu/data/google_javascript_style_guide/" title="Google JavaScript Style Guide 和訳 — Google JavaScript Style Guide 和訳">Google JavaScript Style Guide 和訳 — Google JavaScript Style Guide 和訳&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;/li>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=steditor.line-endings">line-endings&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>2018年9月、code-eolを入れて使っている。&lt;/p>
-&lt;h3 id="textlint">textlint&lt;/h3>
+&lt;li>&lt;a href="https://github.com/felixge/node-style-guide">https://github.com/felixge/node-style-guide&lt;/a>&lt;/li>
+&lt;li>参考まとめ:
 &lt;ul>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=taichi.vscode-textlint">vscode-textlint&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/takeharu/items/dee0972e5f39bfd4d7c8" title="JavaScriptのスタイルガイドまとめ(おすすめ4選) - Qiita">JavaScriptのスタイルガイドまとめ(おすすめ4選) - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>日本語の書き方など指摘・修正してくれるLintツール。&lt;/p>
-&lt;p>使い方:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h3 id="date">Date&lt;/h3>
+&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date&lt;/a>&lt;/p>
+&lt;h3 id="json">JSON&lt;/h3>
+&lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">obj&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">str&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">stringify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">obj&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="デバッグ">デバッグ&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://qiita.com/azu/items/2c565a38df5ed4c9f4e1#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">VS Codeでtextlintを使って文章をチェックする - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;code>debugger;&lt;/code> 文を埋め込む。&lt;/li>
 &lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="vs-codeの更新">VS Codeの更新&lt;/h3>
-&lt;p>Ubuntu:&lt;/p>
-&lt;ol>
-&lt;li>debパッケージをダウンロード&lt;/li>
-&lt;li>&lt;code>sudo dpkg -i code_xxx.deb&lt;/code>&lt;/li>
-&lt;/ol></description></item></channel></rss>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://postd.cc/how-to-not-hate-javascript-tips-from-the-frontline/" title="JavaScriptのデバッグ方法 – JSを嫌いにならないためのTips | プログラミング | POSTD">JavaScriptのデバッグ方法 – JSを嫌いにならないためのTips | プログラミング | POSTD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="日付と時刻の計算">日付と時刻の計算&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kazu56/items/cca24cfdca4553269cab" title="【JavaScript】日付処理 - Qiita">【JavaScript】日付処理 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/ee532932%28v=vs.94%29.aspx" title="日付と時刻の計算 (JavaScript)">日付と時刻の計算 (JavaScript)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="var-let-constの使い分け">var, let, constの使い分け&lt;/h3>
+&lt;p>2017年12月現在、イマイチよくわかっていない。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sbfl.net/blog/2016/07/14/javascript-var-let-const/" title="JavaScriptにおけるvar/let/constの使い分け">JavaScriptにおけるvar/let/constの使い分け&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="sprintfなさそう">sprintfなさそう&lt;/h3>
+&lt;p>Node.jsだとutilがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nodejs.org/api/util.html">https://nodejs.org/api/util.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>npmもある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.npmjs.com/package/sprintf">https://www.npmjs.com/package/sprintf&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&amp;ldquo;0&amp;quot;埋めとか半角スペースで埋める方法としては substr を使った例が出て来る:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2014/12/03/114154" title="Javascriptで文字列の０埋め、空白で右寄せでフォーマット - それマグで！">Javascriptで文字列の０埋め、空白で右寄せでフォーマット - それマグで！&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>自作関数を作る例も出てくる:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/pseudo_foxkeh/items/9297a834bc8e05133e7a" title="Javascriptで日付・時刻をフォーマット表示 - Qiita">Javascriptで日付・時刻をフォーマット表示 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/osakanafish/items/c64fe8a34e7221e811d0" title="日付フォーマットなど 日付系処理 - Qiita">日付フォーマットなど 日付系処理 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>日付時刻については、固定フォーマットで出力する関数はある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/library/ff743760(v=vs.94).aspx" title="日付と時刻文字列 (JavaScript)">日付と時刻文字列 (JavaScript)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.sejuku.net/blog/23064" title="【Javascript入門】日付のフォーマット処理まとめ | 侍エンジニア塾ブログ | プログラミング入門者向け学習情報サイト">【Javascript入門】日付のフォーマット処理まとめ | 侍エンジニア塾ブログ | プログラミング入門者向け学習情報サイト&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Perl</title><link>https://progrhy.me/tech-notes/a/program/perl/</link><pubDate>Fri, 08 May 2020 22:34:00 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/perl/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://perldoc.perl.org/">https://perldoc.perl.org/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://perldoc.jp/">https://perldoc.jp/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="podの書き方">PODの書き方&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://perldoc.perl.org/5.30.0/perlpod.html">https://perldoc.perl.org/5.30.0/perlpod.html&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="https://perldoc.jp/docs/perl/5.26.1/perlpod.pod">https://perldoc.jp/docs/perl/5.26.1/perlpod.pod&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="history">History&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Perl">Perl - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://history.perl.org/PerlTimeline.html">http://history.perl.org/PerlTimeline.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cpan">CPAN&lt;/h2>
+&lt;h3 id="cpanモジュールのメンテに関する備忘録">CPANモジュールのメンテに関する備忘録&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/gfx/20140823/1408750107">comaint(1)でCPAN moduleのcomaintainerを追加する - Islands in the byte stream&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://keyamb.hatenablog.com/entry/2014/03/15/204118">Minilla を使って CPAN にモジュールを上げてみた - weblog of key_amb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2017/20170509#TOC-CPAN-">久しぶりにCPANリリース / 20170509 - progrhyme&amp;rsquo;s Tech Wiki&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Rust</title><link>https://progrhy.me/tech-notes/a/program/rust/</link><pubDate>Sun, 24 May 2020 15:28:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-lang/rust">https://github.com/rust-lang/rust&lt;/a> &amp;hellip; ソースコードもRust&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/book/">https://doc.rust-lang.org/book/&lt;/a>
+&lt;ul>
+&lt;li>日本語訳: &lt;a href="https://doc.rust-jp.rs/">https://doc.rust-jp.rs/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="documentation">Documentation&lt;/h3>
+&lt;p>&lt;a href="https://www.rust-lang.org/learn">https://www.rust-lang.org/learn&lt;/a> &amp;hellip; ランディングページ&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/edition-guide/">Edition Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/std/">Standard Library&lt;/a>
+&lt;ul>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/program/rust/std/">std Library&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/cargo/">Cargo Book&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/rustc/">rustc book&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/error-index.html">Rust Compiler Error Index&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-lang.org/rustdoc/">rustdoc book&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="style-guide">Style Guide&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md">Rust Style Guide&lt;/a> &amp;hellip; 2020-05-25現在の正式版はこちらのようだ&lt;/li>
+&lt;/ul>
+&lt;p>古い（と思われる）もの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://doc.rust-lang.org/1.0.0/style/">https://doc.rust-lang.org/1.0.0/style/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rust-lang/www.rust-lang.org/issues/695">Outdated documentation on doc.rust-lang.org is exposed to search engines · Issue #695 · rust-lang/www.rust-lang.org&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="開発環境">開発環境&lt;/h3>
+&lt;p>2018/8/22現在、VSCode, IntelliJが人気のようだ。&lt;br>
+もちろん、Atomでも開発できそうだし、Eclipseもある。&lt;/p>
+&lt;h3 id="play-ground">Play Ground&lt;/h3>
+&lt;p>&lt;a href="https://play.rust-lang.org/">https://play.rust-lang.org/&lt;/a> &amp;hellip; Web上でコードの動作を試せる環境。&lt;/p>
+&lt;h2 id="learn-rust">Learn Rust&lt;/h2>
+&lt;p>Rustをより深く学ぶための教材など。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/">Command Line Book&lt;/a> &amp;hellip; RustでCLIを書くためのチュートリアルと関連トピック&lt;/li>
+&lt;/ul>
+&lt;h2 id="community">Community&lt;/h2>
+&lt;p>&lt;a href="https://www.rustaceans.org/">https://www.rustaceans.org/&lt;/a>&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>Rustを書く人のことを「Rustacean」という。&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/cargo/#cli">cargo&lt;/a>&lt;/li>
+&lt;li>rustup &amp;hellip; Rustコンパイラインストール。最新バージョンへのアップデート。クロスコンパイル&lt;/li>
+&lt;li>rustc &amp;hellip; Rustコンパイラ&lt;/li>
+&lt;/ul>
+&lt;h3 id="rustup">rustup&lt;/h3>
+&lt;p>Rust toolchain installer.&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
+rustup &lt;span style="color:#204a87">help&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Update Rust toolchains and rustup&lt;/span>
+rustup update
+&lt;span style="color:#8f5902;font-style:italic"># 更新の有無を確認&lt;/span>
+rustup check
+&lt;span style="color:#8f5902;font-style:italic"># ブラウザでローカルにインストールされたドキュメントを開く&lt;/span>
+rustup doc
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="rustc">rustc&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンパイル&lt;/span>
+rustc main.rs
+&lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
+rustc --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>h&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>elp
+&lt;span style="color:#8f5902;font-style:italic">## 全コマンドオプションを表示&lt;/span>
+rustc --help -v
+&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
+rustc --version&lt;span style="color:#000;font-weight:bold">|&lt;/span>-V
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="road-to-rustacean">Road to Rustacean&lt;/h2>
+&lt;p>Rustでコードを書く上で知っておくべき基礎的なトピックやHow toについて書く。&lt;/p>
+&lt;h3 id="例外処理">例外処理&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/errors.html">Nicer error reporting - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://doc.rust-jp.rs/book/second-edition/ch09-02-recoverable-errors-with-result.html">Resultで回復可能なエラー - The Rust Programming Language&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/spec/#heading">言語仕様 &amp;gt; 演算子 &amp;gt; ?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/std/#result-module">std::result&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/crate/#failure">Crates &amp;gt; failure&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="標準入出力">標準入出力&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/output.html">Output for humans and machines - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/std/#print">std::print&lt;/a>などのマクロファミリー&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/std/fmt/">std::fmt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/std/io/">std::io&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ファイル入出力">ファイル入出力&lt;/h3>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/std/#path-module">std::path&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コマンドライン引数">コマンドライン引数&lt;/h3>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rust-cli.github.io/book/tutorial/cli-args.html">Parsing command line arguments - Command Line Applications in Rust&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/crate/#clap">Crates &amp;gt; clap&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/rust/crate/#structopt">Crates &amp;gt; structopt&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
