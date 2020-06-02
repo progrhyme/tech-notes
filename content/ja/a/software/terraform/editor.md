@@ -9,7 +9,7 @@ weight: 1100
 
 ## IntelliJ IDEA
 
-See also [IntelliJ IDEA]({{< ref "/a/program/idea.md" >}})
+See also [IntelliJ IDEA]({{< ref "/a/software/editor/idea.md" >}})
 
 ### Plugins
 
@@ -22,7 +22,7 @@ See also [IntelliJ IDEA]({{< ref "/a/program/idea.md" >}})
 
 ## Visual Studio Code
 
-See also [Visual Studio Code]({{< ref "/a/program/vscode.md" >}})
+See also [Visual Studio Code]({{< ref "/a/software/editor/vscode.md" >}})
 
 参考:
 

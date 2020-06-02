@@ -10,8 +10,8 @@ weight: 900
 
 ## Getting Started
 
-- エディタの操作 → [エディタ]({{< ref "/a/program/vim/edit.md" >}})
-- Vimの設定 → [vimrc]({{< ref "/a/program/vim/vimrc.md" >}})
+- エディタの操作 → [エディタ]({{< ref "/a/software/editor/vim/edit.md" >}})
+- Vimの設定 → [vimrc]({{< ref "/a/software/editor/vim/vimrc.md" >}})
 
 ## Install
 ### Ubuntuに新しいVimを入れる
