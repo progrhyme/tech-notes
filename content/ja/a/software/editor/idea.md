@@ -14,6 +14,14 @@ weight: 30
 参考:
 
 - [IntelliJの使い方 - Qiita](https://qiita.com/pipi_taro/items/859d445960bb79a3ac78)
+- [IntelliJ IDEA 初期設定・プラグイン・ショートカットコマンド - Qiita](https://qiita.com/non0311/items/71109f284b6b32f1b25e)
+
+### 行の折り返し（Soft-Wrap）
+
+```
+Preferences > Editor > General > SoftWraps
+> Use original line’s indent for wrapped parts
+```
 
 ### File Typeの関連付け
 
