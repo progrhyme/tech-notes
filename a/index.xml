@@ -883,8 +883,12 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/pipi_taro/items/859d445960bb79a3ac78">IntelliJの使い方 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/non0311/items/71109f284b6b32f1b25e">IntelliJ IDEA 初期設定・プラグイン・ショートカットコマンド - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
+&lt;h3 id="行の折り返しsoft-wrap">行の折り返し（Soft-Wrap）&lt;/h3>
+&lt;pre>&lt;code>Preferences &amp;gt; Editor &amp;gt; General &amp;gt; SoftWraps
+&amp;gt; Use original line’s indent for wrapped parts
+&lt;/code>&lt;/pre>&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
 &lt;p>&lt;code>Preferences &amp;gt; Editor &amp;gt; File Types&lt;/code> で関連付けを設定できる。&lt;br>
 まだ関連付けがない拡張子のファイルであれば、エディタ上で右クリックして「Associate File Type」を選んで設定することもできる。&lt;/p>
 &lt;h2 id="plugins">Plugins&lt;/h2>
