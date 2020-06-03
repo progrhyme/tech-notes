@@ -1,4 +1,48 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Webサービス</title><link>https://progrhy.me/tech-notes/a/web-service/</link><description>Recent content in Webサービス on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 13:42:49 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Webサービス</title><link>https://progrhy.me/tech-notes/a/web-service/</link><description>Recent content in Webサービス on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 26 Apr 2020 13:42:49 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/web-service/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Amazon Web Service</title><link>https://progrhy.me/tech-notes/a/web-service/aws/</link><pubDate>Wed, 03 Jun 2020 13:41:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/</guid><description>
+&lt;h2 id="各種制限">各種制限&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/general/latest/gr/aws_service_limits.html" title="AWS サービス制限 - アマゾン ウェブ サービス">AWS サービス制限 - アマゾン ウェブ サービス&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ebs-ec2-config.html" title="Amazon EC2 インスタンスの構成 - Amazon Elastic Compute Cloud">Amazon EC2 インスタンスの構成 - Amazon Elastic Compute Cloud&lt;/a> &amp;hellip; 最大帯域幅/スループット/IOPS&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>リージョン内のVPC数の上限(デフォルト5個)を増やすと、合わせてリージョン内のインターネットゲートウェイ数の上限も増やしてもらえる。&lt;/li>
+&lt;/ul>
+&lt;h2 id="サポート">サポート&lt;/h2>
+&lt;p>プラン: &lt;a href="https://aws.amazon.com/jp/premiumsupport/signup/">https://aws.amazon.com/jp/premiumsupport/signup/&lt;/a>&lt;/p>
+&lt;h2 id="マネジメントコンソール">マネジメントコンソール&lt;/h2>
+&lt;h3 id="複数アカウントの切替">複数アカウントの切替&lt;/h3>
+&lt;ol>
+&lt;li>Cross-Account Accessを使う&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="http://aws.typepad.com/aws_japan/2015/01/new-cross-account-access-in-the-aws-management-console.html">Amazon Web Services ブログ: 【AWS発表】AWSマネジメントコンソールへのCross-Account Access&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Chromeで複数ユーザ作って頑張る&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>参考: &lt;a href="https://dev.classmethod.jp/cloud/google-chrome-multi-aws-account/">Google Chromeで複数AWSアカウントでの作業を快適に行う方法 ｜ Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="請求とコスト管理">請求とコスト管理&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">コスト配分タグの使用 - AWS 請求情報とコスト管理&lt;/a>
+&lt;ul>
+&lt;li>特定のタグを付けることでコスト管理しやすくなる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="budgets">Budgets&lt;/h3>
+&lt;h4 id="ベストプラクティス">ベストプラクティス&lt;/h4>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/budgets-best-practices.html">AWS Budgets のベストプラクティス - AWS 請求情報とコスト管理&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>予算の予測には約5週間の使用状況データが必要&lt;/li>
+&lt;/ul>
+&lt;h4 id="sns通知">SNS通知&lt;/h4>
+&lt;p>予算の通知にSNSトピックを使う場合、ポリシー設定が必要。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/budgets-sns-policy.html">予算の通知に関連付ける Amazon SNS トピックの作成 - AWS 請求情報とコスト管理&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Bitbucket</title><link>https://progrhy.me/tech-notes/a/web-service/bitbucket/</link><pubDate>Tue, 28 Apr 2020 00:22:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/bitbucket/</guid><description>
 &lt;p>Atlassian社が提供しているソースコードのホスティングサービス。&lt;br>
 JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;h2 id="提供形態">提供形態&lt;/h2>
