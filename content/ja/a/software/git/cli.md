@@ -44,15 +44,24 @@ git branch
 git branch --merged
 ## 出力フォーマット指定
 git branch --format="<FORMAT>"
+## 追跡branchも含めて表示
+git branch -vv
 
 # 今のbranchを元に新しいbranchを作る
 git branch <newbranch>
 
 # 既存のbranchを元に新しいbranchを作る
 git branch <oldbranch> <newbranch>
+
+# 追跡ブランチを設定
+git branch -u|--set-upstream-to origin/<branch>
 ```
 
 `--format` オプションで指定できるフォーマットについては[git-for-each-ref](#for-each-ref)を見よ。
+
+参考:
+
+- [gitでローカルのブランチが追跡しているリモートブランチを確認する方法 - Qiita](https://qiita.com/kz_morita/items/c624f8cf27ec82de0baa)
 
 ## checkout
 
@@ -216,30 +225,35 @@ git rebase -i --root
 
 ## remote
 
+https://git-scm.com/docs/git-remote
+
 リモートリポジトリの管理。
 
 ```bash
-## リモートリポジトリ一覧
+# リモートリポジトリ一覧
 git remote
 git remote -v
 
-## リモートリポジトリ追加
+# リモートリポジトリ追加
 git remote add <リポジトリ名> <URL>
 
-## リモートリポジトリ削除
+# リモートリポジトリ削除
 git remote rm <リポジトリ名>
 
-## URL変更
+# URL変更
 git remote set-url <リポジトリ名> <URL>
 
-## リポジトリ名変更
+# リポジトリ名変更
 git remote rename <リポジトリ名> <新しいリポジトリ名>
+
+# remote groupに属するブランチをfetchする
+git remote update
 ```
 
 参考:
 
 - [これで完璧! git remoteでリポジトリを【追加,削除,確認,変更】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト](https://www.sejuku.net/blog/71492)
-
+- [「git remote update」と「git fetch」と「git pull」の違いは何ですか？](https://stackoverrun.com/ja/q/4825185)
 
 ## revert
 
