@@ -43,6 +43,37 @@ https://learn.go.dev/ に教材がたくさん転がっている。
 
 - 2016年 [6年間におけるGoのベストプラクティス | プログラミング | POSTD](http://postd.cc/go-best-practices-2016/ "6年間におけるGoのベストプラクティス | プログラミング | POSTD")
 
+## go CLI
+
+`go` コマンド。
+
+https://golang.org/pkg/cmd/go/
+
+Examples:
+
+```sh
+# ビルド
+go build
+
+# パッケージ取得
+go get
+
+# モジュール管理
+go mod
+
+# 実行
+go run
+
+# テスト
+go test
+
+# バージョン表示
+go version
+
+# ヘルプ
+go help [command]
+```
+
 ## Road to Gopher
 
 Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。
@@ -152,6 +183,44 @@ func (f Fruit) String() string {
 - https://godoc.org/golang.org/x/tools/cmd/stringer
 
 ## Topics
+### ディレクトリ構成
+
+https://github.com/golang-standards/project-layout
+
+unofficialだけど、上が最も有名そう。
+
+解説記事:
+
+- [Goの標準プロジェクトレイアウトを読み解く - Tech Do | メディアドゥの技術ブログ](https://techdo.mediado.jp/entry/2019/01/18/112503)
+  - 実例となるリポジトリへのリンクもある
+
+『みんなのGo言語』で紹介されていたサンプルはちょっと違う。  
+例えば、下の記事で紹介されている:
+
+- [Goパッケージの配置ルールとディレクトリ構成 | Hodalog](https://hodalog.com/golang-standard-project-layout/)
+
+具体的には、 `pkg/` がない。  
+[Songmu/ghg](https://github.com/Songmu/ghg)などもそうなっている。  
+まあ別にルートディレクトリがごちゃっとならないなら `pkg/` を切らなくてもいいのでは、という気がする。
+
+参考:
+
+- [Goのパッケージ構成の失敗遍歴と現状確認 - timakin - Medium](https://medium.com/@timakin/go%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E6%A7%8B%E6%88%90%E3%81%AE%E5%A4%B1%E6%95%97%E9%81%8D%E6%AD%B4%E3%81%A8%E7%8F%BE%E7%8A%B6%E7%A2%BA%E8%AA%8D-fc6a4369337)
+
+#### CLI
+
+小さいCLIで、ライブラリとして提供しないものは、下のような感じでもよさそう:
+
+```
+.
+├── internal
+│   ├── bar
+│   └── foo
+└── main.go
+```
+
+https://golang.org/src/cmd/go/ とか割とそんな感じに見える。
+
 ### build
 
 https://golang.org/pkg/go/build/
