@@ -40,7 +40,25 @@
 &lt;ul>
 &lt;li>2016年 &lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
+&lt;h2 id="go-cli">go CLI&lt;/h2>
+&lt;p>&lt;code>go&lt;/code> コマンド。&lt;/p>
+&lt;p>&lt;a href="https://golang.org/pkg/cmd/go/">https://golang.org/pkg/cmd/go/&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ビルド&lt;/span>
+go build
+&lt;span style="color:#8f5902;font-style:italic"># パッケージ取得&lt;/span>
+go get
+&lt;span style="color:#8f5902;font-style:italic"># モジュール管理&lt;/span>
+go mod
+&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
+go run
+&lt;span style="color:#8f5902;font-style:italic"># テスト&lt;/span>
+go &lt;span style="color:#204a87">test&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
+go version
+&lt;span style="color:#8f5902;font-style:italic"># ヘルプ&lt;/span>
+go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
 &lt;p>Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。&lt;/p>
 &lt;h3 id="例外処理">例外処理&lt;/h3>
 &lt;p>入門ガイド:&lt;/p>
@@ -135,6 +153,37 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="ディレクトリ構成">ディレクトリ構成&lt;/h3>
+&lt;p>&lt;a href="https://github.com/golang-standards/project-layout">https://github.com/golang-standards/project-layout&lt;/a>&lt;/p>
+&lt;p>unofficialだけど、上が最も有名そう。&lt;/p>
+&lt;p>解説記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://techdo.mediado.jp/entry/2019/01/18/112503">Goの標準プロジェクトレイアウトを読み解く - Tech Do | メディアドゥの技術ブログ&lt;/a>
+&lt;ul>
+&lt;li>実例となるリポジトリへのリンクもある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>『みんなのGo言語』で紹介されていたサンプルはちょっと違う。&lt;br>
+例えば、下の記事で紹介されている:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hodalog.com/golang-standard-project-layout/">Goパッケージの配置ルールとディレクトリ構成 | Hodalog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>具体的には、 &lt;code>pkg/&lt;/code> がない。&lt;br>
+&lt;a href="https://github.com/Songmu/ghg">Songmu/ghg&lt;/a>などもそうなっている。&lt;br>
+まあ別にルートディレクトリがごちゃっとならないなら &lt;code>pkg/&lt;/code> を切らなくてもいいのでは、という気がする。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/@timakin/go%E3%81%AE%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E6%A7%8B%E6%88%90%E3%81%AE%E5%A4%B1%E6%95%97%E9%81%8D%E6%AD%B4%E3%81%A8%E7%8F%BE%E7%8A%B6%E7%A2%BA%E8%AA%8D-fc6a4369337">Goのパッケージ構成の失敗遍歴と現状確認 - timakin - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cli">CLI&lt;/h4>
+&lt;p>小さいCLIで、ライブラリとして提供しないものは、下のような感じでもよさそう:&lt;/p>
+&lt;pre>&lt;code>.
+├── internal
+│   ├── bar
+│   └── foo
+└── main.go
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="https://golang.org/src/cmd/go/">https://golang.org/src/cmd/go/&lt;/a> とか割とそんな感じに見える。&lt;/p>
 &lt;h3 id="build">build&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
 &lt;p>&lt;code>Build Constraints&lt;/code> という機能は「build tag」としても知られている。&lt;br>
