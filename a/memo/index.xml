@@ -1,4 +1,45 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-05-31</title><link>https://progrhy.me/tech-notes/a/memo/20200531/</link><pubDate>Sun, 31 May 2020 07:47:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200531/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-05</title><link>https://progrhy.me/tech-notes/a/memo/20200605/</link><pubDate>Fri, 05 Jun 2020 03:21:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200605/</guid><description>
+&lt;h2 id="65">6/5&lt;/h2>
+&lt;h3 id="shallow-cloneしたgitのリポジトリを同じdepthでpullするには">shallow cloneしたgitのリポジトリを同じdepthでpullするには&lt;/h3>
+&lt;p>動作環境:&lt;/p>
+&lt;ul>
+&lt;li>Ubuntu 18.04&lt;/li>
+&lt;li>git v2.17.1&lt;/li>
+&lt;/ul>
+&lt;p>前提:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>でcloneした。&lt;/p>
+&lt;p>バッチ実行で掲題の操作を安全確実にやる方法がなかなか見つからなかった。&lt;br>
+色々試していたところ、以下で行けるとわかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+git pull
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Read Onlyな使い方しかしないなら、 &lt;code>git fetch --depth=1 &amp;amp;&amp;amp; git checkout origin/master&lt;/code> でもいいかと思ったけど、上で済むならそれでいいや。&lt;br>
+上が動かなかったら、下のように強引にやる手もあった:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+git checkout origin/master
+git branch -D master
+git checkout -b master
+&lt;span style="color:#8f5902;font-style:italic"># git branch --set-upstream-to=origin/master&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>最後の行はなくてもまあなんとかなるけど、ブランチ作り直すと追跡ブランチの情報が消えるので。&lt;/p>
+&lt;h4 id="ng集">NG集&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ふつうにpull&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 動くけど、shallow clone以降の履歴が全部残る&lt;/span>
+$ git pull
+&lt;span style="color:#8f5902;font-style:italic"># 一応動いてるようだけどエラーが出る&lt;/span>
+$ git pull --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--update-shallow&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+:
++ f22f6e5...caec91c master -&amp;gt; origin/master &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>forced update&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+error: Could not &lt;span style="color:#204a87">read&lt;/span> 843b95a87c496da6eac6160744854af3070db0fd
+error: Could not &lt;span style="color:#204a87">read&lt;/span> 843b95a87c496da6eac6160744854af3070db0fd
+First, rewinding head to replay your work on top of it...
+$ git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1&lt;span style="color:#000;font-weight:bold">;&lt;/span> git rebase origin/master
+&lt;span style="color:#8f5902;font-style:italic"># たまにCONFLICTする&lt;/span>
+$ git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1&lt;span style="color:#000;font-weight:bold">;&lt;/span> git merge origin/master &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--squash&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+fatal: refusing to merge unrelated histories
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>--update-shallow&lt;/code> は &lt;code>.git/shallow&lt;/code> の更新を許すオプション&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-05-31</title><link>https://progrhy.me/tech-notes/a/memo/20200531/</link><pubDate>Sun, 31 May 2020 07:47:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200531/</guid><description>
 &lt;h2 id="531">5/31&lt;/h2>
 &lt;h3 id="docsyでgoogleカスタム検索エンジンを使う">DocsyでGoogleカスタム検索エンジンを使う&lt;/h3>
 &lt;p>そろそろLunr.jsに限界を感じてきたので、導入する。&lt;br>

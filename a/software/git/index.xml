@@ -29,11 +29,19 @@ git branch
 git branch --merged
 &lt;span style="color:#8f5902;font-style:italic">## 出力フォーマット指定&lt;/span>
 git branch --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;FORMAT&amp;gt;&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 追跡branchも含めて表示&lt;/span>
+git branch -vv
 &lt;span style="color:#8f5902;font-style:italic"># 今のbranchを元に新しいbranchを作る&lt;/span>
 git branch &amp;lt;newbranch&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic"># 既存のbranchを元に新しいbranchを作る&lt;/span>
 git branch &amp;lt;oldbranch&amp;gt; &amp;lt;newbranch&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 追跡ブランチを設定&lt;/span>
+git branch -u&lt;span style="color:#000;font-weight:bold">|&lt;/span>--set-upstream-to origin/&amp;lt;branch&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>--format&lt;/code> オプションで指定できるフォーマットについては&lt;a href="#for-each-ref">git-for-each-ref&lt;/a>を見よ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kz_morita/items/c624f8cf27ec82de0baa">gitでローカルのブランチが追跡しているリモートブランチを確認する方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="checkout">checkout&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## topicブランチを作成&lt;/span>
 git checkout -b topic
@@ -170,21 +178,25 @@ git rebase -i --root
 &lt;li>&lt;a href="http://d.hatena.ne.jp/ken_c_lo/20130421/1366558065" title="First commit が git rebase -i できない問題 → git rebase -i --root でできる - 納豆には卵を入れる派です。">First commit が git rebase -i できない問題 → git rebase -i &amp;ndash;root でできる - 納豆には卵を入れる派です。&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="remote">remote&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote&lt;/a>&lt;/p>
 &lt;p>リモートリポジトリの管理。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## リモートリポジトリ一覧&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ一覧&lt;/span>
 git remote
 git remote -v
-&lt;span style="color:#8f5902;font-style:italic">## リモートリポジトリ追加&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ追加&lt;/span>
 git remote add &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## リモートリポジトリ削除&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ削除&lt;/span>
 git remote rm &amp;lt;リポジトリ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## URL変更&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># URL変更&lt;/span>
 git remote set-url &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## リポジトリ名変更&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># リポジトリ名変更&lt;/span>
 git remote rename &amp;lt;リポジトリ名&amp;gt; &amp;lt;新しいリポジトリ名&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># remote groupに属するブランチをfetchする&lt;/span>
+git remote update
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.sejuku.net/blog/71492">これで完璧! git remoteでリポジトリを【追加,削除,確認,変更】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverrun.com/ja/q/4825185">「git remote update」と「git fetch」と「git pull」の違いは何ですか？&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="revert">revert&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git revert &amp;lt;SHA1&amp;gt;
