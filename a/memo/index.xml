@@ -39,7 +39,22 @@ fatal: refusing to merge unrelated histories
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>--update-shallow&lt;/code> は &lt;code>.git/shallow&lt;/code> の更新を許すオプション&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-05-31</title><link>https://progrhy.me/tech-notes/a/memo/20200531/</link><pubDate>Sun, 31 May 2020 07:47:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200531/</guid><description>
+&lt;/ul>
+&lt;h3 id="zoomの定期ミーティング生成やgoogleカレンダーへの反映を自動化できないか">Zoomの定期ミーティング生成やGoogleカレンダーへの反映を自動化できないか&lt;/h3>
+&lt;p>ZoomとGoogleのAPIでなんとかできるかも。&lt;/p>
+&lt;p>&lt;a href="https://marketplace.zoom.us/docs/api-reference/zoom-api">https://marketplace.zoom.us/docs/api-reference/zoom-api&lt;/a>&lt;/p>
+&lt;p>Zoom APIについて:&lt;/p>
+&lt;ul>
+&lt;li>OAuth 2認証&lt;/li>
+&lt;li>public/privateアプリを作れる&lt;/li>
+&lt;li>Chatbotも作れるっぽい&lt;/li>
+&lt;/ul>
+&lt;p>やればできるのでは。&lt;/p>
+&lt;p>先行者がいた。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kudota/items/b480610cc3f575a8ec6f">Zoom APIでミーティングの作成をGASから行う - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>できそう。&lt;/p></description></item><item><title>A: 2020-05-31</title><link>https://progrhy.me/tech-notes/a/memo/20200531/</link><pubDate>Sun, 31 May 2020 07:47:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200531/</guid><description>
 &lt;h2 id="531">5/31&lt;/h2>
 &lt;h3 id="docsyでgoogleカスタム検索エンジンを使う">DocsyでGoogleカスタム検索エンジンを使う&lt;/h3>
 &lt;p>そろそろLunr.jsに限界を感じてきたので、導入する。&lt;br>
