@@ -112,6 +112,35 @@ type Writer interface {
 }
 ```
 
+## io/ioutil
+
+https://golang.org/pkg/io/ioutil/
+
+### func ReadDir
+
+```go
+func ReadDir(dirname string) ([]os.FileInfo, error)
+```
+
+ディレクトリ内のファイルをリストする。
+
+Examples:
+
+```go
+files, err := ioutil.ReadDir(".")
+if err != nil {
+    log.Fatal(err)
+}
+
+for _, file := range files {
+    fmt.Println(file.Name())
+}
+```
+
+参考:
+
+- [Golangでディレクトリ内のファイル一覧を入手する - Qiita](https://qiita.com/tanksuzuki/items/7866768c36e13f09eedb)
+
 ## log
 
 https://golang.org/pkg/log/

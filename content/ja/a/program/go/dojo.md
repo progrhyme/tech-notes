@@ -7,11 +7,16 @@ weight: 40
 
 Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。
 
+前提:
+
+- [言語仕様]({{<ref "spec.md">}})の内容を把握していること
+
 ## 入出力
 
 関連項目:
 
 - [pkg (stdlib) > io]({{<ref "std-pkg/_index.md">}}#io)
+- [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
 
 ## 例外処理
 
@@ -65,6 +70,13 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 - [pkg (stdlib) > os/exec]({{<ref "std-pkg/_index.md">}}#osexec)
 
+## ファイル操作
+
+関連項目:
+
+- [pkg (stdlib) > os]({{<ref "std-pkg/os.md">}})
+- [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
+
 ## ライブラリ管理
 
 [Go 1.14](https://golang.org/doc/go1.14)からGo Modulesが標準機能になったので、これを使いましょう。
@@ -88,6 +100,52 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 参考:
 
 - [Go言語での構造体実装パターン · THINKING MEGANE](https://blog.monochromegane.com/blog/2014/03/23/struct-implementaion-patterns-in-golang/)
+
+### 埋め込み
+
+struct Aをstruct Bに埋め込むと、Bから直接Aのメンバー変数やメソッドにアクセスできる。  
+OOPの継承のようなことができる。
+
+Examples:
+
+```go
+type A struct {
+    Name string
+    Age  int
+}
+
+type B struct {
+    A
+    // ポインタの場合は *A にして &A{} を渡す
+}
+
+func (b B) Print() {
+    // 埋め込みで A の Name と Age が使える
+    println("name:", b.Name, ", age:", b.Age)
+    // 以下でも同じ
+    println("name:", b.A.Name, ", age:", b.A.Age)
+}
+
+func main() {
+    b := B{A{"Tanaka", 31}}
+    b.Print() // name: Tanaka, age: 31
+}
+```
+
+参考:
+
+- [Go言語(golang) 構造体の定義と使い方 - golangの日記](https://golang.hateblo.jp/entry/golang-how-to-use-struct)
+
+### 無名struct
+
+Examples:
+
+```go
+anonymous := struct {
+  name string
+  age int
+}{"Taro YAMADA", 24}
+```
 
 ## インタフェースの使い方
 

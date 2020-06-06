@@ -80,6 +80,19 @@ func NewFile(fd uintptr, name string) *File
 
 > NewFile returns a new File with the given file descriptor and name.
 
+### func Stat
+
+```go
+func Stat(name string) (FileInfo, error)
+```
+
+ファイルパスを受け取って、ファイルの情報を返す。  
+エラーがあったら、きっと `*PathError`
+
+参考:
+
+- [Go言語 (golang) ファイル・ディレクトリの存在チェック](https://www.sukerou.com/2017/08/go-golang.html)
+
 ### func UserHomeDir
 
 https://golang.org/pkg/os/#UserHomeDir
