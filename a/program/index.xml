@@ -54,11 +54,17 @@ go mod
 go run
 &lt;span style="color:#8f5902;font-style:italic"># テスト&lt;/span>
 go &lt;span style="color:#204a87">test&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 静的解析によって疑わしい問題を報告&lt;/span>
+go vet
 &lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
 go version
 &lt;span style="color:#8f5902;font-style:italic"># ヘルプ&lt;/span>
 go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/marnie_ms4/items/b343165efb4235906db7">go vetの使い方(go vetとは) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="road-to-gopher">Road to Gopher&lt;/h2>
 &lt;p>Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。&lt;/p>
 &lt;h3 id="例外処理">例外処理&lt;/h3>
 &lt;p>入門ガイド:&lt;/p>
@@ -98,6 +104,11 @@ go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;f
 &lt;ul>
 &lt;li>&lt;a href="https://blog.golang.org/using-go-modules">Using Go Modules - The Go Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/uchiko/items/64fb3020dd64cf211d4e">Go言語の依存モジュール管理ツール Modules の使い方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="構造体の使い方">構造体の使い方&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.monochromegane.com/blog/2014/03/23/struct-implementaion-patterns-in-golang/">Go言語での構造体実装パターン · THINKING MEGANE&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="プロファイリング">プロファイリング&lt;/h3>
 &lt;ul>

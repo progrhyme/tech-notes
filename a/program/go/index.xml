@@ -83,6 +83,14 @@ go version go1.10.7 linux/amd64
 &lt;li>string型: &amp;quot;&amp;rdquo; （空文字列）&lt;/li>
 &lt;li>ポインタ型: &lt;code>nil&lt;/code>&lt;/li>
 &lt;/ul>
+&lt;h2 id="式">式&lt;/h2>
+&lt;h3 id="無名関数クロージャ">無名関数（クロージャ）&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Function_literals">https://golang.org/ref/spec#Function_literals&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="セレクタ">セレクタ&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Selectors">https://golang.org/ref/spec#Selectors&lt;/a>&lt;/p>
+&lt;p>レシーバがパッケージ名以外のもので &lt;code>.&lt;/code> でアクセスされるもの。
+&lt;a href="#%E6%A7%8B%E9%80%A0%E4%BD%93">構造体&lt;/a>のメンバ変数か&lt;a href="#%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">メソッド&lt;/a>を指すことが多い。&lt;/p>
 &lt;h2 id="データ型">データ型&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Types">https://golang.org/ref/spec#Types&lt;/a>&lt;/p>
 &lt;h3 id="基本型">基本型&lt;/h3>
@@ -317,6 +325,26 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;ul>
 &lt;li>&lt;a href="https://gobyexample.com/functions">Go by Example: Functions&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="メソッド">メソッド&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Method_declarations">https://golang.org/ref/spec#Method_declarations&lt;/a>&lt;/p>
+&lt;p>レシーバのある関数。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Length&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">float64&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">math&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Sqrt&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">y&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">y&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Scale&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">factor&lt;/span> &lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*=&lt;/span> &lt;span style="color:#000">factor&lt;/span>
+&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">y&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*=&lt;/span> &lt;span style="color:#000">factor&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>レシーバの型は &lt;code>type&lt;/code> で定義された型か、そのポインタ（基底型と呼ばれる）&lt;/li>
+&lt;li>レシーバ型はポインタやインタフェースであってはならない&lt;/li>
+&lt;li>レシーバ型はメソッドと同じパッケージで定義されなければならない&lt;/li>
+&lt;/ul>
+&lt;p>メソッドの型は、レシーバを第1引数とする関数。
+例えば、上述の &lt;code>Scale&lt;/code> は次の型を持つ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">factor&lt;/span> &lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、この形式で宣言された関数はメソッドではない。&lt;/p>
 &lt;h2 id="日付時刻">日付・時刻&lt;/h2>
 &lt;h3 id="日時フォーマット">日時フォーマット&lt;/h3>
 &lt;p>Go言語の日時のフォーマット関数（timeパッケージの&lt;a href="https://golang.org/pkg/time/#Time.Format">func (Time) Format)&lt;/a>）に与えられる引数は、2006-01-02T15:04:05（月曜）の日時となっている。&lt;/p>
@@ -542,6 +570,13 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Error occured!!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fprintf: %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-sprintf">func Sprintf&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Sprintf">https://pkg.go.dev/fmt?tab=doc#Sprintf&lt;/a>&lt;/p>
+&lt;p>シグネチャ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Kim&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">22&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log">log&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/log/">https://golang.org/pkg/log/&lt;/a>&lt;/p>
 &lt;p>ロガー。ログレベルの概念はない。&lt;/p>
