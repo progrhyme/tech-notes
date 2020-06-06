@@ -320,9 +320,9 @@ fmt.Println(j)   // see the new value of j
 
 - [Go by Example: Pointers](https://gobyexample.com/pointers)
 
-参考:
+関連項目
 
-- [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
+- [Golang#値渡しとポインタ渡し]({{<ref "/a/program/go/_index.md">}}#値渡しとポインタ渡し)
 
 ## 真偽判定
 
@@ -435,6 +435,88 @@ func(n int) func(p *T)
 入門ガイド:
 
 - [Go by Example: Functions](https://gobyexample.com/functions)
+
+## メソッド
+
+https://golang.org/ref/spec#Method_declarations
+
+レシーバのある関数。
+
+Examples:
+
+```go
+func (p *Point) Length() float64 {
+	return math.Sqrt(p.x * p.x + p.y * p.y)
+}
+
+func (p *Point) Scale(factor float64) {
+	p.x *= factor
+	p.y *= factor
+}
+```
+
+- レシーバの型は `type` で定義された型か、そのポインタ（基底型と呼ばれる）
+- レシーバ型はポインタやインタフェースであってはならない
+- レシーバ型はメソッドと同じパッケージで定義されなければならない
+
+メソッドの型は、レシーバを第1引数とする関数。
+例えば、上述の `Scale` は次の型を持つ:
+
+```go
+func(p *Point, factor float64)
+```
+
+ただし、この形式で宣言された関数はメソッドではない。
+
+## 式
+### 無名関数（クロージャ）
+
+https://golang.org/ref/spec#Function_literals
+
+```go
+f := func(x, y int) int { return x + y }
+```
+
+### セレクタ
+
+https://golang.org/ref/spec#Selectors
+
+レシーバがパッケージ名以外のもので `.` でアクセスされるもの。
+[構造体](#構造体)のメンバ変数か[メソッド](#メソッド)を指すことが多い。
+
+## 文
+### defer
+
+https://golang.org/ref/spec#Defer_statements
+
+入門ガイド:
+
+- https://gobyexample.com/defer
+
+ある関数の中で `defer 関数` の形式で書かれる。  
+当該関数から `return` する前に、deferで指定された関数が確実に実行される。  
+エラー発生時のclean up処理などに用いられる。
+
+Examples:
+
+```go
+lock(l)
+defer unlock(l)  // unlocking happens before surrounding function returns
+
+// prints 3 2 1 0 before surrounding function returns
+for i := 0; i <= 3; i++ {
+	defer fmt.Print(i)
+}
+
+// f returns 42
+func f() (result int) {
+	defer func() {
+		// result is accessed after it was set to 6 by the return statement
+		result *= 7
+	}()
+	return 6
+}
+```
 
 
 ## 日付・時刻

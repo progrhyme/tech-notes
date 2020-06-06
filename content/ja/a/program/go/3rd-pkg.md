@@ -87,7 +87,7 @@ contacts:
 - https://github.com/spf13/pflag
 - https://pkg.go.dev/github.com/spf13/pflag
 
-標準パッケージ [flag]({{<ref "std-pkg.md">}}#flag) の高機能版。  
+標準パッケージ [flag]({{<ref "std-pkg/flag.md">}}) の高機能版。  
 GNUスタイルのロングオプションが作れる。
 
 flagを拡張しているので、flagでできることは基本的にpflagでもできる。  

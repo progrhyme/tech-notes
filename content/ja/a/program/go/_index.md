@@ -67,12 +67,19 @@ go run
 # テスト
 go test
 
+# 静的解析によって疑わしい問題を報告
+go vet
+
 # バージョン表示
 go version
 
 # ヘルプ
 go help [command]
 ```
+
+参考:
+
+- [go vetの使い方(go vetとは) - Qiita](https://qiita.com/marnie_ms4/items/b343165efb4235906db7)
 
 ## Road to Gopher
 
@@ -88,10 +95,25 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 関連項目:
 
 - [言語仕様#panic]({{<ref "spec.md">}}#panic)
+- [言語仕様#defer]({{<ref "spec.md">}}#defer)
 
 参考:
 
+- [Go言語のエラーハンドリングについて - Qiita](https://qiita.com/nayuneko/items/3c0b3c0de9e8b27c9548)
 - [Defer, Panic, and Recover - The Go Blog](https://blog.golang.org/defer-panic-and-recover)
+- [panicはともかくrecoverに使いどころはほとんどない - Qiita](https://qiita.com/ruiu/items/ff98ded599d97cf6646e)
+- [golangでrecoverしたときの戻り値 - PartyIX](https://h3poteto.hatenablog.com/entry/2015/12/13/010000)
+
+### 値渡しとポインタ渡し
+
+関連項目:
+
+- [言語仕様#ポインタ]({{<ref "spec.md">}}#ポインタ)
+
+参考:
+
+- [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
+- [Go言語（golang）における値渡しとポインタ渡しのパフォーマンス影響について - Finatext - Medium](https://medium.com/finatext/go%E8%A8%80%E8%AA%9E-golang-%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E5%80%A4%E6%B8%A1%E3%81%97%E3%81%A8%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E6%B8%A1%E3%81%97%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E5%BD%B1%E9%9F%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6-70aa3605adc5)
 
 ### コマンドライン引数
 
@@ -101,7 +123,7 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 関連項目:
 
-- [pkg > flag]({{<ref "std-pkg.md">}}#flag)
+- [pkg (stdlib) > flag]({{<ref "std-pkg/flag.md">}})
 
 参考:
 
@@ -120,6 +142,12 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 - [Using Go Modules - The Go Blog](https://blog.golang.org/using-go-modules)
 - [Go言語の依存モジュール管理ツール Modules の使い方 - Qiita](https://qiita.com/uchiko/items/64fb3020dd64cf211d4e)
+
+### 構造体の使い方
+
+参考:
+
+- [Go言語での構造体実装パターン · THINKING MEGANE](https://blog.monochromegane.com/blog/2014/03/23/struct-implementaion-patterns-in-golang/)
 
 ### プロファイリング
 

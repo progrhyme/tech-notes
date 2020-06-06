@@ -36,137 +36,6 @@ Go 1.13で `.Is`, `.As`, `.Unwrap` が加わり、かなり強化されたよう
 
 - [pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm](https://syfm.hatenablog.com/entry/2019/12/27/193348)
 
-## flag
-
-https://golang.org/pkg/flag/
-
-コマンドラインオプションをパースしてくれる君。
-
-- ヘルプ付き
-- ショートオプションとロングオプション両対応したいときはちょっとめんどい（後述）
-
-SYNOPSIS:
-
-```go
-var (
-  verbose bool
-  num int
-  text string
-)
-
-// flag登録
-// 第2引数 ... コマンドラインオプション
-// 第3引数 ... デフォルト値
-// 第4引数 ... ヘルプで表示される文言
-flag.BoolVar(&verbose, "v", false, "Verbose output")
-flag.IntVar(&verbose, "n", 0, "Number")
-flag.StringVar(&verbose, "t", "", "Text")
-
-// コマンド引数のパース
-flag.Parse()
-```
-
-ロングオプション対応するときは、上の例だと
-
-```go
-flag.BoolVar(&verbose, "verbose", false, "Verbose output")
-```
-
-を足すと `-v` と合わせて `-verbose` でも行けるようになる。  
-ただちょっとコードの見た目がアレな感じになるので、そこまで行くと `flags` なりを使うかーという気持ちにならないでもない。
-
-参考:
-
-- [Go言語のflagパッケージを使う - uragami note](http://ryochack.hatenablog.com/entry/2013/04/17/232753 "Go言語のflagパッケージを使う - uragami note")
-- [Go by Example: Command-Line Flags](https://gobyexample.com/command-line-flags)
-
-### サブコマンド対応
-
-Examples:
-
-```go
-package main
-
-import (
-    "flag"
-    "fmt"
-    "os"
-)
-
-func main() {
-    fooCmd := flag.NewFlagSet("foo", flag.ExitOnError)
-    fooEnable := fooCmd.Bool("enable", false, "enable")
-    fooName := fooCmd.String("name", "", "name")
-
-    barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
-    barLevel := barCmd.Int("level", 0, "level")
-
-    if len(os.Args) < 2 {
-        fmt.Println("expected 'foo' or 'bar' subcommands")
-        os.Exit(1)
-    }
-
-    switch os.Args[1] {
-
-    case "foo":
-        fooCmd.Parse(os.Args[2:])
-        fmt.Println("subcommand 'foo'")
-        fmt.Println("  enable:", *fooEnable)
-        fmt.Println("  name:", *fooName)
-        fmt.Println("  tail:", fooCmd.Args())
-    case "bar":
-        barCmd.Parse(os.Args[2:])
-        fmt.Println("subcommand 'bar'")
-        fmt.Println("  level:", *barLevel)
-        fmt.Println("  tail:", barCmd.Args())
-    default:
-        fmt.Println("expected 'foo' or 'bar' subcommands")
-        os.Exit(1)
-    }
-}
-```
-
-参考:
-
-- [Go by Example: Command-Line Subcommands](https://gobyexample.com/command-line-subcommands)
-
-### ヘルプメッセージのカスタマイズ
-
-パッケージ変数 `Usage` に独自関数を設定することでカスタマイズできる。
-
-Examples:
-
-```go
-func usage() {
-	fmt.Fprintln(os.Stderr, "blah blah blah")
-	fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
-	flag.PrintDefaults()
-}
-
-func main() {
-  flag.Usage = usage
-}
-```
-
-### func Arg
-
-`func Arg(i int) string`
-
-フラグでないi番目のコマンドライン引数を返す。
-`Arg(0)` が最初の引数。
-
-### func Args
-
-`func Args() []string`
-
-フラグでないコマンドライン引数のリストを返す。
-
-### func (*FlagSet) NArg
-
-`func (f *FlagSet) NArg() int`
-
-フラグ処理後に残った引数の数を返す。
-
 ## fmt
 
 https://pkg.go.dev/fmt
@@ -184,6 +53,23 @@ if err != nil {
     fmt.Fprintln(os.Stderr, "Error occured!!")
     fmt.Fprintf(os.Stderr, "Fprintf: %v\n", err)
 }
+```
+
+### func Sprintf
+
+https://pkg.go.dev/fmt?tab=doc#Sprintf
+
+シグネチャ:
+
+```go
+func Sprintf(format string, a ...interface{}) string
+```
+
+Examples:
+
+```go
+const name, age = "Kim", 22
+s := fmt.Sprintf("%s is %d years old.\n", name, age)
 ```
 
 ## log
@@ -245,6 +131,18 @@ err = file.Write(text)
 err := os.Remove(path)
 ```
 
+### Variables
+
+https://golang.org/pkg/os/#pkg-variables
+
+```go
+var (
+    Stdin  = NewFile(uintptr(syscall.Stdin), "/dev/stdin")
+    Stdout = NewFile(uintptr(syscall.Stdout), "/dev/stdout")
+    Stderr = NewFile(uintptr(syscall.Stderr), "/dev/stderr")
+)
+```
+
 ### func Getenv
 
 https://golang.org/pkg/os/#Getenv
@@ -265,6 +163,16 @@ func Getwd() (dir string, err error)
 ```
 
 カレントディレクトリの絶対パスを返す。
+
+### func NewFile
+
+https://golang.org/pkg/os/#NewFile
+
+```go
+func NewFile(fd uintptr, name string) *File
+```
+
+> NewFile returns a new File with the given file descriptor and name.
 
 ### func UserHomeDir
 
