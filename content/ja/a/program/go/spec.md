@@ -199,6 +199,8 @@ if ok {
 
 ### 構造体
 
+https://golang.org/ref/spec#Struct_types
+
 Examples:
 
 ```go
@@ -244,6 +246,40 @@ f := Foo{Age: 5, Name: "foo"} // 任意フィールドの省略が可能。順�
 
 - [[Go] 構造体の初期化方法まとめ - Qiita](http://qiita.com/cotrpepe/items/b8e7f70f27813a846431 "[Go] 構造体の初期化方法まとめ - Qiita")
 - [【Go】structにデフォルトの値を設定したい - /dev/null](http://gitpub.hatenablog.com/entry/2015/01/24/213223 "【Go】structにデフォルトの値を設定したい - /dev/null")
+
+### インタフェース
+
+https://golang.org/ref/spec#Interface_types
+
+インタフェース型はinterfaceと呼ばれるメソッドの組を持つ。  
+インタフェース型の値は、メソッドの組と併せて任意の型の値を保持できる。
+いわばインタフェースのスーパーセットであり、インタフェースの「実装」と呼ばれる。
+
+初期化されてないインタフェース型の値は `nil` 。
+
+Examples:
+
+```go
+type Reader interface {
+	Read(p []byte) (n int, err error)
+	Close() error
+}
+
+type Writer interface {
+	Write(p []byte) (n int, err error)
+	Close() error
+}
+
+// ReadWriter's methods are Read, Write, and Close.
+type ReadWriter interface {
+	Reader  // includes methods of Reader in ReadWriter's method set
+	Writer  // includes methods of Writer in ReadWriter's method set
+}
+```
+
+入門ガイド:
+
+- [Go by Example: Interfaces](https://gobyexample.com/interfaces)
 
 ### 型変換
 
@@ -322,7 +358,7 @@ fmt.Println(j)   // see the new value of j
 
 関連項目
 
-- [Golang#値渡しとポインタ渡し]({{<ref "/a/program/go/_index.md">}}#値渡しとポインタ渡し)
+- [道場#値渡しとポインタ渡し]({{<ref "dojo.md">}}#値渡しとポインタ渡し)
 
 ## 真偽判定
 
@@ -483,6 +519,57 @@ https://golang.org/ref/spec#Selectors
 
 レシーバがパッケージ名以外のもので `.` でアクセスされるもの。
 [構造体](#構造体)のメンバ変数か[メソッド](#メソッド)を指すことが多い。
+
+### Type assertions
+
+[インタフェース型](#インタフェース)の値 `x` と型 `T` があるとき、
+
+```go
+x.(T)
+```
+
+は、 `x` が `nil` でなく、型 `T` であることをアサートする。  
+この形式を「type assertion」という。
+
+上のtype assertionが成り立つとき:
+
+- `T` がインタフェース型でないなら、 `x` の型は `T` に等しい
+- `T` がインタフェース型なら、 `x` は `T` を実装している
+- 式の値は `T` 型になる
+
+Examples:
+
+```go
+var x interface{} = 7          // x has dynamic type int and value 7
+i := x.(int)                   // i has type int and value 7
+
+type I interface { m() }
+
+func f(y I) {
+	s := y.(string)        // illegal: string does not implement I (missing method m)
+	r := y.(io.Reader)     // r has type io.Reader and the dynamic type of y must implement both I and io.Reader
+	…
+}
+```
+
+type assertionが失敗するとrun-time panicが起こる。  
+が、panicを発生させない代入のやり方がある。
+
+Examples:
+
+```go
+v, ok = x.(T)
+v, ok := x.(T)
+var v, ok = x.(T)
+var v, ok T1 = x.(T)
+```
+
+この構文で、 `ok` はtype assertionの成功時に `true` となる。  
+失敗時には `false` となり、 `v` は `T` 型のゼロ値となる。
+
+入門ガイド:
+
+- [Type assertions - A Tour of Go](https://tour.golang.org/methods/15)
 
 ## 文
 ### defer
@@ -645,7 +732,7 @@ if err != nil {
 
 関連項目:
 
-- [Go#例外処理]({{<ref "_index.md">}}#例外処理)
+- [道場#例外処理]({{<ref "dojo.md">}}#例外処理)
 
 ## パッケージ
 ### init()関数による初期化

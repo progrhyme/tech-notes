@@ -72,6 +72,46 @@ const name, age = "Kim", 22
 s := fmt.Sprintf("%s is %d years old.\n", name, age)
 ```
 
+## io
+
+https://golang.org/pkg/io/
+
+基礎的なI/Oのインタフェースを提供する。  
+osパッケージなどにある様々なI/Oプリミティブを抽象化する。
+
+参考:
+
+- [【Go入門】ioパッケージ ～ 入出力処理の抽象化と共通化](https://leben.mobi/go/io-reader-writer/go-programming/)
+- [ASCII.jp：Goならわかるシステムプログラミング](https://ascii.jp/serialarticles/1235262/)
+
+### type Reader (interface)
+
+https://golang.org/pkg/io/#Reader
+
+定義:
+
+```go
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+```
+
+実装例:
+
+- os.File, strings.Reder, bytes.Buffer, net.Conn
+
+### type Writer (interface)
+
+https://golang.org/pkg/io/#Writer
+
+定義:
+
+```go
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+```
+
 ## log
 
 https://golang.org/pkg/log/
