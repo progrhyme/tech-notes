@@ -1227,6 +1227,37 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;ul>
 &lt;li>&lt;a href="https://gobyexample.com/functions">Go by Example: Functions&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>Limitation:&lt;/p>
+&lt;ul>
+&lt;li>Rubyとかにあるような引数にデフォルト値を与えるような仕様はない
+&lt;ul>
+&lt;li>構造体を使って似たようなことはできる。下の参考に挙げたリンク先を参照&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/2032149/optional-parameters-in-go/13603885#13603885">overloading - Optional Parameters in Go? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="無名関数クロージャ">無名関数（クロージャ）&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Function_literals">https://golang.org/ref/spec#Function_literals&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="可変長引数">可変長引数&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Passing_arguments_to_..._parameters">https://golang.org/ref/spec#Passing_arguments_to_..._parameters&lt;/a>&lt;/p>
+&lt;p>ある関数の最後の引数 &lt;code>p&lt;/code> が &lt;code>...T&lt;/code> と記述されたなら、 &lt;code>p&lt;/code> の型は &lt;code>[]T&lt;/code> である。&lt;br>
+呼び出し側が &lt;code>p&lt;/code> に何も与えなかった場合、 &lt;code>p&lt;/code> は &lt;code>nil&lt;/code> となる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Greeting&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">prefix&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">who&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">Greeting&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;nobody&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">Greeting&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hello:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Joe&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Anna&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Eileen&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>呼び出し側はスライス変数sを使って &lt;code>s...&lt;/code> のように記述できる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;James&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Jasmine&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">Greeting&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;goodbye:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hnakamur/items/c3560a4b780487ef6065">Goで可変引数の関数にスライスを展開して渡す - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="メソッド">メソッド&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Method_declarations">https://golang.org/ref/spec#Method_declarations&lt;/a>&lt;/p>
 &lt;p>レシーバのある関数。&lt;/p>
@@ -1248,10 +1279,7 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Point&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">factor&lt;/span> &lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、この形式で宣言された関数はメソッドではない。&lt;/p>
 &lt;h2 id="式">式&lt;/h2>
-&lt;h3 id="無名関数クロージャ">無名関数（クロージャ）&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Function_literals">https://golang.org/ref/spec#Function_literals&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="セレクタ">セレクタ&lt;/h3>
+&lt;h3 id="セレクタ">セレクタ&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Selectors">https://golang.org/ref/spec#Selectors&lt;/a>&lt;/p>
 &lt;p>レシーバがパッケージ名以外のもので &lt;code>.&lt;/code> でアクセスされるもの。
 &lt;a href="#%E6%A7%8B%E9%80%A0%E4%BD%93">構造体&lt;/a>のメンバ変数か&lt;a href="#%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">メソッド&lt;/a>を指すことが多い。&lt;/p>
@@ -1467,6 +1495,11 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200531/#golang%E3%81%AEcli%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E6%94%B9%E3%82%81%E3%81%A6%E6%8E%A2%E3%81%97%E3%81%9F">2020-05-31#GolangのCLIパッケージを改めて探した&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="外部コマンド実行">外部コマンド実行&lt;/h2>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#osexec">pkg (stdlib) &amp;gt; os/exec&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="ライブラリ管理">ライブラリ管理&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/doc/go1.14">Go 1.14&lt;/a>からGo Modulesが標準機能になったので、これを使いましょう。&lt;/p>
 &lt;p>ドキュメント:&lt;/p>
@@ -1514,7 +1547,29 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I don&amp;#39;t know about type %T!\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="プロファイリング">プロファイリング&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="正規表現">正規表現&lt;/h2>
+&lt;p>Webサーバなどで使うときは、パフォーマンスに気をつける必要がありそう。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#regexp">pkg (stdlib) &amp;gt; regexp&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_regexp.html">逆引きGolang (正規表現)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.eure.jp/tech/golang-regexp/">regexpとの付き合い方 〜 Go言語標準の正規表現ライブラリのパフォーマンスとアルゴリズム〜 - Eureka Engineering - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="バリデータ">バリデータ&lt;/h2>
+&lt;p>次の2つが有名そう:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pkg.go.dev/github.com/go-playground/validator">https://pkg.go.dev/github.com/go-playground/validator&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/go-ozzo/ozzo-validation">https://github.com/go-ozzo/ozzo-validation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/gold-kou/items/201a19d9d0c760cc2104">Go言語のバリデーションチェックライブラリ(ozzo-validation)を分かりやすくまとめてみた - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://note.com/mkudo/n/n139de888a151">go-playground/validator でバリデーションを実装する｜maco｜note&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="プロファイリング">プロファイリング&lt;/h2>
 &lt;p>※2017年以前の情報&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://golang.org/pkg/runtime/pprof/" title="pprof - The Go Programming Language">runtime/pprof&lt;/a>という標準pkgを使うのが基本な感じ。
@@ -4319,7 +4374,62 @@ man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>namespaceに対して設定する&lt;/li>
 &lt;li>cpu/memoryのrequests/limitsの下限、上限、デフォルト値を設定できる&lt;/li>
-&lt;/ul></description></item><item><title>A: Vim Plugins</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/plugin/</link><pubDate>Tue, 05 May 2020 11:23:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/plugin/</guid><description>
+&lt;/ul></description></item><item><title>A: os</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/os/</link><pubDate>Sat, 06 Jun 2020 21:15:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/os/</guid><description>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="環境変数の操作">環境変数の操作&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/environment-variables" title="Go by Example: Environment Variables">Go by Example: Environment Variables&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ファイル操作">ファイル操作&lt;/h3>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// ファイル内容読み取り
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87">panic&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>
+&lt;span style="color:#000">buf&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ioutil&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ReadAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// ファイル作成
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Create&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// エラー処理省略
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>
+&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">text&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// ファイル or ディレクトリ削除
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Remove&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h3 id="variables">Variables&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#pkg-variables">https://golang.org/pkg/os/#pkg-variables&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#000">Stdin&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">NewFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">uintptr&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">syscall&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;/dev/stdin&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">Stdout&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">NewFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">uintptr&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">syscall&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stdout&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;/dev/stdout&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">Stderr&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">NewFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">uintptr&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">syscall&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;/dev/stderr&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-getenv">func Getenv&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Getenv">https://golang.org/pkg/os/#Getenv&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>keyの環境変数を返す。&lt;br>
+取得できなかった場合は空文字が返る。&lt;/p>
+&lt;h3 id="func-getwd">func Getwd&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Getwd">https://golang.org/pkg/os/#Getwd&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getwd&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dir&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>カレントディレクトリの絶対パスを返す。&lt;/p>
+&lt;h3 id="func-newfile">func NewFile&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#NewFile">https://golang.org/pkg/os/#NewFile&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">NewFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">fd&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uintptr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">File&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>NewFile returns a new File with the given file descriptor and name.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="func-userhomedir">func UserHomeDir&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#UserHomeDir">https://golang.org/pkg/os/#UserHomeDir&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">UserHomeDir&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Unix系システムなら &lt;code>$HOME&lt;/code>, Windowsなら &lt;code>%USERPROFILE%&lt;/code> の値を返す。&lt;/p>
+&lt;h3 id="type-file">type File&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#File">https://golang.org/pkg/os/#File&lt;/a>&lt;/p>
+&lt;p>オープンしたファイルディスクリプタを表現する構造体。&lt;/p>
+&lt;h4 id="func-create">func Create&lt;/h4>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Create">https://golang.org/pkg/os/#Create&lt;/a>&lt;/p>
+&lt;p>ファイル作成。&lt;/p></description></item><item><title>A: Vim Plugins</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/plugin/</link><pubDate>Tue, 05 May 2020 11:23:51 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/plugin/</guid><description>
 &lt;h2 id="plugins">Plugins&lt;/h2>
 &lt;p>次節以降で紹介していないもの:&lt;/p>
 &lt;ul>
@@ -4487,27 +4597,4 @@ baz
 &lt;li>&lt;a href="https://qiita.com/sheepland/items/eb0e4c65aaae70ec4e2f">KubernetesのResource RequestsとResource Limitsについて - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="pod-eviction">Pod Eviction&lt;/h3>
-&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p></description></item><item><title>A: Perl</title><link>https://progrhy.me/tech-notes/a/program/perl/</link><pubDate>Fri, 08 May 2020 22:34:00 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/perl/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://perldoc.perl.org/">https://perldoc.perl.org/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>邦訳: &lt;a href="https://perldoc.jp/">https://perldoc.jp/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="podの書き方">PODの書き方&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://perldoc.perl.org/5.30.0/perlpod.html">https://perldoc.perl.org/5.30.0/perlpod.html&lt;/a>&lt;/li>
-&lt;li>邦訳: &lt;a href="https://perldoc.jp/docs/perl/5.26.1/perlpod.pod">https://perldoc.jp/docs/perl/5.26.1/perlpod.pod&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="history">History&lt;/h2>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Perl">Perl - Wikipedia&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://history.perl.org/PerlTimeline.html">http://history.perl.org/PerlTimeline.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cpan">CPAN&lt;/h2>
-&lt;h3 id="cpanモジュールのメンテに関する備忘録">CPANモジュールのメンテに関する備忘録&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="http://d.hatena.ne.jp/gfx/20140823/1408750107">comaint(1)でCPAN moduleのcomaintainerを追加する - Islands in the byte stream&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://keyamb.hatenablog.com/entry/2014/03/15/204118">Minilla を使って CPAN にモジュールを上げてみた - weblog of key_amb&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2017/20170509#TOC-CPAN-">久しぶりにCPANリリース / 20170509 - progrhyme&amp;rsquo;s Tech Wiki&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p></description></item></channel></rss>
