@@ -59,6 +59,12 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 - [2020-05-31#GolangのCLIパッケージを改めて探した]({{<ref "20200531.md">}}#golangのcliパッケージを改めて探した)
 
+## 外部コマンド実行
+
+関連項目:
+
+- [pkg (stdlib) > os/exec]({{<ref "std-pkg/_index.md">}}#osexec)
+
 ## ライブラリ管理
 
 [Go 1.14](https://golang.org/doc/go1.14)からGo Modulesが標準機能になったので、これを使いましょう。
@@ -115,6 +121,31 @@ default:
   fmt.Printf("I don't know about type %T!\n", v)
 }
 ```
+
+## 正規表現
+
+Webサーバなどで使うときは、パフォーマンスに気をつける必要がありそう。
+
+関連項目:
+
+- [pkg (stdlib) > regexp]({{<ref "std-pkg/_index.md">}}#regexp)
+
+参考:
+
+- [逆引きGolang (正規表現)](https://ashitani.jp/golangtips/tips_regexp.html)
+- [regexpとの付き合い方 〜 Go言語標準の正規表現ライブラリのパフォーマンスとアルゴリズム〜 - Eureka Engineering - Medium](https://medium.com/eureka-engineering/regexp%E3%81%A8%E3%81%AE%E4%BB%98%E3%81%8D%E5%90%88%E3%81%84%E6%96%B9-go%E8%A8%80%E8%AA%9E%E6%A8%99%E6%BA%96%E3%81%AE%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%A8%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0-984b6cbeeb2b)
+
+## バリデータ
+
+次の2つが有名そう:
+
+- https://pkg.go.dev/github.com/go-playground/validator
+- https://github.com/go-ozzo/ozzo-validation
+
+参考:
+
+- [Go言語のバリデーションチェックライブラリ(ozzo-validation)を分かりやすくまとめてみた - Qiita](https://qiita.com/gold-kou/items/201a19d9d0c760cc2104)
+- [go-playground/validator でバリデーションを実装する｜maco｜note](https://note.com/mkudo/n/n139de888a151)
 
 ## プロファイリング
 

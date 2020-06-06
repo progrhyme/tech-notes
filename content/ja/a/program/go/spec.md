@@ -472,6 +472,51 @@ func(n int) func(p *T)
 
 - [Go by Example: Functions](https://gobyexample.com/functions)
 
+Limitation:
+
+- Rubyとかにあるような引数にデフォルト値を与えるような仕様はない
+  - 構造体を使って似たようなことはできる。下の参考に挙げたリンク先を参照
+
+参考:
+
+- [overloading - Optional Parameters in Go? - Stack Overflow](https://stackoverflow.com/questions/2032149/optional-parameters-in-go/13603885#13603885)
+
+### 無名関数（クロージャ）
+
+https://golang.org/ref/spec#Function_literals
+
+```go
+f := func(x, y int) int { return x + y }
+```
+
+### 可変長引数
+
+https://golang.org/ref/spec#Passing_arguments_to_..._parameters
+
+ある関数の最後の引数 `p` が `...T` と記述されたなら、 `p` の型は `[]T` である。  
+呼び出し側が `p` に何も与えなかった場合、 `p` は `nil` となる。
+
+Examples:
+
+```go
+func Greeting(prefix string, who ...string)
+Greeting("nobody")
+Greeting("hello:", "Joe", "Anna", "Eileen")
+```
+
+呼び出し側はスライス変数sを使って `s...` のように記述できる。
+
+Examples:
+
+```go
+s := []string{"James", "Jasmine"}
+Greeting("goodbye:", s...)
+```
+
+参考:
+
+- [Goで可変引数の関数にスライスを展開して渡す - Qiita](https://qiita.com/hnakamur/items/c3560a4b780487ef6065)
+
 ## メソッド
 
 https://golang.org/ref/spec#Method_declarations
@@ -505,14 +550,6 @@ func(p *Point, factor float64)
 ただし、この形式で宣言された関数はメソッドではない。
 
 ## 式
-### 無名関数（クロージャ）
-
-https://golang.org/ref/spec#Function_literals
-
-```go
-f := func(x, y int) int { return x + y }
-```
-
 ### セレクタ
 
 https://golang.org/ref/spec#Selectors
