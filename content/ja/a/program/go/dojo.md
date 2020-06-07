@@ -148,6 +148,10 @@ func isExecutableFile(f os.FileInfo) {
 - https://github.com/golang/go/wiki/Modules
 - [Go Modules Reference - The Go Programming Language](https://golang.org/ref/mod)
 
+関連項目:
+
+- [2020-06-08#はじめてのGo-Module]({{<ref "20200608.md">}}#はじめてのgo-module)
+
 参考:
 
 - [Using Go Modules - The Go Blog](https://blog.golang.org/using-go-modules)
