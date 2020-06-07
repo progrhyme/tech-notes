@@ -15,8 +15,53 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 関連項目:
 
+- [pkg (stdlib) > bufio]({{<ref "std-pkg/_index.md">}}#bufio)
+- [pkg (stdlib) > fmt]({{<ref "std-pkg/_index.md">}}#fmt)
 - [pkg (stdlib) > io]({{<ref "std-pkg/_index.md">}}#io)
 - [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
+
+### 標準入力
+
+メモ:
+
+- さくっと使うなら `fmt.Scan` 系が便利
+- 大量に読み込む必要があるときは `bufio.Scanner` を使う
+
+関連項目:
+
+- [pkg (stdlib) > fmt#Scan]({{<ref "std-pkg/_index.md">}}#func-scan)
+
+参考:
+
+- [【Golang】fmt.Scanとbufio.Scannerの速度比較 - tsuchinaga](https://scrapbox.io/tsuchinaga/%E3%80%90Golang%E3%80%91fmt.Scan%E3%81%A8bufio.Scanner%E3%81%AE%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BC%83)
+- [Go 言語で標準入力から読み込む競技プログラミングのアレ --- 改訂第二版 - Qiita](https://qiita.com/tnoda_/items/b503a72eac82862d30c6)
+
+#### TTYにつながっているか判定する
+
+CLIで、インタラクティブかどうかによって処理を変えたいことがある。  
+そんなときは[golang.org/x/crypto/ssh/terminal](https://pkg.go.dev/golang.org/x/crypto/ssh/terminal)を使う。
+
+Examples:
+
+```go
+import (
+    "golang.org/x/crypto/ssh/terminal"
+)
+
+if terminal.IsTerminal(0) {
+    // 標準入力はTTY
+} else {
+    // 標準入力はTTYでない
+}
+```
+
+参考:
+
+- [Golangで標準入力がパイプで渡されたものか判定する - Qiita](https://qiita.com/tanksuzuki/items/e712717675faf4efb07a)
+
+関連項目:
+
+- [CLI#TTY]({{<ref "/a/cli/_index.md">}}#tty)
 
 ## 例外処理
 

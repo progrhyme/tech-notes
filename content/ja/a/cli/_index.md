@@ -36,4 +36,24 @@ Documentation:
 
 - [scriptコマンドで作業ログを記録 ｜ DevelopersIO](https://dev.classmethod.jp/server-side/os/scriptcommand/)
 
+## How-to
+### ターミナルでEOFを入力する方法
+
+- Unix系OS: `Ctrl-D`
+- Windows: `Ctrl-Z`
+
+参考:
+
+- [EOFを入力する - にたまごほうれん草アーカイブ](https://nitamago-archive.hatenablog.com/entry/20071230/1198945951)
+
+## 用語
+### TTY
+
+[TTY（テレタイプ端末）とは - IT用語辞典 e-Words](http://e-words.jp/w/TTY.html)より:
+
+> 利用者が入力した文字を別の機器に送信したり、別の機器から受信した文字情報を利用者に提示したりする機能を持った端末やソフトウェアのこと
+
+元々はteletypewriterの略。  
+Linuxだと `tty` コマンドで標準入出力デバイスの名前を表示できる。
+
 ## Child Pages

@@ -69,8 +69,15 @@ NOTE:
 ## ファイル操作
 ### find
 
+Man Page:
+
+- Linux: https://linux.die.net/man/1/find
+- macOS: https://www.unix.com/man-page/osx/1/find/
+
 ファイルやディレクトリを検索する。  
 `-exec` オプションで見つけたファイルに対してコマンド実行することもできる。
+
+※LinuxとmacOSでオプションが異なる
 
 Examples:
 
@@ -79,6 +86,8 @@ Examples:
 find <path>
 # ファイルのみリストアップ
 find <path> -type f
+# 拡張子指定で検索
+find <path> -name "*.txt"
 
 # 3日以内に更新されたファイルを探す
 find <path> -mtime -mtime -3

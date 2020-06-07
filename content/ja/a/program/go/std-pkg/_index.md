@@ -6,6 +6,40 @@ date: 2020-05-31T16:18:58+09:00
 weight: 50
 ---
 
+## bufio
+
+バッファリング付きI/Oを提供する。
+
+Examples:
+
+```go
+// 1行ずつテキストを読み込んで、EOFが入力されるまで読んだ行をそのまま表示し続ける
+scanner := bufio.NewScanner(os.Stdin)
+for scanner.Scan() {
+	fmt.Println(scanner.Text()) // Println will add back the final '\n'
+}
+if err := scanner.Err(); err != nil {
+	fmt.Fprintln(os.Stderr, "reading standard input:", err)
+}
+```
+
+実行例:
+
+```sh
+$ go run main.go
+xx yy zz
+xx yy zz
+a   b c   d
+a   b c   d
+     # 注: 空入力で改行しても処理は終わらない
+
+     # EOF入力で終了
+```
+
+参考:
+
+- [CLI#ターミナルでEOFを入力する方法]({{<ref "/a/cli/_index.md">}}#ターミナルでeofを入力する方法)
+
 ## context
 
 https://golang.org/pkg/context/
@@ -70,6 +104,80 @@ if err != nil {
 参考:
 
 - https://linux.die.net/man/3/fprintf
+
+### func Scan
+
+https://pkg.go.dev/fmt?tab=doc#Scan
+
+```go
+func Scan(a ...interface{}) (n int, err error)
+```
+
+標準入力からスペース区切りで入力を受付け、変数に格納する。  
+改行もスペースとみなされる。  
+読み取った数が引数より少なかったらエラーを返す。
+
+Examples:
+
+```go
+var a, b string
+fmt.Scan(&a, &b)
+```
+
+実行例:
+
+```sh
+# それぞれa, bにセットされる
+$ go run main.go
+x y
+
+# 改行しても次の文字列を入れるまで終わらない
+$ go run main.go
+x
+y
+
+# zは捨てられる
+$ go run main.go
+x y z
+```
+
+### func Scanln
+
+```go
+func Scanln(a ...interface{}) (n int, err error)
+```
+
+Scanと似ているが、改行で処理を止める。
+
+Examples:
+
+```go
+var a, b string
+fmt.Print("Input 2 strings: ")
+n, e := fmt.Scanln(&a, &b)
+if e != nil {
+        panic(e)
+}
+fmt.Printf("Read %d words. a = %s, b = %s\n", n, a, b)
+```
+
+実行例:
+
+```sh
+$ go run main.go
+Input 2 strings: x y
+Read 2 words. a = x, b = y
+
+# 入力を与えずに改行するとエラー
+$ go run main.go
+Input 2 strings: 
+panic: unexpected newline
+
+goroutine 1 [running]:
+main.main()
+        main.go:12 +0x27f
+exit status 2
+```
 
 ### func Sprintf
 
