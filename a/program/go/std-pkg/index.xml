@@ -174,6 +174,10 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>NewFile returns a new File with the given file descriptor and name.&lt;/p>
 &lt;/blockquote>
+&lt;h3 id="func-readlink">func Readlink&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Readlink">https://golang.org/pkg/os/#Readlink&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Readlink&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>シンボリックリンクのリンク先を返す。&lt;/p>
 &lt;h3 id="func-stat">func Stat&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Stat&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">FileInfo&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルパスを受け取って、ファイルの情報を返す。&lt;br>
