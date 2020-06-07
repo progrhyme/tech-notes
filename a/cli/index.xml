@@ -99,13 +99,21 @@ date +%s -r FILE
 &lt;/ul>
 &lt;h2 id="ファイル操作">ファイル操作&lt;/h2>
 &lt;h3 id="find">find&lt;/h3>
+&lt;p>Man Page:&lt;/p>
+&lt;ul>
+&lt;li>Linux: &lt;a href="https://linux.die.net/man/1/find">https://linux.die.net/man/1/find&lt;/a>&lt;/li>
+&lt;li>macOS: &lt;a href="https://www.unix.com/man-page/osx/1/find/">https://www.unix.com/man-page/osx/1/find/&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>ファイルやディレクトリを検索する。&lt;br>
 &lt;code>-exec&lt;/code> オプションで見つけたファイルに対してコマンド実行することもできる。&lt;/p>
+&lt;p>※LinuxとmacOSでオプションが異なる&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># path以下のファイル、ディレクトリを全てリストアップ&lt;/span>
 find &amp;lt;path&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic"># ファイルのみリストアップ&lt;/span>
 find &amp;lt;path&amp;gt; -type f
+&lt;span style="color:#8f5902;font-style:italic"># 拡張子指定で検索&lt;/span>
+find &amp;lt;path&amp;gt; -name &lt;span style="color:#4e9a06">&amp;#34;*.txt&amp;#34;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 3日以内に更新されたファイルを探す&lt;/span>
 find &amp;lt;path&amp;gt; -mtime -mtime -3
 &lt;span style="color:#8f5902;font-style:italic"># 3日以上前のファイルを探して全て削除&lt;/span>

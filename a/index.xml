@@ -1455,8 +1455,45 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;h2 id="入出力">入出力&lt;/h2>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#bufio">pkg (stdlib) &amp;gt; bufio&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#fmt">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#io">pkg (stdlib) &amp;gt; io&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="標準入力">標準入力&lt;/h3>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>さくっと使うなら &lt;code>fmt.Scan&lt;/code> 系が便利&lt;/li>
+&lt;li>大量に読み込む必要があるときは &lt;code>bufio.Scanner&lt;/code> を使う&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#func-scan">pkg (stdlib) &amp;gt; fmt#Scan&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://scrapbox.io/tsuchinaga/%E3%80%90Golang%E3%80%91fmt.Scan%E3%81%A8bufio.Scanner%E3%81%AE%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BC%83">【Golang】fmt.Scanとbufio.Scannerの速度比較 - tsuchinaga&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/tnoda_/items/b503a72eac82862d30c6">Go 言語で標準入力から読み込む競技プログラミングのアレ &amp;mdash; 改訂第二版 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ttyにつながっているか判定する">TTYにつながっているか判定する&lt;/h4>
+&lt;p>CLIで、インタラクティブかどうかによって処理を変えたいことがある。&lt;br>
+そんなときは&lt;a href="https://pkg.go.dev/golang.org/x/crypto/ssh/terminal">golang.org/x/crypto/ssh/terminal&lt;/a>を使う。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;golang.org/x/crypto/ssh/terminal&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">terminal&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">IsTerminal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 標準入力はTTY
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 標準入力はTTYでない
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tanksuzuki/items/e712717675faf4efb07a">Golangで標準入力がパイプで渡されたものか判定する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/#tty">CLI#TTY&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>入門ガイド:&lt;/p>
