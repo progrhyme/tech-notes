@@ -70,6 +70,32 @@ func Getwd() (dir string, err error)
 
 カレントディレクトリの絶対パスを返す。
 
+### func Mkdir
+
+https://golang.org/pkg/os/#Mkdir
+
+```go
+func Mkdir(name string, perm FileMode) error
+```
+
+与えられたパーミッションでディレクトリを作成する。
+
+Unix系OSだと、umask値によって挙動がちょっと変わるっぽい。
+
+参考:
+
+- [Go言語でファイル操作: ディレクトリの作り方 - Qiita](https://qiita.com/suin/items/af8f306dc6b38a293ef5)
+
+### func MkdirAll
+
+```go
+func MkdirAll(path string, perm FileMode) error
+```
+
+- 途中のディレクトリも必要なら作ってくれる
+  - 途中のディレクトリもパーミッションは同じになる
+- 既にディレクトリがあったら何もせず、 `nil` を返す
+
 ### func NewFile
 
 https://golang.org/pkg/os/#NewFile

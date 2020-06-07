@@ -39,7 +39,10 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 ## 値渡しとポインタ渡し
 
-基本、よほどデータが大きくならない限りは値渡しでよさそう。
+メモ:
+
+- 基本、よほどデータが大きくならない限りは値渡しでよさそう
+- オブジェクトの中身を書き換えるような処理だと、ポインタ渡しじゃないと駄目。そりゃそうか
 
 関連項目:
 
@@ -77,6 +80,20 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 - [pkg (stdlib) > os]({{<ref "std-pkg/os.md">}})
 - [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
 
+### 実行可能ファイルを判定
+
+Examples:
+
+```go
+func isExecutableFile(f os.FileInfo) {
+  return !f.IsDir() && f.Mode()&0111 != 0
+}
+```
+
+参考:
+
+- [unix - How to check if a file is executable in go? - Stack Overflow](https://stackoverflow.com/questions/60128401/how-to-check-if-a-file-is-executable-in-go)
+
 ## ライブラリ管理
 
 [Go 1.14](https://golang.org/doc/go1.14)からGo Modulesが標準機能になったので、これを使いましょう。
@@ -105,6 +122,8 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 struct Aをstruct Bに埋め込むと、Bから直接Aのメンバー変数やメソッドにアクセスできる。  
 OOPの継承のようなことができる。
+
+※処理をAに委譲しているだけなので、厳密には継承とは異なる。
 
 Examples:
 
@@ -156,7 +175,47 @@ anonymous := struct {
 
 参考:
 
+- [インタフェースの実装パターン #golang - Qiita](https://qiita.com/tenntenn/items/eac962a49c56b2b15ee8)
 - [【Golang】Golangのinterfaceで知っておくとお得なTips - Qiita](https://qiita.com/romukey/items/e49e28b7dcf645ac91c7)
+
+### ダックタイピング
+
+https://play.golang.org/p/aja9eLk-4-n に動作例を書いた。
+
+Examples:
+
+```go
+type walker interface {
+	walk()
+}
+
+type human struct {
+	name string
+}
+
+type dog struct {
+	name string
+}
+
+func (h *human) walk() {
+	fmt.Printf("I am %s, walking now.\n", h.name)
+}
+
+func (d *dog) walk() {
+	fmt.Printf("Bow wow! (%s is walking)", d.name)
+}
+
+func watch(w walker) {
+	w.walk()
+}
+
+func main() {
+	h := &human{"Ken"}
+	d := &dog{"Hachi"}
+	watch(h)
+	watch(d)
+}
+```
 
 ### Type switches
 
@@ -179,6 +238,23 @@ default:
   fmt.Printf("I don't know about type %T!\n", v)
 }
 ```
+
+## オブジェクト指向プログラミング
+
+Golangは型の継承をサポートしていないが、構造体とインタフェースを使いこなすと、オブジェクト指向プログラミングを実現ことができる。
+
+NOTE:
+
+- 構造体の埋め込みは継承とは異なるので、注意が必要
+- インタフェースを使うとダックタイピングができるが、インタフェースはレシーバにはできない
+
+参考:
+
+- [Frequently Asked Questions (FAQ) - The Go Programming Language#Is_Go_an_object-oriented_language](https://golang.org/doc/faq#Is_Go_an_object-oriented_language)
+- [Go言語で「embedded で継承ができる」と思わないほうがいいのはなぜか？ - Qiita](https://qiita.com/Maki-Daisuke/items/511b8989e528f7c70f80)
+- [オブジェクト指向言語としてGolangをやろうとするとハマること - Qiita](https://qiita.com/shibukawa/items/16acb36e94cfe3b02aa1)
+  - 上の牧さんの記事とほぼ同じことを言っている
+- [Goはオブジェクト指向言語だろうか？ | POSTD](https://postd.cc/is-go-object-oriented/)
 
 ## 正規表現
 

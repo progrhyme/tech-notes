@@ -55,6 +55,22 @@ if err != nil {
 }
 ```
 
+### 書式指定子
+
+だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。
+
+`%v`, `%+v` が便利。
+
+ 書式 | 値の型 | 説明
+------|--------|------
+ %v | any | 値のデフォルトの書式で出力
+ %+v | struct | フィールド名も表示してくれる
+ %p | ポインタ | `0x` プレフィックス付きの16進数でアドレスを表示
+
+参考:
+
+- https://linux.die.net/man/3/fprintf
+
 ### func Sprintf
 
 https://pkg.go.dev/fmt?tab=doc#Sprintf
@@ -286,6 +302,18 @@ fmt.Println(validID.MatchString("snakey"))
 
 - [逆引きGolang (正規表現)](https://ashitani.jp/golangtips/tips_regexp.html)
 
+## syscall [Deprecated]
+
+https://golang.org/pkg/syscall/
+
+=> https://pkg.go.dev/golang.org/x/sys
+
+Go 1.4でフリーズされて、上に移ったみたい。
+
+参考:
+
+- https://golang.org/s/go1.4-syscall
+
 ## time
 
 https://golang.org/pkg/time/
@@ -327,5 +355,3 @@ case <-time.After(5 * time.Minute):
 More examples:
 
 - https://gobyexample.com/timeouts
-
-

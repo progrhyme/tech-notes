@@ -75,6 +75,41 @@ See Also:
 
 - [Linuxのブートシーケンス - Qiita](https://qiita.com/taichitk/items/b3b69705be0e270e9f6e)
 
+### ファイルパーミッション
+
+参考:
+
+- [Linux: SUID、SGID、スティッキービットまとめ - Qiita](https://qiita.com/aosho235/items/16434a490f9a05ddb0dc)
+- [【コマンド含め一通りわかる】Linuxパーミッションについてのまとめ](https://eng-entrance.com/category/linux/linux-permission)
+  - [【Linux初心者向け】スティッキービットとは？と設定方法](https://eng-entrance.com/linux-permission-stickybit)
+  - [【初心者でもすぐわかる】SUIDとは？と設定方法](https://eng-entrance.com/linux-permission-suid)
+  - [【Linuxパーミッション】SGIDとは？と設定方法](https://eng-entrance.com/linux-permission-sgid)
+
+#### umask
+
+ファイル、ディレクトリ作成時のパーミッションは、umask値によって異なる。
+
+基本値:
+
+- ファイル: `666`
+- ディレクトリ: `777`
+
+「（基本値） - （umask値）」がデフォルトのパーミッションとなる。
+
+例:
+
+- umask = `022` のとき
+  - ディレクトリ作成 => パーミッションは `755`
+  - ファイル作成 => パーミッションは `644`
+
+関連項目:
+
+- [UNIX系コマンド#umask]({{<ref "/a/cli/unix-cmd/_index.md">}}#umask)
+
+参考:
+
+- [Linuxのファイル・ディレクトリ作成した時のパーミッション (umask) - Qiita](https://qiita.com/yuki2006/items/3774bf765eb5ef7deabc)
+
 ## セキュリティ
 ### SELinux
 

@@ -173,6 +173,26 @@ GNUオプション: ※macOSでは使えない
 
 - [【 touch 】コマンド――タイムスタンプを変更する／新規ファイルを作成する：Linux基本コマンドTips（23） \- ＠IT](http://www.atmarkit.co.jp/ait/articles/1606/14/news013.html)
 
+### umask
+
+Examples:
+
+```sh
+# 現在のumask値を表示
+umask
+
+# umaskを022に設定
+umask 022
+```
+
+関連項目:
+
+- [OS > Linux#umask]({{<ref "/a/os/linux.md">}}#umask)
+
+参考:
+
+- [Linux umask command help and examples](https://www.computerhope.com/unix/uumask.htm)
+
 ## アーカイブ
 ### zip/unzip
 
