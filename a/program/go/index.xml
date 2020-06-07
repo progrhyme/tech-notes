@@ -592,7 +592,11 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;li>&lt;a href="https://h3poteto.hatenablog.com/entry/2015/12/13/010000">golangでrecoverしたときの戻り値 - PartyIX&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="値渡しとポインタ渡し">値渡しとポインタ渡し&lt;/h2>
-&lt;p>基本、よほどデータが大きくならない限りは値渡しでよさそう。&lt;/p>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>基本、よほどデータが大きくならない限りは値渡しでよさそう&lt;/li>
+&lt;li>オブジェクトの中身を書き換えるような処理だと、ポインタ渡しじゃないと駄目。そりゃそうか&lt;/li>
+&lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF">言語仕様#ポインタ&lt;/a>&lt;/li>
@@ -626,6 +630,15 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">pkg (stdlib) &amp;gt; os&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="実行可能ファイルを判定">実行可能ファイルを判定&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">isExecutableFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">FileInfo&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">!&lt;/span>&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">IsDir&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Mode&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0111&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/60128401/how-to-check-if-a-file-is-executable-in-go">unix - How to check if a file is executable in go? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="ライブラリ管理">ライブラリ管理&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/doc/go1.14">Go 1.14&lt;/a>からGo Modulesが標準機能になったので、これを使いましょう。&lt;/p>
 &lt;p>ドキュメント:&lt;/p>
@@ -650,6 +663,7 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;h3 id="埋め込み">埋め込み&lt;/h3>
 &lt;p>struct Aをstruct Bに埋め込むと、Bから直接Aのメンバー変数やメソッドにアクセスできる。&lt;br>
 OOPの継承のようなことができる。&lt;/p>
+&lt;p>※処理をAに委譲しているだけなので、厳密には継承とは異なる。&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">A&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
@@ -687,9 +701,37 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tenntenn/items/eac962a49c56b2b15ee8">インタフェースの実装パターン #golang - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/romukey/items/e49e28b7dcf645ac91c7">【Golang】Golangのinterfaceで知っておくとお得なTips - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="type-switches">Type switches&lt;/h3>
+&lt;h3 id="ダックタイピング">ダックタイピング&lt;/h3>
+&lt;p>&lt;a href="https://play.golang.org/p/aja9eLk-4-n">https://play.golang.org/p/aja9eLk-4-n&lt;/a> に動作例を書いた。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">walker&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">human&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">dog&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">human&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I am %s, walking now.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">h&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">dog&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Bow wow! (%s is walking)&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">watch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">w&lt;/span> &lt;span style="color:#000">walker&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">w&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">human&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ken&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">dog&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hachi&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">watch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">h&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">watch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="type-switches">Type switches&lt;/h3>
 &lt;p>型アサーションをswitch文と組合せて、値の型によって処理を分岐できる。&lt;br>
 例外処理などでも便利そう。&lt;/p>
 &lt;p>入門ガイド:&lt;/p>
@@ -705,7 +747,25 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I don&amp;#39;t know about type %T!\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="正規表現">正規表現&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="オブジェクト指向プログラミング">オブジェクト指向プログラミング&lt;/h2>
+&lt;p>Golangは型の継承をサポートしていないが、構造体とインタフェースを使いこなすと、オブジェクト指向プログラミングを実現ことができる。&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>構造体の埋め込みは継承とは異なるので、注意が必要&lt;/li>
+&lt;li>インタフェースを使うとダックタイピングができるが、インタフェースはレシーバにはできない&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/faq#Is_Go_an_object-oriented_language">Frequently Asked Questions (FAQ) - The Go Programming Language#Is_Go_an_object-oriented_language&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Maki-Daisuke/items/511b8989e528f7c70f80">Go言語で「embedded で継承ができる」と思わないほうがいいのはなぜか？ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/shibukawa/items/16acb36e94cfe3b02aa1">オブジェクト指向言語としてGolangをやろうとするとハマること - Qiita&lt;/a>
+&lt;ul>
+&lt;li>上の牧さんの記事とほぼ同じことを言っている&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://postd.cc/is-go-object-oriented/">Goはオブジェクト指向言語だろうか？ | POSTD&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="正規表現">正規表現&lt;/h2>
 &lt;p>Webサーバなどで使うときは、パフォーマンスに気をつける必要がありそう。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
@@ -778,7 +838,40 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Error occured!!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fprintf: %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-sprintf">func Sprintf&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="書式指定子">書式指定子&lt;/h3>
+&lt;p>だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。&lt;/p>
+&lt;p>&lt;code>%v&lt;/code>, &lt;code>%+v&lt;/code> が便利。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>書式&lt;/th>
+&lt;th>値の型&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%v&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>値のデフォルトの書式で出力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%+v&lt;/td>
+&lt;td>struct&lt;/td>
+&lt;td>フィールド名も表示してくれる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%p&lt;/td>
+&lt;td>ポインタ&lt;/td>
+&lt;td>&lt;code>0x&lt;/code> プレフィックス付きの16進数でアドレスを表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://linux.die.net/man/3/fprintf">https://linux.die.net/man/3/fprintf&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-sprintf">func Sprintf&lt;/h3>
 &lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Sprintf">https://pkg.go.dev/fmt?tab=doc#Sprintf&lt;/a>&lt;/p>
 &lt;p>シグネチャ:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
@@ -916,6 +1009,14 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_regexp.html">逆引きGolang (正規表現)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="syscall-deprecated">syscall [Deprecated]&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/syscall/">https://golang.org/pkg/syscall/&lt;/a>&lt;/p>
+&lt;p>=&amp;gt; &lt;a href="https://pkg.go.dev/golang.org/x/sys">https://pkg.go.dev/golang.org/x/sys&lt;/a>&lt;/p>
+&lt;p>Go 1.4でフリーズされて、上に移ったみたい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/s/go1.4-syscall">https://golang.org/s/go1.4-syscall&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="time">time&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/time/">https://golang.org/pkg/time/&lt;/a>&lt;/p>

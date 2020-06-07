@@ -140,6 +140,43 @@
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/taichitk/items/b3b69705be0e270e9f6e">Linuxのブートシーケンス - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="ファイルパーミッション">ファイルパーミッション&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/aosho235/items/16434a490f9a05ddb0dc">Linux: SUID、SGID、スティッキービットまとめ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://eng-entrance.com/category/linux/linux-permission">【コマンド含め一通りわかる】Linuxパーミッションについてのまとめ&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://eng-entrance.com/linux-permission-stickybit">【Linux初心者向け】スティッキービットとは？と設定方法&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://eng-entrance.com/linux-permission-suid">【初心者でもすぐわかる】SUIDとは？と設定方法&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://eng-entrance.com/linux-permission-sgid">【Linuxパーミッション】SGIDとは？と設定方法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="umask">umask&lt;/h4>
+&lt;p>ファイル、ディレクトリ作成時のパーミッションは、umask値によって異なる。&lt;/p>
+&lt;p>基本値:&lt;/p>
+&lt;ul>
+&lt;li>ファイル: &lt;code>666&lt;/code>&lt;/li>
+&lt;li>ディレクトリ: &lt;code>777&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>「（基本値） - （umask値）」がデフォルトのパーミッションとなる。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>umask = &lt;code>022&lt;/code> のとき
+&lt;ul>
+&lt;li>ディレクトリ作成 =&amp;gt; パーミッションは &lt;code>755&lt;/code>&lt;/li>
+&lt;li>ファイル作成 =&amp;gt; パーミッションは &lt;code>644&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#umask">UNIX系コマンド#umask&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/yuki2006/items/3774bf765eb5ef7deabc">Linuxのファイル・ディレクトリ作成した時のパーミッション (umask) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
 &lt;h3 id="selinux">SELinux&lt;/h3>
 &lt;p>RHEL系の機能かな（？）&lt;/p>
