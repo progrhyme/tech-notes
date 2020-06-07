@@ -240,6 +240,17 @@ type Writer interface {
 
 https://golang.org/pkg/io/ioutil/
 
+### Variables
+
+```go
+// /dev/null 的な存在。出力を破棄したいときに使うといい
+var Discard io.Writer = devNull(0)
+```
+
+参考:
+
+- [Go言語(golang)で出力を破棄する - golangの日記](https://golang.hateblo.jp/entry/2018/10/24/181434)
+
 ### func ReadDir
 
 ```go
@@ -409,6 +420,30 @@ fmt.Println(validID.MatchString("snakey"))
 参考:
 
 - [逆引きGolang (正規表現)](https://ashitani.jp/golangtips/tips_regexp.html)
+
+## strings
+
+https://pkg.go.dev/strings
+
+UTF-8文字列を扱うためのシンプルな関数を提供する。
+
+### func HasPrefix
+
+https://pkg.go.dev/strings?tab=doc#HasPrefix
+
+```go
+func HasPrefix(s, prefix string) bool
+```
+
+sがprefixから始まってるかチェックする。
+
+Examples:
+
+```go
+strings.HasPrefix("Gopher", "Go") //=> true
+strings.HasPrefix("Gopher", "C")  //=> false
+strings.HasPrefix("Gopher", "")   //=> true
+```
 
 ## syscall [Deprecated]
 

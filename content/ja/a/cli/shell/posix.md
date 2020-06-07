@@ -111,6 +111,20 @@ done
 
 - [【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）](https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/)
 
+### 関数
+
+[Shell Command Language#2.9.5 Function Definition Command](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_05)
+
+Syntax:
+
+```sh
+fname() compound-command [io-redirect ...]
+```
+
+NOTE:
+
+- `function` キーワードはBash等による拡張のようだ
+
 ### case構文
 
 [Shell Command Language#Case Conditional Construct](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_04_05)

@@ -153,6 +153,12 @@ func isExecutableFile(f os.FileInfo) {
 - [Using Go Modules - The Go Blog](https://blog.golang.org/using-go-modules)
 - [Go言語の依存モジュール管理ツール Modules の使い方 - Qiita](https://qiita.com/uchiko/items/64fb3020dd64cf211d4e)
 
+## ビルド
+
+関連項目:
+
+- [エコシステム#ビルド・公開]({{<ref "ecosystem.md">}}#ビルド公開)
+
 ## 構造体の使い方
 
 関連項目:
@@ -313,6 +319,12 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 
 - [逆引きGolang (正規表現)](https://ashitani.jp/golangtips/tips_regexp.html)
 - [regexpとの付き合い方 〜 Go言語標準の正規表現ライブラリのパフォーマンスとアルゴリズム〜 - Eureka Engineering - Medium](https://medium.com/eureka-engineering/regexp%E3%81%A8%E3%81%AE%E4%BB%98%E3%81%8D%E5%90%88%E3%81%84%E6%96%B9-go%E8%A8%80%E8%AA%9E%E6%A8%99%E6%BA%96%E3%81%AE%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%A8%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0-984b6cbeeb2b)
+
+## デバッグ
+
+関連項目:
+
+- [エコシステム#デバッガ]({{<ref "ecosystem.md">}}#デバッガ)
 
 ## バリデータ
 

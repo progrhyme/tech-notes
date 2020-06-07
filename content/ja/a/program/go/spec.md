@@ -6,7 +6,19 @@ date: 2020-04-26T08:10:52+09:00
 weight: 30
 ---
 
-## リテラル
+## 字句、リテラル
+### 予約語
+
+https://golang.org/ref/spec#Keywords
+
+```
+break        default      func         interface    select
+case         defer        go           map          struct
+chan         else         goto         package      switch
+const        fallthrough  if           range        type
+continue     for          import       return       var
+```
+
 ### 文字列
 
 https://golang.org/ref/spec#String_literals

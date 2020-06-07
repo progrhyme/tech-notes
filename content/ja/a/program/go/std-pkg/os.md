@@ -106,6 +106,16 @@ func NewFile(fd uintptr, name string) *File
 
 > NewFile returns a new File with the given file descriptor and name.
 
+### func Readlink
+
+https://golang.org/pkg/os/#Readlink
+
+```go
+func Readlink(name string) (string, error)
+```
+
+シンボリックリンクのリンク先を返す。
+
 ### func Stat
 
 ```go

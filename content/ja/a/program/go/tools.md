@@ -12,6 +12,10 @@ Go言語による開発を支援する様々な公式ツール
 
 - https://github.com/golang/tools Mirror
 
+See Also:
+
+- [エコシステム]({{<ref "ecosystem.md">}})
+
 ## cmd/goimports
 
 https://pkg.go.dev/golang.org/x/tools/cmd/goimports
