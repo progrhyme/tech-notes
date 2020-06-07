@@ -1,4 +1,69 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-05</title><link>https://progrhy.me/tech-notes/a/memo/20200605/</link><pubDate>Fri, 05 Jun 2020 03:21:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200605/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-08</title><link>https://progrhy.me/tech-notes/a/memo/20200608/</link><pubDate>Mon, 08 Jun 2020 02:22:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200608/</guid><description>
+&lt;h2 id="68">6/8&lt;/h2>
+&lt;h3 id="はじめてのgo-module">はじめてのGo Module&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/shelp">shelp&lt;/a>をGo Module対応して作ったところ、tagをつけてGitHubに公開しただけで pkg.dev.go にもindexされた。&lt;/p>
+&lt;p>&lt;a href="https://pkg.go.dev/mod/github.com/progrhyme/shelp">https://pkg.go.dev/mod/github.com/progrhyme/shelp&lt;/a>&lt;/p>
+&lt;p>今のところmodule / packageとしての利用は想定してないけど、それはそれとしてmoduleを作ってリリースするまでの流れをメモしておく。&lt;/p>
+&lt;p>基本的に、 &lt;a href="https://github.com/golang/go/wiki/Modules#how-to-use-modules">https://github.com/golang/go/wiki/Modules#how-to-use-modules&lt;/a> の流れに従えばよい。&lt;/p>
+&lt;p>作業環境:&lt;/p>
+&lt;ul>
+&lt;li>Ubuntu 18.04 LTS&lt;/li>
+&lt;li>go v1.14.2&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/using-go-modules">Using Go Modules - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/publishing-go-modules">Publishing Go Modules - The Go Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="コンパイラの用意">①コンパイラの用意&lt;/h4>
+&lt;p>Go 1.14以上なら何もしなくていい。&lt;br>
+Go 1.11〜1.13の場合、環境変数の設定が必要:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">GO111MODULE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>on
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="moduleの初期化">②Moduleの初期化&lt;/h4>
+&lt;p>GOPATHの外のディレクトリでモジュールのディレクトリを作る。&lt;br>
+私の環境ではGOPATH設定してない。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">cd&lt;/span> somewhere/shelp
+git init
+git commit --allow-empty -m &lt;span style="color:#4e9a06">&amp;#34;Initial commit&amp;#34;&lt;/span>
+go mod init github.com/progrhyme/shelp
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これによって次のような &lt;code>go.mod&lt;/code> ファイルが作られる:&lt;/p>
+&lt;pre>&lt;code>module github.com/progrhyme/shelp
+go 1.14
+&lt;/code>&lt;/pre>&lt;h4 id="依存ライブラリの追加">③依存ライブラリの追加&lt;/h4>
+&lt;p>VS Codeでプラグインを入れて作業してたら勝手にgo.mod, go.sumが更新されていったので、あまり意識的に作業はしていない。&lt;/p>
+&lt;p>shelp v0.1.0 時点では、次のようになった。&lt;/p>
+&lt;pre>&lt;code>$ cat go.mod
+module github.com/progrhyme/shelp
+go 1.14
+require (
+github.com/spf13/pflag v1.0.5
+golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9
+)
+$ cat go.sum
+github.com/spf13/pflag v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
+github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
+golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
+golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9 h1:vEg9joUBmeBcK9iSJftGNf3coIG4HqZElCPehJsfAYM=
+golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
+golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
+golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
+golang.org/x/sys v0.0.0-20190412213103-97732733099d h1:+R4KGOnez64A81RvjARKc4UT5/tI9ujCIVX+P5KiHuI=
+golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
+&lt;/code>&lt;/pre>&lt;p>それぞれのファイルは、RubyのbundlerでいうところのGemfileとGemfile.lockに相当すると見ていいのだろう。&lt;br>
+npmならpackage.jsonとpackage-lock.json. （以下略）&lt;/p>
+&lt;h4 id="リリース">④リリース&lt;/h4>
+&lt;p>公式手順だと &lt;code>go mod tidy&lt;/code> や &lt;code>go test all&lt;/code> をやるべしとあるが、何もやっていない。（ひょっとしたらVS Codeプラグインの機能で &lt;code>go mod tidy&lt;/code> は掛かっているのかもしれない）&lt;/p>
+&lt;p>やったことは、タグを付けてGitHubにpushし、goreleaserを使ってバイナリをリリースしただけ。&lt;/p>
+&lt;p>これだけで pkg.go.dev にインデックスされるようだ。&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>semverじゃないと駄目、みたいな仕様はあるのかも？&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>goreleaserについては&lt;a href="https://progrhy.me/tech-notes/a/program/go/ecosystem/#goreleaser">Golang &amp;gt; エコシステム#goreleaser&lt;/a>に書いた。&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-05</title><link>https://progrhy.me/tech-notes/a/memo/20200605/</link><pubDate>Fri, 05 Jun 2020 03:21:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200605/</guid><description>
 &lt;h2 id="65">6/5&lt;/h2>
 &lt;h3 id="shallow-cloneしたgitのリポジトリを同じdepthでpullするには">shallow cloneしたgitのリポジトリを同じdepthでpullするには&lt;/h3>
 &lt;p>動作環境:&lt;/p>
