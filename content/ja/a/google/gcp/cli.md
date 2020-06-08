@@ -7,6 +7,8 @@ weight: 100
 
 Quick links:
 
+- [bq](#bq)
+- [cbt](#cbt)
 - [gcloud](#gcloud)
 - [gsutil](#gsutil)
 
@@ -37,6 +39,19 @@ https://cloud.google.com/sdk/docs/downloads-docker
 
 - [DockerコンテナからGoogle Cloud SDKのコマンドを簡単に実行できるコマンドをつくってみた | cloudpack.media](https://cloudpack.media/50237)
 - [Docker で Google Cloud SDK を使う - yt coffee](https://yuku.takahashi.coffee/blog/2019/01/google-cloud-sdk-in-docker)
+
+## bq
+
+BigQuery操作CLI
+
+リファレンス: https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja
+
+## cbt
+
+Bigtable操作CLI
+
+- リファレンス: https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja
+- インストール: [cbt ツールの概要 | Cloud Bigtable ドキュメント | Google Cloud](https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja)
 
 ## gcloud
 
