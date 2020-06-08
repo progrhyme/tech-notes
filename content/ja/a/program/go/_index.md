@@ -43,44 +43,6 @@ https://learn.go.dev/ に教材がたくさん転がっている。
 
 - 2016年 [6年間におけるGoのベストプラクティス | プログラミング | POSTD](http://postd.cc/go-best-practices-2016/ "6年間におけるGoのベストプラクティス | プログラミング | POSTD")
 
-## go CLI
-
-`go` コマンド。
-
-https://golang.org/pkg/cmd/go/
-
-Examples:
-
-```sh
-# ビルド
-go build
-
-# パッケージ取得
-go get
-
-# モジュール管理
-go mod
-
-# 実行
-go run
-
-# テスト
-go test
-
-# 静的解析によって疑わしい問題を報告
-go vet
-
-# バージョン表示
-go version
-
-# ヘルプ
-go help [command]
-```
-
-参考:
-
-- [go vetの使い方(go vetとは) - Qiita](https://qiita.com/marnie_ms4/items/b343165efb4235906db7)
-
 ## Programming Tips
 
 コーディングする上で知っておくと便利なTips.
