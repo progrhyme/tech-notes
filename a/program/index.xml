@@ -40,30 +40,6 @@
 &lt;ul>
 &lt;li>2016年 &lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="go-cli">go CLI&lt;/h2>
-&lt;p>&lt;code>go&lt;/code> コマンド。&lt;/p>
-&lt;p>&lt;a href="https://golang.org/pkg/cmd/go/">https://golang.org/pkg/cmd/go/&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ビルド&lt;/span>
-go build
-&lt;span style="color:#8f5902;font-style:italic"># パッケージ取得&lt;/span>
-go get
-&lt;span style="color:#8f5902;font-style:italic"># モジュール管理&lt;/span>
-go mod
-&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
-go run
-&lt;span style="color:#8f5902;font-style:italic"># テスト&lt;/span>
-go &lt;span style="color:#204a87">test&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 静的解析によって疑わしい問題を報告&lt;/span>
-go vet
-&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
-go version
-&lt;span style="color:#8f5902;font-style:italic"># ヘルプ&lt;/span>
-go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/marnie_ms4/items/b343165efb4235906db7">go vetの使い方(go vetとは) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="programming-tips">Programming Tips&lt;/h2>
 &lt;p>コーディングする上で知っておくと便利なTips.&lt;/p>
 &lt;h3 id="enum">enum&lt;/h3>

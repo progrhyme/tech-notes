@@ -846,7 +846,108 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;ul>
 &lt;li>&lt;a href="https://k3s.io/">K3s: Lightweight Kubernetes&lt;/a> &amp;hellip; Rancherが出してる軽量版K8s&lt;/li>
 &lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/edit/</link><pubDate>Tue, 05 May 2020 14:04:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/edit/</guid><description>
+&lt;/ul></description></item><item><title>A: goコマンド</title><link>https://progrhy.me/tech-notes/a/program/go/cli/</link><pubDate>Mon, 08 Jun 2020 23:36:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/cli/</guid><description>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ビルド&lt;/span>
+go build
+&lt;span style="color:#8f5902;font-style:italic"># パッケージ取得&lt;/span>
+go get
+&lt;span style="color:#8f5902;font-style:italic"># モジュール管理&lt;/span>
+go mod
+&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
+go run
+&lt;span style="color:#8f5902;font-style:italic"># テスト&lt;/span>
+go &lt;span style="color:#204a87">test&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 静的解析によって疑わしい問題を報告&lt;/span>
+go vet
+&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
+go version
+&lt;span style="color:#8f5902;font-style:italic"># ヘルプ&lt;/span>
+go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>command&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/marnie_ms4/items/b343165efb4235906db7">go vetの使い方(go vetとは) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="環境変数">環境変数&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Variable&lt;/th>
+&lt;th>Values&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>GO111MODULE&lt;/td>
+&lt;td>&lt;strong>auto&lt;/strong>, on, off&lt;/td>
+&lt;td>「module-aware mode」が有効かどうか。デフォルトではgo.modの有無で判定される&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>GOMOD&lt;/td>
+&lt;td>（右記）&lt;/td>
+&lt;td>go.modの絶対パス。go.modがなければos.DevNullの値。「module-aware mode」が無効なら、空文字列&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="module">Module&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/cmd/go/#hdr-Module_support">https://golang.org/cmd/go/#hdr-Module_support&lt;/a>&lt;/p>
+&lt;p>「module-aware mode」については、上記の環境変数およびgo.modファイルの有無で判定される。&lt;br>
+これにより、 &lt;code>go get&lt;/code> などの挙動が変わる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/08/10/170730#f-b5157852">Go 1.13 に向けて知っておきたい Go Modules とそれを取り巻くエコシステム - blog.syfm&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="get">get&lt;/h2>
+&lt;p>2020-06-08現在、（Moduleが登場したGo 1.11以降で） &lt;code>go get&lt;/code> には2つのモードがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/cmd/go/#hdr-Legacy_GOPATH_go_get">Legacy GOPATH go get&lt;/a>&lt;/li>
+&lt;li>module-aware go get&lt;/li>
+&lt;/ul>
+&lt;p>後者についてはweb上ではヘルプを見つけられていないが、 &lt;code>go help module-get&lt;/code> を実行するか、「module-aware mode」で &lt;code>go help get&lt;/code> を実行すると、ヘルプが見られる。&lt;br>
+逆に、「module-aware mode」を無効にして &lt;code>go help get&lt;/code> を実行するか、 &lt;code>go help gopath-get&lt;/code> を実行すると、legacy GOPATH modeの &lt;code>go get&lt;/code> のヘルプが見られる。&lt;/p>
+&lt;p>実行例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ go &lt;span style="color:#204a87">help&lt;/span> gopath-get
+The &lt;span style="color:#4e9a06">&amp;#39;go get&amp;#39;&lt;/span> &lt;span style="color:#204a87">command&lt;/span> changes behavior depending on whether the
+go &lt;span style="color:#204a87">command&lt;/span> is running in module-aware mode or legacy GOPATH mode.
+This &lt;span style="color:#204a87">help&lt;/span> text, accessible as &lt;span style="color:#4e9a06">&amp;#39;go help gopath-get&amp;#39;&lt;/span> even in module-aware mode,
+describes &lt;span style="color:#4e9a06">&amp;#39;go get&amp;#39;&lt;/span> as it operates in legacy GOPATH mode.
+Usage: go get &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-d&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-f&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-t&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-u&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-fix&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-insecure&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>build flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>packages&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+Get downloads the packages named by the import paths, along with their
+dependencies. It &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> installs the named packages, like &lt;span style="color:#4e9a06">&amp;#39;go install&amp;#39;&lt;/span>.
+:
+（以下略）
+$ go &lt;span style="color:#204a87">help&lt;/span> module-get
+The &lt;span style="color:#4e9a06">&amp;#39;go get&amp;#39;&lt;/span> &lt;span style="color:#204a87">command&lt;/span> changes behavior depending on whether the
+go &lt;span style="color:#204a87">command&lt;/span> is running in module-aware mode or legacy GOPATH mode.
+This &lt;span style="color:#204a87">help&lt;/span> text, accessible as &lt;span style="color:#4e9a06">&amp;#39;go help module-get&amp;#39;&lt;/span> even in legacy GOPATH mode,
+describes &lt;span style="color:#4e9a06">&amp;#39;go get&amp;#39;&lt;/span> as it operates in module-aware mode.
+Usage: go get &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-d&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-t&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-u&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-insecure&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>build flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>packages&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+Get resolves and adds dependencies to the current development module
+and &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> builds and installs them.
+:
+（以下略）
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gopath-get">gopath-get&lt;/h3>
+&lt;p>GOPATHの下にパッケージをダウンロードし、インストールする。&lt;br>
+パッケージのソースは &lt;code>GOPATH/src/&amp;lt;import-path&amp;gt;&lt;/code> に展開される。&lt;/p>
+&lt;p>常に最新版が取得され、複数バージョンを混在させられないという問題があった。&lt;/p>
+&lt;h3 id="module-get">module-get&lt;/h3>
+&lt;p>（go.modに記された）現在開発中のモジュールに対し依存モジュールを解決して、ビルドとインストールを行う。&lt;/p>
+&lt;p>Spec:&lt;/p>
+&lt;ul>
+&lt;li>バージョン指定でインストールできる。例: &lt;code>go get golang.org/x/text@v0.3.0&lt;/code>&lt;/li>
+&lt;li>go.modがあるディレクトリで実行すると、 &lt;code>go.mod&lt;/code>, &lt;code>go.sum&lt;/code> が更新され、取得したモジュールが依存に追加される&lt;/li>
+&lt;li>moduleは &lt;code>GOPATH/pkg/mod&lt;/code> に取得され、バイナリは &lt;code>GOPATH/bin&lt;/code> にインストールされる&lt;/li>
+&lt;li>モジュールの外で &lt;code>GO111MODULE=on&lt;/code> を指定して実行することもできる&lt;/li>
+&lt;/ul>
+&lt;p>取得パスについては &lt;code>go help modules&lt;/code> に記載があった:&lt;/p>
+&lt;blockquote>
+&lt;p>In module-aware mode, GOPATH no longer defines the meaning of imports
+during a build, but it still stores downloaded dependencies (in GOPATH/pkg/mod)
+and installed commands (in GOPATH/bin, unless GOBIN is set).&lt;/p>
+&lt;/blockquote>
+&lt;p>とのこと。&lt;/p></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/edit/</link><pubDate>Tue, 05 May 2020 14:04:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/edit/</guid><description>
 &lt;p>エディタを起動した後の使い方。&lt;br>
 主にファイル編集に関わる操作。&lt;/p>
 &lt;h2 id="全行の削除">全行の削除&lt;/h2>
@@ -4791,58 +4892,4 @@ baz
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://engineerspirit.com/2017/07/01/post-1427/">vimの便利なPlugin（その26）yankround | 技術者魂&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Pod</title><link>https://progrhy.me/tech-notes/a/software/k8s/pod/</link><pubDate>Mon, 04 May 2020 21:45:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/pod/</guid><description>
-&lt;p>1つ以上のコンテナを内包する、ワークロードの基本単位。&lt;/p>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/">Container&lt;/a>&lt;/p>
-&lt;h2 id="スケジューリング">スケジューリング&lt;/h2>
-&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/">Node上へのPodのスケジューリング - Kubernetes&lt;/a>&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>Podが起動できない理由:
-&lt;ul>
-&lt;li>OutOfMemory, OutOfCpu &amp;hellip; Nodeのリソースが足りない&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="affinity">Affinity&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/configuration/assign-pod-node/#affinity-%e3%81%a8-anti-affinity">Node上へのPodのスケジューリング - Kubernetes#AffinityとAnti-Affinity&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-18/#affinity-anti-affinity">Kubernetes道場 18日目 - Affinity / Anti-Affinity / Taint / Tolerationについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.1915keke.com/entry/2018/09/26/163447">KubernetesのNode AffinityとInternal Pod Affinityを使ってPodを高度スケジューリングする - Kekeの日記&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/sheepland/items/ed12b3dc4a8f1df7c4ec">KubernetesのNode Affinity, Inter-Pod Affinityについて - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="taintsとtolerations">TaintsとTolerations&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/">Taints and Tolerations - Kubernetes&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://qiita.com/sheepland/items/8fedae15e157c102757f">KubernetesのTaintsとTolerationsについて - Qiita&lt;/a>より:&lt;/p>
-&lt;blockquote>
-&lt;p>Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="ライフサイクル">ライフサイクル&lt;/h2>
-&lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/pods/pod-lifecycle/">Podのライフサイクル - Kubernetes&lt;/a>&lt;/p>
-&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/container/#lifecycle-hooks">Container#lifecycle-hooks&lt;/a>&lt;/p>
-&lt;h3 id="podの終了">Podの終了&lt;/h3>
-&lt;p>&lt;a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods">https://kubernetes.io/docs/concepts/workloads/pods/pod/#termination-of-pods&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/superbrothers/items/3ac78daba3560ea406b2">Kubernetes: 詳解 Pods の終了 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://tech-lab.sios.jp/archives/18730">KubernetesでRollingUpdateするためのPodの安全な終了 | SIOS Tech. Lab&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="crashloopbackoff">CrashLoopBackOff&lt;/h3>
-&lt;p>発生条件:&lt;/p>
-&lt;ul>
-&lt;li>memory limits以上を使おうとしてOOMで殺され、繰り返し再起動されるとき
-&lt;ul>
-&lt;li>再起動間隔はexponential backoffで延びる&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/sheepland/items/eb0e4c65aaae70ec4e2f">KubernetesのResource RequestsとResource Limitsについて - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="pod-eviction">Pod Eviction&lt;/h3>
-&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
