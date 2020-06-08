@@ -58,7 +58,27 @@ https://golang.org/cmd/go/#hdr-Module_support
 
 - [Go 1.13 に向けて知っておきたい Go Modules とそれを取り巻くエコシステム - blog.syfm](https://syfm.hatenablog.com/entry/2019/08/10/170730#f-b5157852)
 
+## build
+
+https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies
+
+Examples:
+
+```sh
+go build
+go build -o path/to/out
+```
+
 ## get
+
+Examples:
+
+```sh
+go get <package>
+
+# ログメッセージを表示
+go get -v <package>
+```
 
 2020-06-08現在、（Moduleが登場したGo 1.11以降で） `go get` には2つのモードがある:
 

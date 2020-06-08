@@ -67,17 +67,20 @@ if terminal.IsTerminal(0) {
 
 入門ガイド:
 
+- [Go by Example: Errors](https://gobyexample.com/errors)
 - [Go by Example: Panic](https://gobyexample.com/panic)
 - https://golang.org/ref/spec#Handling_panics
 
 関連項目:
 
+- [pkg (stdlib) > errors]({{<ref "std-pkg/_index.md">}}#errors)
 - [言語仕様#panic]({{<ref "spec.md">}}#panic)
 - [言語仕様#defer]({{<ref "spec.md">}}#defer)
 
 参考:
 
 - [Go言語のエラーハンドリングについて - Qiita](https://qiita.com/nayuneko/items/3c0b3c0de9e8b27c9548)
+- [Golangのエラーハンドリングの基本 - Qiita](https://qiita.com/shoichiimamura/items/13199f420ebaf0f0c37c)
 - [Defer, Panic, and Recover - The Go Blog](https://blog.golang.org/defer-panic-and-recover)
 - [panicはともかくrecoverに使いどころはほとんどない - Qiita](https://qiita.com/ruiu/items/ff98ded599d97cf6646e)
 - [golangでrecoverしたときの戻り値 - PartyIX](https://h3poteto.hatenablog.com/entry/2015/12/13/010000)

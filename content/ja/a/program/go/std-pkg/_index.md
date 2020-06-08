@@ -66,6 +66,23 @@ https://golang.org/pkg/errors/
 
 Go 1.13で `.Is`, `.As`, `.Unwrap` が加わり、かなり強化されたようだ。
 
+Examples:
+
+```go
+func do() error {
+    :
+    if !check() {
+        return errors.New("Something is wrong!")
+    }
+    :
+    return nil
+}
+```
+
+関連項目:
+
+- [道場#例外処理]({{<ref "/a/program/go/dojo.md">}}#例外処理)
+
 参考:
 
 - [pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm](https://syfm.hatenablog.com/entry/2019/12/27/193348)
