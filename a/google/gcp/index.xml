@@ -1,6 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Google Cloud Platform</title><link>https://progrhy.me/tech-notes/a/google/gcp/</link><description>Recent content in Google Cloud Platform on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 10:39:24 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
 &lt;p>Quick links:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="#bq">bq&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#cbt">cbt&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#gcloud">gcloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#gsutil">gsutil&lt;/a>&lt;/li>
 &lt;/ul>
@@ -32,6 +34,15 @@
 &lt;ul>
 &lt;li>&lt;a href="https://cloudpack.media/50237">DockerコンテナからGoogle Cloud SDKのコマンドを簡単に実行できるコマンドをつくってみた | cloudpack.media&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://yuku.takahashi.coffee/blog/2019/01/google-cloud-sdk-in-docker">Docker で Google Cloud SDK を使う - yt coffee&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="bq">bq&lt;/h2>
+&lt;p>BigQuery操作CLI&lt;/p>
+&lt;p>リファレンス: &lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja&lt;/a>&lt;/p>
+&lt;h2 id="cbt">cbt&lt;/h2>
+&lt;p>Bigtable操作CLI&lt;/p>
+&lt;ul>
+&lt;li>リファレンス: &lt;a href="https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja">https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja&lt;/a>&lt;/li>
+&lt;li>インストール: &lt;a href="https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja">cbt ツールの概要 | Cloud Bigtable ドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="gcloud">gcloud&lt;/h2>
 &lt;ul>
