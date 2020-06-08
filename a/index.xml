@@ -899,8 +899,17 @@ go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;f
 &lt;ul>
 &lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/08/10/170730#f-b5157852">Go 1.13 に向けて知っておきたい Go Modules とそれを取り巻くエコシステム - blog.syfm&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="get">get&lt;/h2>
-&lt;p>2020-06-08現在、（Moduleが登場したGo 1.11以降で） &lt;code>go get&lt;/code> には2つのモードがある:&lt;/p>
+&lt;h2 id="build">build&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies">https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">go build
+go build -o path/to/out
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="get">get&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">go get &amp;lt;package&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># ログメッセージを表示&lt;/span>
+go get -v &amp;lt;package&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>2020-06-08現在、（Moduleが登場したGo 1.11以降で） &lt;code>go get&lt;/code> には2つのモードがある:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://golang.org/cmd/go/#hdr-Legacy_GOPATH_go_get">Legacy GOPATH go get&lt;/a>&lt;/li>
 &lt;li>module-aware go get&lt;/li>
@@ -1614,17 +1623,20 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>入門ガイド:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/errors">Go by Example: Errors&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gobyexample.com/panic">Go by Example: Panic&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://golang.org/ref/spec#Handling_panics">https://golang.org/ref/spec#Handling_panics&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#errors">pkg (stdlib) &amp;gt; errors&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#panic">言語仕様#panic&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#defer">言語仕様#defer&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/nayuneko/items/3c0b3c0de9e8b27c9548">Go言語のエラーハンドリングについて - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/13199f420ebaf0f0c37c">Golangのエラーハンドリングの基本 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover - The Go Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/ruiu/items/ff98ded599d97cf6646e">panicはともかくrecoverに使いどころはほとんどない - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://h3poteto.hatenablog.com/entry/2015/12/13/010000">golangでrecoverしたときの戻り値 - PartyIX&lt;/a>&lt;/li>
