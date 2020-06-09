@@ -109,10 +109,108 @@
 &lt;p>シグネチャ:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">FlagSet&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">SetOutput&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">output&lt;/span> &lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Writer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>usageやエラーメッセージの出力先を設定する。&lt;br>
-outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p></description></item><item><title>A: os</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/os/</link><pubDate>Sat, 06 Jun 2020 21:15:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/os/</guid><description>
+outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p></description></item><item><title>A: fmt</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</link><pubDate>Wed, 10 Jun 2020 01:55:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>書式付きの入出力機能を提供するパッケージ。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Kim&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">22&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;is&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;years old.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Error occured!!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fprintf: %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="書式指定子">書式指定子&lt;/h2>
+&lt;p>だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。&lt;/p>
+&lt;p>&lt;code>%v&lt;/code>, &lt;code>%+v&lt;/code> が便利。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>書式&lt;/th>
+&lt;th>値の型&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%v&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>値のデフォルトの書式で出力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%+v&lt;/td>
+&lt;td>struct&lt;/td>
+&lt;td>フィールド名も表示してくれる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%p&lt;/td>
+&lt;td>ポインタ&lt;/td>
+&lt;td>&lt;code>0x&lt;/code> プレフィックス付きの16進数でアドレスを表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://linux.die.net/man/3/fprintf">https://linux.die.net/man/3/fprintf&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="func-scan">func Scan&lt;/h2>
+&lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Scan">https://pkg.go.dev/fmt?tab=doc#Scan&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>標準入力からスペース区切りで入力を受付け、変数に格納する。&lt;br>
+改行もスペースとみなされる。&lt;br>
+読み取った数が引数より少なかったらエラーを返す。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># それぞれa, bにセットされる&lt;/span>
+$ go run main.go
+x y
+&lt;span style="color:#8f5902;font-style:italic"># 改行しても次の文字列を入れるまで終わらない&lt;/span>
+$ go run main.go
+x
+y
+&lt;span style="color:#8f5902;font-style:italic"># zは捨てられる&lt;/span>
+$ go run main.go
+x y z
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="func-scanln">func Scanln&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Scanln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Scanと似ているが、改行で処理を止める。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Input 2 strings: &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scanln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87">panic&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Read %d words. a = %s, b = %s\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ go run main.go
+Input &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> strings: x y
+Read &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> words. &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> x, &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> y
+&lt;span style="color:#8f5902;font-style:italic"># 入力を与えずに改行するとエラー&lt;/span>
+$ go run main.go
+Input &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> strings:
+panic: unexpected newline
+goroutine &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>running&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:
+main.main&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span>
+main.go:12 +0x27f
+&lt;span style="color:#204a87">exit&lt;/span> status &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="func-sprintf">func Sprintf&lt;/h2>
+&lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Sprintf">https://pkg.go.dev/fmt?tab=doc#Sprintf&lt;/a>&lt;/p>
+&lt;p>シグネチャ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Kim&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">22&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: os</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/os/</link><pubDate>Sat, 06 Jun 2020 21:15:56 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/os/</guid><description>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="環境変数の操作">環境変数の操作&lt;/h3>
-&lt;p>参考:&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Setenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;FOO&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;FOO:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;FOO&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; FOO: 1
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;BAR:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;BAR&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; BAR:
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://gobyexample.com/environment-variables" title="Go by Example: Environment Variables">Go by Example: Environment Variables&lt;/a>&lt;/li>
 &lt;/ul>

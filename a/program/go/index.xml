@@ -126,7 +126,14 @@ and &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> builds and in
 during a build, but it still stores downloaded dependencies (in GOPATH/pkg/mod)
 and installed commands (in GOPATH/bin, unless GOBIN is set).&lt;/p>
 &lt;/blockquote>
-&lt;p>とのこと。&lt;/p></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/spec/</guid><description>
+&lt;p>とのこと。&lt;/p>
+&lt;h2 id="test">test&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/cmd/go/#hdr-Test_packages">https://golang.org/cmd/go/#hdr-Test_packages&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">go &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>build/test flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>packages&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>build/test flags &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span> &lt;span style="color:#204a87">test&lt;/span> binary flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">Golang &amp;gt; テスト&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/go/spec/</link><pubDate>Sun, 26 Apr 2020 08:10:52 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/spec/</guid><description>
 &lt;h2 id="字句リテラル">字句、リテラル&lt;/h2>
 &lt;h3 id="予約語">予約語&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Keywords">https://golang.org/ref/spec#Keywords&lt;/a>&lt;/p>
@@ -688,7 +695,7 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#bufio">pkg (stdlib) &amp;gt; bufio&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#fmt">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#io">pkg (stdlib) &amp;gt; io&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
 &lt;/ul>
@@ -700,7 +707,7 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#func-scan">pkg (stdlib) &amp;gt; fmt#Scan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/#func-scan">pkg (stdlib) &amp;gt; fmt#Scan&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -748,6 +755,8 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;li>&lt;a href="https://qiita.com/ruiu/items/ff98ded599d97cf6646e">panicはともかくrecoverに使いどころはほとんどない - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://h3poteto.hatenablog.com/entry/2015/12/13/010000">golangでrecoverしたときの戻り値 - PartyIX&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="テスト">テスト&lt;/h2>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">テスト&lt;/a>&lt;/p>
 &lt;h2 id="値渡しとポインタ渡し">値渡しとポインタ渡し&lt;/h2>
 &lt;p>メモ:&lt;/p>
 &lt;ul>
@@ -1034,101 +1043,7 @@ a b c d
 &lt;ul>
 &lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/12/27/193348">pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="fmt">fmt&lt;/h2>
-&lt;p>&lt;a href="https://pkg.go.dev/fmt">https://pkg.go.dev/fmt&lt;/a>&lt;/p>
-&lt;p>書式付きの入出力機能を提供するパッケージ。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Kim&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">22&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;is&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;years old.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Error occured!!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fprintf: %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="書式指定子">書式指定子&lt;/h3>
-&lt;p>だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。&lt;/p>
-&lt;p>&lt;code>%v&lt;/code>, &lt;code>%+v&lt;/code> が便利。&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>書式&lt;/th>
-&lt;th>値の型&lt;/th>
-&lt;th>説明&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%v&lt;/td>
-&lt;td>any&lt;/td>
-&lt;td>値のデフォルトの書式で出力&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%+v&lt;/td>
-&lt;td>struct&lt;/td>
-&lt;td>フィールド名も表示してくれる&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%p&lt;/td>
-&lt;td>ポインタ&lt;/td>
-&lt;td>&lt;code>0x&lt;/code> プレフィックス付きの16進数でアドレスを表示&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://linux.die.net/man/3/fprintf">https://linux.die.net/man/3/fprintf&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="func-scan">func Scan&lt;/h3>
-&lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Scan">https://pkg.go.dev/fmt?tab=doc#Scan&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>標準入力からスペース区切りで入力を受付け、変数に格納する。&lt;br>
-改行もスペースとみなされる。&lt;br>
-読み取った数が引数より少なかったらエラーを返す。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># それぞれa, bにセットされる&lt;/span>
-$ go run main.go
-x y
-&lt;span style="color:#8f5902;font-style:italic"># 改行しても次の文字列を入れるまで終わらない&lt;/span>
-$ go run main.go
-x
-y
-&lt;span style="color:#8f5902;font-style:italic"># zは捨てられる&lt;/span>
-$ go run main.go
-x y z
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-scanln">func Scanln&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Scanln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Scanと似ているが、改行で処理を止める。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Input 2 strings: &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scanln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87">panic&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Read %d words. a = %s, b = %s\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ go run main.go
-Input &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> strings: x y
-Read &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> words. &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> x, &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> y
-&lt;span style="color:#8f5902;font-style:italic"># 入力を与えずに改行するとエラー&lt;/span>
-$ go run main.go
-Input &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> strings:
-panic: unexpected newline
-goroutine &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>running&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:
-main.main&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span>
-main.go:12 +0x27f
-&lt;span style="color:#204a87">exit&lt;/span> status &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-sprintf">func Sprintf&lt;/h3>
-&lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Sprintf">https://pkg.go.dev/fmt?tab=doc#Sprintf&lt;/a>&lt;/p>
-&lt;p>シグネチャ:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Kim&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">22&lt;/span>
-&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="io">io&lt;/h2>
+&lt;h2 id="io">io&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/io/">https://golang.org/pkg/io/&lt;/a>&lt;/p>
 &lt;p>基礎的なI/Oのインタフェースを提供する。&lt;br>
 osパッケージなどにある様々なI/Oプリミティブを抽象化する。&lt;/p>
@@ -1270,6 +1185,10 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;h2 id="strings">strings&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/strings">https://pkg.go.dev/strings&lt;/a>&lt;/p>
 &lt;p>UTF-8文字列を扱うためのシンプルな関数を提供する。&lt;/p>
+&lt;h3 id="func-contains">func Contains&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/strings/#Contains">https://golang.org/pkg/strings/#Contains&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Contains&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">substr&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>sが部分文字列substrを含むかどうか。&lt;/p>
 &lt;h3 id="func-hasprefix">func HasPrefix&lt;/h3>
 &lt;p>&lt;a href="https://pkg.go.dev/strings?tab=doc#HasPrefix">https://pkg.go.dev/strings?tab=doc#HasPrefix&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">prefix&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
@@ -1278,7 +1197,21 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Gopher&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Go&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; true
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Gopher&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;C&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; false
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Gopher&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; true
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="syscall-deprecated">syscall [Deprecated]&lt;/h2>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="type-builder">type Builder&lt;/h2>
+&lt;p>io.Writerを実装した文字列を効率よく作る型。&lt;br>
+初期化不要で使える。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Builder&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">--&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%d...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WriteString&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ignition&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tenntenn/items/94923a0c527d499db5b9">Go1.10で入るstrings.Builderを検証した #golang - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="syscall-deprecated">syscall [Deprecated]&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/syscall/">https://golang.org/pkg/syscall/&lt;/a>&lt;/p>
 &lt;p>=&amp;gt; &lt;a href="https://pkg.go.dev/golang.org/x/sys">https://pkg.go.dev/golang.org/x/sys&lt;/a>&lt;/p>
 &lt;p>Go 1.4でフリーズされて、上に移ったみたい。&lt;/p>
@@ -1286,6 +1219,31 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;ul>
 &lt;li>&lt;a href="https://golang.org/s/go1.4-syscall">https://golang.org/s/go1.4-syscall&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="testing">testing&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/testing/">https://golang.org/pkg/testing/&lt;/a>&lt;/p>
+&lt;p>テストやベンチマークで利用するパッケージ。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">testing&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">TestAbs&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">t&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">testing&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">got&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">Abs&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">got&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">t&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Errorf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Abs(-1) = %d; want 1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">got&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="type-t">type T&lt;/h3>
+&lt;p>テストの状態を保持する。&lt;/p>
+&lt;h4 id="func-errorf">func Errorf&lt;/h4>
+&lt;p>&lt;a href="https://golang.org/pkg/testing/#T.Errorf">https://golang.org/pkg/testing/#T.Errorf&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">c&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Errorf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">args&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Errorメソッドの書式指定対応版&lt;/li>
+&lt;li>よく使われる&lt;/li>
+&lt;li>Logf + Fail&lt;/li>
+&lt;/ul>
+&lt;h4 id="func-run">func Run&lt;/h4>
+&lt;p>&lt;a href="https://golang.org/pkg/testing/#T.Run">https://golang.org/pkg/testing/#T.Run&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">t&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Run&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">t&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>サブテストを実行する。&lt;/p>
 &lt;h2 id="time">time&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/time/">https://golang.org/pkg/time/&lt;/a>&lt;/p>
 &lt;p>SYNOPSYS:&lt;/p>
@@ -1314,14 +1272,98 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;p>Goのテストに関する情報をまとめる。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
-&lt;li>基本的に、標準の &lt;a href="https://golang.org/pkg/testing/">testing&lt;/a> pkgを使う&lt;/li>
+&lt;li>&lt;code>go test&lt;/code> コマンドでテストを実行する（後述）&lt;/li>
+&lt;li>基本的に、標準のtesting pkgを使う&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#testing">pkg (stdlib) &amp;gt; testing&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
 &lt;li>フレームワークは使わない。愚直に書く&lt;/li>
+&lt;/ul>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gobyexample.com/testing">Go by Example: Testing&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://future-architect.github.io/articles/20200601/">春の入門祭り 🌸 #01 Goのテストに入門してみよう！ | フューチャー技術ブログ&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="例">例&lt;/h3>
+&lt;p>package xのテストを書くとする。&lt;/p>
+&lt;ul>
+&lt;li>package xのコードが置かれたディレクトリに &lt;code>*_test.go&lt;/code> というファイルを作る
+&lt;ul>
+&lt;li>先頭行は &lt;code>package x&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>func TestXxx(t *testing.T)&lt;/code> という関数を作り、その中にテストコードを書く
+&lt;ul>
+&lt;li>&lt;code>t.Errorf&lt;/code> 関数でエラーをレポート&lt;/li>
+&lt;li>エラーが報告されなければ、その関数は成功したことになる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="テストの実行">テストの実行&lt;/h3>
+&lt;p>See Also: &lt;a href="https://progrhy.me/tech-notes/a/program/go/cli/#test">goコマンド#test&lt;/a>&lt;/p>
+&lt;p>モジュールのルートディレクトリで下のように実行するとよい:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">go &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ./...
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>-v&lt;/code> を付けると個々のテストケースが見える。&lt;br>
+サブテストの中も見える。&lt;/p>
+&lt;p>Spec:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>*_test.go&lt;/code> というファイルがテスト対象&lt;/li>
+&lt;li>&lt;code>.&lt;/code>, &lt;code>_&lt;/code> で始まるファイルは無視される（ &lt;code>_test.go&lt;/code> も）&lt;/li>
+&lt;li>&lt;code>testdata&lt;/code> というディレクトリは無視される&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="テーブルドリブンテスト">テーブルドリブンテスト&lt;/h3>
+&lt;p>サブテスト（t.Run）と組み合わせる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">flagtests&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">out&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}{&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%-a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%-a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%+a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%+a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%#a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%#a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;% a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[% a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%0a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%0a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%1.2a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%1.2a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%-1.2a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%-1.2a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%+1.2a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%+1.2a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%-+1.2a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%+-1.2a]&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%-+1.2abc&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%+-1.2a]bc&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%-1.2abc&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;[%-1.2a]bc&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">TestFlagParser&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">t&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">testing&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">flagprinter&lt;/span> &lt;span style="color:#000">flagPrinter&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">tt&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">flagtests&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">t&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Run&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">tt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">in&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">t&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">testing&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">tt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">in&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">flagprinter&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#000">tt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">out&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">t&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Errorf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;got %q, want %q&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">tt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">})&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>t.Parallel()&lt;/code> を使うと並列化もできる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/TableDrivenTests">https://github.com/golang/go/wiki/TableDrivenTests&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ioを伴うテスト">I/Oを伴うテスト&lt;/h3>
+&lt;p>bytes.Bufferや&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#type-builder">strings.Builder&lt;/a>を使うといい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/yuya_takeyama/items/c4211fa77488cb6915ec">I/O を伴うテストには bytes.Buffer が便利 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="テストデータを用意する">テストデータを用意する&lt;/h3>
 &lt;p>testdata/ というディレクトリに入れる。&lt;br>
 これはパッケージとみなされない。&lt;/p>
@@ -1484,6 +1526,14 @@ GNUスタイルのロングオプションが作れる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://christina04.hatenablog.com/entry/2017/07/16/094140">delveでGolangのデバッグ - Carpe Diem&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="タスクランナー">タスクランナー&lt;/h2>
+&lt;ul>
+&lt;li>GNU make &amp;hellip; Go言語による開発で割とよく使われるようだ&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/yoskeoka/items/317a3afab370155b3ae8">Go言語開発を便利にするMakefileの書き方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="ビルド公開">ビルド・公開&lt;/h2>
 &lt;h3 id="goreleaser">goreleaser&lt;/h3>
