@@ -137,6 +137,17 @@ func Stat(name string) (FileInfo, error)
 
 - [Go言語 (golang) ファイル・ディレクトリの存在チェック](https://www.sukerou.com/2017/08/go-golang.html)
 
+### func Symlink
+
+https://golang.org/pkg/os/#Symlink
+
+```go
+func Symlink(src, link string) error
+```
+
+srcへのlinkを作る。  
+エラーは `*LinkError` 型。
+
 ### func UserHomeDir
 
 https://golang.org/pkg/os/#UserHomeDir
