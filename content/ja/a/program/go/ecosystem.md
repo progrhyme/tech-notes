@@ -23,6 +23,14 @@ https://github.com/go-delve/delve が有名。
 
 - [delveでGolangのデバッグ - Carpe Diem](https://christina04.hatenablog.com/entry/2017/07/16/094140)
 
+## タスクランナー
+
+- GNU make ... Go言語による開発で割とよく使われるようだ
+
+参考:
+
+- [Go言語開発を便利にするMakefileの書き方 - Qiita](https://qiita.com/yoskeoka/items/317a3afab370155b3ae8)
+
 ## ビルド・公開
 ### goreleaser
 

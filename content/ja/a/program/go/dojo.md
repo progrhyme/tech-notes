@@ -16,7 +16,7 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 関連項目:
 
 - [pkg (stdlib) > bufio]({{<ref "std-pkg/_index.md">}}#bufio)
-- [pkg (stdlib) > fmt]({{<ref "std-pkg/_index.md">}}#fmt)
+- [pkg (stdlib) > fmt]({{<ref "std-pkg/fmt.md">}})
 - [pkg (stdlib) > io]({{<ref "std-pkg/_index.md">}}#io)
 - [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
 
@@ -29,7 +29,7 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 関連項目:
 
-- [pkg (stdlib) > fmt#Scan]({{<ref "std-pkg/_index.md">}}#func-scan)
+- [pkg (stdlib) > fmt#Scan]({{<ref "std-pkg/fmt.md">}}#func-scan)
 
 参考:
 
@@ -84,6 +84,10 @@ if terminal.IsTerminal(0) {
 - [Defer, Panic, and Recover - The Go Blog](https://blog.golang.org/defer-panic-and-recover)
 - [panicはともかくrecoverに使いどころはほとんどない - Qiita](https://qiita.com/ruiu/items/ff98ded599d97cf6646e)
 - [golangでrecoverしたときの戻り値 - PartyIX](https://h3poteto.hatenablog.com/entry/2015/12/13/010000)
+
+## テスト
+
+See [テスト]({{<ref "test.md">}})
 
 ## 値渡しとポインタ渡し
 

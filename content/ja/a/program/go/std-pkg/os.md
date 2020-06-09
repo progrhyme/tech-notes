@@ -9,6 +9,14 @@ weight: 600
 ## How-to
 ### 環境変数の操作
 
+Examples:
+
+```go
+os.Setenv("FOO", "1")
+fmt.Println("FOO:", os.Getenv("FOO")) //=> FOO: 1
+fmt.Println("BAR:", os.Getenv("BAR")) //=> BAR: 
+```
+
 参考:
 
 - [Go by Example: Environment Variables](https://gobyexample.com/environment-variables "Go by Example: Environment Variables")

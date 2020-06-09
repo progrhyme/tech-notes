@@ -87,132 +87,6 @@ func do() error {
 
 - [pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm](https://syfm.hatenablog.com/entry/2019/12/27/193348)
 
-## fmt
-
-https://pkg.go.dev/fmt
-
-書式付きの入出力機能を提供するパッケージ。
-
-Examples:
-
-```go
-const name, age = "Kim", 22
-fmt.Println(name, "is", age, "years old.")
-_, err := fmt.Printf("%s is %d years old.\n", name, age)
-
-if err != nil {
-    fmt.Fprintln(os.Stderr, "Error occured!!")
-    fmt.Fprintf(os.Stderr, "Fprintf: %v\n", err)
-}
-```
-
-### 書式指定子
-
-だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。
-
-`%v`, `%+v` が便利。
-
- 書式 | 値の型 | 説明
-------|--------|------
- %v | any | 値のデフォルトの書式で出力
- %+v | struct | フィールド名も表示してくれる
- %p | ポインタ | `0x` プレフィックス付きの16進数でアドレスを表示
-
-参考:
-
-- https://linux.die.net/man/3/fprintf
-
-### func Scan
-
-https://pkg.go.dev/fmt?tab=doc#Scan
-
-```go
-func Scan(a ...interface{}) (n int, err error)
-```
-
-標準入力からスペース区切りで入力を受付け、変数に格納する。  
-改行もスペースとみなされる。  
-読み取った数が引数より少なかったらエラーを返す。
-
-Examples:
-
-```go
-var a, b string
-fmt.Scan(&a, &b)
-```
-
-実行例:
-
-```sh
-# それぞれa, bにセットされる
-$ go run main.go
-x y
-
-# 改行しても次の文字列を入れるまで終わらない
-$ go run main.go
-x
-y
-
-# zは捨てられる
-$ go run main.go
-x y z
-```
-
-### func Scanln
-
-```go
-func Scanln(a ...interface{}) (n int, err error)
-```
-
-Scanと似ているが、改行で処理を止める。
-
-Examples:
-
-```go
-var a, b string
-fmt.Print("Input 2 strings: ")
-n, e := fmt.Scanln(&a, &b)
-if e != nil {
-        panic(e)
-}
-fmt.Printf("Read %d words. a = %s, b = %s\n", n, a, b)
-```
-
-実行例:
-
-```sh
-$ go run main.go
-Input 2 strings: x y
-Read 2 words. a = x, b = y
-
-# 入力を与えずに改行するとエラー
-$ go run main.go
-Input 2 strings: 
-panic: unexpected newline
-
-goroutine 1 [running]:
-main.main()
-        main.go:12 +0x27f
-exit status 2
-```
-
-### func Sprintf
-
-https://pkg.go.dev/fmt?tab=doc#Sprintf
-
-シグネチャ:
-
-```go
-func Sprintf(format string, a ...interface{}) string
-```
-
-Examples:
-
-```go
-const name, age = "Kim", 22
-s := fmt.Sprintf("%s is %d years old.\n", name, age)
-```
-
 ## io
 
 https://golang.org/pkg/io/
@@ -444,6 +318,16 @@ https://pkg.go.dev/strings
 
 UTF-8文字列を扱うためのシンプルな関数を提供する。
 
+### func Contains
+
+https://golang.org/pkg/strings/#Contains
+
+```go
+func Contains(s, substr string) bool
+```
+
+sが部分文字列substrを含むかどうか。
+
 ### func HasPrefix
 
 https://pkg.go.dev/strings?tab=doc#HasPrefix
@@ -462,6 +346,26 @@ strings.HasPrefix("Gopher", "C")  //=> false
 strings.HasPrefix("Gopher", "")   //=> true
 ```
 
+## type Builder
+
+io.Writerを実装した文字列を効率よく作る型。  
+初期化不要で使える。
+
+Examples:
+
+```go
+var b strings.Builder
+for i := 3; i >= 1; i-- {
+    fmt.Fprintf(&b, "%d...", i)
+}
+b.WriteString("ignition")
+fmt.Println(b.String())
+```
+
+参考:
+
+- [Go1.10で入るstrings.Builderを検証した #golang - Qiita](https://qiita.com/tenntenn/items/94923a0c527d499db5b9)
+
 ## syscall [Deprecated]
 
 https://golang.org/pkg/syscall/
@@ -473,6 +377,51 @@ Go 1.4でフリーズされて、上に移ったみたい。
 参考:
 
 - https://golang.org/s/go1.4-syscall
+
+## testing
+
+https://golang.org/pkg/testing/
+
+テストやベンチマークで利用するパッケージ。
+
+Examples:
+
+```go
+import testing
+
+func TestAbs(t *testing.T) {
+    got := Abs(-1)
+    if got != 1 {
+        t.Errorf("Abs(-1) = %d; want 1", got)
+    }
+}
+```
+
+### type T
+
+テストの状態を保持する。
+
+#### func Errorf
+
+https://golang.org/pkg/testing/#T.Errorf
+
+```go
+func (c *T) Errorf(format string, args ...interface{})
+```
+
+- Errorメソッドの書式指定対応版
+- よく使われる
+- Logf + Fail
+
+#### func Run
+
+https://golang.org/pkg/testing/#T.Run
+
+```go
+func (t *T) Run(name string, f func(t *T)) bool
+```
+
+サブテストを実行する。
 
 ## time
 

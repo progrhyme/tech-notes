@@ -143,3 +143,15 @@ during a build, but it still stores downloaded dependencies (in GOPATH/pkg/mod)
 and installed commands (in GOPATH/bin, unless GOBIN is set).
 
 とのこと。
+
+## test
+
+https://golang.org/cmd/go/#hdr-Test_packages
+
+```sh
+go test [build/test flags] [packages] [build/test flags & test binary flags]
+```
+
+関連項目:
+
+- [Golang > テスト]({{<ref "test.md">}})
