@@ -1983,6 +1983,23 @@ Perlっぽい。&lt;/p>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86">道場#例外処理&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="パッケージ">パッケージ&lt;/h2>
+&lt;h3 id="import">import&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Import_declarations">https://golang.org/ref/spec#Import_declarations&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">.&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;math&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// Exportされた関数等を自パッケージのもののように使える
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">s&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;strings&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// sとしてimport
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;testing&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// importするけど使わない
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>構文:&lt;/p>
+&lt;pre>&lt;code>ImportDecl = &amp;quot;import&amp;quot; ( ImportSpec | &amp;quot;(&amp;quot; { ImportSpec &amp;quot;;&amp;quot; } &amp;quot;)&amp;quot; ) .
+ImportSpec = [ &amp;quot;.&amp;quot; | PackageName ] ImportPath .
+ImportPath = string_lit .
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/taji-taji/items/5a4f17bcf5b819954cc1">【Go】import 書き方まとめ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="init関数による初期化">init()関数による初期化&lt;/h3>
 &lt;ul>
 &lt;li>ソースファイルに1つ &lt;code>func init()&lt;/code> を記述できる&lt;/li>
@@ -4404,7 +4421,7 @@ rm -rf dist/
 date +%s &amp;gt; timestamp
 &lt;span style="color:#000">build&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">timestamp&lt;/span> &lt;span style="color:#000">another&lt;/span>-&lt;span style="color:#000">file&lt;/span>
 some_build_command
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
 &lt;ul>
 &lt;li>ターゲットの依存ターゲットは複数記すことができる。&lt;/li>
 &lt;/ul>
@@ -4451,7 +4468,16 @@ rm *.o tmp
 &lt;span style="color:#a40000">else&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">normal_libs&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 &lt;span style="color:#a40000">endif&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="makeコマンド">makeコマンド&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="-のエスケープ">&lt;code>$&lt;/code> のエスケープ&lt;/h3>
+&lt;p>シェルの文脈で &lt;code>$&lt;/code> を使いたいときは &lt;code>$$&lt;/code> と記すことで実現できる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">now&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$$&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>date&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$$&lt;/span>now
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tmsanrinsha.net/post/2018/01/gnu-make/">GNU make - SanRin舎&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="makeコマンド">makeコマンド&lt;/h2>
 &lt;p>公式マニュアル:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.gnu.org/software/make/manual/make.html#Running">9 How to Run make&lt;/a>

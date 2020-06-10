@@ -706,6 +706,23 @@ Perlっぽい。&lt;/p>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86">道場#例外処理&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="パッケージ">パッケージ&lt;/h2>
+&lt;h3 id="import">import&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Import_declarations">https://golang.org/ref/spec#Import_declarations&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">.&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;math&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// Exportされた関数等を自パッケージのもののように使える
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">s&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;strings&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// sとしてimport
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;testing&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// importするけど使わない
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>構文:&lt;/p>
+&lt;pre>&lt;code>ImportDecl = &amp;quot;import&amp;quot; ( ImportSpec | &amp;quot;(&amp;quot; { ImportSpec &amp;quot;;&amp;quot; } &amp;quot;)&amp;quot; ) .
+ImportSpec = [ &amp;quot;.&amp;quot; | PackageName ] ImportPath .
+ImportPath = string_lit .
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/taji-taji/items/5a4f17bcf5b819954cc1">【Go】import 書き方まとめ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="init関数による初期化">init()関数による初期化&lt;/h3>
 &lt;ul>
 &lt;li>ソースファイルに1つ &lt;code>func init()&lt;/code> を記述できる&lt;/li>
@@ -1539,10 +1556,48 @@ Josie
 &lt;p>インメモリで処理され、コマンドをフォークしないので、gitコマンドをラップして使うよりはいいかもしれない。
 ただし、2020-06-02現在、gitコマンドの全てを網羅しているわけではない。&lt;/p>
 &lt;p>互換性については、 &lt;a href="https://github.com/go-git/go-git/blob/master/COMPATIBILITY.md">https://github.com/go-git/go-git/blob/master/COMPATIBILITY.md&lt;/a> を見るべし。&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Plain*&lt;/code> 関数を使うと、ふつうの &lt;code>git&lt;/code> コマンドに近い使い方ができる（Not インメモリ処理）&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/in-memory-git-commit-and-push/">golangのgit ライブラリ「go-git」を使ってインメモリでgit操作をする | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="func-plainclone">func PlainClone&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#PlainClone">https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#PlainClone&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">PlainClone&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">isBare&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">o&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">CloneOptions&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Repository&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ふつうの &lt;code>git clone&lt;/code> コマンドのように使える関数。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">git&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">PlainClone&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">git&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CloneOptions&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">URL&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/git-fixtures/basic.git&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000;font-weight:bold">})&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-plainopen">func PlainOpen&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#PlainOpen">https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#PlainOpen&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">PlainOpen&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Repository&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// path上のリポジトリを開いてgit pull相当の操作を実行
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">repo&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">git&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">PlainOpen&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">wtree&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">repo&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Worktree&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">wtree&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Pull&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">git&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">PullOptions&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="type-repository">type Repository&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Repository">https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Repository&lt;/a>&lt;/p>
+&lt;p>リポジトリを表現する型。&lt;/p>
+&lt;h4 id="func-worktree">func Worktree&lt;/h4>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Repository.Worktree">https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Repository.Worktree&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Repository&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Worktree&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Worktree&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワーキングツリーを取得する関数。&lt;/p>
+&lt;h3 id="type-worktree">type Worktree&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Worktree">https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Worktree&lt;/a>&lt;/p>
+&lt;p>gitのワーキングツリーを表す型。&lt;/p>
+&lt;h4 id="func-pull">func Pull&lt;/h4>
+&lt;p>&lt;a href="https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Worktree.Pull">https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Worktree.Pull&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">w&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Worktree&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Pull&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">o&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">PullOptions&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワーキングツリー上で &lt;code>git pull&lt;/code> 相当の操作を実行。&lt;br>
+変更がなければ &lt;code>NoErrAlreadyUpToDate&lt;/code> を返す。&lt;/p>
 &lt;h2 id="jinzhuconfigor">jinzhu/configor&lt;/h2>
 &lt;p>&lt;a href="https://github.com/jinzhu/configor">https://github.com/jinzhu/configor&lt;/a>&lt;/p>
 &lt;p>YAML, JSON, TOML, 環境変数に対応した設定ツール。&lt;/p>
@@ -1633,6 +1688,10 @@ GNUスタイルのロングオプションが作れる。&lt;/p>
 &lt;h2 id="タスクランナー">タスクランナー&lt;/h2>
 &lt;h3 id="gnu-make">GNU make&lt;/h3>
 &lt;p>Go言語による開発で割とよく使われるようだ。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/make/">Software &amp;gt; GNU make&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yoskeoka/items/317a3afab370155b3ae8">Go言語開発を便利にするMakefileの書き方 - Qiita&lt;/a>&lt;/li>
