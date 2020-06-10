@@ -57,6 +57,17 @@ var (
 )
 ```
 
+### func Chdir
+
+https://golang.org/pkg/os/#Chdir
+
+```go
+func Chdir(dir string) error
+```
+
+カレントディレクトリを変更する。  
+エラーは `*PathError` 型。
+
 ### func Getenv
 
 https://golang.org/pkg/os/#Getenv

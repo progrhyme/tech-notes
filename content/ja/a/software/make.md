@@ -35,7 +35,7 @@ build: timestamp another-file
   some_build_command
 ```
 
-NOTE:
+Tips:
 
 - ターゲットの依存ターゲットは複数記すことができる。
 
@@ -45,7 +45,6 @@ NOTE:
 
 
 ## Makefile 構文
-
 ### 変数
 
 変数定義のやり方について。
@@ -71,7 +70,6 @@ makeを実行しているプロセスのカレントディレクトリを返す�
 - [今日のMake Tips：CURDIR変数 - 檜山正幸のキマイラ飼育記](http://d.hatena.ne.jp/m-hiyama/20080805/1217915354 "今日のMake Tips：CURDIR変数 - 檜山正幸のキマイラ飼育記")
 
 ### 関数
-
 #### $(foreach name, LIST, command)
 
 ループ実行
@@ -112,6 +110,21 @@ else
         $(CC) -o foo $(objects) $(normal_libs)
 endif
 ```
+
+### `$` のエスケープ
+
+シェルの文脈で `$` を使いたいときは `$$` と記すことで実現できる。
+
+Examples:
+
+```Makefile
+time:
+	now=$$(date); echo $$now
+```
+
+参考:
+
+- [GNU make - SanRin舎](https://tmsanrinsha.net/post/2018/01/gnu-make/)
 
 ## makeコマンド
 

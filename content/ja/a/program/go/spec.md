@@ -828,6 +828,33 @@ if err != nil {
 - [道場#例外処理]({{<ref "dojo.md">}}#例外処理)
 
 ## パッケージ
+### import
+
+https://golang.org/ref/spec#Import_declarations
+
+Examples:
+
+```go
+import (
+    "fmt"
+    . "math"     // Exportされた関数等を自パッケージのもののように使える
+    s "strings"  // sとしてimport
+    _ "testing"  // importするけど使わない
+)
+```
+
+構文:
+
+```
+ImportDecl       = "import" ( ImportSpec | "(" { ImportSpec ";" } ")" ) .
+ImportSpec       = [ "." | PackageName ] ImportPath .
+ImportPath       = string_lit .
+```
+
+参考:
+
+- [【Go】import 書き方まとめ - Qiita](https://qiita.com/taji-taji/items/5a4f17bcf5b819954cc1)
+
 ### init()関数による初期化
 
 * ソースファイルに1つ `func init()` を記述できる

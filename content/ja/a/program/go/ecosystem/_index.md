@@ -28,6 +28,10 @@ https://github.com/go-delve/delve が有名。
 
 Go言語による開発で割とよく使われるようだ。
 
+関連項目:
+
+- [Software > GNU make]({{<ref "/a/software/make.md">}})
+
 参考:
 
 - [Go言語開発を便利にするMakefileの書き方 - Qiita](https://qiita.com/yoskeoka/items/317a3afab370155b3ae8)

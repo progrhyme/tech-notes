@@ -24,9 +24,84 @@ pure GoによるGitライブラリ。
 
 互換性については、 https://github.com/go-git/go-git/blob/master/COMPATIBILITY.md を見るべし。
 
+Tips:
+
+- `Plain*` 関数を使うと、ふつうの `git` コマンドに近い使い方ができる（Not インメモリ処理）
+
 参考:
 
 - [golangのgit ライブラリ「go-git」を使ってインメモリでgit操作をする | Developers.IO](https://dev.classmethod.jp/articles/in-memory-git-commit-and-push/)
+
+### func PlainClone
+
+https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#PlainClone
+
+```go
+func PlainClone(path string, isBare bool, o *CloneOptions) (*Repository, error)
+```
+
+ふつうの `git clone` コマンドのように使える関数。
+
+Examples:
+
+```go
+_, err := git.PlainClone(path, false, &git.CloneOptions{
+	URL: "https://github.com/git-fixtures/basic.git",
+})
+if err != nil {
+	log.Fatal(err)
+}
+```
+
+### func PlainOpen
+
+https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#PlainOpen
+
+```go
+func PlainOpen(path string) (*Repository, error)
+```
+
+Examples:
+
+```go
+// path上のリポジトリを開いてgit pull相当の操作を実行
+repo, err := git.PlainOpen(path)
+wtree, err := repo.Worktree()
+err = wtree.Pull(&git.PullOptions{})
+```
+
+### type Repository
+
+https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Repository
+
+リポジトリを表現する型。
+
+#### func Worktree
+
+https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Repository.Worktree
+
+```go
+func (r *Repository) Worktree() (*Worktree, error)
+```
+
+ワーキングツリーを取得する関数。
+
+### type Worktree
+
+https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Worktree
+
+gitのワーキングツリーを表す型。
+
+#### func Pull
+
+https://pkg.go.dev/github.com/go-git/go-git/v5@v5.1.0?tab=doc#Worktree.Pull
+
+```go
+func (w *Worktree) Pull(o *PullOptions) error
+```
+
+ワーキングツリー上で `git pull` 相当の操作を実行。  
+変更がなければ `NoErrAlreadyUpToDate` を返す。
 
 ## jinzhu/configor
 
