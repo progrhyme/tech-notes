@@ -2,7 +2,7 @@
 title: "CLI"
 linkTitle: "CLI"
 date: 2020-04-29T22:59:42+09:00
-weight: 100
+weight: 10
 ---
 
 Quick links:

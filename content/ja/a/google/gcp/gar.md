@@ -4,7 +4,7 @@ linkTitle: "Artifact Registry"
 description: >
   https://cloud.google.com/artifact-registry
 date: 2020-05-26T17:25:33+09:00
-weight: 190
+weight: 30
 ---
 
 ## About
