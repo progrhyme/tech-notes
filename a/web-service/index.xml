@@ -212,4 +212,44 @@ duedate &amp;lt; 30d // 期限30日以内
 &lt;li>&lt;a href="https://community.atlassian.com/t5/Jira-Service-Desk-questions/How-to-add-CC-field-in-open-ticket-screen/qaq-p/2152">How to add CC field in open ticket screen?&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="優先度のフィールドをカスタマイズ">優先度のフィールドをカスタマイズ&lt;/h3>
-&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Slack</title><link>https://progrhy.me/tech-notes/a/web-service/slack/</link><pubDate>Thu, 11 Jun 2020 00:01:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/slack/</guid><description>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h3 id="メッセージ書式">メッセージ書式&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://api.slack.com/docs/messages#formatting_messages">https://api.slack.com/docs/messages#formatting_messages&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>↑が入り口。一部の書式は API リクエスト時のみ有効で、手打ちでは駄目っぽい。&lt;br>
+たとえば、 &lt;code>&amp;lt;URL|Text&amp;gt;&lt;/code> によるリンク記法。&lt;/p>
+&lt;p>(2020-04-14) 追記。ややAPIが複雑化しているように思う。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://api.slack.com/messaging/composing/layouts">https://api.slack.com/messaging/composing/layouts&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/amanoiverse/items/186c71af92c9494ab26f" title="slack でのいろんな表記方法 - Qiita">slack でのいろんな表記方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/daikiojm/items/759ea40c00f9b539a4c8#color">Slack API attachmentsチートシート - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="色">色&lt;/h4>
+&lt;p>&lt;a href="https://api.slack.com/reference/messaging/attachments">https://api.slack.com/reference/messaging/attachments&lt;/a>&lt;/p>
+&lt;p>任意の色が指定可能だけど、プリセットとして &lt;code>good&lt;/code> （緑）, &lt;code>warning&lt;/code> （黃）, &lt;code>danger&lt;/code> （赤）がある。&lt;/p>
+&lt;h3 id="-で始まる任意のユーザグループを作る">@ で始まる任意のユーザグループを作る&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://get.slack.help/hc/en-us/articles/212906697-User-Groups" title="User Groups – Slack Help Center">User Groups – Slack Help Center&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="incoming-webhooks">Incoming Webhooks&lt;/h3>
+&lt;p>&lt;a href="https://api.slack.com/legacy/custom-integrations/incoming-webhooks">https://api.slack.com/legacy/custom-integrations/incoming-webhooks&lt;/a>&lt;/p>
+&lt;h4 id="メッセージのカスタマイズ">メッセージのカスタマイズ&lt;/h4>
+&lt;p>Incoming Webhook特有のパラメータは以下:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>username&lt;/code> : 投稿者名&lt;/li>
+&lt;li>&lt;code>icon_emoji&lt;/code> : アイコン用絵文字&lt;/li>
+&lt;li>&lt;code>icon_url&lt;/code> : アイコン画像URL&lt;/li>
+&lt;li>&lt;code>channel&lt;/code> : 投稿先チャネルのコード（上書きする場合）&lt;/li>
+&lt;/ul>
+&lt;p>あとは普通のメッセージのカスタマイズと同じ（はず）。&lt;/p>
+&lt;h2 id="administration">Administration&lt;/h2>
+&lt;h3 id="roles--permissions">Roles &amp;amp; Permissions&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://get.slack.help/hc/ja/articles/201314026-Slack-%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E3%81%AE%E7%A8%AE%E5%88%A5%E3%81%A8%E6%A8%A9%E9%99%90">Slack メンバーの種別と権限 – Slack&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
