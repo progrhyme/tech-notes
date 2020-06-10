@@ -370,7 +370,67 @@ gsutil rm gs://bucket/subdir/**
 gsutil rm -r gs://bucket/subdir/
 &lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含めて削除&lt;/span>
 gsutil rm -a gs://bucket/path/to/object
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Artifact Registry</title><link>https://progrhy.me/tech-notes/a/google/gcp/gar/</link><pubDate>Tue, 26 May 2020 17:25:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gar/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>The next generation of Container Registry.&lt;/p>
+&lt;p>Beta in 2020-05-26&lt;/p>
+&lt;ul>
+&lt;li>組織のレジストリを1箇所にまとめられる（？）&lt;/li>
+&lt;li>コンテナイメージだけでなく、Mavenやnpmなどのパッケージのレジストリとしても使える。&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/artifact-registry/docs">https://cloud.google.com/artifact-registry/docs&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>[&lt;a href="https://cloud.google.com/artifact-registry/docs/transition-from-gcr?hl=ja">Transitioning from Container Registry&lt;/a>]&lt;/li>
+&lt;/ul></description></item><item><title>A: Cloud Build</title><link>https://progrhy.me/tech-notes/a/google/gcp/build/</link><pubDate>Wed, 10 Jun 2020 11:39:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/build/</guid><description>
+&lt;h2 id="ビルド構成">ビルド構成&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/build-config">https://cloud.google.com/cloud-build/docs/build-config&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>docker build -&amp;gt; Dockerfile&lt;/li>
+&lt;li>その他の処理 -&amp;gt; ビルド構成ファイル(YAML or JSON)&lt;/li>
+&lt;/ul>
+&lt;h3 id="ビルド構成ファイル">ビルド構成ファイル&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/build-config?hl=ja#structure_of_a_build_config_file">https://cloud.google.com/cloud-build/docs/build-config?hl=ja#structure_of_a_build_config_file&lt;/a>&lt;/p>
+&lt;h4 id="ビルドステップ">ビルドステップ&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/build-config?hl=ja#build_steps">https://cloud.google.com/cloud-build/docs/build-config?hl=ja#build_steps&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>name &amp;hellip; &lt;a href="https://cloud.google.com/cloud-build/docs/cloud-builders">クラウドビルダー&lt;/a>を指定する&lt;/li>
+&lt;li>args &amp;hellip; 引数リスト&lt;/li>
+&lt;li>entrypoint &amp;hellip; ビルダーのデフォルトのエントリーポイント（実行コマンド）を上書き可能&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビルドトリガーによるビルドの自動化">ビルドトリガーによるビルドの自動化&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/running-builds/automate-builds?hl=ja">ビルドトリガーを使用したビルドの自動化 | Cloud Build のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>GCSR, GitHub or Bitbucketにソースコードが必要
+&lt;ul>
+&lt;li>Bitbucketの場合GCSRにミラーリングするか、コンソールからリポジトリ登録時に認証を行う&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビルド通知の送信">ビルド通知の送信&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/send-build-notifications">https://cloud.google.com/cloud-build/docs/send-build-notifications&lt;/a>&lt;/p>
+&lt;p>Cloud Buildでは、ビルドの作成時・動作状態への移行時・完了時などビルド状態の変化時にCloud Pub/Subトピック &lt;code>cloud-builds&lt;/code> にメッセージを公開する。&lt;/p>
+&lt;p>他のツール:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/GoogleCloudPlatform/cloud-builders-community/tree/master/slackbot">https://github.com/GoogleCloudPlatform/cloud-builders-community/tree/master/slackbot&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="権限管理">権限管理&lt;/h2>
+&lt;p>サービスアカウントで設定する。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/cloud-build/docs/securing-builds/set-service-account-permissions?hl=ja">サービス アカウント権限の設定 | Cloud Build のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="ビルド通知をslackに送信">ビルド通知をSlackに送信&lt;/h3>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/cloud-build/docs/configure-third-party-notifications?hl=ja#writing_the_cloud_function">サードパーティ サービスの通知の構成 | Cloud Build のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>上のようにCloud Functionを書けばよい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tnagao3000/items/ff7dd2e89fd8cb42ad5a">Cloud Buildの進行状況をSlackに通知する - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
@@ -435,18 +495,6 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/iam/docs/faq?hl=ja" title="よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud">よくある質問 | Cloud Identity and Access Management のドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ameblo.jp/principia-ca/entry-12144854519.html" title="GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ">GCPのCloud IAMを試してみた | サイバーエージェント 公式エンジニアブログ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Artifact Registry</title><link>https://progrhy.me/tech-notes/a/google/gcp/gar/</link><pubDate>Tue, 26 May 2020 17:25:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gar/</guid><description>
-&lt;h2 id="about">About&lt;/h2>
-&lt;p>The next generation of Container Registry.&lt;/p>
-&lt;p>Beta in 2020-05-26&lt;/p>
-&lt;ul>
-&lt;li>組織のレジストリを1箇所にまとめられる（？）&lt;/li>
-&lt;li>コンテナイメージだけでなく、Mavenやnpmなどのパッケージのレジストリとしても使える。&lt;/li>
-&lt;/ul>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/artifact-registry/docs">https://cloud.google.com/artifact-registry/docs&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>[&lt;a href="https://cloud.google.com/artifact-registry/docs/transition-from-gcr?hl=ja">Transitioning from Container Registry&lt;/a>]&lt;/li>
 &lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
@@ -888,7 +936,95 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
+&lt;/ul></description></item><item><title>A: Cloud Logging</title><link>https://progrhy.me/tech-notes/a/google/gcp/log/</link><pubDate>Wed, 10 Jun 2020 11:41:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/log/</guid><description>
+&lt;p>旧Stackdriver Logging&lt;/p>
+&lt;h2 id="クエリ">クエリ&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/logging/docs/view/advanced-queries?hl=ja">高度なログクエリ | Stackdriver Logging | Google Cloud&lt;/a>&lt;/p>
+&lt;pre>&lt;code>// 特定のフィールド/エントリが含まれるログ
+some_key:*
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/logging/docs/view/advanced-queries?hl=ja">サンプルクエリ | Stackdriver Logging | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="export">Export&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/logging/docs/export/configure_export_v2?hl=ja">ログビューアによるエクスポート | Stackdriver Logging | Google Cloud&lt;/a>&lt;/p>
+&lt;p>シンクのエクスポート先:&lt;/p>
+&lt;ul>
+&lt;li>Cloud Storage&lt;/li>
+&lt;li>Pub/_Sub&lt;/li>
+&lt;li>BigQuery&lt;/li>
+&lt;/ul>
+&lt;h3 id="ログベースメトリクスの作成">ログベースメトリクスの作成&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/logging/docs/logs-based-metrics/counter-metrics?hl=ja">ログベースの指標の概要 | Stackdriver Logging | Google Cloud&lt;/a>&lt;/p>
+&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>Loggingの検索結果から、Cloud Monitoringのメトリクスを作成できる&lt;/li>
+&lt;/ul>
+&lt;h3 id="ログの除外exclusion">ログの除外（Exclusion）&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/logging/docs/exclusions?hl=ja">ログの除外 | Cloud Logging | Google Cloud&lt;/a>&lt;/p>
+&lt;p>特定のログの取り込みを除外して、課金額を下げることができる。&lt;/p>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>除外される前にエクスポートすることもできる
+&lt;ul>
+&lt;li>除外しつつBigQueryにエクスポートして、Loggingの課金なしに、BQからログを利用することが可能&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="specification">Specification&lt;/h2>
+&lt;h3 id="logseverity">LogSeverity&lt;/h3>
+&lt;p>severityは数値が定義されていて、比較演算子でフィルタできる。&lt;/p>
+&lt;p>See &lt;a href="https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity">https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>severity&lt;/th>
+&lt;th>enum&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>DEFAULT&lt;/td>
+&lt;td>0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DEBUG&lt;/td>
+&lt;td>100&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INFO&lt;/td>
+&lt;td>200&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>NOTICE&lt;/td>
+&lt;td>300&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WARNING&lt;/td>
+&lt;td>400&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ERROR&lt;/td>
+&lt;td>500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CRITICAL&lt;/td>
+&lt;td>600&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ALERT&lt;/td>
+&lt;td>700&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EMERGENCY&lt;/td>
+&lt;td>800&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="利用量の確認">利用量の確認&lt;/h3>
+&lt;p>Logs Ingestionでresource type別のログ利用量を確認できる。&lt;/p></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
 &lt;h2 id="tools">Tools&lt;/h2>
 &lt;h3 id="cloud-sql-proxy">Cloud SQL Proxy&lt;/h3>
 &lt;p>Cloud SQL第2世代インスタンスにアクセスできる公式のプロキシサーバ。&lt;/p>
