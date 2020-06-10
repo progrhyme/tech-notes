@@ -4548,6 +4548,7 @@ some_key:*
 &lt;li>除外しつつBigQueryにエクスポートして、Loggingの課金なしに、BQからログを利用することが可能&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>完全に除外するのではなく、除外する割合をパーセンテージで設定することも可能。99.9%など、少数値も設定可能&lt;/li>
 &lt;/ul>
 &lt;h2 id="specification">Specification&lt;/h2>
 &lt;h3 id="logseverity">LogSeverity&lt;/h3>
