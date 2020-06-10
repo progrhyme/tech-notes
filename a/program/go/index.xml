@@ -582,7 +582,42 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;span style="color:#000;font-weight:bold">}()&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="日付時刻">日付・時刻&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="レキシカルスコープ">レキシカルスコープ&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Declarations_and_scope">https://golang.org/ref/spec#Declarations_and_scope&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Goのコードは、ブロックによるレキシカルスコープを持つ&lt;/li>
+&lt;li>ブロックで宣言された識別子は、内部ブロックで再宣言できる
+&lt;ul>
+&lt;li>内部で宣言された識別子のスコープは内部ブロックに閉じる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;p>&lt;a href="https://play.golang.org/p/HOmvzO1l1qc">https://play.golang.org/p/HOmvzO1l1qc&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;main scope&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;inner scope&amp;#34;&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, %s\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, %s\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行結果:&lt;/p>
+&lt;pre>&lt;code>Hello, inner scope
+Hello, main scope
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/veltra-engineering/local-var-scope-in-golang-24833dd4018b">Try Golang! ローカル変数のスコープに注意すべし - VELTRA Engineering - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ブロック">ブロック&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Blocks">https://golang.org/ref/spec#Blocks&lt;/a>&lt;/p>
+&lt;p>上のように &lt;code>{ ... }&lt;/code> でブロックを作れる。&lt;br>
+Perlっぽい。&lt;/p>
+&lt;p>Spec:&lt;/p>
+&lt;ul>
+&lt;li>packageはpackage blockを持つ&lt;/li>
+&lt;li>if, for, switchなんかも自身のブロックを持つ。&lt;/li>
+&lt;li>ブロックはネストできる&lt;/li>
+&lt;/ul>
+&lt;h2 id="日付時刻">日付・時刻&lt;/h2>
 &lt;h3 id="日時フォーマット">日時フォーマット&lt;/h3>
 &lt;p>Go言語の日時のフォーマット関数（timeパッケージの&lt;a href="https://golang.org/pkg/time/#Time.Format">func (Time) Format)&lt;/a>）に与えられる引数は、2006-01-02T15:04:05（月曜）の日時となっている。&lt;/p>
 &lt;p>これはアメリカで時刻を表記する際の順番で、1月2日午後3時4分5秒2006年となり、わかりやすかったからだそうだ。&lt;/p>
@@ -1596,101 +1631,24 @@ GNUスタイルのロングオプションが作れる。&lt;/p>
 &lt;li>&lt;a href="https://christina04.hatenablog.com/entry/2017/07/16/094140">delveでGolangのデバッグ - Carpe Diem&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="タスクランナー">タスクランナー&lt;/h2>
-&lt;ul>
-&lt;li>GNU make &amp;hellip; Go言語による開発で割とよく使われるようだ&lt;/li>
-&lt;/ul>
+&lt;h3 id="gnu-make">GNU make&lt;/h3>
+&lt;p>Go言語による開発で割とよく使われるようだ。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yoskeoka/items/317a3afab370155b3ae8">Go言語開発を便利にするMakefileの書き方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="ビルド公開">ビルド・公開&lt;/h2>
-&lt;h3 id="goreleaser">goreleaser&lt;/h3>
-&lt;p>&lt;a href="https://goreleaser.com/">https://goreleaser.com/&lt;/a>&lt;/p>
-&lt;p>Goプロジェクトのリリース自動化ツール。&lt;/p>
-&lt;p>主な機能:&lt;/p>
+&lt;h2 id="ci">CI&lt;/h2>
+&lt;h3 id="github-actions">GitHub Actions&lt;/h3>
+&lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>バイナリのクロスコンパイル&lt;/li>
-&lt;li>GitHub / GitLabへの公開
-&lt;ul>
-&lt;li>公開済みのtagを参照してreleaseを作り、バイナリをアップロードする&lt;/li>
-&lt;li>Release Note生成 &amp;hellip; commit logからChange Logを生成&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/web-service/github/action/action/#setup-go">Webサービス &amp;gt; GitHub &amp;gt; Actions &amp;gt; Actions#setup-go&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>CIと組合せて使うことも、ローカルから実行することもできる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ynozue/items/f939cff562ec782b33f0">goreleaser を使って Github Releases へ簡単デプロイ #golang - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.1q77.com/2020/04/github-actions-goreleaser-docker-image-push/">GitHub Actions での goreleaser と Docker Image の Push | | 1Q77&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="install">Install&lt;/h4>
-&lt;p>&lt;a href="https://goreleaser.com/install/">https://goreleaser.com/install/&lt;/a>&lt;/p>
-&lt;p>macOS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install goreleaser/tap/goreleaser
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Snap (Ubuntu, etc.):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo snap install --classic goreleaser
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Docker:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker pull goreleaser/goreleaser
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="usage">Usage&lt;/h4>
-&lt;p>雛形となる &lt;code>.goreleaser.yml&lt;/code> を生成:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">goreleaser init
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>YAMLを編集して設定をカスタマイズすることができる。&lt;/p>
-&lt;p>リリースを実行する前に、GitHubのAPI Tokenを環境変数に設定しておく必要がある:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">GITHUB_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;YOUR API TOKEN&amp;gt;&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>GitHubにタグをpushした後、次のコマンドでリリースを行う:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">goreleaser --rm-dist
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、ふつうにこうやって実行するとカレントパスの情報がバイナリに含まれてしまう。&lt;br>
-ので、CIから実行するか、Dockerを使う方がベター。&lt;/p>
-&lt;p>dockerコマンドで実行する場合は次のようにする:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker run --rm --privileged &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v &lt;span style="color:#000">$PWD&lt;/span>:/go/src/github.com/&amp;lt;account&amp;gt;/&amp;lt;repo&amp;gt; &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v /var/run/docker.sock:/var/run/docker.sock &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -w /go/src/github.com/&amp;lt;account&amp;gt;/&amp;lt;repo&amp;gt; &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -e GITHUB_TOKEN &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> goreleaser/goreleaser release --rm-dist
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>ワーキングツリーの最新のコミットが最新のタグと一致してないとNG&lt;/li>
-&lt;li>ワーキングツリーがdirtyだと失敗する。管理外のファイル、ディレクトリがあってもNG&lt;/li>
-&lt;li>&lt;code>dist/&lt;/code> が空じゃないとき、 &lt;code>--rm-dist&lt;/code> オプションを付けてないと失敗する&lt;/li>
-&lt;/ul>
-&lt;h4 id="カスタマイズ">カスタマイズ&lt;/h4>
-&lt;p>&lt;code>.goreleaser.yml&lt;/code> でカスタマイズしたくなりそうなところを記す。&lt;/p>
-&lt;p>リファレンス:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://goreleaser.com/customization/build/">https://goreleaser.com/customization/build/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://goreleaser.com/customization/archive/">https://goreleaser.com/customization/archive/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://goreleaser.com/customization/release/">https://goreleaser.com/customization/release/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">builds&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#204a87;font-weight:bold">goos&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトは [linux, darwin]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Windowsもサポートしたいなら足す&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- linux&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- darwin&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">goarch&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトは386も含まれるが、もう要らないんじゃないかな&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- amd64&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">archives&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトはtar.gzだけど、単バイナリでいいときとか変えたくなりそう&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>binary&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># アップロードされるファイルで、GOOSやGOARCHの文字列を置換したい&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ときに設定する。設定しなくてもよさそう&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">replacements&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">amd64&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>x86_64&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">changelog&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># changelog要らない場合はtrueに設定。デフォルトは未設定&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">skip&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># changelogにcommit logを昇順・降順どちらで載せるか（だと思う）&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">sort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>asc&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">filters&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 無視するcommit log&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">exclude&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;^docs:&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#4e9a06">&amp;#39;^test:&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 『Goならわかるシステムプログラミング』</title><link>https://progrhy.me/tech-notes/a/program/go/gosyspro/</link><pubDate>Sun, 31 May 2020 16:18:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/gosyspro/</guid><description>
+&lt;li>&lt;a href="https://github.com/progrhyme/shelp">https://github.com/progrhyme/shelp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/x-color/items/f60025c20a547a7355b5">【GitHub Actions】Go言語の自動テストからリリースまでを作ってみた - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/0daryo/items/045be6ef98ae8164e8e7">Github actionsでgo mod download, test, lint - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 『Goならわかるシステムプログラミング』</title><link>https://progrhy.me/tech-notes/a/program/go/gosyspro/</link><pubDate>Sun, 31 May 2020 16:18:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/gosyspro/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>渋川さん（@shibu_jp）の著書。&lt;/p>
 &lt;p>関連リンク:&lt;/p>

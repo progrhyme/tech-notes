@@ -1859,7 +1859,42 @@ LLみたいに数値や文字列を真偽判定に用いることはできない
 &lt;span style="color:#000;font-weight:bold">}()&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="日付時刻">日付・時刻&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="レキシカルスコープ">レキシカルスコープ&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Declarations_and_scope">https://golang.org/ref/spec#Declarations_and_scope&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Goのコードは、ブロックによるレキシカルスコープを持つ&lt;/li>
+&lt;li>ブロックで宣言された識別子は、内部ブロックで再宣言できる
+&lt;ul>
+&lt;li>内部で宣言された識別子のスコープは内部ブロックに閉じる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;p>&lt;a href="https://play.golang.org/p/HOmvzO1l1qc">https://play.golang.org/p/HOmvzO1l1qc&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;main scope&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;inner scope&amp;#34;&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, %s\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, %s\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行結果:&lt;/p>
+&lt;pre>&lt;code>Hello, inner scope
+Hello, main scope
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/veltra-engineering/local-var-scope-in-golang-24833dd4018b">Try Golang! ローカル変数のスコープに注意すべし - VELTRA Engineering - Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ブロック">ブロック&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/ref/spec#Blocks">https://golang.org/ref/spec#Blocks&lt;/a>&lt;/p>
+&lt;p>上のように &lt;code>{ ... }&lt;/code> でブロックを作れる。&lt;br>
+Perlっぽい。&lt;/p>
+&lt;p>Spec:&lt;/p>
+&lt;ul>
+&lt;li>packageはpackage blockを持つ&lt;/li>
+&lt;li>if, for, switchなんかも自身のブロックを持つ。&lt;/li>
+&lt;li>ブロックはネストできる&lt;/li>
+&lt;/ul>
+&lt;h2 id="日付時刻">日付・時刻&lt;/h2>
 &lt;h3 id="日時フォーマット">日時フォーマット&lt;/h3>
 &lt;p>Go言語の日時のフォーマット関数（timeパッケージの&lt;a href="https://golang.org/pkg/time/#Time.Format">func (Time) Format)&lt;/a>）に与えられる引数は、2006-01-02T15:04:05（月曜）の日時となっている。&lt;/p>
 &lt;p>これはアメリカで時刻を表記する際の順番で、1月2日午後3時4分5秒2006年となり、わかりやすかったからだそうだ。&lt;/p>

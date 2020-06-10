@@ -92,7 +92,7 @@ npmならpackage.jsonとpackage-lock.json. （以下略）&lt;/p>
 &lt;/ul>
 &lt;p>メモ:&lt;/p>
 &lt;ul>
-&lt;li>goreleaserについては&lt;a href="https://progrhy.me/tech-notes/a/program/go/ecosystem/#goreleaser">Golang &amp;gt; エコシステム#goreleaser&lt;/a>に書いた。&lt;/li>
+&lt;li>goreleaserについては&lt;a href="https://progrhy.me/tech-notes/a/program/go/ecosystem/goreleaser/">Golang &amp;gt; エコシステム &amp;gt; goreleaser&lt;/a>に書いた。&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-06-05</title><link>https://progrhy.me/tech-notes/a/memo/20200605/</link><pubDate>Fri, 05 Jun 2020 03:21:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200605/</guid><description>
 &lt;h2 id="65">6/5&lt;/h2>
 &lt;h3 id="shallow-cloneしたgitのリポジトリを同じdepthでpullするには">shallow cloneしたgitのリポジトリを同じdepthでpullするには&lt;/h3>
