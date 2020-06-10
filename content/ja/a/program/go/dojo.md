@@ -168,7 +168,7 @@ func isExecutableFile(f os.FileInfo) {
 
 関連項目:
 
-- [エコシステム#ビルド・公開]({{<ref "ecosystem.md">}}#ビルド公開)
+- [エコシステム#ビルド・公開]({{<ref "ecosystem/_index.md">}}#ビルド公開)
 
 ## 構造体の使い方
 
@@ -335,7 +335,7 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 
 関連項目:
 
-- [エコシステム#デバッガ]({{<ref "ecosystem.md">}}#デバッガ)
+- [エコシステム#デバッガ]({{<ref "ecosystem/_index.md">}}#デバッガ)
 
 ## バリデータ
 

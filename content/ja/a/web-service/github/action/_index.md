@@ -240,19 +240,28 @@ jobs:
       - name: Deploy
         # some deploy action
 
+      # このstepは常に実行する
       - name: Notify
-        # このstepは常に実行する
         if: ${{ always() }}
         # some notify action
+
+      # ジョブ失敗時に実行するstep
+      - name: Clean up on Failure
+        if: ${{ failure() }}
+        # some clean up action
 ```
 
 NOTE:
 
 - `if: ` に渡す条件式では `${{ }}` は省略可能
 - ワークフロー内でタスクが失敗すると、デフォルトでは後続のタスクはスキップされる
-  - See [Context and expression syntax for GitHub Actions - GitHub Help#always](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#always)
+  - 後述のリファレンスに下の記述がある:
 
 > A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+
+リファレンス:
+
+- [Context and expression syntax for GitHub Actions - GitHub Help#job-status-check-functions](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)
 
 ## 変数やシークレットの利用
 

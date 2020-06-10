@@ -1,40 +1,11 @@
 ---
-title: "エコシステム"
-linkTitle: "エコシステム"
-date: 2020-06-08T00:52:03+09:00
-weight: 1100
+title: "goreleaser"
+linkTitle: "goreleaser"
+description: https://goreleaser.com/
+date: 2020-06-11T00:21:42+09:00
 ---
 
-その他、Go言語による開発などで使われるサードパーティー製のツール。
-
-See Also:
-
-- [tools]({{<ref "tools.md">}})
-
-メモ:
-
-- TinyGoなどの話題もここに載せるかもしれない。
-
-## デバッガ
-
-https://github.com/go-delve/delve が有名。
-
-参考:
-
-- [delveでGolangのデバッグ - Carpe Diem](https://christina04.hatenablog.com/entry/2017/07/16/094140)
-
-## タスクランナー
-
-- GNU make ... Go言語による開発で割とよく使われるようだ
-
-参考:
-
-- [Go言語開発を便利にするMakefileの書き方 - Qiita](https://qiita.com/yoskeoka/items/317a3afab370155b3ae8)
-
-## ビルド・公開
-### goreleaser
-
-https://goreleaser.com/
+## About
 
 Goプロジェクトのリリース自動化ツール。
 
@@ -52,7 +23,7 @@ CIと組合せて使うことも、ローカルから実行することもでき
 - [goreleaser を使って Github Releases へ簡単デプロイ #golang - Qiita](https://qiita.com/ynozue/items/f939cff562ec782b33f0)
 - [GitHub Actions での goreleaser と Docker Image の Push | | 1Q77](https://blog.1q77.com/2020/04/github-actions-goreleaser-docker-image-push/)
 
-#### Install
+## Install
 
 https://goreleaser.com/install/
 
@@ -74,7 +45,7 @@ Docker:
 docker pull goreleaser/goreleaser
 ```
 
-#### Usage
+## Usage
 
 雛形となる `.goreleaser.yml` を生成:
 
@@ -116,7 +87,7 @@ NOTE:
 - ワーキングツリーがdirtyだと失敗する。管理外のファイル、ディレクトリがあってもNG
 - `dist/` が空じゃないとき、 `--rm-dist` オプションを付けてないと失敗する
 
-#### カスタマイズ
+## カスタマイズ
 
 `.goreleaser.yml` でカスタマイズしたくなりそうなところを記す。
 

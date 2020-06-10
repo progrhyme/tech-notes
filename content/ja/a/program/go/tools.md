@@ -14,7 +14,7 @@ Go言語による開発を支援する様々な公式ツール
 
 See Also:
 
-- [エコシステム]({{<ref "ecosystem.md">}})
+- [エコシステム]({{<ref "ecosystem/_index.md">}})
 
 ## cmd/goimports
 

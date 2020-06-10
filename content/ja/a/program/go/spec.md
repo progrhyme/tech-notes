@@ -654,6 +654,50 @@ func f() (result int) {
 }
 ```
 
+## レキシカルスコープ
+
+https://golang.org/ref/spec#Declarations_and_scope
+
+- Goのコードは、ブロックによるレキシカルスコープを持つ
+- ブロックで宣言された識別子は、内部ブロックで再宣言できる
+  - 内部で宣言された識別子のスコープは内部ブロックに閉じる
+
+Examples:
+
+https://play.golang.org/p/HOmvzO1l1qc
+
+```go
+s := "main scope"
+{
+    s := "inner scope"
+    fmt.Printf("Hello, %s\n", s)
+}
+fmt.Printf("Hello, %s\n", s)
+```
+
+実行結果:
+
+```
+Hello, inner scope
+Hello, main scope
+```
+
+参考:
+
+- [Try Golang! ローカル変数のスコープに注意すべし - VELTRA Engineering - Medium](https://medium.com/veltra-engineering/local-var-scope-in-golang-24833dd4018b)
+
+### ブロック
+
+https://golang.org/ref/spec#Blocks
+
+上のように `{ ... }` でブロックを作れる。  
+Perlっぽい。
+
+Spec:
+
+- packageはpackage blockを持つ
+- if, for, switchなんかも自身のブロックを持つ。
+- ブロックはネストできる
 
 ## 日付・時刻
 

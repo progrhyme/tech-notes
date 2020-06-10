@@ -58,9 +58,34 @@ Example:
     submodules: true
 ```
 
+### setup-go
+
+https://github.com/actions/setup-go
+
+Go言語のコンパイラ（goコマンド）をセットアップ。
+
+Examples:
+
+```YAML
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        go: [ '1.13', '1.12' ]
+    name: Go ${{ matrix.go }} sample
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go }}
+      - run: go run hello.go
+```
+
 ### setup-node
 
-https://github.com/actions/setup-node/
+https://github.com/actions/setup-node
 
 Node.jsをセットアップ。
 
@@ -109,6 +134,8 @@ jobs:
 
 - [8398a7/action-slack](https://github.com/8398a7/action-slack) ... メッセージ等のカスタマイズの余地はなさそうだが、必要十分な感ある
 - [rtCamp/action-slack-notify](https://github.com/rtCamp/action-slack-notify) ... 通知先チャネルも設定可能で、よさそう
+  - `SLACK_WEBHOOK` にはIncoming Webhook URLを設定する
+  - 参考: [GitHub Actionsでビルドの成功・失敗をSlackに通知する方法 - Qiita](https://qiita.com/progrhyme/items/badf31978612b22dbf47)
 
 ### Deployments作成用
 
