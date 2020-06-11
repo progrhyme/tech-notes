@@ -743,6 +743,18 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/">言語仕様&lt;/a>の内容を把握していること&lt;/li>
 &lt;/ul>
+&lt;h2 id="文字列">文字列&lt;/h2>
+&lt;h3 id="string---byte変換">string &amp;lt;-&amp;gt; []byte変換&lt;/h3>
+&lt;p>string -&amp;gt; []byte&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foobar&amp;#34;&lt;/span>
+&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、メモリコピーが走るそうだ&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ikawaha/items/3c3994559dfeffb9f8c9">golang で string を []byte にキャストするとメモリコピーが走ります - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/mattn/items/176459728ff4f854b165">golang で string を []byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array">go - How to assign string to bytes array - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="入出力">入出力&lt;/h2>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
@@ -847,6 +859,11 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">pkg (stdlib) &amp;gt; os&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#pathfilepath">pkg (stdlib) &amp;gt; path/filepath&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_file.html">逆引きGolang (ファイル)&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="実行可能ファイルを判定">実行可能ファイルを判定&lt;/h3>
 &lt;p>Examples:&lt;/p>
@@ -1193,7 +1210,15 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">filepath&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Dir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;/foo/bar/baz/&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; /foo/bar/baz
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">filepath&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Dir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;dev.txt&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; .
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">filepath&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Dir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;../todo.txt&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; ..
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-join">func Join&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-abs">func Abs&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/path/filepath/#Abs">https://golang.org/pkg/path/filepath/#Abs&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Abs&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>pathの絶対パスを返す。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_file.html#file_AbsPath">逆引きGolang (ファイル)#相対パスから絶対パスを求める&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-join">func Join&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/path/filepath/#Join">https://golang.org/pkg/path/filepath/#Join&lt;/a>&lt;/p>
 &lt;p>Signature:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">elem&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
@@ -1233,6 +1258,33 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_regexp.html">逆引きGolang (正規表現)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="type-regexp">type Regexp&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/regexp/#Regexp">https://golang.org/pkg/regexp/#Regexp&lt;/a>&lt;/p>
+&lt;p>コンパイルされた正規表現を表す。&lt;/p>
+&lt;h4 id="func-findstringsubmatch">func FindStringSubmatch&lt;/h4>
+&lt;p>&lt;a href="https://golang.org/pkg/regexp/#Regexp.FindStringSubmatch">https://golang.org/pkg/regexp/#Regexp.FindStringSubmatch&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">re&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">FindStringSubmatch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>FindSubmatchのstring版。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">re&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">MustCompile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">`a(x*)b(y|z)c`&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">FindStringSubmatch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-axxxbyc-&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">FindStringSubmatch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-abzc-&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行結果:&lt;/p>
+&lt;pre>&lt;code>[&amp;quot;axxxbyc&amp;quot; &amp;quot;xxx&amp;quot; &amp;quot;y&amp;quot;]
+[&amp;quot;abzc&amp;quot; &amp;quot;&amp;quot; &amp;quot;z&amp;quot;]
+&lt;/code>&lt;/pre>&lt;h4 id="func-findsubmatch">func FindSubmatch&lt;/h4>
+&lt;p>&lt;a href="https://golang.org/pkg/regexp/#Regexp.FindSubmatch">https://golang.org/pkg/regexp/#Regexp.FindSubmatch&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">re&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">FindSubmatch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">[][]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>グループ化された正規表現を使って、後方参照のようなことができる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">re&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">MustCompile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">`foo(.?)`&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">FindSubmatch&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">`seafood fool`&lt;/span>&lt;span style="color:#000;font-weight:bold">)))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行結果:&lt;/p>
+&lt;pre>&lt;code>[&amp;quot;food&amp;quot; &amp;quot;d&amp;quot;]
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nisenabe.hatenablog.com/entry/2013/01/29/045559">Go 言語で正規表現のグループ化した文字列を取得する - nise_nabeの日記&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="strings">strings&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/strings">https://pkg.go.dev/strings&lt;/a>&lt;/p>

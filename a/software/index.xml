@@ -38,6 +38,18 @@
 &lt;li>&lt;a href="https://docs.docker.com/engine/tutorials/">Engine tutorials | Docker Documentation&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;h2 id="プロトコル">プロトコル&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Local Protocol&lt;/li>
+&lt;li>HTTP Protocols&lt;/li>
+&lt;li>SSH Protocol&lt;/li>
+&lt;li>Git Protocol &amp;hellip; 最も高速だが、認証がない&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/31801271/what-are-the-supported-git-url-formats">github - What are the supported git url formats? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="config">config&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-config">https://git-scm.com/docs/git-config&lt;/a>&lt;/p>
 &lt;h3 id="aliasの設定">aliasの設定&lt;/h3>
@@ -299,7 +311,27 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/liubin/items/69d9faf804e82ddec376">Makefileにパラメータを渡す方法と条件文 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="参考">参考&lt;/h2>
+&lt;h2 id="cookbooks">Cookbooks&lt;/h2>
+&lt;h3 id="カレントディレクトリを表示する幾つかの方法">カレントディレクトリを表示する幾つかの方法&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">pwd&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87">pwd&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shell &lt;span style="color:#204a87">pwd&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>PWD&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$$&lt;/span>PWD
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>CURDIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ make
+&lt;span style="color:#204a87">pwd&lt;/span>
+/home/progrhyme/tmp/make
+&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
+/home/progrhyme/tmp/make
+&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
+/home/progrhyme/tmp/make
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$PWD&lt;/span>
+/home/progrhyme/tmp/make
+&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
+/home/progrhyme/tmp/make
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="http://itchyny.hatenablog.com/entry/20120213/1329135107">Makefileで遊ぼう 〜 階乗, フィボナッチ数, Brainfuck処理系まで - プログラムモグモグ&lt;/a>
 &lt;ul>
