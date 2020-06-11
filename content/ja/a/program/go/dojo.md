@@ -11,6 +11,24 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 - [言語仕様]({{<ref "spec.md">}})の内容を把握していること
 
+## 文字列
+### string <-> []byte変換
+
+string -> []byte
+
+```go
+s := "foobar"
+b := []byte(s)
+```
+
+ただし、メモリコピーが走るそうだ
+
+参考:
+
+- [golang で string を \[\]byte にキャストするとメモリコピーが走ります - Qiita](https://qiita.com/ikawaha/items/3c3994559dfeffb9f8c9)
+- [golang で string を \[\]byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita](https://qiita.com/mattn/items/176459728ff4f854b165)
+- [go - How to assign string to bytes array - Stack Overflow](https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array)
+
 ## 入出力
 
 関連項目:
@@ -131,6 +149,11 @@ See [テスト]({{<ref "test.md">}})
 
 - [pkg (stdlib) > os]({{<ref "std-pkg/os.md">}})
 - [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
+- [pkg (stdlib) > path/filepath]({{<ref "std-pkg/_index.md">}}#pathfilepath)
+
+参考:
+
+- [逆引きGolang (ファイル)](https://ashitani.jp/golangtips/tips_file.html)
 
 ### 実行可能ファイルを判定
 

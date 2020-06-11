@@ -199,6 +199,34 @@ all: $(BUILD_DIR)
 
 - [Makefileにパラメータを渡す方法と条件文 - Qiita](https://qiita.com/liubin/items/69d9faf804e82ddec376)
 
+## Cookbooks
+### カレントディレクトリを表示する幾つかの方法
+
+```Makefile
+pwd:
+    pwd
+    echo $(shell pwd)
+    echo $(PWD)
+    echo $$PWD
+    echo $(CURDIR)
+```
+
+実行例:
+
+```sh
+$ make
+pwd
+/home/progrhyme/tmp/make
+echo /home/progrhyme/tmp/make
+/home/progrhyme/tmp/make
+echo /home/progrhyme/tmp/make
+/home/progrhyme/tmp/make
+echo $PWD
+/home/progrhyme/tmp/make
+echo /home/progrhyme/tmp/make
+/home/progrhyme/tmp/make
+```
+
 ## 参考
 
 - [Makefileで遊ぼう 〜 階乗, フィボナッチ数, Brainfuck処理系まで - プログラムモグモグ](http://itchyny.hatenablog.com/entry/20120213/1329135107)

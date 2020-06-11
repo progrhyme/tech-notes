@@ -244,6 +244,20 @@ fmt.Println(filepath.Dir("dev.txt"))         //=> .
 fmt.Println(filepath.Dir("../todo.txt"))     //=> ..
 ```
 
+### func Abs
+
+https://golang.org/pkg/path/filepath/#Abs
+
+```go
+func Abs(path string) (string, error)
+```
+
+pathの絶対パスを返す。
+
+参考:
+
+- [逆引きGolang (ファイル)#相対パスから絶対パスを求める](https://ashitani.jp/golangtips/tips_file.html#file_AbsPath)
+
 ### func Join
 
 https://golang.org/pkg/path/filepath/#Join
@@ -311,6 +325,64 @@ fmt.Println(validID.MatchString("snakey"))
 参考:
 
 - [逆引きGolang (正規表現)](https://ashitani.jp/golangtips/tips_regexp.html)
+
+### type Regexp
+
+https://golang.org/pkg/regexp/#Regexp
+
+コンパイルされた正規表現を表す。
+
+#### func FindStringSubmatch
+
+https://golang.org/pkg/regexp/#Regexp.FindStringSubmatch
+
+```go
+func (re *Regexp) FindStringSubmatch(s string) []string
+```
+
+FindSubmatchのstring版。
+
+Examples:
+
+```go
+re := regexp.MustCompile(`a(x*)b(y|z)c`)
+fmt.Printf("%q\n", re.FindStringSubmatch("-axxxbyc-"))
+fmt.Printf("%q\n", re.FindStringSubmatch("-abzc-"))
+```
+
+実行結果:
+
+```
+["axxxbyc" "xxx" "y"]
+["abzc" "" "z"]
+```
+
+#### func FindSubmatch
+
+https://golang.org/pkg/regexp/#Regexp.FindSubmatch
+
+```go
+func (re *Regexp) FindSubmatch(b []byte) [][]byte
+```
+
+グループ化された正規表現を使って、後方参照のようなことができる。
+
+Examples:
+
+```go
+re := regexp.MustCompile(`foo(.?)`)
+fmt.Printf("%q\n", re.FindSubmatch([]byte(`seafood fool`)))
+```
+
+実行結果:
+
+```
+["food" "d"]
+```
+
+参考:
+
+- [Go 言語で正規表現のグループ化した文字列を取得する - nise_nabeの日記](https://nisenabe.hatenablog.com/entry/2013/01/29/045559)
 
 ## strings
 

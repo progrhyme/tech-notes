@@ -7,6 +7,19 @@ date: 2020-04-27T23:03:01+09:00
 weight: 200
 ---
 
+## プロトコル
+
+https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
+
+- Local Protocol
+- HTTP Protocols
+- SSH Protocol
+- Git Protocol ... 最も高速だが、認証がない
+
+参考:
+
+- [github - What are the supported git url formats? - Stack Overflow](https://stackoverflow.com/questions/31801271/what-are-the-supported-git-url-formats)
+
 ## config
 
 https://git-scm.com/docs/git-config
