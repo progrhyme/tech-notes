@@ -12,6 +12,11 @@ weight: 200
 - [A Tour of Go](https://tour.golang.org/) ... Web上でコードを動かしてGoプログラミングを体験できるチュートリアル
 - https://go.dev/ ... Gopher向けのポータルみたいなサイト
 
+### Install Go
+
+- https://golang.org/dl/
+- https://golang.org/doc/install
+
 ### Play Ground
 
 https://play.golang.org/
