@@ -4,6 +4,11 @@
 &lt;li>&lt;a href="https://tour.golang.org/">A Tour of Go&lt;/a> &amp;hellip; Web上でコードを動かしてGoプログラミングを体験できるチュートリアル&lt;/li>
 &lt;li>&lt;a href="https://go.dev/">https://go.dev/&lt;/a> &amp;hellip; Gopher向けのポータルみたいなサイト&lt;/li>
 &lt;/ul>
+&lt;h3 id="install-go">Install Go&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/dl/">https://golang.org/dl/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.org/doc/install">https://golang.org/doc/install&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="play-ground">Play Ground&lt;/h3>
 &lt;p>&lt;a href="https://play.golang.org/">https://play.golang.org/&lt;/a>&lt;/p>
 &lt;p>Web上で動作するSandbox環境。&lt;/p>

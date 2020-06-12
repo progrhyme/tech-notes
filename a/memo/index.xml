@@ -1,4 +1,14 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-12</title><link>https://progrhy.me/tech-notes/a/memo/20200612/</link><pubDate>Fri, 12 Jun 2020 03:40:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200612/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-13</title><link>https://progrhy.me/tech-notes/a/memo/20200613/</link><pubDate>Sat, 13 Jun 2020 03:10:06 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200613/</guid><description>
+&lt;h2 id="613">6/13&lt;/h2>
+&lt;h3 id="macosのgolang環境をアップデート">macOSのGolang環境をアップデート&lt;/h3>
+&lt;p>約1年ぶりにgoをアップデート。&lt;/p>
+&lt;p>たぶん、前回はふつうに &lt;a href="https://golang.org/dl/">https://golang.org/dl/&lt;/a> から取得できるインストーラからインストールしたのではないかな。&lt;/p>
+&lt;p>今回はbrewで入れて、 &lt;code>~/.Brewfile&lt;/code> にも足した。&lt;br>
+非公式のやり方だし、常に最新とは限らないが、インストーラを使うより更新が楽だし、ほとんど最新に近いから、ほぼ問題ないと判断。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/#install-go">Golang#Install-Go&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-12</title><link>https://progrhy.me/tech-notes/a/memo/20200612/</link><pubDate>Fri, 12 Jun 2020 03:40:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200612/</guid><description>
 &lt;h2 id="612">6/12&lt;/h2>
 &lt;h3 id="私はまだgolangのinterfaceが理解できていないようだ">私はまだGolangのinterfaceが理解できていないようだ&lt;/h3>
 &lt;p>shelpの実装中に次のようなコードを書いた。&lt;br>
