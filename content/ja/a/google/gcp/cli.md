@@ -90,6 +90,7 @@ https://cloud.google.com/sdk/gcloud/reference に簡単な説明がある。
 
 - `--configuration` ... コマンドを実行するconfiguration. See [#configurations](#configurations)
 - `--project` ... コマンドの対象となるプロジェクトをプロジェクトIDで指定する
+- `--verbosity=VERBOSITY` ... ログレベルの設定。デフォルトは `warning`. 他に、debug, info, error, critical, noneが設定可能
 
 #### filter
 
@@ -473,6 +474,23 @@ gsutil mb -l asia gs://mybucket
 # バケット削除
 gsutil rb [-f] gs://<bucket_name>
 ```
+
+### iam
+
+https://cloud.google.com/storage/docs/gsutil/commands/iam
+
+```sh
+# bucket/objectのIAM権限を取得
+gsutil iam get gs://bucket[/path]
+# bucket/objectにIAM権限を設定
+gsutil iam set [-afRr] [-e <etag>] file gs://bucket[/path] ...
+# bucket/objectにIAM権限を設定。メンバー単位で個々に設定
+gsutil iam ch [-fRr] binding ... gs://bucket
+```
+
+関連項目:
+
+- [GCS#IAM]({{<ref "gcs.md">}}#iam)
 
 ### ls
 

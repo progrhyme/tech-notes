@@ -32,3 +32,12 @@ https://cloud.google.com/container-registry/docs/advanced-authentication
 
 > イメージが push、タグ付け、削除されたときなど、Container Registry リポジトリに変更が加えられた場合、Pub/Sub を使用して通知を受け取ることができます
 
+## Spec
+### レジストリのGCSバケット
+
+See https://cloud.google.com/container-registry/docs/access-control?hl=ja#grant-bucket
+
+ レジストリ | GCSバケット
+----------|------------
+ `gcr.io` | `artifacts.${PROJECT_ID}.appspot.com`
+ `${STORAGE_REGION}.gcr.io` | `${STORAGE_REGION}.artifacts.${PROJECT_ID}.appspot.com`
