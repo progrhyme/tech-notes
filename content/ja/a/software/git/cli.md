@@ -174,6 +174,8 @@ FORMATで指定できるフィールド:
 
 ## log
 
+https://git-scm.com/docs/git-log
+
 ```bash
 ## 過去のコミットから対象文字列を含むコミットを検索
 git log -S 文字列
@@ -183,14 +185,26 @@ git log --pretty=oneline
 git log --oneline --graph --decorate
 
 ## フォーマット指定
-git log --format="%H" # full commit hash のみ
+git log --format="%H"     # full commit hash のみ
+git log --format="%h %s"  # short hash + title
 ```
+
+書式については [Git - git-log Documentation#PRETTY-FORMATS](https://git-scm.com/docs/git-log#_pretty_formats)辺りに詳しく書かれている。
+
+一部の例:
+
+ 書式 | 内容
+------|------
+ %H | コミットハッシュ
+ %h | コミットハッシュ（短縮版）
+ %s | 件名
 
 参考:
 
 - [Git - リビジョンの選択](https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%83%AA%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%B8%E6%8A%9E "Git - リビジョンの選択")
 - [git logのオプションあれこれ - 煙と消えるその前に](http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104 "git logのオプションあれこれ - 煙と消えるその前に")
 - [git log をいい感じに alias して色付きで見やすくしておく - Qiita](http://qiita.com/key-amb/items/9ee8339d2da971581cfb "git log をいい感じに alias して色付きで見やすくしておく - Qiita")
+- [git logのフォーマットを指定する - Qiita](https://qiita.com/harukasan/items/9149542584385e8dea75)
 
 ## pull
 

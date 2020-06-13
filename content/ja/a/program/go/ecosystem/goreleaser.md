@@ -133,3 +133,22 @@ changelog:
     - '^docs:'
     - '^test:'
 ```
+
+## CI設定
+
+各種CIツールへの設定方法についても公式ガイドがあって捗る。
+
+### GitHub Actions
+
+https://goreleaser.com/ci/actions/
+
+公式のアクションを利用できるので、簡単。
+
+[shelp](https://github.com/progrhyme/shelp)で設定した際は、ほぼサンプルのままで、フックの部分だけ、tag push時のみになるようにした。
+
+```YAML
+on:
+  push:
+    tags:
+      - '*'
+```
