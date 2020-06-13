@@ -244,6 +244,10 @@ fmt.Println(filepath.Dir("dev.txt"))         //=> .
 fmt.Println(filepath.Dir("../todo.txt"))     //=> ..
 ```
 
+参考:
+
+- [Big Sky :: Golang で物理ファイルの操作に path/filepath でなく path を使うと爆発します。](https://mattn.kaoriya.net/software/lang/go/20171024130616.htm)
+
 ### func Abs
 
 https://golang.org/pkg/path/filepath/#Abs
@@ -383,6 +387,21 @@ fmt.Printf("%q\n", re.FindSubmatch([]byte(`seafood fool`)))
 参考:
 
 - [Go 言語で正規表現のグループ化した文字列を取得する - nise_nabeの日記](https://nisenabe.hatenablog.com/entry/2013/01/29/045559)
+
+## strconv
+
+https://pkg.go.dev/strconv
+
+文字列と基本データ型間の変換機能を実装している。
+
+Example:
+
+```go
+v := "10"
+if s, err := strconv.Atoi(v); err == nil {
+	fmt.Printf("%T, %v", s, s) //=> int, 10
+}
+```
 
 ## strings
 

@@ -268,6 +268,26 @@ git revert -m 1 <SHA1>
 - https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt
 - [gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記](http://d.hatena.ne.jp/koba04/20121122/1353512656 "gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記")
 
+## rev-list
+
+https://git-scm.com/docs/git-rev-list
+
+コミットオブジェクトを新しいものから順に表示する。
+
+Examples:
+
+```sh
+# masterにないコミットを表示
+git rev-list master...HEAD
+
+# upstreamとの間にあるコミットを検出
+git rev-list HEAD...HEAD@{upstream}
+```
+
+ Option | 機能
+--------|------
+ --count | コミットの数を表示
+
 ## submodule
 
 https://git-scm.com/docs/git-submodule
@@ -299,6 +319,30 @@ sumobuleの削除 => https://github.com/progrhyme/git-wraps/blob/master/bin/git-
 参考:
 
 - [submodule の向き先 url を変更する - Qiita](http://qiita.com/8mamo10/items/fd11d8c7a2d928b39173 "submodule の向き先 url を変更する - Qiita")
+
+## symbolic-ref
+
+https://git-scm.com/docs/git-symbolic-ref
+
+symbolic refの読み取り、変更、削除コマンド。
+
+Examples:
+
+```sh
+$ git symbolic-ref HEAD
+refs/heads/master
+
+$ git symbolic-ref --short HEAD
+master
+
+$ git checkout v1.0 # switch to tag = 'detached HEAD'
+$ git symbolic-ref HEAD
+fatal: ref HEAD is not a symbolic ref
+```
+
+ Option | 機能
+--------|------
+ `-q, --quiet` | エラー時にメッセージ出力しない
 
 ## tag
 

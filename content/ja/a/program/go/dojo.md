@@ -12,6 +12,32 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 - [言語仕様]({{<ref "spec.md">}})の内容を把握していること
 
 ## 文字列
+
+関連項目:
+
+- [pkg (stdlib) > fmt]({{<ref "std-pkg/fmt.md">}})
+- [pkg (stdlib) > strconv]({{<ref "std-pkg/_index.md">}}#strconv)
+- [pkg (stdlib) > strings]({{<ref "std-pkg/_index.md">}}#strings)
+
+### string -> 数値変換
+
+```go
+var i int
+var s string="123"
+
+// やり方①
+i, e := strconv.Atoi(s)
+fmt.Println(i) // -> 123
+
+// やり方②
+_, e = fmt.Fscan(strings.NewReader(s), &i)
+```
+
+どっちが速いかは比べてない。
+
+strconv.Atoiだと、sの末尾に改行文字が入ってるとエラーになった。  
+fmt.Fscanlnだったら大丈夫だった。
+
 ### string <-> []byte変換
 
 string -> []byte
@@ -168,6 +194,29 @@ func isExecutableFile(f os.FileInfo) {
 参考:
 
 - [unix - How to check if a file is executable in go? - Stack Overflow](https://stackoverflow.com/questions/60128401/how-to-check-if-a-file-is-executable-in-go)
+
+### シンボリックリンクを判別
+
+いくつか使える関数があるが、どれも一発で行かなくて少しだけ面倒くさい。
+
+Example:
+
+```go
+if link, err := os.Readlink(path); link != "" {
+  fmt.Printf("[Symlink] %s -> %s")
+} else {
+  fmt.Printf("[Not Symlink] %s")
+}
+```
+
+他に使えそうな関数:
+
+- os.Lstat
+- filepath.EvalSymlinks
+
+参考:
+
+- [golangでsymlink判別を実施する - Qiita](https://qiita.com/letusfly85/items/e9ecd6eafc0b03d8f57f)
 
 ## ライブラリ管理
 

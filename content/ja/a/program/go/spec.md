@@ -281,7 +281,18 @@ type Writer interface {
 	Write(p []byte) (n int, err error)
 	Close() error
 }
+```
 
+入門ガイド:
+
+- [Go by Example: Interfaces](https://gobyexample.com/interfaces)
+
+#### 埋め込み
+
+interfaceを別のinterfaceに埋め込むことができる。  
+埋め込まれたinterfaceはメソッド集合のユニオンを持つinterfaceとなる。
+
+```go
 // ReadWriter's methods are Read, Write, and Close.
 type ReadWriter interface {
 	Reader  // includes methods of Reader in ReadWriter's method set
@@ -289,9 +300,7 @@ type ReadWriter interface {
 }
 ```
 
-入門ガイド:
-
-- [Go by Example: Interfaces](https://gobyexample.com/interfaces)
+このとき、同名のメソッドは型が同じでないとエラーになる。
 
 ### 型変換
 

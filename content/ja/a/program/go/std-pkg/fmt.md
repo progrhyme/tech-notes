@@ -51,6 +51,8 @@ func Scan(a ...interface{}) (n int, err error)
 改行もスペースとみなされる。  
 読み取った数が引数より少なかったらエラーを返す。
 
+任意の入力ソースから読み取るには、Fscan, Fscanf, Fscanlnを使う。
+
 Examples:
 
 ```go

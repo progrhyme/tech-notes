@@ -133,7 +133,9 @@ https://golang.org/pkg/os/#Readlink
 func Readlink(name string) (string, error)
 ```
 
-シンボリックリンクのリンク先を返す。
+シンボリックリンクのリンク先を返す。  
+シンボリックリンクでなければ空文字を返すが、エラーになるわけではない。  
+エラーは `*PathError` なので、これはnameが読めないときとかに起こるのだと思う。
 
 ### func Stat
 

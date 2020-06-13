@@ -12,9 +12,15 @@ weight: 200
 https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
 
 - Local Protocol
+  - `git clone path/to/repo`
+  - `git clone file:///path/to/repo`
 - HTTP Protocols
+  - `git clone https://example.com/gitproject.git`
 - SSH Protocol
+  - `git clone ssh://[user@]server/project.git`
+  - `git clone [user@]server:project.git`
 - Git Protocol ... 最も高速だが、認証がない
+  - `git clone git://server/project.git`
 
 参考:
 
