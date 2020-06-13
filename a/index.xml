@@ -1609,15 +1609,19 @@ continue for import return var
 &lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// ReadWriter&amp;#39;s methods are Read, Write, and Close.
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ReadWriter&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Reader&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Reader in ReadWriter&amp;#39;s method set
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Writer&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Writer in ReadWriter&amp;#39;s method set
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>入門ガイド:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://gobyexample.com/interfaces">Go by Example: Interfaces&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="埋め込み">埋め込み&lt;/h4>
+&lt;p>interfaceを別のinterfaceに埋め込むことができる。&lt;br>
+埋め込まれたinterfaceはメソッド集合のユニオンを持つinterfaceとなる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// ReadWriter&amp;#39;s methods are Read, Write, and Close.
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ReadWriter&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">Reader&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Reader in ReadWriter&amp;#39;s method set
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Writer&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Writer in ReadWriter&amp;#39;s method set
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>このとき、同名のメソッドは型が同じでないとエラーになる。&lt;/p>
 &lt;h3 id="型変換">型変換&lt;/h3>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>
@@ -2082,6 +2086,24 @@ ImportPath = string_lit .
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/">言語仕様&lt;/a>の内容を把握していること&lt;/li>
 &lt;/ul>
 &lt;h2 id="文字列">文字列&lt;/h2>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#strconv">pkg (stdlib) &amp;gt; strconv&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#strings">pkg (stdlib) &amp;gt; strings&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="string---数値変換">string -&amp;gt; 数値変換&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">s&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;123&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// やり方①
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">strconv&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Atoi&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// -&amp;gt; 123
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// やり方②
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fscan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">NewReader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>どっちが速いかは比べてない。&lt;/p>
+&lt;p>strconv.Atoiだと、sの末尾に改行文字が入ってるとエラーになった。&lt;br>
+fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;h3 id="string---byte変換">string &amp;lt;-&amp;gt; []byte変換&lt;/h3>
 &lt;p>string -&amp;gt; []byte&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foobar&amp;#34;&lt;/span>
@@ -2211,6 +2233,23 @@ ImportPath = string_lit .
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/60128401/how-to-check-if-a-file-is-executable-in-go">unix - How to check if a file is executable in go? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="シンボリックリンクを判別">シンボリックリンクを判別&lt;/h3>
+&lt;p>いくつか使える関数があるが、どれも一発で行かなくて少しだけ面倒くさい。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">link&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Readlink&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">link&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;[Symlink] %s -&amp;gt; %s&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;[Not Symlink] %s&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>他に使えそうな関数:&lt;/p>
+&lt;ul>
+&lt;li>os.Lstat&lt;/li>
+&lt;li>filepath.EvalSymlinks&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/letusfly85/items/e9ecd6eafc0b03d8f57f">golangでsymlink判別を実施する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="ライブラリ管理">ライブラリ管理&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/doc/go1.14">Go 1.14&lt;/a>からGo Modulesが標準機能になったので、これを使いましょう。&lt;/p>
@@ -3044,6 +3083,7 @@ cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作�
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>標準入力からスペース区切りで入力を受付け、変数に格納する。&lt;br>
 改行もスペースとみなされる。&lt;br>
 読み取った数が引数より少なかったらエラーを返す。&lt;/p>
+&lt;p>任意の入力ソースから読み取るには、Fscan, Fscanf, Fscanlnを使う。&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>

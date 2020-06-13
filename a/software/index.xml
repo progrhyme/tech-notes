@@ -41,10 +41,28 @@
 &lt;h2 id="プロトコル">プロトコル&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols&lt;/a>&lt;/p>
 &lt;ul>
-&lt;li>Local Protocol&lt;/li>
-&lt;li>HTTP Protocols&lt;/li>
-&lt;li>SSH Protocol&lt;/li>
-&lt;li>Git Protocol &amp;hellip; 最も高速だが、認証がない&lt;/li>
+&lt;li>Local Protocol
+&lt;ul>
+&lt;li>&lt;code>git clone path/to/repo&lt;/code>&lt;/li>
+&lt;li>&lt;code>git clone file:///path/to/repo&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HTTP Protocols
+&lt;ul>
+&lt;li>&lt;code>git clone https://example.com/gitproject.git&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SSH Protocol
+&lt;ul>
+&lt;li>&lt;code>git clone ssh://[user@]server/project.git&lt;/code>&lt;/li>
+&lt;li>&lt;code>git clone [user@]server:project.git&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Git Protocol &amp;hellip; 最も高速だが、認証がない
+&lt;ul>
+&lt;li>&lt;code>git clone git://server/project.git&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>

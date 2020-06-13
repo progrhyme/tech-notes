@@ -207,6 +207,28 @@ git revert -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;l
 &lt;li>&lt;a href="https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt">https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/koba04/20121122/1353512656" title="gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記">gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="rev-list">rev-list&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-rev-list">https://git-scm.com/docs/git-rev-list&lt;/a>&lt;/p>
+&lt;p>コミットオブジェクトを新しいものから順に表示する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># masterにないコミットを表示&lt;/span>
+git rev-list master...HEAD
+&lt;span style="color:#8f5902;font-style:italic"># upstreamとの間にあるコミットを検出&lt;/span>
+git rev-list HEAD...HEAD@&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>upstream&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;count&lt;/td>
+&lt;td>コミットの数を表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="submodule">submodule&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-submodule">https://git-scm.com/docs/git-submodule&lt;/a>&lt;/p>
 &lt;p>なんだかんだで割りと使っている。&lt;/p>
@@ -234,6 +256,31 @@ git submodule foreach git pull origin master
 &lt;ul>
 &lt;li>&lt;a href="http://qiita.com/8mamo10/items/fd11d8c7a2d928b39173" title="submodule の向き先 url を変更する - Qiita">submodule の向き先 url を変更する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="symbolic-ref">symbolic-ref&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-symbolic-ref">https://git-scm.com/docs/git-symbolic-ref&lt;/a>&lt;/p>
+&lt;p>symbolic refの読み取り、変更、削除コマンド。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git symbolic-ref HEAD
+refs/heads/master
+$ git symbolic-ref --short HEAD
+master
+$ git checkout v1.0 &lt;span style="color:#8f5902;font-style:italic"># switch to tag = &amp;#39;detached HEAD&amp;#39;&lt;/span>
+$ git symbolic-ref HEAD
+fatal: ref HEAD is not a symbolic ref
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-q, --quiet&lt;/code>&lt;/td>
+&lt;td>エラー時にメッセージ出力しない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="tag">tag&lt;/h2>
 &lt;p>SYNOPSIS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
