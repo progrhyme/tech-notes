@@ -15,6 +15,12 @@ weight: 2000
 
 shやbashはシェルソフトウェア（シェルプログラムともいう）の例。
 
+## awesome-shell
+
+https://github.com/alebcay/awesome-shell
+
+> A curated list of awesome command-line frameworks, toolkits, guides and gizmos.
+
 ## ANSIエスケープシーケンス
 
 ターミナルの出力文字に色や装飾を付けたりできる。

@@ -103,6 +103,63 @@ func (w *Worktree) Pull(o *PullOptions) error
 ワーキングツリー上で `git pull` 相当の操作を実行。  
 変更がなければ `NoErrAlreadyUpToDate` を返す。
 
+## goccy/go-yaml
+
+https://github.com/goccy/go-yaml
+
+Yet AnotherなYAMLライブラリ。
+
+参考:
+
+- 作者のエントリ: [GoでYAMLを扱うすべての人を幸せにするべく、ライブラリをスクラッチから書いた話 - Qiita](https://qiita.com/goccy/items/86abe72b472993b5516a)
+
+## go-yaml/yaml
+
+https://pkg.go.dev/gopkg.in/yaml.v2
+
+GoにおけるYAMLライブラリのデファクト。
+
+参考:
+
+- [Go言語(golang) YAMLの使い方 - golangの日記](https://golang.hateblo.jp/entry/2018/11/08/183555)
+
+### func Unmarshal
+
+https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Unmarshal
+
+```go
+func Unmarshal(in []byte, out interface{}) (err error)
+```
+
+YAMLをデコードしてstructかmapに読み込む。
+
+Examples:
+
+```go
+// structに読み込む
+type T struct {
+    F int `yaml:"a,omitempty"`
+    B int
+}
+var t T
+yaml.Unmarshal([]byte("a: 1\nb: 2"), &t)
+
+// mapに読み込む
+var m map[string]interface{}
+data := `
+name: Tanaka
+age: 30
+`
+
+yaml.Unmarshal([]byte(data), &m)
+fmt.Printf("%v\n", m) //=> map[name:Tanaka age:30]
+```
+
+参考:
+
+- [go で yaml 等を「map\[interface{}\]interface{}」型で読み込んだ際の動的型の参照方法 - Qiita](https://qiita.com/yamasaki-masahide/items/d6e406c4c11d5870a1c6)
+- https://github.com/progrhyme/tutorials/blob/master/golang/yaml/decode.go
+
 ## jinzhu/configor
 
 https://github.com/jinzhu/configor

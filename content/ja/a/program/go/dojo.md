@@ -446,3 +446,16 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 - [golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨](http://hakobe932.hatenablog.com/entry/2014/04/10/010619 "golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨") ... pprof, net/http/pprof
 - [golang profiling の基礎](https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552 "golang profiling の基礎") ... pprof他
 - [golangパフォーマンス3: mapとGC - Qiita](http://qiita.com/oywc410/items/ad8baee00f039705a5c0 "golangパフォーマンス3: mapとGC - Qiita")
+
+## 構造化データファイルの取り扱い
+
+YAML, JSON, TOMLなど。
+
+関連項目:
+
+- [pkg (3rd) > go-yaml/yaml]({{<ref "3rd-pkg.md">}}#go-yamlyaml)
+- [言語仕様#構造体-タグ]({{<ref "spec.md">}}#タグ)
+
+参考:
+
+- [golang は ゆるふわに JSON を扱えまぁす! — KaoriYa](https://www.kaoriya.net/blog/2016/06/25/)

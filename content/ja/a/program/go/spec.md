@@ -281,6 +281,37 @@ f := Foo{Age: 5, Name: "foo"} // 任意フィールドの省略が可能。順�
 - [[Go] 構造体の初期化方法まとめ - Qiita](http://qiita.com/cotrpepe/items/b8e7f70f27813a846431 "[Go] 構造体の初期化方法まとめ - Qiita")
 - [【Go】structにデフォルトの値を設定したい - /dev/null](http://gitpub.hatenablog.com/entry/2015/01/24/213223 "【Go】structにデフォルトの値を設定したい - /dev/null")
 
+#### タグ
+
+構造体の定義内でメンバ変数に任意の文字列でタグを付けることができる。
+
+Examples:
+
+```go
+struct {
+    microsec  uint64 `protobuf:"1"`
+    serverIP6 uint64 `protobuf:"2"`
+}
+
+type Server struct {
+    Host      string `json:"host" toml:"host"`
+    IPAddress string `json:"ip_address" toml:"ip_address"`
+    Port      int    `json:"port" toml:"port"`
+    Note      string `json:"note" toml:"note"`
+}
+```
+
+Tips:
+
+- ホワイトスペースで区切って複数設定できる
+- reflectで参照できるが、ライブラリから使われることが多い
+  - バリデータ、（デ）シリアライザなど
+
+参考:
+
+- [Goの構造体にメタ情報を付与するタグの基本 - Qiita](https://qiita.com/itkr/items/9b4e8d8c6d574137443c)
+- [Struct タグについて — プログラミング言語 Go | text.Baldanders.info](https://text.baldanders.info/golang/struct-tag/)
+
 ### インタフェース
 
 https://golang.org/ref/spec#Interface_types
