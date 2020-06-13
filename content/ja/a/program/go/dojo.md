@@ -19,6 +19,10 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 - [pkg (stdlib) > strconv]({{<ref "std-pkg/_index.md">}}#strconv)
 - [pkg (stdlib) > strings]({{<ref "std-pkg/_index.md">}}#strings)
 
+参考:
+
+- [Goの文字列結合のパフォーマンス - Qiita](https://qiita.com/ono_matope/items/d5e70d8a9ff2b54d5c37)
+
 ### string -> 数値変換
 
 ```go
@@ -180,6 +184,12 @@ See [テスト]({{<ref "test.md">}})
 参考:
 
 - [逆引きGolang (ファイル)](https://ashitani.jp/golangtips/tips_file.html)
+
+### ディレクトリ操作
+
+参考:
+
+- [逆引きGolang (ディレクトリ)](https://ashitani.jp/golangtips/tips_dir.html)
 
 ### 実行可能ファイルを判定
 

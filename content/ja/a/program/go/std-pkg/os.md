@@ -45,6 +45,19 @@ err := os.Remove(path)
 ```
 
 ## Reference
+### Constants
+
+https://golang.org/pkg/os/#pkg-constants
+
+Examples:
+
+```go
+const (
+  PathSeparator     = '/' // OS-specific path separator
+  PathListSeparator = ':' // OS-specific path list separator
+)
+```
+
 ### Variables
 
 https://golang.org/pkg/os/#pkg-variables

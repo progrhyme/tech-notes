@@ -179,6 +179,28 @@ s := a[:] // aを参照するスライス
 - [Go言語のArrayとSliceについて - done is better than perfect](http://dibtp.hateblo.jp/entry/2014/07/06/190804 "Go言語のArrayとSliceについて - done is better than perfect")
 - [Goでsliceに要素追加, slice同士の結合 - Qiita](https://qiita.com/hash/items/eb7d780c57fe245a9ae7 "Goでsliceに要素追加, slice同士の結合 - Qiita")
 
+#### 多次元配列・スライス
+
+Examples:
+
+```go
+// 二次元スライスを作成
+matrix := [][]float64{{0, 0}, {0, 1}, {1, 0}, {1, 1}}
+
+// 上と等価
+matrix := make([][]float64, 4)
+matrix[0] = []float64{0, 0}
+matrix[1] = []float64{0, 1}
+matrix[2] = []float64{1, 0}
+matrix[3] = []float64{1, 1}
+
+fmt.Println(matrix) //=> [[0 0] [0 1] [1 0] [1 1]]
+```
+
+参考:
+
+- [Goで二次元配列の初期化を一行で行う - Qiita](https://qiita.com/r9y9/items/362b4029b05cbca2cc70)
+
 ### map
 
 初期値はnilで、データを入れようとするとパニックが起こるので、事前に割当てが必要。

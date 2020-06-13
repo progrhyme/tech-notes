@@ -437,6 +437,19 @@ strings.HasPrefix("Gopher", "C")  //=> false
 strings.HasPrefix("Gopher", "")   //=> true
 ```
 
+### func TrimSuffix
+
+https://pkg.go.dev/strings?tab=doc#TrimSuffix
+
+```go
+func TrimSuffix(s, suffix string) string
+```
+
+拡張子とか除くときに便利。  
+マッチしなければそのまま返してくれるので使いやすい。
+
+TrimRightという似たような関数もある。
+
 ### type Builder
 
 io.Writerを実装した文字列を効率よく作る型。  

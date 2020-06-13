@@ -149,7 +149,12 @@ and installed commands (in GOPATH/bin, unless GOBIN is set).
 https://golang.org/cmd/go/#hdr-Test_packages
 
 ```sh
+# Syntax
 go test [build/test flags] [packages] [build/test flags & test binary flags]
+
+# 正規表現にマッチする一部のテストのみ実施
+## Fooを含むテスト関数名にマッチ
+go test -v ./... -run Foo
 ```
 
 関連項目:

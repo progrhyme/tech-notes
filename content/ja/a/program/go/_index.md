@@ -46,6 +46,7 @@ https://learn.go.dev/ に教材がたくさん転がっている。
 
 ### 記事
 
+- 2020年 [他言語プログラマがgolangの基本を押さえる為のまとめ - Qiita](https://qiita.com/tfrcm/items/e2a3d7ce7ab8868e37f7)
 - 2016年 [6年間におけるGoのベストプラクティス | プログラミング | POSTD](http://postd.cc/go-best-practices-2016/ "6年間におけるGoのベストプラクティス | プログラミング | POSTD")
 
 ## Programming Tips
