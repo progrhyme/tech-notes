@@ -1613,6 +1613,33 @@ continue for import return var
 &lt;li>&lt;a href="http://qiita.com/cotrpepe/items/b8e7f70f27813a846431" title="[Go] 構造体の初期化方法まとめ - Qiita">[Go] 構造体の初期化方法まとめ - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://gitpub.hatenablog.com/entry/2015/01/24/213223" title="【Go】structにデフォルトの値を設定したい - /dev/null">【Go】structにデフォルトの値を設定したい - /dev/null&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="タグ">タグ&lt;/h4>
+&lt;p>構造体の定義内でメンバ変数に任意の文字列でタグを付けることができる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">microsec&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#4e9a06">`protobuf:&amp;#34;1&amp;#34;`&lt;/span>
+&lt;span style="color:#000">serverIP6&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#4e9a06">`protobuf:&amp;#34;2&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Server&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">Host&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;host&amp;#34; toml:&amp;#34;host&amp;#34;`&lt;/span>
+&lt;span style="color:#000">IPAddress&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;ip_address&amp;#34; toml:&amp;#34;ip_address&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Port&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;port&amp;#34; toml:&amp;#34;port&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Note&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;note&amp;#34; toml:&amp;#34;note&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>ホワイトスペースで区切って複数設定できる&lt;/li>
+&lt;li>reflectで参照できるが、ライブラリから使われることが多い
+&lt;ul>
+&lt;li>バリデータ、（デ）シリアライザなど&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/itkr/items/9b4e8d8c6d574137443c">Goの構造体にメタ情報を付与するタグの基本 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://text.baldanders.info/golang/struct-tag/">Struct タグについて — プログラミング言語 Go | text.Baldanders.info&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="インタフェース">インタフェース&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Interface_types">https://golang.org/ref/spec#Interface_types&lt;/a>&lt;/p>
 &lt;p>インタフェース型はinterfaceと呼ばれるメソッドの組を持つ。&lt;br>
@@ -2461,6 +2488,17 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;li>&lt;a href="http://hakobe932.hatenablog.com/entry/2014/04/10/010619" title="golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨">golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a> &amp;hellip; pprof, net/http/pprof&lt;/li>
 &lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
 &lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="構造化データファイルの取り扱い">構造化データファイルの取り扱い&lt;/h2>
+&lt;p>YAML, JSON, TOMLなど。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#go-yamlyaml">pkg (3rd) &amp;gt; go-yaml/yaml&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.kaoriya.net/blog/2016/06/25/">golang は ゆるふわに JSON を扱えまぁす! — KaoriYa&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: BIOS</title><link>https://progrhy.me/tech-notes/a/firmware/bios/</link><pubDate>Mon, 04 May 2020 08:43:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/bios/</guid><description>
 &lt;p>&lt;a href="http://e-words.jp/w/BIOS.html">BIOS（Basic Input/Output System）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
 &lt;blockquote>

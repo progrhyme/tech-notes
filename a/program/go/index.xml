@@ -323,6 +323,33 @@ continue for import return var
 &lt;li>&lt;a href="http://qiita.com/cotrpepe/items/b8e7f70f27813a846431" title="[Go] 構造体の初期化方法まとめ - Qiita">[Go] 構造体の初期化方法まとめ - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://gitpub.hatenablog.com/entry/2015/01/24/213223" title="【Go】structにデフォルトの値を設定したい - /dev/null">【Go】structにデフォルトの値を設定したい - /dev/null&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="タグ">タグ&lt;/h4>
+&lt;p>構造体の定義内でメンバ変数に任意の文字列でタグを付けることができる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">microsec&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#4e9a06">`protobuf:&amp;#34;1&amp;#34;`&lt;/span>
+&lt;span style="color:#000">serverIP6&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#4e9a06">`protobuf:&amp;#34;2&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Server&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">Host&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;host&amp;#34; toml:&amp;#34;host&amp;#34;`&lt;/span>
+&lt;span style="color:#000">IPAddress&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;ip_address&amp;#34; toml:&amp;#34;ip_address&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Port&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;port&amp;#34; toml:&amp;#34;port&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Note&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;note&amp;#34; toml:&amp;#34;note&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>ホワイトスペースで区切って複数設定できる&lt;/li>
+&lt;li>reflectで参照できるが、ライブラリから使われることが多い
+&lt;ul>
+&lt;li>バリデータ、（デ）シリアライザなど&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/itkr/items/9b4e8d8c6d574137443c">Goの構造体にメタ情報を付与するタグの基本 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://text.baldanders.info/golang/struct-tag/">Struct タグについて — プログラミング言語 Go | text.Baldanders.info&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="インタフェース">インタフェース&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Interface_types">https://golang.org/ref/spec#Interface_types&lt;/a>&lt;/p>
 &lt;p>インタフェース型はinterfaceと呼ばれるメソッドの組を持つ。&lt;br>
@@ -1123,6 +1150,17 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;li>&lt;a href="http://hakobe932.hatenablog.com/entry/2014/04/10/010619" title="golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨">golangで書かれたプログラムのメモリ使用状況を見る - hakobe-blog ♨&lt;/a> &amp;hellip; pprof, net/http/pprof&lt;/li>
 &lt;li>&lt;a href="https://www.slideshare.net/yuichironakazawa2/golang-profiling-77163552" title="golang profiling の基礎">golang profiling の基礎&lt;/a> &amp;hellip; pprof他&lt;/li>
 &lt;li>&lt;a href="http://qiita.com/oywc410/items/ad8baee00f039705a5c0" title="golangパフォーマンス3: mapとGC - Qiita">golangパフォーマンス3: mapとGC - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="構造化データファイルの取り扱い">構造化データファイルの取り扱い&lt;/h2>
+&lt;p>YAML, JSON, TOMLなど。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#go-yamlyaml">pkg (3rd) &amp;gt; go-yaml/yaml&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.kaoriya.net/blog/2016/06/25/">golang は ゆるふわに JSON を扱えまぁす! — KaoriYa&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 標準パッケージ</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/</link><pubDate>Sun, 31 May 2020 16:18:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/</guid><description>
 &lt;h2 id="bufio">bufio&lt;/h2>
 &lt;p>バッファリング付きI/Oを提供する。&lt;/p>
@@ -1735,6 +1773,45 @@ Josie
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">w&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Worktree&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Pull&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">o&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">PullOptions&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>ワーキングツリー上で &lt;code>git pull&lt;/code> 相当の操作を実行。&lt;br>
 変更がなければ &lt;code>NoErrAlreadyUpToDate&lt;/code> を返す。&lt;/p>
+&lt;h2 id="goccygo-yaml">goccy/go-yaml&lt;/h2>
+&lt;p>&lt;a href="https://github.com/goccy/go-yaml">https://github.com/goccy/go-yaml&lt;/a>&lt;/p>
+&lt;p>Yet AnotherなYAMLライブラリ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>作者のエントリ: &lt;a href="https://qiita.com/goccy/items/86abe72b472993b5516a">GoでYAMLを扱うすべての人を幸せにするべく、ライブラリをスクラッチから書いた話 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="go-yamlyaml">go-yaml/yaml&lt;/h2>
+&lt;p>&lt;a href="https://pkg.go.dev/gopkg.in/yaml.v2">https://pkg.go.dev/gopkg.in/yaml.v2&lt;/a>&lt;/p>
+&lt;p>GoにおけるYAMLライブラリのデファクト。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.hateblo.jp/entry/2018/11/08/183555">Go言語(golang) YAMLの使い方 - golangの日記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-unmarshal">func Unmarshal&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Unmarshal">https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Unmarshal&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Unmarshal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">in&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">out&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>YAMLをデコードしてstructかmapに読み込む。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// structに読み込む
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">T&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">F&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`yaml:&amp;#34;a,omitempty&amp;#34;`&lt;/span>
+&lt;span style="color:#000">B&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">t&lt;/span> &lt;span style="color:#000">T&lt;/span>
+&lt;span style="color:#000">yaml&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Unmarshal&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a: 1\nb: 2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">t&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// mapに読み込む
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">m&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#000">data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`
+&lt;/span>&lt;span style="color:#4e9a06">name: Tanaka
+&lt;/span>&lt;span style="color:#4e9a06">age: 30
+&lt;/span>&lt;span style="color:#4e9a06">`&lt;/span>
+&lt;span style="color:#000">yaml&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Unmarshal&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">data&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; map[name:Tanaka age:30]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/yamasaki-masahide/items/d6e406c4c11d5870a1c6">go で yaml 等を「map[interface{}]interface{}」型で読み込んだ際の動的型の参照方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/tutorials/blob/master/golang/yaml/decode.go">https://github.com/progrhyme/tutorials/blob/master/golang/yaml/decode.go&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="jinzhuconfigor">jinzhu/configor&lt;/h2>
 &lt;p>&lt;a href="https://github.com/jinzhu/configor">https://github.com/jinzhu/configor&lt;/a>&lt;/p>
 &lt;p>YAML, JSON, TOML, 環境変数に対応した設定ツール。&lt;/p>

@@ -562,6 +562,11 @@ ps -efL
 &lt;p>シェルとは、コンピュータのOSを構成するソフトウェアの一つで、利用者からの操作の受け付けや、利用者への情報の提示などを担当するもの&lt;/p>
 &lt;/blockquote>
 &lt;p>shやbashはシェルソフトウェア（シェルプログラムともいう）の例。&lt;/p>
+&lt;h2 id="awesome-shell">awesome-shell&lt;/h2>
+&lt;p>&lt;a href="https://github.com/alebcay/awesome-shell">https://github.com/alebcay/awesome-shell&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>A curated list of awesome command-line frameworks, toolkits, guides and gizmos.&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="ansiエスケープシーケンス">ANSIエスケープシーケンス&lt;/h2>
 &lt;p>ターミナルの出力文字に色や装飾を付けたりできる。&lt;/p>
 &lt;p>Examples:&lt;/p>
