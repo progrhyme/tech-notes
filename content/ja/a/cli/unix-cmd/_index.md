@@ -196,7 +196,7 @@ umask 022
 
 関連項目:
 
-- [OS > Linux#umask]({{<ref "/a/os/linux.md">}}#umask)
+- [OS > Linux#umask]({{<ref "/a/os/linux/_index.md">}}#umask)
 
 参考:
 
@@ -491,7 +491,7 @@ NOTE:
 
 See Also:
 
-- [OS > Linux#Signal]({{<ref "/a/os/linux.md">}}#signal)
+- [OS > Linux#Signal]({{<ref "/a/os/linux/_index.md">}}#signal)
 
 参考:
 
@@ -564,7 +564,7 @@ NOTE:
 
 See Also:
 
-- [OS > Linux#Signal]({{<ref "/a/os/linux.md">}}#signal)
+- [OS > Linux#Signal]({{<ref "/a/os/linux/_index.md">}}#signal)
 
 参考:
 
