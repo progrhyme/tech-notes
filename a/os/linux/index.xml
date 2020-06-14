@@ -1,0 +1,78 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Linux</title><link>https://progrhy.me/tech-notes/a/os/linux/</link><description>Recent content in Linux on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Thu, 21 May 2020 21:32:53 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/os/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Ubuntu</title><link>https://progrhy.me/tech-notes/a/os/linux/ubuntu/</link><pubDate>Mon, 15 Jun 2020 00:43:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/linux/ubuntu/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;ul>
+&lt;li>日本語サイト &lt;a href="https://www.ubuntulinux.jp/">https://www.ubuntulinux.jp/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="パッケージ">パッケージ&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://packages.ubuntu.com/ja/">Ubuntu – Ubuntu パッケージ検索&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/pkg-man/snap/">Software &amp;gt; パッケージ管理 &amp;gt; Snap&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="firewall">Firewall&lt;/h2>
+&lt;p>Ubuntu 18.04だとufwが標準で入っている。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 状態表示&lt;/span>
+sudo ufw status
+&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
+sudo ufw &lt;span style="color:#204a87">enable&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://server.tottio.net/archives/296">Ubuntu 18.04でUbuntuファイアウォール（UFW）を設定する | tottio&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
+&lt;h3 id="apparmor">AppArmor&lt;/h3>
+&lt;p>いつからかUbuntuに標準で組み込まれたSELinux的なやつ。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 現在の状態を表示&lt;/span>
+aa-enabled
+apparmor_status
+&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
+/etc/init.d/apparmor start
+&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
+/etc/init.d/apparmor stop
+/etc/init.d/apparmor teardown
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.archlinux.jp/index.php/AppArmor">AppArmor - ArchWiki&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://support.plesk.com/hc/ja/articles/213909965--%E6%89%8B%E9%A0%86-AppArmor-%E3%82%92%E7%84%A1%E5%8A%B9%E5%8C%96%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">[手順] AppArmor を無効化するには – ヘルプセンター&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="ファイラで隠しファイルを表示">ファイラで隠しファイルを表示&lt;/h3>
+&lt;p>&lt;code>Ctrl-H&lt;/code> を押す。
+これノーヒントだとわからんがな。。ヘルプでも見つからないし。。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://linux.just4fun.biz/?Ubuntu/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%81%A7%E9%9A%A0%E3%81%97%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%BB%E9%9A%A0%E3%81%97%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">Ubuntu/ファイルマネージャで隠しファイル・隠しフォルダを表示する方法 - Linuxと過ごす&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="画面キャプチャのショートカットキー">画面キャプチャのショートカットキー&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>PrintScreen&lt;/code> &amp;hellip; 全画面キャプチャ&lt;/li>
+&lt;li>&lt;code>Shift + PrintScreen&lt;/code> &amp;hellip; 範囲指定キャプチャ&lt;/li>
+&lt;li>&lt;code>Alt + PrintScreen&lt;/code> &amp;hellip; ウィンドウ指定キャプチャ&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/yas-nyan/items/80f2db8c4bdf4c8e87b8">Ubuntuで端末からスクリーンショットを撮る方法まとめ - Qiita&lt;/a>
+&lt;ul>
+&lt;li>コマンドラインで実行する方法も載ってる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="歴史">歴史&lt;/h2>
+&lt;h3 id="デスクトップ">デスクトップ&lt;/h3>
+&lt;h4 id="unity">Unity&lt;/h4>
+&lt;p>※Ubuntu 17からUnityが廃止されてGNOMEになった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Unity_(">https://ja.wikipedia.org/wiki/Unity_(&lt;/a>ユーザインタフェース)&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.ubuntulinux.jp/UbuntuTips/Desktop/KeyboardShortcutOnUnity">UbuntuTips/Desktop/KeyboardShortcutOnUnity - Ubuntu Japanese Wiki&lt;/a>
+&lt;ul>
+&lt;li>Unity のショートカット一覧&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

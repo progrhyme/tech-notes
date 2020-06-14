@@ -4024,6 +4024,60 @@ kubectl get -k .
 &lt;ul>
 &lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/04/29/222302">UbuntuにHomebrewを入れてHomebrew Bundleでパッケージ管理することにした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://docs.brew.sh/">https://docs.brew.sh/&lt;/a>&lt;/p>
+&lt;h2 id="contribution">Contribution&lt;/h2>
+&lt;p>ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request">How To Open a Homebrew Pull Request — Homebrew Documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>基本的には、ふつうにGitHubでforkして、featureブランチを作成してPull Requestを送る&lt;/li>
+&lt;li>ローカルでHomebrewを展開したディレクトリが作業ツリーになる。そこで自分のforkしたリポジトリもremoteに追加する&lt;/li>
+&lt;li>ローカルでtestを行ってからPRを送るべし&lt;/li>
+&lt;/ul>
+&lt;h3 id="formulaの作成更新">Formulaの作成・更新&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.brew.sh/Formula-Cookbook">https://docs.brew.sh/Formula-Cookbook&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.brew.sh/Acceptable-Formulae">https://docs.brew.sh/Acceptable-Formulae&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md">Homebrew/homebrew-core/CONTRIBUTING.md&lt;/a>&lt;/li>
+&lt;li>RubyDoc &lt;a href="https://rubydoc.brew.sh/Formula">https://rubydoc.brew.sh/Formula&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>homebrew-coreに取り込まれるには、ある程度ツールのレピュテーションが必要らしい。参考記事参照。GitHubリポジトリの場合、 &lt;code>&amp;lt;20 forks, &amp;lt;20 watchers and &amp;lt;50 stars&lt;/code> だとNGだとか
+&lt;ul>
+&lt;li>そんなときはbrew tapを使う方式にすればいいっぽい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb">https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb&lt;/a> &amp;hellip; 最初に作るときに参考にしたのだが、実は非公式で、しかもだいぶ古い。2020-06-15現在は、公式にはこういう便利な雛形はなさそう（または、まだ私が見つけてない）&lt;/li>
+&lt;li>&lt;a href="https://syossan.hateblo.jp/entry/2018/01/24/192104">自作ツールをHomebrewに登録したい人生だった - 生涯未熟&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">ユーザーがつくまではしばらく brew tap にしておくのがよさそうですね。&lt;/p>&amp;mdash; Kazuhiro Sera (瀬良) (@seratch_ja) &lt;a href="https://twitter.com/seratch_ja/status/1272188680526942208?ref_src=twsrc%5Etfw">June 14, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;h3 id="formulaの書き方">Formulaの書き方&lt;/h3>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>bottle do ... end&lt;/code> ブロックは、botが自動で足してくれるらしい。&lt;/li>
+&lt;/ul>
+&lt;h2 id="tap">Tap&lt;/h2>
+&lt;ul>
+&lt;li>公式ドキュメント: &lt;a href="https://github.com/Homebrew/brew/blob/master/docs/Taps.md">https://github.com/Homebrew/brew/blob/master/docs/Taps.md&lt;/a>&lt;/li>
+&lt;li>非公式和訳: &lt;a href="https://qiita.com/saa/items/85ed5e914d424fbf9fd6">brew tapとは - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>Third-Party Repositoriesのことだそうだ。&lt;/li>
+&lt;li>非公式のツールをbrew管理にできる仕組み。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://songmu.jp/riji/entry/2019-02-22-maltmill.html">Homebrewで自作ツールを簡単にインストール可能にする | おそらくはそれさえも平凡な日々&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200615/#maltmill%E3%82%92%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F">2020-06-15#maltmillを使いたかったが動かなかった&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="homebrew-bundle">Homebrew Bundle&lt;/h2>
 &lt;p>&lt;a href="https://github.com/Homebrew/homebrew-bundle">https://github.com/Homebrew/homebrew-bundle&lt;/a>&lt;/p>
 &lt;p>Rubyのbundlerのように、brewでインストールするパッケージをBrewfileという構成ファイルにまとめる。&lt;/p>
@@ -4969,191 +5023,6 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 &lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>A: Linux</title><link>https://progrhy.me/tech-notes/a/os/linux/</link><pubDate>Thu, 21 May 2020 21:32:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/os/linux/</guid><description>
-&lt;h2 id="about">About&lt;/h2>
-&lt;p>&lt;a href="http://e-words.jp/w/Linux.html">Linux（リナックス）とは - IT用語辞典 e-Words&lt;/a>によれば、「世界で最も普及している、オープンソースのOS」。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.kernel.org/">The Linux Kernel Archives&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.linuxfoundation.org/">The Linux Foundation – Supporting Open Source Ecosystems&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.linux.org/">Linux.org&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="kernel">Kernel&lt;/h2>
-&lt;h3 id="signal">Signal&lt;/h3>
-&lt;p>&lt;a href="http://linuxjm.osdn.jp/html/LDP_man-pages/man7/signal.7.html">Man page of SIGNAL&lt;/a>&lt;/p>
-&lt;p>プロセス間通信の仕組みの1つ。&lt;/p>
-&lt;p>シグナルの一部:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>番号&lt;/th>
-&lt;th>シグナル名&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>1&lt;/td>
-&lt;td>HUP&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>2&lt;/td>
-&lt;td>INT&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>3&lt;/td>
-&lt;td>QUIT&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>9&lt;/td>
-&lt;td>KILL&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>10&lt;/td>
-&lt;td>USR1&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>11&lt;/td>
-&lt;td>SEGV&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>13&lt;/td>
-&lt;td>PIPE&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>14&lt;/td>
-&lt;td>ALRM&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>15&lt;/td>
-&lt;td>TERM&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>17&lt;/td>
-&lt;td>CHLD&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>18&lt;/td>
-&lt;td>CONT&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>シグナルの一覧は &lt;code>kill -l&lt;/code> などのコマンドで確認できる。&lt;/p>
-&lt;p>See Also:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#kill1">UNIX系コマンド#kill(1)&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB_(Unix)">シグナル (Unix) - Wikipedia&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://capm-network.com/?tag=UNIX%E3%82%B7%E3%82%B0%E3%83%8A%E3%83%AB%E4%B8%80%E8%A6%A7">UNIXシグナル一覧 CapmNetwork&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="process">Process&lt;/h3>
-&lt;h4 id="exit-code">Exit Code&lt;/h4>
-&lt;p>予約済みExit Codes:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Code&lt;/th>
-&lt;th>Meaning&lt;/th>
-&lt;th>備考&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>1&lt;/td>
-&lt;td>エラー全般&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>2&lt;/td>
-&lt;td>シェルビルトイン関数の誤用&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>126&lt;/td>
-&lt;td>コマンド実行不可&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>127&lt;/td>
-&lt;td>command not found&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>128&lt;/td>
-&lt;td>exitに不正な引数&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>128+n&lt;/td>
-&lt;td>シグナル n で致命的エラー&lt;/td>
-&lt;td>KILL =&amp;gt; 137, TERM =&amp;gt; 143&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>130&lt;/td>
-&lt;td>Ctrl-C&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>255*&lt;/td>
-&lt;td>範囲外のステータス&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://tldp.org/LDP/abs/html/exitcodes.html" title="Exit Codes With Special Meanings">Exit Codes With Special Meanings&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/Linda_pp/items/1104d2d9a263b60e104b" title="コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita">コマンドラインツールを書くなら知っておきたい Bash の 予約済み Exit Code - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="仕様">仕様&lt;/h2>
-&lt;h3 id="ブートシーケンス">ブートシーケンス&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/taichitk/items/b3b69705be0e270e9f6e">Linuxのブートシーケンス - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ファイルパーミッション">ファイルパーミッション&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/aosho235/items/16434a490f9a05ddb0dc">Linux: SUID、SGID、スティッキービットまとめ - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://eng-entrance.com/category/linux/linux-permission">【コマンド含め一通りわかる】Linuxパーミッションについてのまとめ&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://eng-entrance.com/linux-permission-stickybit">【Linux初心者向け】スティッキービットとは？と設定方法&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://eng-entrance.com/linux-permission-suid">【初心者でもすぐわかる】SUIDとは？と設定方法&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://eng-entrance.com/linux-permission-sgid">【Linuxパーミッション】SGIDとは？と設定方法&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h4 id="umask">umask&lt;/h4>
-&lt;p>ファイル、ディレクトリ作成時のパーミッションは、umask値によって異なる。&lt;/p>
-&lt;p>基本値:&lt;/p>
-&lt;ul>
-&lt;li>ファイル: &lt;code>666&lt;/code>&lt;/li>
-&lt;li>ディレクトリ: &lt;code>777&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>「（基本値） - （umask値）」がデフォルトのパーミッションとなる。&lt;/p>
-&lt;p>例:&lt;/p>
-&lt;ul>
-&lt;li>umask = &lt;code>022&lt;/code> のとき
-&lt;ul>
-&lt;li>ディレクトリ作成 =&amp;gt; パーミッションは &lt;code>755&lt;/code>&lt;/li>
-&lt;li>ファイル作成 =&amp;gt; パーミッションは &lt;code>644&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/unix-cmd/#umask">UNIX系コマンド#umask&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/yuki2006/items/3774bf765eb5ef7deabc">Linuxのファイル・ディレクトリ作成した時のパーミッション (umask) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
-&lt;h3 id="selinux">SELinux&lt;/h3>
-&lt;p>RHEL系の機能かな（？）&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/hanaita0102/items/5d3675e4dc1530b255ba" title="SELinuxの無効化 - Qiita">SELinuxの無効化 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-working_with_selinux-enabling_and_disabling_selinux" title="5.4. SELinux の有効化および無効化 - Red Hat Customer Portal">5.4. SELinux の有効化および無効化 - Red Hat Customer Portal&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: mdBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/mdbook/</link><pubDate>Wed, 06 May 2020 13:52:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/mdbook/</guid><description>
 &lt;p>Rust製のGitBookみたいなもの。&lt;br>
 高速でよさそう。&lt;/p>
@@ -5241,4 +5110,30 @@ man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="
 &lt;li>雑多なこと(マクロや規約を含む)&lt;/li>
 &lt;li>システム管理コマンド(通常はroot用)&lt;/li>
 &lt;li>カーネルルーチン ※非標準&lt;/li>
-&lt;/ol></description></item></channel></rss>
+&lt;/ol></description></item><item><title>A: Markdown</title><link>https://progrhy.me/tech-notes/a/document/markdown/</link><pubDate>Sun, 24 May 2020 17:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/document/markdown/</guid><description>
+&lt;h2 id="commonmark">CommonMark&lt;/h2>
+&lt;p>&lt;a href="https://commonmark.org/">https://commonmark.org/&lt;/a>&lt;/p>
+&lt;p>Markdownの原典というべき仕様だが、表現力が乏しかったので亜種がたくさん生まれた。&lt;/p>
+&lt;h2 id="markdownの亜種">Markdownの亜種&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.github.com/gfm/">GitHub Flavored Markdown&lt;/a>
+&lt;ul>
+&lt;li>おそらく最も普及している亜種。GitHubでサポートされている。他の亜種もこの仕様を参考にしているものが多そう。デファクトといってもいいかも&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="バックティックのエスケープ">バックティック「`」のエスケープ&lt;/h3>
+&lt;p>字の文で「`」を表示するには、 &lt;code>\`&lt;/code> のようにエスケープすればいい。&lt;/p>
+&lt;p>「`」で囲んだコード内で「`」を入力するにはどうすればよいか？&lt;br>
+このケースでは、エスケープはしなくていい。&lt;/p>
+&lt;p>下のように「``」で囲み、ホワイトスペースを挟んで記述すると、 &lt;code>`&lt;/code> と表示される。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Markdown" data-lang="Markdown">`` &lt;span style="color:#4e9a06">` `&lt;/span>`
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>MEMO:&lt;/p>
+&lt;ul>
+&lt;li>2020-05-24 やり方がわからなくてググっていたら下の参考記事を見つけた。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://yu8mada.com/2018/06/15/how-to-escape-a-backtick-or-a-backslash-inside-inline-code-in-markdown/">Markdown のインラインコードでバックティックやバックスラッシュをエスケープする方法 - yu8mada&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

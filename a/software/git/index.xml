@@ -88,9 +88,32 @@ git diff --name-only
 &lt;li>&lt;a href="http://inaz2.hatenablog.com/entry/2014/07/03/003551">colordiffを使わずにdiffをカラー表示する - ももいろテクノロジー&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="fetch">fetch&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-fetch">https://git-scm.com/docs/git-fetch&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git fetch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
 git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="for-each-ref">for-each-ref&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-f, --force&lt;/code>&lt;/td>
+&lt;td>ローカルブランチやタグの更新が拒否されるのを防ぐ&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>--tags&lt;/code>&lt;/td>
+&lt;td>リモートのタグを取得&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/58031165/how-to-get-rid-of-would-clobber-existing-tag">git - How to get rid of &amp;quot;would clobber existing tag&amp;quot; - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="for-each-ref">for-each-ref&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-for-each-ref">https://git-scm.com/docs/git-for-each-ref&lt;/a>&lt;/p>
 &lt;p>local branch, remote branchのHEAD, tagの情報を表示。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># A simple example showing the use of shell eval on the output, demonstrating the use of --shell.&lt;/span>

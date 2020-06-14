@@ -86,6 +86,60 @@ dpkg -i foo.deb
 &lt;ul>
 &lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/04/29/222302">UbuntuにHomebrewを入れてHomebrew Bundleでパッケージ管理することにした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://docs.brew.sh/">https://docs.brew.sh/&lt;/a>&lt;/p>
+&lt;h2 id="contribution">Contribution&lt;/h2>
+&lt;p>ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request">How To Open a Homebrew Pull Request — Homebrew Documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>基本的には、ふつうにGitHubでforkして、featureブランチを作成してPull Requestを送る&lt;/li>
+&lt;li>ローカルでHomebrewを展開したディレクトリが作業ツリーになる。そこで自分のforkしたリポジトリもremoteに追加する&lt;/li>
+&lt;li>ローカルでtestを行ってからPRを送るべし&lt;/li>
+&lt;/ul>
+&lt;h3 id="formulaの作成更新">Formulaの作成・更新&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.brew.sh/Formula-Cookbook">https://docs.brew.sh/Formula-Cookbook&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.brew.sh/Acceptable-Formulae">https://docs.brew.sh/Acceptable-Formulae&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md">Homebrew/homebrew-core/CONTRIBUTING.md&lt;/a>&lt;/li>
+&lt;li>RubyDoc &lt;a href="https://rubydoc.brew.sh/Formula">https://rubydoc.brew.sh/Formula&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>homebrew-coreに取り込まれるには、ある程度ツールのレピュテーションが必要らしい。参考記事参照。GitHubリポジトリの場合、 &lt;code>&amp;lt;20 forks, &amp;lt;20 watchers and &amp;lt;50 stars&lt;/code> だとNGだとか
+&lt;ul>
+&lt;li>そんなときはbrew tapを使う方式にすればいいっぽい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb">https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb&lt;/a> &amp;hellip; 最初に作るときに参考にしたのだが、実は非公式で、しかもだいぶ古い。2020-06-15現在は、公式にはこういう便利な雛形はなさそう（または、まだ私が見つけてない）&lt;/li>
+&lt;li>&lt;a href="https://syossan.hateblo.jp/entry/2018/01/24/192104">自作ツールをHomebrewに登録したい人生だった - 生涯未熟&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">ユーザーがつくまではしばらく brew tap にしておくのがよさそうですね。&lt;/p>&amp;mdash; Kazuhiro Sera (瀬良) (@seratch_ja) &lt;a href="https://twitter.com/seratch_ja/status/1272188680526942208?ref_src=twsrc%5Etfw">June 14, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;h3 id="formulaの書き方">Formulaの書き方&lt;/h3>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>bottle do ... end&lt;/code> ブロックは、botが自動で足してくれるらしい。&lt;/li>
+&lt;/ul>
+&lt;h2 id="tap">Tap&lt;/h2>
+&lt;ul>
+&lt;li>公式ドキュメント: &lt;a href="https://github.com/Homebrew/brew/blob/master/docs/Taps.md">https://github.com/Homebrew/brew/blob/master/docs/Taps.md&lt;/a>&lt;/li>
+&lt;li>非公式和訳: &lt;a href="https://qiita.com/saa/items/85ed5e914d424fbf9fd6">brew tapとは - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>Third-Party Repositoriesのことだそうだ。&lt;/li>
+&lt;li>非公式のツールをbrew管理にできる仕組み。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://songmu.jp/riji/entry/2019-02-22-maltmill.html">Homebrewで自作ツールを簡単にインストール可能にする | おそらくはそれさえも平凡な日々&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200615/#maltmill%E3%82%92%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F">2020-06-15#maltmillを使いたかったが動かなかった&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="homebrew-bundle">Homebrew Bundle&lt;/h2>
 &lt;p>&lt;a href="https://github.com/Homebrew/homebrew-bundle">https://github.com/Homebrew/homebrew-bundle&lt;/a>&lt;/p>
 &lt;p>Rubyのbundlerのように、brewでインストールするパッケージをBrewfileという構成ファイルにまとめる。&lt;/p>
