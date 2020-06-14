@@ -30,6 +30,62 @@ https://docs.brew.sh/Homebrew-on-Linux
 
 - [UbuntuにHomebrewを入れてHomebrew Bundleでパッケージ管理することにした - progrhyme's tech blog](https://tech-progrhyme.hatenablog.com/entry/2020/04/29/222302)
 
+## Documentation
+
+https://docs.brew.sh/
+
+## Contribution
+
+ガイド:
+
+- [How To Open a Homebrew Pull Request — Homebrew Documentation](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request)
+
+メモ:
+
+- 基本的には、ふつうにGitHubでforkして、featureブランチを作成してPull Requestを送る
+- ローカルでHomebrewを展開したディレクトリが作業ツリーになる。そこで自分のforkしたリポジトリもremoteに追加する
+- ローカルでtestを行ってからPRを送るべし
+
+### Formulaの作成・更新
+
+- https://docs.brew.sh/Formula-Cookbook
+- https://docs.brew.sh/Acceptable-Formulae
+- [Homebrew/homebrew-core/CONTRIBUTING.md](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md)
+- RubyDoc https://rubydoc.brew.sh/Formula
+
+NOTE:
+
+- homebrew-coreに取り込まれるには、ある程度ツールのレピュテーションが必要らしい。参考記事参照。GitHubリポジトリの場合、 `<20 forks, <20 watchers and <50 stars` だとNGだとか
+  - そんなときはbrew tapを使う方式にすればいいっぽい
+
+参考:
+
+- https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb ... 最初に作るときに参考にしたのだが、実は非公式で、しかもだいぶ古い。2020-06-15現在は、公式にはこういう便利な雛形はなさそう（または、まだ私が見つけてない）
+- [自作ツールをHomebrewに登録したい人生だった - 生涯未熟](https://syossan.hateblo.jp/entry/2018/01/24/192104)
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ユーザーがつくまではしばらく brew tap にしておくのがよさそうですね。</p>&mdash; Kazuhiro Sera (瀬良) (@seratch_ja) <a href="https://twitter.com/seratch_ja/status/1272188680526942208?ref_src=twsrc%5Etfw">June 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### Formulaの書き方
+
+NOTE:
+
+- `bottle do ... end` ブロックは、botが自動で足してくれるらしい。
+
+## Tap
+
+- 公式ドキュメント: https://github.com/Homebrew/brew/blob/master/docs/Taps.md
+- 非公式和訳: [brew tapとは - Qiita](https://qiita.com/saa/items/85ed5e914d424fbf9fd6)
+
+メモ:
+
+- Third-Party Repositoriesのことだそうだ。
+- 非公式のツールをbrew管理にできる仕組み。
+
+参考:
+
+- [Homebrewで自作ツールを簡単にインストール可能にする | おそらくはそれさえも平凡な日々](https://songmu.jp/riji/entry/2019-02-22-maltmill.html)
+- [2020-06-15#maltmillを使いたかったが動かなかった]({{<ref "20200615.md">}}#maltmillを使いたかったが動かなかった)
+
 ## Homebrew Bundle
 
 https://github.com/Homebrew/homebrew-bundle
