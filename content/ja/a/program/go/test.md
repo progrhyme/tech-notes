@@ -105,7 +105,7 @@ NOTE:
 
 ### I/Oを伴うテスト
 
-bytes.Bufferや[strings.Builder]({{<ref "std-pkg/_index.md">}}#type-builder)を使うといい。
+bytes.Bufferや[strings.Builder]({{<ref "std-pkg/strings.md">}}#type-builder)を使うといい。
 
 参考:
 

@@ -17,7 +17,7 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 - [pkg (stdlib) > fmt]({{<ref "std-pkg/fmt.md">}})
 - [pkg (stdlib) > strconv]({{<ref "std-pkg/_index.md">}}#strconv)
-- [pkg (stdlib) > strings]({{<ref "std-pkg/_index.md">}}#strings)
+- [pkg (stdlib) > strings]({{<ref "std-pkg/strings.md">}})
 
 参考:
 
@@ -132,6 +132,7 @@ if terminal.IsTerminal(0) {
 - [Defer, Panic, and Recover - The Go Blog](https://blog.golang.org/defer-panic-and-recover)
 - [panicはともかくrecoverに使いどころはほとんどない - Qiita](https://qiita.com/ruiu/items/ff98ded599d97cf6646e)
 - [golangでrecoverしたときの戻り値 - PartyIX](https://h3poteto.hatenablog.com/entry/2015/12/13/010000)
+- [Golangでエラー時にスタックトレースを表示する - Qiita](https://qiita.com/deeeet/items/dacc71932393ab35d9f8)
 
 ## テスト
 
@@ -179,7 +180,7 @@ See [テスト]({{<ref "test.md">}})
 
 - [pkg (stdlib) > os]({{<ref "std-pkg/os.md">}})
 - [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
-- [pkg (stdlib) > path/filepath]({{<ref "std-pkg/_index.md">}}#pathfilepath)
+- [pkg (stdlib) > path/filepath]({{<ref "std-pkg/path-filepath.md">}})
 
 参考:
 
@@ -406,7 +407,7 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 
 関連項目:
 
-- [pkg (stdlib) > regexp]({{<ref "std-pkg/_index.md">}}#regexp)
+- [pkg (stdlib) > regexp]({{<ref "std-pkg/regexp.md">}})
 
 参考:
 
