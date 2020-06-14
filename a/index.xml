@@ -1284,12 +1284,38 @@ go &lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#ce5c00;f
 &lt;ul>
 &lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/08/10/170730#f-b5157852">Go 1.13 に向けて知っておきたい Go Modules とそれを取り巻くエコシステム - blog.syfm&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="build">build&lt;/h2>
+&lt;h2 id="build-flags">build flags&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies">https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies&lt;/a>&lt;/p>
+&lt;p>buildのためのオプションだが、 &lt;code>build&lt;/code>, &lt;code>clean&lt;/code>, &lt;code>get&lt;/code>, &lt;code>install&lt;/code>, &lt;code>list&lt;/code>, &lt;code>run&lt;/code>, &lt;code>test&lt;/code> コマンドで共有される。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>フラグ&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-v&lt;/td>
+&lt;td>コンパイル時にパッケージ名を表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x&lt;/td>
+&lt;td>コマンドを表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-tags tag1,tag2,...&lt;/code>&lt;/td>
+&lt;td>build tags. See &lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#gobuild">pkg (stdlib) &amp;gt; go/build&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="コマンド">コマンド&lt;/h2>
+&lt;h3 id="build">build&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies">https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">go build
 go build -o path/to/out
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="get">get&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="get">get&lt;/h3>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">go get &amp;lt;package&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic"># ログメッセージを表示&lt;/span>
@@ -1322,11 +1348,11 @@ Get resolves and adds dependencies to the current development module
 and &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> builds and installs them.
 :
 （以下略）
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gopath-get">gopath-get&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="gopath-get">gopath-get&lt;/h4>
 &lt;p>GOPATHの下にパッケージをダウンロードし、インストールする。&lt;br>
 パッケージのソースは &lt;code>GOPATH/src/&amp;lt;import-path&amp;gt;&lt;/code> に展開される。&lt;/p>
 &lt;p>常に最新版が取得され、複数バージョンを混在させられないという問題があった。&lt;/p>
-&lt;h3 id="module-get">module-get&lt;/h3>
+&lt;h4 id="module-get">module-get&lt;/h4>
 &lt;p>（go.modに記された）現在開発中のモジュールに対し依存モジュールを解決して、ビルドとインストールを行う。&lt;/p>
 &lt;p>Spec:&lt;/p>
 &lt;ul>
@@ -1342,7 +1368,7 @@ during a build, but it still stores downloaded dependencies (in GOPATH/pkg/mod)
 and installed commands (in GOPATH/bin, unless GOBIN is set).&lt;/p>
 &lt;/blockquote>
 &lt;p>とのこと。&lt;/p>
-&lt;h2 id="test">test&lt;/h2>
+&lt;h3 id="test">test&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/cmd/go/#hdr-Test_packages">https://golang.org/cmd/go/#hdr-Test_packages&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Syntax&lt;/span>
 go &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>build/test flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>packages&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>build/test flags &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span> &lt;span style="color:#204a87">test&lt;/span> binary flags&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -2136,7 +2162,7 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#strconv">pkg (stdlib) &amp;gt; strconv&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#strings">pkg (stdlib) &amp;gt; strings&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/">pkg (stdlib) &amp;gt; strings&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -2228,6 +2254,7 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;li>&lt;a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover - The Go Blog&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/ruiu/items/ff98ded599d97cf6646e">panicはともかくrecoverに使いどころはほとんどない - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://h3poteto.hatenablog.com/entry/2015/12/13/010000">golangでrecoverしたときの戻り値 - PartyIX&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/deeeet/items/dacc71932393ab35d9f8">Golangでエラー時にスタックトレースを表示する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">テスト&lt;/a>&lt;/p>
@@ -2269,7 +2296,7 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">pkg (stdlib) &amp;gt; os&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#pathfilepath">pkg (stdlib) &amp;gt; path/filepath&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/path-filepath/">pkg (stdlib) &amp;gt; path/filepath&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -2445,7 +2472,7 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>Webサーバなどで使うときは、パフォーマンスに気をつける必要がありそう。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#regexp">pkg (stdlib) &amp;gt; regexp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/regexp/">pkg (stdlib) &amp;gt; regexp&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -2453,8 +2480,13 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;li>&lt;a href="https://medium.com/eureka-engineering/regexp%E3%81%A8%E3%81%AE%E4%BB%98%E3%81%8D%E5%90%88%E3%81%84%E6%96%B9-go%E8%A8%80%E8%AA%9E%E6%A8%99%E6%BA%96%E3%81%AE%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%A8%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0-984b6cbeeb2b">regexpとの付き合い方 〜 Go言語標準の正規表現ライブラリのパフォーマンスとアルゴリズム〜 - Eureka Engineering - Medium&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="デバッグ">デバッグ&lt;/h2>
+&lt;p>キーワード:&lt;/p>
+&lt;ul>
+&lt;li>スタックトレース&lt;/li>
+&lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#runtime">pkg (stdlib) &amp;gt; runtime&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/ecosystem/#%E3%83%87%E3%83%90%E3%83%83%E3%82%AC">エコシステム#デバッガ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="バリデータ">バリデータ&lt;/h2>
@@ -2615,7 +2647,7 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;li>&lt;a href="https://github.com/golang/go/wiki/TableDrivenTests">https://github.com/golang/go/wiki/TableDrivenTests&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="ioを伴うテスト">I/Oを伴うテスト&lt;/h3>
-&lt;p>bytes.Bufferや&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#type-builder">strings.Builder&lt;/a>を使うといい。&lt;/p>
+&lt;p>bytes.Bufferや&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/#type-builder">strings.Builder&lt;/a>を使うといい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yuya_takeyama/items/c4211fa77488cb6915ec">I/O を伴うテストには bytes.Buffer が便利 - Qiita&lt;/a>&lt;/li>
