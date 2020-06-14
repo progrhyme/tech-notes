@@ -416,8 +416,13 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 
 ## デバッグ
 
+キーワード:
+
+- スタックトレース
+
 関連項目:
 
+- [pkg (stdlib) > runtime]({{<ref "std-pkg/_index.md">}}#runtime)
 - [エコシステム#デバッガ]({{<ref "ecosystem/_index.md">}}#デバッガ)
 
 ## バリデータ

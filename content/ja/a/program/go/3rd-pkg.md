@@ -123,6 +123,36 @@ GoにおけるYAMLライブラリのデファクト。
 
 - [Go言語(golang) YAMLの使い方 - golangの日記](https://golang.hateblo.jp/entry/2018/11/08/183555)
 
+### ファイルから読み込む
+
+Example:
+
+```go
+f, err := os.Open("hello.yml")
+if err != nil {
+	log.Fatal(err)
+}
+defer f.Close()
+
+d := yaml.NewDecoder(f)
+
+var m map[string]interface{}
+
+if err := d.Decode(&m); err != nil {
+	log.Fatal(err)
+}
+
+fmt.Printf("%v\n", m) // map[name:Tanaka age:30]
+```
+
+### func NewDecoder
+
+https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#NewDecoder
+
+```go
+func NewDecoder(r io.Reader) *Decoder
+```
+
 ### func Unmarshal
 
 https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Unmarshal
@@ -159,6 +189,16 @@ fmt.Printf("%v\n", m) //=> map[name:Tanaka age:30]
 
 - [go で yaml 等を「map\[interface{}\]interface{}」型で読み込んだ際の動的型の参照方法 - Qiita](https://qiita.com/yamasaki-masahide/items/d6e406c4c11d5870a1c6)
 - https://github.com/progrhyme/tutorials/blob/master/golang/yaml/decode.go
+
+### type Decoder
+
+https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Decoder
+
+#### func Decode
+
+```go
+func (dec *Decoder) Decode(v interface{}) (err error)
+```
 
 ## jinzhu/configor
 

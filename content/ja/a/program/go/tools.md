@@ -16,6 +16,35 @@ See Also:
 
 - [エコシステム]({{<ref "ecosystem/_index.md">}})
 
+## cmd/godoc
+
+https://pkg.go.dev/golang.org/x/tools/cmd/godoc
+
+godoc.org でも使われているWebサーバ。  
+ローカルで起動してGoDocをブラウザで閲覧できる。  
+（そういえば pkg.go.dev の中はどうなってるんだろう）
+
+NOTE:
+
+- `go doc` とは別のツール
+
+参考:
+
+- [チョットできるGoプログラマーになるための詳解GoDoc - Qiita](https://qiita.com/shibukawa/items/8c70fdd1972fad76a5ce)
+
+### Usage
+
+Examples:
+
+```sh
+godoc
+GOROOT=$HOME/go godoc -analysis type
+```
+
+NOTE:
+
+- 2020-06-14現在、 `GOROOT` を指定しないとエラーになった。 `-goroot` オプションでもよさそ
+
 ## cmd/goimports
 
 https://pkg.go.dev/golang.org/x/tools/cmd/goimports

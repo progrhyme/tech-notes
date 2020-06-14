@@ -58,7 +58,20 @@ https://golang.org/cmd/go/#hdr-Module_support
 
 - [Go 1.13 に向けて知っておきたい Go Modules とそれを取り巻くエコシステム - blog.syfm](https://syfm.hatenablog.com/entry/2019/08/10/170730#f-b5157852)
 
-## build
+## build flags
+
+https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies
+
+buildのためのオプションだが、 `build`, `clean`, `get`, `install`, `list`, `run`, `test` コマンドで共有される。
+
+ フラグ | 機能
+--------|------
+ -v | コンパイル時にパッケージ名を表示
+ -x | コマンドを表示
+ `-tags tag1,tag2,...` | build tags. See [pkg (stdlib) > go/build]({{<ref "std-pkg/_index.md">}}#gobuild)
+
+## コマンド
+### build
 
 https://golang.org/cmd/go/#hdr-Compile_packages_and_dependencies
 
@@ -69,7 +82,7 @@ go build
 go build -o path/to/out
 ```
 
-## get
+### get
 
 Examples:
 
@@ -118,14 +131,14 @@ and then builds and installs them.
 （以下略）
 ```
 
-### gopath-get
+#### gopath-get
 
 GOPATHの下にパッケージをダウンロードし、インストールする。  
 パッケージのソースは `GOPATH/src/<import-path>` に展開される。
 
 常に最新版が取得され、複数バージョンを混在させられないという問題があった。
 
-### module-get
+#### module-get
 
 （go.modに記された）現在開発中のモジュールに対し依存モジュールを解決して、ビルドとインストールを行う。  
 
@@ -144,7 +157,7 @@ and installed commands (in GOPATH/bin, unless GOBIN is set).
 
 とのこと。
 
-## test
+### test
 
 https://golang.org/cmd/go/#hdr-Test_packages
 
