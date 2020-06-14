@@ -138,10 +138,20 @@ git diff --name-only
 
 ## fetch
 
+https://git-scm.com/docs/git-fetch
+
 ```bash
+git fetch [Options...]
 ## remote で削除された branch について、local のトラッキングブランチも消す
 git fetch -p|--prune
 ```
+
+ Option | 機能
+--------|------
+ `-f, --force` | ローカルブランチやタグの更新が拒否されるのを防ぐ
+ `--tags` | リモートのタグを取得
+
+- [git - How to get rid of &quot;would clobber existing tag&quot; - Stack Overflow](https://stackoverflow.com/questions/58031165/how-to-get-rid-of-would-clobber-existing-tag)
 
 ## for-each-ref
 

@@ -144,11 +144,38 @@ https://goreleaser.com/ci/actions/
 
 公式のアクションを利用できるので、簡単。
 
-[shelp](https://github.com/progrhyme/shelp)で設定した際は、ほぼサンプルのままで、フックの部分だけ、tag push時のみになるようにした。
+2020-06-14現在、[shelp](https://github.com/progrhyme/shelp)での設定は下の通り。
 
 ```YAML
+name: goreleaser
+
 on:
   push:
     tags:
       - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # fetch git commits
+      - name: Unshallow
+        # Changelogを直前のtagから生成するため
+        run: git fetch --prune --unshallow --tags --force
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.14
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          version: latest
+          args: release --rm-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+NOTE:
+
+- `Unshallow`ステップの `git fetch` のオプションに `--tags --force` を足す必要があった。これについてはドキュメントに修正PRを送った
+  - https://github.com/goreleaser/goreleaser/pull/1608
