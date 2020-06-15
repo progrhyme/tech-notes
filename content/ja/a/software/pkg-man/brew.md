@@ -34,6 +34,24 @@ https://docs.brew.sh/Homebrew-on-Linux
 
 https://docs.brew.sh/
 
+## brewコマンド
+### create
+
+Formulaの雛形を作成する。
+
+```sh
+brew create [Options] URL
+
+# 例
+brew create https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
+## カスタムのTapを指定し、Golang向けの雛形を作る
+brew create --go --tap progrhyme/taps -v https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
+```
+
+ Option | 機能
+--------|------
+ -v, --verbose | 冗長ログを表示
+
 ## Contribution
 
 ガイド:
@@ -67,9 +85,17 @@ NOTE:
 
 ### Formulaの書き方
 
-NOTE:
+Tips:
 
+- `sha256` の値はLinuxだと `sha256sum` コマンドで求められる
+  - または、空欄にしておいて `brew fetch --force` すると正しい値を表示してくれるそうだ
 - `bottle do ... end` ブロックは、botが自動で足してくれるらしい。
+
+### Linuxbrew
+
+https://github.com/Homebrew/linuxbrew-core/blob/master/CONTRIBUTING.md
+
+2020-06-15現在、Linuxbrewは1日に1回はHomebrewをマージしてるから、Formulaの追加や更新はHomebrew側にした方がいいって書いてある。
 
 ## Tap
 
@@ -85,6 +111,67 @@ NOTE:
 
 - [Homebrewで自作ツールを簡単にインストール可能にする | おそらくはそれさえも平凡な日々](https://songmu.jp/riji/entry/2019-02-22-maltmill.html)
 - [2020-06-15#maltmillを使いたかったが動かなかった]({{<ref "20200615.md">}}#maltmillを使いたかったが動かなかった)
+
+## Ruby API
+
+https://rubydoc.brew.sh/
+
+### Formula
+
+https://rubydoc.brew.sh/Formula.html
+
+#### bin.install
+
+https://docs.brew.sh/Formula-Cookbook#bininstall-foo
+
+任意のファイルを `bin/` に移して、実行ビットを立てる（`chmod 0555`）。
+
+Examples:
+
+```Ruby
+def install
+  # fooをインストール
+  bin.install 'foo'
+  # bar.pyをbarにリネームしてインストール
+  bin.install 'bar.py' => 'bar'
+end
+```
+
+#### .on_linux
+
+https://rubydoc.brew.sh/Formula.html#on_linux-class_method
+
+Linuxでのみ実行されるブロックを作る。
+
+```Ruby
+on_linux do
+  depends_on "linux_only_dep"
+end
+```
+
+#### .on_macos
+
+macOSでのみ実行されるブロックを作る。
+
+```Ruby
+on_macos do
+  depends_on "mac_only_dep"
+end
+```
+
+### OS
+
+https://rubydoc.brew.sh/OS.html
+
+Examples:
+
+```Ruby
+if OS.mac?
+  # for macOS installation
+elsif OS.linux?
+  # for Linuxbrew installation
+end
+```
 
 ## Homebrew Bundle
 
