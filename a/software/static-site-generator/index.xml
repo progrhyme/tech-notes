@@ -127,7 +127,7 @@ hugo server -D
 &lt;ul>
 &lt;li>2020-05-31 おそらくこのやり方では設定ファイルで設定した値の削除/無効化はできないと思われる。Docsyで &lt;code>HUGO_PARAMS_GCS_ENGINE_ID=&amp;quot;&amp;quot;&lt;/code> のようにしても、Googleカスタム検索エンジンを無効化できなかった
 &lt;ul>
-&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/memo/20200531/#docsy%E3%81%A7google%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%92%E4%BD%BF%E3%81%86">2020-05-31#DocsyでGoogleカスタム検索エンジンを使う&lt;/a>&lt;/li>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200531/#docsy%E3%81%A7google%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E6%A4%9C%E7%B4%A2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%92%E4%BD%BF%E3%81%86">2020-05-31#DocsyでGoogleカスタム検索エンジンを使う&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>

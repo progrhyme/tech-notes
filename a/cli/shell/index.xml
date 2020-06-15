@@ -690,7 +690,7 @@ zle clear-screen
 &lt;li>&lt;a href="https://github.com/zsh-users/zsh-syntax-highlighting">https://github.com/zsh-users/zsh-syntax-highlighting&lt;/a>
 &lt;ul>
 &lt;li>fish shellのようなシンタックスハイライトを提供してくれる&lt;/li>
-&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/memo/20200522/#ubuntu-1804%E3%81%A7zsh-syntax-highlighting%E3%82%92%E5%85%A5%E3%82%8C%E3%81%9F">2020-05-22#Ubuntu 18.04でzsh-syntax-highlightingを入れた&lt;/a>&lt;/li>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200522/#ubuntu-1804%E3%81%A7zsh-syntax-highlighting%E3%82%92%E5%85%A5%E3%82%8C%E3%81%9F">2020-05-22#Ubuntu 18.04でzsh-syntax-highlightingを入れた&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
