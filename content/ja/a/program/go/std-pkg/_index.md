@@ -36,9 +36,14 @@ a   b c   d
      # EOF入力で終了
 ```
 
+Tips:
+
+- 1行だけ読み取るなら、Scan()を1回だけ実行すればよい
+
 参考:
 
 - [CLI#ターミナルでEOFを入力する方法]({{<ref "/a/cli/_index.md">}}#ターミナルでeofを入力する方法)
+- [Go言語で標準入力 - Qiita](https://qiita.com/kosukeKK/items/865e06de03d20664a83f)
 
 ## context
 
@@ -390,6 +395,10 @@ func (t *T) Run(name string, f func(t *T)) bool
 ## text/template
 
 https://golang.org/pkg/text/template/
+
+関連項目:
+
+- [道場#テンプレート]({{<ref "dojo.md">}}#テンプレート)
 
 Examples:
 

@@ -138,12 +138,7 @@ if terminal.IsTerminal(0) {
 
 See [テスト]({{<ref "test.md">}})
 
-## 値渡しとポインタ渡し
-
-メモ:
-
-- 基本、よほどデータが大きくならない限りは値渡しでよさそう
-- オブジェクトの中身を書き換えるような処理だと、ポインタ渡しじゃないと駄目。そりゃそうか
+## ポインタ
 
 関連項目:
 
@@ -151,8 +146,72 @@ See [テスト]({{<ref "test.md">}})
 
 参考:
 
+- [Big Sky :: Go のポインタの躓きやすい点](https://mattn.kaoriya.net/software/lang/go/20190516095124.htm)
+
+### 引数
+
+メモ:
+
+- 基本、よほどデータが大きくならない限りは値渡しでよさそう
+- オブジェクトの中身を書き換えるような処理だと、ポインタ渡しじゃないと駄目。そりゃそうか
+
+参考:
+
 - [Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita](http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8 "Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita")
 - [Go言語（golang）における値渡しとポインタ渡しのパフォーマンス影響について - Finatext - Medium](https://medium.com/finatext/go%E8%A8%80%E8%AA%9E-golang-%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E5%80%A4%E6%B8%A1%E3%81%97%E3%81%A8%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E6%B8%A1%E3%81%97%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E5%BD%B1%E9%9F%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6-70aa3605adc5)
+
+### 戻り値
+
+参考:
+
+- [名前付き戻り値との正しい付き合い方 - Eureka Engineering - Medium](https://medium.com/eureka-engineering/named-return-values-7f485d867df0)
+
+## enum
+
+Goにはenumがない。  
+intの独自型を定義するのがイディオムになっている。
+
+```go
+type Fruit int
+
+const (
+    Apple Fruit = iota
+    Orange
+    Banana
+)
+
+var myFruit Fruit
+```
+
+この独自型に対して `String()` メソッドを実装しておくと、名前が引けて便利:
+
+```go
+func (f Fruit) String() string {
+    switch f {
+    case Apple:
+        return "Apple"
+    case Orange:
+        return "Orange"
+    case Banana:
+        return "Banana"
+    default:
+        return "Unknown"
+    }
+}
+```
+
+`golang.org/x/tools/cmd/stringer` で `String()` メソッドを含むコードを自動生成することもできる。
+
+関連項目:
+
+- [言語仕様#iota]({{<ref "spec.md">}}#iota)
+
+参考:
+
+- [GoのEnumイディオム - Qiita](http://qiita.com/awakia/items/c81c7816b9aea5422250 "GoのEnumイディオム - Qiita")
+- [Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話](https://mattn.kaoriya.net/software/lang/go/20141208093852.htm "Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話")
+- [Ten Useful Techniques in Go – Fatih Arslan](https://arslan.io/2015/10/08/ten-useful-techniques-in-go/ "Ten Useful Techniques in Go – Fatih Arslan")
+- https://godoc.org/golang.org/x/tools/cmd/stringer
 
 ## コマンドライン引数
 
@@ -413,6 +472,44 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 
 - [逆引きGolang (正規表現)](https://ashitani.jp/golangtips/tips_regexp.html)
 - [regexpとの付き合い方 〜 Go言語標準の正規表現ライブラリのパフォーマンスとアルゴリズム〜 - Eureka Engineering - Medium](https://medium.com/eureka-engineering/regexp%E3%81%A8%E3%81%AE%E4%BB%98%E3%81%8D%E5%90%88%E3%81%84%E6%96%B9-go%E8%A8%80%E8%AA%9E%E6%A8%99%E6%BA%96%E3%81%AE%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%A8%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0-984b6cbeeb2b)
+
+## テンプレート
+
+標準パッケージのhtml/templateやtext/templateがよく使われる。
+
+関連項目:
+
+- [pkg (stdlib) > text/template]({{<ref "std-pkg/_index.md">}}#texttemplate)
+
+### template構文
+
+html/templateやtext/templateの構文。
+
+Examples:
+
+```html
+<ul>
+  <!-- ループ処理 -->
+  {{ range $i, $val := . }}
+    <ul>{{ $i }} : {{ $val }}
+  {{ end }}
+</ul>
+```
+
+Tips:
+
+- テンプレートにstructやmapを渡すと、 `.key` のような形で要素/メンバ変数にアクセスできる
+
+参考:
+
+- [Go言語のテンプレート機能について - Qiita](https://qiita.com/ryokwkm/items/774927f43a3fc5d89cb0)
+- [テンプレート機能を使用する (text/template, html/template) | まくまくHugo/Goノート](https://maku77.github.io/hugo/go/template.html)
+
+## リファクタリング
+
+関連項目:
+
+- [tools > gorename]({{<ref "tools.md">}}#cmdgorename)
 
 ## デバッグ
 

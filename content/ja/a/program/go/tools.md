@@ -65,6 +65,17 @@ Goglandだと `Settings > Go > On Save > On save run` で設定できる。
 - [goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes](http://y0m0r.hateblo.jp/entry/20140112/1389501259 "goのimportを自動的に追加/削除してくれる「goimports」を試してみた - Misc Notes")
 - [Gogland で保存時に go fmt を走らせる - Qiita](http://qiita.com/kuro_milk/items/6adbf544dcb333d0f472 "Gogland で保存時に go fmt を走らせる - Qiita")
 
+## cmd/gorename
+
+https://pkg.go.dev/golang.org/x/tools/cmd/gorename
+
+リファクタリングツール。  
+関数名、変数名などを一括変更できる。
+
+参考:
+
+- [Big Sky :: golang のリファクタリングには gofmt ではなく、gorename を使おう。](https://mattn.kaoriya.net/software/lang/go/20150113141338.htm)
+
 ## cmd/present
 
 https://godoc.org/golang.org/x/tools/cmd/present

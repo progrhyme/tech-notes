@@ -76,6 +76,48 @@ const (
 - `:=` を使って宣言できない
 - 数値の定数は高精度な値。intの上限を越える値も保持できる
 
+#### iota
+
+https://golang.org/ref/spec#Iota
+
+0から始まる連番の整数値を生成できる。
+
+Examples:
+
+```go
+const (
+    // 定数宣言で右辺を省略すると直前と同じ式が使われる
+    c0 = iota  // c0 == 0
+    c1         // c1 == 1
+    c2         // c2 == 2
+)
+
+const (
+    a = 1 << iota  // a == 1  (iota == 0)
+    b              // b == 2  (iota == 1)
+    c = 3          // c == 3  (iota == 2, unused)
+    d = 1 << iota  // d == 8  (iota == 3)
+)
+
+const (
+	u         = iota * 42  // u == 0     (untyped integer constant)
+	v float64 = iota * 42  // v == 42.0  (float64 constant)
+	w                      // w == 84    (untyped integer constant)
+)
+
+const x = iota  // x == 0
+const y = iota  // y == 0
+```
+
+関連項目:
+
+- [道場#enum]({{<ref "dojo.md">}}#enum)
+
+参考:
+
+- [Golangのconst識別子iotaの紹介 - Qiita](https://qiita.com/curepine/items/2ae2f6504f0d28016411)
+- [Golangで iotaの開始番号を指定する - Qiita](https://qiita.com/DQNEO/items/d3349d683967fd8be151)
+
 ### 変数のエクスポート
 
 https://golang.org/ref/spec#Exported_identifiers
@@ -203,6 +245,8 @@ fmt.Println(matrix) //=> [[0 0] [0 1] [1 0] [1 1]]
 
 ### map
 
+https://golang.org/ref/spec#Map_types
+
 初期値はnilで、データを入れようとするとパニックが起こるので、事前に割当てが必要。
 
 ```go
@@ -218,6 +262,10 @@ ages["carol"] = 21
 // OK
 ages := make(map[string]int)
 ages["carol"] = 21
+
+for name, age := range ages {
+    fmt.Printf("%s is %d years old.\n", name, age)
+}
 ```
 
 #### 要素取得時のヒット検査
@@ -497,6 +545,8 @@ default:
 ```
 
 ### ループ
+
+https://golang.org/ref/spec#For_statements
 
 `for` しかない
 
