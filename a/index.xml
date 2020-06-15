@@ -4090,6 +4090,9 @@ brew create --go --tap progrhyme/taps -v https://github.com/progrhyme/shelp/arch
 &lt;/li>
 &lt;li>&lt;code>bottle do ... end&lt;/code> ブロックは、botが自動で足してくれるらしい。&lt;/li>
 &lt;/ul>
+&lt;h3 id="linuxbrew">Linuxbrew&lt;/h3>
+&lt;p>&lt;a href="https://github.com/Homebrew/linuxbrew-core/blob/master/CONTRIBUTING.md">https://github.com/Homebrew/linuxbrew-core/blob/master/CONTRIBUTING.md&lt;/a>&lt;/p>
+&lt;p>2020-06-15現在、Linuxbrewは1日に1回はHomebrewをマージしてるから、Formulaの追加や更新はHomebrew側にした方がいいって書いてある。&lt;/p>
 &lt;h2 id="tap">Tap&lt;/h2>
 &lt;ul>
 &lt;li>公式ドキュメント: &lt;a href="https://github.com/Homebrew/brew/blob/master/docs/Taps.md">https://github.com/Homebrew/brew/blob/master/docs/Taps.md&lt;/a>&lt;/li>
