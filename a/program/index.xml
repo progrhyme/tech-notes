@@ -46,39 +46,6 @@
 &lt;li>2020年 &lt;a href="https://qiita.com/tfrcm/items/e2a3d7ce7ab8868e37f7">他言語プログラマがgolangの基本を押さえる為のまとめ - Qiita&lt;/a>&lt;/li>
 &lt;li>2016年 &lt;a href="http://postd.cc/go-best-practices-2016/" title="6年間におけるGoのベストプラクティス | プログラミング | POSTD">6年間におけるGoのベストプラクティス | プログラミング | POSTD&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="programming-tips">Programming Tips&lt;/h2>
-&lt;p>コーディングする上で知っておくと便利なTips.&lt;/p>
-&lt;h3 id="enum">enum&lt;/h3>
-&lt;p>Goにはenumがない。&lt;br>
-intの独自型を定義するのがイディオムになっている。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
-&lt;span style="color:#000">Apple&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">iota&lt;/span>
-&lt;span style="color:#000">Orange&lt;/span>
-&lt;span style="color:#000">Banana&lt;/span>
-&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">myFruit&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>この独自型に対して &lt;code>String()&lt;/code> メソッドを実装しておくと、名前が引けて便利:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Apple&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Apple&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Orange&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Orange&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Banana&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Banana&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Unknown&amp;#34;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>golang.org/x/tools/cmd/stringer&lt;/code> で &lt;code>String()&lt;/code> メソッドを含むコードを自動生成することもできる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/awakia/items/c81c7816b9aea5422250" title="GoのEnumイディオム - Qiita">GoのEnumイディオム - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20141208093852.htm" title="Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話">Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://arslan.io/2015/10/08/ten-useful-techniques-in-go/" title="Ten Useful Techniques in Go – Fatih Arslan">Ten Useful Techniques in Go – Fatih Arslan&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="ディレクトリ構成">ディレクトリ構成&lt;/h3>
 &lt;p>&lt;a href="https://github.com/golang-standards/project-layout">https://github.com/golang-standards/project-layout&lt;/a>&lt;/p>
