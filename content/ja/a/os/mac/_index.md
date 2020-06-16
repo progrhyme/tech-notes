@@ -71,6 +71,21 @@ console.app
 
 - [ReportCrashを解決する方法を… - Apple コミュニティ](https://discussionsjapan.apple.com/thread/10167236)
 
+## CLI
+
+macOS特有のCLI.
+
+```sh
+# ファイルを開く
+## 標準関連付けで開く
+open path/to/file
+## アプリ指定
+open -a アプリ名 path/to/file
+
+# クリップボードにコピー
+cat file.txt | pbcopy
+```
+
 ## How-to
 ### JIS キーボードでの `\` の入力方法
 

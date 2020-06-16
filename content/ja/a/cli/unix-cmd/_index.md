@@ -220,6 +220,19 @@ unzip foo.zip -d bar/
 - [Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT](http://www.atmarkit.co.jp/ait/articles/1607/26/news014.html "Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT")
 
 ## テキスト処理
+### cut
+
+テキストフィルタツール
+
+```sh
+# タブ区切りで1, 3つめのフィールドを取得
+cat file.txt | cut -f 1,3
+# カンマ区切り
+cat file.txt | cut -d, -f 1,3
+# バイト単位で10-20バイト目を取得
+cat file.txt | cut -b10-20
+```
+
 ### grep
 
 ```bash
