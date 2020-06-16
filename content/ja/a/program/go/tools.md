@@ -72,6 +72,17 @@ https://pkg.go.dev/golang.org/x/tools/cmd/gorename
 リファクタリングツール。  
 関数名、変数名などを一括変更できる。
 
+Examples:
+
+```sh
+gorename -from '"github.com/progrhyme/shelp/internal/cli".installCmd.name' -to op -v
+```
+
+ Option | 機能
+--------|------
+ -d | rewriteせずにdiffを表示
+ -v | 冗長ログ表示
+
 参考:
 
 - [Big Sky :: golang のリファクタリングには gofmt ではなく、gorename を使おう。](https://mattn.kaoriya.net/software/lang/go/20150113141338.htm)

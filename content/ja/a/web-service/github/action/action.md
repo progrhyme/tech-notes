@@ -58,6 +58,10 @@ Example:
     submodules: true
 ```
 
+Tips:
+
+- `fetch-depth: 0` を付けるとtagやbranchの履歴も全部取得してくれる
+
 ### setup-go
 
 https://github.com/actions/setup-go

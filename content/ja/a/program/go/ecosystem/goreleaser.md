@@ -159,10 +159,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # fetch git commits
-      - name: Unshallow
-        # Changelogを直前のtagから生成するため
-        run: git fetch --prune --unshallow --tags --force
+        with:
+          fetch-depth: 0
       - uses: actions/setup-go@v2
         with:
           go-version: 1.14

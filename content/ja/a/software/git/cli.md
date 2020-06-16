@@ -235,12 +235,22 @@ git pull --prune
 
 ## rebase
 
+https://git-scm.com/docs/git-rebase
+
 ```bash
-## 過去のNコミットを編集
+# （現在のブランチの）Nコミット前に遡って編集
 git rebase -i HEAD~N
-## 1st コミットから編集
+
+# 特定のコミットを除くそれ以降の履歴を編集
+git rebase -i <after-this-commit>
+
+# 1st コミットから編集
 git rebase -i --root
 ```
+
+NOTE:
+
+- masterにtopicブランチをマージした後で `git rebase -i HEAD~N` とやると、topicブランチの履歴は数に数えられないので注意
 
 参考:
 
