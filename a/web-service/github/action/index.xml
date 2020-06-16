@@ -51,7 +51,11 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Default: false&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">submodules&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="setup-go">setup-go&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>fetch-depth: 0&lt;/code> を付けるとtagやbranchの履歴も全部取得してくれる&lt;/li>
+&lt;/ul>
+&lt;h3 id="setup-go">setup-go&lt;/h3>
 &lt;p>&lt;a href="https://github.com/actions/setup-go">https://github.com/actions/setup-go&lt;/a>&lt;/p>
 &lt;p>Go言語のコンパイラ（goコマンド）をセットアップ。&lt;/p>
 &lt;p>Examples:&lt;/p>

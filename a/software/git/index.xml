@@ -219,11 +219,18 @@ git pull --prune
 &lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="rebase">rebase&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 過去のNコミットを編集&lt;/span>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-rebase">https://git-scm.com/docs/git-rebase&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># （現在のブランチの）Nコミット前に遡って編集&lt;/span>
 git rebase -i HEAD~N
-&lt;span style="color:#8f5902;font-style:italic">## 1st コミットから編集&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 特定のコミットを除くそれ以降の履歴を編集&lt;/span>
+git rebase -i &amp;lt;after-this-commit&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 1st コミットから編集&lt;/span>
 git rebase -i --root
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>masterにtopicブランチをマージした後で &lt;code>git rebase -i HEAD~N&lt;/code> とやると、topicブランチの履歴は数に数えられないので注意&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/ken_c_lo/20130421/1366558065" title="First commit が git rebase -i できない問題 → git rebase -i --root でできる - 納豆には卵を入れる派です。">First commit が git rebase -i できない問題 → git rebase -i &amp;ndash;root でできる - 納豆には卵を入れる派です。&lt;/a>&lt;/li>
 &lt;/ul>

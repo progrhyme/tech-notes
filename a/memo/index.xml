@@ -1,4 +1,40 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-15</title><link>https://progrhy.me/tech-notes/a/memo/20200615/</link><pubDate>Mon, 15 Jun 2020 01:53:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200615/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
+&lt;h2 id="617">6/17&lt;/h2>
+&lt;h3 id="shelpのリファクタでgorenameを叩きまくった">shelpのリファクタでgorenameを叩きまくった&lt;/h3>
+&lt;p>gorenameの使い方などは&lt;a href="https://progrhy.me/tech-notes/a/program/go/tools/#cmdgorename">プログラム言語 &amp;gt; Golang &amp;gt; tools#cmd/gorename&lt;/a>に書いた。&lt;/p>
+&lt;p>具体的にはこのコミット: &lt;a href="https://github.com/progrhyme/shelp/pull/5/commits/9b33d0e78dfa9b984a24eca80d9fef89b0556157">https://github.com/progrhyme/shelp/pull/5/commits/9b33d0e78dfa9b984a24eca80d9fef89b0556157&lt;/a>&lt;/p>
+&lt;p>gorenameを通算30回ぐらいは叩いたか。&lt;br>
+下のようにシェル関数を作ってタイプ数を減らした:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gorename-cli&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87">local&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$1&lt;/span>
+&lt;span style="color:#204a87">local&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$2&lt;/span>
+gorename -from &lt;span style="color:#4e9a06">&amp;#34;\&amp;#34;github.com/progrhyme/shelp/internal/cli\&amp;#34;.&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">from&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> -to &lt;span style="color:#000">$to&lt;/span> -v
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+gorename-cli removeCmd.name op
+gorename-cli commonCmd.command name
+gorename-cli removeCmd.op &lt;span style="color:#204a87">command&lt;/span>
+gorename-cli installCmd.op &lt;span style="color:#204a87">command&lt;/span>
+:
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="shelpのhomebrew-tap-formulaを更新したが手元でupgradeを打っても更新されなかった">shelpのHomebrew Tap Formulaを更新したが、手元でupgradeを打っても更新されなかった&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/homebrew-taps/commit/351ee0f987043968bad1ff9fc386f895d86f8406">shelpのFormulaをv0.5.1に更新した&lt;/a>が、 &lt;code>brew upgrade&lt;/code> で更新できなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ brew bundle --global
+:
+&lt;span style="color:#8f5902;font-style:italic"># 更新されず&lt;/span>
+$ brew update
+$ brew upgrade shelp
+Warning: progrhyme/taps/shelp 86.64 already installed
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>仕方ないので &lt;code>brew remove shelp&lt;/code> -&amp;gt; &lt;code>brew bundle&lt;/code> したが、 &lt;code>brew reinstall&lt;/code> でもよかったか。&lt;/p>
+&lt;h3 id="goreleaserのドキュメントに修正prを送った">goreleaserのドキュメントに修正PRを送った&lt;/h3>
+&lt;p>&lt;a href="https://goreleaser.com/ci/actions/">https://goreleaser.com/ci/actions/&lt;/a>&lt;/p>
+&lt;p>で紹介されているサンプルのYAMLに問題があって、履歴が取れていなかったので。&lt;/p>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">GoReleaserで、GitHub ActionsでリリースするとChangelogに全コミット履歴が載ってしまう原因がわかった。履歴取得のために&lt;br>git fetch --prune --unshallowしてるけど、これだとタグ情報が取れてないので、--tagsオプションが必要だ。&lt;/p>&amp;mdash; progrhyme (@progrhyme) &lt;a href="https://twitter.com/progrhyme/status/1272139558994378753?ref_src=twsrc%5Etfw">June 14, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/goreleaser/goreleaser/pull/1608">https://github.com/goreleaser/goreleaser/pull/1608&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>上のPRを送ったが、actions/checkout@v2のオプションで行けたので、そちらでやることになった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/goreleaser/goreleaser/pull/1610">https://github.com/goreleaser/goreleaser/pull/1610&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-15</title><link>https://progrhy.me/tech-notes/a/memo/20200615/</link><pubDate>Mon, 15 Jun 2020 01:53:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200615/</guid><description>
 &lt;h2 id="615">6/15&lt;/h2>
 &lt;h3 id="maltmillを使いたかったが動かなかった">maltmillを使いたかったが動かなかった&lt;/h3>
 &lt;p>shelpのbrew tapを作ろうと思って、&lt;a href="https://songmu.jp/riji/entry/2019-02-22-maltmill.html">Songmuさんの記事&lt;/a>を見つけ、&lt;a href="https://github.com/Songmu/maltmill">maltmill&lt;/a>を使ってFormulaを作ろうとしたが、動かなかった。&lt;/p>
