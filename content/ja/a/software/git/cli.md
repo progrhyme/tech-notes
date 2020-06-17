@@ -199,6 +199,11 @@ git log --format="%H"     # full commit hash のみ
 git log --format="%h %s"  # short hash + title
 ```
 
+ Option | 機能
+--------|------
+ `--[no-]decorate` | ref nameの表示有無を設定
+ `--decorate-refs={tags,heads,remotes}` | %D, %dで表示するものを制御する
+
 書式については [Git - git-log Documentation#PRETTY-FORMATS](https://git-scm.com/docs/git-log#_pretty_formats)辺りに詳しく書かれている。
 
 一部の例:
@@ -208,13 +213,16 @@ git log --format="%h %s"  # short hash + title
  %H | コミットハッシュ
  %h | コミットハッシュ（短縮版）
  %s | 件名
+ %D | ref name
+ %d | ref name
 
 参考:
 
 - [Git - リビジョンの選択](https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%83%AA%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%B8%E6%8A%9E "Git - リビジョンの選択")
-- [git logのオプションあれこれ - 煙と消えるその前に](http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104 "git logのオプションあれこれ - 煙と消えるその前に")
-- [git log をいい感じに alias して色付きで見やすくしておく - Qiita](http://qiita.com/key-amb/items/9ee8339d2da971581cfb "git log をいい感じに alias して色付きで見やすくしておく - Qiita")
+- [git logのオプションあれこれ - 煙と消えるその前に](http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104)
+- [git log をいい感じに alias して色付きで見やすくしておく - Qiita](http://qiita.com/key-amb/items/9ee8339d2da971581cfb)
 - [git logのフォーマットを指定する - Qiita](https://qiita.com/harukasan/items/9149542584385e8dea75)
+- [`git log --pretty=format` で tagを表示する方法 - Qiita](https://qiita.com/isuke/items/35b192b0899872aa7b03)
 
 ## pull
 
@@ -322,6 +330,26 @@ git rev-list HEAD...HEAD@{upstream}
 --------|------
  --count | コミットの数を表示
 
+## show-ref
+
+https://git-scm.com/docs/git-show-ref
+
+Examples:
+
+```sh
+$ git show-ref
+ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/heads/master
+ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/HEAD
+58f3ac4dc2e1b893bbacb09fa300244dc95ab3e5 refs/remotes/origin/gh-pages
+ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/master
+
+$ git show-ref --tags --abbrev
+4eb72e6 refs/tags/v0.1.0
+f0edeb9 refs/tags/v0.2.0
+e711338 refs/tags/v0.3.0
+```
+
+
 ## submodule
 
 https://git-scm.com/docs/git-submodule
@@ -380,27 +408,31 @@ fatal: ref HEAD is not a symbolic ref
 
 ## tag
 
+https://git-scm.com/docs/git-tag
+
 SYNOPSIS:
 
 ```sh
-## 作成
+# 作成
 git tag <タグ名>
 ## 注釈付き
 git tag -a <タグ名> -m <メッセージ>
 
-## 表示
+# 表示
 git show <タグ名>
 ## 一覧
 git tag
+## 指定されたオブジェクトのタグのみ表示
+git tag --points-at <object>
 
-## 削除
+# 削除
 git tag -d <タグ名>
 
-## リモートに反映
+# リモートに反映
 git push <リモート> <タグ名>
 git push --tags
 
-## 削除反映
+# 削除反映
 git push <リモート> :<タグ名>
 ```
 
