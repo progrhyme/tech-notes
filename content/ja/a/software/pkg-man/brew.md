@@ -159,6 +159,16 @@ on_macos do
 end
 ```
 
+#### .version
+
+https://rubydoc.brew.sh/Formula#version-class_method
+
+```Ruby
+.version(val = nil) ⇒ Object
+```
+
+基本はURLからautodetectしてくれるので、それが上手く行かないときに指定するそうだ。
+
 ### OS
 
 https://rubydoc.brew.sh/OS.html
