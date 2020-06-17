@@ -24,6 +24,11 @@ $ brew update
 $ brew upgrade shelp
 Warning: progrhyme/taps/shelp 86.64 already installed
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>仕方ないので &lt;code>brew remove shelp&lt;/code> -&amp;gt; &lt;code>brew bundle&lt;/code> したが、 &lt;code>brew reinstall&lt;/code> でもよかったか。&lt;/p>
+&lt;h4 id="追記-autodetectに失敗していた">追記 autodetectに失敗していた&lt;/h4>
+&lt;p>↑のログにも出ているように、バージョンが &lt;code>86.64&lt;/code> だと思われていたらしい。&lt;br>
+んなアホな…。&lt;/p>
+&lt;p>&lt;code>.version&lt;/code> メソッドで明示的に指定した。&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/homebrew-taps/commit/af68e9c05b604b32048cada29cc5c54e2c4dd96a">https://github.com/progrhyme/homebrew-taps/commit/af68e9c05b604b32048cada29cc5c54e2c4dd96a&lt;/a>&lt;/p>
 &lt;h3 id="goreleaserのドキュメントに修正prを送った">goreleaserのドキュメントに修正PRを送った&lt;/h3>
 &lt;p>&lt;a href="https://goreleaser.com/ci/actions/">https://goreleaser.com/ci/actions/&lt;/a>&lt;/p>
 &lt;p>で紹介されているサンプルのYAMLに問題があって、履歴が取れていなかったので。&lt;/p>
