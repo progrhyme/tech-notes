@@ -165,7 +165,25 @@ git log --oneline --graph --decorate
 &lt;span style="color:#8f5902;font-style:italic">## フォーマット指定&lt;/span>
 git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%H&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># full commit hash のみ&lt;/span>
 git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%h %s&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># short hash + title&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>書式については &lt;a href="https://git-scm.com/docs/git-log#_pretty_formats">Git - git-log Documentation#PRETTY-FORMATS&lt;/a>辺りに詳しく書かれている。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--[no-]decorate&lt;/code>&lt;/td>
+&lt;td>ref nameの表示有無を設定&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>--decorate-refs={tags,heads,remotes}&lt;/code>&lt;/td>
+&lt;td>%D, %dで表示するものを制御する&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>書式については &lt;a href="https://git-scm.com/docs/git-log#_pretty_formats">Git - git-log Documentation#PRETTY-FORMATS&lt;/a>辺りに詳しく書かれている。&lt;/p>
 &lt;p>一部の例:&lt;/p>
 &lt;table>
 &lt;thead>
@@ -187,14 +205,23 @@ git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;s
 &lt;td>%s&lt;/td>
 &lt;td>件名&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>%D&lt;/td>
+&lt;td>ref name&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%d&lt;/td>
+&lt;td>ref name&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%83%AA%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%B8%E6%8A%9E" title="Git - リビジョンの選択">Git - リビジョンの選択&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104" title="git logのオプションあれこれ - 煙と消えるその前に">git logのオプションあれこれ - 煙と消えるその前に&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://qiita.com/key-amb/items/9ee8339d2da971581cfb" title="git log をいい感じに alias して色付きで見やすくしておく - Qiita">git log をいい感じに alias して色付きで見やすくしておく - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://heart-shaped-chocolate.hatenablog.jp/entry/2013/07/16/035104">git logのオプションあれこれ - 煙と消えるその前に&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/key-amb/items/9ee8339d2da971581cfb">git log をいい感じに alias して色付きで見やすくしておく - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/harukasan/items/9149542584385e8dea75">git logのフォーマットを指定する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/isuke/items/35b192b0899872aa7b03">&lt;code>git log --pretty=format&lt;/code> で tagを表示する方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pull">pull&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull&lt;/a>&lt;/p>
@@ -286,7 +313,19 @@ git rev-list HEAD...HEAD@&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/s
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="submodule">submodule&lt;/h2>
+&lt;h2 id="show-ref">show-ref&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-show-ref">https://git-scm.com/docs/git-show-ref&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git show-ref
+ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/heads/master
+ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/HEAD
+58f3ac4dc2e1b893bbacb09fa300244dc95ab3e5 refs/remotes/origin/gh-pages
+ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/master
+$ git show-ref --tags --abbrev
+4eb72e6 refs/tags/v0.1.0
+f0edeb9 refs/tags/v0.2.0
+e711338 refs/tags/v0.3.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="submodule">submodule&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-submodule">https://git-scm.com/docs/git-submodule&lt;/a>&lt;/p>
 &lt;p>なんだかんだで割りと使っている。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># submodule追加&lt;/span>
@@ -339,21 +378,24 @@ fatal: ref HEAD is not a symbolic ref
 &lt;/tbody>
 &lt;/table>
 &lt;h2 id="tag">tag&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-tag">https://git-scm.com/docs/git-tag&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
 git tag &amp;lt;タグ名&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic">## 注釈付き&lt;/span>
 git tag -a &amp;lt;タグ名&amp;gt; -m &amp;lt;メッセージ&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 表示&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
 git show &amp;lt;タグ名&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
 git tag
-&lt;span style="color:#8f5902;font-style:italic">## 削除&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 指定されたオブジェクトのタグのみ表示&lt;/span>
+git tag --points-at &amp;lt;object&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
 git tag -d &amp;lt;タグ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## リモートに反映&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># リモートに反映&lt;/span>
 git push &amp;lt;リモート&amp;gt; &amp;lt;タグ名&amp;gt;
 git push --tags
-&lt;span style="color:#8f5902;font-style:italic">## 削除反映&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 削除反映&lt;/span>
 git push &amp;lt;リモート&amp;gt; :&amp;lt;タグ名&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
