@@ -128,6 +128,15 @@ NOTE:
 - https://github.com/GoogleContainerTools/skaffold
 - https://skaffold.dev/
 
+## 暗号化
+
+- [bitnami-labs/sealed-secrets: A Kubernetes controller and tool for one-way encrypted Secrets](https://github.com/bitnami-labs/sealed-secrets)
+  - Secretを暗号化してセキュアに管理する方法を提供してくれる
+
+参考:
+
+- [Sealed Secretsを利用したKubernetes Secretリソースのセキュアな管理 - Uzabase Tech Blog](https://tech.uzabase.com/entry/2020/03/10/171733)
+
 ## その他
 
 - [K3s: Lightweight Kubernetes](https://k3s.io/) ... Rancherが出してる軽量版K8s

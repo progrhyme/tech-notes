@@ -272,6 +272,21 @@ kubectl logs <Pod名> [Options]
 kubectl logs <Pod名> --tail=10 -f
 ```
 
+### port-forward
+
+```sh
+# Syntax
+kubectl port-forward TYPE/NAME [options] [LOCAL_PORT:]REMOTE_PORT [...[LOCAL_PORT_N:]REMOTE_PORT_N]
+
+# Examples
+## サービスの80番ポートをローカルの8080番ポートにforward
+kubectl port-forward service/myservice 8080:80
+## Deploymentの5000, 6000番ポートをローカルの5000, 6000番ポートにforward
+kubectl port-forward deployment/mydeployment 5000 6000
+## Pod指定
+kubectl port-forward pod/mypod 8080
+```
+
 ### proxy
 
 API Proxyサーバを起動する
