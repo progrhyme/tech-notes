@@ -863,6 +863,10 @@ ImportPath = string_lit .
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#strconv">pkg (stdlib) &amp;gt; strconv&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/">pkg (stdlib) &amp;gt; strings&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>How-to:&lt;/p>
+&lt;ul>
+&lt;li>改行コードを取り除きたい -&amp;gt; &lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/#func-trimright">strings.TrimRight&lt;/a>を使う&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/ono_matope/items/d5e70d8a9ff2b54d5c37">Goの文字列結合のパフォーマンス - Qiita&lt;/a>&lt;/li>
