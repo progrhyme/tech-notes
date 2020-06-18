@@ -37,6 +37,24 @@ strings.HasPrefix("Gopher", "C")  //=> false
 strings.HasPrefix("Gopher", "")   //=> true
 ```
 
+### func TrimRight
+
+https://pkg.go.dev/strings?tab=doc#TrimRight
+
+```go
+func TrimRight(s string, cutset string) string
+```
+
+末尾の改行コードを取り除きたいときなどに便利。
+
+```go
+strings.TrimRight(s, "\r\n")
+```
+
+参考:
+
+- [\[Go\]stringsパッケージのTrimLeftとTrimRightの挙動について - 白帽子研究室](https://sites.google.com/site/sbwhitecap/blog/2014/06/14a)
+
 ### func TrimSuffix
 
 https://pkg.go.dev/strings?tab=doc#TrimSuffix

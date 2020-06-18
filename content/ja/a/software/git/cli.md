@@ -123,6 +123,18 @@ git commit --allow-empty
 git commit --amend
 ```
 
+## config
+
+https://git-scm.com/docs/git-config
+
+```sh
+# 特定のキーの値を取得
+git config [--get] <key>
+## 例
+git config [--get] remote.origin.url
+```
+
+
 ## diff
 
 ```sh
@@ -396,6 +408,10 @@ refs/heads/master
 
 $ git symbolic-ref --short HEAD
 master
+
+# デフォルトブランチの取得
+$ git symbolic-ref --short refs/remotes/origin/HEAD
+origin/master
 
 $ git checkout v1.0 # switch to tag = 'detached HEAD'
 $ git symbolic-ref HEAD

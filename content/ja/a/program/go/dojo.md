@@ -19,6 +19,10 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 - [pkg (stdlib) > strconv]({{<ref "std-pkg/_index.md">}}#strconv)
 - [pkg (stdlib) > strings]({{<ref "std-pkg/strings.md">}})
 
+How-to:
+
+- 改行コードを取り除きたい -> [strings.TrimRight]({{<ref "std-pkg/strings.md">}}#func-trimright)を使う
+
 参考:
 
 - [Goの文字列結合のパフォーマンス - Qiita](https://qiita.com/ono_matope/items/d5e70d8a9ff2b54d5c37)
