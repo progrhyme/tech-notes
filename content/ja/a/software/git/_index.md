@@ -70,9 +70,56 @@ Tips:
 
 - [git-configのConditional includesでユーザ情報を切り替える - kawaken's blog](http://kawaken.hateblo.jp/entry/2017/08/05/235904)
 
+### pull
+
+https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullff
+
+pull時の挙動を設定する。
+
+```INI
+[pull]
+    # 以下いずれかを指定
+    ff     = only      # fast-forwardなマージのみ許可。マージコミットを作らない
+    ff     = false     # fast-forwardなときもマージコミットを作る
+    rebase = merges    # rebaseする。ローカルのマージコミットは消失
+    rebase = preserve  # マージコミットを保持してrebaseする
+```
+
+- コミット履歴をきれいに保ちたいなら `rebase = merges` だが、リモートと歴史が変わってしまったときにローカルの履歴が失われるリスクがあると思う。 `rebase = preserve` なら大丈夫かもしれない
+- `ff = only` は無難な設定
+- `ff = false` を設定したい理由はわからない
+
+関連項目:
+
+- [gitコマンド#pull]({{<ref "cli.md">}}#pull)
+
+参考:
+
+- [2020-06-20#gitconfigでpull.rebase=trueにしていたらローカルの履歴が失われた]({{<ref "20200620.md">}}#gitconfigでpullrebase--trueにしていたらローカルの履歴が失われた)
+- [gitのmerge --no-ff のススメ - Qiita](https://qiita.com/nog/items/c79469afbf3e632f10a1)
+
 ## How-to
 
 See also [gitコマンド]({{<ref "cli.md">}})
+
+### git diffをpatch適用する
+
+2020-06-20記入。
+
+```sh
+git diff > foo.diff
+git apply foo.diff
+```
+
+今はこれでよいようだ。
+
+メモ:
+
+- 昔はgit diffにオプションをつけて、patchコマンドを使ってapplyしていたが、簡単になったものだ。
+
+参考:
+
+- [git diff で作ったパッチはどうやって当てるのか（そもそも git でパッチ | 株式会社ビヨンド](https://beyondjapan.com/blog/2019/08/git-diff/)
 
 ### CommitterとAuthorを変更する
 

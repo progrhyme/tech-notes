@@ -247,7 +247,12 @@ git pull --prune
 
  Option | 効果
 --------|-----
- --depth=N | 取得する履歴数を制限する。shallowリポジトリの場合、履歴数を指定した数に増減させる
+ `--depth=N` | 取得する履歴数を制限する。shallowリポジトリの場合、履歴数を指定した数に増減させる
+ `-r, --rebase[=VALUE]` | `VALUE` には false, true, merges, preserve, interactiveのいずれかを指定可能
+
+関連項目:
+
+- [Git#config-pull]({{<ref "_index.md">}}#pull)
 
 参考:
 
