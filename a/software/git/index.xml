@@ -242,11 +242,19 @@ git pull --prune
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>&amp;ndash;depth=N&lt;/td>
+&lt;td>&lt;code>--depth=N&lt;/code>&lt;/td>
 &lt;td>取得する履歴数を制限する。shallowリポジトリの場合、履歴数を指定した数に増減させる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-r, --rebase[=VALUE]&lt;/code>&lt;/td>
+&lt;td>&lt;code>VALUE&lt;/code> には false, true, merges, preserve, interactiveのいずれかを指定可能&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/git/#pull">Git#config-pull&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yuichielectric/items/84cd61915a1236f19221">リモートで消されたブランチが手元で残ってしまう件を解消する - Qiita&lt;/a>&lt;/li>

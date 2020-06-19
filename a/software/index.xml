@@ -98,8 +98,44 @@
 &lt;ul>
 &lt;li>&lt;a href="http://kawaken.hateblo.jp/entry/2017/08/05/235904">git-configのConditional includesでユーザ情報を切り替える - kawaken&amp;rsquo;s blog&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="pull">pull&lt;/h3>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullff">https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullff&lt;/a>&lt;/p>
+&lt;p>pull時の挙動を設定する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-INI" data-lang="INI">&lt;span style="color:#204a87;font-weight:bold">[pull]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 以下いずれかを指定&lt;/span>
+&lt;span style="color:#c4a000">ff&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">only # fast-forwardなマージのみ許可。マージコミットを作らない
+&lt;/span>&lt;span style="color:#4e9a06"> ff = false # fast-forwardなときもマージコミットを作る
+&lt;/span>&lt;span style="color:#4e9a06"> rebase = merges # rebaseする。ローカルのマージコミットは消失
+&lt;/span>&lt;span style="color:#4e9a06"> rebase = preserve # マージコミットを保持してrebaseする&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>コミット履歴をきれいに保ちたいなら &lt;code>rebase = merges&lt;/code> だが、リモートと歴史が変わってしまったときにローカルの履歴が失われるリスクがあると思う。 &lt;code>rebase = preserve&lt;/code> なら大丈夫かもしれない&lt;/li>
+&lt;li>&lt;code>ff = only&lt;/code> は無難な設定&lt;/li>
+&lt;li>&lt;code>ff = false&lt;/code> を設定したい理由はわからない&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/git/cli/#pull">gitコマンド#pull&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#gitconfig%E3%81%A7pullrebase--true%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%82%89%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E5%B1%A5%E6%AD%B4%E3%81%8C%E5%A4%B1%E3%82%8F%E3%82%8C%E3%81%9F">2020-06-20#gitconfigでpull.rebase=trueにしていたらローカルの履歴が失われた&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/nog/items/c79469afbf3e632f10a1">gitのmerge &amp;ndash;no-ff のススメ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/git/cli/">gitコマンド&lt;/a>&lt;/p>
+&lt;h3 id="git-diffをpatch適用する">git diffをpatch適用する&lt;/h3>
+&lt;p>2020-06-20記入。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git diff &amp;gt; foo.diff
+git apply foo.diff
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>今はこれでよいようだ。&lt;/p>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>昔はgit diffにオプションをつけて、patchコマンドを使ってapplyしていたが、簡単になったものだ。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://beyondjapan.com/blog/2019/08/git-diff/">git diff で作ったパッチはどうやって当てるのか（そもそも git でパッチ | 株式会社ビヨンド&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="committerとauthorを変更する">CommitterとAuthorを変更する&lt;/h3>
 &lt;p>HEADのcommitを修正する場合:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git config --local user.name &lt;span style="color:#4e9a06">&amp;#34;YOUR NAME&amp;#34;&lt;/span>

@@ -1,4 +1,14 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-20</title><link>https://progrhy.me/tech-notes/a/memo/20200620/</link><pubDate>Sat, 20 Jun 2020 07:45:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200620/</guid><description>
+&lt;h2 id="620">6/20&lt;/h2>
+&lt;h3 id="gitconfigでpullrebase--trueにしていたらローカルの履歴が失われた">gitconfigでpull.rebase = trueにしていたらローカルの履歴が失われた&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/myenv/commits/a75f069fad8dd05fe26d40526deab10d7912cb51">https://github.com/progrhyme/myenv/commits/a75f069fad8dd05fe26d40526deab10d7912cb51&lt;/a>&lt;/p>
+&lt;p>この辺の作業をしていたとき。&lt;br>
+macOSで作業した後、Ubuntuに戻ったときについ &lt;code>git push -f&lt;/code> してしまい、 &lt;code>[darwin]&lt;/code> なコミットログが失われてしまった。&lt;/p>
+&lt;p>その後macOSに戻ってgit pullしたが、 &lt;code>pull.rebase = true&lt;/code> にしていたからtopにあったコミットはなかったことにされてしまったようだ。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/git/#pull">Git#config-pull&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
 &lt;h2 id="617">6/17&lt;/h2>
 &lt;h3 id="shelpのリファクタでgorenameを叩きまくった">shelpのリファクタでgorenameを叩きまくった&lt;/h3>
 &lt;p>gorenameの使い方などは&lt;a href="https://progrhy.me/tech-notes/a/program/go/tools/#cmdgorename">プログラム言語 &amp;gt; Golang &amp;gt; tools#cmd/gorename&lt;/a>に書いた。&lt;/p>
