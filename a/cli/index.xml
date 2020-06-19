@@ -1,4 +1,55 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – CommandLine Interface</title><link>https://progrhy.me/tech-notes/a/cli/</link><description>Recent content in CommandLine Interface on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 19:34:20 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>A: dotfiles</title><link>https://progrhy.me/tech-notes/a/cli/dotfiles/</link><pubDate>Sun, 31 May 2020 21:52:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/dotfiles/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – CommandLine Interface</title><link>https://progrhy.me/tech-notes/a/cli/</link><description>Recent content in CommandLine Interface on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 27 Apr 2020 19:34:20 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>A: curl</title><link>https://progrhy.me/tech-notes/a/cli/curl/</link><pubDate>Fri, 19 Jun 2020 20:30:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/curl/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>Man: &lt;a href="https://curl.haxx.se/docs/manpage.html">https://curl.haxx.se/docs/manpage.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-H, --header &amp;lt;header/@file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>HTTPヘッダを付加&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-L, --location&lt;/code>&lt;/td>
+&lt;td>リダイレクトに対応。3XXステータスとLocationヘッダが返ってきたら、新しい宛先にリクエストを再送する&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-o &amp;lt;file&amp;gt;&lt;/code>&lt;/td>
+&lt;td>ダウンロードしたデータを &lt;code>&amp;lt;file&amp;gt;&lt;/code> に保存&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-o -&lt;/code>&lt;/td>
+&lt;td>上の特別な場合で、標準出力に結果を出力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-s, --silent&lt;/code>&lt;/td>
+&lt;td>進捗を表示しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-sS&lt;/code>&lt;/td>
+&lt;td>進捗は要らないけどエラーは表示する。 &lt;code>-S&lt;/code> は &lt;code>--show-error&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-x &amp;lt;method&amp;gt;&lt;/code>&lt;/td>
+&lt;td>指定したHTTPメソッドでリクエスト&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-v&lt;/code>&lt;/td>
+&lt;td>HTTPリクエスト、レスポンスの詳細を表示&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/takayukioda/items/edf371b3566bea64d046">curl option 覚え書き - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: dotfiles</title><link>https://progrhy.me/tech-notes/a/cli/dotfiles/</link><pubDate>Sun, 31 May 2020 21:52:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/dotfiles/</guid><description>
 &lt;p>dotfilesは、主にコンピュータ上で、ユーザーの$HOMEディレクトリ下に置かれる &lt;code>.&lt;/code> で始まるファイル類を表す。&lt;/p>
 &lt;h2 id="サイト">サイト&lt;/h2>
 &lt;p>&lt;a href="https://dotfiles.github.io/">https://dotfiles.github.io/&lt;/a>&lt;/p>
