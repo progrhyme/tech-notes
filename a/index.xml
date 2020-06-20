@@ -2452,6 +2452,32 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/ecosystem/#%E3%83%93%E3%83%AB%E3%83%89%E5%85%AC%E9%96%8B">エコシステム#ビルド・公開&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="モジュール作成">モジュール作成&lt;/h2>
+&lt;p>上の&lt;a href="#%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E7%AE%A1%E7%90%86">ライブラリ管理&lt;/a>で述べたGo Moduleの仕組みを使う。&lt;/p>
+&lt;h3 id="モジュール更新">モジュール更新&lt;/h3>
+&lt;p>新しいバージョンを公開する場合、pkg.go.devにすぐに反映されないことがある。&lt;br>
+その場合、以下いずれかの操作を行う:&lt;/p>
+&lt;ul>
+&lt;li>proxy.golang.org に当該バージョンのモジュールをリクエストする
+&lt;ul>
+&lt;li>例) &lt;a href="https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info">https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info&lt;/a> にGETリクエストを送る&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>GOPROXY=&amp;quot;https://proxy.golang.org&amp;rdquo; をつけてmodule-aware modeでgo getする
+&lt;ul>
+&lt;li>例) &lt;code>GOPROXY=&amp;quot;https://proxy.golang.org&amp;quot; GO111MODULE=on go get example.com/my/module@v1.0.0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#go-module%E3%81%AE%E6%9B%B4%E6%96%B0%E3%82%92pkggodev%E3%81%AB%E5%8F%8D%E6%98%A0%E3%81%99%E3%82%8B">2020-06-20#Go-moduleの更新をpkg.go.devに反映する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Reference:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://go.dev/about">https://go.dev/about&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://proxy.golang.org/">https://proxy.golang.org/&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="構造体の使い方">構造体の使い方&lt;/h2>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>

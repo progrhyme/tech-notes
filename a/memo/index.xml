@@ -8,6 +8,32 @@ macOSで作業した後、Ubuntuに戻ったときについ &lt;code>git push -f
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/git/#pull">Git#config-pull&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="go-moduleの更新をpkggodevに反映する">Go moduleの更新をpkg.go.devに反映する&lt;/h3>
+&lt;p>shelpはmodule / packageとしての利用は想定してないのだけど、久しぶりにpkg.go.devで見てみたら、未だにv0.1.0しかないのが気になった。&lt;/p>
+&lt;p>&lt;a href="https://pkg.go.dev/mod/github.com/progrhyme/shelp?tab=versions">https://pkg.go.dev/mod/github.com/progrhyme/shelp?tab=versions&lt;/a>&lt;/p>
+&lt;p>※今は後述の操作を行って、v0.5.3までインデックされている。&lt;/p>
+&lt;p>ふつうにGitHubにリリースしているだけでは新しいバージョンがインデックスされないみたい。&lt;br>
+&lt;a href="https://go.dev/about">https://go.dev/about&lt;/a> によると&lt;/p>
+&lt;blockquote>
+&lt;p>Data for the site is downloaded from proxy.golang.org. We monitor the Go Module Index regularly for new packages to add to pkg.go.dev. If you don’t see a package on pkg.go.dev, you can add it by doing one of the following:&lt;/p>
+&lt;/blockquote>
+&lt;p>以下、いずれかの操作が必要だそうだ:&lt;/p>
+&lt;ul>
+&lt;li>proxy.golang.org に当該バージョンのモジュールをリクエストする
+&lt;ul>
+&lt;li>例) &lt;a href="https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info">https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info&lt;/a> にGETリクエストを送る&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>GOPROXY=&amp;quot;https://proxy.golang.org&amp;rdquo; をつけてmodule-aware modeでgo getする
+&lt;ul>
+&lt;li>例) &lt;code>GOPROXY=&amp;quot;https://proxy.golang.org&amp;quot; GO111MODULE=on go get example.com/my/module@v1.0.0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E6%9B%B4%E6%96%B0">プログラム言語 &amp;gt; Golang &amp;gt; 道場#モジュール更新&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
 &lt;h2 id="617">6/17&lt;/h2>
 &lt;h3 id="shelpのリファクタでgorenameを叩きまくった">shelpのリファクタでgorenameを叩きまくった&lt;/h3>

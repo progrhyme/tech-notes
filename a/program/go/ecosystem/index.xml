@@ -114,11 +114,7 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">args&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>release&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--rm-dist&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">env&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">GITHUB_TOKEN&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>${{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>secrets.GITHUB_TOKEN&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>Unshallow&lt;/code>ステップの &lt;code>git fetch&lt;/code> のオプションに &lt;code>--tags --force&lt;/code> を足す必要があった。これについてはドキュメントに修正PRを送った
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/goreleaser/goreleaser/pull/1608">https://github.com/goreleaser/goreleaser/pull/1608&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200617/#goreleaser%E3%81%AE%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AB%E4%BF%AE%E6%AD%A3pr%E3%82%92%E9%80%81%E3%81%A3%E3%81%9F">2020-06-17#goreleaserのドキュメントに修正PRを送った&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
