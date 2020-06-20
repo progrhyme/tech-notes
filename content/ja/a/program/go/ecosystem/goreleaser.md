@@ -173,7 +173,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-NOTE:
+参考:
 
-- `Unshallow`ステップの `git fetch` のオプションに `--tags --force` を足す必要があった。これについてはドキュメントに修正PRを送った
-  - https://github.com/goreleaser/goreleaser/pull/1608
+- [2020-06-17#goreleaserのドキュメントに修正PRを送った]({{<ref "20200617.md">}}#goreleaserのドキュメントに修正prを送った)

@@ -316,6 +316,29 @@ if link, err := os.Readlink(path); link != "" {
 
 - [エコシステム#ビルド・公開]({{<ref "ecosystem/_index.md">}}#ビルド公開)
 
+## モジュール作成
+
+上の[ライブラリ管理](#ライブラリ管理)で述べたGo Moduleの仕組みを使う。
+
+### モジュール更新
+
+新しいバージョンを公開する場合、pkg.go.devにすぐに反映されないことがある。  
+その場合、以下いずれかの操作を行う:
+
+- proxy.golang.org に当該バージョンのモジュールをリクエストする
+  - 例) https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info にGETリクエストを送る
+- GOPROXY="https://proxy.golang.org" をつけてmodule-aware modeでgo getする
+  - 例) `GOPROXY="https://proxy.golang.org" GO111MODULE=on go get example.com/my/module@v1.0.0`
+
+関連項目:
+
+- [2020-06-20#Go-moduleの更新をpkg.go.devに反映する]({{<ref "20200620.md">}}#go-moduleの更新をpkggodevに反映する)
+
+Reference:
+
+- https://go.dev/about
+- https://proxy.golang.org/
+
 ## 構造体の使い方
 
 関連項目:
