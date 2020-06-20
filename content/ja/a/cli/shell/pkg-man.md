@@ -11,8 +11,9 @@ weight: 2600
 ## 汎用
 
 - [basherpm/basher](https://github.com/basherpm/basher) ... clenvと似てる。複数環境切替えなんて機能はもちろんない
-- [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) ... Rust製。Zshに向いてそう。なんでもできそう
+- [rossmacarthur/sheldon](https://github.com/rossmacarthur/sheldon) ... Rust製。Zshに向いてそう。なんでもできそう。zplugに機能が似ている
 - [rerun](https://github.com/rerun/rerun) ... フレームワーク色がある
+- [progrhyme/shelp](https://github.com/progrhyme/shelp) ... Goで書いた自作ツール
 - [progrhyme/clenv](https://github.com/progrhyme/clenv) ... 拙作。未完
 
 参考:

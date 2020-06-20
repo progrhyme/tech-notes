@@ -47,16 +47,15 @@ POSIX準拠だったり、互換だったりするシェル。
 ### 演算子
 
 NOTE:
+
 - `[ 条件式 ]` は `test 条件式` と同じ。
-  - See [test](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html)
 
-ドキュメント:
-
-- [Bash Reference Manual](https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions)
+See [test](#test)
 
 参考:
 
 - [シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita](https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc)
+- [Bash Reference Manual](https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions)
 
 #### 単項条件演算子
 
@@ -226,3 +225,25 @@ unset -f my_func
 参考:
 
 - [【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html)
+
+## Utilities
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap04.html#tag_20
+
+必須のものと、オプショナルなものがある。  
+何が必須で、何がそうでないかについては、[1.7.1 Codes](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap01.html#tag_01_07_01)にコードが定義されている。
+
+### test
+
+https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html#tag_20_128
+
+```sh
+# 1
+test [expression]
+
+# 2
+[ [expression] ]
+```
+
+expressionを評価して、成功なら0, 失敗なら非0で終了する。  
+もっぱら論理式的に使われる。
