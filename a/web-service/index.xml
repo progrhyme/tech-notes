@@ -212,7 +212,76 @@ duedate &amp;lt; 30d // 期限30日以内
 &lt;li>&lt;a href="https://community.atlassian.com/t5/Jira-Service-Desk-questions/How-to-add-CC-field-in-open-ticket-screen/qaq-p/2152">How to add CC field in open ticket screen?&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="優先度のフィールドをカスタマイズ">優先度のフィールドをカスタマイズ&lt;/h3>
-&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Slack</title><link>https://progrhy.me/tech-notes/a/web-service/slack/</link><pubDate>Thu, 11 Jun 2020 00:01:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/slack/</guid><description>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Netlify</title><link>https://progrhy.me/tech-notes/a/web-service/netlify/</link><pubDate>Sat, 20 Jun 2020 19:48:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/netlify/</guid><description>
+&lt;p>Webサイトのホスティングサービス。&lt;/p>
+&lt;p>主に静的サイト向けだが、FaaSとしても使える？&lt;br>
+各種静的サイトジェネレータによるビルドに対応しており、GitHubなどのソースコードを連携することでサイトへの継続的デプロイを設定することができる。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://rightcode.co.jp/blog/information-technology/netlify-github-up">NetlifyとGithubを連携させ、サイトのアップロード作業を自動化する方法 – 株式会社ライトコード&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="pricing">Pricing&lt;/h2>
+&lt;p>&lt;a href="https://www.netlify.com/pricing/">https://www.netlify.com/pricing/&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>項目&lt;/th>
+&lt;th>STARTER&lt;/th>
+&lt;th>PRO&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>基本料金&lt;/td>
+&lt;td>無料&lt;/td>
+&lt;td>$45/月&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>メンバー数&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>同時ビルド数&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>転送量&lt;/td>
+&lt;td>100GB/月&lt;/td>
+&lt;td>400GB/月&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ビルド時間&lt;/td>
+&lt;td>300分/月&lt;/td>
+&lt;td>1,000分/月&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>サイト数&lt;/td>
+&lt;td>500&lt;/td>
+&lt;td>無制限&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="github-actionsでnetlifyにデプロイ">GitHub ActionsでNetlifyにデプロイ&lt;/h3>
+&lt;p>NetlifyでビルドできるのにわざわざGitHub Actionsを使うのはなぜだろうと思ったら、ビルド時間の無料枠を節約するためらしい。&lt;br>
+それなら別のサービスを使うのと変わらないのではないか、という気もするのだが。&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Netlifyにリポジトリを連携する前に設定しないと面倒なことになるかもしれない&lt;/li>
+&lt;/ul>
+&lt;p>参考記事より引用:&lt;/p>
+&lt;blockquote>
+&lt;p>Netlifyの仕様上Githubのリポジトリと紐付きがある場合プッシュしたタイミングでデプロイを自動で行います。&lt;br>
+そのためGithub Actionsでジョブ実行前にデプロイが完了してしまうため紐付きを解除する必要がありますが、Netlifyコミュニティに依頼しない限り紐付きを解除することができない&lt;/p>
+&lt;/blockquote>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nwtgck/items/e9a355c2ccb03d8e8eb0">Netlifyへのデプロイをビルド時間0で行うためのGitHub Actions - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@kosa3/github-actions%E3%81%A7netlify%E3%81%AB%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B-22ac30e02528">Github ActionsでNetlifyに自動デプロイする - kosa3 - Medium&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Slack</title><link>https://progrhy.me/tech-notes/a/web-service/slack/</link><pubDate>Thu, 11 Jun 2020 00:01:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/slack/</guid><description>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;h3 id="メッセージ書式">メッセージ書式&lt;/h3>
 &lt;ul>

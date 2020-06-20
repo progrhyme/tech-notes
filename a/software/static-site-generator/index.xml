@@ -252,4 +252,76 @@ mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&
 &lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul></description></item><item><title>A: MkDocs</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/mkdocs/</link><pubDate>Sat, 20 Jun 2020 18:56:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/mkdocs/</guid><description>
+&lt;p>Python製の静的サイトジェネレータ。&lt;br>
+ページ構成を多段にできないので、あまりスケールできないと思われる。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/a61d42878266af969e3c">MkDocsによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="installation">Installation&lt;/h3>
+&lt;p>いくつか選択肢がある&lt;/p>
+&lt;ul>
+&lt;li>パッケージマネージャー&lt;/li>
+&lt;li>&lt;code>pip install mkdocs&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>後述のmkdocs-materialを使うなら、そちらのDockerイメージを使う手も有る。MkDocsも含まれているので。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#mkdocs%E4%BA%8B%E5%A7%8B%E3%82%81">2020-06-20#MkDocs事始め&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="quickstart">Quickstart&lt;/h3>
+&lt;p>&lt;a href="https://www.mkdocs.org/#getting-started">https://www.mkdocs.org/#getting-started&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># プロジェクト作成&lt;/span>
+mkdocs new my-project
+&lt;span style="color:#204a87">cd&lt;/span> my-project
+&lt;span style="color:#8f5902;font-style:italic"># Webサーバ起動&lt;/span>
+mkdocs serve
+&lt;span style="color:#8f5902;font-style:italic"># サイトのビルド&lt;/span>
+mkdocs build
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h3 id="ページの追加">ページの追加&lt;/h3>
+&lt;p>&lt;a href="https://www.mkdocs.org/#adding-pages">https://www.mkdocs.org/#adding-pages&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>docs/ 以下にMarkdownファイルを追加&lt;/li>
+&lt;li>config file (mkdocs.yml) で設定&lt;/li>
+&lt;/ol>
+&lt;p>設定例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">site_name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>MkLorum&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nav&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">Home&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>index.md&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">About&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>about.md&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">theme&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>readthedocs&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="themes">Themes&lt;/h2>
+&lt;p>一覧: &lt;a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes&lt;/a>&lt;/p>
+&lt;p>Pickup:&lt;/p>
+&lt;ul>
+&lt;li>ReadTheDocs &amp;hellip; 組み込み。色んなところで使われている。そつない見た目で、使いやすい&lt;/li>
+&lt;li>&lt;a href="http://readthedocs.sheets.ch/">ReadTheDocs Dropdown&lt;/a> &amp;hellip; ReadTheDocsの拡張。ドロップダウンメニュー対応&lt;/li>
+&lt;li>&lt;a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material&lt;/a> &amp;hellip; 非常に人気の高いテーマ&lt;/li>
+&lt;/ul>
+&lt;h2 id="mkdocs-material">mkdocs-material&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://squidfunk.github.io/mkdocs-material/">https://squidfunk.github.io/mkdocs-material/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/squidfunk/mkdocs-material">https://github.com/squidfunk/mkdocs-material&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://syon.github.io/refills/rid/1520345/">MkDocs・MaterialのDockerを使ったインストール手順 :: GitHub Pages | Refills&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="installation-1">Installation&lt;/h3>
+&lt;p>いくつか選択肢がある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>pip install mkdocs-material&lt;/code>&lt;/li>
+&lt;li>&lt;code>docker pull squidfunk/mkdocs-material&lt;/code>
+&lt;ul>
+&lt;li>&lt;a href="https://hub.docker.com/r/squidfunk/mkdocs-material/">https://hub.docker.com/r/squidfunk/mkdocs-material/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>リポジトリをgit cloneして使う&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#mkdocs-material%E3%82%92docker%E3%81%A7%E5%8B%95%E3%81%8B%E3%81%99">2020-06-20#mkdocs-materialをDockerで動かす&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

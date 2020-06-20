@@ -1020,6 +1020,16 @@ kubectl delete -f my-ns.yml
 &lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/</link><pubDate>Mon, 04 May 2020 17:17:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/</guid><description/></item><item><title>A: Static Site Generators</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/</link><pubDate>Wed, 06 May 2020 13:39:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/</guid><description>
 &lt;p>コンテンツをMarkdown等で管理して、静的サイトを作れるソフトウェア製品。&lt;br>
 製本ツールであっても、HTML形式での出力に対応しているものはここに入れると思う。&lt;/p>
+&lt;h2 id="software">Software&lt;/h2>
+&lt;p>下位ページにないもの:&lt;/p>
+&lt;ul>
+&lt;li>Sphinx&lt;/li>
+&lt;li>Jekyll&lt;/li>
+&lt;li>Octopress&lt;/li>
+&lt;/ul>
 &lt;h2 id="参考">参考&lt;/h2>
-&lt;p>&lt;a href="https://www.staticgen.com/">https://www.staticgen.com/&lt;/a> &amp;hellip; OSS比較サイト&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.staticgen.com/">https://www.staticgen.com/&lt;/a> &amp;hellip; OSS比較サイト&lt;/li>
+&lt;li>2015年4月に書いたエントリ: &lt;a href="https://keyamb.hatenablog.com/entry/2015/04/01/211845">Markdown による中規模ドキュメンテーションシステムについて調べた。 - weblog of key_amb&lt;/a> &amp;hellip; 当時は使えるツールが少なかった&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

@@ -2,4 +2,14 @@
 &lt;p>Hugoはテーマによって、見た目やレイアウトなどをカスタマイズすることができる。&lt;/p>
 &lt;p>&lt;a href="https://themes.gohugo.io/">https://themes.gohugo.io/&lt;/a> がテーマのサイトで、様々なテーマが紹介されている。&lt;/p>
 &lt;p>このサイトに自作のテーマを載せるには、 &lt;a href="https://github.com/gohugoio/hugoThemes/blob/master/README.md#adding-a-theme-to-the-list">https://github.com/gohugoio/hugoThemes/blob/master/README.md#adding-a-theme-to-the-list&lt;/a> のガイドに従ってコントリビュートすると良い。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>Documentation向けのテーマ。&lt;/p>
+&lt;p>&lt;a href="https://themes.gohugo.io/tags/documentation/">https://themes.gohugo.io/tags/documentation/&lt;/a>&lt;/p>
+&lt;p>↑に集まっている。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/alex-shpak/hugo-book">https://github.com/alex-shpak/hugo-book&lt;/a> &amp;hellip; 見た目はミニマル。機能はパワフル&lt;/li>
+&lt;li>&lt;a href="https://github.com/thingsym/hugo-theme-techdoc">https://github.com/thingsym/hugo-theme-techdoc&lt;/a> &amp;hellip; シンプルなデザインだけど、ページ数はスケールできそう&lt;/li>
+&lt;li>&lt;a href="https://github.com/bep/docuapi">https://github.com/bep/docuapi&lt;/a> &amp;hellip; APIドキュメント向け&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/hugo-theme-bootie-docs">https://github.com/progrhyme/hugo-theme-bootie-docs&lt;/a> &amp;hellip; 拙作。2020-06-20現在はメンテしてない&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item></channel></rss>

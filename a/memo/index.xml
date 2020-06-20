@@ -42,7 +42,35 @@ macOSで作業した後、Ubuntuに戻ったときについ &lt;code>git push -f
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/k-kurikuri/items/609141727320eb1a6d2b">go mod tidy で不要なpackageを削除する - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
+&lt;/ul>
+&lt;h3 id="mkdocs事始め">MkDocs事始め&lt;/h3>
+&lt;p>shelpのドキュメントサイトを作ろうと思った。&lt;br>
+そんなにページ数も行かないだろうから、Docsyは牛刀過ぎる。&lt;br>
+このぐらいのサイトならMkDocsで十分行けそうである。&lt;/p>
+&lt;p>そして、&lt;a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs&lt;/a>はとてもデザインが良い。&lt;/p>
+&lt;p>というわけで、まずはMkDocs環境をセットアップ。&lt;/p>
+&lt;p>全部mkdocs-materialのDockerでやろうかとも思ったけど、まあPythonも既にpyenvで3.8を入れてたし、そんなに面倒じゃなかったのと、Dockerでファイルを作るとパーミッションがあーって感じになりがちなので、mkdocs用のvenvを作ってやることにした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># venvセットアップ&lt;/span>
+python -m venv venv/mkdocs
+&lt;span style="color:#204a87">source&lt;/span> venv/mkdocs/bin/activate
+&lt;span style="color:#8f5902;font-style:italic"># mkdocsインストール&lt;/span>
+pip install mkdocs
+&lt;span style="color:#8f5902;font-style:italic"># リポジトリ作成&lt;/span>
+mkdocs new shelp-doc
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/static-site-generator/mkdocs/">Software &amp;gt; 静的サイトジェネレーター &amp;gt; MkDocs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mkdocs-materialをdockerで動かす">mkdocs-materialをDockerで動かす&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/docker-wraps">docker-wraps&lt;/a>というリポジトリを作って、ラッパースクリプトを書いた。&lt;br>
+やってることはこれだけ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>docker run --rm -it -p 8000:8000 -v &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">PWD&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>:/docs squidfunk/mkdocs-material &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これを上で作ったshelp-docリポジトリで動かす…の前に、mkdocs.ymlでテーマを設定してから:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">site_name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>shelp&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>doc&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">theme&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>material&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ラッパーコマンドを実行すると、docker pull -&amp;gt; runが行われ、 0.0.0.0:8000 でmkdocsのWebサーバが起動した。&lt;/p></description></item><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
 &lt;h2 id="617">6/17&lt;/h2>
 &lt;h3 id="shelpのリファクタでgorenameを叩きまくった">shelpのリファクタでgorenameを叩きまくった&lt;/h3>
 &lt;p>gorenameの使い方などは&lt;a href="https://progrhy.me/tech-notes/a/program/go/tools/#cmdgorename">プログラム言語 &amp;gt; Golang &amp;gt; tools#cmd/gorename&lt;/a>に書いた。&lt;/p>
