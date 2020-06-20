@@ -34,6 +34,14 @@ macOSで作業した後、Ubuntuに戻ったときについ &lt;code>git push -f
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E6%9B%B4%E6%96%B0">プログラム言語 &amp;gt; Golang &amp;gt; 道場#モジュール更新&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="golangでmoduleのパスの外でmodule-aware-modeで入れたmoduleの消し方がわからん">Golangでmoduleのパスの外でmodule-aware modeで入れたmoduleの消し方がわからん&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/cmd/go/">https://golang.org/cmd/go/&lt;/a> には載ってないと思う。&lt;/p>
+&lt;p>go mod tidyで消えるかもしれないが、何が対象になるかわからなくて、怖くてまだ打ってない。&lt;br>
+別に全部消えてもなんとかなると思うけど。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/k-kurikuri/items/609141727320eb1a6d2b">go mod tidy で不要なpackageを削除する - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200617/</guid><description>
 &lt;h2 id="617">6/17&lt;/h2>
 &lt;h3 id="shelpのリファクタでgorenameを叩きまくった">shelpのリファクタでgorenameを叩きまくった&lt;/h3>

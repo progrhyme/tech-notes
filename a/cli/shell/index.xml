@@ -38,19 +38,13 @@
 &lt;h3 id="演算子">演算子&lt;/h3>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>[ 条件式 ]&lt;/code> は &lt;code>test 条件式&lt;/code> と同じ。
-&lt;ul>
-&lt;li>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html">test&lt;/a>&lt;/li>
+&lt;li>&lt;code>[ 条件式 ]&lt;/code> は &lt;code>test 条件式&lt;/code> と同じ。&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>ドキュメント:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions">Bash Reference Manual&lt;/a>&lt;/li>
-&lt;/ul>
+&lt;p>See &lt;a href="#test">test&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/egawa_kun/items/196cd354c0d8e4e0fefc">シェルスクリプト（bash）のif文やwhile文で使う演算子について - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-Conditional-Expressions">Bash Reference Manual&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="単項条件演算子">単項条件演算子&lt;/h4>
 &lt;table>
@@ -255,7 +249,19 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html">【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Bash</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/</link><pubDate>Tue, 28 Apr 2020 09:14:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/bash/</guid><description>
+&lt;/ul>
+&lt;h2 id="utilities">Utilities&lt;/h2>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap04.html#tag_20">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap04.html#tag_20&lt;/a>&lt;/p>
+&lt;p>必須のものと、オプショナルなものがある。&lt;br>
+何が必須で、何がそうでないかについては、&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap01.html#tag_01_07_01">1.7.1 Codes&lt;/a>にコードが定義されている。&lt;/p>
+&lt;h3 id="test">test&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html#tag_20_128">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html#tag_20_128&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
+&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>expression&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>expression&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>expressionを評価して、成功なら0, 失敗なら非0で終了する。&lt;br>
+もっぱら論理式的に使われる。&lt;/p></description></item><item><title>A: Bash</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/</link><pubDate>Tue, 28 Apr 2020 09:14:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/bash/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>入門コンテンツ:&lt;/p>
 &lt;ul>
@@ -435,6 +441,243 @@ end
 &lt;li>&lt;a href="http://www.atmarkit.co.jp/flinux/rensai/linuxtips/002cngprmpt.html" title="bashのプロンプトを変更するには">bashのプロンプトを変更するには&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519" title="Linuxで、bash プロンプトを素敵で実用的なものに変更する">Linuxで、bash プロンプトを素敵で実用的なものに変更する&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/wildeagle/items/5da17e007e2c284dc5dd">BashでPromptの色を変更する方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: fish shell</title><link>https://progrhy.me/tech-notes/a/cli/shell/fish/</link><pubDate>Sat, 20 Jun 2020 16:39:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/fish/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;strong>Finally, a command line shell for the 90s&lt;/strong>&lt;br>
+fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.&lt;/p>
+&lt;/blockquote>
+&lt;p>使いやすいシェルとして人気のもの。&lt;/p>
+&lt;ul>
+&lt;li>C++ 実装&lt;/li>
+&lt;li>POSIX &lt;strong>非互換&lt;/strong>&lt;/li>
+&lt;li>プラグイン機能がある&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nulab.com/ja/blog/backlog/fish-shell-tutorial/">fish-shell でシェルの海をスイスイ泳いでみた | 株式会社ヌーラボ(Nulab inc.)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/hennin/items/33758226a0de8c963ddf">fish shellが結構良かった話 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/kuwa72/items/f3a90fcd215938f5817e">シェル芸人のためのfish入門 - Qiita&lt;/a> &amp;hellip; Bashとの違いがわかりやすかった&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>Install:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://fishshell.com/">https://fishshell.com/&lt;/a> の「Go fish」から&lt;/li>
+&lt;/ul>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://fishshell.com/docs/current/">https://fishshell.com/docs/current/&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://fishshell.com/docs/current/tutorial.html">Tutorial — fish-shell 3.1.2 documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>有志和訳:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://natsukium.github.io/fish-docs-jp/">https://natsukium.github.io/fish-docs-jp/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>配列のインデックスは1から始まる&lt;/li>
+&lt;/ul>
+&lt;h3 id="変数のスコープ">変数のスコープ&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/#variable-scope">https://fishshell.com/docs/current/#variable-scope&lt;/a>&lt;/p>
+&lt;p>3種類のスコープ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Universal&lt;/strong> &amp;hellip; 該当ユーザの全fishセッションで共有される&lt;/li>
+&lt;li>&lt;strong>Global&lt;/strong> &amp;hellip; 現在のfishセッションに閉じるが、他のブロックスコープに結びつかず、 &lt;code>set -e&lt;/code> で明示的に消されない限り消えない&lt;/li>
+&lt;li>&lt;strong>Local&lt;/strong> &amp;hellip; 特定のブロックに関連付けられ、ブロックを抜けると消える。ブロックは &lt;code>for&lt;/code>, &lt;code>while&lt;/code>, &lt;code>if&lt;/code>, &lt;code>function&lt;/code>, &lt;code>begin&lt;/code> や &lt;code>switch&lt;/code> で作られ、 &lt;code>end&lt;/code> で閉じる&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Universal. -U, --universal で定義&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -U fish_user_paths . &lt;span style="color:#000">$fish_user_paths&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Global. -g, --global で定義&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -g PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
+begin
+&lt;span style="color:#8f5902;font-style:italic"># Local. -l, --local で定義&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -l pirate &lt;span style="color:#4e9a06">&amp;#39;There be treasure in them thar hills&amp;#39;&lt;/span>
+end
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$pirate&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># pirateはlocalなので何も出力されない&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commands">Commands&lt;/h2>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/commands.html">https://fishshell.com/docs/current/commands.html&lt;/a>&lt;/p>
+&lt;h3 id="contains">contains&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/contains.html">https://fishshell.com/docs/current/cmds/contains.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">contains &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> KEY &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VALUES...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワードがリストに含まれるか調べる。&lt;br>
+オプション &lt;code>-i, --index&lt;/code> を付けると、ワードのインデックス値を返す。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># PATHにまだ含まれていなければ追加&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> not contains &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
+end
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="eval">eval&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/eval.html">https://fishshell.com/docs/current/cmds/eval.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>COMMANDS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>テキストをコマンドとして評価する。&lt;br>
+コマンドが標準入力を使わないのなら &lt;code>source&lt;/code> を使ったほうがいいかも。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">set&lt;/span> cmd ls &lt;span style="color:#4e9a06">\|&lt;/span> cut -c 1-12
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#000">$cmd&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="function">function&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/function.html">https://fishshell.com/docs/current/cmds/function.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> NAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> BODY&lt;span style="color:#000;font-weight:bold">;&lt;/span> end
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を作る。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> ll
+ls -l &lt;span style="color:#000">$argv&lt;/span>
+end
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Spec:&lt;/p>
+&lt;ul>
+&lt;li>引数は &lt;code>$argv&lt;/code> でリストとして渡される&lt;/li>
+&lt;/ul>
+&lt;h3 id="functions">functions&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/functions.html">https://fishshell.com/docs/current/cmds/functions.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -a &lt;span style="color:#000;font-weight:bold">|&lt;/span> --all &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -n &lt;span style="color:#000;font-weight:bold">|&lt;/span> --names &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -D &lt;span style="color:#000;font-weight:bold">|&lt;/span> --details &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -v &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTION
+functions -c OLDNAME NEWNAME
+functions -d DESCRIPTION FUNCTION
+functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> -q &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTIONS...
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を表示したり消したりする。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-a, -all&lt;/code>&lt;/td>
+&lt;td>&lt;code>_&lt;/code> で始まるものも全て表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-e, --erase FUNCTIONS...&lt;/code>&lt;/td>
+&lt;td>関数を消す&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">functions -n
+&lt;span style="color:#8f5902;font-style:italic"># Displays a list of currently-defined functions&lt;/span>
+functions -c foo bar
+&lt;span style="color:#8f5902;font-style:italic"># Copies the &amp;#39;foo&amp;#39; function to a new function called &amp;#39;bar&amp;#39;&lt;/span>
+functions -e bar
+&lt;span style="color:#8f5902;font-style:italic"># Erases the function ``bar``&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="if">if&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/if.html">https://fishshell.com/docs/current/cmds/if.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION2&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE2...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_FALSE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+end
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>条件分岐構文として使える。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f foo.txt
+&lt;span style="color:#204a87">echo&lt;/span> foo.txt exists
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f bar.txt
+&lt;span style="color:#204a87">echo&lt;/span> bar.txt exists
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> foo.txt and bar.txt &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> not exist
+end
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="set">set&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/set.html">https://fishshell.com/docs/current/cmds/set.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME VALUES...
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>... VALUES...
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -q &lt;span style="color:#000;font-weight:bold">|&lt;/span> --query &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAMES...
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -S &lt;span style="color:#000;font-weight:bold">|&lt;/span> --show &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>シェル変数の表示や操作を行う。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97">変数のスコープ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-e, --erase NAME&lt;/code>&lt;/td>
+&lt;td>変数を削除する&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-x, --export NAME VALUES...&lt;/code>&lt;/td>
+&lt;td>変数をエクスポートし、環境変数にする&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-u, --unexport NAME VALUES...&lt;/code>&lt;/td>
+&lt;td>変数をアンエクスポートし、環境変数ではなくする&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Prints all global, exported variables.&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -xg
+&lt;span style="color:#8f5902;font-style:italic"># Sets the value of the variable $foo to be &amp;#39;hi&amp;#39;.&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> foo hi
+&lt;span style="color:#8f5902;font-style:italic"># $fooを配列と見なして&amp;#34;there&amp;#34;をappendする&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -a foo there
+&lt;span style="color:#8f5902;font-style:italic"># Does the same thing as the previous two commands the way it would be done pre-fish 3.0.&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> foo hi
+&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#000">$foo&lt;/span> there
+&lt;span style="color:#8f5902;font-style:italic"># 先頭に要素を追加&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#4e9a06">&amp;#34;Hello, &amp;#34;&lt;/span> &lt;span style="color:#000">$foo&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Removes the variable $smurf&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -e smurf
+&lt;span style="color:#8f5902;font-style:italic"># Changes the fourth element of the $PATH list to ~/bin&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>4&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ~/bin
+&lt;span style="color:#8f5902;font-style:italic"># PATH変数の3つ目を削除&lt;/span>
+&lt;span style="color:#204a87">set&lt;/span> -e PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="source">source&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/source.html">https://fishshell.com/docs/current/cmds/source.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
+&lt;span style="color:#204a87">source&lt;/span> FILENAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ARGUMENTS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
+somecommand &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">source&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルや標準入力から受け取ったコマンド群を現在のシェルのコンテキストで評価・実行する。&lt;/p>
+&lt;h3 id="test">test&lt;/h3>
+&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/test.html">https://fishshell.com/docs/current/cmds/test.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
+&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/posix/#test">POSIX shellのtest&lt;/a>ユーティリティのように機能する。&lt;br>
+互換性のために2番めの構文も利用可能だが、fishでは &lt;code>test ...&lt;/code> 形式が好まれるとのこと。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -d /tmp
+cp /etc/motd /tmp/motd
+end
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$MANPATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$MANPATH&lt;/span>
+end
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> ! &lt;span style="color:#204a87">test&lt;/span> -r secret.txt
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Can&amp;#39;t read secret.txt&amp;#34;&lt;/span> &amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+end
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#4e9a06">\(&lt;/span> -f /foo -o -f /bar &lt;span style="color:#4e9a06">\)&lt;/span> -a &lt;span style="color:#4e9a06">\(&lt;/span> -f /baz -o -f /bat &lt;span style="color:#4e9a06">\)&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> Success
+end
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000">$status&lt;/span> -ne &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Previous command failed&amp;#34;&lt;/span>
+end
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="fisher">fisher&lt;/h3>
+&lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
+&lt;p>人気のパッケージ管理ツール。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># oh-my-fishのテーマをfisherでインストール&lt;/span>
+fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/shell/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/zsh/</guid><description>
 &lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>
@@ -741,8 +984,9 @@ zle clear-screen
 &lt;h2 id="汎用">汎用&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/basherpm/basher">basherpm/basher&lt;/a> &amp;hellip; clenvと似てる。複数環境切替えなんて機能はもちろんない&lt;/li>
-&lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう&lt;/li>
+&lt;li>&lt;a href="https://github.com/rossmacarthur/sheldon">rossmacarthur/sheldon&lt;/a> &amp;hellip; Rust製。Zshに向いてそう。なんでもできそう。zplugに機能が似ている&lt;/li>
 &lt;li>&lt;a href="https://github.com/rerun/rerun">rerun&lt;/a> &amp;hellip; フレームワーク色がある&lt;/li>
+&lt;li>&lt;a href="https://github.com/progrhyme/shelp">progrhyme/shelp&lt;/a> &amp;hellip; Goで書いた自作ツール&lt;/li>
 &lt;li>&lt;a href="https://github.com/progrhyme/clenv">progrhyme/clenv&lt;/a> &amp;hellip; 拙作。未完&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
