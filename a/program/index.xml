@@ -218,18 +218,34 @@ Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>G
 &lt;li>&lt;a href="https://perldoc.perl.org/5.30.0/perlpod.html">https://perldoc.perl.org/5.30.0/perlpod.html&lt;/a>&lt;/li>
 &lt;li>邦訳: &lt;a href="https://perldoc.jp/docs/perl/5.26.1/perlpod.pod">https://perldoc.jp/docs/perl/5.26.1/perlpod.pod&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="history">History&lt;/h2>
-&lt;p>参考:&lt;/p>
+&lt;h2 id="cpanモジュール">CPANモジュール&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Perl">Perl - Wikipedia&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://history.perl.org/PerlTimeline.html">http://history.perl.org/PerlTimeline.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://metacpan.org/">https://metacpan.org/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="cpan">CPAN&lt;/h2>
+&lt;h3 id="appcpanminus">App::cpanminus&lt;/h3>
+&lt;p>&lt;a href="https://metacpan.org/pod/App::cpanminus">https://metacpan.org/pod/App::cpanminus&lt;/a>&lt;/p>
+&lt;p>&lt;code>cpanm&lt;/code> のためにまずこれを入れる。&lt;/p>
+&lt;p>ユーザ環境のperl（plenvなど）にインストールするには、下のコマンドでよい:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -L https://cpanmin.us &lt;span style="color:#000;font-weight:bold">|&lt;/span> perl - App::cpanminus
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>使い方:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># モジュールインストール&lt;/span>
+cpanm Foo::Bar
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="podmarkdown">Pod::Markdown&lt;/h3>
+&lt;p>&lt;a href="https://metacpan.org/release/Pod-Markdown">https://metacpan.org/release/Pod-Markdown&lt;/a>&lt;/p>
+&lt;p>pod2markdown コマンドを提供してくれる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pod2markdown Foo.pm &amp;gt; Foo.md
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="cpanモジュールのメンテに関する備忘録">CPANモジュールのメンテに関する備忘録&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/gfx/20140823/1408750107">comaint(1)でCPAN moduleのcomaintainerを追加する - Islands in the byte stream&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://keyamb.hatenablog.com/entry/2014/03/15/204118">Minilla を使って CPAN にモジュールを上げてみた - weblog of key_amb&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2017/20170509#TOC-CPAN-">久しぶりにCPANリリース / 20170509 - progrhyme&amp;rsquo;s Tech Wiki&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="history">History&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ja.wikipedia.org/wiki/Perl">Perl - Wikipedia&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://history.perl.org/PerlTimeline.html">http://history.perl.org/PerlTimeline.html&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Python</title><link>https://progrhy.me/tech-notes/a/program/python/</link><pubDate>Sat, 20 Jun 2020 20:23:39 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/</guid><description>
 &lt;h2 id="はじめに">はじめに&lt;/h2>
 &lt;p>断りない限りPython3を前提とする。&lt;br>
