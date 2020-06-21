@@ -217,6 +217,20 @@ duedate &amp;lt; 30d // 期限30日以内
 &lt;p>主に静的サイト向けだが、FaaSとしても使える？&lt;br>
 各種静的サイトジェネレータによるビルドに対応しており、GitHubなどのソースコードを連携することでサイトへの継続的デプロイを設定することができる。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ol>
+&lt;li>Sign up
+&lt;ul>
+&lt;li>GitHub IDで登録できる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>リポジトリ連携
+&lt;ul>
+&lt;li>GitHub, GitLabなどから選べる&lt;/li>
+&lt;li>Netlifyで公開したいリポジトリに対して権限を与えるとよい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ビルド設定 -&amp;gt; デプロイ&lt;/li>
+&lt;/ol>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://rightcode.co.jp/blog/information-technology/netlify-github-up">NetlifyとGithubを連携させ、サイトのアップロード作業を自動化する方法 – 株式会社ライトコード&lt;/a>&lt;/li>
@@ -264,6 +278,25 @@ duedate &amp;lt; 30d // 期限30日以内
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>&lt;a href="https://docs.netlify.com/configure-builds/common-configurations/">https://docs.netlify.com/configure-builds/common-configurations/&lt;/a>&lt;/p>
+&lt;p>各種ビルドツールを使う場合の設定が並んでいるので、だいたいこの通りにするといい。&lt;/p>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;p>&lt;a href="https://docs.netlify.com/configure-builds/manage-dependencies/#python">https://docs.netlify.com/configure-builds/manage-dependencies/#python&lt;/a>&lt;/p>
+&lt;h4 id="pythonのバージョン">Pythonのバージョン&lt;/h4>
+&lt;p>2020-06-21現在、デフォルトのビルドイメージ（Ubuntu 16）のデフォルトのPythonが2.7になっている。&lt;br>
+Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> 3.7 &amp;gt; runtime.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.netlify.com/configure-builds/get-started/#build-image-selection">https://docs.netlify.com/configure-builds/get-started/#build-image-selection&lt;/a> &amp;hellip; ビルドイメージの選択&lt;/li>
+&lt;li>&lt;a href="https://github.com/netlify/build-image/blob/xenial/included_software.md#languages">https://github.com/netlify/build-image/blob/xenial/included_software.md#languages&lt;/a> &amp;hellip; Ubuntu 16でサポートされているプログラム言語ランタイム&lt;/li>
+&lt;/ul>
+&lt;h3 id="netlifytoml">netlify.toml&lt;/h3>
+&lt;p>&lt;a href="https://docs.netlify.com/configure-builds/file-based-configuration/">File-based configuration | Netlify Docs&lt;/a>&lt;/p>
+&lt;p>もっと細やかな設定がしたいときに使えそう。&lt;/p>
+&lt;h4 id="依存ライブラリの設定">依存ライブラリの設定&lt;/h4>
+&lt;p>リポジトリにrequirements.txtを用意する。&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="github-actionsでnetlifyにデプロイ">GitHub ActionsでNetlifyにデプロイ&lt;/h3>
 &lt;p>NetlifyでビルドできるのにわざわざGitHub Actionsを使うのはなぜだろうと思ったら、ビルド時間の無料枠を節約するためらしい。&lt;br>

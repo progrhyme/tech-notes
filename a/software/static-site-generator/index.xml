@@ -255,6 +255,7 @@ mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&
 &lt;/ul></description></item><item><title>A: MkDocs</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/mkdocs/</link><pubDate>Sat, 20 Jun 2020 18:56:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/mkdocs/</guid><description>
 &lt;p>Python製の静的サイトジェネレータ。&lt;br>
 ページ構成を多段にできないので、あまりスケールできないと思われる。&lt;/p>
+&lt;p>※mkdocs-materialだと少なくとも2階層にはできる。&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -324,4 +325,31 @@ mkdocs build
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#mkdocs-material%E3%82%92docker%E3%81%A7%E5%8B%95%E3%81%8B%E3%81%99">2020-06-20#mkdocs-materialをDockerで動かす&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;h3 id="features">Features&lt;/h3>
+&lt;ul>
+&lt;li>ページタブ（後述）&lt;/li>
+&lt;li>&lt;a href="https://squidfunk.github.io/mkdocs-material/extensions/admonition/">Extensions&lt;/a>
+&lt;ul>
+&lt;li>Markdown拡張
+&lt;ul>
+&lt;li>CodeHilite &amp;hellip; シンタックスハイライト&lt;/li>
+&lt;li>Admonition &amp;hellip; warn, infoなどのブロック要素&lt;/li>
+&lt;li>Footnotes&lt;/li>
+&lt;li>PyMdown
+&lt;ul>
+&lt;li>superfences&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://squidfunk.github.io/mkdocs-material/plugins/search/">Plugins&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="configuration">Configuration&lt;/h3>
+&lt;p>タブ機能を有効にするとページをグループ化できる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">theme&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">features&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- tabs&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
