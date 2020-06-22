@@ -138,6 +138,21 @@ if terminal.IsTerminal(0) {
 - [golangでrecoverしたときの戻り値 - PartyIX](https://h3poteto.hatenablog.com/entry/2015/12/13/010000)
 - [Golangでエラー時にスタックトレースを表示する - Qiita](https://qiita.com/deeeet/items/dacc71932393ab35d9f8)
 
+## ドキュメントコメント
+
+ドキュメンテーションコメント、いわゆるGoDocの書き方。
+
+公式リソース:
+
+- [Effective Go - The Go Programming Language#Commentary](https://golang.org/doc/effective_go.html#commentary)
+- [Godoc: documenting Go code - The Go Blog](https://blog.golang.org/godoc)
+- [Testable Examples in Go - The Go Blog](https://blog.golang.org/examples)
+
+参考:
+
+- [チョットできるGoプログラマーになるための詳解GoDoc - Qiita](https://qiita.com/shibukawa/items/8c70fdd1972fad76a5ce)
+- [GoDocドキュメントの書き方 - Plan 9とGo言語のブログ](https://blog.lufia.org/entry/2018/05/14/150400)
+
 ## テスト
 
 See [テスト]({{<ref "test.md">}})

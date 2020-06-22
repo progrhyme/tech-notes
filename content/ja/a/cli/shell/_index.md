@@ -21,6 +21,27 @@ https://github.com/alebcay/awesome-shell
 
 > A curated list of awesome command-line frameworks, toolkits, guides and gizmos.
 
+## Documentation Comments
+
+ドキュメントコメントの書き方には標準がない感じ。  
+たぶん一番有名なのは[Googleコーディング規約](https://google.github.io/styleguide/shellguide.html#s4.1-file-header)。
+
+「shdoc」や「shelldoc」で検索すると、色んな人が様々なツールを作っている。
+
+使えそうなツール:
+
+ ツール | 実装言語 | 出力形式
+--------|----------|----------
+ [reconquest/shdoc](https://github.com/reconquest/shdoc) | AWK | Markdown
+ [essentialkaos/shdoc](https://github.com/essentialkaos/shdoc) | Go | Text/Markdown/HTML
+ [RoverAMD/shelldoc](https://gitlab.com/RoverAMD/shelldoc) | Bash | Markdown
+ [shdoc in jmcantrell/bashful](https://github.com/jmcantrell/bashful/blob/master/bin/shdoc) | Bash | Text
+ [larsks/shdoc](https://github.com/larsks/shdoc) | Python | 任意 (Jinja2)
+
+参考:
+
+- [2020-05-09#シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな]({{<ref "20200509.md">}}#シェルスクリプトのドキュメントコメントをpodで書くのはもうやめていいかな)
+
 ## ANSIエスケープシーケンス
 
 ターミナルの出力文字に色や装飾を付けたりできる。
