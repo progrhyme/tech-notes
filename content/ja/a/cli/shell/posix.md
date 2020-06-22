@@ -13,10 +13,6 @@ sh, bash, ksh, ash, dashなど。
 
 POSIX準拠だったり、互換だったりするシェル。
 
-参考:
-
-- [スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita](https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa)
-
 ## Documentation
 
 - [POSIX 1003.1 - man page for sh (posix section 1p) - Unix & Linux Commands](http://www.unix.com/man-page/posix/1p/sh/)
@@ -24,6 +20,16 @@ POSIX準拠だったり、互換だったりするシェル。
   - [Shell Command Language](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18)
 - [Shell Command Language (www.unix.org))](http://www.unix.org/whitepapers/shdiffs.html)
   - System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気
+
+## スクリプティング
+
+POSIX互換/準拠にこだわる人たち（原理主義者）がコツをまとめてくれてたりする。
+
+参考:
+
+- [どの環境でも使えるシェルスクリプトを書くためのメモ ver4.60 - Qiita](https://qiita.com/richmikan@github/items/bd4b21cf1fe503ab2e5c)
+- [スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita](https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa)
+- [すべてのUNIXで20年動くプログラムはどう書くべきか デプロイ・保守に苦しむエンジニア達へ贈る［シェルスクリプトレシピ集］ | 松浦 智之, USP研究所 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4863541775)
 
 ## Spec
 

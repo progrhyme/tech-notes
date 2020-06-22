@@ -604,3 +604,14 @@ YAML, JSON, TOMLなど。
 参考:
 
 - [golang は ゆるふわに JSON を扱えまぁす! — KaoriYa](https://www.kaoriya.net/blog/2016/06/25/)
+
+## プラグイン機構
+
+Go 1.8で[plugin](https://golang.org/pkg/plugin/)パッケージが標準ライブラリに入った。
+
+他に、RPCスタイルの[hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)などもある。
+
+参考:
+
+- [Go 1.8のpluginパッケージを試してみる - Qiita](https://qiita.com/qt-luigi/items/47a7913145fc747da0c7)
+- [Go言語でプラグイン機構をつくる | SOTA](https://deeeet.com/writing/2015/04/28/pingo/)
