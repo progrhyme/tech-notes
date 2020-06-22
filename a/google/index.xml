@@ -26,6 +26,8 @@ Googleが、機械学習の教育、研究用に使われることを目的に�
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tomo_makes/items/b3c60b10f7b25a0a5935">【秒速で無料GPUを使う】深層学習実践Tips on Colaboratory - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>&lt;a href="https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja">Colaboratory へようこそ - Colaboratory&lt;/a>&lt;/p>
 &lt;h2 id="関連項目">関連項目&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/bq/#colaboratory%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%86">GCP &amp;gt; BigQuery#Colaboratoryから使う&lt;/a>&lt;/li>
