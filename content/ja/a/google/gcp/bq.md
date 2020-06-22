@@ -1,0 +1,43 @@
+---
+title: "BigQuery"
+linkTitle: "BigQuery"
+description: https://cloud.google.com/bigquery/
+date: 2020-06-22T11:57:02+09:00
+weight: 45
+---
+
+## Documentation
+
+- [割り当てと上限 | BigQuery | Google Cloud](https://cloud.google.com/bigquery/quotas?hl=ja)
+
+### 料金
+
+https://cloud.google.com/bigquery/pricing
+
+- ストレージ:
+  - アクティブストレージ ... 2020-04-22現在、GCSのStandard Storageより若干安い
+  - 長期保存 ... テーブルに90日編集がなければ↑から50%値引きされる。2020-04-22現在、GCSのNealineと同額
+
+## Concept
+
+- データセット ... プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
+  - データセットの概要 | BigQuery | Google Cloud
+
+## How-to
+### Colaboratoryから使う
+
+関連項目:
+
+- [Colaboratory]({{<ref "/a/google/colab.md">}})
+
+参考:
+
+- [ColaboratoryでBigQueryにアクセスする3つの方法 - Qiita](https://qiita.com/Hyperion13fleet/items/a77ca93a61cb39d50138)
+
+## 運用
+### 有効期限の設定
+
+https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration
+
+- **テーブルの有効期限** ... テーブル作成時からの日数を設定できる
+- **パーティションの有効期限** ... パーティション分割テーブルで、パーティションの有効期限を設定できる
