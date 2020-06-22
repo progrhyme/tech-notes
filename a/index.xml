@@ -3,10 +3,6 @@
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>sh, bash, ksh, ash, dashなど。&lt;/p>
 &lt;p>POSIX準拠だったり、互換だったりするシェル。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa">スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="http://www.unix.com/man-page/posix/1p/sh/">POSIX 1003.1 - man page for sh (posix section 1p) - Unix &amp;amp; Linux Commands&lt;/a>&lt;/li>
@@ -20,6 +16,14 @@
 &lt;li>System V や POSIX の古典的な仕様がまとまってるっぽい雰囲気&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h2 id="スクリプティング">スクリプティング&lt;/h2>
+&lt;p>POSIX互換/準拠にこだわる人たち（原理主義者）がコツをまとめてくれてたりする。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/richmikan@github/items/bd4b21cf1fe503ab2e5c">どの環境でも使えるシェルスクリプトを書くためのメモ ver4.60 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa">スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.co.jp/dp/4863541775">すべてのUNIXで20年動くプログラムはどう書くべきか デプロイ・保守に苦しむエンジニア達へ贈る［シェルスクリプトレシピ集］ | 松浦 智之, USP研究所 |本 | 通販 | Amazon&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
 &lt;p>※調査が甘くてPOSIXの仕様じゃないものが混ざっているかもしれない。&lt;/p>
@@ -2712,6 +2716,14 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.kaoriya.net/blog/2016/06/25/">golang は ゆるふわに JSON を扱えまぁす! — KaoriYa&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="プラグイン機構">プラグイン機構&lt;/h2>
+&lt;p>Go 1.8で&lt;a href="https://golang.org/pkg/plugin/">plugin&lt;/a>パッケージが標準ライブラリに入った。&lt;/p>
+&lt;p>他に、RPCスタイルの&lt;a href="https://github.com/hashicorp/go-plugin">hashicorp/go-plugin&lt;/a>などもある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/qt-luigi/items/47a7913145fc747da0c7">Go 1.8のpluginパッケージを試してみる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://deeeet.com/writing/2015/04/28/pingo/">Go言語でプラグイン機構をつくる | SOTA&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: BigQuery</title><link>https://progrhy.me/tech-notes/a/google/gcp/bq/</link><pubDate>Mon, 22 Jun 2020 11:57:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/bq/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>

@@ -1347,6 +1347,14 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.kaoriya.net/blog/2016/06/25/">golang は ゆるふわに JSON を扱えまぁす! — KaoriYa&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="プラグイン機構">プラグイン機構&lt;/h2>
+&lt;p>Go 1.8で&lt;a href="https://golang.org/pkg/plugin/">plugin&lt;/a>パッケージが標準ライブラリに入った。&lt;/p>
+&lt;p>他に、RPCスタイルの&lt;a href="https://github.com/hashicorp/go-plugin">hashicorp/go-plugin&lt;/a>などもある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/qt-luigi/items/47a7913145fc747da0c7">Go 1.8のpluginパッケージを試してみる - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://deeeet.com/writing/2015/04/28/pingo/">Go言語でプラグイン機構をつくる | SOTA&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 標準パッケージ</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/</link><pubDate>Sun, 31 May 2020 16:18:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/</guid><description>
 &lt;h2 id="bufio">bufio&lt;/h2>
 &lt;p>バッファリング付きI/Oを提供する。&lt;/p>
