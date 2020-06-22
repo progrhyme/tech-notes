@@ -2690,6 +2690,59 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.kaoriya.net/blog/2016/06/25/">golang は ゆるふわに JSON を扱えまぁす! — KaoriYa&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: BigQuery</title><link>https://progrhy.me/tech-notes/a/google/gcp/bq/</link><pubDate>Mon, 22 Jun 2020 11:57:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/bq/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas?hl=ja">割り当てと上限 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="料金">料金&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/pricing">https://cloud.google.com/bigquery/pricing&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>ストレージ:
+&lt;ul>
+&lt;li>アクティブストレージ &amp;hellip; 2020-04-22現在、GCSのStandard Storageより若干安い&lt;/li>
+&lt;li>長期保存 &amp;hellip; テーブルに90日編集がなければ↑から50%値引きされる。2020-04-22現在、GCSのNealineと同額&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="concept">Concept&lt;/h2>
+&lt;ul>
+&lt;li>データセット &amp;hellip; プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
+&lt;ul>
+&lt;li>データセットの概要 | BigQuery | Google Cloud&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="colaboratoryから使う">Colaboratoryから使う&lt;/h3>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/colab/">Colaboratory&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Hyperion13fleet/items/a77ca93a61cb39d50138">ColaboratoryでBigQueryにアクセスする3つの方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="運用">運用&lt;/h2>
+&lt;h3 id="有効期限の設定">有効期限の設定&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration">https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
+&lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
+&lt;/ul></description></item><item><title>A: Colaboratory</title><link>https://progrhy.me/tech-notes/a/google/colab/</link><pubDate>Mon, 22 Jun 2020 11:57:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/colab/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>参考記事より引用:&lt;/p>
+&lt;blockquote>
+&lt;p>無料で使うことができ、ほとんどの主要ブラウザで動作する、設定不要のJupyterノートブック環境&lt;br>
+Googleが、機械学習の教育、研究用に使われることを目的に、無償提供している&lt;/p>
+&lt;/blockquote>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tomo_makes/items/b3c60b10f7b25a0a5935">【秒速で無料GPUを使う】深層学習実践Tips on Colaboratory - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="関連項目">関連項目&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/bq/#colaboratory%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%86">GCP &amp;gt; BigQuery#Colaboratoryから使う&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: BIOS</title><link>https://progrhy.me/tech-notes/a/firmware/bios/</link><pubDate>Mon, 04 May 2020 08:43:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/firmware/bios/</guid><description>
 &lt;p>&lt;a href="http://e-words.jp/w/BIOS.html">BIOS（Basic Input/Output System）とは - IT用語辞典 e-Words&lt;/a>より:&lt;/p>
 &lt;blockquote>
@@ -5503,150 +5556,4 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 &lt;ul>
 &lt;li>&lt;a href="https://www.qoosky.io/techs/1ee07c140f">jq チートシート - Qoosky&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://medium.com/veltra-engineering/jq-supports-json-to-csv-fb5c951a9575">jq コマンドで JSON を CSV に変換する - VELTRA Engineering - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
-&lt;blockquote>
-&lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/backends/config.html">Configuration&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/backends/init.html">Init&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/backends/state.html">State Storage &amp;amp; Locking&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="gcs">gcs&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
-&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;gcs&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> bucket&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tf-state-prod&amp;#34;&lt;/span>
-&lt;span style="color:#000"> prefix&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;terraform/state&amp;#34;&lt;/span>
-}
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>認証用の &lt;code>credentials&lt;/code> または &lt;code>access_token&lt;/code> が必要。&lt;/li>
-&lt;/ul>
-&lt;h3 id="config-variables">config variables&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>credentials&lt;/code> &amp;hellip; GCPのサービスアカウントキー（JSON）のパスを指定する
-&lt;ul>
-&lt;li>環境変数 &lt;code>GOOGLE_BACKEND_CREDENTIALS&lt;/code> or &lt;code>GOOGLE_CREDENTIALS&lt;/code> によってパスを指定することもできる&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login">https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login&lt;/a> で作成できるユーザの&lt;a href="https://cloud.google.com/docs/authentication/production">Application Default Credentials&lt;/a>でも良い&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth application-default login
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/provider/google/#configuration">Providers &amp;gt; Google&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="s3">s3&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/s3.html">https://www.terraform.io/docs/backends/types/s3.html&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>ロックしたいときはDynamoDBを使う。
-&lt;ul>
-&lt;li>オプション &lt;code>dynamodb_table&lt;/code> を指定する&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>A: Netlify</title><link>https://progrhy.me/tech-notes/a/web-service/netlify/</link><pubDate>Sat, 20 Jun 2020 19:48:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/netlify/</guid><description>
-&lt;p>Webサイトのホスティングサービス。&lt;/p>
-&lt;p>主に静的サイト向けだが、FaaSとしても使える？&lt;br>
-各種静的サイトジェネレータによるビルドに対応しており、GitHubなどのソースコードを連携することでサイトへの継続的デプロイを設定することができる。&lt;/p>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;ol>
-&lt;li>Sign up
-&lt;ul>
-&lt;li>GitHub IDで登録できる&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>リポジトリ連携
-&lt;ul>
-&lt;li>GitHub, GitLabなどから選べる&lt;/li>
-&lt;li>Netlifyで公開したいリポジトリに対して権限を与えるとよい&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>ビルド設定 -&amp;gt; デプロイ&lt;/li>
-&lt;/ol>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://rightcode.co.jp/blog/information-technology/netlify-github-up">NetlifyとGithubを連携させ、サイトのアップロード作業を自動化する方法 – 株式会社ライトコード&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="pricing">Pricing&lt;/h2>
-&lt;p>&lt;a href="https://www.netlify.com/pricing/">https://www.netlify.com/pricing/&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>項目&lt;/th>
-&lt;th>STARTER&lt;/th>
-&lt;th>PRO&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>基本料金&lt;/td>
-&lt;td>無料&lt;/td>
-&lt;td>$45/月&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>メンバー数&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>3&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>同時ビルド数&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>3&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>転送量&lt;/td>
-&lt;td>100GB/月&lt;/td>
-&lt;td>400GB/月&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ビルド時間&lt;/td>
-&lt;td>300分/月&lt;/td>
-&lt;td>1,000分/月&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>サイト数&lt;/td>
-&lt;td>500&lt;/td>
-&lt;td>無制限&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>&lt;a href="https://docs.netlify.com/configure-builds/common-configurations/">https://docs.netlify.com/configure-builds/common-configurations/&lt;/a>&lt;/p>
-&lt;p>各種ビルドツールを使う場合の設定が並んでいるので、だいたいこの通りにするといい。&lt;/p>
-&lt;h3 id="python">Python&lt;/h3>
-&lt;p>&lt;a href="https://docs.netlify.com/configure-builds/manage-dependencies/#python">https://docs.netlify.com/configure-builds/manage-dependencies/#python&lt;/a>&lt;/p>
-&lt;h4 id="pythonのバージョン">Pythonのバージョン&lt;/h4>
-&lt;p>2020-06-21現在、デフォルトのビルドイメージ（Ubuntu 16）のデフォルトのPythonが2.7になっている。&lt;br>
-Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> 3.7 &amp;gt; runtime.txt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>リファレンス:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.netlify.com/configure-builds/get-started/#build-image-selection">https://docs.netlify.com/configure-builds/get-started/#build-image-selection&lt;/a> &amp;hellip; ビルドイメージの選択&lt;/li>
-&lt;li>&lt;a href="https://github.com/netlify/build-image/blob/xenial/included_software.md#languages">https://github.com/netlify/build-image/blob/xenial/included_software.md#languages&lt;/a> &amp;hellip; Ubuntu 16でサポートされているプログラム言語ランタイム&lt;/li>
-&lt;/ul>
-&lt;h3 id="netlifytoml">netlify.toml&lt;/h3>
-&lt;p>&lt;a href="https://docs.netlify.com/configure-builds/file-based-configuration/">File-based configuration | Netlify Docs&lt;/a>&lt;/p>
-&lt;p>もっと細やかな設定がしたいときに使えそう。&lt;/p>
-&lt;h4 id="依存ライブラリの設定">依存ライブラリの設定&lt;/h4>
-&lt;p>リポジトリにrequirements.txtを用意する。&lt;/p>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="github-actionsでnetlifyにデプロイ">GitHub ActionsでNetlifyにデプロイ&lt;/h3>
-&lt;p>NetlifyでビルドできるのにわざわざGitHub Actionsを使うのはなぜだろうと思ったら、ビルド時間の無料枠を節約するためらしい。&lt;br>
-それなら別のサービスを使うのと変わらないのではないか、という気もするのだが。&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>Netlifyにリポジトリを連携する前に設定しないと面倒なことになるかもしれない&lt;/li>
-&lt;/ul>
-&lt;p>参考記事より引用:&lt;/p>
-&lt;blockquote>
-&lt;p>Netlifyの仕様上Githubのリポジトリと紐付きがある場合プッシュしたタイミングでデプロイを自動で行います。&lt;br>
-そのためGithub Actionsでジョブ実行前にデプロイが完了してしまうため紐付きを解除する必要がありますが、Netlifyコミュニティに依頼しない限り紐付きを解除することができない&lt;/p>
-&lt;/blockquote>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/nwtgck/items/e9a355c2ccb03d8e8eb0">Netlifyへのデプロイをビルド時間0で行うためのGitHub Actions - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://medium.com/@kosa3/github-actions%E3%81%A7netlify%E3%81%AB%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B-22ac30e02528">Github ActionsでNetlifyに自動デプロイする - kosa3 - Medium&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

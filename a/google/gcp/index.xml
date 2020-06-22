@@ -443,6 +443,45 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tnagao3000/items/ff7dd2e89fd8cb42ad5a">Cloud Buildの進行状況をSlackに通知する - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: BigQuery</title><link>https://progrhy.me/tech-notes/a/google/gcp/bq/</link><pubDate>Mon, 22 Jun 2020 11:57:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/bq/</guid><description>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas?hl=ja">割り当てと上限 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="料金">料金&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/pricing">https://cloud.google.com/bigquery/pricing&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>ストレージ:
+&lt;ul>
+&lt;li>アクティブストレージ &amp;hellip; 2020-04-22現在、GCSのStandard Storageより若干安い&lt;/li>
+&lt;li>長期保存 &amp;hellip; テーブルに90日編集がなければ↑から50%値引きされる。2020-04-22現在、GCSのNealineと同額&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="concept">Concept&lt;/h2>
+&lt;ul>
+&lt;li>データセット &amp;hellip; プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
+&lt;ul>
+&lt;li>データセットの概要 | BigQuery | Google Cloud&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="colaboratoryから使う">Colaboratoryから使う&lt;/h3>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/colab/">Colaboratory&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Hyperion13fleet/items/a77ca93a61cb39d50138">ColaboratoryでBigQueryにアクセスする3つの方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="運用">運用&lt;/h2>
+&lt;h3 id="有効期限の設定">有効期限の設定&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration">https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
+&lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
 &lt;/ul></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>

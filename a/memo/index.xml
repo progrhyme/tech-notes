@@ -1,4 +1,15 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-20</title><link>https://progrhy.me/tech-notes/a/memo/20200620/</link><pubDate>Sat, 20 Jun 2020 07:45:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200620/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20200622/</link><pubDate>Mon, 22 Jun 2020 11:53:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200622/</guid><description>
+&lt;h2 id="622">6/22&lt;/h2>
+&lt;h3 id="flaskで作ったapiのドキュメントを作りたい">Flaskで作ったAPIのドキュメントを作りたい&lt;/h3>
+&lt;p>まださっとググっただけだけど、色んなツールがありそう。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://flask-apispec.readthedocs.io/en/latest/">https://flask-apispec.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/14295322/what-tools-are-available-to-auto-produce-documentation-for-a-rest-api-written-in">python - What tools are available to auto-produce documentation for a REST API written in Flask? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-20</title><link>https://progrhy.me/tech-notes/a/memo/20200620/</link><pubDate>Sat, 20 Jun 2020 07:45:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200620/</guid><description>
 &lt;h2 id="620">6/20&lt;/h2>
 &lt;h3 id="gitconfigでpullrebase--trueにしていたらローカルの履歴が失われた">gitconfigでpull.rebase = trueにしていたらローカルの履歴が失われた&lt;/h3>
 &lt;p>&lt;a href="https://github.com/progrhyme/myenv/commits/a75f069fad8dd05fe26d40526deab10d7912cb51">https://github.com/progrhyme/myenv/commits/a75f069fad8dd05fe26d40526deab10d7912cb51&lt;/a>&lt;/p>
