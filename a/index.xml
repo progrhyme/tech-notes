@@ -2324,6 +2324,19 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;li>&lt;a href="https://h3poteto.hatenablog.com/entry/2015/12/13/010000">golangでrecoverしたときの戻り値 - PartyIX&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/deeeet/items/dacc71932393ab35d9f8">Golangでエラー時にスタックトレースを表示する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="ドキュメントコメント">ドキュメントコメント&lt;/h2>
+&lt;p>ドキュメンテーションコメント、いわゆるGoDocの書き方。&lt;/p>
+&lt;p>公式リソース:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html#commentary">Effective Go - The Go Programming Language#Commentary&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/godoc">Godoc: documenting Go code - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/examples">Testable Examples in Go - The Go Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/shibukawa/items/8c70fdd1972fad76a5ce">チョットできるGoプログラマーになるための詳解GoDoc - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.lufia.org/entry/2018/05/14/150400">GoDocドキュメントの書き方 - Plan 9とGo言語のブログ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">テスト&lt;/a>&lt;/p>
 &lt;h2 id="ポインタ">ポインタ&lt;/h2>
