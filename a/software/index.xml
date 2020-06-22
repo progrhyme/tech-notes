@@ -590,7 +590,102 @@ kubectl delete -f my-ns.yml
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><pubDate>Tue, 05 May 2020 00:24:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/</guid><description>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: MySQL</title><link>https://progrhy.me/tech-notes/a/software/mysql/</link><pubDate>Mon, 22 Jun 2020 16:02:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>アイコンはイルカ。&lt;/p>
+&lt;h2 id="innodb">InnoDB&lt;/h2>
+&lt;p>MySQL 5.1ぐらいからデフォルトのストレージエンジンになった。&lt;br>
+MySQL 5.7からシステムテーブルでも使われるようになった。&lt;/p>
+&lt;h3 id="ロック">ロック&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-record-level-locks.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.6 InnoDB のレコード、ギャップ、およびネクストキーロック&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="データ構造">データ構造&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="オンラインddl">オンラインDDL&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-create-index-overview.html" title="MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>MySQL 5.5 or MySQL 5.1 with InnoDB Pluginで、CREATE/DROP INDEX時にテーブルコピーを行わないように最適化された。&lt;br>
+これは高速インデックス作成と呼ばれた。
+5.6では更に多くのALTER TABLE操作をテーブルコピーなしでできるようになってる。&lt;/p>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;h3 id="mysqldump">mysqldump&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="クエリ結果をtsvで出力">クエリ結果をTSVで出力&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>mysqldump&lt;/code>&lt;/li>
+&lt;li>&lt;code>mysql -e &amp;quot;select ...&amp;quot;&lt;/code> の形式だと、CSVでは出力できないらしい。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/d-dai/items/e56c2e5abf558328373f">MySQLのデータをcsv,tsv形式でダンプする - Qiita&lt;/a>&lt;/li>
+&lt;li>2009年8月 &lt;a href="https://fd0.hatenablog.jp/entry/20090801/p1">MySQL の結果を csv 形式で標準出力させたい - いけむランド&lt;/a>&lt;/li>
+&lt;li>2013年4月 &lt;a href="http://shusatoo.net/db/mysql/mysql-remote-db-result-output-local-csvfile/">MySQLリモートDBの結果をローカルCSVファイルに出力する方法 | 開発メモるアル&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="データベースの-rename-をどうやるか">データベースの Rename をどうやるか&lt;/h3>
+&lt;ul>
+&lt;li>DB 名指定で RENAME TABLE
+&lt;ul>
+&lt;li>&lt;code>RENAME TABLE prev_database.t TO new_databaes.t;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>mysqldump して restore&lt;/li>
+&lt;/ul>
+&lt;p>参考: &lt;a href="https://chartio.com/resources/tutorials/how-to-rename-a-database-in-mysql/" title="How to Rename a Database in MySQL | Chartio">How to Rename a Database in MySQL | Chartio&lt;/a>&lt;/p>
+&lt;h3 id="遅延レプリケーション">遅延レプリケーション&lt;/h3>
+&lt;p>MySQL5.6以降の場合、Slave側で以下を実行:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#000">CHANGE&lt;/span> &lt;span style="color:#000">MASTER&lt;/span> &lt;span style="color:#204a87;font-weight:bold">TO&lt;/span> &lt;span style="color:#000">MASTER_DELAY&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">N&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">-- Nは正の整数
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-delayed.html" title="MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション">MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="接続のタイムアウトに関する設定">接続のタイムアウトに関する設定&lt;/h3>
+&lt;p>色々パラメータがあって混乱しがちなのでまとめたい。&lt;/p>
+&lt;h4 id="サーバ側">サーバ側&lt;/h4>
+&lt;p>See &lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/server-system-variables.html">https://dev.mysql.com/doc/refman/5.6/ja/server-system-variables.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>net_read_timeout &amp;hellip; 接続からデータ読み込みに失敗したら切断&lt;/li>
+&lt;li>net_write_timeout &amp;hellip; 接続に対してデータ書き込みに失敗したら切断&lt;/li>
+&lt;li>wait_timeout &amp;hellip; クライアントがアイドルになったら切断&lt;/li>
+&lt;li>interactive_timeout &amp;hellip; インタラクティブセッションにおけるwait_timeout&lt;/li>
+&lt;li>net_retry_count &amp;hellip; 通信失敗時のリトライ回数&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>wait_timeout について:
+&lt;ul>
+&lt;li>&lt;a href="http://keyamb.hatenablog.com/entry/2015/04/23/004126" title="MyNA(日本MySQLユーザ会) 2015年4月 に行ってきた #mysql_jp - weblog of key_amb">MyNA(日本MySQLユーザ会) 2015年4月 に行ってきた #mysql_jp - weblog of key_amb&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="クライアント側">クライアント側&lt;/h4>
+&lt;p>See &lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/mysql-options.html">https://dev.mysql.com/doc/refman/5.6/ja/mysql-options.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>MYSQL_OPT_CONNECT_TIMEOUT &amp;hellip; サーバにつながらないときにタイムアウト&lt;/li>
+&lt;li>MYSQL_OPT_READ_TIMEOUT &amp;hellip; 接続からデータ読み込めないときにタイムアウト&lt;/li>
+&lt;li>MYSQL_OPT_WRITE_TIMEOUT &amp;hellip; 接続にデータ書き込めないときにタイムアウト&lt;/li>
+&lt;li>MYSQL_OPT_RECONNECT &amp;hellip; 接続が切れたと判断したら再接続&lt;/li>
+&lt;/ul>
+&lt;p>PerlやRubyのクライアントではよく &lt;code>connect_timeout&lt;/code>, &lt;code>read_timeout&lt;/code> といった接続時のオプションになっている。&lt;/p>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h3 id="create-table">CREATE TABLE&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/create-table.html">https://dev.mysql.com/doc/refman/5.6/ja/create-table.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>CREATE TABLE B LIKE A;&lt;/code> でテーブルAと同じカラム構成のテーブルBを作れる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/tnnsst35/20110604/1307181215" title="MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記">MySQLの CREATE TABLE &amp;hellip; LIKE &amp;hellip; - 不思議なサービスをつくる新人プログラマーの日記&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><pubDate>Tue, 05 May 2020 00:24:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>公式サイト: &lt;a href="https://www.spinnaker.io/">https://www.spinnaker.io/&lt;/a>&lt;/p>
 &lt;ul>
