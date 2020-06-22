@@ -46,6 +46,21 @@ BigQuery操作CLI
 
 リファレンス: https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja
 
+### load
+
+https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load
+
+Examples:
+
+```sh
+# TSVファイルをロードする
+bq load --source_format=CSV --encoding=UTF-8 --field_delimiter="\t" [dataset].[table] $TSV_FILE $FIELD
+```
+
+参考:
+
+- [bigqueryでtsvをインポート | ハックノート](https://hacknote.jp/archives/32117/)
+
 ## cbt
 
 Bigtable操作CLI

@@ -2,6 +2,7 @@
 title: "標準ライブラリ"
 linkTitle: "library"
 description: https://docs.python.org/ja/3/library/
+weight: 450
 date: 2020-06-20T20:27:53+09:00
 ---
 
