@@ -1,4 +1,74 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: POSIXシェル</title><link>https://progrhy.me/tech-notes/a/cli/shell/posix/</link><pubDate>Mon, 01 Jun 2020 16:04:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/posix/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: AWK</title><link>https://progrhy.me/tech-notes/a/cli/awk/</link><pubDate>Tue, 23 Jun 2020 22:49:24 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/awk/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>UNIX系OSでテキスト処理用途に用いられる。&lt;/p>
+&lt;p>プラットフォームによって実装が異なる。
+&lt;a href="https://en.wikipedia.org/wiki/AWK#Versions_and_implementations">https://en.wikipedia.org/wiki/AWK#Versions_and_implementations&lt;/a> を参考に。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.grymoire.com/Unix/Awk.html#uh-0">Awk - A Tutorial and Introduction - by Bruce Barnett&lt;/a> &amp;hellip; NAWKとGAWKの違いについても述べられている&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide&lt;/a> &amp;hellip; gawk
+&lt;ul>
+&lt;li>邦訳: &lt;a href="http://www.kt.rim.or.jp/~kbk/gawk-30/gawk_toc.html">The GNU Awk User&amp;rsquo;s Guide - Table of Contents&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://linux.die.net/man/1/awk">https://linux.die.net/man/1/awk&lt;/a> &amp;hellip; gawk&lt;/li>
+&lt;/ul>
+&lt;h2 id="awkコマンド">awkコマンド&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># AWKスクリプトが短いとき&lt;/span>
+command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;{ AWK SCRIPT }&amp;#39;&lt;/span>
+awk &lt;span style="color:#4e9a06">&amp;#39;{ AWK SCRIPT }&amp;#39;&lt;/span> INPUT_FILE1 INPUT_FILE2...
+&lt;span style="color:#8f5902;font-style:italic"># AWKスクリプトが長いとき&lt;/span>
+command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk -f scirpt.awk
+awk -f scirpt.awk INPUT_FILE1 INPUT_FILE2...
+&lt;span style="color:#8f5902;font-style:italic"># おまけ: AWKスクリプトが実行可能なとき&lt;/span>
+command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> scirpt.awk
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-F&amp;lt;c&amp;gt;&lt;/code>&lt;/td>
+&lt;td>フィールドの区切り文字を &lt;code>&amp;lt;c&amp;gt;&lt;/code> に変える。例: &lt;code>-F,&lt;/code> でカンマ区切り&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="スクリプティング">スクリプティング&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-awk" data-lang="awk">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/awk -f&lt;/span>
+&lt;span style="color:#204a87">BEGIN&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;start&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># ループ処理&lt;/span>
+&lt;span style="color:#204a87">END&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;end&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>#&lt;/code> でコメントを書ける&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>シバンに &lt;code>#!/usr/bin/env awk -f&lt;/code> のように記すことはできない
+&lt;ul>
+&lt;li>See &lt;a href="https://progrhy.me/tech-notes/a/cli/#%E3%82%B7%E3%83%90%E3%83%B3">CLI#シバン&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="syntax">Syntax&lt;/h2>
+&lt;h3 id="文字列の連結">文字列の連結&lt;/h3>
+&lt;p>単純にスペースでつなぐ。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">awk &lt;span style="color:#4e9a06">&amp;#39;{print $1 &amp;#34;-&amp;#34; $2 &amp;#34;-&amp;#34; $3}&amp;#39;&lt;/span> sample.tsv
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tkykmw/items/89c67530c322baedb002" title="awkの変数と文字列、正規表現のキホン - Qiita">awkの変数と文字列、正規表現のキホン - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/key-amb/items/754a12eda28e7650a47c" title="AWK によるテキストのワンライナー処理クックブック集 - Qiita">AWK によるテキストのワンライナー処理クックブック集 - Qiita&lt;/a> &amp;hellip; 以前に自分でまとめたもの&lt;/li>
+&lt;/ul></description></item><item><title>A: POSIXシェル</title><link>https://progrhy.me/tech-notes/a/cli/shell/posix/</link><pubDate>Mon, 01 Jun 2020 16:04:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/posix/</guid><description>
 &lt;p>POSIXシェルの仕様などについて書く。&lt;/p>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>sh, bash, ksh, ash, dashなど。&lt;/p>
@@ -5568,28 +5638,4 @@ some_key:*
 &lt;/table>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="利用量の確認">利用量の確認&lt;/h3>
-&lt;p>Logs Ingestionでresource type別のログ利用量を確認できる。&lt;/p></description></item><item><title>A: jq</title><link>https://progrhy.me/tech-notes/a/cli/jq/</link><pubDate>Thu, 07 May 2020 11:44:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/jq/</guid><description>
-&lt;p>JSONにクエリしてフィルタできるCLIツール。&lt;/p>
-&lt;h2 id="documents">Documents&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://stedolan.github.io/jq/tutorial/">https://stedolan.github.io/jq/tutorial/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stedolan.github.io/jq/manual/">https://stedolan.github.io/jq/manual/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="チートシート">チートシート&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># オブジェクトの特定キーの要素を抽出&lt;/span>
-cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.some_key&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 配列の特定要素を抽出&lt;/span>
-cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[0]&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトの特定キーを抽出&lt;/span>
-cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | .some_key&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトからいくつかの要素を選んでそれぞれ配列に格納&lt;/span>
-cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | [.keyA, .keyB, .keyC.keyAinC]&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># CSV形式で出力&lt;/span>
-cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | [.keyA, .keyB, .keyC] | @csv&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 配列の個々のオブジェクトからいくつかの要素を選んで新たなオブジェクトを作り、それぞれ出力&lt;/span>
-cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;span style="color:#4e9a06">&amp;#39;.[] | {a: .keyA, b: .keyB, ca: .keyC.keyAinC}&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.qoosky.io/techs/1ee07c140f">jq チートシート - Qoosky&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://medium.com/veltra-engineering/jq-supports-json-to-csv-fb5c951a9575">jq コマンドで JSON を CSV に変換する - VELTRA Engineering - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>Logs Ingestionでresource type別のログ利用量を確認できる。&lt;/p></description></item></channel></rss>
