@@ -131,11 +131,14 @@ if [[ ! "$str" =~ ^ba*r$ ]]; then
 end
 ```
 
+関連項目:
+
+- [Cookbooks#正規表現でグループ化と後方参照]({{<ref "cookbook.md">}}#正規表現でグループ化と後方参照)
+
 参考:
 
 - https://sites.google.com/site/progrhymetechwiki/program/regexp
 - [case 文の使用方法 | UNIX & Linux コマンド・シェルスクリプト リファレンス](http://shellscript.sunone.me/case.html)
-- [[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記](http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html "[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記")
 - [bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！](http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514)
 
 ### ANSI-C Quoting

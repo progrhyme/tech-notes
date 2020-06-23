@@ -88,6 +88,26 @@ $ for i in $(seq $n $((n + 2))); do echo $i; done
 2
 ```
 
+## 正規表現でグループ化と後方参照
+
+マッチした文字列は、グループ化されたものも含めてBASH_REMATCH配列変数に格納される。
+
+```sh
+# bash
+
+if [[ "2020-06-24" =~ ^([0-9]{4})-([0-9]{2})-([0-9]{2})$ ]] ; then
+  ymd="${BASH_REMATCH[0]}"   #=> 2020-06-24
+  year="${BASH_REMATCH[1]}"  #=> 2020
+  month="${BASH_REMATCH[2]}" #=> 06
+  day="${BASH_REMATCH[3]}"   #=> 24
+fi
+```
+
+参考:
+
+- [\[Bash\]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記](http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html)
+- [bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！](https://takuya-1st.hatenablog.jp/entry/2016/12/22/175514)
+
 ## 多重ループとbreak, continue
 
 `break 2` や `continue 2` のように後ろに数字を与えることで、上の階層のループを抜けられるようだ。
