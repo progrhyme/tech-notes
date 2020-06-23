@@ -4,7 +4,6 @@ linkTitle: "CLI"
 description:
   コマンドラインツールなど
 date: 2020-04-27T19:34:20+09:00
-simple_list: true
 weight: 400
 ---
 
@@ -15,6 +14,42 @@ weight: 400
 
 - [SS64 Command line reference](https://ss64.com/) ... Linux, macOS etc.
   - macOSのmanはやや古いかも。不備が散見される
+
+## シバン
+
+- 英語表記 ... shebang, shbang
+- 日本語 ... シェバンとも
+
+UNIX系OSで、実行スクリプトの先頭に書かれる `#!` で始まる行のこと。  
+ここにはふつう、インタプリタの絶対パスを書く。
+
+あるいは、 `env` コマンドを用いた `#!/usr/bin/env bash` のような表記もよく用いられる。
+
+参考:
+
+- [シバン (Unix) - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%90%E3%83%B3_(Unix))
+- [Shebang集 - Qiita](https://qiita.com/cielavenir/items/6063c117f25f9188b84c#awk)
+
+### 制約
+
+envコマンドは普通、複数引数を取ることができない。  
+例えば、Ubuntu v18で `#!/usr/bin/env awk -f` のようにすると、下のようなエラーが出る:
+
+```sh
+$ cat foo.txt | test.awk
+/usr/bin/env: `awk -f': そのようなファイルやディレクトリはありません`
+```
+
+そのため、引数を渡したくなったら、 `#!/path/to/interpreter ARGS` の形にすることになりそう。
+
+NOTE:
+
+- BSD系OSだと複数引数取れるっぽい
+
+参考:
+
+- [shell - Invoking a script, which has an awk shebang, with parameters (vars) - Stack Overflow](https://stackoverflow.com/questions/1418245/invoking-a-script-which-has-an-awk-shebang-with-parameters-vars)
+- [scripting - Shebang line with `#!/usr/bin/env command --argument` fails on Linux - Unix &amp; Linux Stack Exchange](https://unix.stackexchange.com/questions/63979/shebang-line-with-usr-bin-env-command-argument-fails-on-linux)
 
 ## direnv
 
