@@ -1,4 +1,22 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20200622/</link><pubDate>Mon, 22 Jun 2020 11:53:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200622/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-24</title><link>https://progrhy.me/tech-notes/a/memo/20200624/</link><pubDate>Wed, 24 Jun 2020 02:06:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200624/</guid><description>
+&lt;h2 id="624">6/24&lt;/h2>
+&lt;h3 id="github-pagesをjsonサーバとして使う">GitHub PagesをJSONサーバとして使う&lt;/h3>
+&lt;p>使える。&lt;br>
+やってみた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ curl https://progrhy.me/gh-page-test/foo.json
+&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;bar&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/39199042/serve-json-data-from-github-pages">api - Serve JSON Data from Github Pages - Stack Overflow&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Kanahiro/items/e7021b05199ae52e818b">GitHub Actionsを活用して擬似APIサーバーを用意する - Qiita&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Kanahiro/items/9cfa6fa5cc9c3fcb57fd">GitHub Pagesを活用して擬似REST APIサーバーを作る - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="progrhymegithubio-でやったらハマった">progrhyme.github.io でやったらハマった&lt;/h4>
+&lt;p>最初プロフィールサイトにjsonファイル置いたら、なぜか404になってハマった。&lt;br>
+他のコンテンツがあると駄目なのか、 progrhyme.github.io リポが例外的に駄目なのか、仕様がよくわからん。&lt;/p></description></item><item><title>A: 2020-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20200622/</link><pubDate>Mon, 22 Jun 2020 11:53:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200622/</guid><description>
 &lt;h2 id="622">6/22&lt;/h2>
 &lt;h3 id="flaskで作ったapiのドキュメントを作りたい">Flaskで作ったAPIのドキュメントを作りたい&lt;/h3>
 &lt;p>まださっとググっただけだけど、色んなツールがありそう。&lt;/p>
@@ -368,155 +386,4 @@ want getPart() partI
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>そしたら怒られなくなった。&lt;/p>
 &lt;p>&lt;a href="https://play.golang.org/p/bI1N3dUb5h0">https://play.golang.org/p/bI1N3dUb5h0&lt;/a>&lt;/p>
-&lt;p>想像するに、partNumber関数の中ではartifactI型の値を受け取って、a.getPart()を呼んだらpartI型の値が返ってくることを期待しているのに、ehancedPartI型の値が返ってくるのでそんなの知らんよ、ということだろうか。&lt;/p></description></item><item><title>A: 2020-06-10</title><link>https://progrhy.me/tech-notes/a/memo/20200610/</link><pubDate>Wed, 10 Jun 2020 14:40:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200610/</guid><description>
-&lt;h2 id="610">6/10&lt;/h2>
-&lt;h3 id="google-cloud-sdkでpython-3を使う">Google Cloud SDKでPython 3を使う&lt;/h3>
-&lt;p>&lt;code>gcloud components update&lt;/code> を打ったら次のようなメッセージが出ていることに気づいた:&lt;/p>
-&lt;pre>&lt;code> Note: Cloud SDK introduced support for Python 3 in release 274.0.0 and
-users are strongly encouraged to migrate to Python 3. Support for Python 2
-will be deprecated on July 31, 2020. See also Python 2 Sunset
-(https://cloud.google.com/python/docs/python2-sunset/) and Using Python 3
-(https://cloud.google.com/sdk/gcloud/reference/topic/startup).
-&lt;/code>&lt;/pre>&lt;p>pyenvでpython3入れてるんだけどなんで使われないのかな、と思ったら、まだデフォルトはpython2らしい。&lt;/p>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/startup">https://cloud.google.com/sdk/gcloud/reference/topic/startup&lt;/a> によると、次の順番でpythonインタプリタを探すとある:&lt;/p>
-&lt;ul>
-&lt;li>python2&lt;/li>
-&lt;li>python27&lt;/li>
-&lt;li>python&lt;/li>
-&lt;li>python3&lt;/li>
-&lt;/ul>
-&lt;p>pyenvのpythonを使いたいなら、環境変数 &lt;code>CLOUDSDK_PYTHON&lt;/code> に設定してあげればいい。&lt;br>
-私は最近anyenvを使うようになったので、下のようになった:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CLOUDSDK_PYTHON&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>which python&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-$ &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$CLOUDSDK_PYTHON&lt;/span>
-/Users/progrhyme/.anyenv/envs/pyenv/shims/python
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>いまどのpythonを使っているかは、gcloud infoで確認できた。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ gcloud info
-Google Cloud SDK &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>296.0.0&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-:
-Locale: &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ja_JP&amp;#39;&lt;/span>, &lt;span style="color:#4e9a06">&amp;#39;UTF-8&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-Python Version: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>3.8.1 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>...&lt;span style="color:#ce5c00;font-weight:bold">)]]&lt;/span>
-Python Location: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>/Users/progrhyme/.anyenv/envs/pyenv/versions/3.8.1/bin/python&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-:
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-06-08</title><link>https://progrhy.me/tech-notes/a/memo/20200608/</link><pubDate>Mon, 08 Jun 2020 02:22:21 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200608/</guid><description>
-&lt;h2 id="68">6/8&lt;/h2>
-&lt;h3 id="はじめてのgo-module">はじめてのGo Module&lt;/h3>
-&lt;p>&lt;a href="https://github.com/progrhyme/shelp">shelp&lt;/a>をGo Module対応して作ったところ、tagをつけてGitHubに公開しただけで pkg.dev.go にもindexされた。&lt;/p>
-&lt;p>&lt;a href="https://pkg.go.dev/mod/github.com/progrhyme/shelp">https://pkg.go.dev/mod/github.com/progrhyme/shelp&lt;/a>&lt;/p>
-&lt;p>今のところmodule / packageとしての利用は想定してないけど、それはそれとしてmoduleを作ってリリースするまでの流れをメモしておく。&lt;/p>
-&lt;p>基本的に、 &lt;a href="https://github.com/golang/go/wiki/Modules#how-to-use-modules">https://github.com/golang/go/wiki/Modules#how-to-use-modules&lt;/a> の流れに従えばよい。&lt;/p>
-&lt;p>作業環境:&lt;/p>
-&lt;ul>
-&lt;li>Ubuntu 18.04 LTS&lt;/li>
-&lt;li>go v1.14.2&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.golang.org/using-go-modules">Using Go Modules - The Go Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.golang.org/publishing-go-modules">Publishing Go Modules - The Go Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="コンパイラの用意">①コンパイラの用意&lt;/h4>
-&lt;p>Go 1.14以上なら何もしなくていい。&lt;br>
-Go 1.11〜1.13の場合、環境変数の設定が必要:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">GO111MODULE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>on
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="moduleの初期化">②Moduleの初期化&lt;/h4>
-&lt;p>GOPATHの外のディレクトリでモジュールのディレクトリを作る。&lt;br>
-私の環境ではGOPATH設定してない。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">cd&lt;/span> somewhere/shelp
-git init
-git commit --allow-empty -m &lt;span style="color:#4e9a06">&amp;#34;Initial commit&amp;#34;&lt;/span>
-go mod init github.com/progrhyme/shelp
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>これによって次のような &lt;code>go.mod&lt;/code> ファイルが作られる:&lt;/p>
-&lt;pre>&lt;code>module github.com/progrhyme/shelp
-go 1.14
-&lt;/code>&lt;/pre>&lt;h4 id="依存ライブラリの追加">③依存ライブラリの追加&lt;/h4>
-&lt;p>VS Codeでプラグインを入れて作業してたら勝手にgo.mod, go.sumが更新されていったので、あまり意識的に作業はしていない。&lt;/p>
-&lt;p>shelp v0.1.0 時点では、次のようになった。&lt;/p>
-&lt;pre>&lt;code>$ cat go.mod
-module github.com/progrhyme/shelp
-go 1.14
-require (
-github.com/spf13/pflag v1.0.5
-golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9
-)
-$ cat go.sum
-github.com/spf13/pflag v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
-github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
-golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
-golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9 h1:vEg9joUBmeBcK9iSJftGNf3coIG4HqZElCPehJsfAYM=
-golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
-golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
-golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
-golang.org/x/sys v0.0.0-20190412213103-97732733099d h1:+R4KGOnez64A81RvjARKc4UT5/tI9ujCIVX+P5KiHuI=
-golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
-golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
-&lt;/code>&lt;/pre>&lt;p>それぞれのファイルは、RubyのbundlerでいうところのGemfileとGemfile.lockに相当すると見ていいのだろう。&lt;br>
-npmならpackage.jsonとpackage-lock.json. （以下略）&lt;/p>
-&lt;h4 id="リリース">④リリース&lt;/h4>
-&lt;p>公式手順だと &lt;code>go mod tidy&lt;/code> や &lt;code>go test all&lt;/code> をやるべしとあるが、何もやっていない。（ひょっとしたらVS Codeプラグインの機能で &lt;code>go mod tidy&lt;/code> は掛かっているのかもしれない）&lt;/p>
-&lt;p>やったことは、タグを付けてGitHubにpushし、goreleaserを使ってバイナリをリリースしただけ。&lt;/p>
-&lt;p>これだけで pkg.go.dev にインデックスされるようだ。&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>semverじゃないと駄目、みたいな仕様はあるのかも？&lt;/li>
-&lt;/ul>
-&lt;p>メモ:&lt;/p>
-&lt;ul>
-&lt;li>goreleaserについては&lt;a href="https://progrhy.me/tech-notes/a/program/go/ecosystem/goreleaser/">Golang &amp;gt; エコシステム &amp;gt; goreleaser&lt;/a>に書いた。&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-06-05</title><link>https://progrhy.me/tech-notes/a/memo/20200605/</link><pubDate>Fri, 05 Jun 2020 03:21:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200605/</guid><description>
-&lt;h2 id="65">6/5&lt;/h2>
-&lt;h3 id="shallow-cloneしたgitのリポジトリを同じdepthでpullするには">shallow cloneしたgitのリポジトリを同じdepthでpullするには&lt;/h3>
-&lt;p>動作環境:&lt;/p>
-&lt;ul>
-&lt;li>Ubuntu 18.04&lt;/li>
-&lt;li>git v2.17.1&lt;/li>
-&lt;/ul>
-&lt;p>前提:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>でcloneした。&lt;/p>
-&lt;p>バッチ実行で掲題の操作を安全確実にやる方法がなかなか見つからなかった。&lt;br>
-色々試していたところ、以下で行けるとわかった。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-git pull
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Read Onlyな使い方しかしないなら、 &lt;code>git fetch --depth=1 &amp;amp;&amp;amp; git checkout origin/master&lt;/code> でもいいかと思ったけど、上で済むならそれでいいや。&lt;br>
-上が動かなかったら、下のように強引にやる手もあった:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-git checkout origin/master
-git branch -D master
-git checkout -b master
-&lt;span style="color:#8f5902;font-style:italic"># git branch --set-upstream-to=origin/master&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>最後の行はなくてもまあなんとかなるけど、ブランチ作り直すと追跡ブランチの情報が消えるので。&lt;/p>
-&lt;h4 id="ng集">NG集&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ふつうにpull&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 動くけど、shallow clone以降の履歴が全部残る&lt;/span>
-$ git pull
-&lt;span style="color:#8f5902;font-style:italic"># 一応動いてるようだけどエラーが出る&lt;/span>
-$ git pull --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--update-shallow&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-:
-+ f22f6e5...caec91c master -&amp;gt; origin/master &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>forced update&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-error: Could not &lt;span style="color:#204a87">read&lt;/span> 843b95a87c496da6eac6160744854af3070db0fd
-error: Could not &lt;span style="color:#204a87">read&lt;/span> 843b95a87c496da6eac6160744854af3070db0fd
-First, rewinding head to replay your work on top of it...
-$ git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1&lt;span style="color:#000;font-weight:bold">;&lt;/span> git rebase origin/master
-&lt;span style="color:#8f5902;font-style:italic"># たまにCONFLICTする&lt;/span>
-$ git fetch --depth&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>1&lt;span style="color:#000;font-weight:bold">;&lt;/span> git merge origin/master &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--squash&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-fatal: refusing to merge unrelated histories
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>--update-shallow&lt;/code> は &lt;code>.git/shallow&lt;/code> の更新を許すオプション&lt;/li>
-&lt;/ul>
-&lt;h3 id="zoomの定期ミーティング生成やgoogleカレンダーへの反映を自動化できないか">Zoomの定期ミーティング生成やGoogleカレンダーへの反映を自動化できないか&lt;/h3>
-&lt;p>ZoomとGoogleのAPIでなんとかできるかも。&lt;/p>
-&lt;p>&lt;a href="https://marketplace.zoom.us/docs/api-reference/zoom-api">https://marketplace.zoom.us/docs/api-reference/zoom-api&lt;/a>&lt;/p>
-&lt;p>Zoom APIについて:&lt;/p>
-&lt;ul>
-&lt;li>OAuth 2認証&lt;/li>
-&lt;li>public/privateアプリを作れる&lt;/li>
-&lt;li>Chatbotも作れるっぽい&lt;/li>
-&lt;/ul>
-&lt;p>やればできるのでは。&lt;/p>
-&lt;p>先行者がいた。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/kudota/items/b480610cc3f575a8ec6f">Zoom APIでミーティングの作成をGASから行う - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>できそう。&lt;/p></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>
+&lt;p>想像するに、partNumber関数の中ではartifactI型の値を受け取って、a.getPart()を呼んだらpartI型の値が返ってくることを期待しているのに、ehancedPartI型の値が返ってくるのでそんなの知らんよ、ということだろうか。&lt;/p></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>

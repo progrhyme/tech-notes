@@ -363,11 +363,14 @@ end
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> ! &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
 &lt;span style="color:#204a87">echo&lt;/span> not match
 end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/bash/cookbook/#%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E5%8C%96%E3%81%A8%E5%BE%8C%E6%96%B9%E5%8F%82%E7%85%A7">Cookbooks#正規表現でグループ化と後方参照&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/program/regexp">https://sites.google.com/site/progrhymetechwiki/program/regexp&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://shellscript.sunone.me/case.html">case 文の使用方法 | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://dqn.sakusakutto.jp/2013/06/bash_rematch_regexp.html" title="[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記">[Bash]正規表現マッチした部分文字列を再利用する方法 · DQNEO起業日記&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://takuya-1st.hatenablog.jp/entry/2016/12/22/175514">bashでif に正規表現を使った文字列マッチ条件分岐 - それマグで！&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="ansi-c-quoting">ANSI-C Quoting&lt;/h3>
