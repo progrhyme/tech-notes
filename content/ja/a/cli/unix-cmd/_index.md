@@ -28,6 +28,8 @@ weight: 800
 
 https://linuxjm.osdn.jp/html/GNU_coreutils/man1/date.1.html
 
+※macOS（BSD系）だとオプションが異なる
+
 Examples:
 
 ```sh
@@ -44,7 +46,10 @@ date -d '1 hour' # 1時間後
 date -d '1 days ago' # 昨日
 
 # 日時指定/絶対
+## GNU系
 date -d @1530675922 # unixtime
+## macOS
+date -r 1530675922 # unixtime
 
 # ファイルのタイムスタンプを取得
 date -r FILE
@@ -65,6 +70,7 @@ NOTE:
 - [dateコマンドで、ファイルのタイムスタンプを取得 | ex1-lab](https://ex1.m-yabe.com/archives/4311)
 - macOS:
   - [date(1) \[osx man page\]](https://www.unix.com/man-page/osx/1/date/)
+- [unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita](https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc)
 
 ## ファイル操作
 ### find

@@ -54,12 +54,49 @@ Examples:
 
 ```sh
 # TSVファイルをロードする
-bq load --source_format=CSV --encoding=UTF-8 --field_delimiter="\t" [dataset].[table] $TSV_FILE $FIELD
+bq load --source_format=CSV --encoding=UTF-8 --field_delimiter="\t" [dataset].[table] SOURCE [SCHEMA]
+# ↑SOURCEはファイルでもGCSバケットでもいい
 ```
 
 参考:
 
 - [bigqueryでtsvをインポート | ハックノート](https://hacknote.jp/archives/32117/)
+
+### mk
+
+- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk
+- テーブル作成: https://cloud.google.com/bigquery/docs/tables?hl=ja
+
+Syntax:
+
+```sh
+bq mk \
+--table \
+--expiration integer \
+--description description \
+--label key:value, key:value \
+project_id:dataset.table \
+schema
+```
+
+- `schema` ... field:data_type,field:data_type という形式のインラインスキーマ定義か、ローカルマシン上のJSONスキーマファイルのパス
+
+### show
+
+- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show
+- データセットの情報表示: https://cloud.google.com/bigquery/docs/dataset-metadata?hl=ja
+
+```sh
+# schemaをJSON形式で表示
+bq show --schema --format=prettyjson PROJECT_ID:DATASET.TABLE
+
+# ジョブの詳細情報を取得
+bq show --format=prettyjson -j JOB_ID
+```
+
+参考:
+
+- [google cloud platform - BigQuery - Where can I find the error stream? - Stack Overflow](https://stackoverflow.com/questions/52100812/bigquery-where-can-i-find-the-error-stream)
 
 ## cbt
 

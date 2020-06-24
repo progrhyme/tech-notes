@@ -23,6 +23,24 @@ MySQL 5.7からシステムテーブルでも使われるようになった。
 
 - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造](https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html)
 
+## CHARSETとCOLLATE
+
+ドキュメント:
+
+- [MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.1.4 接続文字セットおよび照合順序](https://dev.mysql.com/doc/refman/5.6/ja/charset-connection.html)
+
+キーワード:
+
+- 🍣🍺問題, ハハパパ問題
+
+### クライアントでの指定
+
+いくつか設定方法がある:
+
+- `my.cnf` での指定
+- 接続後にSQLで指定:
+  - `SET NAMES '<charset>' [COLLATE '<collation>']` <- 基本、これでよさそう
+
 ## Features
 ### オンラインDDL
 
@@ -38,6 +56,22 @@ MySQL 5.5 or MySQL 5.1 with InnoDB Pluginで、CREATE/DROP INDEX時にテーブ�
 https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html
 
 ## How-to
+### mysqlコマンド等でのパスワードの渡し方
+
+`mysql -u$USER -p$PASS` みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？
+
+このページにガイドがある:
+
+- [MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン](https://dev.mysql.com/doc/refman/5.6/ja/password-security-user.html)
+
+要点:
+
+- `~/.my.cnf` 等に書いておけばよい
+
+メモ:
+
+- PostgreSQLよりはゆるふわな感じ
+
 ### クエリ結果をTSVで出力
 
 - `mysqldump`
@@ -99,6 +133,29 @@ See https://dev.mysql.com/doc/refman/5.6/ja/mysql-options.html
 - MYSQL_OPT_RECONNECT ... 接続が切れたと判断したら再接続
 
 PerlやRubyのクライアントではよく `connect_timeout`, `read_timeout` といった接続時のオプションになっている。
+
+## Cookbooks
+### CREATE TABLE
+
+Examples:
+
+```sql
+CREATE TABLE animals (
+     id MEDIUMINT NOT NULL AUTO_INCREMENT,
+     name CHAR(30) NOT NULL,
+     PRIMARY KEY (id)
+);
+```
+
+### INSERT
+
+Examples:
+
+```sql
+INSERT INTO animals (name) VALUES
+    ('dog'),('cat'),('penguin'),
+    ('lax'),('whale'),('ostrich');
+```
 
 ## Reference
 ### CREATE TABLE
