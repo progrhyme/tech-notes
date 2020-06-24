@@ -85,13 +85,19 @@ git config &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--get&lt;s
 &lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
 git config &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--get&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> remote.origin.url
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="diff">diff&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## スペース等の差分を無視&lt;/span>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-diff">https://git-scm.com/docs/git-diff&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># スペース等の差分を無視&lt;/span>
 git diff -w
-&lt;span style="color:#8f5902;font-style:italic">## ファイル名のみ表示&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ファイル名のみ表示&lt;/span>
 git diff --name-only
+&lt;span style="color:#8f5902;font-style:italic"># 差分があるときに失敗&lt;/span>
+git diff --exit-code
+&lt;span style="color:#8f5902;font-style:italic">## 何も出力しない&lt;/span>
+git diff --quiet
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://inaz2.hatenablog.com/entry/2014/07/03/003551">colordiffを使わずにdiffをカラー表示する - ももいろテクノロジー&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/a5ae31b7dd23cec51b03">gitコマンドでワーキングツリーがクリーンかどうか判定する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="fetch">fetch&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-fetch">https://git-scm.com/docs/git-fetch&lt;/a>&lt;/p>
@@ -339,7 +345,15 @@ $ git show-ref --tags --abbrev
 4eb72e6 refs/tags/v0.1.0
 f0edeb9 refs/tags/v0.2.0
 e711338 refs/tags/v0.3.0
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="submodule">submodule&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="status">status&lt;/h2>
+&lt;p>&lt;a href="https://git-scm.com/docs/git-status">https://git-scm.com/docs/git-status&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 出力を短くする&lt;/span>
+git status -s&lt;span style="color:#000;font-weight:bold">|&lt;/span>--short
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tommy_aka_jps/items/af536a7c20747f99aa42">git status -s でちょっと幸せになれる - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="submodule">submodule&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-submodule">https://git-scm.com/docs/git-submodule&lt;/a>&lt;/p>
 &lt;p>なんだかんだで割りと使っている。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># submodule追加&lt;/span>
