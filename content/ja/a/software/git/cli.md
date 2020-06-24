@@ -1,6 +1,6 @@
 ---
 title: "gitコマンド"
-linkTitle: "git"
+linkTitle: "gitコマンド"
 date: 2020-05-25T03:03:50+09:00
 ---
 
@@ -137,16 +137,24 @@ git config [--get] remote.origin.url
 
 ## diff
 
+https://git-scm.com/docs/git-diff
+
 ```sh
-## スペース等の差分を無視
+# スペース等の差分を無視
 git diff -w
-## ファイル名のみ表示
+# ファイル名のみ表示
 git diff --name-only
+
+# 差分があるときに失敗
+git diff --exit-code
+## 何も出力しない
+git diff --quiet
 ```
 
 参考:
 
 - [colordiffを使わずにdiffをカラー表示する - ももいろテクノロジー](http://inaz2.hatenablog.com/entry/2014/07/03/003551)
+- [gitコマンドでワーキングツリーがクリーンかどうか判定する - Qiita](https://qiita.com/progrhyme/items/a5ae31b7dd23cec51b03)
 
 ## fetch
 
@@ -366,6 +374,18 @@ f0edeb9 refs/tags/v0.2.0
 e711338 refs/tags/v0.3.0
 ```
 
+## status
+
+https://git-scm.com/docs/git-status
+
+```sh
+# 出力を短くする
+git status -s|--short
+```
+
+参考:
+
+- [git status -s でちょっと幸せになれる - Qiita](https://qiita.com/tommy_aka_jps/items/af536a7c20747f99aa42)
 
 ## submodule
 
