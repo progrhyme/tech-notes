@@ -604,6 +604,25 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="charsetとcollate">CHARSETとCOLLATE&lt;/h2>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/charset-connection.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.1.4 接続文字セットおよび照合順序&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>キーワード:&lt;/p>
+&lt;ul>
+&lt;li>🍣🍺問題, ハハパパ問題&lt;/li>
+&lt;/ul>
+&lt;h3 id="クライアントでの指定">クライアントでの指定&lt;/h3>
+&lt;p>いくつか設定方法がある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>my.cnf&lt;/code> での指定&lt;/li>
+&lt;li>接続後にSQLで指定:
+&lt;ul>
+&lt;li>&lt;code>SET NAMES '&amp;lt;charset&amp;gt;' [COLLATE '&amp;lt;collation&amp;gt;']&lt;/code> &amp;lt;- 基本、これでよさそう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;h3 id="オンラインddl">オンラインDDL&lt;/h3>
 &lt;ul>
@@ -616,6 +635,20 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;h3 id="mysqldump">mysqldump&lt;/h3>
 &lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="mysqlコマンド等でのパスワードの渡し方">mysqlコマンド等でのパスワードの渡し方&lt;/h3>
+&lt;p>&lt;code>mysql -u$USER -p$PASS&lt;/code> みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？&lt;/p>
+&lt;p>このページにガイドがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/password-security-user.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>要点:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>~/.my.cnf&lt;/code> 等に書いておけばよい&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>PostgreSQLよりはゆるふわな感じ&lt;/li>
+&lt;/ul>
 &lt;h3 id="クエリ結果をtsvで出力">クエリ結果をTSVで出力&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>mysqldump&lt;/code>&lt;/li>
@@ -673,8 +706,21 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>MYSQL_OPT_RECONNECT &amp;hellip; 接続が切れたと判断したら再接続&lt;/li>
 &lt;/ul>
 &lt;p>PerlやRubyのクライアントではよく &lt;code>connect_timeout&lt;/code>, &lt;code>read_timeout&lt;/code> といった接続時のオプションになっている。&lt;/p>
-&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h2 id="cookbooks">Cookbooks&lt;/h2>
 &lt;h3 id="create-table">CREATE TABLE&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">TABLE&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#000">id&lt;/span> &lt;span style="color:#000">MEDIUMINT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span> &lt;span style="color:#000">AUTO_INCREMENT&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87">CHAR&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">PRIMARY&lt;/span> &lt;span style="color:#204a87;font-weight:bold">KEY&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="insert">INSERT&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">INSERT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">INTO&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VALUES&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;dog&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;cat&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;penguin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;lax&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;whale&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ostrich&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;h3 id="create-table-1">CREATE TABLE&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/create-table.html">https://dev.mysql.com/doc/refman/5.6/ja/create-table.html&lt;/a>&lt;/li>
 &lt;/ul>

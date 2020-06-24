@@ -16,7 +16,23 @@
 &lt;/ul>
 &lt;h4 id="progrhymegithubio-でやったらハマった">progrhyme.github.io でやったらハマった&lt;/h4>
 &lt;p>最初プロフィールサイトにjsonファイル置いたら、なぜか404になってハマった。&lt;br>
-他のコンテンツがあると駄目なのか、 progrhyme.github.io リポが例外的に駄目なのか、仕様がよくわからん。&lt;/p></description></item><item><title>A: 2020-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20200622/</link><pubDate>Mon, 22 Jun 2020 11:53:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200622/</guid><description>
+他のコンテンツがあると駄目なのか、 progrhyme.github.io リポが例外的に駄目なのか、仕様がよくわからん。&lt;/p>
+&lt;h3 id="久しぶりにmysqlをdockerで動かしたら接続できなかった">久しぶりにmysqlをdockerで動かしたら接続できなかった&lt;/h3>
+&lt;p>mysql 8をdockerで動かして、別のdockerコンテナから接続しようとしたが、認証エラーで接続できなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># サーバ実行&lt;/span>
+$ docker run --rm --name mysql -e &lt;span style="color:#000">MYSQL_ROOT_PASSWORD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mysql -d -p 3306:3306 mysql
+&lt;span style="color:#8f5902;font-style:italic"># クライアント実行&lt;/span>
+$ docker run --rm --link mysql:mysql -it myapp bash -l
+&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>myapp&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&amp;gt; mysql -h mysql -uroot -pmysql
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>出くわしたエラーは &lt;code>ERROR 2026&lt;/code> と &lt;code>ERROR 2061&lt;/code> かな。&lt;br>
+SSL接続を回避して解消できないかトライしたけどできなかったので、とりあえずmysql 5.7にして回避した。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/astrsk_hori/items/e3d6c237d68be1a6f548">dockerでmysqlを使う - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://yoku0825.blogspot.com/2018/10/mysql-80cachingsha2password-ssl.html">日々の覚書: MySQL 8.0のcaching_sha2_password + 非SSL接続が転ける&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ah-2.com/g1/2017/01/30/mysql_ssl_connect_error.html">ah-2.com | SSLを有効にしているMySQLに接続時にERROR 2026 (HY000): SSL connection error: protocol version mismatch が出る&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/ssl-options.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.3.10.4 SSL コマンドのオプション&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20200622/</link><pubDate>Mon, 22 Jun 2020 11:53:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200622/</guid><description>
 &lt;h2 id="622">6/22&lt;/h2>
 &lt;h3 id="flaskで作ったapiのドキュメントを作りたい">Flaskで作ったAPIのドキュメントを作りたい&lt;/h3>
 &lt;p>まださっとググっただけだけど、色んなツールがありそう。&lt;/p>
