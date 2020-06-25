@@ -1,0 +1,535 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Ruby</title><link>https://progrhy.me/tech-notes/a/program/ruby/</link><description>Recent content in Ruby on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Thu, 25 Jun 2020 15:19:13 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/ruby/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/ruby/spec/</link><pubDate>Thu, 25 Jun 2020 15:26:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/spec/</guid><description>
+&lt;h2 id="リテラル">リテラル&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html&lt;/a>&lt;/p>
+&lt;h3 id="記法">%記法&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html#percent">https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html#percent&lt;/a>&lt;/p>
+&lt;p>一覧:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>構文&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>%!STRING!&lt;/code>&lt;/td>
+&lt;td>ダブルクォート文字列&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%Q!STRING!&lt;/code>&lt;/td>
+&lt;td>同上&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%q!STRING!&lt;/code>&lt;/td>
+&lt;td>シングルクォート文字列&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%x!STRING!&lt;/code>&lt;/td>
+&lt;td>コマンド出力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%r!STRING!&lt;/code>&lt;/td>
+&lt;td>正規表現&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%w!STRING!&lt;/code>&lt;/td>
+&lt;td>要素が文字列の配列(空白区切り)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%W!STRING!&lt;/code>&lt;/td>
+&lt;td>要素が文字列の配列(空白区切り)。式展開、バックスラッシュ記法が有効&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%s!STRING!&lt;/code>&lt;/td>
+&lt;td>シンボル。式展開、バックスラッシュ記法は無効&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%i!STRING!&lt;/code>&lt;/td>
+&lt;td>要素がシンボルの配列(空白区切り)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>%I!STRING!&lt;/code>&lt;/td>
+&lt;td>要素がシンボルの配列(空白区切り)。式展開、バックスラッシュ記法が有効&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>!&lt;/code> だけではなく、色んな記号が区切り文字として使える&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#4e9a06">%w(foo bar baz)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [&amp;#39;foo&amp;#39;, &amp;#39;bar, &amp;#39;baz&amp;#39;]&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">\&lt;/span> &lt;span style="color:#000">bar&lt;/span> &lt;span style="color:#000">baz&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [:&amp;#34;foo bar&amp;#34;, :baz]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="変数">変数&lt;/h2>
+&lt;h3 id="クラス変数インスタンス変数クラスインスタンス変数について">クラス変数、インスタンス変数、クラスインスタンス変数について&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/mogulla3/items/cd4d6e188c34c6819709">【まとめ】インスタンス変数、クラス変数、クラスインスタンス変数 - Qiita&lt;/a>
+&lt;ul>
+&lt;li>初心者向けのかんたんな説明&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="http://kamiyasu2.blog.fc2.com/blog-entry-35.html">徒然なるままに｜Rubyの継承についてのはなし（インスタンス変数,クラス変数,クラスインスタンス変数,インスタンスメソッド,クラスメソッド,定数）&lt;/a>
+&lt;ul>
+&lt;li>上よりも詳しめの解説&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="http://easyramble.com/ruby-class-instance-variable.html">Rubyでクラスインスタンス変数にインスタンスメソッドからアクセス | EasyRamble&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="クラス変数">クラス変数&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>@@&lt;/code> で始まる。&lt;/li>
+&lt;li>継承先と共有されるので、むやみに使うべきではない。&lt;/li>
+&lt;/ul>
+&lt;h3 id="インスタンス変数">インスタンス変数&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>@&lt;/code> で始まる。&lt;/li>
+&lt;/ul>
+&lt;h3 id="クラスインスタンス変数">クラスインスタンス変数&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>@&lt;/code> で始まる。&lt;/li>
+&lt;/ul>
+&lt;h2 id="演算子">演算子&lt;/h2>
+&lt;p>演算子式: &lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2foperator.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2foperator.html&lt;/a>&lt;/p>
+&lt;h3 id="演算子式の定義">演算子式の定義&lt;/h3>
+&lt;p>再定義できる演算子(メソッド)の定義方法:&lt;/p>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fdef.html#operator">https://docs.ruby-lang.org/ja/latest/doc/spec=2fdef.html#operator&lt;/a>&lt;/p>
+&lt;p>特に、単項演算子について:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">+@&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># +obj&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">-@&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># -obj&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ヒアドキュメント">ヒアドキュメント&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html#here">https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html#here&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby"> &lt;span style="color:#8f5902;font-style:italic"># 終端行をインデントできない&lt;/span>
+&lt;span style="color:#204a87">puts&lt;/span> &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;EOS
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">EOS&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 終端行をインデントできる&lt;/span>
+&lt;span style="color:#204a87">puts&lt;/span> &lt;span style="color:#4e9a06">&amp;lt;&amp;lt;-EOS
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">EOS&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># since v2.3&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 終端行をインデントできる。途中の行はアンインデントされる&lt;/span>
+&lt;span style="color:#204a87">puts&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&amp;lt;~&lt;/span>&lt;span style="color:#000">EOS&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">EOS&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/Linda_pp/items/32fddbbe117cf03fef0f">Ruby のヒアドキュメントすごい - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ruby/ruby/blob/v2_3_0/NEWS">https://github.com/ruby/ruby/blob/v2_3_0/NEWS&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="正規表現">正規表現&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fregexp.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2fregexp.html&lt;/a>&lt;/p>
+&lt;h2 id="継承mix-in">継承、Mix-in&lt;/h2>
+&lt;p>違うようだが、似ているところもある。&lt;/p>
+&lt;ul>
+&lt;li>継承 &lt;code>Child &amp;lt; Parent&lt;/code>&lt;/li>
+&lt;li>include&lt;/li>
+&lt;li>extend&lt;/li>
+&lt;li>prepend&lt;/li>
+&lt;/ul>
+&lt;p>include されたとき、継承されたとき、prepend されたときにフックを仕込むことができる。&lt;/p>
+&lt;ul>
+&lt;li>inherited&lt;/li>
+&lt;li>included&lt;/li>
+&lt;li>extended&lt;/li>
+&lt;li>prepended&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://ref.xaio.jp/ruby/classes/class/inherited">http://ref.xaio.jp/ruby/classes/class/inherited&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://ref.xaio.jp/ruby/classes/module/included">http://ref.xaio.jp/ruby/classes/module/included&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://ref.xaio.jp/ruby/classes/module/extended">http://ref.xaio.jp/ruby/classes/module/extended&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Module/i/prepended.html">https://docs.ruby-lang.org/ja/latest/method/Module/i/prepended.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="メソッドの探索">メソッドの探索&lt;/h3>
+&lt;p>具象クラスで定義していないメソッドを実行したとき、継承ツリーを順に辿って、最初に見つかったものが実行される。&lt;br>
+この時の順番は、任意のクラス A に対して、 &lt;code>A.ancestors&lt;/code> を実行して得られる配列の先頭からとなる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87;font-weight:bold">module&lt;/span> &lt;span style="color:#000">M&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>
+&lt;span style="color:#4e9a06">:m_foo&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">P&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>
+&lt;span style="color:#4e9a06">:p_foo&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">C&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#000">P&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">include&lt;/span> &lt;span style="color:#000">M&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#000">C&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ancestors&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [C, M, P, Object, PP::ObjectMixin, Kernel, BasicObject]&lt;/span>
+&lt;span style="color:#000">C&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; :m_foo&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/kasei_san/20091021/p1">継承, mix-in, include, extend について覚え書き - かせいさんとこ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/ksh-fthr/items/6c2b3b231bf26dc5a4e0">[Ruby] モジュールの include と クラス継承 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="include-されたときにクラスメソッドを追加する">include されたときにクラスメソッドを追加する&lt;/h3>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87;font-weight:bold">module&lt;/span> &lt;span style="color:#000">M&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">module&lt;/span> &lt;span style="color:#000">ClassMethods&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">attr_accessor&lt;/span> &lt;span style="color:#4e9a06">:rw_prop&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">attr&lt;/span> &lt;span style="color:#4e9a06">:ro_prop&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">set_ro_prop&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">@ro_prop&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">x&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">included&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">klass&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">klass&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">extend&lt;/span> &lt;span style="color:#000">ClassMethods&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">klass&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06"> extend &lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#204a87">self&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">::ClassMethods&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">A&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">include&lt;/span> &lt;span style="color:#000">M&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#34;A extend M::ClassMethods&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#000">A&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rw_prop&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">:rw&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; nil&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#000">A&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">set_ro_prop&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">:ro&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; :ro&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#000">A&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ro_prop&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">:ro&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; NoMethodError&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.techscore.com/blog/2013/03/22/activesupportconcern-%E3%81%A7%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%81%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%83%A9%E3%82%A4%E3%83%95%E3%82%92%E9%80%81%E3%82%8B/">» ActiveSupport::Concern でハッピーなモジュールライフを送る TECHSCORE BLOG&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/key-amb/items/a9f7d71be66446d85b70">Ruby でクラスインスタンス変数に対するアクセサの作り方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="例外処理">例外処理&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#begin">https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#begin&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87;font-weight:bold">begin&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">a&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">raise&lt;/span> &lt;span style="color:#000">AisError&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06"> happened!&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">elsif&lt;/span> &lt;span style="color:#000">b&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">raise&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;runtime error!&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">rescue&lt;/span> &lt;span style="color:#000">AisError&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#000">e&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">warn&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">inspect&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">rescue&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#000">e&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Unknown Error! Error: &lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">inspect&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06"> at &lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">e&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">backtrace&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 例外が起きなかったとき&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;success.&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">ensure&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># エラーが起きてもここは必ず実行される&lt;/span>
+&lt;span style="color:#000">clean_up&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここで、 &lt;code>ensure&lt;/code> 節は &lt;code>rescue&lt;/code> による救済処理よりも先に実行されることに注意。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/ktarow/items/9d8f3217bb148f2e51d2" title="begin~rescue~ensureとraiseを利用した例外処理の流れと捕捉について - Qiita">begin~rescue~ensureとraiseを利用した例外処理の流れと捕捉について - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="無名関数">無名関数&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic"># proc&lt;/span>
+&lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">Proc&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">new&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">call&lt;/span>
+&lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">proc&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">call&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># lambda&lt;/span>
+&lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">lambda&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">call&lt;/span>
+&lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">call&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>.call&lt;/code> を使わずにスコープ内のクロージャとして使うこともできる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">func&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">func&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">call&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 組み込みライブラリ</title><link>https://progrhy.me/tech-notes/a/program/ruby/builtin/</link><pubDate>Thu, 25 Jun 2020 15:30:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/builtin/</guid><description>
+&lt;h2 id="class-array">class Array&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Array.html">https://docs.ruby-lang.org/ja/latest/class/Array.html&lt;/a>&lt;/p>
+&lt;p>.ancestors: Enumerable, Object, &amp;hellip;&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>&lt;span style="color:#4e9a06">:a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">:b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">:c&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]].&lt;/span>&lt;span style="color:#000">to_h&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; { a: 3, b: 2, c: 1 }&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="class-dir">class Dir&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Dir.html">https://docs.ruby-lang.org/ja/latest/class/Dir.html&lt;/a>&lt;/p>
+&lt;p>ディレクトリ操作のためのクラス。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic">## path以下のファイルで.と..を除いたもの&lt;/span>
+&lt;span style="color:#000">Dir&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">children&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## カレントディレクトリ以下のファイルを再帰的に取得して配列で返す&lt;/span>
+&lt;span style="color:#000">Dir&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./**&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">Dir&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">chdir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">subdir&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># subdirにcdしてブロック内の処理を実行&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="class-file">class File&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/File.html">https://docs.ruby-lang.org/ja/latest/class/File.html&lt;/a>&lt;/p>
+&lt;p>ファイルアクセスのためのクラス。&lt;/p>
+&lt;ul>
+&lt;li>親クラス: &lt;a href="https://docs.ruby-lang.org/ja/latest/class/IO.html">https://docs.ruby-lang.org/ja/latest/class/IO.html&lt;/a>&lt;/li>
+&lt;li>定数: &lt;a href="https://docs.ruby-lang.org/ja/latest/class/File=3a=3aConstants.html">https://docs.ruby-lang.org/ja/latest/class/File=3a=3aConstants.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exist?&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo.txt&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 1行ずつ読込み&lt;/span>
+&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">each_line&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">line&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000">fields&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">line&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">chomp&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/,/&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 1行ずつ処理する他のやり方&lt;/span>
+&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">foreach&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo.txt&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">line&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">readlines&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo.txt&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">each&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">line&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## まとめて書き込んで閉じる&lt;/span>
+&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;out.dat&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">data&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 追記モードで開く&lt;/span>
+&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;out.dat&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">WRONLY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">CREAT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">APPEND&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 排他ロック取得&lt;/span>
+&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">flock&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">LOCK_EX&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 1行ずつ書き込み&lt;/span>
+&lt;span style="color:#000">contents&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">each_line&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">line&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">puts&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">line&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87">require&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;pathname&amp;#39;&lt;/span>
+&lt;span style="color:#000">abs_path&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">Pathname&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">expand_path&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルオープン時のモードについて:&lt;/p>
+&lt;ul>
+&lt;li>See &lt;a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/open.html">https://docs.ruby-lang.org/ja/latest/method/Kernel/m/open.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mogulla3/items/fbc2a46478872bebbc47">【Ruby】よく使うFileクラスを使ったファイル読み込み処理 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/fkm_y/items/9edbd45652526688de6d">[Ruby]IO、File、Dirクラスのメソッド - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="class-hash">class Hash&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Hash.html">https://docs.ruby-lang.org/ja/latest/class/Hash.html&lt;/a>&lt;/p>
+&lt;p>.ancestors: Enumerable, Object, &amp;hellip;&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#4e9a06">a&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">c&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">h&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">to_a&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [[:a, 3], [:b, 2], [:c, 1]]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="class-integer">class Integer&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Integer.html">https://docs.ruby-lang.org/ja/latest/class/Integer.html&lt;/a>&lt;/p>
+&lt;p>整数クラス。&lt;br>
+Ruby 2.4から、FixnumとBignumがIntegerに統合された。&lt;br>
+いずれもIntegerのエイリアスとなっている。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/jkr_2255/items/647c427d2c2f7892fa93">Ruby 2.4でIntegerに一本化される整数 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="class-io">class IO&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/IO.html">https://docs.ruby-lang.org/ja/latest/class/IO.html&lt;/a>&lt;/p>
+&lt;p>継承ツリー: IO &amp;lt; Enumerable &amp;lt; File::Constants &amp;lt; Object &amp;lt; Kernel &amp;lt; BasicObject&lt;/p>
+&lt;h3 id="read">#read&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/IO/i/read.html">https://docs.ruby-lang.org/ja/latest/method/IO/i/read.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">read&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">length&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">outbuf&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#204a87">String&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>lengthバイト読み込んで、その文字列を返す。&lt;/p>
+&lt;h2 id="class-module">class Module&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Module.html">https://docs.ruby-lang.org/ja/latest/class/Module.html&lt;/a>&lt;/p>
+&lt;h3 id="const_defined--const_get">.const_defined? , .const_get&lt;/h3>
+&lt;p>定数定義を調べる。&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>上の階層で定義された定数も参照できる。つまり、 &lt;code>Foo::Bar&lt;/code> が存在する時、 &lt;code>Foo::Baz::Bar&lt;/code> が存在しなくても、 &lt;code>Foo::Baz.const_defined?(:Bar)&lt;/code> は true になる。
+&lt;ul>
+&lt;li>&lt;code>Foo::Baz.const_defined?(:Bar, false)&lt;/code> は false&lt;/li>
+&lt;li>詳しくは下記リンク先、または上のリファレンスマニュアルを参照&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://techblog.clara.jp/2014/09/ruby-const_defined-const_get/">Ruby: const_defined? / const_get の罠 – CLARA ONLINE techblog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="class-random">class Random&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Random.html">https://docs.ruby-lang.org/ja/latest/class/Random.html&lt;/a>&lt;/p>
+&lt;p>擬似乱数生成クラス。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">Random&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rand&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># Kernel.#rand と同じ&lt;/span>
+&lt;span style="color:#000">rng&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">Random&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">now&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">to_i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 乱数ジェネレータを作る&lt;/span>
+&lt;span style="color:#000">rng&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rand&lt;/span>
+&lt;span style="color:#000">rng&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">rng&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">rng&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">rng&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">seed&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 乱数の種を返す&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTES:&lt;/p>
+&lt;ul>
+&lt;li>Random.rand や Kernel.#rand はデフォルトの乱数ジェネレータである &lt;a href="https://docs.ruby-lang.org/ja/latest/method/Random/c/DEFAULT.html">Random::DEFAULT&lt;/a> を使う。&lt;/li>
+&lt;/ul>
+&lt;h2 id="class-regexp">class Regexp&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Regexp.html">https://docs.ruby-lang.org/ja/latest/class/Regexp.html&lt;/a>&lt;/p>
+&lt;p>継承ツリー: Regexp &amp;lt; Object（以下略）&lt;/p>
+&lt;p>正規表現。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/ruby/spec/#%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE">言語仕様#正規表現&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="match">#match&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Regexp/i/match.html">https://docs.ruby-lang.org/ja/latest/method/Regexp/i/match.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">pos&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">MatchData&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>
+&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">pos&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">object&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">p&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/(.).(.)/&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;foobar&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">captures&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; [&amp;#34;b&amp;#34;, &amp;#34;r&amp;#34;]&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/(.).(.)/&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;foobar&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">captures&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; [&amp;#34;b&amp;#34;, &amp;#34;r&amp;#34;]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="class-string">class String&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/String.html">https://docs.ruby-lang.org/ja/latest/class/String.html&lt;/a>&lt;/p>
+&lt;p>継承ツリー:&lt;/p>
+&lt;pre>&lt;code>String &amp;lt; Comparable &amp;lt; Object &amp;lt; Kernel &amp;lt; BasicObject
+&lt;/code>&lt;/pre>&lt;p>文字列クラス。&lt;/p>
+&lt;h3 id="heading">#%&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/String/i/=25.html">https://docs.ruby-lang.org/ja/latest/method/String/i/=25.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">self&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#000">args&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#204a87">String&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>printfと同じ規則に従ってargsをフォーマットする&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;i = %d&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;i = 10&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;i = %x&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;i = a&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;i = %o&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;i = 12&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;i = %#d&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;i = 10&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;i = %#x&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;i = 0xa&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;i = %#o&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;i = 012&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%d&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;10&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%d,%o&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;10,12&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gsub">#gsub&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/String/i/gsub.html">https://docs.ruby-lang.org/ja/latest/method/String/i/gsub.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">gsub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">replace&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#204a87">String&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>patternにマッチする部分全てを文字列replaceに置換した文字列を生成して返す。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abcdefg&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">gsub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/def/&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;!!&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;abc!!g&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abcabc&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">gsub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/b/&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;&amp;lt;&amp;lt;\&amp;amp;&amp;gt;&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;a&amp;lt;&amp;lt;b&amp;gt;&amp;gt;ca&amp;lt;&amp;lt;b&amp;gt;&amp;gt;c&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;xxbbxbb&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">gsub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/x+(b+)/&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;X&amp;lt;&amp;lt;\1&amp;gt;&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;X&amp;lt;&amp;lt;bb&amp;gt;&amp;gt;X&amp;lt;&amp;lt;bb&amp;gt;&amp;gt;&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;2.5&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">gsub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;,&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;2,5&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>後方参照は「\1」「\2」&amp;hellip;&lt;/li>
+&lt;li>置換文字列に &lt;code>\&lt;/code> を使いたいときはエスケープが必要&lt;/li>
+&lt;/ul>
+&lt;h3 id="match-1">#match&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/String/i/match.html">https://docs.ruby-lang.org/ja/latest/method/String/i/match.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">pos&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">MatchData&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>
+&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">pos&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">object&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>regexp.match(self, pos) と同じ。&lt;br>
+See &lt;a href="#match">Regexp#match&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#4e9a06">&amp;#39;hello&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;(.)\1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; #&amp;lt;MatchData &amp;#34;ll&amp;#34; 1:&amp;#34;l&amp;#34;&amp;gt;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;hello&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;(.)\1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;ll&amp;#34;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;hello&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/(.)\1/&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#34;ll&amp;#34;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;hello&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;xx&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; nil&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="split">#split&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/String/i/split.html">https://docs.ruby-lang.org/ja/latest/method/String/i/split.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">sep&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">$;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">limit&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87">String&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">sep&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">$;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">limit&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#204a87">self&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Specs:&lt;/p>
+&lt;ul>
+&lt;li>第1引数 sep で指定されたセパレータによって文字列を limit 個まで分割し、結果を文字列の配列で返す&lt;/li>
+&lt;li>ブロックを指定すると、配列を返す代わりに分割した文字列でブロックを呼び出す&lt;/li>
+&lt;li>sepがnilの場合は、前後の空白文字をstripした上で &lt;code>$;&lt;/code> or 空白文字列で分割&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34; a &lt;/span>&lt;span style="color:#4e9a06">\t&lt;/span>&lt;span style="color:#4e9a06"> b &lt;/span>&lt;span style="color:#4e9a06">\n&lt;/span>&lt;span style="color:#4e9a06"> c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/\s+/&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; [&amp;#34;&amp;#34;, &amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;]&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34; a &lt;/span>&lt;span style="color:#4e9a06">\t&lt;/span>&lt;span style="color:#4e9a06"> b &lt;/span>&lt;span style="color:#4e9a06">\n&lt;/span>&lt;span style="color:#4e9a06"> c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; [&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;]&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34; a &lt;/span>&lt;span style="color:#4e9a06">\t&lt;/span>&lt;span style="color:#4e9a06"> b &lt;/span>&lt;span style="color:#4e9a06">\n&lt;/span>&lt;span style="color:#4e9a06"> c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39; &amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; [&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;] # split(nil) と同じ&lt;/span>
+&lt;span style="color:#204a87">p&lt;/span> &lt;span style="color:#4e9a06">&amp;#34; a &lt;/span>&lt;span style="color:#4e9a06">\t&lt;/span>&lt;span style="color:#4e9a06"> b &lt;/span>&lt;span style="color:#4e9a06">\n&lt;/span>&lt;span style="color:#4e9a06"> c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; [&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;] # split(nil) と同じ&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="class-time">class Time&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Time.html">https://docs.ruby-lang.org/ja/latest/class/Time.html&lt;/a>&lt;/p>
+&lt;p>.ancestors: &lt;a href="https://docs.ruby-lang.org/ja/latest/class/Comparable.html">Comparable&lt;/a>, Object, &amp;hellip;&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">at&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 1970-01-01 09:00:00 +0900&lt;/span>
+&lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">at&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1531046422&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 2018-07-08 19:40:22 +0900&lt;/span>
+&lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">now&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 2018-07-08 19:40:22 +0900&lt;/span>
+&lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">now&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">to_i&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 1531046422&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mogulla3/items/195ae5d8ad574dfc6baa">RubyでUNIXTIME変換 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="module-enumerable">module Enumerable&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Enumerable.html">https://docs.ruby-lang.org/ja/latest/class/Enumerable.html&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">to_a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">include?&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; true&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## イテレーション&lt;/span>
+&lt;span style="color:#4e9a06">%w(foo bar baz)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">each_with_index&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#204a87">puts&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Index: &lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">, Value: &lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 配列操作&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">9&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">to_a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">reject&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [1, 3, 5, 7, 9]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### sort&lt;/span>
+&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#4e9a06">a&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">c&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">h&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">sort_by&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">kv&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#000">kv&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [[:c, 1], [:b, 2], [:a, 3]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTES:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>#sort&lt;/code> は安定ではない(=同じ要素が元の順序通りに並ばない)。また、比較処理が重い場合の性能が &lt;code>#sort_by&lt;/code> より悪い。&lt;/li>
+&lt;/ul>
+&lt;h2 id="module-kernel">module Kernel&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Kernel.html">https://docs.ruby-lang.org/ja/latest/class/Kernel.html&lt;/a>&lt;/p>
+&lt;p>全てのクラスから参照できるメソッドを定義している。&lt;/p>
+&lt;h3 id="open">.#open&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/open.html">https://docs.ruby-lang.org/ja/latest/method/Kernel/m/open.html&lt;/a>&lt;/p>
+&lt;p>fileをオープンしてIO(File含む)オブジェクトを返す。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">each_line&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">l&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;w&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="require">.#require&lt;/h3>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/require.html">https://docs.ruby-lang.org/ja/latest/method/Kernel/m/require.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#204a87">require&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">feature&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#000">bool&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Specs:&lt;/p>
+&lt;ul>
+&lt;li>拡張子補完を行う&lt;/li>
+&lt;li>同じファイルの複数回ロードはしない&lt;/li>
+&lt;/ul>
+&lt;h4 id="ロードするパスの追加方法">ロードするパスの追加方法&lt;/h4>
+&lt;p>シェルでやる例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ruby -I /path/to/lib foo.rb
+&lt;span style="color:#000">RUBYLIB&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/path/to/lib foo.rb
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Rubyコード内でやる例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">$LOAD_PATH&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">push&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/path/to/lib&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>2008年10月 &lt;a href="https://littlebuddha.hatenadiary.org/entry/20081020/1224483302">require がロードするファイルを探すパスに追加をする - make world&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="乱数">乱数&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/rand.html">.#rand&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/srand.html">.#srand&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#204a87">srand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">Time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">now&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">to_i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># UNIXタイムスタンプで乱数の種を生成&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ※やらなくても最初にrand等を実行したときにランダムに設定してくれる&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># [0, 1) の実数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># [0, 10) の整数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># rand(5)と同じ。[0, 5) の整数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># [1, 6] の整数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># [1, 10) の整数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># [1.0, 1.5] の実数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># [1.0, 1.5) の実数&lt;/span>
+&lt;span style="color:#204a87">rand&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">..&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; nil&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also: &lt;a href="https://docs.ruby-lang.org/ja/latest/class/Random.html">https://docs.ruby-lang.org/ja/latest/class/Random.html&lt;/a>&lt;/p>
+&lt;h3 id="キャストっぽいメソッド">キャストっぽいメソッド&lt;/h3>
+&lt;ul>
+&lt;li>.Array &amp;hellip; 配列に変換&lt;/li>
+&lt;li>.Float &amp;hellip; 浮動小数点数に変換&lt;/li>
+&lt;li>.Hash &amp;hellip; &lt;a href="https://docs.ruby-lang.org/ja/latest/class/Hash.html">Hash&lt;/a>に変換&lt;/li>
+&lt;li>&lt;a href="https://docs.ruby-lang.org/ja/latest/method/Kernel/m/Integer.html">.Integer&lt;/a> &amp;hellip; 整数を返す。
+&lt;ul>
+&lt;li>&lt;code>Integer(arg, base = 0) -&amp;gt; Integer&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>.Rational &amp;hellip; 有理数(&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Rational.html">Rational&lt;/a>)に変換&lt;/li>
+&lt;li>.String &amp;hellip; 文字列に変換&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic"># .Integer&lt;/span>
+&lt;span style="color:#204a87">Integer&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 4&lt;/span>
+&lt;span style="color:#204a87">Integer&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">9&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 9&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 2進数&lt;/span>
+&lt;span style="color:#204a87">Integer&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;11&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 3&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 10進数&lt;/span>
+&lt;span style="color:#204a87">Integer&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;10&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 10&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="module-math">module Math&lt;/h2>
+&lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Math.html">https://docs.ruby-lang.org/ja/latest/class/Math.html&lt;/a>&lt;/p>
+&lt;p>浮動小数点演算や各種数学関数。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#000">Math&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># eを底とするxの対数&lt;/span>
+&lt;span style="color:#000">Math&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">y&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># yを底とするxの対数&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Road to Rubyist</title><link>https://progrhy.me/tech-notes/a/program/ruby/dojo/</link><pubDate>Thu, 25 Jun 2020 18:38:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/dojo/</guid><description>
+&lt;p>一人前のRubyistを名乗るために必要な基礎的なトピック群を取り扱う予定。&lt;/p>
+&lt;h2 id="コマンドライン引数">コマンドライン引数&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>$0&lt;/code> 実行コマンド&lt;/li>
+&lt;li>&lt;code>ARGV&lt;/code> 引数（配列）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic"># sample.rb&lt;/span>
+&lt;span style="color:#204a87">puts&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;$0：&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">$0&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#000">ARGV&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">each_with_index&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>&lt;span style="color:#000">arg&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">|&lt;/span>
+&lt;span style="color:#204a87">puts&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARGV[&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">]：&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">arg&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ ruby sample.rb hoge piyo
+&lt;span style="color:#000">$0&lt;/span>：sample.rb
+ARGV&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>0&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>：hoge
+ARGV&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>：piyo
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

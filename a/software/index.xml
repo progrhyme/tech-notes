@@ -604,7 +604,8 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="charsetとcollate">CHARSETとCOLLATE&lt;/h2>
+&lt;h2 id="specs">Specs&lt;/h2>
+&lt;h3 id="charsetとcollate">CHARSETとCOLLATE&lt;/h3>
 &lt;p>ドキュメント:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/charset-connection.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.1.4 接続文字セットおよび照合順序&lt;/a>&lt;/li>
@@ -613,7 +614,7 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>🍣🍺問題, ハハパパ問題&lt;/li>
 &lt;/ul>
-&lt;h3 id="クライアントでの指定">クライアントでの指定&lt;/h3>
+&lt;h4 id="クライアントでの指定">クライアントでの指定&lt;/h4>
 &lt;p>いくつか設定方法がある:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>my.cnf&lt;/code> での指定&lt;/li>
@@ -622,6 +623,12 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>&lt;code>SET NAMES '&amp;lt;charset&amp;gt;' [COLLATE '&amp;lt;collation&amp;gt;']&lt;/code> &amp;lt;- 基本、これでよさそう&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h3 id="sql-mode">SQL Mode&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html">https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html&lt;/a>&lt;/p>
+&lt;p>サーバのSQLモード。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>NO_ZERO_DATE&lt;/code> &amp;hellip; &lt;code>0000-00-00&lt;/code> を日付として許可しない。&lt;/li>
 &lt;/ul>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;h3 id="オンラインddl">オンラインDDL&lt;/h3>

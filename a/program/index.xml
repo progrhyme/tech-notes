@@ -323,7 +323,74 @@ cpanm Foo::Bar
 &lt;p>やるべきこと:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>dict.has_key(key)&lt;/code> =&amp;gt; &lt;code>key in dict&lt;/code> に変換。&lt;/li>
-&lt;/ul></description></item><item><title>A: Rust</title><link>https://progrhy.me/tech-notes/a/program/rust/</link><pubDate>Sun, 24 May 2020 15:28:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/</guid><description>
+&lt;/ul></description></item><item><title>A: Ruby</title><link>https://progrhy.me/tech-notes/a/program/ruby/</link><pubDate>Thu, 25 Jun 2020 15:19:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>リポジトリ:&lt;/p>
+&lt;ul>
+&lt;li>公式: &lt;a href="https://git.ruby-lang.org/">https://git.ruby-lang.org/&lt;/a>&lt;/li>
+&lt;li>ミラー: &lt;a href="https://github.com/ruby/ruby">https://github.com/ruby/ruby&lt;/a>&lt;/li>
+&lt;li>2019-04-22まではSVNだった&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.ruby-lang.org/ja/documentation/repository-guide/">リポジトリガイド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="標準入出力">標準入出力&lt;/h3>
+&lt;p>Rubyではインタプリタ起動時に標準入出力に対応するオブジェクトが定数に格納される。&lt;br>
+それらは以下の通り:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>定数&lt;/th>
+&lt;th>値&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>STDIN&lt;/td>
+&lt;td>rubyプロセス起動時の標準入力。$stdinのデフォルト値&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$stdin&lt;/td>
+&lt;td>標準入力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>STDOUT&lt;/td>
+&lt;td>rubyプロセス起動時の標準出力。$stdoutのデフォルト値&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$stdout&lt;/td>
+&lt;td>標準出力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>STDERR&lt;/td>
+&lt;td>rubyプロセス起動時の標準エラー出力。$stderrのデフォルト値&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>$stderr&lt;/td>
+&lt;td>標準エラー出力&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>STDIN, STDOUT, STDERRは&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Object.html">Objectクラス&lt;/a>で定義されている。&lt;/li>
+&lt;li>$stdin, $stdout, $stderrは&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Kernel.html">Kernelモジュール&lt;/a>で定義されているグローバルスコープの変数。&lt;/li>
+&lt;li>$stdinにIOオブジェクトを代入することで、入力をリダイレクトできる。&lt;/li>
+&lt;li>$stdout, $stderrにIOオブジェクトを代入することで、出力をリダイレクトできる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.ruby.or.jp/ja/tech/development/ruby/tutorial/060_in_output.html">Rubyアソシエーション: 入出力&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/key-amb/items/a134e2c3bea172b3deeb">Ruby で標準入出力のテスト - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="プロコンにおける標準入力の処理">プロコンにおける標準入力の処理&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic"># 1行入力の場合&lt;/span>
+&lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">gets&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">chomp&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 複数行入力の場合&lt;/span>
+&lt;span style="color:#000">lines&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">$stdin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">readlines&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 各要素は末尾に改行コードを含む&lt;/span>
+&lt;span style="color:#000">lines&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">$stdin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">read&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">lines&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 上に同じ&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Rust</title><link>https://progrhy.me/tech-notes/a/program/rust/</link><pubDate>Sun, 24 May 2020 15:28:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/rust-lang/rust">https://github.com/rust-lang/rust&lt;/a> &amp;hellip; ソースコードもRust&lt;/li>
