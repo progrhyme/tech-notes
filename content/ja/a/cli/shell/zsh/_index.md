@@ -43,6 +43,37 @@ setopt extended_history
 - [Unix 系 OS でコマンド実行間にタイムスタンプを付ける](https://orumin.blogspot.com/2017/10/unix-os.html)
 - [zsh 設定 - プロンプト -](http://tegetegekibaru.blogspot.com/2012/08/zsh_2.html)
 
+### Options
+
+http://zsh.sourceforge.net/Doc/Release/Options.html
+
+`setopt`, `unsetopt` はPOSIXの `set +/-o` の代わりにzshoptionsの設定に用いることができる。 `set +/-o` も使えるみたい。
+
+Examples:
+
+```sh
+setopt shwordsplit # 他のシェルと文字列変数の分割方法を揃える
+setopt ksharrays   # 配列の添字を0から始める
+```
+
+参考:
+
+- [zshoptions(1): zsh options - Linux man page](https://linux.die.net/man/1/zshoptions)
+- [スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita](https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa#-zsh---z-shell)
+
+#### emulate
+
+他のシェルと互換性のあるモード。色んなオプションがセットされる。
+
+```sh
+emulate -R sh  # POSIX shに近いモード
+emulate -R ksh # ksh (bash) に近いモード
+```
+
+参考:
+
+- [zsh でシェルスクリプトを書くときの留意点 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog](https://fumiyas.github.io/2013/12/03/zsh-scripting.sh-advent-calendar.html)
+
 ### helpコマンド
 
 [Zsh - ArchWiki#ヘルプコマンド](https://wiki.archlinux.jp/index.php/Zsh#.E3.83.98.E3.83.AB.E3.83.97.E3.82.B3.E3.83.9E.E3.83.B3.E3.83.89)より。
