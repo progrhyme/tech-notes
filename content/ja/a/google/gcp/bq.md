@@ -23,6 +23,15 @@ https://cloud.google.com/bigquery/pricing
 - データセット ... プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
   - データセットの概要 | BigQuery | Google Cloud
 
+## 仕様
+### `0000-00-00 00:00:00` は取り扱えない
+
+MySQLサーバで `NO_ZERO_DATE` modeが有効でないと入ってくるデータだが、BQでは扱えない。
+
+関連項目:
+
+- [MySQL#SQL-Mode]({{<ref "/a/software/mysql.md">}}#sql-mode)
+
 ## How-to
 ### Colaboratoryから使う
 

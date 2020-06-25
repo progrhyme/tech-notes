@@ -23,7 +23,8 @@ MySQL 5.7からシステムテーブルでも使われるようになった。
 
 - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造](https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html)
 
-## CHARSETとCOLLATE
+## Specs
+### CHARSETとCOLLATE
 
 ドキュメント:
 
@@ -33,13 +34,21 @@ MySQL 5.7からシステムテーブルでも使われるようになった。
 
 - 🍣🍺問題, ハハパパ問題
 
-### クライアントでの指定
+#### クライアントでの指定
 
 いくつか設定方法がある:
 
 - `my.cnf` での指定
 - 接続後にSQLで指定:
   - `SET NAMES '<charset>' [COLLATE '<collation>']` <- 基本、これでよさそう
+
+### SQL Mode
+
+https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html
+
+サーバのSQLモード。
+
+- `NO_ZERO_DATE` ... `0000-00-00` を日付として許可しない。
 
 ## Features
 ### オンラインDDL

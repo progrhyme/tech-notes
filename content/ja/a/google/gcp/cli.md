@@ -48,7 +48,10 @@ BigQuery操作CLI
 
 ### load
 
-https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load
+ドキュメント:
+
+- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load
+- [Cloud Storage からの CSV データの読み込み | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/loading-data-cloud-storage-csv?hl=ja)
 
 Examples:
 
@@ -58,8 +61,14 @@ bq load --source_format=CSV --encoding=UTF-8 --field_delimiter="\t" [dataset].[t
 # ↑SOURCEはファイルでもGCSバケットでもいい
 ```
 
+Specs:
+
+- 要素が改行を含むデータを取り込むには、該当要素を `--quote` 文字（デフォルトは `"` ）で囲み、 `--allow_quoted_newlines` （デフォルトfalse）を指定する
+  - 更に、該当要素が元々 `"` を含む場合、 `""` でエスケープする必要がある。
+
 参考:
 
+- [bq loadのCSVにダブルクォーテーションや改行を含むときの対処法 | ppoohh 's blog](https://www.ppoohh.info/post-331/)
 - [bigqueryでtsvをインポート | ハックノート](https://hacknote.jp/archives/32117/)
 
 ### mk
