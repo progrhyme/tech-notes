@@ -37,6 +37,35 @@
 &lt;ul>
 &lt;li>&lt;a href="https://docs.docker.com/engine/tutorials/">Engine tutorials | Docker Documentation&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="registry">Registry&lt;/h2>
+&lt;h3 id="api">API&lt;/h3>
+&lt;p>&lt;a href="https://docs.docker.com/registry/spec/api/">https://docs.docker.com/registry/spec/api/&lt;/a>&lt;/p>
+&lt;p>認証:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.docker.com/registry/spec/auth/token/">Token Authentication Specification | Docker Documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://himenon.github.io/docker/registry-api/">Docker Registry API v2を利用してtag、manifest、imageの情報を取得する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="タグ一覧">タグ一覧&lt;/h4>
+&lt;p>V2: &lt;a href="https://docs.docker.com/registry/spec/api/#tags">https://docs.docker.com/registry/spec/api/#tags&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200626/#docker-registry-api%E3%82%92%E5%8F%A9%E3%81%84%E3%81%A6tag%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8Bcli%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F">2020-06-26#docker registry APIを叩いてtag検索するCLIを作った&lt;/a>&lt;/li>
+&lt;li>V1: &lt;a href="https://web.plus-idea.net/2019/07/docker-image-search-tag/">dockerイメージの検索とタグ一覧の取得、使い方の確認方法 | ぱーくん plus idea&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-hub">Docker Hub&lt;/h2>
+&lt;p>&lt;a href="https://hub.docker.com/">https://hub.docker.com/&lt;/a>&lt;/p>
+&lt;p>Dockerイメージのレジストリサービス。&lt;br>
+有料プランなら非公開リポジトリも作れる。&lt;/p>
+&lt;h3 id="公式イメージ">公式イメージ&lt;/h3>
+&lt;h4 id="openjdk">openjdk&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://hub.docker.com/_/openjdk">https://hub.docker.com/_/openjdk&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/docker-library/openjdk/">https://github.com/docker-library/openjdk/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Javaのリリースサイクルが短くなったこともあり、メンテされているバージョンが多くて所望のイメージを探すのにちょっと苦労する。&lt;/p>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
 &lt;h2 id="プロトコル">プロトコル&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols&lt;/a>&lt;/p>
@@ -593,6 +622,8 @@ kubectl delete -f my-ns.yml
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: MySQL</title><link>https://progrhy.me/tech-notes/a/software/mysql/</link><pubDate>Mon, 22 Jun 2020 16:02:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>アイコンはイルカ。&lt;/p>
+&lt;h2 id="docker">Docker&lt;/h2>
+&lt;p>公式イメージ: &lt;a href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql&lt;/a>&lt;/p>
 &lt;h2 id="innodb">InnoDB&lt;/h2>
 &lt;p>MySQL 5.1ぐらいからデフォルトのストレージエンジンになった。&lt;br>
 MySQL 5.7からシステムテーブルでも使われるようになった。&lt;/p>
@@ -604,6 +635,34 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="cli-options">CLI Options&lt;/h2>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/option-file-options.html">https://dev.mysql.com/doc/refman/8.0/en/option-file-options.html&lt;/a>&lt;/p>
+&lt;p>サーバ、クライアント両対応のオプションっぽい。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--defaults-file&lt;/code>&lt;/td>
+&lt;td>my.cnfなどの設定ファイル。これを指定すると一部の例外を除き他の設定ファイルを読まなくなる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>--defaults-extra-file&lt;/code>&lt;/td>
+&lt;td>my.cnfなどの設定ファイル。グローバルオプションファイルを読んだ後、ログインパスのファイルを読む前に読み込まれる&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>--defaults-file&lt;/code> 等のオプションは他のオプションハンドリングにも関わるから、他のオプションよりも前に指定しないといけない、とドキュメントに書かれている&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Because these options affect option-file handling, they must be given on the command line and not in an option file. To work properly, each of these options must be given before other options, with these exceptions:&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="specs">Specs&lt;/h2>
 &lt;h3 id="charsetとcollate">CHARSETとCOLLATE&lt;/h3>
 &lt;p>ドキュメント:&lt;/p>
@@ -614,7 +673,12 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>🍣🍺問題, ハハパパ問題&lt;/li>
 &lt;/ul>
-&lt;h4 id="クライアントでの指定">クライアントでの指定&lt;/h4>
+&lt;p>SQLでの確認方法:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- charset
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">show&lt;/span> &lt;span style="color:#000">variables&lt;/span> &lt;span style="color:#204a87;font-weight:bold">like&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;chara%&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">-- collation
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">show&lt;/span> &lt;span style="color:#000">variables&lt;/span> &lt;span style="color:#204a87;font-weight:bold">like&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;collation%&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="クライアントでの指定">クライアントでの指定&lt;/h4>
 &lt;p>いくつか設定方法がある:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>my.cnf&lt;/code> での指定&lt;/li>
@@ -638,35 +702,7 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;p>MySQL 5.5 or MySQL 5.1 with InnoDB Pluginで、CREATE/DROP INDEX時にテーブルコピーを行わないように最適化された。&lt;br>
 これは高速インデックス作成と呼ばれた。
 5.6では更に多くのALTER TABLE操作をテーブルコピーなしでできるようになってる。&lt;/p>
-&lt;h2 id="cli">CLI&lt;/h2>
-&lt;h3 id="mysqldump">mysqldump&lt;/h3>
-&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="mysqlコマンド等でのパスワードの渡し方">mysqlコマンド等でのパスワードの渡し方&lt;/h3>
-&lt;p>&lt;code>mysql -u$USER -p$PASS&lt;/code> みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？&lt;/p>
-&lt;p>このページにガイドがある:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/password-security-user.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>要点:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>~/.my.cnf&lt;/code> 等に書いておけばよい&lt;/li>
-&lt;/ul>
-&lt;p>メモ:&lt;/p>
-&lt;ul>
-&lt;li>PostgreSQLよりはゆるふわな感じ&lt;/li>
-&lt;/ul>
-&lt;h3 id="クエリ結果をtsvで出力">クエリ結果をTSVで出力&lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>mysqldump&lt;/code>&lt;/li>
-&lt;li>&lt;code>mysql -e &amp;quot;select ...&amp;quot;&lt;/code> の形式だと、CSVでは出力できないらしい。&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/d-dai/items/e56c2e5abf558328373f">MySQLのデータをcsv,tsv形式でダンプする - Qiita&lt;/a>&lt;/li>
-&lt;li>2009年8月 &lt;a href="https://fd0.hatenablog.jp/entry/20090801/p1">MySQL の結果を csv 形式で標準出力させたい - いけむランド&lt;/a>&lt;/li>
-&lt;li>2013年4月 &lt;a href="http://shusatoo.net/db/mysql/mysql-remote-db-result-output-local-csvfile/">MySQLリモートDBの結果をローカルCSVファイルに出力する方法 | 開発メモるアル&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h3 id="データベースの-rename-をどうやるか">データベースの Rename をどうやるか&lt;/h3>
 &lt;ul>
 &lt;li>DB 名指定で RENAME TABLE
@@ -714,6 +750,7 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;/ul>
 &lt;p>PerlやRubyのクライアントではよく &lt;code>connect_timeout&lt;/code>, &lt;code>read_timeout&lt;/code> といった接続時のオプションになっている。&lt;/p>
 &lt;h2 id="cookbooks">Cookbooks&lt;/h2>
+&lt;p>TODO: 標準SQLについて別ページにまとめ、ここには差分だけ記す。&lt;/p>
 &lt;h3 id="create-table">CREATE TABLE&lt;/h3>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">TABLE&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
@@ -721,7 +758,14 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87">CHAR&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">PRIMARY&lt;/span> &lt;span style="color:#204a87;font-weight:bold">KEY&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="insert">INSERT&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="create-database">CREATE DATABASE&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">DATABASE&lt;/span> &lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#204a87">CHARACTER&lt;/span> &lt;span style="color:#204a87;font-weight:bold">SET&lt;/span> &lt;span style="color:#000">utf8mb4&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.dbonline.jp/mysql/database/index1.html">データベースを作成する(CREATE DATABASE文) | MySQLの使い方&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="insert">INSERT&lt;/h3>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">INSERT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">INTO&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VALUES&lt;/span>
 &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;dog&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;cat&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;penguin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>

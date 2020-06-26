@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – MySQL</title><link>https://progrhy.me/tech-notes/a/software/mysql/</link><description>Recent content in MySQL on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 22 Jun 2020 16:02:33 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
+&lt;p>mysql, mysqldumpといったCLIやクライアントライブラリを介した利用、設定方法等について。&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/mysql/#cli-options">MySQL#CLI-Options&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mycnf">my.cnf&lt;/h3>
+&lt;p>代表的な設定ファイル。&lt;/p>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;h3 id="mysql">mysql&lt;/h3>
+&lt;h3 id="mysqldump">mysqldump&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html&lt;/a>&lt;/p>
+&lt;h3 id="パスワードの渡し方">パスワードの渡し方&lt;/h3>
+&lt;p>&lt;code>mysql -u$USER -p$PASS&lt;/code> みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？&lt;/p>
+&lt;p>このページにガイドがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/password-security-user.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>要点:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>~/.my.cnf&lt;/code> 等に書いておけばよい&lt;/li>
+&lt;/ul>
+&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>PostgreSQLよりはゆるふわな感じ&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="クエリ結果をcsvtsvで出力">クエリ結果をCSV/TSVで出力&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>mysqldump&lt;/code> &amp;hellip; CSV/TSV両対応しているが、サーバローカルにしか吐けないっぽい&lt;/li>
+&lt;li>&lt;code>mysql -e &amp;quot;select ...&amp;quot;&lt;/code> の形式だと、TSVでは出力できるが、CSVでは出力できないらしい&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/d-dai/items/e56c2e5abf558328373f">MySQLのデータをcsv,tsv形式でダンプする - Qiita&lt;/a>&lt;/li>
+&lt;li>2009年8月 &lt;a href="https://fd0.hatenablog.jp/entry/20090801/p1">MySQL の結果を csv 形式で標準出力させたい - いけむランド&lt;/a>&lt;/li>
+&lt;li>2013年4月 &lt;a href="http://shusatoo.net/db/mysql/mysql-remote-db-result-output-local-csvfile/">MySQLリモートDBの結果をローカルCSVファイルに出力する方法 | 開発メモるアル&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

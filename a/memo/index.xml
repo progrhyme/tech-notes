@@ -1,4 +1,28 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-24</title><link>https://progrhy.me/tech-notes/a/memo/20200624/</link><pubDate>Wed, 24 Jun 2020 02:06:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200624/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-26</title><link>https://progrhy.me/tech-notes/a/memo/20200626/</link><pubDate>Fri, 26 Jun 2020 15:58:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200626/</guid><description>
+&lt;h2 id="626">6/26&lt;/h2>
+&lt;h3 id="mysqlコマンドでmycnfが指定できないできた">mysqlコマンドでmy.cnfが指定できない→できた&lt;/h3>
+&lt;p>&lt;code>--defaults-file&lt;/code> オプションで指定できるらしいが、エラーになる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ mysql -h mysql -u&lt;span style="color:#000">$USER&lt;/span> -p&lt;span style="color:#000">$PASS&lt;/span> --defaults-extra-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/my.cnf
+mysql: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ERROR&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> unknown variable &lt;span style="color:#4e9a06">&amp;#39;defaults-extra-file=path/to/my.cnf&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>このオプションは最初に指定しないといけないらしい。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ mysql --defaults-extra-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/my.cnf -h mysql -u&lt;span style="color:#000">$USER&lt;/span> -p&lt;span style="color:#000">$PASS&lt;/span>
+mysql&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/mysql/#cli-options">MySQL#CLI-Options&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/xiaopihang/items/b6242182b9d22bab7620">MySQLメモ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="docker-registry-apiを叩いてtag検索するcliを作った">docker registry APIを叩いてtag検索するCLIを作った&lt;/h3>
+&lt;p>dockerコマンドでは取れないので、curlコマンドをラップするコマンドを作った。&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/toolbox/blob/master/bin/docker-search-tags">https://github.com/progrhyme/toolbox/blob/master/bin/docker-search-tags&lt;/a>&lt;/p>
+&lt;p>V2 APIを使ったほうがいいんだろうけど、認証とか面倒だったのでとりあえずV1で。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/docker/#api">Docker &amp;gt; Registry#API&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-24</title><link>https://progrhy.me/tech-notes/a/memo/20200624/</link><pubDate>Wed, 24 Jun 2020 02:06:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200624/</guid><description>
 &lt;h2 id="624">6/24&lt;/h2>
 &lt;h3 id="github-pagesをjsonサーバとして使う">GitHub PagesをJSONサーバとして使う&lt;/h3>
 &lt;p>使える。&lt;br>
