@@ -10,6 +10,10 @@ weight: 400
 
 アイコンはイルカ。
 
+## Docker
+
+公式イメージ: https://hub.docker.com/_/mysql
+
 ## InnoDB
 
 MySQL 5.1ぐらいからデフォルトのストレージエンジンになった。  
@@ -23,6 +27,23 @@ MySQL 5.7からシステムテーブルでも使われるようになった。
 
 - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.2.13.7 物理的な行構造](https://dev.mysql.com/doc/refman/5.6/ja/innodb-physical-record.html)
 
+## CLI Options
+
+https://dev.mysql.com/doc/refman/8.0/en/option-file-options.html
+
+サーバ、クライアント両対応のオプションっぽい。
+
+ Option | 機能
+--------|-----
+ `--defaults-file` | my.cnfなどの設定ファイル。これを指定すると一部の例外を除き他の設定ファイルを読まなくなる
+ `--defaults-extra-file` | my.cnfなどの設定ファイル。グローバルオプションファイルを読んだ後、ログインパスのファイルを読む前に読み込まれる
+
+NOTE:
+
+- `--defaults-file` 等のオプションは他のオプションハンドリングにも関わるから、他のオプションよりも前に指定しないといけない、とドキュメントに書かれている
+
+> Because these options affect option-file handling, they must be given on the command line and not in an option file. To work properly, each of these options must be given before other options, with these exceptions:
+
 ## Specs
 ### CHARSETとCOLLATE
 
@@ -33,6 +54,15 @@ MySQL 5.7からシステムテーブルでも使われるようになった。
 キーワード:
 
 - 🍣🍺問題, ハハパパ問題
+
+SQLでの確認方法:
+
+```sql
+-- charset
+show variables like 'chara%';
+-- collation
+show variables like 'collation%';
+```
 
 #### クライアントでの指定
 
@@ -59,39 +89,7 @@ MySQL 5.5 or MySQL 5.1 with InnoDB Pluginで、CREATE/DROP INDEX時にテーブ�
 これは高速インデックス作成と呼ばれた。
 5.6では更に多くのALTER TABLE操作をテーブルコピーなしでできるようになってる。
 
-## CLI
-### mysqldump
-
-https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html
-
 ## How-to
-### mysqlコマンド等でのパスワードの渡し方
-
-`mysql -u$USER -p$PASS` みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？
-
-このページにガイドがある:
-
-- [MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.1.2.1 パスワードセキュリティーのためのエンドユーザーガイドライン](https://dev.mysql.com/doc/refman/5.6/ja/password-security-user.html)
-
-要点:
-
-- `~/.my.cnf` 等に書いておけばよい
-
-メモ:
-
-- PostgreSQLよりはゆるふわな感じ
-
-### クエリ結果をTSVで出力
-
-- `mysqldump`
-- `mysql -e "select ..."` の形式だと、CSVでは出力できないらしい。
-
-参考:
-
-- [MySQLのデータをcsv,tsv形式でダンプする - Qiita](https://qiita.com/d-dai/items/e56c2e5abf558328373f)
-- 2009年8月 [MySQL の結果を csv 形式で標準出力させたい - いけむランド](https://fd0.hatenablog.jp/entry/20090801/p1)
-- 2013年4月 [MySQLリモートDBの結果をローカルCSVファイルに出力する方法 | 開発メモるアル](http://shusatoo.net/db/mysql/mysql-remote-db-result-output-local-csvfile/)
-
 ### データベースの Rename をどうやるか
 
 - DB 名指定で RENAME TABLE
@@ -144,6 +142,9 @@ See https://dev.mysql.com/doc/refman/5.6/ja/mysql-options.html
 PerlやRubyのクライアントではよく `connect_timeout`, `read_timeout` といった接続時のオプションになっている。
 
 ## Cookbooks
+
+TODO: 標準SQLについて別ページにまとめ、ここには差分だけ記す。
+
 ### CREATE TABLE
 
 Examples:
@@ -155,6 +156,18 @@ CREATE TABLE animals (
      PRIMARY KEY (id)
 );
 ```
+
+### CREATE DATABASE
+
+Examples:
+
+```sql
+CREATE DATABASE foo CHARACTER SET utf8mb4;
+```
+
+参考:
+
+- [データベースを作成する(CREATE DATABASE文) | MySQLの使い方](https://www.dbonline.jp/mysql/database/index1.html)
 
 ### INSERT
 

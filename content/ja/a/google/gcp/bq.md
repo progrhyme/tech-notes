@@ -30,7 +30,7 @@ MySQLサーバで `NO_ZERO_DATE` modeが有効でないと入ってくるデー�
 
 関連項目:
 
-- [MySQL#SQL-Mode]({{<ref "/a/software/mysql.md">}}#sql-mode)
+- [MySQL#SQL-Mode]({{<ref "/a/software/mysql/_index.md">}}#sql-mode)
 
 ## How-to
 ### Colaboratoryから使う
