@@ -39,6 +39,35 @@ if err != nil {
 
 - https://linux.die.net/man/3/fprintf
 
+## func Errorf
+
+https://pkg.go.dev/fmt?tab=doc#Errorf
+
+```go
+func Errorf(format string, a ...interface{}) error
+```
+
+書式付きメッセージを使ってerrorを作るときに便利な関数。  
+更に、 `%w` にerror型の値を入れることで、そのエラーをラップしたerrorを作れる。
+
+Example:
+
+```go
+err := fmt.Errorf("Error occured! %w", errors.New("I am guilty!"))
+fmt.Printf("Error: %v", err)
+```
+
+実行結果:
+
+```sh
+$ go run main.go
+Error: Error occured! I am guilty!
+```
+
+関連項目:
+
+- [errors]({{<ref "errors.md">}})
+
 ## func Scan
 
 https://pkg.go.dev/fmt?tab=doc#Scan

@@ -125,7 +125,7 @@ if terminal.IsTerminal(0) {
 
 関連項目:
 
-- [pkg (stdlib) > errors]({{<ref "std-pkg/_index.md">}}#errors)
+- [pkg (stdlib) > errors]({{<ref "std-pkg/errors.md">}})
 - [言語仕様#panic]({{<ref "spec.md">}}#panic)
 - [言語仕様#defer]({{<ref "spec.md">}}#defer)
 
@@ -257,12 +257,14 @@ func (f Fruit) String() string {
 関連項目:
 
 - [pkg (stdlib) > os]({{<ref "std-pkg/os.md">}})
+- [pkg (stdlib) > io]({{<ref "std-pkg/_index.md">}}#io)
 - [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
 - [pkg (stdlib) > path/filepath]({{<ref "std-pkg/path-filepath.md">}})
 
 参考:
 
 - [逆引きGolang (ファイル)](https://ashitani.jp/golangtips/tips_file.html)
+- [How to read/write from/to file using Go? - Stack Overflow](https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go)
 
 ### ディレクトリ操作
 

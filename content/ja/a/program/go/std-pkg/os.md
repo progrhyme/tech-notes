@@ -174,6 +174,18 @@ func Symlink(src, link string) error
 srcへのlinkを作る。  
 エラーは `*LinkError` 型。
 
+### func TempDir
+
+https://golang.org/pkg/os/#TempDir
+
+```go
+func TempDir() string
+```
+
+デフォルトのテンポラリファイル用のディレクトリパスを返す。
+
+- UNIX系OSなら `$TMPDIR` または `/tmp`
+
 ### func UserHomeDir
 
 https://golang.org/pkg/os/#UserHomeDir

@@ -38,14 +38,23 @@ https://docs.docker.com/registry/spec/api/
 
 - [Docker Registry API v2を利用してtag、manifest、imageの情報を取得する](https://himenon.github.io/docker/registry-api/)
 
-#### タグ一覧
+### CLI
 
-V2: https://docs.docker.com/registry/spec/api/#tags
+https://github.com/genuinetools/reg
 
-参考:
+v2 APIに対応したCLI. Webサーバや脆弱性スキャン機能まである。
 
-- [2020-06-26#docker registry APIを叩いてtag検索するCLIを作った]({{<ref "20200626.md">}}#docker-registry-apiを叩いてtag検索するcliを作った)
-- V1: [dockerイメージの検索とタグ一覧の取得、使い方の確認方法 | ぱーくん plus idea](https://web.plus-idea.net/2019/07/docker-image-search-tag/)
+Install:
+
+- `go get`
+- バイナリをGitHub ReleasesからDL
+
+Examples:
+
+```sh
+# タグ一覧
+reg tags <repo>
+```
 
 ## Docker Hub
 

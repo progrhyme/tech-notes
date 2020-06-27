@@ -65,33 +65,6 @@ defer cancel()
 
 - [Go1.7のcontextパッケージ | SOTA](http://deeeet.com/writing/2016/07/22/context/ "Go1.7のcontextパッケージ | SOTA")
 
-## errors
-
-https://golang.org/pkg/errors/
-
-Go 1.13で `.Is`, `.As`, `.Unwrap` が加わり、かなり強化されたようだ。
-
-Examples:
-
-```go
-func do() error {
-    :
-    if !check() {
-        return errors.New("Something is wrong!")
-    }
-    :
-    return nil
-}
-```
-
-関連項目:
-
-- [道場#例外処理]({{<ref "/a/program/go/dojo.md">}}#例外処理)
-
-参考:
-
-- [pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm](https://syfm.hatenablog.com/entry/2019/12/27/193348)
-
 ## go/build
 
 https://golang.org/pkg/go/build/
@@ -169,6 +142,34 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 - [【Go入門】ioパッケージ ～ 入出力処理の抽象化と共通化](https://leben.mobi/go/io-reader-writer/go-programming/)
 - [ASCII.jp：Goならわかるシステムプログラミング](https://ascii.jp/serialarticles/1235262/)
 
+### func Copy
+
+https://golang.org/pkg/io/#Copy
+
+```go
+func Copy(dst Writer, src Reader) (written int64, err error)
+```
+
+srcからdstに書き込む。  
+終了条件は、EOFに到達するか、エラーが発生すること。
+
+Example:
+
+```go
+// 例: ファイルのコピー
+// エラー処理は省略
+src, _ := os.Open(srcName)
+defer src.Close()
+dst, _ := os.Create(dstName)
+defer dst.Close()
+
+io.Copy(dst, src)
+```
+
+参考:
+
+- [\[Go言語\] ファイルをコピーする方法 - Qiita](https://qiita.com/cotrpepe/items/93e4a072c249a933e795)
+
 ### type Reader (interface)
 
 https://golang.org/pkg/io/#Reader
@@ -237,6 +238,30 @@ for _, file := range files {
 
 - [Golangでディレクトリ内のファイル一覧を入手する - Qiita](https://qiita.com/tanksuzuki/items/7866768c36e13f09eedb)
 
+### func TempDir
+
+https://golang.org/pkg/io/ioutil/#TempDir
+
+```go
+func TempDir(dir, pattern string) (name string, err error)
+```
+
+- dirの下位にテンポラリっぽい名前のディレクトリを作る。
+- dirが空文字だったら、デフォルトのテンポラリファイルのディレクトリが使われる（See [os.TempDir]({{<ref "os.md">}}#tempdir)）
+- 作ったディレクトリは自分で消さないと消えない
+- patternは `*` を含む文字列を与えることができ、最後に現れた `*` がランダムに置換される。
+
+Examples:
+
+```go
+logsDir, err := ioutil.TempDir(os.TempDir(), "*-logs")
+if err != nil {
+    log.Fatal(err)
+}
+defer os.RemoveAll(logsDir) // clean up
+:
+```
+
 ## log
 
 https://golang.org/pkg/log/
@@ -263,9 +288,45 @@ if err != nil {
 
 - [go言語におけるロギングについて](http://blog.satotaichi.info/logging-frameworks-for-go/ "go言語におけるロギングについて")
 
-## os
+## net/http
 
-See [os]({{<ref "os.md">}})
+https://golang.org/pkg/net/http/
+
+HTTPクライアント・サーバ機能を提供するライブラリ。
+
+クライアントは処理が終わったらレスポンスBODYを閉じないと駄目。
+
+Example:
+
+```go
+resp, err := http.Get("http://example.com/")
+if err != nil {
+	// handle error
+}
+defer resp.Body.Close()
+body, err := ioutil.ReadAll(resp.Body)
+// :
+```
+
+### Examples
+
+リクエスト結果をファイルに書き込む:
+
+```go
+resp, err := http.Get("...")
+check(err)
+defer resp.Body.Close()
+out, err := os.Create("filename.ext")
+if err != nil {
+    // panic?
+}
+defer out.Close()
+io.Copy(out, resp.Body)
+```
+
+参考:
+
+- [How to pipe an HTTP response to a file in Go? - Stack Overflow](https://stackoverflow.com/questions/16311232/how-to-pipe-an-http-response-to-a-file-in-go)
 
 ## os/exec
 
@@ -291,6 +352,12 @@ out, err := cmd.Output()
 // stdout, stderrをまとめて受け取る
 stdoutStderr, err := cmd.CombinedOutput()
 ```
+
+## path
+
+https://golang.org/pkg/path/
+
+URLなど `/` 区切りのパスを扱うパッケージ。
 
 ## runtime
 

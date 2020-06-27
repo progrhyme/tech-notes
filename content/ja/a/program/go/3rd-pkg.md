@@ -200,6 +200,24 @@ https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Decoder
 func (dec *Decoder) Decode(v interface{}) (err error)
 ```
 
+## h2non/filetype
+
+- https://github.com/h2non/filetype
+- https://pkg.go.dev/github.com/h2non/filetype
+
+Goでバイナリファイルの種類を識別するためのライブラリ。  
+アドホックに独自フォーマットを追加することも可能。
+
+対応フォーマット例:
+
+- 画像: jpg, png, gif, bmp, webp
+- 動画
+- 音声
+- 圧縮ファイル: zip, gz, tar, elf
+- 文書: doc, docx, xls, xlsx, ppt, pptx
+- フォント
+- アプリケーション: wasm
+
 ## jinzhu/configor
 
 https://github.com/jinzhu/configor

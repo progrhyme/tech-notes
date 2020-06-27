@@ -35,12 +35,15 @@ weight: 2000
 
 シェルスクリプトのテストフレームワークは意外とけっこうある。
 
-- [Bats](https://github.com/bats-core/bats-core)
-- [shUnit2](https://github.com/kward/shunit2)
-- [bash_unit](https://github.com/pgrange/bash_unit)
-- [ShellSpec](https://shellspec.info/)
-- [rylnd/shpec](https://github.com/rylnd/shpec)
-- [progrhyme/shove](https://github.com/progrhyme/shove)
+ Software | 対応シェル
+----------|------------
+ [Bats](https://github.com/bats-core/bats-core) | Bash
+ [shUnit2](https://github.com/kward/shunit2) | POSIX互換シェル
+ [bash_unit](https://github.com/pgrange/bash_unit) | Bash
+ [ShellSpec](https://shellspec.info/) | POSIX互換シェル
+ [rylnd/shpec](https://github.com/rylnd/shpec) | POSIX準拠シェル
+ [progrhyme/shove](https://github.com/progrhyme/shove) | POSIX互換シェル
+ [ZUnit](https://zunit.xyz/) | Zsh
 
 参考:
 

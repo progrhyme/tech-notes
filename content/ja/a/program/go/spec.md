@@ -967,6 +967,15 @@ ImportPath       = string_lit .
 
 - [【Go】import 書き方まとめ - Qiita](https://qiita.com/taji-taji/items/5a4f17bcf5b819954cc1)
 
+#### import cycle not allowed
+
+相互import, 循環importはNG.  
+コンパイルエラーになる。
+
+参考:
+
+- [Golang で import cycle not allowed に引っかかった人へ - Qiita](https://qiita.com/ko-watanabe/items/0141fa20da9f6f30b754)
+
 ### init()関数による初期化
 
 * ソースファイルに1つ `func init()` を記述できる
