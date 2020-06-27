@@ -992,14 +992,44 @@ zle clear-screen
 &lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;p>シェルスクリプトのテストフレームワークは意外とけっこうある。&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/bats-core/bats-core">Bats&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kward/shunit2">shUnit2&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/pgrange/bash_unit">bash_unit&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://shellspec.info/">ShellSpec&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/rylnd/shpec">rylnd/shpec&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/progrhyme/shove">progrhyme/shove&lt;/a>&lt;/li>
-&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Software&lt;/th>
+&lt;th>対応シェル&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/bats-core/bats-core">Bats&lt;/a>&lt;/td>
+&lt;td>Bash&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/kward/shunit2">shUnit2&lt;/a>&lt;/td>
+&lt;td>POSIX互換シェル&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/pgrange/bash_unit">bash_unit&lt;/a>&lt;/td>
+&lt;td>Bash&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://shellspec.info/">ShellSpec&lt;/a>&lt;/td>
+&lt;td>POSIX互換シェル&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/rylnd/shpec">rylnd/shpec&lt;/a>&lt;/td>
+&lt;td>POSIX準拠シェル&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/progrhyme/shove">progrhyme/shove&lt;/a>&lt;/td>
+&lt;td>POSIX互換シェル&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://zunit.xyz/">ZUnit&lt;/a>&lt;/td>
+&lt;td>Zsh&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/dodie/testing-in-bash">dodie/testing-in-bash: Bash test framework comparison 2020&lt;/a>&lt;/li>

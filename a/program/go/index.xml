@@ -836,6 +836,13 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/taji-taji/items/5a4f17bcf5b819954cc1">【Go】import 書き方まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="import-cycle-not-allowed">import cycle not allowed&lt;/h4>
+&lt;p>相互import, 循環importはNG.&lt;br>
+コンパイルエラーになる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ko-watanabe/items/0141fa20da9f6f30b754">Golang で import cycle not allowed に引っかかった人へ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="init関数による初期化">init()関数による初期化&lt;/h3>
 &lt;ul>
 &lt;li>ソースファイルに1つ &lt;code>func init()&lt;/code> を記述できる&lt;/li>
@@ -946,7 +953,7 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#errors">pkg (stdlib) &amp;gt; errors&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/">pkg (stdlib) &amp;gt; errors&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#panic">言語仕様#panic&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#defer">言語仕様#defer&lt;/a>&lt;/li>
 &lt;/ul>
@@ -1056,12 +1063,14 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">pkg (stdlib) &amp;gt; os&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#io">pkg (stdlib) &amp;gt; io&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/path-filepath/">pkg (stdlib) &amp;gt; path/filepath&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_file.html">逆引きGolang (ファイル)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go">How to read/write from/to file using Go? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="ディレクトリ操作">ディレクトリ操作&lt;/h3>
 &lt;p>参考:&lt;/p>
@@ -1396,26 +1405,6 @@ a b c d
 &lt;ul>
 &lt;li>&lt;a href="http://deeeet.com/writing/2016/07/22/context/" title="Go1.7のcontextパッケージ | SOTA">Go1.7のcontextパッケージ | SOTA&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="errors">errors&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/pkg/errors/">https://golang.org/pkg/errors/&lt;/a>&lt;/p>
-&lt;p>Go 1.13で &lt;code>.Is&lt;/code>, &lt;code>.As&lt;/code>, &lt;code>.Unwrap&lt;/code> が加わり、かなり強化されたようだ。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">do&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">!&lt;/span>&lt;span style="color:#000">check&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">errors&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Something is wrong!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86">道場#例外処理&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/12/27/193348">pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="gobuild">go/build&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
 &lt;p>Goパッケージの情報を集める。&lt;/p>
@@ -1465,6 +1454,23 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;li>&lt;a href="https://leben.mobi/go/io-reader-writer/go-programming/">【Go入門】ioパッケージ ～ 入出力処理の抽象化と共通化&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://ascii.jp/serialarticles/1235262/">ASCII.jp：Goならわかるシステムプログラミング&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="func-copy">func Copy&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/io/#Copy">https://golang.org/pkg/io/#Copy&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Copy&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dst&lt;/span> &lt;span style="color:#000">Writer&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">src&lt;/span> &lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">written&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>srcからdstに書き込む。&lt;br>
+終了条件は、EOFに到達するか、エラーが発生すること。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 例: ファイルのコピー
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// エラー処理は省略
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">src&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">srcName&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">src&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">dst&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Create&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dstName&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">dst&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Copy&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dst&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">src&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/cotrpepe/items/93e4a072c249a933e795">[Go言語] ファイルをコピーする方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="type-reader-interface">type Reader (interface)&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/io/#Reader">https://golang.org/pkg/io/#Reader&lt;/a>&lt;/p>
 &lt;p>定義:&lt;/p>
@@ -1505,7 +1511,23 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tanksuzuki/items/7866768c36e13f09eedb">Golangでディレクトリ内のファイル一覧を入手する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="log">log&lt;/h2>
+&lt;h3 id="func-tempdir">func TempDir&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/io/ioutil/#TempDir">https://golang.org/pkg/io/ioutil/#TempDir&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">TempDir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dir&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>dirの下位にテンポラリっぽい名前のディレクトリを作る。&lt;/li>
+&lt;li>dirが空文字だったら、デフォルトのテンポラリファイルのディレクトリが使われる（See &lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/#tempdir">os.TempDir&lt;/a>）&lt;/li>
+&lt;li>作ったディレクトリは自分で消さないと消えない&lt;/li>
+&lt;li>patternは &lt;code>*&lt;/code> を含む文字列を与えることができ、最後に現れた &lt;code>*&lt;/code> がランダムに置換される。&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">logsDir&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ioutil&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">TempDir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">TempDir&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;*-logs&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">RemoveAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">logsDir&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// clean up
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log">log&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/log/">https://golang.org/pkg/log/&lt;/a>&lt;/p>
 &lt;p>ロガー。ログレベルの概念はない。&lt;/p>
 &lt;p>&lt;code>log.Print&lt;/code> など、標準のロガーを使うやり方と、 &lt;code>log.New(...)&lt;/code> で &lt;code>Logger&lt;/code> を作って使うやり方がある。&lt;/p>
@@ -1522,8 +1544,33 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;ul>
 &lt;li>&lt;a href="http://blog.satotaichi.info/logging-frameworks-for-go/" title="go言語におけるロギングについて">go言語におけるロギングについて&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="os">os&lt;/h2>
-&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">os&lt;/a>&lt;/p>
+&lt;h2 id="nethttp">net/http&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/net/http/">https://golang.org/pkg/net/http/&lt;/a>&lt;/p>
+&lt;p>HTTPクライアント・サーバ機能を提供するライブラリ。&lt;/p>
+&lt;p>クライアントは処理が終わったらレスポンスBODYを閉じないと駄目。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">resp&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">http&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;http://example.com/&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// handle error
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">resp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Body&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">body&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ioutil&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ReadAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">resp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Body&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// :
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="examples">Examples&lt;/h3>
+&lt;p>リクエスト結果をファイルに書き込む:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">resp&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">http&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">check&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">resp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Body&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Create&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;filename.ext&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// panic?
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Copy&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">resp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Body&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/16311232/how-to-pipe-an-http-response-to-a-file-in-go">How to pipe an HTTP response to a file in Go? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="osexec">os/exec&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/os/exec/">https://golang.org/pkg/os/exec/&lt;/a>&lt;/p>
 &lt;p>コマンド実行で使う。&lt;/p>
@@ -1538,7 +1585,10 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">out&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Output&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// stdout, stderrをまとめて受け取る
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">stdoutStderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CombinedOutput&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="runtime">runtime&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="path">path&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/path/">https://golang.org/pkg/path/&lt;/a>&lt;/p>
+&lt;p>URLなど &lt;code>/&lt;/code> 区切りのパスを扱うパッケージ。&lt;/p>
+&lt;h2 id="runtime">runtime&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/runtime/">https://golang.org/pkg/runtime/&lt;/a>&lt;/p>
 &lt;p>Goのランタイムとやりとりする操作を提供するパッケージ。&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -2014,7 +2064,24 @@ Josie
 &lt;p>&lt;a href="https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Decoder">https://pkg.go.dev/gopkg.in/yaml.v2?tab=doc#Decoder&lt;/a>&lt;/p>
 &lt;h4 id="func-decode">func Decode&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dec&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Decoder&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="jinzhuconfigor">jinzhu/configor&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="h2nonfiletype">h2non/filetype&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/h2non/filetype">https://github.com/h2non/filetype&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pkg.go.dev/github.com/h2non/filetype">https://pkg.go.dev/github.com/h2non/filetype&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Goでバイナリファイルの種類を識別するためのライブラリ。&lt;br>
+アドホックに独自フォーマットを追加することも可能。&lt;/p>
+&lt;p>対応フォーマット例:&lt;/p>
+&lt;ul>
+&lt;li>画像: jpg, png, gif, bmp, webp&lt;/li>
+&lt;li>動画&lt;/li>
+&lt;li>音声&lt;/li>
+&lt;li>圧縮ファイル: zip, gz, tar, elf&lt;/li>
+&lt;li>文書: doc, docx, xls, xlsx, ppt, pptx&lt;/li>
+&lt;li>フォント&lt;/li>
+&lt;li>アプリケーション: wasm&lt;/li>
+&lt;/ul>
+&lt;h2 id="jinzhuconfigor">jinzhu/configor&lt;/h2>
 &lt;p>&lt;a href="https://github.com/jinzhu/configor">https://github.com/jinzhu/configor&lt;/a>&lt;/p>
 &lt;p>YAML, JSON, TOML, 環境変数に対応した設定ツール。&lt;/p>
 &lt;p>Usage:&lt;/p>

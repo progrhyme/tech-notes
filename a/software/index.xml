@@ -48,14 +48,18 @@
 &lt;ul>
 &lt;li>&lt;a href="https://himenon.github.io/docker/registry-api/">Docker Registry API v2を利用してtag、manifest、imageの情報を取得する&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="タグ一覧">タグ一覧&lt;/h4>
-&lt;p>V2: &lt;a href="https://docs.docker.com/registry/spec/api/#tags">https://docs.docker.com/registry/spec/api/#tags&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
+&lt;h3 id="cli">CLI&lt;/h3>
+&lt;p>&lt;a href="https://github.com/genuinetools/reg">https://github.com/genuinetools/reg&lt;/a>&lt;/p>
+&lt;p>v2 APIに対応したCLI. Webサーバや脆弱性スキャン機能まである。&lt;/p>
+&lt;p>Install:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200626/#docker-registry-api%E3%82%92%E5%8F%A9%E3%81%84%E3%81%A6tag%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8Bcli%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%9F">2020-06-26#docker registry APIを叩いてtag検索するCLIを作った&lt;/a>&lt;/li>
-&lt;li>V1: &lt;a href="https://web.plus-idea.net/2019/07/docker-image-search-tag/">dockerイメージの検索とタグ一覧の取得、使い方の確認方法 | ぱーくん plus idea&lt;/a>&lt;/li>
+&lt;li>&lt;code>go get&lt;/code>&lt;/li>
+&lt;li>バイナリをGitHub ReleasesからDL&lt;/li>
 &lt;/ul>
-&lt;h2 id="docker-hub">Docker Hub&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タグ一覧&lt;/span>
+reg tags &amp;lt;repo&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker-hub">Docker Hub&lt;/h2>
 &lt;p>&lt;a href="https://hub.docker.com/">https://hub.docker.com/&lt;/a>&lt;/p>
 &lt;p>Dockerイメージのレジストリサービス。&lt;br>
 有料プランなら非公開リポジトリも作れる。&lt;/p>

@@ -2787,6 +2787,13 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/taji-taji/items/5a4f17bcf5b819954cc1">【Go】import 書き方まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="import-cycle-not-allowed">import cycle not allowed&lt;/h4>
+&lt;p>相互import, 循環importはNG.&lt;br>
+コンパイルエラーになる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ko-watanabe/items/0141fa20da9f6f30b754">Golang で import cycle not allowed に引っかかった人へ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="init関数による初期化">init()関数による初期化&lt;/h3>
 &lt;ul>
 &lt;li>ソースファイルに1つ &lt;code>func init()&lt;/code> を記述できる&lt;/li>
@@ -2945,7 +2952,7 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#errors">pkg (stdlib) &amp;gt; errors&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/">pkg (stdlib) &amp;gt; errors&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#panic">言語仕様#panic&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#defer">言語仕様#defer&lt;/a>&lt;/li>
 &lt;/ul>
@@ -3055,12 +3062,14 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">pkg (stdlib) &amp;gt; os&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#io">pkg (stdlib) &amp;gt; io&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/path-filepath/">pkg (stdlib) &amp;gt; path/filepath&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_file.html">逆引きGolang (ファイル)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go">How to read/write from/to file using Go? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="ディレクトリ操作">ディレクトリ操作&lt;/h3>
 &lt;p>参考:&lt;/p>
@@ -3623,7 +3632,67 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://44smkn.hatenadiary.com/entry/2018/08/01/022312">pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-06/">Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: vimrc</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/vimrc/</link><pubDate>Tue, 05 May 2020 14:34:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/vimrc/</guid><description>
+&lt;/ul></description></item><item><title>A: errors</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</link><pubDate>Sat, 27 Jun 2020 22:50:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>Go標準のエラーパッケージ。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">do&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">!&lt;/span>&lt;span style="color:#000">check&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">errors&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Something is wrong!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E4%BE%8B%E5%A4%96%E5%87%A6%E7%90%86">道場#例外処理&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/#func-errorf">fmt.Errorf&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Info:&lt;/p>
+&lt;ul>
+&lt;li>Go 1.13で &lt;code>.Is&lt;/code>, &lt;code>.As&lt;/code>, &lt;code>.Unwrap&lt;/code> が加わり、それまでgithub.com/pkg/errorsじゃないとできなかったようなことができるようになった。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://syfm.hatenablog.com/entry/2019/12/27/193348">pkg/errors から徐々に Go 1.13 errors へ移行する - blog.syfm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/shibukawa/items/e633e426a6e67ea2e830">Go 1.13時代のエラー実装者のお作法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="func-as">func As&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/errors/#As">https://golang.org/pkg/errors/#As&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">As&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">target&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// errがos.PathError型の値をラップしているときに真
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">perr&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">PathError&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">errors&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">As&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">perr&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">perr&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="func-is">func Is&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Is&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">target&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// errがos.ErrExistをラップしているときに真
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">errors&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Is&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ErrExist&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="func-unwrap">func Unwrap&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Unwrap&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>内包するエラーを返す。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">myerr&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">msg&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">myerr&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Error&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Sprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s &amp;lt;&amp;lt; %s&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">msg&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Error&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">myerr&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Unwrap&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">e&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">err&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">//err := fmt.Errorf(&amp;#34;Error occured! %w\n&amp;#34;, errors.New(&amp;#34;I am guilty!&amp;#34;))
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">myerr&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">msg&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Error occured!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000">errors&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I am guilty!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)}&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Error: %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://play.golang.org/p/kAFNUR_XHl5">https://play.golang.org/p/kAFNUR_XHl5&lt;/a>&lt;/p>
+&lt;p>実行結果:&lt;/p>
+&lt;pre>&lt;code>Error: Error occured! &amp;lt;&amp;lt; I am guilty!
+&lt;/code>&lt;/pre></description></item><item><title>A: vimrc</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/vimrc/</link><pubDate>Tue, 05 May 2020 14:34:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/vimrc/</guid><description>
 &lt;p>Vimの設定ファイルであるvimrcについて。&lt;/p>
 &lt;h2 id="どのファイルが読み込まれるか">どのファイルが読み込まれるか&lt;/h2>
 &lt;p>&lt;a href="https://vim-jp.org/vimdoc-ja/starting.html#initialization">https://vim-jp.org/vimdoc-ja/starting.html#initialization&lt;/a>&lt;/p>
@@ -4127,6 +4196,21 @@ cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作�
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://linux.die.net/man/3/fprintf">https://linux.die.net/man/3/fprintf&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="func-errorf">func Errorf&lt;/h2>
+&lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Errorf">https://pkg.go.dev/fmt?tab=doc#Errorf&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Errorf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>書式付きメッセージを使ってerrorを作るときに便利な関数。&lt;br>
+更に、 &lt;code>%w&lt;/code> にerror型の値を入れることで、そのエラーをラップしたerrorを作れる。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Errorf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Error occured! %w&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">errors&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I am guilty!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Error: %v&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行結果:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ go run main.go
+Error: Error occured! I am guilty!
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/">errors&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="func-scan">func Scan&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/fmt?tab=doc#Scan">https://pkg.go.dev/fmt?tab=doc#Scan&lt;/a>&lt;/p>
@@ -5916,30 +6000,4 @@ GCPなどでアカウント管理にも使える。&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;h3 id="g-suite特有の機能">G Suite特有の機能&lt;/h3>
 &lt;h4 id="グループアドレスの追加エイリアス">グループアドレスの追加(エイリアス)&lt;/h4>
-&lt;p>&lt;a href="https://support.google.com/a/answer/2727156?hl=ja" title="グループのアドレスを追加する - G Suite 管理者 ヘルプ">グループのアドレスを追加する - G Suite 管理者 ヘルプ&lt;/a>&lt;/p></description></item><item><title>A: GitBook</title><link>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</link><pubDate>Sat, 25 Apr 2020 23:52:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/static-site-generator/gitbook/</guid><description>
-&lt;p>Markdownで管理されたドキュメントからHTML, PDF, ePUBに簡単に製本できるツール。&lt;br>
-ただし、2020-04-25現在、クラウドサービスに注力するそうで、OSSのツールチェインは不活発になっていくようだ。&lt;/p>
-&lt;p>&lt;a href="https://github.com/GitbookIO/gitbook">https://github.com/GitbookIO/gitbook&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>⚠️ Deprecation warning&lt;/strong>&lt;/p>
-&lt;p>As the efforts of the GitBook team are focused on the &lt;a href="https://www.gitbook.com">GitBook.com&lt;/a> platform, the CLI is no longer under active development.&lt;br>
-All content supported by the CLI are mostly supported by our &lt;a href="https://docs.gitbook.com/integrations/github">GitBook.com / GitHub integration&lt;/a>.&lt;br>
-Content hosted on the &lt;a href="https://legacy.gitbook.com">legacy.gitbook.com&lt;/a> will continue working until further notice. For differences with the new vesion, check out our &lt;a href="https://docs.gitbook.com/v2-changes/important-differences">documentation&lt;/a>.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.gitbook.com/">https://docs.gitbook.com/&lt;/a> &amp;hellip; クラウドサービス向け&lt;/li>
-&lt;li>&lt;a href="https://gitbookio.gitbooks.io/documentation/">Introduction | GitBook.com Documentation&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/GitbookIO/gitbook/tree/master/docs">https://github.com/GitbookIO/gitbook/tree/master/docs&lt;/a> &amp;hellip; たぶんOSSツールチェインのドキュメントはもうここを読むしかない。&lt;/li>
-&lt;/ul>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;p>目次生成系:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://developer.aliyun.com/mirror/npm/package/gitbook-plugin-page-toc">Package - gitbook-plugin-page-toc&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/zanfab/gitbook-plugin-intopic-toc">zanfab/gitbook-plugin-intopic-toc: GitBook Plugin to add inline table of contents (TOC) to each page using sticky and scrollspy effects.&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/billryan/gitbook-plugin-etoc">billryan/gitbook-plugin-etoc: Elegant toc plugin for GitBook&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/mebiusbox2/items/938af4b0d0bf7a4d3e33#gitbook-cli">GitBookによるドキュメント作成 - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>&lt;a href="https://support.google.com/a/answer/2727156?hl=ja" title="グループのアドレスを追加する - G Suite 管理者 ヘルプ">グループのアドレスを追加する - G Suite 管理者 ヘルプ&lt;/a>&lt;/p></description></item></channel></rss>

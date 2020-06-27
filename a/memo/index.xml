@@ -16,6 +16,7 @@ mysql&amp;gt;
 &lt;li>&lt;a href="https://qiita.com/xiaopihang/items/b6242182b9d22bab7620">MySQLメモ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="docker-registry-apiを叩いてtag検索するcliを作った">docker registry APIを叩いてtag検索するCLIを作った&lt;/h3>
+&lt;p>※追記: &lt;a href="https://github.com/genuinetools/reg">https://github.com/genuinetools/reg&lt;/a> を使ったほうがいいと気づいた。&lt;/p>
 &lt;p>dockerコマンドでは取れないので、curlコマンドをラップするコマンドを作った。&lt;/p>
 &lt;p>&lt;a href="https://github.com/progrhyme/toolbox/blob/master/bin/docker-search-tags">https://github.com/progrhyme/toolbox/blob/master/bin/docker-search-tags&lt;/a>&lt;/p>
 &lt;p>V2 APIを使ったほうがいいんだろうけど、認証とか面倒だったのでとりあえずV1で。&lt;/p>
