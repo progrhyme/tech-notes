@@ -326,7 +326,16 @@ main.go:12 +0x27f
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Chdir&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">dir&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>カレントディレクトリを変更する。&lt;br>
 エラーは &lt;code>*PathError&lt;/code> 型。&lt;/p>
-&lt;h3 id="func-getenv">func Getenv&lt;/h3>
+&lt;h3 id="func-chmod">func Chmod&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/os/#Chmod">https://golang.org/pkg/os/#Chmod&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Chmod&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">mode&lt;/span> &lt;span style="color:#000">FileMode&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// UNIX系システムでファイルに実行ビットを立てる。一部エラー処理省略
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fi&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stat&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Chmod&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">fi&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Mode&lt;/span>&lt;span style="color:#000;font-weight:bold">()|&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0111&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-getenv">func Getenv&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/os/#Getenv">https://golang.org/pkg/os/#Getenv&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>keyの環境変数を返す。&lt;br>
@@ -441,11 +450,15 @@ main.go:12 +0x27f
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>Perl5の &lt;code>File::Find::find&lt;/code> に似てる。&lt;/li>
 &lt;li>ディレクトリを再帰的に探索して、関数 &lt;code>WalkFunc&lt;/code> を実行&lt;/li>
+&lt;li>WalkFuncに与える関数シグネチャは下のWalkFunc型を参照&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang">https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: regexp</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/regexp/</link><pubDate>Sun, 14 Jun 2020 15:53:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/regexp/</guid><description>
+&lt;/ul>
+&lt;h3 id="type-walkfunc">type WalkFunc&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">WalkFunc&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">info&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">FileInfo&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: regexp</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/regexp/</link><pubDate>Sun, 14 Jun 2020 15:53:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/regexp/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>正規表現の文法は &lt;code>\C&lt;/code> を除いて &lt;a href="https://github.com/google/re2/wiki/Syntax">https://github.com/google/re2/wiki/Syntax&lt;/a> に従っている。&lt;br>
 文法の概要については次を実行して見るとよい:&lt;/p>

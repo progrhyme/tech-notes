@@ -3263,6 +3263,18 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;/li>
 &lt;li>&lt;a href="https://postd.cc/is-go-object-oriented/">Goはオブジェクト指向言語だろうか？ | POSTD&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="ロギング">ロギング&lt;/h2>
+&lt;p>標準のlogパッケージはミニマルなので、他言語から来たプログラマーなど、各位で拡張したくなることがよくある。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#log">pkg (stdlib) &amp;gt; log&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/methane/items/cedbf546ae2db8a63c3d">loggingについて話そう - Qiita&lt;/a> &amp;hellip; Goにおける思想的な&lt;/li>
+&lt;li>&lt;a href="https://text.baldanders.info/golang/logger/">Log パッケージで遊ぶ — プログラミング言語 Go | text.Baldanders.info&lt;/a> &amp;hellip; ログレベル対応など&lt;/li>
+&lt;li>&lt;a href="http://blog.satotaichi.info/logging-frameworks-for-go/">go言語におけるロギングについて - blog.satotaichi.info&lt;/a> &amp;hellip; 筆者のオススメパッケージ紹介&lt;/li>
+&lt;/ul>
 &lt;h2 id="正規表現">正規表現&lt;/h2>
 &lt;p>Webサーバなどで使うときは、パフォーマンスに気をつける必要がありそう。&lt;/p>
 &lt;p>関連項目:&lt;/p>
