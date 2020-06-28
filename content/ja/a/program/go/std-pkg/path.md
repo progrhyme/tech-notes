@@ -1,12 +1,19 @@
 ---
-title: "path/filepath"
-linkTitle: "path/filepath"
-description: https://golang.org/pkg/path/filepath/
-date: 2020-06-14T15:53:26+09:00
-weight: 700
+title: "path"
+linkTitle: "path"
+date: 2020-06-28T19:13:12+09:00
+weight: 650
 ---
 
-## About
+## path
+
+https://golang.org/pkg/path/
+
+URLなど `/` 区切りのパスを扱うパッケージ。
+
+## path/filepath
+
+https://golang.org/pkg/path/filepath/
 
 ファイル名やパス名の操作に使える。
 
@@ -14,7 +21,7 @@ weight: 700
 
 - [Big Sky :: Golang で物理ファイルの操作に path/filepath でなく path を使うと爆発します。](https://mattn.kaoriya.net/software/lang/go/20171024130616.htm)
 
-## Examples
+### Examples
 
 - `func Base` ... basenameコマンド相当
 - `func Dir` ... dirnameコマンド相当
@@ -34,7 +41,6 @@ fmt.Println(filepath.Dir("dev.txt"))         //=> .
 fmt.Println(filepath.Dir("../todo.txt"))     //=> ..
 ```
 
-## Reference
 ### func Abs
 
 https://golang.org/pkg/path/filepath/#Abs

@@ -250,16 +250,16 @@ func (f Fruit) String() string {
 
 関連項目:
 
-- [pkg (stdlib) > os/exec]({{<ref "std-pkg/_index.md">}}#osexec)
+- [pkg (stdlib) > os/exec]({{<ref "std-pkg/os.md">}}#osexec)
 
 ## ファイル操作
 
 関連項目:
 
 - [pkg (stdlib) > os]({{<ref "std-pkg/os.md">}})
-- [pkg (stdlib) > io]({{<ref "std-pkg/_index.md">}}#io)
-- [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/_index.md">}}#ioioutil)
-- [pkg (stdlib) > path/filepath]({{<ref "std-pkg/path-filepath.md">}})
+- [pkg (stdlib) > io]({{<ref "std-pkg/io.md">}})
+- [pkg (stdlib) > io/ioutil]({{<ref "std-pkg/io.md">}}#ioioutil)
+- [pkg (stdlib) > path/filepath]({{<ref "std-pkg/path.md">}}#pathfilepath)
 
 参考:
 
@@ -537,7 +537,7 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 
 関連項目:
 
-- [pkg (stdlib) > text/template]({{<ref "std-pkg/_index.md">}}#texttemplate)
+- [pkg (stdlib) > text/template]({{<ref "std-pkg/text.md">}}#texttemplate)
 
 ### template構文
 

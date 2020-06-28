@@ -6,7 +6,10 @@ date: 2020-06-06T21:15:56+09:00
 weight: 600
 ---
 
-## How-to
+## os
+
+https://golang.org/pkg/os/
+
 ### 環境変数の操作
 
 Examples:
@@ -44,7 +47,6 @@ err = file.Write(text)
 err := os.Remove(path)
 ```
 
-## Reference
 ### Constants
 
 https://golang.org/pkg/os/#pkg-constants
@@ -226,3 +228,28 @@ https://golang.org/pkg/os/#File
 https://golang.org/pkg/os/#Create
 
 ファイル作成。
+
+## os/exec
+
+https://golang.org/pkg/os/exec/
+
+コマンド実行で使う。
+
+SYNOPSIS:
+
+```go
+cmd := exec.Command("sh", "-c", "echo stdout; echo 1>&2 stderr")
+
+// コマンドの出力を標準（エラー）出力に設定
+cmd.Stdout = os.Stdout
+cmd.Stderr = os.Stderr
+
+// コマンド実行
+err := cmd.Run()
+
+// コマンド実行し、stdoutを取得
+out, err := cmd.Output()
+
+// stdout, stderrをまとめて受け取る
+stdoutStderr, err := cmd.CombinedOutput()
+```

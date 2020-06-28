@@ -14,7 +14,7 @@ Goのテストに関する情報をまとめる。
 
 関連項目:
 
-- [pkg (stdlib) > testing]({{<ref "std-pkg/_index.md">}}#testing)
+- [pkg (stdlib) > testing]({{<ref "std-pkg/testing.md">}})
 
 Tips:
 
