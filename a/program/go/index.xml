@@ -344,14 +344,32 @@ continue for import return var
 &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="要素取得時のヒット検査">要素取得時のヒット検査&lt;/h4>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_map.html">逆引きGolang (マップ)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="要素取得時のヒット検査">要素取得時のヒット検査&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ages&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;bob&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// hit
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// miss
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="構造体">構造体&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mapのマージ">mapのマージ&lt;/h4>
+&lt;p>&lt;a href="https://ashitani.jp/golangtips/tips_map.html#map_Merge">逆引きGolang (マップ)&lt;/a>より。&lt;br>
+愚直に書く感じか。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">merge&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">m1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">m2&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">merged&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">m1&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">merged&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">v&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">m2&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">merged&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">v&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">merged&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://play.golang.org/p/OmBHp53UIxn">https://play.golang.org/p/OmBHp53UIxn&lt;/a>&lt;/p>
+&lt;h3 id="構造体">構造体&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Struct_types">https://golang.org/ref/spec#Struct_types&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Vertex&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -1362,6 +1380,7 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>YAML, JSON, TOMLなど。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#encodingjson">pkg (stdlib) &amp;gt; encoding/json&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#go-yamlyaml">pkg (3rd) &amp;gt; go-yaml/yaml&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
 &lt;/ul>
@@ -1417,14 +1436,83 @@ a b c d
 &lt;h2 id="context">context&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/context/">https://golang.org/pkg/context/&lt;/a>&lt;/p>
 &lt;p>Webサーバとかで引きずり回すコンテキスト。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
+&lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">ctx&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">context&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Background&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#a40000">#&lt;/span> &lt;span style="color:#000">context&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Contextな構造体を生成&lt;/span>
-&lt;span style="color:#a40000">##&lt;/span> &lt;span style="color:#000">タイムアウト付きコンテキストを生成&lt;/span>&lt;span style="color:#a40000">。&lt;/span>&lt;span style="color:#000">cancelはタイムアウト時に実行される&lt;/span>
-&lt;span style="color:#000">ctx2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">cancel&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">context&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithDeadline&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">ctx&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Now&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">Add&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">timeout&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// タイムアウト付きコンテキストを生成。cancelはタイムアウト時に実行される
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">ctx2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">cancel&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">context&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithDeadline&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">ctx&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Now&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">Add&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">timeout&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">cancel&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 時間指定。↑とほぼ同じだと思う
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">ctx&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">cancel&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">context&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithTimeout&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">context&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Background&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">50&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Millisecond&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">cancel&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="http://deeeet.com/writing/2016/07/22/context/" title="Go1.7のcontextパッケージ | SOTA">Go1.7のcontextパッケージ | SOTA&lt;/a>&lt;/li>
+&lt;li>2016 &lt;a href="http://deeeet.com/writing/2016/07/22/context/" title="Go1.7のcontextパッケージ | SOTA">Go1.7のcontextパッケージ | SOTA&lt;/a>&lt;/li>
+&lt;li>2019年3月 &lt;a href="https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1">context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem&lt;/a>&lt;/li>
+&lt;li>2019年7月 &lt;a href="https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc">golang contextの使い方とか概念(contextとは)的な話 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="encodingjson">encoding/json&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/encoding/json/">https://golang.org/pkg/encoding/json/&lt;/a>&lt;/p>
+&lt;p>RFC 7159で定められたJSONフォーマット仕様に従うエンコード・デコード機能を実装する。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">blob&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`[&amp;#34;gopher&amp;#34;,&amp;#34;armadillo&amp;#34;,&amp;#34;zebra&amp;#34;,&amp;#34;unknown&amp;#34;,&amp;#34;gopher&amp;#34;,&amp;#34;bee&amp;#34;,&amp;#34;gopher&amp;#34;,&amp;#34;zebra&amp;#34;]`&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">zoo&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#000">Animal&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Unmarshal&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">blob&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">zoo&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>公式リソース:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/json">JSON and Go - The Go Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84">道場#構造化データファイルの取り扱い&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="structタグの使い方">structタグの使い方&lt;/h3>
+&lt;p>リファレンス: &lt;a href="https://golang.org/pkg/encoding/json/#Marshal">https://golang.org/pkg/encoding/json/#Marshal&lt;/a>&lt;/p>
+&lt;p>&lt;code>json&lt;/code> タグの最初の値がJSONのキー名として使われる。&lt;br>
+他には以下のタグが指定できる。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>tag&lt;/th>
+&lt;th>Marshal（エンコード）時&lt;/th>
+&lt;th>Unmarshal（デコード）時&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>omitempty&lt;/code>&lt;/td>
+&lt;td>ゼロ値であれば出力しない&lt;/td>
+&lt;td>ゼロ値であれば無視される&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-&lt;/code>&lt;/td>
+&lt;td>出力しない&lt;/td>
+&lt;td>無視される&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>string&lt;/code>&lt;/td>
+&lt;td>出力時にクォートされる&lt;/td>
+&lt;td>クォートされていても型に合わせて変換する。クォートされてないとエラー&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">User&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">ID&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// JSONキー名は &amp;#34;ID&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Login&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;login&amp;#34;`&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// JSONキー名は &amp;#34;login&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Password&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;pasword,-&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Sex&lt;/span> &lt;span style="color:#000">SexType&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;sex,omitempty&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Age&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;age,string&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/struct-json/">Golangで構造体を使ったJSON操作で出来ることを調べてみた | Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.codeflow.site/ja/article/how-to-use-struct-tags-in-go">GoでStructタグを使用する方法&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="gobuild">go/build&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
@@ -1516,6 +1604,17 @@ go build -tags darwin,cgo &lt;span style="color:#8f5902;font-style:italic"># マ
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.yoheim.net/blog.php?q=20171006">[Go] ファイル名、行数、関数名、スタックトレースをランタイム時に取得する - YoheiM .NET&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="constants-1">Constants&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 386, amd64, arm, s390x, and so on
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">GOARCH&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">GOARCH&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// darwin, freebsd, linux, and so on
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">GOOS&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">GOOS&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>GOOSとGOARCHの組合せを見るには &lt;code>go tool dist list&lt;/code> を実行するといい&lt;/li>
 &lt;/ul>
 &lt;h2 id="strconv">strconv&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/strconv">https://pkg.go.dev/strconv&lt;/a>&lt;/p>

@@ -2295,14 +2295,32 @@ continue for import return var
 &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="要素取得時のヒット検査">要素取得時のヒット検査&lt;/h4>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_map.html">逆引きGolang (マップ)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="要素取得時のヒット検査">要素取得時のヒット検査&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ages&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;bob&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// hit
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// miss
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="構造体">構造体&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mapのマージ">mapのマージ&lt;/h4>
+&lt;p>&lt;a href="https://ashitani.jp/golangtips/tips_map.html#map_Merge">逆引きGolang (マップ)&lt;/a>より。&lt;br>
+愚直に書く感じか。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">merge&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">m1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">m2&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">merged&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">m1&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">merged&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">v&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">m2&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">merged&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">v&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">merged&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://play.golang.org/p/OmBHp53UIxn">https://play.golang.org/p/OmBHp53UIxn&lt;/a>&lt;/p>
+&lt;h3 id="構造体">構造体&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/ref/spec#Struct_types">https://golang.org/ref/spec#Struct_types&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Vertex&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -3361,6 +3379,7 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>YAML, JSON, TOMLなど。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#encodingjson">pkg (stdlib) &amp;gt; encoding/json&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#go-yamlyaml">pkg (3rd) &amp;gt; go-yaml/yaml&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
 &lt;/ul>
