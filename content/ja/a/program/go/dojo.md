@@ -614,6 +614,7 @@ YAML, JSON, TOMLなど。
 
 関連項目:
 
+- [pkg (stdlib) > encoding/json]({{<ref "std-pkg/_index.md">}}#encodingjson)
 - [pkg (3rd) > go-yaml/yaml]({{<ref "3rd-pkg.md">}}#go-yamlyaml)
 - [言語仕様#構造体-タグ]({{<ref "spec.md">}}#タグ)
 

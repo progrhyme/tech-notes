@@ -268,6 +268,10 @@ for name, age := range ages {
 }
 ```
 
+参考:
+
+- [逆引きGolang (マップ)](https://ashitani.jp/golangtips/tips_map.html)
+
 #### 要素取得時のヒット検査
 
 ```go
@@ -278,6 +282,27 @@ if ok {
     // miss
 }
 ```
+
+#### mapのマージ
+
+[逆引きGolang (マップ)](https://ashitani.jp/golangtips/tips_map.html#map_Merge)より。  
+愚直に書く感じか。
+
+```go
+func merge(m1, m2 map[string]string) map[string]string {
+    merged := map[string]string{}
+
+    for k, v := range m1 {
+        merged[k] = v
+    }
+    for k, v := range m2 {
+        merged[k] = v
+    }
+    return merged
+}
+```
+
+https://play.golang.org/p/OmBHp53UIxn
 
 ### 構造体
 

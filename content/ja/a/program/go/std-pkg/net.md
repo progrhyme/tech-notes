@@ -140,6 +140,29 @@ type Client struct {
 }
 ```
 
+### type Response
+
+https://golang.org/pkg/net/http/#Response
+
+```go
+type Response struct {
+    Status     string // e.g. "200 OK"
+    StatusCode int    // e.g. 200
+    Proto      string // e.g. "HTTP/1.0"
+    ProtoMajor int    // e.g. 1
+    ProtoMinor int    // e.g. 0
+    Header Header
+    Body io.ReadCloser
+    ContentLength int64
+    TransferEncoding []string
+    Close bool
+    Uncompressed bool // Go 1.7
+    Trailer Header
+    Request *Request
+    TLS *tls.ConnectionState // Go 1.3
+}
+```
+
 ## net/url
 
 https://golang.org/pkg/net/url/

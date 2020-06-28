@@ -69,19 +69,83 @@ https://golang.org/pkg/context/
 
 Webサーバとかで引きずり回すコンテキスト。  
 
-SYNOPSIS:
+Examples:
 
 ```go
 ctx := context.Background() # context.Contextな構造体を生成
 
-## タイムアウト付きコンテキストを生成。cancelはタイムアウト時に実行される
+// タイムアウト付きコンテキストを生成。cancelはタイムアウト時に実行される
 ctx2, cancel := context.WithDeadline(ctx, time.Now().Add(timeout))
+defer cancel()
+
+// 時間指定。↑とほぼ同じだと思う
+ctx, cancel := context.WithTimeout(context.Background(), 50*time.Millisecond)
 defer cancel()
 ```
 
 参考:
 
-- [Go1.7のcontextパッケージ | SOTA](http://deeeet.com/writing/2016/07/22/context/ "Go1.7のcontextパッケージ | SOTA")
+- 2016 [Go1.7のcontextパッケージ | SOTA](http://deeeet.com/writing/2016/07/22/context/ "Go1.7のcontextパッケージ | SOTA")
+- 2019年3月 [context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem](https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1)
+- 2019年7月 [golang contextの使い方とか概念(contextとは)的な話 - Qiita](https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc)
+
+## encoding/json
+
+https://golang.org/pkg/encoding/json/
+
+RFC 7159で定められたJSONフォーマット仕様に従うエンコード・デコード機能を実装する。
+
+Example:
+
+```go
+blob := `["gopher","armadillo","zebra","unknown","gopher","bee","gopher","zebra"]`
+var zoo []Animal
+if err := json.Unmarshal([]byte(blob), &zoo); err != nil {
+  log.Fatal(err)
+}
+```
+
+公式リソース:
+
+- [JSON and Go - The Go Blog](https://blog.golang.org/json)
+
+関連項目:
+
+- [道場#構造化データファイルの取り扱い]({{<ref "/a/program/go/dojo.md">}}#構造化データファイルの取り扱い)
+
+### structタグの使い方
+
+リファレンス: https://golang.org/pkg/encoding/json/#Marshal
+
+`json` タグの最初の値がJSONのキー名として使われる。  
+他には以下のタグが指定できる。
+
+ tag | Marshal（エンコード）時 | Unmarshal（デコード）時
+-----|-------------------------|-------------------------
+ `omitempty` | ゼロ値であれば出力しない | ゼロ値であれば無視される
+ `-` | 出力しない | 無視される
+ `string` | 出力時にクォートされる | クォートされていても型に合わせて変換する。クォートされてないとエラー
+
+Examples:
+
+```go
+type User struct {
+  ID       string                 // JSONキー名は "ID"
+  Login    string  `json:"login"` // JSONキー名は "login"
+  Password string  `json:"pasword,-"`
+  Sex      SexType `json:"sex,omitempty"`
+  Age      int     `json:"age,string"`
+}
+```
+
+関連項目:
+
+- [言語仕様#構造体-タグ]({{<ref "/a/program/go/spec.md">}}#タグ)
+
+参考:
+
+- [Golangで構造体を使ったJSON操作で出来ることを調べてみた | Developers.IO](https://dev.classmethod.jp/articles/struct-json/)
+- [GoでStructタグを使用する方法](https://www.codeflow.site/ja/article/how-to-use-struct-tags-in-go)
 
 ## go/build
 
@@ -220,6 +284,21 @@ for {
 参考:
 
 - [\[Go\] ファイル名、行数、関数名、スタックトレースをランタイム時に取得する - YoheiM .NET](https://www.yoheim.net/blog.php?q=20171006)
+
+### Constants
+
+```go
+const (
+  // 386, amd64, arm, s390x, and so on
+  GOARCH string = sys.GOARCH
+  // darwin, freebsd, linux, and so on
+  GOOS string = sys.GOOS
+)
+```
+
+Tips:
+
+- GOOSとGOARCHの組合せを見るには `go tool dist list` を実行するといい
 
 ## strconv
 
