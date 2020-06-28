@@ -18,6 +18,9 @@ Examples:
 os.Setenv("FOO", "1")
 fmt.Println("FOO:", os.Getenv("FOO")) //=> FOO: 1
 fmt.Println("BAR:", os.Getenv("BAR")) //=> BAR: 
+val, ok := os.LookupEnv("BAR")
+// val => ""
+// ok => false
 ```
 
 参考:

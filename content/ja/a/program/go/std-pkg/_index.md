@@ -193,46 +193,6 @@ const (
 
 ↑log.Newするときflag引数に与えるビット列の定義。
 
-## net/http
-
-https://golang.org/pkg/net/http/
-
-HTTPクライアント・サーバ機能を提供するライブラリ。
-
-クライアントは処理が終わったらレスポンスBODYを閉じないと駄目。
-
-Example:
-
-```go
-resp, err := http.Get("http://example.com/")
-if err != nil {
-	// handle error
-}
-defer resp.Body.Close()
-body, err := ioutil.ReadAll(resp.Body)
-// :
-```
-
-### Examples
-
-リクエスト結果をファイルに書き込む:
-
-```go
-resp, err := http.Get("...")
-check(err)
-defer resp.Body.Close()
-out, err := os.Create("filename.ext")
-if err != nil {
-    // panic?
-}
-defer out.Close()
-io.Copy(out, resp.Body)
-```
-
-参考:
-
-- [How to pipe an HTTP response to a file in Go? - Stack Overflow](https://stackoverflow.com/questions/16311232/how-to-pipe-an-http-response-to-a-file-in-go)
-
 ## runtime
 
 https://golang.org/pkg/runtime/

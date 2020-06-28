@@ -11,6 +11,10 @@ https://golang.org/pkg/path/
 
 URLなど `/` 区切りのパスを扱うパッケージ。
 
+NOTE:
+
+- URLパスの結合には[net/url]({{<ref "net.md">}}#urlパスの結合)を使ったほうがいい
+
 ## path/filepath
 
 https://golang.org/pkg/path/filepath/
