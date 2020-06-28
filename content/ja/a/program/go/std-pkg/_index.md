@@ -6,6 +6,18 @@ date: 2020-05-31T16:18:58+09:00
 weight: 50
 ---
 
+## archive/tar
+
+https://golang.org/pkg/archive/tar/
+
+tarアーカイブへのアクセスを実装。
+
+## archive/zip
+
+https://golang.org/pkg/archive/zip/
+
+ZIPアーカイブの読み書き機能を提供。
+
 ## bufio
 
 バッファリング付きI/Oを提供する。
@@ -44,6 +56,12 @@ Tips:
 
 - [CLI#ターミナルでEOFを入力する方法]({{<ref "/a/cli/_index.md">}}#ターミナルでeofを入力する方法)
 - [Go言語で標準入力 - Qiita](https://qiita.com/kosukeKK/items/865e06de03d20664a83f)
+
+## compress/gzip
+
+https://pkg.go.dev/compress/gzip
+
+RFC 1952に準拠したgzip圧縮ファイルの読み書き。
 
 ## context
 
@@ -284,9 +302,28 @@ if err != nil {
 }
 ```
 
-参考:
+関連項目:
 
-- [go言語におけるロギングについて](http://blog.satotaichi.info/logging-frameworks-for-go/ "go言語におけるロギングについて")
+- [道場#ロギング]({{<ref "/a/program/go/dojo.md">}}#ロギング)
+
+### Constants
+
+https://pkg.go.dev/log?tab=doc#pkg-constants
+
+```go
+const (
+	Ldate         = 1 << iota     // the date in the local time zone: 2009/01/23
+	Ltime                         // the time in the local time zone: 01:23:23
+	Lmicroseconds                 // microsecond resolution: 01:23:23.123123.  assumes Ltime.
+	Llongfile                     // full file name and line number: /a/b/c/d.go:23
+	Lshortfile                    // final file name element and line number: d.go:23. overrides Llongfile
+	LUTC                          // if Ldate or Ltime is set, use UTC rather than the local time zone
+	Lmsgprefix                    // move the "prefix" from the beginning of the line to before the message
+	LstdFlags     = Ldate | Ltime // initial values for the standard logger
+)
+```
+
+↑log.Newするときflag引数に与えるビット列の定義。
 
 ## net/http
 

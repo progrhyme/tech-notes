@@ -81,6 +81,25 @@ func Chdir(dir string) error
 カレントディレクトリを変更する。  
 エラーは `*PathError` 型。
 
+### func Chmod
+
+https://golang.org/pkg/os/#Chmod
+
+```go
+func Chmod(name string, mode FileMode) error
+```
+
+Example:
+
+```go
+// UNIX系システムでファイルに実行ビットを立てる。一部エラー処理省略
+fi, _ := os.Stat(path)
+if err := os.Chmod(path, fi.Mode()|0111); err != nil {
+  log.Fatal(err)
+}
+```
+
+
 ### func Getenv
 
 https://golang.org/pkg/os/#Getenv

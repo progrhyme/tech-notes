@@ -272,6 +272,24 @@ contacts:
   email: test@test.com
 ```
 
+## mholt/archiver
+
+- https://github.com/mholt/archiver
+- https://pkg.go.dev/github.com/mholt/archiver/v3
+
+各種圧縮形式に対応した人気のパッケージで、CLIとしても、ライブラリとしても利用できる。  
+各種形式に対応するためかそれなりに依存が多いが、自前で各種形式に対応したくないときは便利に使えそう。
+
+Examples:
+
+```go
+// 圧縮形式は拡張子から判別される
+err := Unarchive("blog_site.zip", "extracted/mysite")
+if err != nil {
+	log.Fatal(err)
+}
+```
+
 ## spf13/pflag
 
 - https://github.com/spf13/pflag

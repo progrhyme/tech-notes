@@ -504,6 +504,20 @@ NOTE:
   - 上の牧さんの記事とほぼ同じことを言っている
 - [Goはオブジェクト指向言語だろうか？ | POSTD](https://postd.cc/is-go-object-oriented/)
 
+## ロギング
+
+標準のlogパッケージはミニマルなので、他言語から来たプログラマーなど、各位で拡張したくなることがよくある。
+
+関連項目:
+
+- [pkg (stdlib) > log]({{<ref "std-pkg/_index.md">}}#log)
+
+参考:
+
+- [loggingについて話そう - Qiita](https://qiita.com/methane/items/cedbf546ae2db8a63c3d) ... Goにおける思想的な
+- [Log パッケージで遊ぶ — プログラミング言語 Go | text.Baldanders.info](https://text.baldanders.info/golang/logger/) ... ログレベル対応など
+- [go言語におけるロギングについて - blog.satotaichi.info](http://blog.satotaichi.info/logging-frameworks-for-go/) ... 筆者のオススメパッケージ紹介
+
 ## 正規表現
 
 Webサーバなどで使うときは、パフォーマンスに気をつける必要がありそう。

@@ -80,7 +80,14 @@ func Walk(root string, walkFn WalkFunc) error
 
 - Perl5の `File::Find::find` に似てる。
 - ディレクトリを再帰的に探索して、関数 `WalkFunc` を実行
+- WalkFuncに与える関数シグネチャは下のWalkFunc型を参照
 
 参考:
 
 - https://stackoverflow.com/questions/6608873/file-system-scanning-in-golang
+
+### type WalkFunc
+
+```go
+type WalkFunc func(path string, info os.FileInfo, err error) error
+```
