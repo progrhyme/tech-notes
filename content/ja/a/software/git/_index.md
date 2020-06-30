@@ -232,3 +232,19 @@ git filter-branch --subdirectory-filter sub_dir_name HEAD
 参考:
 
 - [git filter branch \- Detach many subdirectories into a new, separate Git repository \- Stack Overflow](https://stackoverflow.com/questions/2982055/detach-many-subdirectories-into-a-new-separate-git-repository)
+
+## Topics
+### コミットメッセージの書き方
+
+長さ:
+
+- よく知られているガイドラインは50/72ルールというもので、タイトル行を50文字以内に、そのあと1行空けて、続くメッセージは1行が72字以内に収まるように書くというもの
+
+文法:
+
+- タイトル行は命令形で書くのがいいらしい
+
+参考:
+
+- [Gitのコミットメッセージの書き方 | POSTD](https://postd.cc/how-to-write-a-git-commit-message/)
+- [Git 50/72: the rule of well formed Git commit messages | Midori](https://www.midori-global.com/blog/2018/04/02/git-50-72-rule)
