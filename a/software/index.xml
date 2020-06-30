@@ -241,6 +241,21 @@ git filter-branch --subdirectory-filter sub_dir_name HEAD
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/2982055/detach-many-subdirectories-into-a-new-separate-git-repository">git filter branch - Detach many subdirectories into a new, separate Git repository - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="コミットメッセージの書き方">コミットメッセージの書き方&lt;/h3>
+&lt;p>長さ:&lt;/p>
+&lt;ul>
+&lt;li>よく知られているガイドラインは50/72ルールというもので、タイトル行を50文字以内に、そのあと1行空けて、続くメッセージは1行が72字以内に収まるように書くというもの&lt;/li>
+&lt;/ul>
+&lt;p>文法:&lt;/p>
+&lt;ul>
+&lt;li>タイトル行は命令形で書くのがいいらしい&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://postd.cc/how-to-write-a-git-commit-message/">Gitのコミットメッセージの書き方 | POSTD&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.midori-global.com/blog/2018/04/02/git-50-72-rule">Git 50/72: the rule of well formed Git commit messages | Midori&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: GNU make</title><link>https://progrhy.me/tech-notes/a/software/make/</link><pubDate>Mon, 04 May 2020 19:50:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/make/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>公式リファレンスは↑&lt;/p>
