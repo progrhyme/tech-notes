@@ -211,6 +211,7 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;/table>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://qiita.com/rock619/items/14eb2b32f189514b5c3c">fmt.Printfなんかこわくない - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://linux.die.net/man/3/fprintf">https://linux.die.net/man/3/fprintf&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="func-errorf">func Errorf&lt;/h2>
