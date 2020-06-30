@@ -74,7 +74,19 @@ ENTRYPOINT ["top", "-b"]
 CMD ["-c"]
 ```
 
-このコンテナを `docker run` で動かすと、 `top -b -c` が実行される（はず）。
+このコンテナを `docker run` で動かすと、 `top -b -c` が実行される。
+
+`CMD` の方はコマンドラインで普通に上書きされる。  
+上のDockerfileを `ubuntu-top` としてビルドして例を示す:
+
+```sh
+docker run --rm -it ubuntu-top       # top -b -c が実行される
+docker run --rm -it ubuntu-top -n 1  # top -b -n 1 が実行される
+```
+
+参考:
+
+- [ENTRYPOINTは「必ず実行」、CMDは「（デフォルトの）引数」 | ポケテク](https://pocketstudio.net/2020/01/31/cmd-and-entrypoint/)
 
 #### VOLUME
 

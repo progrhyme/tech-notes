@@ -37,6 +37,7 @@ if err != nil {
 
 参考:
 
+- [fmt.Printfなんかこわくない - Qiita](https://qiita.com/rock619/items/14eb2b32f189514b5c3c)
 - https://linux.die.net/man/3/fprintf
 
 ## func Errorf
