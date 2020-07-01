@@ -242,6 +242,44 @@ Tips:
 
 - GOOSとGOARCHの組合せを見るには `go tool dist list` を実行するといい
 
+## sort
+
+https://golang.org/pkg/sort/
+
+スライスやユーザ定義のコレクションをソートするプリミティブを提供。
+
+### func Sort
+
+https://golang.org/pkg/sort/#Sort
+
+```go
+func Sort(data Interface)
+```
+
+dataの中身を昇順に並び替える。  
+
+- data.Lenを1回実行
+- `O(n*log(n))` 回数、data.Lessとdata.Swapを実行
+
+### func Strings
+
+https://golang.org/pkg/sort/#Strings
+
+```go
+func Strings(a []string)
+```
+
+stringのスライスを昇順に並び替え。
+
+Example:
+
+```go
+s := []string{"Go", "Bravo", "Gopher", "Alpha", "Grin", "Delta"}
+sort.Strings(s)
+fmt.Println(s)
+//=> [Alpha Bravo Delta Go Gopher Grin]
+```
+
 ## strconv
 
 https://pkg.go.dev/strconv

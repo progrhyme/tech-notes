@@ -91,6 +91,8 @@ var Discard io.Writer = devNull(0)
 
 ### func ReadDir
 
+https://golang.org/pkg/io/ioutil/#ReadDir
+
 ```go
 func ReadDir(dirname string) ([]os.FileInfo, error)
 ```
@@ -113,6 +115,26 @@ for _, file := range files {
 参考:
 
 - [Golangでディレクトリ内のファイル一覧を入手する - Qiita](https://qiita.com/tanksuzuki/items/7866768c36e13f09eedb)
+
+### func ReadFile
+
+https://golang.org/pkg/io/ioutil/#ReadFile
+
+```go
+func ReadFile(filename string) ([]byte, error)
+```
+
+ファイルを一気に読み込む。
+
+Example
+
+```go
+content, err := ioutil.ReadFile("testdata/hello")
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Printf("File contents: %s", content)
+```
 
 ### func TempDir
 

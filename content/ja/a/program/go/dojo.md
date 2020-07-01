@@ -65,6 +65,13 @@ b := []byte(s)
 
 ## 配列・スライス
 
+参考:
+
+- [go言語のslice操作をまとめてみた（shiftしたりpushしたり） - Qiita](https://qiita.com/egnr-in-6matroom/items/282aa2fd117aab9469bd)
+- [図解 Go Slice Tricks - Folioscope](https://i-beam.org/2019/12/09/go-slice-tricks/)
+
+### スライスのpush/pop/(un)shift
+
 基本操作的な:
 
 ```go
@@ -83,10 +90,12 @@ x := slice[0]
 slice = slice[1:]
 ```
 
-参考:
+### もっとスライスを操作
 
-- [go言語のslice操作をまとめてみた（shiftしたりpushしたり） - Qiita](https://qiita.com/egnr-in-6matroom/items/282aa2fd117aab9469bd)
-- [図解 Go Slice Tricks - Folioscope](https://i-beam.org/2019/12/09/go-slice-tricks/)
+```go
+// 単一要素の削除
+a = append(a[:i], a[i+1:]...)
+```
 
 ## 入出力
 
