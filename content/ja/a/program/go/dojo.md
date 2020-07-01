@@ -63,6 +63,31 @@ b := []byte(s)
 - [golang で string を \[\]byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita](https://qiita.com/mattn/items/176459728ff4f854b165)
 - [go - How to assign string to bytes array - Stack Overflow](https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array)
 
+## 配列・スライス
+
+基本操作的な:
+
+```go
+// push
+slice = append(slice, x)
+
+// pop
+x := slice[len(slice)-1]
+slice = slice[:len(slice)-1]
+
+// unshift
+slice = append(x, slice...)
+
+// shift
+x := slice[0]
+slice = slice[1:]
+```
+
+参考:
+
+- [go言語のslice操作をまとめてみた（shiftしたりpushしたり） - Qiita](https://qiita.com/egnr-in-6matroom/items/282aa2fd117aab9469bd)
+- [図解 Go Slice Tricks - Folioscope](https://i-beam.org/2019/12/09/go-slice-tricks/)
+
 ## 入出力
 
 関連項目:
@@ -614,7 +639,7 @@ YAML, JSON, TOMLなど。
 
 関連項目:
 
-- [pkg (stdlib) > encoding/json]({{<ref "std-pkg/_index.md">}}#encodingjson)
+- [pkg (stdlib) > encoding/json]({{<ref "std-pkg/encoding.md">}}#encodingjson)
 - [pkg (3rd) > go-yaml/yaml]({{<ref "3rd-pkg.md">}}#go-yamlyaml)
 - [言語仕様#構造体-タグ]({{<ref "spec.md">}}#タグ)
 

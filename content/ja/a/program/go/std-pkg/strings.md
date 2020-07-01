@@ -37,6 +37,27 @@ strings.HasPrefix("Gopher", "C")  //=> false
 strings.HasPrefix("Gopher", "")   //=> true
 ```
 
+### func Split
+
+https://pkg.go.dev/strings?tab=doc#Split
+
+```go
+func Split(s, sep string) []string
+```
+
+sをsepで分割したスライスを返す。
+
+Examples:
+
+```go
+fmt.Printf("%q\n", strings.Split("a,b,c", ","))
+//=> ["a" "b" "c"]
+fmt.Printf("%q\n", strings.Split("a man a plan a canal panama", "a "))
+//=> ["" "man " "plan " "canal panama"]
+fmt.Printf("%q\n", strings.Split(" xyz ", ""))
+//=> [" " "x" "y" "z" " "]
+```
+
 ### func TrimRight
 
 https://pkg.go.dev/strings?tab=doc#TrimRight
