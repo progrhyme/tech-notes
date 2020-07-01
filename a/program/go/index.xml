@@ -919,6 +919,23 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/mattn/items/176459728ff4f854b165">golang で string を []byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array">go - How to assign string to bytes array - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="配列スライス">配列・スライス&lt;/h2>
+&lt;p>基本操作的な:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// push
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// pop
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[:&lt;/span>&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// unshift
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// shift
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/egnr-in-6matroom/items/282aa2fd117aab9469bd">go言語のslice操作をまとめてみた（shiftしたりpushしたり） - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://i-beam.org/2019/12/09/go-slice-tricks/">図解 Go Slice Tricks - Folioscope&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="入出力">入出力&lt;/h2>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
@@ -1380,7 +1397,7 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;p>YAML, JSON, TOMLなど。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#encodingjson">pkg (stdlib) &amp;gt; encoding/json&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/encoding/#encodingjson">pkg (stdlib) &amp;gt; encoding/json&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#go-yamlyaml">pkg (3rd) &amp;gt; go-yaml/yaml&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
 &lt;/ul>
@@ -1449,70 +1466,6 @@ a b c d
 &lt;li>2016 &lt;a href="http://deeeet.com/writing/2016/07/22/context/" title="Go1.7のcontextパッケージ | SOTA">Go1.7のcontextパッケージ | SOTA&lt;/a>&lt;/li>
 &lt;li>2019年3月 &lt;a href="https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1">context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem&lt;/a>&lt;/li>
 &lt;li>2019年7月 &lt;a href="https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc">golang contextの使い方とか概念(contextとは)的な話 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="encodingjson">encoding/json&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/pkg/encoding/json/">https://golang.org/pkg/encoding/json/&lt;/a>&lt;/p>
-&lt;p>RFC 7159で定められたJSONフォーマット仕様に従うエンコード・デコード機能を実装する。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">blob&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`[&amp;#34;gopher&amp;#34;,&amp;#34;armadillo&amp;#34;,&amp;#34;zebra&amp;#34;,&amp;#34;unknown&amp;#34;,&amp;#34;gopher&amp;#34;,&amp;#34;bee&amp;#34;,&amp;#34;gopher&amp;#34;,&amp;#34;zebra&amp;#34;]`&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">zoo&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#000">Animal&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Unmarshal&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">blob&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">zoo&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>公式リソース:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.golang.org/json">JSON and Go - The Go Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84">道場#構造化データファイルの取り扱い&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="structタグの使い方">structタグの使い方&lt;/h3>
-&lt;p>リファレンス: &lt;a href="https://golang.org/pkg/encoding/json/#Marshal">https://golang.org/pkg/encoding/json/#Marshal&lt;/a>&lt;/p>
-&lt;p>&lt;code>json&lt;/code> タグの最初の値がJSONのキー名として使われる。&lt;br>
-他には以下のタグが指定できる。&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>tag&lt;/th>
-&lt;th>Marshal（エンコード）時&lt;/th>
-&lt;th>Unmarshal（デコード）時&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>omitempty&lt;/code>&lt;/td>
-&lt;td>ゼロ値であれば出力しない&lt;/td>
-&lt;td>ゼロ値であれば無視される&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-&lt;/code>&lt;/td>
-&lt;td>出力しない&lt;/td>
-&lt;td>無視される&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>string&lt;/code>&lt;/td>
-&lt;td>出力時にクォートされる&lt;/td>
-&lt;td>クォートされていても型に合わせて変換する。クォートされてないとエラー&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">User&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">ID&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// JSONキー名は &amp;#34;ID&amp;#34;
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Login&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;login&amp;#34;`&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// JSONキー名は &amp;#34;login&amp;#34;
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Password&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;pasword,-&amp;#34;`&lt;/span>
-&lt;span style="color:#000">Sex&lt;/span> &lt;span style="color:#000">SexType&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;sex,omitempty&amp;#34;`&lt;/span>
-&lt;span style="color:#000">Age&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;age,string&amp;#34;`&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.classmethod.jp/articles/struct-json/">Golangで構造体を使ったJSON操作で出来ることを調べてみた | Developers.IO&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.codeflow.site/ja/article/how-to-use-struct-tags-in-go">GoでStructタグを使用する方法&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="gobuild">go/build&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>

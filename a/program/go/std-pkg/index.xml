@@ -1,4 +1,110 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 標準パッケージ</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/</link><description>Recent content in 標準パッケージ on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 31 May 2020 16:18:58 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/go/std-pkg/index.xml" rel="self" type="application/rss+xml"/><item><title>A: errors</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</link><pubDate>Sat, 27 Jun 2020 22:50:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 標準パッケージ</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/</link><description>Recent content in 標準パッケージ on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 31 May 2020 16:18:58 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/go/std-pkg/index.xml" rel="self" type="application/rss+xml"/><item><title>A: encoding</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/encoding/</link><pubDate>Wed, 01 Jul 2020 23:13:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/encoding/</guid><description>
+&lt;h2 id="encoding">encoding&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/encoding/">https://golang.org/pkg/encoding/&lt;/a>&lt;/p>
+&lt;p>データをバイト列とテキストに相互変換するためのインタフェースを定義する。&lt;/p>
+&lt;h2 id="encodingjson">encoding/json&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/encoding/json/">https://golang.org/pkg/encoding/json/&lt;/a>&lt;/p>
+&lt;p>RFC 7159で定められたJSONフォーマット仕様に従うエンコード・デコード機能を実装する。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">blob&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`[&amp;#34;gopher&amp;#34;,&amp;#34;armadillo&amp;#34;,&amp;#34;zebra&amp;#34;,&amp;#34;unknown&amp;#34;,&amp;#34;gopher&amp;#34;,&amp;#34;bee&amp;#34;,&amp;#34;gopher&amp;#34;,&amp;#34;zebra&amp;#34;]`&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">zoo&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#000">Animal&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Unmarshal&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">blob&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">zoo&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>公式リソース:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/json">JSON and Go - The Go Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84">道場#構造化データファイルの取り扱い&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="structタグの使い方">structタグの使い方&lt;/h3>
+&lt;p>リファレンス: &lt;a href="https://golang.org/pkg/encoding/json/#Marshal">https://golang.org/pkg/encoding/json/#Marshal&lt;/a>&lt;/p>
+&lt;p>&lt;code>json&lt;/code> タグの最初の値がJSONのキー名として使われる。&lt;br>
+他には以下のタグが指定できる。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>tag&lt;/th>
+&lt;th>Marshal（エンコード）時&lt;/th>
+&lt;th>Unmarshal（デコード）時&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>omitempty&lt;/code>&lt;/td>
+&lt;td>ゼロ値であれば出力しない&lt;/td>
+&lt;td>ゼロ値であれば無視される&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-&lt;/code>&lt;/td>
+&lt;td>出力しない&lt;/td>
+&lt;td>無視される&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>string&lt;/code>&lt;/td>
+&lt;td>出力時にクォートされる&lt;/td>
+&lt;td>クォートされていても型に合わせて変換する。クォートされてないとエラー&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">User&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">ID&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// JSONキー名は &amp;#34;ID&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Login&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;login&amp;#34;`&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// JSONキー名は &amp;#34;login&amp;#34;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Password&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;pasword,-&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Sex&lt;/span> &lt;span style="color:#000">SexType&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;sex,omitempty&amp;#34;`&lt;/span>
+&lt;span style="color:#000">Age&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;age,string&amp;#34;`&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/struct-json/">Golangで構造体を使ったJSON操作で出来ることを調べてみた | Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.codeflow.site/ja/article/how-to-use-struct-tags-in-go">GoでStructタグを使用する方法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="pretty-print">pretty print&lt;/h3>
+&lt;p>後述のMarshalIdentや、json.EncoderのSetIndentを使う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://increment.hatenablog.com/entry/2017/12/01/081200">golang : json の pretty print (タブやスペースの指定) - i++&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-marshal">func Marshal&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/encoding/json/#Marshal">https://golang.org/pkg/encoding/json/#Marshal&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Marshal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>vをJSONに変換したバイト列を返す。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ColorGroup&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">ID&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000">Colors&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">group&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ColorGroup&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">ID&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">Name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Reds&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">Colors&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Crimson&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Red&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Ruby&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Maroon&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Marshal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">group&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; {&amp;#34;ID&amp;#34;:1,&amp;#34;Name&amp;#34;:&amp;#34;Reds&amp;#34;,&amp;#34;Colors&amp;#34;:[&amp;#34;Crimson&amp;#34;,&amp;#34;Red&amp;#34;,&amp;#34;Ruby&amp;#34;,&amp;#34;Maroon&amp;#34;]}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-marshalindent">func MarshalIndent&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/encoding/json/#MarshalIndent">https://golang.org/pkg/encoding/json/#MarshalIndent&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">MarshalIndent&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{},&lt;/span> &lt;span style="color:#000">prefix&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">indent&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">MarshalIndent&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">data&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;prefix&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;indent&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">/*
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">{
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;prefix&amp;gt;&amp;lt;indent&amp;gt;&amp;#34;a&amp;#34;: 1,
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;prefix&amp;gt;&amp;lt;indent&amp;gt;&amp;#34;b&amp;#34;: 2
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&amp;lt;prefix&amp;gt;}
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">*/&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://play.golang.org/p/6jHI-MRx0z">https://play.golang.org/p/6jHI-MRx0z&lt;/a>&lt;/p></description></item><item><title>A: errors</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</link><pubDate>Sat, 27 Jun 2020 22:50:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>Go標準のエラーパッケージ。&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -182,7 +288,7 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="書式指定子">書式指定子&lt;/h2>
 &lt;p>だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。&lt;/p>
-&lt;p>&lt;code>%v&lt;/code>, &lt;code>%+v&lt;/code> が便利。&lt;/p>
+&lt;p>&lt;code>%v&lt;/code>, &lt;code>%+v&lt;/code>, &lt;code>%#v&lt;/code> が便利。&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -193,6 +299,11 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
+&lt;td>%s&lt;/td>
+&lt;td>any&lt;/td>
+&lt;td>文字列として出力。 &lt;code>String()&lt;/code> メソッドがあれば使われる。 &lt;code>[]byte&lt;/code> も文字列として出力される&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>%v&lt;/td>
 &lt;td>any&lt;/td>
 &lt;td>値のデフォルトの書式で出力&lt;/td>
@@ -201,6 +312,11 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;td>%+v&lt;/td>
 &lt;td>struct&lt;/td>
 &lt;td>フィールド名も表示してくれる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%#v&lt;/td>
+&lt;td>struct&lt;/td>
+&lt;td>%+v と似てるが、値がポインタであっても名前が取れたりする&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>%p&lt;/td>
@@ -775,6 +891,17 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Gopher&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Go&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; true
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Gopher&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;C&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; false
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">HasPrefix&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Gopher&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; true
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-split">func Split&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/strings?tab=doc#Split">https://pkg.go.dev/strings?tab=doc#Split&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">sep&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>sをsepで分割したスライスを返す。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a,b,c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; [&amp;#34;a&amp;#34; &amp;#34;b&amp;#34; &amp;#34;c&amp;#34;]
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a man a plan a canal panama&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;a &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; [&amp;#34;&amp;#34; &amp;#34;man &amp;#34; &amp;#34;plan &amp;#34; &amp;#34;canal panama&amp;#34;]
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34; xyz &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; [&amp;#34; &amp;#34; &amp;#34;x&amp;#34; &amp;#34;y&amp;#34; &amp;#34;z&amp;#34; &amp;#34; &amp;#34;]
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-trimright">func TrimRight&lt;/h3>
 &lt;p>&lt;a href="https://pkg.go.dev/strings?tab=doc#TrimRight">https://pkg.go.dev/strings?tab=doc#TrimRight&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">TrimRight&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">cutset&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
