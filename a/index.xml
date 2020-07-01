@@ -4184,7 +4184,79 @@ cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作�
 &lt;span style="color:#000">rand&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">{&lt;/span> &lt;span style="color:#000">git&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/rust-lang-nursery/rand&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">branch&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;next&amp;#34;&lt;/span> &lt;span style="color:#a40000">}&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># ファイルシステム&lt;/span>
 &lt;span style="color:#000">hello_utils&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">{&lt;/span> &lt;span style="color:#000">path&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hello_utils&amp;#34;&lt;/span> &lt;span style="color:#a40000">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: fmt</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</link><pubDate>Wed, 10 Jun 2020 01:55:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Embulk</title><link>https://progrhy.me/tech-notes/a/software/embulk/</link><pubDate>Wed, 01 Jul 2020 20:19:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/embulk/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>Treasure Data社発のOSSで、プラガブルなETLフレームワーク的なソフトウェア。&lt;/p>
+&lt;p>Documentation: &lt;a href="https://www.embulk.org/docs/">https://www.embulk.org/docs/&lt;/a>&lt;/p>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>内部に独自データ型を持っているようで、Inputプラグインから受け取る際に一度変換が起こる&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;ul>
+&lt;li>YAMLまたは&lt;a href="https://shopify.github.io/liquid/">Liquidテンプレート&lt;/a>。&lt;/li>
+&lt;/ul>
+&lt;h3 id="liquidテンプレート">Liquidテンプレート&lt;/h3>
+&lt;p>&lt;a href="https://www.embulk.org/docs/built-in.html#using-variables">https://www.embulk.org/docs/built-in.html#using-variables&lt;/a>&lt;/p>
+&lt;p>重要:&lt;/p>
+&lt;ul>
+&lt;li>Liquidテンプレートを使う場合、 &lt;strong>拡張子は必ず &lt;code>.yml.liquid&lt;/code> にしなければならない&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>機能:&lt;/p>
+&lt;ul>
+&lt;li>環境変数の利用。例: &lt;code>{{ env.ENV_KEY }}&lt;/code>&lt;/li>
+&lt;li>include&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
+embulk run &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># プレビュー&lt;/span>
+embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>値&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-l, --log-level LEVEL&lt;/code>&lt;/td>
+&lt;td>trace,debug,info,warn,error&lt;/td>
+&lt;td>ログレベル&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;h3 id="input">Input&lt;/h3>
+&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#input">https://plugins.embulk.org/#input&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-mysql">embulk-input-mysql&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="output">Output&lt;/h3>
+&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/embulk/embulk-output-bigquery">embulk-output-bigquery&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="pitfalls">Pitfalls&lt;/h2>
+&lt;p>全体的にエラーがわかりづらいと思う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://techlog.voyagegroup.com/entry/2017/07/31/173839">大量データの転送にEmbulkを使ってみたら本当に楽だった - VOYAGE GROUP techlog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="setting-null-to-a-task-field-is-not-allowed">Setting null to a task field is not allowed&lt;/h3>
+&lt;p>例:&lt;/p>
+&lt;pre>&lt;code>Error: org.embulk.config.ConfigException: com.fasterxml.jackson.databind. \
+JsonMappingException: Setting null to a task field is not allowed. Use Optional&amp;lt;T&amp;gt; \
+(com.google.common.base.Optional) to represent null.
+&lt;/code>&lt;/pre>&lt;p>どうも、configの設定値が取れなかったときに起こるエラーっぽい。&lt;br>
+よくあるのは、環境変数の設定ミス（一度やらかした）。&lt;/p>
+&lt;ul>
+&lt;li>キーが間違っていないか&lt;/li>
+&lt;li>exportしているか&lt;/li>
+&lt;/ul>
+&lt;p>などを確認するとよさそう。&lt;/p></description></item><item><title>A: fmt</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</link><pubDate>Wed, 10 Jun 2020 01:55:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>書式付きの入出力機能を提供するパッケージ。&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -5814,299 +5886,4 @@ duedate &amp;lt; 30d // 期限30日以内
 &lt;li>&lt;a href="https://community.atlassian.com/t5/Jira-Service-Desk-questions/How-to-add-CC-field-in-open-ticket-screen/qaq-p/2152">How to add CC field in open ticket screen?&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="優先度のフィールドをカスタマイズ">優先度のフィールドをカスタマイズ&lt;/h3>
-&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gke/</guid><description>
-&lt;p>関連ページ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/">Software &amp;gt; Kubernetes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials?hl=ja">チュートリアル | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to?hl=ja">入門ガイド | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="documentation">Documentation&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/?hl=ja">https://cloud.google.com/kubernetes-engine/docs/?hl=ja&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas?hl=ja">https://cloud.google.com/kubernetes-engine/quotas?hl=ja&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/best-practices-for-operating-containers">Best Practices for Operating Containers | Architectures | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>Logging, etc.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-terminating-with-grace">Kubernetes best practices: terminating with grace | Google Cloud Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="機能">機能&lt;/h2>
-&lt;h3 id="負荷分散">負荷分散&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="https-負荷分散">HTTP(S) 負荷分散&lt;/h4>
-&lt;p>Ingressで複数のバックエンドServiceを設定できる。設定例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>extensions/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">rules&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">http&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paths&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/*&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-products&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60000&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/discounted&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-discounted-products&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="managed-ssl-certificateを使う">Managed SSL certificateを使う&lt;/h5>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs">https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>GCPの静的IPを払い出し、対象のDNSレコードに設定する必要がある&lt;/li>
-&lt;/ul>
-&lt;p>See also &lt;a href="https://sites.google.com/site/progrhymetechwiki/cloud/gcp/gclb#TOC-SSL-">https://sites.google.com/site/progrhymetechwiki/cloud/gcp/gclb#TOC-SSL-&lt;/a>&lt;/p>
-&lt;h5 id="httpの無効化">HTTPの無効化&lt;/h5>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=ja#disabling_http">https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=ja#disabling_http&lt;/a>&lt;/p>
-&lt;p>HTTPSのみを使うときはアノテーション &lt;code>kubernetes.io/ingress.allow-http&lt;/code> の値を &lt;code>&amp;quot;false&amp;quot;&lt;/code> に設定する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>extensions/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Ingress&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-ingress&lt;span style="color:#0000cf;font-weight:bold">-2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">annotations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kubernetes.io/ingress.allow-http&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tls&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">secretName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-secret&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-03-04現在、K8sのバージョンによっては、マネージドSSL証明書を使う場合は、 &lt;code>ingress.gcp.kubernetes.io/pre-shared-cert&lt;/code> アノテーションの値に証明書名を入れる必要がある。1.15.x-gke.y の場合は自動でアノテーション付けてくれるっぽい。&lt;br>
-See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://github.com/kubernetes/ingress-gce/issues/1001&lt;/a>&lt;/p>
-&lt;h3 id="内部tcpudp負荷分散">内部TCP/UDP負荷分散&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing?hl=ja">内部 TCP / UDP 負荷分散 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>2020-03-25現在、β版&lt;/p>
-&lt;ul>
-&lt;li>Serviceを &lt;code>type: LoadBalancer&lt;/code> で作成し、所定のannotationを入れる&lt;/li>
-&lt;li>内部LBが作成される&lt;/li>
-&lt;li>Ingressは不要&lt;/li>
-&lt;li>Compute InstanceGroupで振り分けされる
-&lt;ul>
-&lt;li>2020-03-25現在、ネットワークエンドポイントグループには対応していない&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>同じDeploymentで、内部LBのServiceと外部HTTP(S)負荷分散用の2つのServiceを持つことができる&lt;/li>
-&lt;/ul>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ilb-service&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">annotations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">cloud.google.com/load-balancer-type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Internal&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">labels&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hello&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>LoadBalancer&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">selector&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">app&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>hello&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ports&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">port&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">targetPort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>TCP&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="backendconfigβ-on-2020-04-27">BackendConfig（β on 2020-04-27）&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en">https://cloud.google.com/kubernetes-engine/docs/concepts/backendconfig?hl=en&lt;/a>&lt;/p>
-&lt;p>GKE固有のcustom resource.&lt;/p>
-&lt;p>BackendConfigによって、HTTP(S) Load Balancingに以下の機能を設定できる:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cdn-backendconfig">Cloud CDN&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cloud-armor-backendconfig">Cloud Armor&lt;/a>&lt;/li>
-&lt;li>Identity-Aware Proxy (IAP)&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/configure-backend-service">Timeout, Connection draining timeout, Session affinity, User-defined request headers&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Example:&lt;/p>
-&lt;ul>
-&lt;li>タイムアウトを40秒に設定&lt;/li>
-&lt;li>接続ドレインタイムアウトを60秒に設定&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cloud.google.com/v1beta1&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>BackendConfig&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-bsc-backendconfig&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">timeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">40&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">connectionDraining&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">drainingTimeoutSec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">60&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="workload-identity">Workload Identity&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity?hl=ja">Workload Identity | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>GCP Service AccountとK8s Service Accountの紐付け設定をすることができる&lt;/li>
-&lt;li>GKE Metadata Serverを有効にしている必要があるようだ&lt;/li>
-&lt;/ul>
-&lt;p>メリット:&lt;/p>
-&lt;ul>
-&lt;li>GCP Service Account Keyが不要になる&lt;/li>
-&lt;/ul>
-&lt;h3 id="config-connector">Config Connector&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/config-connector/docs/overview?hl=ja">Config Connector の概要 | Config Connector のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>K8s addon.&lt;/li>
-&lt;li>K8sのCRDと関連するコントローラを提供してくれる&lt;/li>
-&lt;li>あたかもK8sのリソースかのようにGCPリソースを管理できるようになる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>2020-02-05 &lt;a href="https://medium.com/google-cloud-jp/%E3%82%82%E3%81%A3%E3%81%A8gcp%E3%81%8C%E4%BD%BF%E3%81%84%E3%82%84%E3%81%99%E3%81%8F%E3%81%AA%E3%82%8B-gke-config-connector%E3%82%92%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F-e1a3370010ea">もっとGCPが使いやすくなる!? GKE Config Connectorを試してみた！ - google-cloud-jp - Medium&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="仕様">仕様&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler?hl=ja">クラスタ オートスケーラー | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler?hl=ja">クラスタの自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="quota">Quota&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/quotas">https://cloud.google.com/kubernetes-engine/quotas&lt;/a>&lt;/p>
-&lt;p>Last updated at 2020-04-13&lt;/p>
-&lt;ul>
-&lt;li>GKEクラスタごと
-&lt;ul>
-&lt;li>クラスタあたりの最大ノード数: 5,000&lt;/li>
-&lt;li>ノードプールあたりの最大ノード数: 1,000&lt;/li>
-&lt;li>ノードあたりの最大ポッド数: 110&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="限定公開クラスタ">限定公開クラスタ&lt;/h3>
-&lt;p>Documents:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja">限定公開クラスタの設定 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create?hl=ja&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/nat/docs/gke-example">Example GKE Setup | Cloud NAT | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>要点:&lt;/p>
-&lt;ul>
-&lt;li>ノードは内部IPアドレスのみを持つため、インターネットから隔離される&lt;/li>
-&lt;li>限定公開クラスタでは、マスターへのアクセスを制御できる&lt;/li>
-&lt;li>LB経由で受信トラフィックを受けられる。また、内部LB経由でVPC内のトラフィックを受けることもできる&lt;/li>
-&lt;li>外と通信したいときは、上記の「Example GKE Setup」にあるように、Cloud NAT + Cloud Routerをセットアップする&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>(2019-12-02現在) &lt;code>gcloud container clusters create&lt;/code> コマンドでは &lt;code>--enable-private-nodes --master-ipv4-cidr &amp;lt;CIDR&amp;gt;&lt;/code> オプションをつける&lt;/li>
-&lt;/ul>
-&lt;h4 id="制限事項">制限事項&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters?hl=ja#req_res_lim">限定公開クラスタの作成 | Kubernetes Engine ドキュメント | Google Cloud#要件、制約、制限&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/vpc/docs/alias-ip?hl=ja">エイリアスIP範囲&lt;/a>が有効なVPCネイティブクラスタである必要がある
-&lt;ul>
-&lt;li>See &lt;a href="#vpc%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">VPCネイティブクラスタを作成する&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler&lt;/h3>
-&lt;p>HPA.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler?hl=ja">水平ポッド自動スケーリング | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/external-metrics-autoscaling?hl=ja">外部指標によるデプロイの自動スケーリング | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/custom-metrics-autoscaling?hl=ja">カスタム指標でのデプロイの自動スケーリング | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a>&lt;/li>
-&lt;li>いずれもCloud Monitoringメトリクスでスケール設定を行う&lt;/li>
-&lt;li>&lt;a href="https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/custom-metrics-stackdriver-adapter">https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/custom-metrics-stackdriver-adapter&lt;/a> をクラスタにデプロイする&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler">https://sites.google.com/site/progrhymetechwiki/software/k8s#TOC-Horizontal-Pod-Autoscaler&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.doit-intl.com/autoscaling-k8s-hpa-with-google-http-s-load-balancer-rps-stackdriver-metric-92db0a28e1ea">Autoscaling K8s HPA with Google HTTP/S Load-Balancer RPS EXTERNAL Stackdriver Metrics&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="コンテナネイティブの負荷分散">コンテナネイティブの負荷分散&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing?hl=ja">コンテナ ネイティブの負荷分散を使用する | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>TL;DR:&lt;/p>
-&lt;ul>
-&lt;li>ネットワークエンドポイントグループ(NEG)を作成して、Podに均等にトラフィックを分配できる&lt;/li>
-&lt;li>従来の方式だとインスタンスグループ経由のアクセスで、iptablesを介してPodにアクセスしており、余分なネットワークオーバーヘッドが発生していた&lt;/li>
-&lt;/ul>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/container-native-load-balancing#known_issues">既知の問題&lt;/a>（2020-04-27時点）:&lt;/p>
-&lt;ul>
-&lt;li>GKEのガベージコレクションが2分間隔なので、LBが完全に削除される前にクラスタが削除された場合、NEGを手動で削除する必要がある&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/container-native-load-balancing#pod_readiness">Podのreadinessフィードバック&lt;/a>を&lt;u>使っていない場合&lt;/u>、ワークロードをデプロイするときや再起動するときに、ワークロードの更新完了に要する時間よりも、新しいエンドポイントの伝播に要する時間のほうが長くなる場合がある&lt;/li>
-&lt;/ul>
-&lt;h3 id="vpcネイティブクラスタ">VPCネイティブクラスタ&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/alias-ips?hl=ja">VPC ネイティブ クラスタを作成する | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;p>2020-05-04現在、GCPコンソールから作成する場合はデフォルトでVPCネイティブクラスタになるが、REST APIやgcloudコマンドでは&lt;a href="https://cloud.google.com/vpc/docs/routes?hl=ja">ルートベースクラスタ&lt;/a>になるので注意。&lt;/p>
-&lt;p>2つのやり方がある:&lt;/p>
-&lt;ol>
-&lt;li>既存のサブネットにクラスタを作成する。アドレス範囲の割り当て方は下の2つ:
-&lt;ul>
-&lt;li>GKE管理のセカンダリ範囲割り当て&lt;/li>
-&lt;li>ユーザー管理のセカンダリ範囲割り当て&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる&lt;/li>
-&lt;/ol>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="アップグレード">アップグレード&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster&lt;/a>&lt;/p>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">リリースチャネル&lt;/a>を指定することで、自動アップグレードできる&lt;/li>
-&lt;/ul>
-&lt;h3 id="kubeconfigエントリを生成">kubeconfigエントリを生成&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters get-credentials &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>CLUSTER_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project PROJECT&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>↑のコマンドは更に、クラスタをデフォルトのkubectlのcontextに設定する。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ノードプールを作り直す">ノードプールを作り直す&lt;/h3>
-&lt;p>マシンタイプやサービスアカウントを変えるときなどには、ノードプールの作り直しが発生する。&lt;br>
-次の要領でやれば良い:&lt;/p>
-&lt;ol>
-&lt;li>新しいプールを作成&lt;/li>
-&lt;li>ワークロードを新しいプールに移行&lt;/li>
-&lt;li>古いプールを削除&lt;/li>
-&lt;/ol>
-&lt;p>ドキュメントでは、 &lt;a href="https://cloud.google.com/kubernetes-engine/docs/tutorials/migrating-node-pool?hl=ja">異なるマシンタイプへのワークロードの移行 | Kubernetes Engine のチュートリアル | Google Cloud&lt;/a> の手順に従う形になる。&lt;/p>
-&lt;p>ただし、この手順に愚直に従うとドレインした瞬間に旧プール上のPodがevictionされ、サービス停止することもあり得るので、常時稼働のワークロードであれば、cordonでノードへのスケジューリングを停止した後、Podをスケールさせて新しいプールにPodが配置された後にドレインした方がよさそう。&lt;/p>
-&lt;h3 id="gkeのノードにssh">GKEのノードにSSH&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/connecting-advanced#sshbetweeninstances">高度な方法によるインスタンスへの接続 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/inductor/items/bc0ff7d761e0cc7e9394">限定公開クラスターのGKEノードにサクッとSSHする方法 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/sonots/items/6e2a57af945cf0daedd4">GKE で k8s クラスタの node に ssh する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://acloud.guru/forums/gcp-certified-associate-cloud-engineer/discussion/-Lh3ET0aNrv3FwNbNvh6/Insufficient%20Permission:%20Request%20had%20insufficient%20authentication%20scopes.">Insufficient Permission: Request had insufficient authentication scopes. - Course: Google Certified Associate Cloud Engineer 2020&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="メンテナンス時間枠と除外枠の設定">メンテナンス時間枠と除外枠の設定&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/maintenance-windows-and-exclusions?hl=ja">メンテナンスの時間枠と除外の構成 | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>クラスタやノードのアップグレードが行われる時間枠を設定可能。&lt;/li>
-&lt;li>（たぶん）最短4時間&lt;/li>
-&lt;/ul>
-&lt;h3 id="docker-hubのイメージを使うには">Docker Hubのイメージを使うには？&lt;/h3>
-&lt;p>公開イメージだったら普通に使える。&lt;/p>
-&lt;p>プライベートなイメージでも認証情報を渡せば普通に使えるんじゃないかな。&lt;/p>
-&lt;p>MEMO:&lt;/p>
-&lt;ul>
-&lt;li>日本語の記事だとミラーしたり、GCRにpushしてる例が多い&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/50826766/google-cloud-kubernetes-accessing-private-docker-hub-hosted-images">Google Cloud Kubernetes accessing private Docker Hub hosted images - Stack Overflow&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/concepts/containers/images/">Images - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://gist.github.com/toddlers/bb09002ffdc27fba6b7cef920fda2041">docker hub with kubernetes in GKE&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://estl.tech/using-images-from-a-private-registry-on-gke-b3bfb2562b16">Using Images from a Private Registry on GKE - Engineering Tomorrow’s Systems&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://hawksnowlog.blogspot.com/2017/02/dockerhub-image-deploy-on-gke.html">hawksnowlog: Google Container Engine に Dockerhub で公開しているイメージをデプロイする方法&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="logging">Logging&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/customizing-stackdriver-logs-fluentd?hl=ja">Google Kubernetes Engine の Stackdriver ログを Fluentd でカスタマイズする | ソリューション&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="参考">参考&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://medium.com/@rshimma/rails-on-gke-with-stackdriver-logging-63163c72934">GKE上RailsのアプリケーションログをStackdriver Loggingで運用する方法 - Riki Shimma - Medium&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>&lt;a href="https://ja.confluence.atlassian.com/adminjiraserver072/defining-priority-field-values-828787742.html">優先度フィールドの値を定義する - アトラシアン製品ドキュメント&lt;/a>&lt;/p></description></item></channel></rss>

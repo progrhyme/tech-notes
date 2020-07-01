@@ -70,7 +70,79 @@ reg tags &amp;lt;repo&amp;gt;
 &lt;li>&lt;a href="https://github.com/docker-library/openjdk/">https://github.com/docker-library/openjdk/&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Javaのリリースサイクルが短くなったこともあり、メンテされているバージョンが多くて所望のイメージを探すのにちょっと苦労する。&lt;/p>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Embulk</title><link>https://progrhy.me/tech-notes/a/software/embulk/</link><pubDate>Wed, 01 Jul 2020 20:19:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/embulk/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>Treasure Data社発のOSSで、プラガブルなETLフレームワーク的なソフトウェア。&lt;/p>
+&lt;p>Documentation: &lt;a href="https://www.embulk.org/docs/">https://www.embulk.org/docs/&lt;/a>&lt;/p>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;ul>
+&lt;li>内部に独自データ型を持っているようで、Inputプラグインから受け取る際に一度変換が起こる&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;ul>
+&lt;li>YAMLまたは&lt;a href="https://shopify.github.io/liquid/">Liquidテンプレート&lt;/a>。&lt;/li>
+&lt;/ul>
+&lt;h3 id="liquidテンプレート">Liquidテンプレート&lt;/h3>
+&lt;p>&lt;a href="https://www.embulk.org/docs/built-in.html#using-variables">https://www.embulk.org/docs/built-in.html#using-variables&lt;/a>&lt;/p>
+&lt;p>重要:&lt;/p>
+&lt;ul>
+&lt;li>Liquidテンプレートを使う場合、 &lt;strong>拡張子は必ず &lt;code>.yml.liquid&lt;/code> にしなければならない&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>機能:&lt;/p>
+&lt;ul>
+&lt;li>環境変数の利用。例: &lt;code>{{ env.ENV_KEY }}&lt;/code>&lt;/li>
+&lt;li>include&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
+embulk run &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># プレビュー&lt;/span>
+embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>値&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-l, --log-level LEVEL&lt;/code>&lt;/td>
+&lt;td>trace,debug,info,warn,error&lt;/td>
+&lt;td>ログレベル&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;h3 id="input">Input&lt;/h3>
+&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#input">https://plugins.embulk.org/#input&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-mysql">embulk-input-mysql&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="output">Output&lt;/h3>
+&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/embulk/embulk-output-bigquery">embulk-output-bigquery&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="pitfalls">Pitfalls&lt;/h2>
+&lt;p>全体的にエラーがわかりづらいと思う。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://techlog.voyagegroup.com/entry/2017/07/31/173839">大量データの転送にEmbulkを使ってみたら本当に楽だった - VOYAGE GROUP techlog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="setting-null-to-a-task-field-is-not-allowed">Setting null to a task field is not allowed&lt;/h3>
+&lt;p>例:&lt;/p>
+&lt;pre>&lt;code>Error: org.embulk.config.ConfigException: com.fasterxml.jackson.databind. \
+JsonMappingException: Setting null to a task field is not allowed. Use Optional&amp;lt;T&amp;gt; \
+(com.google.common.base.Optional) to represent null.
+&lt;/code>&lt;/pre>&lt;p>どうも、configの設定値が取れなかったときに起こるエラーっぽい。&lt;br>
+よくあるのは、環境変数の設定ミス（一度やらかした）。&lt;/p>
+&lt;ul>
+&lt;li>キーが間違っていないか&lt;/li>
+&lt;li>exportしているか&lt;/li>
+&lt;/ul>
+&lt;p>などを確認するとよさそう。&lt;/p></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
 &lt;h2 id="プロトコル">プロトコル&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols&lt;/a>&lt;/p>
 &lt;ul>
