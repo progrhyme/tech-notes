@@ -169,6 +169,7 @@ cat foo.json &lt;span style="color:#000;font-weight:bold">|&lt;/span> jq &lt;spa
 &lt;/ul></description></item><item><title>A: UNIX系コマンド</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/</link><pubDate>Mon, 27 Apr 2020 19:37:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/</guid><description>
 &lt;p>筆者はLinuxかmacOSを使うことが多い。&lt;/p>
 &lt;h2 id="about">About&lt;/h2>
+&lt;p>Linux（GNU系）とmacOS（BSD系）では同じコマンドでもオプションや挙動が違うことがあるので、注意が必要。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://en.wikipedia.org/wiki/List_of_Unix_commands">List of Unix commands - Wikipedia&lt;/a> &amp;hellip; IEEE規格らしい&lt;/li>
@@ -223,133 +224,6 @@ date +%s -r FILE
 &lt;/li>
 &lt;li>&lt;a href="https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc">unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="ファイル操作">ファイル操作&lt;/h2>
-&lt;h3 id="find">find&lt;/h3>
-&lt;p>Man Page:&lt;/p>
-&lt;ul>
-&lt;li>Linux: &lt;a href="https://linux.die.net/man/1/find">https://linux.die.net/man/1/find&lt;/a>&lt;/li>
-&lt;li>macOS: &lt;a href="https://www.unix.com/man-page/osx/1/find/">https://www.unix.com/man-page/osx/1/find/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>ファイルやディレクトリを検索する。&lt;br>
-&lt;code>-exec&lt;/code> オプションで見つけたファイルに対してコマンド実行することもできる。&lt;/p>
-&lt;p>※LinuxとmacOSでオプションが異なる&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># path以下のファイル、ディレクトリを全てリストアップ&lt;/span>
-find &amp;lt;path&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># ファイルのみリストアップ&lt;/span>
-find &amp;lt;path&amp;gt; -type f
-&lt;span style="color:#8f5902;font-style:italic"># 拡張子指定で検索&lt;/span>
-find &amp;lt;path&amp;gt; -name &lt;span style="color:#4e9a06">&amp;#34;*.txt&amp;#34;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 3日以内に更新されたファイルを探す&lt;/span>
-find &amp;lt;path&amp;gt; -mtime -mtime -3
-&lt;span style="color:#8f5902;font-style:italic"># 3日以上前のファイルを探して全て削除&lt;/span>
-find &amp;lt;path&amp;gt; -type f -mtime +3 -exec rm -f &lt;span style="color:#ce5c00;font-weight:bold">{}&lt;/span> &lt;span style="color:#4e9a06">\;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>時間指定オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>-mmin&lt;/td>
-&lt;td>ファイルのデータが最後に修正された日時（分指定）&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-mtime&lt;/td>
-&lt;td>ファイルのデータが最後に修正された日時（日指定）&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-amin&lt;/td>
-&lt;td>ファイルのデータに最後にアクセスされた日時（分指定）&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-atime&lt;/td>
-&lt;td>ファイルのデータに最後にアクセスされた日時（日指定）&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-cmin&lt;/td>
-&lt;td>ファイルのデータとステータスが最後に修正された日時（分指定）&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-ctime&lt;/td>
-&lt;td>ファイルのデータとステータスが最後に修正された日時（日指定）&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://curecode.jp/tech/find-mtime-delete/">find で日数が過ぎたファイルを検索・削除する | キュア子の開発ブログ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/narumi_/items/9ea27362a1eb502e2dbc">findコマンドのmtimeオプションまとめ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="mktemp">mktemp&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_coreutils/man1/mktemp.1.html">Man page of MKTEMP&lt;/a>&lt;/p>
-&lt;p>一時ファイル、またはディレクトリを作成する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">mktemp
-&lt;span style="color:#8f5902;font-style:italic"># ディレクトリを作成&lt;/span>
-mktemp -d
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ss64.com/osx/mktemp.html">mktemp Man Page - macOS - SS64.com&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="readlink1">readlink(1)&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_coreutils/man1/readlink.1.html">Man page of READLINK&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シンボリックリンクのリンク先を返す。再帰的に探索はしない&lt;/span>
-readlink &amp;lt;link&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># realpathと同じ働きをする&lt;/span>
-readlink -f &amp;lt;file&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="realpath1">realpath(1)&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_coreutils/man1/realpath.1.html">Man page of REALPATH&lt;/a>&lt;/p>
-&lt;p>引数として与えられたファイル or ディレクトリの絶対パスを返す。
-シンボリックリンクであれば、リンク先を再帰的に解決する。&lt;/p>
-&lt;h3 id="tee">tee&lt;/h3>
-&lt;p>標準出力に書きつつファイルにも書く、ということをやりたいときに使う。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log
-./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee -a a.log &lt;span style="color:#8f5902;font-style:italic"># 追記&lt;/span>
-./a.sh 2&amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log &lt;span style="color:#8f5902;font-style:italic"># 標準エラーもファイルに書く&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/wnoguchi/items/2fc3ec11043d139dc6bb" title="teeコマンドの使い方 - Qiita">teeコマンドの使い方 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="touch">touch&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/gnumaniak/man1/touch.1.html">Man page of TOUCH&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">touch -t &lt;span style="color:#0000cf;font-weight:bold">201807040100&lt;/span> path/to/file &lt;span style="color:#8f5902;font-style:italic"># mtimeを2018/7/4 01:00に変更&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>GNUオプション: ※macOSでは使えない&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>効果&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>--[d]ate=日時&lt;/code>&lt;/td>
-&lt;td>日時を指定する際に、 &lt;code>-t&lt;/code> オプションの代わりに使える。dateコマンドの書式で日時を渡せるようだ&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1606/14/news013.html">【 touch 】コマンド――タイムスタンプを変更する／新規ファイルを作成する：Linux基本コマンドTips（23） - ＠IT&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="umask">umask&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のumask値を表示&lt;/span>
-&lt;span style="color:#204a87">umask&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># umaskを022に設定&lt;/span>
-&lt;span style="color:#204a87">umask&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">022&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/os/linux/#umask">OS &amp;gt; Linux#umask&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.computerhope.com/unix/uumask.htm">Linux umask command help and examples&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="アーカイブ">アーカイブ&lt;/h2>
 &lt;h3 id="zipunzip">zip/unzip&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## dir/ を再帰的に圧縮&lt;/span>
@@ -362,90 +236,45 @@ unzip foo.zip -d bar/
 &lt;li>&lt;a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060228/231001/?rt=nocnt" title="Linuxコマンド集 - 【 zip 】 ファイルを圧縮する（拡張子.zip）：ITpro">Linuxコマンド集 - 【 zip 】 ファイルを圧縮する（拡張子.zip）：ITpro&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1607/26/news014.html" title="Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT">Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="テキスト処理">テキスト処理&lt;/h2>
-&lt;h3 id="cut">cut&lt;/h3>
-&lt;p>テキストフィルタツール&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タブ区切りで1, 3つめのフィールドを取得&lt;/span>
-cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> cut -f 1,3
-&lt;span style="color:#8f5902;font-style:italic"># カンマ区切り&lt;/span>
-cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> cut -d, -f 1,3
-&lt;span style="color:#8f5902;font-style:italic"># バイト単位で10-20バイト目を取得&lt;/span>
-cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> cut -b10-20
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="grep">grep&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## ファイル名だけ表示&lt;/span>
-grep -l PATTERN &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PATH&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="head">head&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html">https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 先頭1行を表示&lt;/span>
-head -1 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 先頭20行を表示&lt;/span>
-head -n &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 先頭256Bを表示&lt;/span>
-head -c &lt;span style="color:#0000cf;font-weight:bold">256&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 先頭256KBを表示&lt;/span>
-head --bytes 256k &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="printf1">printf(1)&lt;/h3>
-&lt;p>書式を指定して文字列を標準出力に出力。&lt;/p>
-&lt;p>シェルのビルトイン関数と /usr/bin/printf がある。
-違いはよくわからない。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%s %02d&amp;#34;&lt;/span> foo &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; foo 01&lt;/span>
-env &lt;span style="color:#000">LANG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>ja_JP.UTF-8 &lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%&amp;#39;d&amp;#34;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1234567890&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 1,234,567,890&lt;/span>
+&lt;h2 id="チェックサム">チェックサム&lt;/h2>
+&lt;h3 id="cksum">cksum&lt;/h3>
+&lt;p>ファイルのCRCチェックサムを算出し、ファイルサイズとともに表示する。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ cksum foo.txt
+&lt;span style="color:#0000cf;font-weight:bold">4032292776&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">319&lt;/span> foo.txt
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1907/05/news012.html">【 printf 】コマンド――データを整形して表示する：Linux基本コマンドTips（319） - ＠IT&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.cles.jp/item/5819">シェルスクリプトで数字を３桁ごとのカンマ区切りにする&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://webkaru.net/linux/cksum-command/">Linuxコマンド【 cksum 】ファイルのCRCチェックサムとサイズを表示 - Linux入門 - Webkaru&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/tobira-code/items/dbcffc41f54201130b6c">Cyclic Redundancy Check(CRC)を理解する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="sed">sed&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html">https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html&lt;/a>&lt;/p>
-&lt;p>与えられたテキストに対して、sedスクリプトで指定された文字列置換を行って結果のテキストを表示するストリームエディタ。&lt;/p>
-&lt;p>macOSとLinuxで挙動が違うので、注意が必要。&lt;/p>
+&lt;h3 id="md5sum">md5sum&lt;/h3>
+&lt;p>MD5ハッシュ値を算出&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ md5sum foo.txt
+1d1e64beb5220bf54122293141185c1a foo.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.server-memo.net/tips/chcksum.html">【MD5 SHA1 SHA256 CRC】ハッシュ値（チェックサム）の確認方法 | server-memo.net&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="shasum">shasum&lt;/h3>
+&lt;p>SHAチェックサムを算出する。&lt;br>
+&lt;code>-a&lt;/code> オプションでアルゴリズムを指定できる。&lt;br>
+デフォルトはSHA-1&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 各行のxを1つyに置換した結果を表示&lt;/span>
-sed s/x/y/ foo.txt
-&lt;span style="color:#8f5902;font-style:italic"># 各行のxをすべてyに置換した結果を表示&lt;/span>
-sed -e s/x/y/g foo.txt
-&lt;span style="color:#8f5902;font-style:italic"># 全文字をすべてyに置換した結果を表示&lt;/span>
-cat foo.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> sed &lt;span style="color:#4e9a06">&amp;#39;s/./y/g&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># xをyに、aをbに置換&lt;/span>
-sed -e s/x/y/ -e s/a/b/ foo.txt
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>効果&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&amp;ndash;[e]xpression=SCRIPT&lt;/td>
-&lt;td>実行するコマンドとしてスクリプトを追加&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;ndash;[f]ile=FILE&lt;/td>
-&lt;td>実行するコマンドとしてスクリプトファイルを追加&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;ndash;[r]egexp-extended&lt;/td>
-&lt;td>（※Linux）拡張正規表現を使う&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-E&lt;/td>
-&lt;td>（※macOS）拡張正規表現を使う&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>※ &lt;code>-e&lt;/code>, &lt;code>-f&lt;/code> のどちらの指定もなければ、最初のオプションでない引数がsedスクリプトとして解釈される。&lt;/p>
-&lt;h3 id="sort">sort&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 第2フィールドで数値の降順ソート&lt;/span>
-cat file &lt;span style="color:#000;font-weight:bold">|&lt;/span> sort -nr -k2
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ shasum foo.txt
+f1d2d2f924e986ac86fdf7b36c94bcdf32beec15 foo.txt
+$ shasum foo.txt -a &lt;span style="color:#0000cf;font-weight:bold">256&lt;/span>
+b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c foo.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>類似コマンド:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://linuxjm.osdn.jp/html/gnumaniak/man1/sort.1.html">https://linuxjm.osdn.jp/html/gnumaniak/man1/sort.1.html&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/sort.html" title="sort コマンド | コマンドの使い方(Linux) | hydroculのメモ">sort コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
+&lt;li>sha1sum&lt;/li>
+&lt;li>sha256sum&lt;/li>
+&lt;li>sha512sum&lt;/li>
 &lt;/ul>
-&lt;h2 id="ファイルシステム">ファイルシステム&lt;/h2>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ sha256sum foo.txt
+b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c foo.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ファイルシステム">ファイルシステム&lt;/h2>
 &lt;h3 id="exportfs">exportfs&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">exportfs -a &lt;span style="color:#8f5902;font-style:italic"># /etc/exports の全てのディレクトリをエクスポート&lt;/span>
 exportfs -v &lt;span style="color:#8f5902;font-style:italic"># 現在エクスポート中のディレクトリ一覧&lt;/span>
@@ -469,72 +298,7 @@ mount -o &lt;span style="color:#000">uid&lt;/span>&lt;span style="color:#ce5c00;
 &lt;h3 id="umount">umount&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">umount &amp;lt;mount先&amp;gt;
 umount &amp;lt;mount元&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ユーザ管理">ユーザ管理&lt;/h2>
-&lt;h3 id="getent">getent&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">getent group &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># グループに属しているユーザをリスト&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/niiyz/items/53aa4195dcc69db2052b">Linuxコマンドでユーザーのグループ確認・変更。 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="gpasswd">gpasswd&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">gpasswd -a &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループに所属させる&lt;/span>
-gpasswd -d &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://www.atmarkit.co.jp/ait/articles/1612/12/news016.html" title="【 gpasswd 】コマンド――ユーザーが所属するグループを管理する：Linux基本コマンドTips（72） - ＠IT">【 gpasswd 】コマンド――ユーザーが所属するグループを管理する：Linux基本コマンドTips（72） - ＠IT&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="groupadd">groupadd&lt;/h3>
-&lt;p>グループ作成。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">groupadd newgroup
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://webkaru.net/linux/groupadd-command/" title="Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru">Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="passwd">passwd&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">passwd -l &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アカウントをロック&lt;/span>
-passwd -u &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アンロック&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ロックされたアカウントはログインできず、利用不可になる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://kazmax.zpp.jp/linux/account_lock.html" title="Linux ユーザーアカウントをロック・アンロックする">Linux ユーザーアカウントをロック・アンロックする&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="useradd">useradd&lt;/h3>
-&lt;p>ユーザ追加。オプション多数&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-m&lt;/code>&lt;/td>
-&lt;td>ホームディレクトリ作成&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-s &amp;lt;SHELL&amp;gt;&lt;/code>&lt;/td>
-&lt;td>ログインシェルを指定&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## ホームディレクトリ作成&lt;/span>
-useradd -m &amp;lt;login&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## ログインシェルを/bin/bashに&lt;/span>
-useradd -s /bin/bash &amp;lt;login&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://eng-entrance.com/linux-command-useradd">useraddコマンドについて詳しくまとめました 【Linuxコマンド集】&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="usermod">usermod&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">usermod -g admin &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 主グループを変更&lt;/span>
-usermod -aG ops,app,... &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 副グループ追加&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://eng-entrance.com/linux-command-usermod" title="usermodコマンドについて詳しくまとめました 【Linuxコマンド集】">usermodコマンドについて詳しくまとめました 【Linuxコマンド集】&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="リソース管理">リソース管理&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="リソース管理">リソース管理&lt;/h2>
 &lt;h3 id="top1">top(1)&lt;/h3>
 &lt;p>&lt;a href="https://linux.die.net/man/1/top">top(1): tasks - Linux man page&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -564,89 +328,6 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://bashalog.c-brains.jp/11/05/24-220315.php">[Linux] top コマンドをインタラクティブに操作する | バシャログ。&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="プロセス管理">プロセス管理&lt;/h2>
-&lt;h3 id="kill1">kill(1)&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/util-linux/man1/kill.1.html">Man page of KILL&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シグナル名のリストを表示&lt;/span>
-&lt;span style="color:#204a87">kill&lt;/span> -l
-&lt;span style="color:#8f5902;font-style:italic"># プロセスにSIGTERMを送信&lt;/span>
-&lt;span style="color:#204a87">kill&lt;/span> &amp;lt;PID&amp;gt;...
-&lt;span style="color:#8f5902;font-style:italic"># SIGHUPを送信&lt;/span>
-&lt;span style="color:#204a87">kill&lt;/span> -HUP &amp;lt;PID&amp;gt;...
-&lt;span style="color:#8f5902;font-style:italic"># プロセスの生存確認&lt;/span>
-&lt;span style="color:#204a87">kill&lt;/span> -0 &amp;lt;PID&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>macOSだと少しオプションが違うかも&lt;/li>
-&lt;li>シェルのビルトインと /bin/kill でも少しオプションが違う&lt;/li>
-&lt;/ul>
-&lt;p>See Also:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/os/linux/#signal">OS &amp;gt; Linux#Signal&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ss64.com/osx/kill.html">kill Man Page - macOS - SS64.com&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://r9.hateblo.jp/entry/2018/01/15/193444">killでプロセスに「0」を送ると、プロセスの生存確認ができる - Perl日記&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="pgrep">pgrep&lt;/h3>
-&lt;p>プロセス名で検索して該当するプロセス番号を表示。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pgrep perl
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pkill">pkill&lt;/h3>
-&lt;p>プロセス名で指定してシグナルを送信する。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pkill perl
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ps">ps&lt;/h3>
-&lt;p>&lt;a href="https://linuxjm.osdn.jp/html/procps/man1/ps.1.html">Man page of PS&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ps aux
-ps aufxwww
-ps auxwww -L
-ps -ef
-ps -efL
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Options:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>option&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>f&lt;/code>&lt;/td>
-&lt;td>forest, プロセスをツリー状に表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-L&lt;/code>&lt;/td>
-&lt;td>スレッド表示。 &lt;code>f&lt;/code> と同時に指定はできない&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="trap">trap&lt;/h3>
-&lt;p>シグナルによってプロセスが中断・停止させられたときに、実行するコマンドを指定する。&lt;/p>
-&lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;コマンド&amp;#39;&lt;/span> シグナルリスト
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;echo trapped.&amp;#39;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">15&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># trapをリセットする&lt;/span>
-&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">15&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>SIGKILL (9) はtrapできない&lt;/li>
-&lt;/ul>
-&lt;p>See Also:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/os/linux/#signal">OS &amp;gt; Linux#Signal&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://shellscript.sunone.me/signal_and_trap.html">シグナルと trap コマンド | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/ine1127/items/5523b1b674492f14532a">shellのtrapについて覚え書き - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/trap.html">trap コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="ユーティリティー">ユーティリティー&lt;/h2>
 &lt;h3 id="watch">watch&lt;/h3>

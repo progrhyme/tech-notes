@@ -159,4 +159,49 @@ gcloud compute ssh &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span st
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/ruwatana/items/8d9c174250061721ad11">iTerm2のおすすめ設定〜ターミナル作業を効率化する〜 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.rasukarusan.com/entry/2019/04/13/180443">俺よりiTerm使いこなしてるやつおる？ - ハイパーマッスルエンジニアになりたい&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>A: tmux</title><link>https://progrhy.me/tech-notes/a/software/terminal/tmux/</link><pubDate>Fri, 03 Jul 2020 11:32:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terminal/tmux/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>OSSのターミナルマルチプレクサ。&lt;/p>
+&lt;ul>
+&lt;li>ソースコード: &lt;a href="https://github.com/tmux/tmux">https://github.com/tmux/tmux&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://man.openbsd.org/tmux.1">https://man.openbsd.org/tmux.1&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>デフォルトの設定ファイルパスは &lt;code>~/.tmux.conf&lt;/code>&lt;/p>
+&lt;pre>&lt;code># ログバッファの上限を上げる。デフォルト 2000
+set-option -g history-limit 10000
+# 256色対応
+set-option -g default-terminal screen-256color
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://blog.asial.co.jp/881" title="screen(だけ)の時代は終わり。tmuxでリモートコンソールを便利に使うTips : アシアルブログ">screen(だけ)の時代は終わり。tmuxでリモートコンソールを便利に使うTips : アシアルブログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://yanor.net/wiki/?UNIX/tmux/256%E8%89%B2%E8%A1%A8%E7%A4%BA%E5%AF%BE%E5%BF%9C">UNIX/tmux/256色表示対応 - yanor.net/wiki&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="cli">CLI&lt;/h2>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>tmux基本のコマンド — nato’s memo 1.0 documentation : &lt;a href="http://room6933.com/mymemo/tmux/tmux-basic.html">http://room6933.com/mymemo/tmux/tmux-basic.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="tmux-コマンド">tmux コマンド&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># セッションのリネーム&lt;/span>
+tmux rename -t &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> hoge
+&lt;span style="color:#8f5902;font-style:italic"># 256色表示&lt;/span>
+tmux -2
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="仮想端末操作">仮想端末操作&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="center">コマンド&lt;/th>
+&lt;th align="left">説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="center">&lt;code>&amp;lt;prefix&amp;gt;!&lt;/code>&lt;/td>
+&lt;td align="left">ペイン分割解除&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

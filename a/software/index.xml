@@ -1261,8 +1261,20 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="色">色&lt;/h3>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://jonasjacek.github.io/colors/">256 Colors - Cheat Sheet - Xterm, HEX, RGB, HSL&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.pandanoir.info/entry/2019/11/02/202146">TrueColor対応のはなし(端末、シェル、tmux、vim) - Panda Noir&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="環境変数">環境変数&lt;/h4>
+&lt;p>UNIX系OSで端末の色に関する環境変数:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>COLORTERM&lt;/code> &amp;hellip; &lt;code>truecolor&lt;/code> など&lt;/li>
+&lt;li>&lt;code>TERM&lt;/code> &amp;hellip; &lt;code>xterm-256color&lt;/code> など&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>tmuxやscreenを使うと、 &lt;code>TERM&lt;/code> 設定が書き換えられて色表示がおかしくなることがある&lt;/li>
 &lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Software Test</title><link>https://progrhy.me/tech-notes/a/software/test/</link><pubDate>Sat, 23 May 2020 17:38:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/test/</guid><description>
 &lt;p>Software Test Engineeringまで入るかも。&lt;br>
