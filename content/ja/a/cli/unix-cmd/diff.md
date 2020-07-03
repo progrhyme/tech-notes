@@ -2,7 +2,10 @@
 title: "diff"
 linkTitle: "diff"
 date: 2020-05-16T11:39:47+09:00
+weight: 70
 ---
+
+## About
 
 テキストファイルの差分を取るコマンド。
 

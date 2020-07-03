@@ -569,6 +569,10 @@ default:
 }
 ```
 
+参考:
+
+- [switch による条件分岐 | まくまくHugo/Goノート](https://maku77.github.io/hugo/go/switch.html)
+
 ### ループ
 
 https://golang.org/ref/spec#For_statements
@@ -598,6 +602,35 @@ for arrayIndex, dayOfWeek := range dayOfWeeks {
 参考:
 
 - [繰り返し - はじめてのGo言語](http://cuto.unirita.co.jp/gostudy/post/loop-statement/)
+
+### ラベル
+
+大域脱出や、gotoで使える。
+
+Examples:
+
+```go
+OuterLoop:
+  for {
+      for {
+          break OuterLoop
+      }
+      if someCondition {
+          goto End
+      }
+  }
+
+Switch:
+  switch x {
+  case y:
+    for {
+        break Switch
+    }
+  }
+
+End:
+  os.Exit(0)
+```
 
 ## 関数
 

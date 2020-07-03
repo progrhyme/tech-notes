@@ -4,12 +4,15 @@ linkTitle: "UNIX系コマンド"
 description: >
   UNIX系OSで使えるコマンド
 date: 2020-04-27T19:37:41+09:00
+simple_list: true
 weight: 800
 ---
 
-筆者はLinuxかmacOSを使うことが多い。
+筆者はLinuxかmacOSを使うことが多い。  
 
 ## About
+
+Linux（GNU系）とmacOS（BSD系）では同じコマンドでもオプションや挙動が違うことがあるので、注意が必要。
 
 参考:
 
@@ -72,142 +75,6 @@ NOTE:
   - [date(1) \[osx man page\]](https://www.unix.com/man-page/osx/1/date/)
 - [unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita](https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc)
 
-## ファイル操作
-### find
-
-Man Page:
-
-- Linux: https://linux.die.net/man/1/find
-- macOS: https://www.unix.com/man-page/osx/1/find/
-
-ファイルやディレクトリを検索する。  
-`-exec` オプションで見つけたファイルに対してコマンド実行することもできる。
-
-※LinuxとmacOSでオプションが異なる
-
-Examples:
-
-```sh
-# path以下のファイル、ディレクトリを全てリストアップ
-find <path>
-# ファイルのみリストアップ
-find <path> -type f
-# 拡張子指定で検索
-find <path> -name "*.txt"
-
-# 3日以内に更新されたファイルを探す
-find <path> -mtime -mtime -3
-
-# 3日以上前のファイルを探して全て削除
-find <path> -type f -mtime +3 -exec rm -f {} \;
-```
-
-時間指定オプション:
-
- オプション | 意味
-------------|------
- -mmin | ファイルのデータが最後に修正された日時（分指定）
- -mtime | ファイルのデータが最後に修正された日時（日指定）
- -amin | ファイルのデータに最後にアクセスされた日時（分指定）
- -atime | ファイルのデータに最後にアクセスされた日時（日指定）
- -cmin | ファイルのデータとステータスが最後に修正された日時（分指定）
- -ctime | ファイルのデータとステータスが最後に修正された日時（日指定）
-
-参考:
-
-- [find で日数が過ぎたファイルを検索・削除する | キュア子の開発ブログ](https://curecode.jp/tech/find-mtime-delete/)
-- [findコマンドのmtimeオプションまとめ - Qiita](https://qiita.com/narumi_/items/9ea27362a1eb502e2dbc)
-
-### mktemp
-
-[Man page of MKTEMP](https://linuxjm.osdn.jp/html/GNU_coreutils/man1/mktemp.1.html)
-
-一時ファイル、またはディレクトリを作成する。
-
-```sh
-mktemp
-# ディレクトリを作成
-mktemp -d
-```
-
-参考:
-
-- [mktemp Man Page - macOS - SS64.com](https://ss64.com/osx/mktemp.html)
-
-### readlink(1)
-
-[Man page of READLINK](https://linuxjm.osdn.jp/html/GNU_coreutils/man1/readlink.1.html)
-
-Examples:
-
-```sh
-# シンボリックリンクのリンク先を返す。再帰的に探索はしない
-readlink <link>
-
-# realpathと同じ働きをする
-readlink -f <file>
-```
-
-### realpath(1)
-
-[Man page of REALPATH](https://linuxjm.osdn.jp/html/GNU_coreutils/man1/realpath.1.html)
-
-引数として与えられたファイル or ディレクトリの絶対パスを返す。
-シンボリックリンクであれば、リンク先を再帰的に解決する。
-
-### tee
-
-標準出力に書きつつファイルにも書く、ということをやりたいときに使う。
-
-```bash
-./a.sh | tee a.log
-./a.sh | tee -a a.log # 追記
-./a.sh 2>&1 | tee a.log # 標準エラーもファイルに書く
-```
-
-参考:
-
-- [teeコマンドの使い方 - Qiita](https://qiita.com/wnoguchi/items/2fc3ec11043d139dc6bb "teeコマンドの使い方 - Qiita")
-
-
-### touch
-
-[Man page of TOUCH](https://linuxjm.osdn.jp/html/gnumaniak/man1/touch.1.html)
-
-```bash
-touch -t 201807040100 path/to/file # mtimeを2018/7/4 01:00に変更
-```
-
-GNUオプション: ※macOSでは使えない
-
- Option | 効果
---------|-----
- `--[d]ate=日時` | 日時を指定する際に、 `-t` オプションの代わりに使える。dateコマンドの書式で日時を渡せるようだ
-
-参考:
-
-- [【 touch 】コマンド――タイムスタンプを変更する／新規ファイルを作成する：Linux基本コマンドTips（23） \- ＠IT](http://www.atmarkit.co.jp/ait/articles/1606/14/news013.html)
-
-### umask
-
-Examples:
-
-```sh
-# 現在のumask値を表示
-umask
-
-# umaskを022に設定
-umask 022
-```
-
-関連項目:
-
-- [OS > Linux#umask]({{<ref "/a/os/linux/_index.md">}}#umask)
-
-参考:
-
-- [Linux umask command help and examples](https://www.computerhope.com/unix/uumask.htm)
-
 ## アーカイブ
 ### zip/unzip
 
@@ -225,104 +92,66 @@ unzip foo.zip -d bar/
 - [Linuxコマンド集 - 【 zip 】 ファイルを圧縮する（拡張子.zip）：ITpro](http://itpro.nikkeibp.co.jp/article/COLUMN/20060228/231001/?rt=nocnt "Linuxコマンド集 - 【 zip 】 ファイルを圧縮する（拡張子.zip）：ITpro")
 - [Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT](http://www.atmarkit.co.jp/ait/articles/1607/26/news014.html "Linux基本コマンドTips（35）：unzipコマンド――ZIPファイルからファイルを取り出す - ＠IT")
 
-## テキスト処理
-### cut
+## チェックサム
+### cksum
 
-テキストフィルタツール
+ファイルのCRCチェックサムを算出し、ファイルサイズとともに表示する。
 
-```sh
-# タブ区切りで1, 3つめのフィールドを取得
-cat file.txt | cut -f 1,3
-# カンマ区切り
-cat file.txt | cut -d, -f 1,3
-# バイト単位で10-20バイト目を取得
-cat file.txt | cut -b10-20
-```
-
-### grep
-
-```bash
-## ファイル名だけ表示
-grep -l PATTERN [PATH]
-```
-
-### head
-
-https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html
+例:
 
 ```sh
-## 先頭1行を表示
-head -1 [file...]
-## 先頭20行を表示
-head -n 20 [file...]
-
-## 先頭256Bを表示
-head -c 256 [file...]
-## 先頭256KBを表示
-head --bytes 256k [file...]
-```
-
-### printf(1)
-
-書式を指定して文字列を標準出力に出力。
-
-シェルのビルトイン関数と /usr/bin/printf がある。
-違いはよくわからない。
-
-```sh
-printf "%s %02d" foo 1
-#=> foo 01
-env LANG=ja_JP.UTF-8 printf "%'d" 1234567890
-#=> 1,234,567,890
+$ cksum foo.txt
+4032292776 319 foo.txt
 ```
 
 参考:
 
-- [【 printf 】コマンド――データを整形して表示する：Linux基本コマンドTips（319） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1907/05/news012.html)
-- [シェルスクリプトで数字を３桁ごとのカンマ区切りにする](https://blog.cles.jp/item/5819)
+- [Linuxコマンド【 cksum 】ファイルのCRCチェックサムとサイズを表示 - Linux入門 - Webkaru](https://webkaru.net/linux/cksum-command/)
+- [Cyclic Redundancy Check(CRC)を理解する - Qiita](https://qiita.com/tobira-code/items/dbcffc41f54201130b6c)
 
-### sed
+### md5sum
 
-https://linuxjm.osdn.jp/html/GNU_sed/man1/sed.1.html
+MD5ハッシュ値を算出
 
-与えられたテキストに対して、sedスクリプトで指定された文字列置換を行って結果のテキストを表示するストリームエディタ。
+例:
 
-macOSとLinuxで挙動が違うので、注意が必要。
+```sh
+$ md5sum foo.txt
+1d1e64beb5220bf54122293141185c1a  foo.txt
+```
+
+参考:
+
+- [【MD5 SHA1 SHA256 CRC】ハッシュ値（チェックサム）の確認方法 | server-memo.net](https://www.server-memo.net/tips/chcksum.html)
+
+### shasum
+
+SHAチェックサムを算出する。  
+`-a` オプションでアルゴリズムを指定できる。  
+デフォルトはSHA-1
 
 Examples:
 
 ```sh
-# 各行のxを1つyに置換した結果を表示
-sed s/x/y/ foo.txt
-# 各行のxをすべてyに置換した結果を表示
-sed -e s/x/y/g foo.txt
-# 全文字をすべてyに置換した結果を表示
-cat foo.txt | sed 's/./y/g'
-# xをyに、aをbに置換
-sed -e s/x/y/ -e s/a/b/ foo.txt
+$ shasum foo.txt
+f1d2d2f924e986ac86fdf7b36c94bcdf32beec15  foo.txt
+
+$ shasum foo.txt -a 256
+b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c  foo.txt
 ```
 
- オプション | 効果
-----------|------
- --[e]xpression=SCRIPT | 実行するコマンドとしてスクリプトを追加
- --[f]ile=FILE | 実行するコマンドとしてスクリプトファイルを追加
- --[r]egexp-extended | （※Linux）拡張正規表現を使う
- -E | （※macOS）拡張正規表現を使う
+類似コマンド:
 
-※ `-e`, `-f` のどちらの指定もなければ、最初のオプションでない引数がsedスクリプトとして解釈される。
+- sha1sum
+- sha256sum
+- sha512sum
 
-### sort
+例:
 
-```bash
-## 第2フィールドで数値の降順ソート
-cat file | sort -nr -k2
+```sh
+$ sha256sum foo.txt
+b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c  foo.txt
 ```
-
-参考:
-
-- https://linuxjm.osdn.jp/html/gnumaniak/man1/sort.1.html
-- [sort コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/sort.html "sort  コマンド | コマンドの使い方(Linux) | hydroculのメモ")
-
 
 ## ファイルシステム
 ### exportfs
@@ -364,86 +193,6 @@ umount <mount先>
 umount <mount元>
 ```
 
-## ユーザ管理
-### getent
-
-```sh
-getent group <group> # グループに属しているユーザをリスト
-```
-
-参考:
-
-- [Linuxコマンドでユーザーのグループ確認・変更。 - Qiita](https://qiita.com/niiyz/items/53aa4195dcc69db2052b)
-
-### gpasswd
-
-```bash
-gpasswd -a <login> <group> # ユーザをグループに所属させる
-gpasswd -d <login> <group> # ユーザをグループから削除
-```
-
-参考:
-
-- [【 gpasswd 】コマンド――ユーザーが所属するグループを管理する：Linux基本コマンドTips（72） - ＠IT](http://www.atmarkit.co.jp/ait/articles/1612/12/news016.html "【 gpasswd 】コマンド――ユーザーが所属するグループを管理する：Linux基本コマンドTips（72） - ＠IT")
-
-### groupadd
-
-グループ作成。
-
-```bash
-groupadd newgroup
-```
-
-参考:
-
-- [Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru](https://webkaru.net/linux/groupadd-command/ "Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru")
-
-### passwd
-
-```bash
-passwd -l <login> # アカウントをロック
-passwd -u <login> # アンロック
-```
-
-ロックされたアカウントはログインできず、利用不可になる。
-
-参考:
-
-- [Linux ユーザーアカウントをロック・アンロックする](http://kazmax.zpp.jp/linux/account_lock.html "Linux ユーザーアカウントをロック・アンロックする")
-
-### useradd
-
-ユーザ追加。オプション多数
-
-オプション | 意味
-----------------|-------
-`-m` | ホームディレクトリ作成
-`-s <SHELL>` | ログインシェルを指定
-
-Examples:
-
-```Bash
-## ホームディレクトリ作成
-useradd -m <login>
-## ログインシェルを/bin/bashに
-useradd -s /bin/bash <login> 
-```
-
-参考:
-- [useraddコマンドについて詳しくまとめました 【Linuxコマンド集】](https://eng-entrance.com/linux-command-useradd)
-
-
-### usermod
-
-```bash
-usermod -g admin <login> # 主グループを変更
-usermod -aG ops,app,... <login> # 副グループ追加
-```
-
-参考:
-
-- [usermodコマンドについて詳しくまとめました 【Linuxコマンド集】](https://eng-entrance.com/linux-command-usermod "usermodコマンドについて詳しくまとめました 【Linuxコマンド集】")
-
 ## リソース管理
 ### top(1)
 
@@ -481,115 +230,6 @@ Mac版の違い:
 参考:
 
 - [\[Linux\] top コマンドをインタラクティブに操作する | バシャログ。](http://bashalog.c-brains.jp/11/05/24-220315.php)
-
-## プロセス管理
-### kill(1)
-
-[Man page of KILL](https://linuxjm.osdn.jp/html/util-linux/man1/kill.1.html)
-
-Examples:
-
-```sh
-# シグナル名のリストを表示
-kill -l
-
-# プロセスにSIGTERMを送信
-kill <PID>...
-
-# SIGHUPを送信
-kill -HUP <PID>...
-
-# プロセスの生存確認
-kill -0 <PID>
-```
-
-NOTE:
-
-- macOSだと少しオプションが違うかも
-- シェルのビルトインと /bin/kill でも少しオプションが違う
-
-See Also:
-
-- [OS > Linux#Signal]({{<ref "/a/os/linux/_index.md">}}#signal)
-
-参考:
-
-- [kill Man Page - macOS - SS64.com](https://ss64.com/osx/kill.html)
-- [killでプロセスに「0」を送ると、プロセスの生存確認ができる - Perl日記](http://r9.hateblo.jp/entry/2018/01/15/193444)
-
-### pgrep
-
-プロセス名で検索して該当するプロセス番号を表示。
-
-Examples:
-
-```sh
-pgrep perl
-```
-
-### pkill
-
-プロセス名で指定してシグナルを送信する。
-
-Examples:
-
-```sh
-pkill perl
-```
-
-### ps
-
-[Man page of PS](https://linuxjm.osdn.jp/html/procps/man1/ps.1.html)
-
-Examples:
-
-```sh
-ps aux
-ps aufxwww
-ps auxwww -L
-ps -ef
-ps -efL
-```
-
-Options:
-
-option | 意味
----------|---------
-`f` | forest, プロセスをツリー状に表示
-`-L` | スレッド表示。 `f` と同時に指定はできない
-
-### trap
-
-シグナルによってプロセスが中断・停止させられたときに、実行するコマンドを指定する。
-
-Syntax:
-
-```sh
-trap 'コマンド' シグナルリスト
-```
-
-Examples:
-
-```sh
-trap 'echo trapped.' 1 2 3 15
-
-# trapをリセットする
-trap 1 2 3 15
-```
-
-NOTE:
-
-- SIGKILL (9) はtrapできない
-
-See Also:
-
-- [OS > Linux#Signal]({{<ref "/a/os/linux/_index.md">}}#signal)
-
-参考:
-
-- [シグナルと trap コマンド | UNIX &amp; Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/signal_and_trap.html)
-- [shellのtrapについて覚え書き - Qiita](https://qiita.com/ine1127/items/5523b1b674492f14532a)
-- [trap コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/trap.html)
 
 ## ユーティリティー
 ### watch

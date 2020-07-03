@@ -147,6 +147,41 @@ Yet AnotherなYAMLライブラリ。
 
 - 作者のエントリ: [GoでYAMLを扱うすべての人を幸せにするべく、ライブラリをスクラッチから書いた話 - Qiita](https://qiita.com/goccy/items/86abe72b472993b5516a)
 
+## google/go-cmp/cmp
+
+https://pkg.go.dev/github.com/google/go-cmp/cmp
+
+主にテストで使える値の比較のためのライブラリ。
+
+参考:
+
+- [構造体などをテストするのに便利なgoogle/go-cmpの使い方 - Qiita](https://qiita.com/hgsgtk/items/bd78bada902c91745fa5)
+
+## gookit/color
+
+- https://github.com/gookit/color
+- https://pkg.go.dev/github.com/gookit/color
+
+Examples:
+
+```go
+color.Red.Println("Simple to use color")
+color.Green.Print("Simple to use color")
+color.Cyan.Printf("Simple to use %s\n", "color")
+
+color.Danger.Println("DANGER")   // 赤太字
+color.Success.Println("SUCCESS") // 緑太字
+```
+
+Hint:
+
+- 色が表示されないなと思ったら、IsSupport256ColorやIsSupportColor関数で端末が対応しているか確認する。どちらかは必要そう
+- ~~IsTerminal関数で、依存なしでTTY判定ができそう~~ <- 2020-07-03現在、Windowsしか実装されてなかった
+
+参考:
+
+- [コンソールの色付けにはgookit/colorが便利 - Qiita](https://qiita.com/shibukawa/items/3f8974bd074b20ed2b95)
+
 ## go-yaml/yaml
 
 https://pkg.go.dev/gopkg.in/yaml.v2
@@ -259,6 +294,32 @@ Goでバイナリファイルの種類を識別するためのライブラリ。
 
 SemVer以外も想定するならこちらを使うのがよさそう。
 
+Tips:
+
+- `Version#.Original` で元のバージョンを取り出せるようだ
+
+### バージョンの比較
+
+Example:
+
+```go
+var result bool
+v := version.NewVersion("1.0")
+result = v.Equal(cur)
+result = v.GreaterThan(cur)
+result = v.GreaterThanOrEqual(cur)
+result = v.LessThan(cur)
+result = v.LessThanOrEqual(cur)
+
+var ret int
+ret = v.Compare(cur)
+// v < cur => -1
+// v = cur =>  0
+// v > cur =>  1
+```
+
+### バージョンのソート
+
 Example:
 
 ```go
@@ -279,10 +340,6 @@ fmt.Printf("sorted: %v\n", vs)
 ```
 
 https://play.golang.org/p/B_OBt8NeImn
-
-Tips:
-
-- `Version#.Original` で元のバージョンを取り出せるようだ
 
 ## jinzhu/configor
 
@@ -386,6 +443,55 @@ if err != nil {
 	log.Fatal(err)
 }
 ```
+
+## pmezard/go-difflib
+
+- https://github.com/pmezard/go-difflib
+- https://pkg.go.dev/github.com/pmezard/go-difflib/difflib
+
+unified diffが取れる使いやすいライブラリ。  
+Pythonのdifflibのポートだそうだ。
+
+※2018年で更新が止まっており、メンテされていない。
+
+Example:
+
+```go
+diff := difflib.UnifiedDiff{
+    A:        difflib.SplitLines("foo\nbar\n"),
+    B:        difflib.SplitLines("foo\nbaz\n"),
+    FromFile: "Original",
+    ToFile:   "Current",
+    Context:  3,
+}
+text, _ := difflib.GetUnifiedDiffString(diff)
+fmt.Printf(text)
+```
+
+出力:
+
+```diff
+--- Original
++++ Current
+@@ -1,3 +1,3 @@
+ foo
+-bar
++baz
+```
+
+## sergi/go-diff/diffmatchpatch
+
+- https://github.com/sergi/go-diff
+- https://pkg.go.dev/github.com/sergi/go-diff/diffmatchpatch
+
+使い方が難しいライブラリ。  
+DiffPrettyText関数で色付きdiffは出せるのだけど、unified形式のdiffの出し方がわからん。
+
+参考:
+
+- [GolangのdiffMatchPatchライブラリで行単位diffをする - Qiita](https://qiita.com/shibukawa/items/dd75ad01e623c4c1166b)
+- [春の入門祭り🌸 #8 人生を豊かにする文字列diff入門 | フューチャー技術ブログ](https://future-architect.github.io/articles/20200610/)
+  - https://github.com/shibukawa/cdiff ... 上の記事で紹介されている
 
 ## spf13/pflag
 

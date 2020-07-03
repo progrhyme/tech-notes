@@ -54,9 +54,22 @@ err := os.Remove(path)
 
 https://golang.org/pkg/os/#pkg-constants
 
-Examples:
-
 ```go
+// Flags for OpenFile. ファイルオープン時のモード
+const (
+    // O_RDONLY, O_WRONLY, O_RDWR のどれか1つだけ指定されないといけない
+    O_RDONLY int = syscall.O_RDONLY // open the file read-only.
+    O_WRONLY int = syscall.O_WRONLY // open the file write-only.
+    O_RDWR   int = syscall.O_RDWR   // open the file read-write.
+    // 後のフラグは任意
+    O_APPEND int = syscall.O_APPEND // append data to the file when writing.
+    O_CREATE int = syscall.O_CREAT  // create a new file if none exists.
+    O_EXCL   int = syscall.O_EXCL   // used with O_CREATE, file must not exist.
+    O_SYNC   int = syscall.O_SYNC   // open for synchronous I/O.
+    O_TRUNC  int = syscall.O_TRUNC  // truncate regular writable file when opened.
+)
+
+// Path separator
 const (
   PathSeparator     = '/' // OS-specific path separator
   PathListSeparator = ':' // OS-specific path list separator
@@ -104,6 +117,17 @@ if err := os.Chmod(path, fi.Mode()|0111); err != nil {
 }
 ```
 
+### func Create
+
+https://golang.org/pkg/os/#Create
+
+```go
+func Create(name string) (*File, error)
+```
+
+- ファイルを作成し、モード `O_RDWR` （読み書き両用）でオープンする
+- ファイルが存在する場合、truncateされる
+- 作成されるファイルのパーミッションには `0666` が指定される（umask前）
 
 ### func Getenv
 
@@ -161,6 +185,26 @@ func NewFile(fd uintptr, name string) *File
 ```
 
 > NewFile returns a new File with the given file descriptor and name.
+
+### func Open
+
+https://golang.org/pkg/os/#Open
+
+```go
+func Open(name string) (*File, error)
+```
+
+モード `O_RDONLY` （読み取り専用）でファイルを開く。
+
+### func OpenFile
+
+https://golang.org/pkg/os/#OpenFile
+
+```go
+func OpenFile(name string, flag int, perm FileMode) (*File, error)
+```
+
+[flag](#constants)（モード）やパーミッションを指定してファイルを開く。
 
 ### func Readlink
 
@@ -225,12 +269,6 @@ Unix系システムなら `$HOME`, Windowsなら `%USERPROFILE%` の値を返す
 https://golang.org/pkg/os/#File
 
 オープンしたファイルディスクリプタを表現する構造体。
-
-#### func Create
-
-https://golang.org/pkg/os/#Create
-
-ファイル作成。
 
 ## os/exec
 

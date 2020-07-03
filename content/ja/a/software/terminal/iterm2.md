@@ -3,6 +3,7 @@ title: "iTerm2"
 linkTitle: "iTerm2"
 description: https://iterm2.com/
 date: 2020-05-16T14:18:31+09:00
+weight: 300
 ---
 
 ## About

@@ -25,6 +25,7 @@ How-to:
 
 参考:
 
+- [逆引きGolang (文字列)](https://ashitani.jp/golangtips/tips_string.html)
 - [Goの文字列結合のパフォーマンス - Qiita](https://qiita.com/ono_matope/items/d5e70d8a9ff2b54d5c37)
 
 ### string -> 数値変換
@@ -48,20 +49,30 @@ fmt.Fscanlnだったら大丈夫だった。
 
 ### string <-> []byte変換
 
-string -> []byte
-
 ```go
+// string -> []byte
 s := "foobar"
 b := []byte(s)
+
+// []byte -> string
+string(b)
 ```
 
-ただし、メモリコピーが走るそうだ
+ただし、 `string -> []byte` では、メモリコピーが走るそうだ
 
 参考:
 
 - [golang で string を \[\]byte にキャストするとメモリコピーが走ります - Qiita](https://qiita.com/ikawaha/items/3c3994559dfeffb9f8c9)
 - [golang で string を \[\]byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita](https://qiita.com/mattn/items/176459728ff4f854b165)
 - [go - How to assign string to bytes array - Stack Overflow](https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array)
+
+### ASCII文字 <-> byte変換
+
+```go
+s := "ABC"
+s[0]       //=> 65
+string(82) //=> "R"
+```
 
 ## 配列・スライス
 
@@ -83,11 +94,34 @@ x := slice[len(slice)-1]
 slice = slice[:len(slice)-1]
 
 // unshift
-slice = append(x, slice...)
+slice = append([]T{x}, slice...)
 
 // shift
 x := slice[0]
 slice = slice[1:]
+```
+
+#### unshiftについて
+
+```go
+slice, slice[0] = append(slice[:1], slice[0:]...), 追加要素
+```
+
+↑こういう書き方もあるが、何をやっているか。
+
+これはGoの多値代入を使って、2回の代入を1行で書いている。  
+具体例とともに分解して示すと、下のようになっている:
+
+```go
+slice := []int{1, 2, 3}
+x := -1
+
+slice = append(slice[:1], slice[0:]...)
+//=> [1, 1, 2, 3]
+//slice = append(slice[:1], slice...) でも良い
+
+slice[0] = x
+//=> [-1, 1, 2, 3]
 ```
 
 ### もっとスライスを操作
@@ -95,6 +129,8 @@ slice = slice[1:]
 ```go
 // 単一要素の削除
 a = append(a[:i], a[i+1:]...)
+// 単一要素の挿入
+a = append(a[:i], append([]T{x}, a[i:]...)...)
 ```
 
 ## 入出力
@@ -298,7 +334,28 @@ func (f Fruit) String() string {
 参考:
 
 - [逆引きGolang (ファイル)](https://ashitani.jp/golangtips/tips_file.html)
+- [Goでテキストファイルを読み書きする時に使う標準パッケージ - Qiita](https://qiita.com/qt-luigi/items/2c13ad68e7d9f8f8c0f2)
 - [How to read/write from/to file using Go? - Stack Overflow](https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go)
+
+### ファイルを開いて書込み
+
+```go
+func writeBytesToFile(b []byte, path string, flag int, perm os.FileMode) {
+  file, err := os.OpenFile(path, flag, perm)
+  if err != nil {
+    log.Fatal(err)
+  }
+  defer file.Close()
+  if _, err = file.Write(b); err != nil {
+    log.Fatal(err)
+  }
+}
+
+// ファイルがなければ新規作成。あれば既存の内容を消して上書き
+writeBytesToFile(b, path, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
+// ファイルがなければ新規作成。あれば内容を追記する
+writeBytesToFile(b, path, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
+```
 
 ### ディレクトリ操作
 

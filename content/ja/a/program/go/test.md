@@ -124,11 +124,7 @@ testdata/ というディレクトリに入れる。
 
 テストで使えるパッケージ。
 
-### google/go-cmp
-
-https://pkg.go.dev/github.com/google/go-cmp/cmp
-
-値の比較のためのユーティリティ。
+- [google/go-cmp/cmp]({{<ref "3rd-pkg.md">}}#googlego-cmpcmp)
 
 ## Topics
 ### Goで結合・統合・外部テストを書く
