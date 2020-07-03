@@ -710,8 +710,11 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-create">func Create&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/os/#Create">https://golang.org/pkg/os/#Create&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Create&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">File&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルを作成し、モード &lt;code>O_RDWR&lt;/code> （読み書き両用）でオープンする。&lt;br>
-作成されるファイルのパーミッションには &lt;code>0666&lt;/code> が指定される（umask前）。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>ファイルを作成し、モード &lt;code>O_RDWR&lt;/code> （読み書き両用）でオープンする&lt;/li>
+&lt;li>ファイルが存在する場合、truncateされる&lt;/li>
+&lt;li>作成されるファイルのパーミッションには &lt;code>0666&lt;/code> が指定される（umask前）&lt;/li>
+&lt;/ul>
 &lt;h3 id="func-getenv">func Getenv&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/os/#Getenv">https://golang.org/pkg/os/#Getenv&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>

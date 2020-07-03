@@ -2918,6 +2918,7 @@ ImportPath = string_lit .
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_string.html">逆引きGolang (文字列)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/ono_matope/items/d5e70d8a9ff2b54d5c37">Goの文字列結合のパフォーマンス - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="string---数値変換">string -&amp;gt; 数値変換&lt;/h3>
@@ -2945,7 +2946,11 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/mattn/items/176459728ff4f854b165">golang で string を []byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array">go - How to assign string to bytes array - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="配列スライス">配列・スライス&lt;/h2>
+&lt;h3 id="ascii文字---byte変換">ASCII文字 &amp;lt;-&amp;gt; byte変換&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ABC&amp;#34;&lt;/span>
+&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; 65
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87">string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">82&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; &amp;#34;R&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配列スライス">配列・スライス&lt;/h2>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/egnr-in-6matroom/items/282aa2fd117aab9469bd">go言語のslice操作をまとめてみた（shiftしたりpushしたり） - Qiita&lt;/a>&lt;/li>
