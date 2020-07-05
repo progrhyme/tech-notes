@@ -97,6 +97,8 @@ unzip foo.zip -d bar/
 
 ファイルのCRCチェックサムを算出し、ファイルサイズとともに表示する。
 
+※CRC-32 (IEEE規格)とは異なる
+
 例:
 
 ```sh
@@ -104,10 +106,14 @@ $ cksum foo.txt
 4032292776 319 foo.txt
 ```
 
+関連項目:
+
+- [セキュリティ > 符号化#CRC]({{<ref "/a/security/encode.md">}}#crc)
+
 参考:
 
+- [GNU Coreutils: 6.3 cksum: CRC チェックサムとバイト数を表示する](https://linuxjm.osdn.jp/info/GNU_coreutils/coreutils-ja_36.html)
 - [Linuxコマンド【 cksum 】ファイルのCRCチェックサムとサイズを表示 - Linux入門 - Webkaru](https://webkaru.net/linux/cksum-command/)
-- [Cyclic Redundancy Check(CRC)を理解する - Qiita](https://qiita.com/tobira-code/items/dbcffc41f54201130b6c)
 
 ### md5sum
 
