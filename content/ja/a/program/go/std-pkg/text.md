@@ -11,7 +11,7 @@ https://golang.org/pkg/text/template/
 
 関連項目:
 
-- [道場#テンプレート]({{<ref "../dojo.md">}}#テンプレート)
+- [道場#テンプレート]({{<ref "../dojo/_index.md">}}#テンプレート)
 
 Examples:
 

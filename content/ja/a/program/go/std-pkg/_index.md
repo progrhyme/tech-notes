@@ -178,7 +178,7 @@ if err != nil {
 
 関連項目:
 
-- [道場#ロギング]({{<ref "/a/program/go/dojo.md">}}#ロギング)
+- [道場#ロギング]({{<ref "/a/program/go/dojo/_index.md">}}#ロギング)
 
 ### Constants
 

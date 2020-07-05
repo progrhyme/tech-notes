@@ -34,7 +34,7 @@ if err := json.Unmarshal([]byte(blob), &zoo); err != nil {
 
 関連項目:
 
-- [道場#構造化データファイルの取り扱い]({{<ref "/a/program/go/dojo.md">}}#構造化データファイルの取り扱い)
+- [道場#構造化データファイルの取り扱い]({{<ref "/a/program/go/dojo/_index.md">}}#構造化データファイルの取り扱い)
 
 ### structタグの使い方
 
@@ -63,7 +63,7 @@ type User struct {
 
 関連項目:
 
-- [言語仕様#構造体-タグ]({{<ref "/a/program/go/spec.md">}}#タグ)
+- [言語仕様#構造体-タグ]({{<ref "/a/program/go/spec/_index.md">}}#タグ)
 
 参考:
 

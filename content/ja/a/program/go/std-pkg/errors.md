@@ -25,7 +25,7 @@ func do() error {
 
 関連項目:
 
-- [道場#例外処理]({{<ref "/a/program/go/dojo.md">}}#例外処理)
+- [道場#例外処理]({{<ref "/a/program/go/dojo/_index.md">}}#例外処理)
 - [fmt.Errorf]({{<ref "fmt.md">}}#func-errorf)
 
 Info:

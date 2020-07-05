@@ -17,7 +17,7 @@ go doc regexp/syntax
 
 関連項目:
 
-- [道場#正規表現]({{<ref "/a/program/go/dojo.md">}}#正規表現)
+- [道場#正規表現]({{<ref "/a/program/go/dojo/_index.md">}}#正規表現)
 
 参考:
 
