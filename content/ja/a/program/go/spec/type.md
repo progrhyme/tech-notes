@@ -100,6 +100,9 @@ var ages map[string]int
 ages["carol"] = 21
 
 // OK
+ages := map[string]int{"carol": 21}
+
+// OK
 var ages map[string]int
 ages = make(map[string]int)
 ages["carol"] = 21

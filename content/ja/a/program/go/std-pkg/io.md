@@ -46,6 +46,35 @@ io.Copy(dst, src)
 
 - [\[Go言語\] ファイルをコピーする方法 - Qiita](https://qiita.com/cotrpepe/items/93e4a072c249a933e795)
 
+### func TeeReader
+
+https://golang.org/pkg/io/#TeeReader
+
+```go
+func TeeReader(r Reader, w Writer) Reader
+```
+
+rをwに書き込みつつ、同時に読み取れるReaderを提供する。  
+入力を複製したいときに使える。
+
+Example:
+
+```go
+r := strings.NewReader("some io.Reader stream to be read\n")
+var buf bytes.Buffer
+tee := io.TeeReader(r, &buf)
+
+printall := func(r io.Reader) {
+    b, _ := ioutil.ReadAll(r) // エラー処理省略
+    fmt.Printf("%s", b)
+}
+
+printall(tee)
+printall(&buf)
+```
+
+https://play.golang.org/p/p4bxk_oxr52
+
 ### type Reader (interface)
 
 https://golang.org/pkg/io/#Reader

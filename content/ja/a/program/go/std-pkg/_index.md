@@ -89,6 +89,28 @@ defer cancel()
 - 2019年3月 [context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem](https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1)
 - 2019年7月 [golang contextの使い方とか概念(contextとは)的な話 - Qiita](https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc)
 
+## crypto/sha256
+
+https://golang.org/pkg/crypto/sha256/
+
+SHA224, SHA256ハッシュアルゴリズムの実装。
+
+### func New
+
+https://golang.org/pkg/crypto/sha256/#New
+
+```go
+func New() hash.Hash
+```
+
+Example:
+
+```go
+h := sha256.New()
+h.Write([]byte("hello world\n"))
+fmt.Printf("%x", h.Sum(nil))
+```
+
 ## go/build
 
 https://golang.org/pkg/go/build/
@@ -153,6 +175,33 @@ Spec:
 参考:
 
 - [go build -tagsを使ってRelease/Debugを切り替える - flyhigh](https://shinpei.github.io/blog/2014/10/07/use-build-constrains-or-build-tag-in-golang)
+
+## hash
+
+https://golang.org/pkg/hash/
+
+データのハッシュ値を求めるためのインタフェースを提供する。
+
+利用例については、[crypto/sha256#New](#func-new)を参照。
+
+## hash/crc32
+
+https://golang.org/pkg/hash/crc32/
+
+CRC-32の実装。
+
+関連項目:
+
+- [セキュリティ > 符号化#CRC]({{<ref "/a/security/encode.md">}}#crc)
+
+### func NewIEEE
+
+https://golang.org/pkg/hash/crc32/#NewIEEE
+
+```go
+func NewIEEE() hash.Hash32
+```
+
 
 ## log
 
