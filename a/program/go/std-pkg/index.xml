@@ -323,6 +323,51 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;td>ポインタ&lt;/td>
 &lt;td>&lt;code>0x&lt;/code> プレフィックス付きの16進数でアドレスを表示&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>%b&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>2進数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%c&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>数値コードに対応するUnicode文字を表示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%d&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>10進数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%o&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>8進数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%O&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>8進数。 &lt;code>0o&lt;/code> prefix付き&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%q&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>数値コードに対応する文字をシングルクォート付きで表示。必要に応じてエスケープもされる。例: &lt;code>'\''&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%x&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>16進数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%X&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>16進数。 &lt;code>0x&lt;/code> prefix付き&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%U&lt;/td>
+&lt;td>int&lt;/td>
+&lt;td>Unicode表記。例: &lt;code>U+1234&lt;/code> 。 &lt;code>U+%04X&lt;/code> と同じ&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>参考:&lt;/p>
@@ -423,6 +468,22 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/cotrpepe/items/93e4a072c249a933e795">[Go言語] ファイルをコピーする方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="func-teereader">func TeeReader&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/io/#TeeReader">https://golang.org/pkg/io/#TeeReader&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">TeeReader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">w&lt;/span> &lt;span style="color:#000">Writer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Reader&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>rをwに書き込みつつ、同時に読み取れるReaderを提供する。&lt;br>
+入力を複製したいときに使える。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">NewReader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;some io.Reader stream to be read\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buf&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
+&lt;span style="color:#000">tee&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">TeeReader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">r&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buf&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">printall&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">func&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ioutil&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ReadAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">r&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// エラー処理省略
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">printall&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">tee&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">printall&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buf&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://play.golang.org/p/p4bxk_oxr52">https://play.golang.org/p/p4bxk_oxr52&lt;/a>&lt;/p>
 &lt;h3 id="type-reader-interface">type Reader (interface)&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/io/#Reader">https://golang.org/pkg/io/#Reader&lt;/a>&lt;/p>
 &lt;p>定義:&lt;/p>

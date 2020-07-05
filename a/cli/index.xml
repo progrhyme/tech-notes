@@ -239,13 +239,18 @@ unzip foo.zip -d bar/
 &lt;h2 id="チェックサム">チェックサム&lt;/h2>
 &lt;h3 id="cksum">cksum&lt;/h3>
 &lt;p>ファイルのCRCチェックサムを算出し、ファイルサイズとともに表示する。&lt;/p>
+&lt;p>※CRC-32 (IEEE規格)とは異なる&lt;/p>
 &lt;p>例:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ cksum foo.txt
 &lt;span style="color:#0000cf;font-weight:bold">4032292776&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">319&lt;/span> foo.txt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/security/encode/#crc">セキュリティ &amp;gt; 符号化#CRC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://linuxjm.osdn.jp/info/GNU_coreutils/coreutils-ja_36.html">GNU Coreutils: 6.3 cksum: CRC チェックサムとバイト数を表示する&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://webkaru.net/linux/cksum-command/">Linuxコマンド【 cksum 】ファイルのCRCチェックサムとサイズを表示 - Linux入門 - Webkaru&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/tobira-code/items/dbcffc41f54201130b6c">Cyclic Redundancy Check(CRC)を理解する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="md5sum">md5sum&lt;/h3>
 &lt;p>MD5ハッシュ値を算出&lt;/p>

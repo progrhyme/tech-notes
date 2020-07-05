@@ -232,7 +232,7 @@ continue for import return var
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">y&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">iota&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// y == 0
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#enum">道場#enum&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/type/#enum">道場#enum&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -267,251 +267,9 @@ continue for import return var
 &lt;li>数値型（int, floatなど）: &lt;code>0&lt;/code>&lt;/li>
 &lt;li>bool型: &lt;code>false&lt;/code>&lt;/li>
 &lt;li>string型: &amp;quot;&amp;rdquo; （空文字列）&lt;/li>
+&lt;li>スライス: &lt;code>[]&lt;/code> （空スライス）&lt;/li>
+&lt;li>構造体: &lt;code>{}&lt;/code> （空の構造体）&lt;/li>
 &lt;li>ポインタ型: &lt;code>nil&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="データ型">データ型&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Types">https://golang.org/ref/spec#Types&lt;/a>&lt;/p>
-&lt;h3 id="基本型">基本型&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int8&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int16&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int32&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int64&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">uint&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint8&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint16&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint32&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uintptr&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// uint8 の別名
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">rune&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// int32 の別名
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// Unicode のコードポイントを表す
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">float32&lt;/span> &lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">complex64&lt;/span> &lt;span style="color:#204a87;font-weight:bold">complex128&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配列スライス">配列・スライス&lt;/h3>
-&lt;p>配列は固定長。スライスは可変長。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// 配列
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#000">s1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// スライス
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">s2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 構造体のスライス
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">ss&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">bool&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}{&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">11&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">13&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// スライスの結合
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">s1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">s1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">s2&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// スライス同士の結合では &amp;#34;...&amp;#34; が必要
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&amp;ldquo;Slicing&amp;quot;というテクニックで配列をスライスに変換できる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;d&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;e&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">[:]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// aを参照するスライス
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.golang.org/go-slices-usage-and-internals" title="Go Slices: usage and internals - The Go Blog">Go Slices: usage and internals - The Go Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://dibtp.hateblo.jp/entry/2014/07/06/190804" title="Go言語のArrayとSliceについて - done is better than perfect">Go言語のArrayとSliceについて - done is better than perfect&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/hash/items/eb7d780c57fe245a9ae7" title="Goでsliceに要素追加, slice同士の結合 - Qiita">Goでsliceに要素追加, slice同士の結合 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="多次元配列スライス">多次元配列・スライス&lt;/h4>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 二次元スライスを作成
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">matrix&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[][]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">{{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 上と等価
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">matrix&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87">make&lt;/span>&lt;span style="color:#000;font-weight:bold">([][]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">matrix&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; [[0 0] [0 1] [1 0] [1 1]]
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/r9y9/items/362b4029b05cbca2cc70">Goで二次元配列の初期化を一行で行う - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="map">map&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Map_types">https://golang.org/ref/spec#Map_types&lt;/a>&lt;/p>
-&lt;p>初期値はnilで、データを入れようとするとパニックが起こるので、事前に割当てが必要。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// NG
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000">ages&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;carol&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">21&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// OK
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">make&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">ages&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;carol&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">21&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// OK
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87">make&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">ages&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;carol&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">21&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_map.html">逆引きGolang (マップ)&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="要素取得時のヒット検査">要素取得時のヒット検査&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">ages&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;bob&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// hit
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// miss
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mapのマージ">mapのマージ&lt;/h4>
-&lt;p>&lt;a href="https://ashitani.jp/golangtips/tips_map.html#map_Merge">逆引きGolang (マップ)&lt;/a>より。&lt;br>
-愚直に書く感じか。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">merge&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">m1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">m2&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">merged&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">m1&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">merged&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">v&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">m2&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">merged&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">v&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">merged&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://play.golang.org/p/OmBHp53UIxn">https://play.golang.org/p/OmBHp53UIxn&lt;/a>&lt;/p>
-&lt;h3 id="構造体">構造体&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Struct_types">https://golang.org/ref/spec#Struct_types&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Vertex&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">X&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000">Y&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">Vertex&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
-&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">X&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>
-&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// ポインタ
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Y&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1e9&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// ポインタでも . でメンバ変数にアクセスできる
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; {5 1000000000}
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="初期化">初期化&lt;/h4>
-&lt;p>構造体の初期化方法を示すサンプルコード:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 例
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000">Age&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// (1)
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">Foo&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
-&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>
-&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Age&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// (2)
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">Foo&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// 全てのフィールドの指定が必要
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// (3)
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">Foo&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">Age&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">Name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// 任意フィールドの省略が可能。順番も入れ替え可能
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>もし構造体に初期値を設定したい場合、コンストラクタ的な専用の関数を作る必要があるっぽい。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/cotrpepe/items/b8e7f70f27813a846431" title="[Go] 構造体の初期化方法まとめ - Qiita">[Go] 構造体の初期化方法まとめ - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://gitpub.hatenablog.com/entry/2015/01/24/213223" title="【Go】structにデフォルトの値を設定したい - /dev/null">【Go】structにデフォルトの値を設定したい - /dev/null&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="タグ">タグ&lt;/h4>
-&lt;p>構造体の定義内でメンバ変数に任意の文字列でタグを付けることができる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">microsec&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#4e9a06">`protobuf:&amp;#34;1&amp;#34;`&lt;/span>
-&lt;span style="color:#000">serverIP6&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint64&lt;/span> &lt;span style="color:#4e9a06">`protobuf:&amp;#34;2&amp;#34;`&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Server&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Host&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;host&amp;#34; toml:&amp;#34;host&amp;#34;`&lt;/span>
-&lt;span style="color:#000">IPAddress&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;ip_address&amp;#34; toml:&amp;#34;ip_address&amp;#34;`&lt;/span>
-&lt;span style="color:#000">Port&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;port&amp;#34; toml:&amp;#34;port&amp;#34;`&lt;/span>
-&lt;span style="color:#000">Note&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#4e9a06">`json:&amp;#34;note&amp;#34; toml:&amp;#34;note&amp;#34;`&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>ホワイトスペースで区切って複数設定できる&lt;/li>
-&lt;li>reflectで参照できるが、ライブラリから使われることが多い
-&lt;ul>
-&lt;li>バリデータ、（デ）シリアライザなど&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/itkr/items/9b4e8d8c6d574137443c">Goの構造体にメタ情報を付与するタグの基本 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://text.baldanders.info/golang/struct-tag/">Struct タグについて — プログラミング言語 Go | text.Baldanders.info&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="インタフェース">インタフェース&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Interface_types">https://golang.org/ref/spec#Interface_types&lt;/a>&lt;/p>
-&lt;p>インタフェース型はinterfaceと呼ばれるメソッドの組を持つ。&lt;br>
-インタフェース型の値は、メソッドの組と併せて任意の型の値を保持できる。
-いわばインタフェースのスーパーセットであり、インタフェースの「実装」と呼ばれる。&lt;/p>
-&lt;p>初期化されてないインタフェース型の値は &lt;code>nil&lt;/code> 。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Reader&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Read&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Writer&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>入門ガイド:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gobyexample.com/interfaces">Go by Example: Interfaces&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="埋め込み">埋め込み&lt;/h4>
-&lt;p>interfaceを別のinterfaceに埋め込むことができる。&lt;br>
-埋め込まれたinterfaceはメソッド集合のユニオンを持つinterfaceとなる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// ReadWriter&amp;#39;s methods are Read, Write, and Close.
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">ReadWriter&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Reader&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Reader in ReadWriter&amp;#39;s method set
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Writer&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Writer in ReadWriter&amp;#39;s method set
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>このとき、同名のメソッドは型が同じでないとエラーになる。&lt;/p>
-&lt;h3 id="型変換">型変換&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#204a87;font-weight:bold">float64&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">u&lt;/span> &lt;span style="color:#204a87;font-weight:bold">uint&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">uint&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// より縮めて下のように書ける
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>
-&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87">float64&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">u&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87">uint&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="型宣言">型宣言&lt;/h3>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Type_declarations">https://golang.org/ref/spec#Type_declarations&lt;/a>&lt;/p>
-&lt;p>基底型に別名をつけることができる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 組み込み型を基にする
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">MyInt&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 他 パッケージ 型を基にする
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">MyWriter&lt;/span> &lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Writer&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 型リテラルを基にする
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Person&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="型エイリアス">型エイリアス&lt;/h4>
-&lt;p>型の別名を定義できる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Applicant&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">http&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Client&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://text.baldanders.info/golang/go-1_9-and-type-alias/">Go 1.9 と Type Alias — プログラミング言語 Go | text.Baldanders.info&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ポインタ">ポインタ&lt;/h2>
-&lt;p>&lt;a href="https://golang.org/ref/spec#Pointer_types">https://golang.org/ref/spec#Pointer_types&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>*p&lt;/code> はポインタ &lt;code>p&lt;/code> の指す変数の値を表す&lt;/li>
-&lt;li>&lt;code>&amp;amp;v&lt;/code> は &lt;code>v&lt;/code> のポインタを表す&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">j&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2701&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">p1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// declare a pointer
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#000">p1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// point to i
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">p1&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// read i through the pointer
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">p1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">21&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// set i through the pointer
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// see the new value of i
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#000">p2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">j&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// point to j
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">p2&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">p2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">/&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">37&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// divide j through the pointer
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">j&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// see the new value of j
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>入門ガイド:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://gobyexample.com/pointers">Go by Example: Pointers&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>関連項目&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E5%80%A4%E6%B8%A1%E3%81%97%E3%81%A8%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E6%B8%A1%E3%81%97">道場#値渡しとポインタ渡し&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="真偽判定">真偽判定&lt;/h2>
 &lt;p>真偽判定（ifの条件式）に使えるのはbool型の値のみのようだ。&lt;br>
@@ -906,130 +664,6 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/">言語仕様&lt;/a>の内容を把握していること&lt;/li>
 &lt;/ul>
-&lt;h2 id="文字列">文字列&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#strconv">pkg (stdlib) &amp;gt; strconv&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/">pkg (stdlib) &amp;gt; strings&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>How-to:&lt;/p>
-&lt;ul>
-&lt;li>改行コードを取り除きたい -&amp;gt; &lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/#func-trimright">strings.TrimRight&lt;/a>を使う&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_string.html">逆引きGolang (文字列)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/ono_matope/items/d5e70d8a9ff2b54d5c37">Goの文字列結合のパフォーマンス - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="string---数値変換">string -&amp;gt; 数値変換&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">s&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;123&amp;#34;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// やり方①
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">strconv&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Atoi&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// -&amp;gt; 123
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// やり方②
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">e&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fscan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">NewReader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>どっちが速いかは比べてない。&lt;/p>
-&lt;p>strconv.Atoiだと、sの末尾に改行文字が入ってるとエラーになった。&lt;br>
-fmt.Fscanlnだったら大丈夫だった。&lt;/p>
-&lt;h3 id="string---byte変換">string &amp;lt;-&amp;gt; []byte変換&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// string -&amp;gt; []byte
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foobar&amp;#34;&lt;/span>
-&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// []byte -&amp;gt; string
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87">string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、 &lt;code>string -&amp;gt; []byte&lt;/code> では、メモリコピーが走るそうだ&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/ikawaha/items/3c3994559dfeffb9f8c9">golang で string を []byte にキャストするとメモリコピーが走ります - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/mattn/items/176459728ff4f854b165">golang で string を []byte にキャストしてもメモリコピーが走らない方法を考えてみる - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/8032170/how-to-assign-string-to-bytes-array">go - How to assign string to bytes array - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ascii文字---byte変換">ASCII文字 &amp;lt;-&amp;gt; byte変換&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ABC&amp;#34;&lt;/span>
-&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; 65
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87">string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">82&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; &amp;#34;R&amp;#34;
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配列スライス">配列・スライス&lt;/h2>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/egnr-in-6matroom/items/282aa2fd117aab9469bd">go言語のslice操作をまとめてみた（shiftしたりpushしたり） - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://i-beam.org/2019/12/09/go-slice-tricks/">図解 Go Slice Tricks - Folioscope&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="スライスのpushpopunshift">スライスのpush/pop/(un)shift&lt;/h3>
-&lt;p>基本操作的な:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// push
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// pop
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[:&lt;/span>&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// unshift
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// shift
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="unshiftについて">unshiftについて&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">:]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#000">追加要素&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>↑こういう書き方もあるが、何をやっているか。&lt;/p>
-&lt;p>これはGoの多値代入を使って、2回の代入を1行で書いている。&lt;br>
-具体例とともに分解して示すと、下のようになっている:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#000">slice&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span> &lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">:]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; [1, 1, 2, 3]
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">//slice = append(slice[:1], slice...) でも良い
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#000">slice&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">x&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; [-1, 1, 2, 3]
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="もっとスライスを操作">もっとスライスを操作&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 単一要素の削除
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">[:&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 単一要素の挿入
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">[:&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">],&lt;/span> &lt;span style="color:#204a87">append&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">},&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">:]&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="入出力">入出力&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#bufio">pkg (stdlib) &amp;gt; bufio&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/">pkg (stdlib) &amp;gt; fmt&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#io">pkg (stdlib) &amp;gt; io&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="標準入力">標準入力&lt;/h3>
-&lt;p>メモ:&lt;/p>
-&lt;ul>
-&lt;li>さくっと使うなら &lt;code>fmt.Scan&lt;/code> 系が便利&lt;/li>
-&lt;li>大量に読み込む必要があるときは &lt;code>bufio.Scanner&lt;/code> を使う&lt;/li>
-&lt;/ul>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/#func-scan">pkg (stdlib) &amp;gt; fmt#Scan&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://scrapbox.io/tsuchinaga/%E3%80%90Golang%E3%80%91fmt.Scan%E3%81%A8bufio.Scanner%E3%81%AE%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BC%83">【Golang】fmt.Scanとbufio.Scannerの速度比較 - tsuchinaga&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/tnoda_/items/b503a72eac82862d30c6">Go 言語で標準入力から読み込む競技プログラミングのアレ &amp;mdash; 改訂第二版 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="ttyにつながっているか判定する">TTYにつながっているか判定する&lt;/h4>
-&lt;p>CLIで、インタラクティブかどうかによって処理を変えたいことがある。&lt;br>
-そんなときは&lt;a href="https://pkg.go.dev/golang.org/x/crypto/ssh/terminal">golang.org/x/crypto/ssh/terminal&lt;/a>を使う。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;golang.org/x/crypto/ssh/terminal&amp;#34;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">terminal&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">IsTerminal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 標準入力はTTY
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 標準入力はTTYでない
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tanksuzuki/items/e712717675faf4efb07a">Golangで標準入力がパイプで渡されたものか判定する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/#tty">CLI#TTY&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>入門ガイド:&lt;/p>
 &lt;ul>
@@ -1067,66 +701,6 @@ fmt.Fscanlnだったら大丈夫だった。&lt;/p>
 &lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">テスト&lt;/a>&lt;/p>
-&lt;h2 id="ポインタ">ポインタ&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF">言語仕様#ポインタ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20190516095124.htm">Big Sky :: Go のポインタの躓きやすい点&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="引数">引数&lt;/h3>
-&lt;p>メモ:&lt;/p>
-&lt;ul>
-&lt;li>基本、よほどデータが大きくならない限りは値渡しでよさそう&lt;/li>
-&lt;li>オブジェクトの中身を書き換えるような処理だと、ポインタ渡しじゃないと駄目。そりゃそうか&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/ruiu/items/e60aa707e16f8f6dccd8" title="Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita">Goでxxxのポインタを取っているプログラムはだいたい全部間違っている - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://medium.com/finatext/go%E8%A8%80%E8%AA%9E-golang-%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E5%80%A4%E6%B8%A1%E3%81%97%E3%81%A8%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E6%B8%A1%E3%81%97%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E5%BD%B1%E9%9F%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6-70aa3605adc5">Go言語（golang）における値渡しとポインタ渡しのパフォーマンス影響について - Finatext - Medium&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="戻り値">戻り値&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://medium.com/eureka-engineering/named-return-values-7f485d867df0">名前付き戻り値との正しい付き合い方 - Eureka Engineering - Medium&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="enum">enum&lt;/h2>
-&lt;p>Goにはenumがない。&lt;br>
-intの独自型を定義するのがイディオムになっている。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
-&lt;span style="color:#000">Apple&lt;/span> &lt;span style="color:#000">Fruit&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">iota&lt;/span>
-&lt;span style="color:#000">Orange&lt;/span>
-&lt;span style="color:#000">Banana&lt;/span>
-&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">myFruit&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>この独自型に対して &lt;code>String()&lt;/code> メソッドを実装しておくと、名前が引けて便利:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000">Fruit&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Apple&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Apple&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Orange&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Orange&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#000">Banana&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Banana&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Unknown&amp;#34;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>golang.org/x/tools/cmd/stringer&lt;/code> で &lt;code>String()&lt;/code> メソッドを含むコードを自動生成することもできる。&lt;/p>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#iota">言語仕様#iota&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://qiita.com/awakia/items/c81c7816b9aea5422250" title="GoのEnumイディオム - Qiita">GoのEnumイディオム - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20141208093852.htm" title="Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話">Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://arslan.io/2015/10/08/ten-useful-techniques-in-go/" title="Ten Useful Techniques in Go – Fatih Arslan">Ten Useful Techniques in Go – Fatih Arslan&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="コマンドライン引数">コマンドライン引数&lt;/h2>
 &lt;p>入門サンプル:&lt;/p>
 &lt;ul>
@@ -1149,32 +723,13 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/os/">pkg (stdlib) &amp;gt; os&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/io/">pkg (stdlib) &amp;gt; io&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/io/#ioioutil">pkg (stdlib) &amp;gt; io/ioutil&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/path/#pathfilepath">pkg (stdlib) &amp;gt; path/filepath&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_file.html">逆引きGolang (ファイル)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/qt-luigi/items/2c13ad68e7d9f8f8c0f2">Goでテキストファイルを読み書きする時に使う標準パッケージ - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go">How to read/write from/to file using Go? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="ファイルを開いて書込み">ファイルを開いて書込み&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">writeBytesToFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#000;font-weight:bold">[]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">path&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">flag&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">perm&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">FileMode&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">OpenFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">flag&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">perm&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">file&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fatal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// ファイルがなければ新規作成。あれば既存の内容を消して上書き
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">writeBytesToFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">O_WRONLY&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">O_CREATE&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">O_TRUNC&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0666&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// ファイルがなければ新規作成。あれば内容を追記する
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">writeBytesToFile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">path&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">O_WRONLY&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">O_CREATE&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">O_APPEND&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0666&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ディレクトリ操作">ディレクトリ操作&lt;/h3>
+&lt;h3 id="ディレクトリ操作">ディレクトリ操作&lt;/h3>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_dir.html">逆引きGolang (ディレクトリ)&lt;/a>&lt;/li>
@@ -1252,103 +807,7 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;li>&lt;a href="https://go.dev/about">https://go.dev/about&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://proxy.golang.org/">https://proxy.golang.org/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="構造体の使い方">構造体の使い方&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E6%A7%8B%E9%80%A0%E4%BD%93">言語仕様#構造体&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.monochromegane.com/blog/2014/03/23/struct-implementaion-patterns-in-golang/">Go言語での構造体実装パターン · THINKING MEGANE&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="埋め込み">埋め込み&lt;/h3>
-&lt;p>struct Aをstruct Bに埋め込むと、Bから直接Aのメンバー変数やメソッドにアクセスできる。&lt;br>
-OOPの継承のようなことができる。&lt;/p>
-&lt;p>※処理をAに委譲しているだけなので、厳密には継承とは異なる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">A&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">Name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000">Age&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">B&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">A&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// ポインタの場合は *A にして &amp;amp;A{} を渡す
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#000">B&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Print&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 埋め込みで A の Name と Age が使える
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87">println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;name:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;, age:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// 以下でも同じ
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87">println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;name:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">A&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;, age:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">A&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">B&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#000">A&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Tanaka&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">31&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
-&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Print&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// name: Tanaka, age: 31
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://golang.hateblo.jp/entry/golang-how-to-use-struct">Go言語(golang) 構造体の定義と使い方 - golangの日記&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="無名struct">無名struct&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">anonymous&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000">age&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Taro YAMADA&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">24&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="インタフェースの使い方">インタフェースの使い方&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9">言語仕様#インタフェース&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#type-assertions">言語仕様#Type-assertions&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tenntenn/items/eac962a49c56b2b15ee8">インタフェースの実装パターン #golang - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/romukey/items/e49e28b7dcf645ac91c7">【Golang】Golangのinterfaceで知っておくとお得なTips - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ダックタイピング">ダックタイピング&lt;/h3>
-&lt;p>&lt;a href="https://play.golang.org/p/aja9eLk-4-n">https://play.golang.org/p/aja9eLk-4-n&lt;/a> に動作例を書いた。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">walker&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">human&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">dog&lt;/span> &lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">human&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I am %s, walking now.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">h&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">dog&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Bow wow! (%s is walking)&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">watch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">w&lt;/span> &lt;span style="color:#000">walker&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">w&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">walk&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">human&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Ken&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">dog&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hachi&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000">watch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">h&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">watch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="type-switches">Type switches&lt;/h3>
-&lt;p>型アサーションをswitch文と組合せて、値の型によって処理を分岐できる。&lt;br>
-例外処理などでも便利そう。&lt;/p>
-&lt;p>入門ガイド:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://tour.golang.org/methods/16">Type switches - A Tour of Go&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">switch&lt;/span> &lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Twice %v is %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%q is %v bytes long\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;I don&amp;#39;t know about type %T!\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="オブジェクト指向プログラミング">オブジェクト指向プログラミング&lt;/h2>
+&lt;h2 id="オブジェクト指向プログラミング">オブジェクト指向プログラミング&lt;/h2>
 &lt;p>Golangは型の継承をサポートしていないが、構造体とインタフェースを使いこなすと、オブジェクト指向プログラミングを実現ことができる。&lt;/p>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
@@ -1466,7 +925,7 @@ OOPの継承のようなことができる。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/encoding/#encodingjson">pkg (stdlib) &amp;gt; encoding/json&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/3rd-pkg/#go-yamlyaml">pkg (3rd) &amp;gt; go-yaml/yaml&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/type/#%E3%82%BF%E3%82%B0">言語仕様#構造体-タグ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -1534,7 +993,17 @@ a b c d
 &lt;li>2019年3月 &lt;a href="https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1">context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem&lt;/a>&lt;/li>
 &lt;li>2019年7月 &lt;a href="https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc">golang contextの使い方とか概念(contextとは)的な話 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="gobuild">go/build&lt;/h2>
+&lt;h2 id="cryptosha256">crypto/sha256&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/crypto/sha256/">https://golang.org/pkg/crypto/sha256/&lt;/a>&lt;/p>
+&lt;p>SHA224, SHA256ハッシュアルゴリズムの実装。&lt;/p>
+&lt;h3 id="func-new">func New&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/crypto/sha256/#New">https://golang.org/pkg/crypto/sha256/#New&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000">hash&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Hash&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">h&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">sha256&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">h&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hello world\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%x&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">h&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Sum&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="gobuild">go/build&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
 &lt;p>Goパッケージの情報を集める。&lt;/p>
 &lt;h3 id="build-constraints">Build Constraints&lt;/h3>
@@ -1574,7 +1043,21 @@ go build -tags darwin,cgo &lt;span style="color:#8f5902;font-style:italic"># マ
 &lt;ul>
 &lt;li>&lt;a href="https://shinpei.github.io/blog/2014/10/07/use-build-constrains-or-build-tag-in-golang">go build -tagsを使ってRelease/Debugを切り替える - flyhigh&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="log">log&lt;/h2>
+&lt;h2 id="hash">hash&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/hash/">https://golang.org/pkg/hash/&lt;/a>&lt;/p>
+&lt;p>データのハッシュ値を求めるためのインタフェースを提供する。&lt;/p>
+&lt;p>利用例については、&lt;a href="#func-new">crypto/sha256#New&lt;/a>を参照。&lt;/p>
+&lt;h2 id="hashcrc32">hash/crc32&lt;/h2>
+&lt;p>&lt;a href="https://golang.org/pkg/hash/crc32/">https://golang.org/pkg/hash/crc32/&lt;/a>&lt;/p>
+&lt;p>CRC-32の実装。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/security/encode/#crc">セキュリティ &amp;gt; 符号化#CRC&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-newieee">func NewIEEE&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/pkg/hash/crc32/#NewIEEE">https://golang.org/pkg/hash/crc32/#NewIEEE&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">NewIEEE&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000">hash&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Hash32&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log">log&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/log/">https://golang.org/pkg/log/&lt;/a>&lt;/p>
 &lt;p>ロガー。ログレベルの概念はない。&lt;/p>
 &lt;p>&lt;code>log.Print&lt;/code> など、標準のロガーを使うやり方と、 &lt;code>log.New(...)&lt;/code> で &lt;code>Logger&lt;/code> を作って使うやり方がある。&lt;/p>
