@@ -33,6 +33,19 @@ https://www.embulk.org/docs/built-in.html#using-variables
 - 環境変数の利用。例: `{{ env.ENV_KEY }}`
 - include
 
+### フォーマット
+
+```YAML
+in: # Input plugin
+  paraser: # Parser plugin
+  decoder: # Decoder plugin
+out: # Output plugin
+  formatter: # Formatter plugin
+  encoder: # Encoder plugin
+filters: # Filter plugin
+exec: # Executor plugin
+```
+
 ## CLI
 
 ```sh
@@ -48,6 +61,10 @@ embulk preview [OPTIONS] config.yml[.liquid]
  `-l, --log-level LEVEL` | trace,debug,info,warn,error | ログレベル
 
 ## Plugins
+
+- [Built-In Plugins](https://www.embulk.org/docs/built-in.html)
+- https://plugins.embulk.org/ ... embulk orgが提供しているものもあるが、コアに含まれていないものはこちら
+
 ### Input
 
 一覧: https://plugins.embulk.org/#input
@@ -59,6 +76,12 @@ embulk preview [OPTIONS] config.yml[.liquid]
 一覧: https://plugins.embulk.org/#output
 
 - [embulk-output-bigquery](https://github.com/embulk/embulk-output-bigquery)
+
+### Formatter
+
+一覧（コアにないもの）: https://plugins.embulk.org/#file-formatter
+
+- [CSV formatter](https://www.embulk.org/docs/built-in.html#csv-formatter-plugin)
 
 ## Pitfalls
 

@@ -44,9 +44,12 @@ date +%s.%N  # ナノ秒まで取得
 date +%s.%3N # ミリ秒まで取得
 
 # 日時指定/相対
+## GNU系
 date -d tomorrow # 明日
 date -d '1 hour' # 1時間後
 date -d '1 days ago' # 昨日
+## macOS
+date -v -1d # 昨日
 
 # 日時指定/絶対
 ## GNU系
@@ -74,6 +77,7 @@ NOTE:
 - macOS:
   - [date(1) \[osx man page\]](https://www.unix.com/man-page/osx/1/date/)
 - [unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita](https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc)
+- [Macのdateコマンドで前日の日付を取得する - Qiita](https://qiita.com/___uhu/items/3c2312359da542cda163)
 
 ## アーカイブ
 ### zip/unzip

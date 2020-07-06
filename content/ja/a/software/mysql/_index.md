@@ -110,6 +110,24 @@ CHANGE MASTER TO MASTER_DELAY = N; -- Nは正の整数
 
 - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション](https://dev.mysql.com/doc/refman/5.6/ja/replication-delayed.html "MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション")
 
+### タイムゾーンの設定
+
+SQLで変更する場合:
+
+```sql
+-- SUPER権限があれば、サーバグローバルの設定を変えることができる
+-- 稼働中のシステムで実行する場合は最大の注意が必要
+SET GLOBAL time_zone = <timezone>;
+
+-- クライアントはセッションごとにタイムゾーン設定を変更できる
+SET time_zone = <timezone>;
+```
+
+参考:
+
+- [MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.6 MySQL Server でのタイムゾーンのサポート](https://dev.mysql.com/doc/refman/5.6/ja/time-zone-support.html)
+- 下のトピックの方
+
 ## Topics
 ### 接続のタイムアウトに関する設定
 
@@ -140,6 +158,15 @@ See https://dev.mysql.com/doc/refman/5.6/ja/mysql-options.html
 - MYSQL_OPT_RECONNECT ... 接続が切れたと判断したら再接続
 
 PerlやRubyのクライアントではよく `connect_timeout`, `read_timeout` といった接続時のオプションになっている。
+
+### タイムゾーン
+
+- TIMESTAMPはUNIX TIMESTAMP値を保持しており、タイムゾーンによって日時が変わる
+- DATETIMEはタイムゾーンも含めて値を保持している
+
+参考:
+
+- [MySQLのタイムゾーン - @tmtms のメモ](https://tmtms.hatenablog.com/entry/2015/08/22/mysql-timezone)
 
 ## Cookbooks
 

@@ -58,3 +58,40 @@ data:
 ```Bash
 kubectl apply -f ./secret.yaml
 ```
+
+## Secretの参照
+
+ワークロードからSecretを参照したい場合、次のやり方を取ることができる:
+
+- 環境変数として直接Secretを参照する
+- ボリュームとしてマウントし、ファイルを参照する
+
+Example:
+
+```YAML
+apiVersion: v1
+kind: Pod
+metadata:
+  name: run
+spec:
+  containers:
+  - name: run-container
+    image: debian
+    env:
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: db-credentials # Secret名
+          key: password # Secretに含まれるキー名
+    volumeMounts:
+    - name: secret
+      mountPath: "/app/.credentials"
+  volumes:
+  - name: secret
+    secret:
+      secretName: app-credentials
+```
+
+参考:
+
+- [Kubernetes Secret - Qiita](https://qiita.com/propella/items/e6a6fd1f77a6e4417fda)
