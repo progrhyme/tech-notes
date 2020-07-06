@@ -3337,7 +3337,16 @@ cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作�
 &lt;li>環境変数の利用。例: &lt;code>{{ env.ENV_KEY }}&lt;/code>&lt;/li>
 &lt;li>include&lt;/li>
 &lt;/ul>
-&lt;h2 id="cli">CLI&lt;/h2>
+&lt;h3 id="フォーマット">フォーマット&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">in&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Input plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paraser&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Parser plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">decoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Decoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">out&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Output plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Formatter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">encoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Encoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">filters&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Filter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Executor plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="cli">CLI&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
 embulk run &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># プレビュー&lt;/span>
@@ -3359,6 +3368,10 @@ embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION
 &lt;/tbody>
 &lt;/table>
 &lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html">Built-In Plugins&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://plugins.embulk.org/">https://plugins.embulk.org/&lt;/a> &amp;hellip; embulk orgが提供しているものもあるが、コアに含まれていないものはこちら&lt;/li>
+&lt;/ul>
 &lt;h3 id="input">Input&lt;/h3>
 &lt;p>一覧: &lt;a href="https://plugins.embulk.org/#input">https://plugins.embulk.org/#input&lt;/a>&lt;/p>
 &lt;ul>
@@ -3368,6 +3381,11 @@ embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION
 &lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/embulk/embulk-output-bigquery">embulk-output-bigquery&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="formatter">Formatter&lt;/h3>
+&lt;p>一覧（コアにないもの）: &lt;a href="https://plugins.embulk.org/#file-formatter">https://plugins.embulk.org/#file-formatter&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html#csv-formatter-plugin">CSV formatter&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pitfalls">Pitfalls&lt;/h2>
 &lt;p>全体的にエラーがわかりづらいと思う。&lt;/p>

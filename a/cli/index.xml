@@ -194,9 +194,12 @@ date +%s &lt;span style="color:#8f5902;font-style:italic"># unixtime&lt;/span>
 date +%s.%N &lt;span style="color:#8f5902;font-style:italic"># ナノ秒まで取得&lt;/span>
 date +%s.%3N &lt;span style="color:#8f5902;font-style:italic"># ミリ秒まで取得&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 日時指定/相対&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## GNU系&lt;/span>
 date -d tomorrow &lt;span style="color:#8f5902;font-style:italic"># 明日&lt;/span>
 date -d &lt;span style="color:#4e9a06">&amp;#39;1 hour&amp;#39;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 1時間後&lt;/span>
 date -d &lt;span style="color:#4e9a06">&amp;#39;1 days ago&amp;#39;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 昨日&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## macOS&lt;/span>
+date -v -1d &lt;span style="color:#8f5902;font-style:italic"># 昨日&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 日時指定/絶対&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## GNU系&lt;/span>
 date -d @1530675922 &lt;span style="color:#8f5902;font-style:italic"># unixtime&lt;/span>
@@ -223,6 +226,7 @@ date +%s -r FILE
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc">unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/___uhu/items/3c2312359da542cda163">Macのdateコマンドで前日の日付を取得する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="アーカイブ">アーカイブ&lt;/h2>
 &lt;h3 id="zipunzip">zip/unzip&lt;/h3>

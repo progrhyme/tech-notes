@@ -93,7 +93,16 @@ reg tags &amp;lt;repo&amp;gt;
 &lt;li>環境変数の利用。例: &lt;code>{{ env.ENV_KEY }}&lt;/code>&lt;/li>
 &lt;li>include&lt;/li>
 &lt;/ul>
-&lt;h2 id="cli">CLI&lt;/h2>
+&lt;h3 id="フォーマット">フォーマット&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">in&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Input plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paraser&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Parser plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">decoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Decoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">out&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Output plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Formatter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">encoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Encoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">filters&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Filter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Executor plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="cli">CLI&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
 embulk run &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># プレビュー&lt;/span>
@@ -115,6 +124,10 @@ embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION
 &lt;/tbody>
 &lt;/table>
 &lt;h2 id="plugins">Plugins&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html">Built-In Plugins&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://plugins.embulk.org/">https://plugins.embulk.org/&lt;/a> &amp;hellip; embulk orgが提供しているものもあるが、コアに含まれていないものはこちら&lt;/li>
+&lt;/ul>
 &lt;h3 id="input">Input&lt;/h3>
 &lt;p>一覧: &lt;a href="https://plugins.embulk.org/#input">https://plugins.embulk.org/#input&lt;/a>&lt;/p>
 &lt;ul>
@@ -124,6 +137,11 @@ embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION
 &lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/embulk/embulk-output-bigquery">embulk-output-bigquery&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="formatter">Formatter&lt;/h3>
+&lt;p>一覧（コアにないもの）: &lt;a href="https://plugins.embulk.org/#file-formatter">https://plugins.embulk.org/#file-formatter&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html#csv-formatter-plugin">CSV formatter&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pitfalls">Pitfalls&lt;/h2>
 &lt;p>全体的にエラーがわかりづらいと思う。&lt;/p>
@@ -811,6 +829,18 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-delayed.html" title="MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション">MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="タイムゾーンの設定">タイムゾーンの設定&lt;/h3>
+&lt;p>SQLで変更する場合:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- SUPER権限があれば、サーバグローバルの設定を変えることができる
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- 稼働中のシステムで実行する場合は最大の注意が必要
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SET&lt;/span> &lt;span style="color:#204a87;font-weight:bold">GLOBAL&lt;/span> &lt;span style="color:#000">time_zone&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timezone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">-- クライアントはセッションごとにタイムゾーン設定を変更できる
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SET&lt;/span> &lt;span style="color:#000">time_zone&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timezone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/time-zone-support.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.6 MySQL Server でのタイムゾーンのサポート&lt;/a>&lt;/li>
+&lt;li>下のトピックの方&lt;/li>
+&lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="接続のタイムアウトに関する設定">接続のタイムアウトに関する設定&lt;/h3>
 &lt;p>色々パラメータがあって混乱しがちなのでまとめたい。&lt;/p>
@@ -840,6 +870,15 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>MYSQL_OPT_RECONNECT &amp;hellip; 接続が切れたと判断したら再接続&lt;/li>
 &lt;/ul>
 &lt;p>PerlやRubyのクライアントではよく &lt;code>connect_timeout&lt;/code>, &lt;code>read_timeout&lt;/code> といった接続時のオプションになっている。&lt;/p>
+&lt;h3 id="タイムゾーン">タイムゾーン&lt;/h3>
+&lt;ul>
+&lt;li>TIMESTAMPはUNIX TIMESTAMP値を保持しており、タイムゾーンによって日時が変わる&lt;/li>
+&lt;li>DATETIMEはタイムゾーンも含めて値を保持している&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tmtms.hatenablog.com/entry/2015/08/22/mysql-timezone">MySQLのタイムゾーン - @tmtms のメモ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="cookbooks">Cookbooks&lt;/h2>
 &lt;p>TODO: 標準SQLについて別ページにまとめ、ここには差分だけ記す。&lt;/p>
 &lt;h3 id="create-table">CREATE TABLE&lt;/h3>
