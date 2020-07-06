@@ -74,7 +74,11 @@
 &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">range&lt;/span> &lt;span style="color:#000">ages&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%s is %d years old.\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">age&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>mapの要素数は &lt;code>len(mapVal)&lt;/code> でわかる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_map.html">逆引きGolang (マップ)&lt;/a>&lt;/li>
 &lt;/ul>
@@ -188,6 +192,40 @@
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">Writer&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// includes methods of Writer in ReadWriter&amp;#39;s method set
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>このとき、同名のメソッドは型が同じでないとエラーになる。&lt;/p>
+&lt;h3 id="type-assertions">Type assertions&lt;/h3>
+&lt;p>&lt;a href="#%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9">インタフェース型&lt;/a>の値 &lt;code>x&lt;/code> と型 &lt;code>T&lt;/code> があるとき、&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>は、 &lt;code>x&lt;/code> が &lt;code>nil&lt;/code> でなく、型 &lt;code>T&lt;/code> であることをアサートする。&lt;br>
+この形式を「type assertion」という。&lt;/p>
+&lt;p>上のtype assertionが成り立つとき:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>T&lt;/code> がインタフェース型でないなら、 &lt;code>x&lt;/code> の型は &lt;code>T&lt;/code> に等しい&lt;/li>
+&lt;li>&lt;code>T&lt;/code> がインタフェース型なら、 &lt;code>x&lt;/code> は &lt;code>T&lt;/code> を実装している&lt;/li>
+&lt;li>式の値は &lt;code>T&lt;/code> 型になる&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">7&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// x has dynamic type int and value 7
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// i has type int and value 7
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">I&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">y&lt;/span> &lt;span style="color:#000">I&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">y&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// illegal: string does not implement I (missing method m)
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">y&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// r has type io.Reader and the dynamic type of y must implement both I and io.Reader
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#a40000">…&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>type assertionが失敗するとrun-time panicが起こる。&lt;br>
+が、panicを発生させない代入のやり方がある。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">v&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ok&lt;/span> &lt;span style="color:#000">T1&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">.(&lt;/span>&lt;span style="color:#000">T&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>この構文で、 &lt;code>ok&lt;/code> はtype assertionの成功時に &lt;code>true&lt;/code> となる。&lt;br>
+失敗時には &lt;code>false&lt;/code> となり、 &lt;code>v&lt;/code> は &lt;code>T&lt;/code> 型のゼロ値となる。&lt;/p>
+&lt;p>入門ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tour.golang.org/methods/15">Type assertions - A Tour of Go&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="型変換">型変換&lt;/h2>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">42&lt;/span>
