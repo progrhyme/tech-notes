@@ -18,7 +18,7 @@ weight: 100
 非公式で、flagの高機能版:
 
 - [jessevdk/go-flags](https://github.com/jessevdk/go-flags)
-- [spf13/pflag]({{<ref "/a/program/go/3rd-pkg.md">}}#spf13pflag)
+- [spf13/pflag]({{<ref "/a/program/go/3rd-pkg/_index.md">}}#spf13pflag)
 
 ## SYNOPSIS
 

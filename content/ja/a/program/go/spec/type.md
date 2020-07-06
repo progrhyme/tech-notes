@@ -116,6 +116,10 @@ for name, age := range ages {
 }
 ```
 
+Tips:
+
+- mapの要素数は `len(mapVal)` でわかる
+
 参考:
 
 - [逆引きGolang (マップ)](https://ashitani.jp/golangtips/tips_map.html)
@@ -275,6 +279,57 @@ type ReadWriter interface {
 ```
 
 このとき、同名のメソッドは型が同じでないとエラーになる。
+
+### Type assertions
+
+[インタフェース型](#インタフェース)の値 `x` と型 `T` があるとき、
+
+```go
+x.(T)
+```
+
+は、 `x` が `nil` でなく、型 `T` であることをアサートする。  
+この形式を「type assertion」という。
+
+上のtype assertionが成り立つとき:
+
+- `T` がインタフェース型でないなら、 `x` の型は `T` に等しい
+- `T` がインタフェース型なら、 `x` は `T` を実装している
+- 式の値は `T` 型になる
+
+Examples:
+
+```go
+var x interface{} = 7          // x has dynamic type int and value 7
+i := x.(int)                   // i has type int and value 7
+
+type I interface { m() }
+
+func f(y I) {
+	s := y.(string)        // illegal: string does not implement I (missing method m)
+	r := y.(io.Reader)     // r has type io.Reader and the dynamic type of y must implement both I and io.Reader
+	…
+}
+```
+
+type assertionが失敗するとrun-time panicが起こる。  
+が、panicを発生させない代入のやり方がある。
+
+Examples:
+
+```go
+v, ok = x.(T)
+v, ok := x.(T)
+var v, ok = x.(T)
+var v, ok T1 = x.(T)
+```
+
+この構文で、 `ok` はtype assertionの成功時に `true` となる。  
+失敗時には `false` となり、 `v` は `T` 型のゼロ値となる。
+
+入門ガイド:
+
+- [Type assertions - A Tour of Go](https://tour.golang.org/methods/15)
 
 ## 型変換
 

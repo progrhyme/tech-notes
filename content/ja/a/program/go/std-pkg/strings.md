@@ -58,6 +58,28 @@ fmt.Printf("%q\n", strings.Split(" xyz ", ""))
 //=> [" " "x" "y" "z" " "]
 ```
 
+### func Title
+
+https://golang.org/pkg/strings/#Title
+
+```go
+func Title(s string) string
+```
+
+先頭の文字を大文字にする。
+
+### func ToLower
+
+https://golang.org/pkg/strings/#ToLower
+
+```go
+func ToLower(s string) string
+```
+
+sを小文字に変換。  
+大文字にするには `ToUpper()` か `ToTitle()` で。  
+ToTitle()とTitle()が紛らわしい感じなので、自分ではToTitle()を使おうとは思わない。
+
 ### func TrimRight
 
 https://pkg.go.dev/strings?tab=doc#TrimRight
