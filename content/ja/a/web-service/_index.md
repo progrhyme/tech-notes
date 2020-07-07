@@ -6,3 +6,12 @@ simple_list: true
 weight: 400
 ---
 
+## ソフトウェア開発
+### ステータスバッジ
+
+GitHubのリポジトリで見られる、バージョンとかCIの状態とかカバレッジとか出してるアレを生成してくれるサービスがある。
+
+- https://badgen.net/
+- https://shields.io/ ... GitHubなどプロジェクトのURLを入力するとバッジをサジェストしてくれる機能があって便利
+
+## Child Pages

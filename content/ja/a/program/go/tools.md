@@ -37,13 +37,20 @@ NOTE:
 Examples:
 
 ```sh
-godoc
+godoc -goroot $HOME/go [OPTIONS]
 GOROOT=$HOME/go godoc -analysis type
+# ヘルプ
+godoc -help
 ```
+
+ Option | 説明
+--------|------
+ -http=ADDR | サーバアドレスを指定する。デフォルトは `localhost:6060`
+ -index | 検索を有効にする
 
 NOTE:
 
-- 2020-06-14現在、 `GOROOT` を指定しないとエラーになった。 `-goroot` オプションでもよさそ
+- 2020-07-08現在、 `GOROOT` 環境変数 or `-goroot` オプションがないとエラーになる
 
 ## cmd/goimports
 
