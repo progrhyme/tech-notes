@@ -123,26 +123,6 @@ embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="plugins">Plugins&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html">Built-In Plugins&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://plugins.embulk.org/">https://plugins.embulk.org/&lt;/a> &amp;hellip; embulk orgが提供しているものもあるが、コアに含まれていないものはこちら&lt;/li>
-&lt;/ul>
-&lt;h3 id="input">Input&lt;/h3>
-&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#input">https://plugins.embulk.org/#input&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-mysql">embulk-input-mysql&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="output">Output&lt;/h3>
-&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/embulk/embulk-output-bigquery">embulk-output-bigquery&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="formatter">Formatter&lt;/h3>
-&lt;p>一覧（コアにないもの）: &lt;a href="https://plugins.embulk.org/#file-formatter">https://plugins.embulk.org/#file-formatter&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html#csv-formatter-plugin">CSV formatter&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="pitfalls">Pitfalls&lt;/h2>
 &lt;p>全体的にエラーがわかりづらいと思う。&lt;/p>
 &lt;p>参考:&lt;/p>

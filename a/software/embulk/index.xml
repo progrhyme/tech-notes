@@ -1,0 +1,139 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Embulk</title><link>https://progrhy.me/tech-notes/a/software/embulk/</link><description>Recent content in Embulk on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jul 2020 20:19:41 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/embulk/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Plugins</title><link>https://progrhy.me/tech-notes/a/software/embulk/plugin/</link><pubDate>Wed, 08 Jul 2020 00:00:25 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/embulk/plugin/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.embulk.org/docs/built-in.html">Built-In Plugins&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://plugins.embulk.org/">https://plugins.embulk.org/&lt;/a> &amp;hellip; embulk org公式提供のものもあるが、コアに含まれていないものはこちら&lt;/li>
+&lt;/ul>
+&lt;h2 id="input-plugins">Input Plugins&lt;/h2>
+&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#input">https://plugins.embulk.org/#input&lt;/a>&lt;/p>
+&lt;h3 id="mysql">MySQL&lt;/h3>
+&lt;p>&lt;a href="https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-mysql">https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-mysql&lt;/a>&lt;/p>
+&lt;p>公式プラグイン。&lt;/p>
+&lt;p>Config（一部）:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>key&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>column_options&lt;/td>
+&lt;td>See below&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="column_options">column_options&lt;/h4>
+&lt;p>MySQLの各カラムに対する変換方法を指定することができる。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>key&lt;/th>
+&lt;th>value&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>type&lt;/td>
+&lt;td>例: &lt;code>string, boolean, timestamp&lt;/code>&lt;/td>
+&lt;td>embulk内で処理するときにこの型として扱われる。デフォルトは自動変換。自動変換で都合が悪いときは指定が必要になる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>timestamp_format&lt;/td>
+&lt;td>例: &lt;code>%Y-%m-%d %H:%M:%S&lt;/code>&lt;/td>
+&lt;td>MySQLでDATE, TIME, DATETIME型で、かつ、embulk内で &lt;code>string&lt;/code> 型として処理される場合にこの書式が使われる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>timezone&lt;/td>
+&lt;td>例: &lt;code>&amp;quot;+0900&amp;quot;&lt;/code>&lt;/td>
+&lt;td>MySQLでDATE, TIME, DATETIME型で、かつ、embulk内で &lt;code>string&lt;/code> 型として処理される場合に有効になり、このタイムゾーンの値としてフォーマットされる&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="output-plugins">Output Plugins&lt;/h2>
+&lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
+&lt;h3 id="bigquery">BigQuery&lt;/h3>
+&lt;p>&lt;a href="https://github.com/embulk/embulk-output-bigquery">https://github.com/embulk/embulk-output-bigquery&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.slideshare.net/oreradio/embulk-plugin-gcs-bigquery">EmbulkのGCS/BigQuery周りのプラグインについて&lt;/a> &amp;hellip; 2015年作者による発表資料&lt;/li>
+&lt;/ul>
+&lt;h4 id="bqの4gb制限への対応">BQの4GB制限への対応&lt;/h4>
+&lt;p>2015年4月からイシューが積まれている &lt;a href="https://github.com/embulk/embulk-output-bigquery/issues/6">https://github.com/embulk/embulk-output-bigquery/issues/6&lt;/a>&lt;/p>
+&lt;p>ワークアラウンド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="#local">Local Executor&lt;/a>のオプションによってファイル分割数を上げる&lt;/li>
+&lt;li>非圧縮オプションを使う。これで5TBまで行ける&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas?hl=ja#load_jobs">割り当てと上限 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/e8507c892f9e923cf5f3">embulk-output-bigqueryプラグインでBQの4GB制限に引っ掛かる場合の対処方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="file-formatter-plugins">File Formatter Plugins&lt;/h2>
+&lt;p>一覧（コアにないもの）: &lt;a href="https://plugins.embulk.org/#file-formatter">https://plugins.embulk.org/#file-formatter&lt;/a>&lt;/p>
+&lt;h3 id="csv">CSV&lt;/h3>
+&lt;p>&lt;a href="https://www.embulk.org/docs/built-in.html#csv-formatter-plugin">https://www.embulk.org/docs/built-in.html#csv-formatter-plugin&lt;/a>&lt;/p>
+&lt;p>built-in plugin.&lt;/p>
+&lt;p>Options（一部）&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>name&lt;/th>
+&lt;th>type&lt;/th>
+&lt;th>default&lt;/th>
+&lt;th>desription&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>newline_in_field&lt;/td>
+&lt;td>enum&lt;/td>
+&lt;td>&lt;code>LF&lt;/code>&lt;/td>
+&lt;td>改行を含む値の中の改行コード&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="executor-plugins">Executor Plugins&lt;/h2>
+&lt;p>一覧（コアにないもの）: &lt;a href="https://plugins.embulk.org/#executor">https://plugins.embulk.org/#executor&lt;/a>&lt;/p>
+&lt;h3 id="local">Local&lt;/h3>
+&lt;p>&lt;a href="https://www.embulk.org/docs/built-in.html#local-executor-plugin">https://www.embulk.org/docs/built-in.html#local-executor-plugin&lt;/a>&lt;/p>
+&lt;p>ローカルのスレッドを使ってタスクを実行する。唯一のビルトインExecutor Plugin.&lt;/p>
+&lt;p>Options:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>name&lt;/th>
+&lt;th>type&lt;/th>
+&lt;th>default&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>max_threads&lt;/td>
+&lt;td>integer&lt;/td>
+&lt;td>2x CPUコア数&lt;/td>
+&lt;td>最大並行スレッド数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>min_output_tasks&lt;/td>
+&lt;td>integer&lt;/td>
+&lt;td>1x CPUコア数&lt;/td>
+&lt;td>ページ分割を伴う最小の出力タスク数&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">max_threads&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># run at most 8 tasks concurrently&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">min_output_tasks&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># disable page scattering&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">in&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">out&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">type&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>...&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
