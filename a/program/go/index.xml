@@ -1295,11 +1295,31 @@ go build -tags darwin,cgo &lt;span style="color:#8f5902;font-style:italic"># マ
 &lt;/ul>
 &lt;h3 id="usage">Usage&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">godoc
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">godoc -goroot &lt;span style="color:#000">$HOME&lt;/span>/go &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#000">GOROOT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>/go godoc -analysis &lt;span style="color:#204a87">type&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;span style="color:#8f5902;font-style:italic"># ヘルプ&lt;/span>
+godoc -help
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-http=ADDR&lt;/td>
+&lt;td>サーバアドレスを指定する。デフォルトは &lt;code>localhost:6060&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-index&lt;/td>
+&lt;td>検索を有効にする&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>NOTE:&lt;/p>
 &lt;ul>
-&lt;li>2020-06-14現在、 &lt;code>GOROOT&lt;/code> を指定しないとエラーになった。 &lt;code>-goroot&lt;/code> オプションでもよさそ&lt;/li>
+&lt;li>2020-07-08現在、 &lt;code>GOROOT&lt;/code> 環境変数 or &lt;code>-goroot&lt;/code> オプションがないとエラーになる&lt;/li>
 &lt;/ul>
 &lt;h2 id="cmdgoimports">cmd/goimports&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/golang.org/x/tools/cmd/goimports">https://pkg.go.dev/golang.org/x/tools/cmd/goimports&lt;/a>&lt;/p>
