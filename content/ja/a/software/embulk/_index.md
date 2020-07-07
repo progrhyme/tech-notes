@@ -60,29 +60,6 @@ embulk preview [OPTIONS] config.yml[.liquid]
 --------|----|-----
  `-l, --log-level LEVEL` | trace,debug,info,warn,error | ログレベル
 
-## Plugins
-
-- [Built-In Plugins](https://www.embulk.org/docs/built-in.html)
-- https://plugins.embulk.org/ ... embulk orgが提供しているものもあるが、コアに含まれていないものはこちら
-
-### Input
-
-一覧: https://plugins.embulk.org/#input
-
-- [embulk-input-mysql](https://github.com/embulk/embulk-input-jdbc/tree/master/embulk-input-mysql)
-
-### Output
-
-一覧: https://plugins.embulk.org/#output
-
-- [embulk-output-bigquery](https://github.com/embulk/embulk-output-bigquery)
-
-### Formatter
-
-一覧（コアにないもの）: https://plugins.embulk.org/#file-formatter
-
-- [CSV formatter](https://www.embulk.org/docs/built-in.html#csv-formatter-plugin)
-
 ## Pitfalls
 
 全体的にエラーがわかりづらいと思う。
