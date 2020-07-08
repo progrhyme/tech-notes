@@ -24,7 +24,25 @@ Config（一部）:
 
  key | description
 -----|-------------
+ select | SELECT句に渡すカラムリストをカンマ区切り文字列で渡す。デフォルトは `*`
+ options | JDBCに渡す追加オプション。詳細は後掲
  column_options | See below
+
+HINTS:
+
+- 特定のカラムを対象から外したいときは `select` で指定すればよい。 `column_options` にはそういうオプションはなさそう
+
+#### options
+
+JDBCに渡す追加オプション。
+
+ key | default | description
+-----|---------|-------------
+ tinyInt1isBit | true | デフォルトだと `TINYINT(1)` はBOOL値とみなされるが、falseにするとちゃんとMySQLに入っているバイト値を読んでくれる
+
+参考:
+
+- [Problem with MySQL TINYINT(1) type · Issue #53 · embulk/embulk-input-jdbc](https://github.com/embulk/embulk-input-jdbc/issues/53)
 
 #### column_options
 
@@ -61,6 +79,17 @@ https://github.com/embulk/embulk-output-bigquery
 
 - [割り当てと上限 | BigQuery | Google Cloud](https://cloud.google.com/bigquery/quotas?hl=ja#load_jobs)
 - [embulk-output-bigqueryプラグインでBQの4GB制限に引っ掛かる場合の対処方法 - Qiita](https://qiita.com/progrhyme/items/e8507c892f9e923cf5f3)
+
+#### OutputPlugin 'bigquery' is not found
+
+たまに起こるエラー。連続でジョブを動かしていると起こりやすいような気がする。  
+GitHubでembulk本体にイシューが上がっている:
+
+- [Sometimes failed to run(can not copy embedded jar to temp directory) · Issue #1148 · embulk/embulk](https://github.com/embulk/embulk/issues/1148)
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">EmbulkでBigQueryにExportしてると、体感7回に1回ぐらいこれが出るな。<a href="https://t.co/mozaRkl6vx">https://t.co/mozaRkl6vx</a></p>&mdash; progrhyme (@progrhyme) <a href="https://twitter.com/progrhyme/status/1280795278040170497?ref_src=twsrc%5Etfw">July 8, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+とりあえずリトライすればなんとかなる。
 
 ## File Formatter Plugins
 

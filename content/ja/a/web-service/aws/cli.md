@@ -3,6 +3,7 @@ title: "AWS CLI"
 linkTitle: "CLI"
 description: https://aws.amazon.com/jp/cli/
 date: 2020-06-03T13:41:48+09:00
+weight: 100
 ---
 
 ## About
