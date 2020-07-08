@@ -75,4 +75,195 @@ aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:
 &lt;li>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: ECS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/ecs/</link><pubDate>Wed, 08 Jul 2020 23:08:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/ecs/</guid><description>
+&lt;p>EC2インスタンスをホストとしてDockerコンテナを容易にクラスタリング・サービス化する。タスクランナーとしても使える。&lt;/p>
+&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;ul>
+&lt;li>ドキュメント: &lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/Welcome.html">http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/Welcome.html&lt;/a>&lt;/li>
+&lt;li>最新AMI: &lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs-optimized_AMI.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task_life_cycle.html">タスクのライフサイクル - Amazon EC2 Container Service&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_cwe_events.html" title="Amazon ECS イベント - Amazon Elastic Container Service">Amazon ECS イベント - Amazon Elastic Container Service&lt;/a>
+&lt;ul>
+&lt;li>コンテナインスタンスやタスクの状態変更イベント&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="タスク定義">タスク定義&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task_definitions.html">https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task_definitions.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="タスク定義パラメーター">タスク定義パラメーター&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task_definition_parameters.html">タスク定義パラメーター - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>以下のようなものがある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>volumesFrom&lt;/code> &amp;hellip; &lt;code>docker run&lt;/code> の &lt;code>--volumes-from&lt;/code> オプションに相当。&lt;/li>
+&lt;/ul>
+&lt;h3 id="サービス">サービス&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/service-load-balancing.html#load-balancing-concepts" title="サービスロードバランシング - Amazon Elastic Container Service">サービスロードバランシング - Amazon Elastic Container Service&lt;/a>
+&lt;ul>
+&lt;li>1つのサービスに紐付けられるLBは1つだけ。複数ポートをサーブしたい場合は、サービスを分ける必要がある。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task-placement-strategies.html" title="Amazon ECS タスク配置戦略 - Amazon Elastic Container Service">Amazon ECS タスク配置戦略 - Amazon Elastic Container Service&lt;/a>
+&lt;ul>
+&lt;li>タスクをどう配置するか。AZ間で分散する、利用インスタンス数を最小にするなど選べる。&lt;/li>
+&lt;li>ECSサービスでは作成時に選択する。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>ECSをタスクランナーとして使うときも、サービスを作っておくとタスク定義をテンプレート的に使い回せるので便利&lt;/li>
+&lt;li>「Run more like this」で環境変数など上書きしたタスクを実行することが可能&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="動的ポートを使ってalbからロードバランス">動的ポートを使ってALBからロードバランス&lt;/h3>
+&lt;p>&lt;code>docker run&lt;/code> の &lt;code>-P&lt;/code> オプションに相当するポートマッピング方式で、ホスト側の任意のエフェメラルポートにコンテナのポートがマッピングされる。&lt;/p>
+&lt;p>これによってALBからロードバランスすることができる。&lt;/p>
+&lt;p>これを使うとECSホストとなるインスタンスが1台しかいなくても、コンテナをローリング更新できる。&lt;/p>
+&lt;p>固定ポート方式だと、ホスト側のポートが被るので新しいコンテナをデプロイできない。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/cloud/ecs-elb-recipes/" title="Amazon ECSのELB構成パターンまとめ(ALB対応) ｜ Developers.IO">Amazon ECSのELB構成パターンまとめ(ALB対応) ｜ Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/taishin/items/eb759a8ec0c583fc5ebd" title="Dockerコンテナの作成からECSの動的ポート＋ALBでロードバランスするまで【cloudpack大阪ブログ】 - Qiita">Dockerコンテナの作成からECSの動的ポート＋ALBでロードバランスするまで【cloudpack大阪ブログ】 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="service-auto-scaling">Service Auto Scaling&lt;/h3>
+&lt;p>コンテナの数を機械的にスケールさせたい場合、クラスタインスタンスのAuto Scalingとは別にService Auto Scalingを設定する必要がある。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/service-auto-scaling.html" title="サービスの Auto Scaling - Amazon Elastic Container Service">サービスの Auto Scaling - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/automatic-scaling-with-amazon-ecs/">Amazon ECSでAuto Scaling | Amazon Web Services ブログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://christina04.hatenablog.com/entry/2017/10/19/190000">ECSのオートスケール戦略 - Carpe Diem&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="cloudwatch-logs連携">CloudWatch Logs連携&lt;/h3>
+&lt;p>Logging Driverとしてawslogsを使うことでCloudWatch Logsにログ収集できる。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/using_cloudwatch_logs.html" title="コンテナインスタンスでの CloudWatch Logs の使用 - Amazon Elastic Container Service">コンテナインスタンスでの CloudWatch Logs の使用 - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="cloudwatch-event">CloudWatch Event&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_cwe_events.html" title="Amazon ECS イベント - Amazon Elastic Container Service">Amazon ECS イベント - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>以下のようなイベントをCloudWatch Eventでトリガにすることができる:&lt;/p>
+&lt;ul>
+&lt;li>コンテナの状態変化&lt;/li>
+&lt;li>タスクの状態変化&lt;/li>
+&lt;li>:&lt;/li>
+&lt;/ul>
+&lt;h2 id="ノウハウ">ノウハウ&lt;/h2>
+&lt;h3 id="タスクの異常終了を監視する">タスクの異常終了を監視する&lt;/h3>
+&lt;p>上述のCloudWatch EventでLambdaを呼び出し、Lambda側で &lt;code>lastStatus&lt;/code> や &lt;code>exitCode&lt;/code> を判別すれば良い。&lt;/p>
+&lt;p>TODO: コードサンプルを書く。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/monitor-cluster-state-with-amazon-ecs-event-stream/" title="Amazon ECSイベントストリームで、クラスタの状態を監視 | Amazon Web Services ブログ">Amazon ECSイベントストリームで、クラスタの状態を監視 | Amazon Web Services ブログ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="デバッグ出力の有効化">デバッグ出力の有効化&lt;/h3>
+&lt;p>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/docker-debug-mode.html">http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/docker-debug-mode.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ sudo vi /etc/sysconfig/docker
+&lt;span style="color:#8f5902;font-style:italic">## OPTIONSに下のように&amp;#34;-D&amp;#34;を足す。&lt;/span>
+&lt;span style="color:#000">OPTIONS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-D --default-ulimit nofile=1024:4096&amp;#34;&lt;/span>
+$ sudo service docker restart
+$ sudo start ecs
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ebs-dockerボリュームの変更">EBS Dockerボリュームの変更&lt;/h3>
+&lt;p>デフォルト22Gなのだが、ワークロードが高い場合、Burst Balanceを使い切る可能性がある。&lt;br>
+ボリュームを拡張しておくことでキャパシティを上げることができるが、変えたい場合はEC2作成時やLaunch Configurationで変える必要がある。&lt;/p>
+&lt;p>デバイス名 &lt;code>/dev/xvdcz&lt;/code> のボリュームを変えれば良い。&lt;/p>
+&lt;p>Terraformの場合、 &lt;a href="https://www.terraform.io/docs/providers/aws/r/launch_configuration.html">aws_launch_configuration&lt;/a> resourceの &lt;code>ebs_block_device&lt;/code> ブロックで設定する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Terraform" data-lang="Terraform">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_launch_configuration&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my_ecs_launch_config&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">ebs_block_device&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#c4a000">device_name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;/dev/xvdcz&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000">volume_type&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;gp2&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000">volume_size&lt;/span> = &lt;span style="color:#0000cf;font-weight:bold">50&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" title="Amazon EBS ボリュームの種類 - Amazon Elastic Compute Cloud">Amazon EBS ボリュームの種類 - Amazon Elastic Compute Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ecsログコレクター">ECSログコレクター&lt;/h3>
+&lt;p>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs-logs-collector.html">http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs-logs-collector.html&lt;/a>&lt;/p>
+&lt;p>このスクリプトでインスタンスのログを集めて、診断に役立つようにAWSサポートと共有できるそうだ。&lt;/p>
+&lt;h3 id="タスクイメージのクリーンアップ設定">タスク・イメージのクリーンアップ設定&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/cloud/ecs-auto-cleanup/">Amazon ECSでタスク/イメージの自動クリーンアップが有効になりました ｜ Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="iam設定">IAM設定&lt;/h3>
+&lt;p>Terraformとかで構築してると、IAM設定がよくわからなくて気が狂いそうになる。&lt;br>
+1回動くと満足するが、次やるときにはやり方を忘れている。&lt;/p>
+&lt;ul>
+&lt;li>ECSサービスに設定するIAMロール
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/service_IAM_role.html">Amazon ECS サービススケジューラ IAM ロール - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;li>2019年1月現在は、指定しなくても勝手にAWSがマネージドなIAMロールを設定してくれるはず。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ECSタスク実行IAMロール
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS タスク実行 IAM ロール - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;li>AssumeRoleで &lt;code>Service: ecs-tasks.amazonaws.com&lt;/code> を許可する&lt;/li>
+&lt;li>IAMポリシーはマネージドなのがあるので、それをロールにアタッチすればよい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="クラスタ更新">クラスタ更新&lt;/h3>
+&lt;p>やり方:&lt;/p>
+&lt;ul>
+&lt;li>Terraform&lt;/li>
+&lt;li>&lt;a href="https://github.com/silinternational/ecs-deploy/blob/develop/ecs-deploy">ecs-deploy&lt;/a>
+&lt;ul>
+&lt;li>AWS CLIとjqを使ってシェルスクリプトで実装された便利ツール&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://kakakakakku.hatenablog.com/entry/2017/04/27/105327">CircleCI + ecs-deploy で ECS にデプロイをする - kakakakakku blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="プライベートレジストリを使う">プライベートレジストリを使う&lt;/h3>
+&lt;p>See &lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/private-auth.html" title="プライベートレジストリの認証 - Amazon Elastic Container Service">プライベートレジストリの認証 - Amazon Elastic Container Service&lt;/a>&lt;/p>
+&lt;h3 id="インスタンスをクラスタから外す">インスタンスをクラスタから外す&lt;/h3>
+&lt;p>一時的に外したい場合。&lt;/p>
+&lt;ul>
+&lt;li>AutoScaling Groupからデタッチ
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/autoscaling/latest/userguide/detach-instance-asg.html">https://docs.aws.amazon.com/ja_jp/autoscaling/latest/userguide/detach-instance-asg.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ECSクラスタからインスタンスを外す
+&lt;ul>
+&lt;li>Drainingに変えれば良いと思う&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="インスタンスを減らす">インスタンスを減らす&lt;/h3>
+&lt;p>↑の操作は安全だが、台数を減らすのは難しい。&lt;br>
+というのはAutoScaling Groupでインスタンスの設定数を減らすことになるのだが、このときどのインスタンスが落とされるかを制御できないからだ。&lt;/p>
+&lt;p>このときはAutoScaling Groupのライフサイクルフックを設定するのが王道のようだ。&lt;/p>
+&lt;p>または、落とされたくないインスタンスを保護するという手もある。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/45020323/ecs-asg-scaling-down-policy-recommendations/45036485#45036485">amazon web services - ECS ASG scaling down policy recommendations - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/how-to-automate-container-instance-draining-in-amazon-ecs/" title="Amazon ECS におけるコンテナ インスタンス ドレイニングの自動化方法 | Amazon Web Services ブログ">Amazon ECS におけるコンテナ インスタンス ドレイニングの自動化方法 | Amazon Web Services ブログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/lifecycle-hooks.html" title="Amazon EC2 Auto Scaling ライフサイクルフック - Amazon EC2 Auto Scaling (日本語)">Amazon EC2 Auto Scaling ライフサイクルフック - Amazon EC2 Auto Scaling (日本語)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コンテナ間でのデータボリュームの共有">コンテナ間でのデータボリュームの共有&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://hatappi.hateblo.jp/entry/2017/05/12/175933">ECSでコンテナインスタンス間でデータボリュームを同期したい時 - hatappi.blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/naomichi-y/items/d933867127f27524686a">ECS運用のノウハウ - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

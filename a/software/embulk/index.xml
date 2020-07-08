@@ -19,11 +19,45 @@
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
+&lt;td>select&lt;/td>
+&lt;td>SELECT句に渡すカラムリストをカンマ区切り文字列で渡す。デフォルトは &lt;code>*&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>options&lt;/td>
+&lt;td>JDBCに渡す追加オプション。詳細は後掲&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>column_options&lt;/td>
 &lt;td>See below&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>HINTS:&lt;/p>
+&lt;ul>
+&lt;li>特定のカラムを対象から外したいときは &lt;code>select&lt;/code> で指定すればよい。 &lt;code>column_options&lt;/code> にはそういうオプションはなさそう&lt;/li>
+&lt;/ul>
+&lt;h4 id="options">options&lt;/h4>
+&lt;p>JDBCに渡す追加オプション。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>key&lt;/th>
+&lt;th>default&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>tinyInt1isBit&lt;/td>
+&lt;td>true&lt;/td>
+&lt;td>デフォルトだと &lt;code>TINYINT(1)&lt;/code> はBOOL値とみなされるが、falseにするとちゃんとMySQLに入っているバイト値を読んでくれる&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/embulk/embulk-input-jdbc/issues/53">Problem with MySQL TINYINT(1) type · Issue #53 · embulk/embulk-input-jdbc&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h4 id="column_options">column_options&lt;/h4>
 &lt;p>MySQLの各カラムに対する変換方法を指定することができる。&lt;/p>
 &lt;table>
@@ -72,6 +106,14 @@
 &lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas?hl=ja#load_jobs">割り当てと上限 | BigQuery | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/progrhyme/items/e8507c892f9e923cf5f3">embulk-output-bigqueryプラグインでBQの4GB制限に引っ掛かる場合の対処方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="outputplugin-bigquery-is-not-found">OutputPlugin &amp;lsquo;bigquery&amp;rsquo; is not found&lt;/h4>
+&lt;p>たまに起こるエラー。連続でジョブを動かしていると起こりやすいような気がする。&lt;br>
+GitHubでembulk本体にイシューが上がっている:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/embulk/embulk/issues/1148">Sometimes failed to run(can not copy embedded jar to temp directory) · Issue #1148 · embulk/embulk&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">EmbulkでBigQueryにExportしてると、体感7回に1回ぐらいこれが出るな。&lt;a href="https://t.co/mozaRkl6vx">https://t.co/mozaRkl6vx&lt;/a>&lt;/p>&amp;mdash; progrhyme (@progrhyme) &lt;a href="https://twitter.com/progrhyme/status/1280795278040170497?ref_src=twsrc%5Etfw">July 8, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;p>とりあえずリトライすればなんとかなる。&lt;/p>
 &lt;h2 id="file-formatter-plugins">File Formatter Plugins&lt;/h2>
 &lt;p>一覧（コアにないもの）: &lt;a href="https://plugins.embulk.org/#file-formatter">https://plugins.embulk.org/#file-formatter&lt;/a>&lt;/p>
 &lt;h3 id="csv">CSV&lt;/h3>
