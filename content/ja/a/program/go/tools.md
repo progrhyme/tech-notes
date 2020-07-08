@@ -90,9 +90,15 @@ gorename -from '"github.com/progrhyme/shelp/internal/cli".installCmd.name' -to o
  -d | rewriteせずにdiffを表示
  -v | 冗長ログ表示
 
+NOTE:
+
+- exportされた名前を対象にすると、 GOPATH 下の全パッケージがスキャンされ、非常に時間がかかることがある
+  - 解決するためのラッパースクリプトを書いた。↓のQiita記事参照
+
 参考:
 
 - [Big Sky :: golang のリファクタリングには gofmt ではなく、gorename を使おう。](https://mattn.kaoriya.net/software/lang/go/20150113141338.htm)
+- [gorenameでexportした変数名でも短時間でリネームするためのシェルスクリプトを書いた - Qiita](https://qiita.com/progrhyme/items/526a2861b5b06a879dc8)
 
 ## cmd/present
 

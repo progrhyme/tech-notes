@@ -11,6 +11,31 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 - [言語仕様]({{<ref "../spec/_index.md">}})の内容を把握していること
 
+## コーディング規約
+
+公式ガイド:
+
+- [Effective Go - The Go Programming Language](https://golang.org/doc/effective_go.html)
+- [CodeReviewComments · golang/go Wiki](https://github.com/golang/go/wiki/CodeReviewComments) ... Goらしい書き方を学べる
+  - 邦訳: [Go Codereview Comments](https://knsh14.github.io/translations/go-codereview-comments/)
+
+### Mixed Caps
+
+- https://golang.org/doc/effective_go.html#mixed-caps
+- https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps
+
+複数の単語から成る名前には以下のような命名を行う:
+
+- `mixedCaps` ... unexported
+- `MixedCaps` ... exported
+
+定数でも同じ。  
+`os.O_CREATE` とかは他言語由来の一部の例外。
+
+参考:
+
+- [constants - Go naming conventions for const - Stack Overflow](https://stackoverflow.com/questions/22688906/go-naming-conventions-for-const)
+
 ## 例外処理
 
 入門ガイド:
