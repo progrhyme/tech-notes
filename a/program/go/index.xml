@@ -630,6 +630,32 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/">言語仕様&lt;/a>の内容を把握していること&lt;/li>
 &lt;/ul>
+&lt;h2 id="コーディング規約">コーディング規約&lt;/h2>
+&lt;p>公式ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html">Effective Go - The Go Programming Language&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments · golang/go Wiki&lt;/a> &amp;hellip; Goらしい書き方を学べる
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://knsh14.github.io/translations/go-codereview-comments/">Go Codereview Comments&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="mixed-caps">Mixed Caps&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html#mixed-caps">https://golang.org/doc/effective_go.html#mixed-caps&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps">https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>複数の単語から成る名前には以下のような命名を行う:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>mixedCaps&lt;/code> &amp;hellip; unexported&lt;/li>
+&lt;li>&lt;code>MixedCaps&lt;/code> &amp;hellip; exported&lt;/li>
+&lt;/ul>
+&lt;p>定数でも同じ。&lt;br>
+&lt;code>os.O_CREATE&lt;/code> とかは他言語由来の一部の例外。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/22688906/go-naming-conventions-for-const">constants - Go naming conventions for const - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>入門ガイド:&lt;/p>
 &lt;ul>
@@ -1357,9 +1383,18 @@ godoc -help
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>exportされた名前を対象にすると、 GOPATH 下の全パッケージがスキャンされ、非常に時間がかかることがある
+&lt;ul>
+&lt;li>解決するためのラッパースクリプトを書いた。↓のQiita記事参照&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20150113141338.htm">Big Sky :: golang のリファクタリングには gofmt ではなく、gorename を使おう。&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/526a2861b5b06a879dc8">gorenameでexportした変数名でも短時間でリネームするためのシェルスクリプトを書いた - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="cmdpresent">cmd/present&lt;/h2>
 &lt;p>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/present">https://godoc.org/golang.org/x/tools/cmd/present&lt;/a>&lt;/p>
