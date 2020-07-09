@@ -859,6 +859,8 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;span style="color:#8f5902;font-style:italic">// コマンドの出力を標準（エラー）出力に設定
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stdout&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stdout&lt;/span>
 &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// cmd.Stdin = os.Stdin // 標準入力も設定可能
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// コマンド実行
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmd&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Run&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// コマンド実行し、stdoutを取得

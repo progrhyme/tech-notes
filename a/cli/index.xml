@@ -142,7 +142,46 @@ command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> sci
 &lt;p>&lt;a href="https://github.com/jaagr/dots">https://github.com/jaagr/dots&lt;/a>&lt;/p>
 &lt;p>&lt;code>alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'&lt;/code> これだけでやってる。&lt;br>
 &lt;code>git&lt;/code> コマンドしか使わない。&lt;br>
-賢い。&lt;/p></description></item><item><title>A: jq</title><link>https://progrhy.me/tech-notes/a/cli/jq/</link><pubDate>Thu, 07 May 2020 11:44:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/jq/</guid><description>
+賢い。&lt;/p></description></item><item><title>A: hub</title><link>https://progrhy.me/tech-notes/a/cli/hub/</link><pubDate>Fri, 10 Jul 2020 06:38:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/hub/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>OSSのGitHub公式CLI. Go製。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/github/hub">https://github.com/github/hub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>gitコマンドの薄いラッパーとしての性質と、GitHub APIクライアントの性質を持つ。&lt;/p>
+&lt;p>ドキュメンテーション:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hub.github.com/hub.1.html">hub(1) - make git easier with GitHub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># clone your own project&lt;/span>
+hub clone dotfiles
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; git clone git://github.com/YOUR_USER/dotfiles.git&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># clone another project&lt;/span>
+hub clone github/hub
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; git clone git://github.com/github/hub.git&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># fast-forward all local branches to match the latest state on the remote&lt;/span>
+&lt;span style="color:#204a87">cd&lt;/span> myproject
+hub sync
+&lt;span style="color:#8f5902;font-style:italic"># list latest open issues in the current repository&lt;/span>
+hub issue --limit &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># open the current project&amp;#39;s issues page&lt;/span>
+hub browse -- issues
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; open https://github.com/github/hub/issues&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># open another project&amp;#39;s wiki&lt;/span>
+hub browse rbenv/ruby-build wiki
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; open https://github.com/rbenv/ruby-build/wiki&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># share log output via Gist&lt;/span>
+hub gist create --copy build.log
+&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; (the URL of the new private gist copied to clipboard)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="api">api&lt;/h3>
+&lt;p>&lt;a href="https://hub.github.com/hub-api.1.html">https://hub.github.com/hub-api.1.html&lt;/a>&lt;/p>
+&lt;p>ローレベルなAPIコール。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 最新リリースを取得&lt;/span>
+hub api repos/:owner/:repo/releases/latest
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: jq</title><link>https://progrhy.me/tech-notes/a/cli/jq/</link><pubDate>Thu, 07 May 2020 11:44:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/jq/</guid><description>
 &lt;p>JSONにクエリしてフィルタできるCLIツール。&lt;/p>
 &lt;h2 id="documents">Documents&lt;/h2>
 &lt;ul>
