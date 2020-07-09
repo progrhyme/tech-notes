@@ -2177,6 +2177,22 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;h3 id="quotas">Quotas&lt;/h3>
+&lt;p>ストリーミング挿入:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Item&lt;/th>
+&lt;th>Quota&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>行の最大サイズ&lt;/td>
+&lt;td>1MB&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="concept">Concept&lt;/h2>
 &lt;ul>
 &lt;li>データセット &amp;hellip; プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
