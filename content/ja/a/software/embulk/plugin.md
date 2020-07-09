@@ -89,7 +89,14 @@ GitHubでembulk本体にイシューが上がっている:
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">EmbulkでBigQueryにExportしてると、体感7回に1回ぐらいこれが出るな。<a href="https://t.co/mozaRkl6vx">https://t.co/mozaRkl6vx</a></p>&mdash; progrhyme (@progrhyme) <a href="https://twitter.com/progrhyme/status/1280795278040170497?ref_src=twsrc%5Etfw">July 8, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-とりあえずリトライすればなんとかなる。
+ワークアラウンド:
+
+- イシューの下の方にあるように、 `GEM_HOME` 環境変数の設定と `gem jruby-openssl` のインストールで回避できる
+- リトライで成功することもあるけど、↑の方が確実
+
+中の人によれば、近々bigquery pluginはJavaに書き換えられるとか。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">そんなに急いでないので、後日お手隙の際に詳しいことを教えていただけると助かります。(同様の人に改善例があるとお伝えするので)、なお今日の勉強会で発表がありましたが、近々embulk-output-bigqueryはJavaに書き直されてその問題はなくなると思います。(近日がいつかは別として) <a href="https://twitter.com/hashtag/embulk?src=hash&amp;ref_src=twsrc%5Etfw">#embulk</a></p>&mdash; Hiroyuki Sato (@hiroysato) <a href="https://twitter.com/hiroysato/status/1281128725317181441?ref_src=twsrc%5Etfw">July 9, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## File Formatter Plugins
 

@@ -18,6 +18,14 @@ https://cloud.google.com/bigquery/pricing
   - アクティブストレージ ... 2020-04-22現在、GCSのStandard Storageより若干安い
   - 長期保存 ... テーブルに90日編集がなければ↑から50%値引きされる。2020-04-22現在、GCSのNealineと同額
 
+### Quotas
+
+ストリーミング挿入:
+
+ Item | Quota
+------|-------
+ 行の最大サイズ | 1MB
+
 ## Concept
 
 - データセット ... プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
