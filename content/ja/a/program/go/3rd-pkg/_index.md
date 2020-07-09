@@ -123,6 +123,63 @@ https://pkg.go.dev/github.com/google/go-cmp/cmp
 
 - [構造体などをテストするのに便利なgoogle/go-cmpの使い方 - Qiita](https://qiita.com/hgsgtk/items/bd78bada902c91745fa5)
 
+## google/go-github
+
+- https://github.com/google/go-github
+- https://pkg.go.dev/github.com/google/go-github/v32/github
+
+GitHub APIクライアントライブラリ。
+
+Examples:
+
+```go
+client := github.NewClient(nil)
+
+// list all organizations for user "willnorris"
+orgs, _, err := client.Organizations.List(ctx, "willnorris", nil)
+```
+
+### アクセストークンによる認証
+
+golang.org/x/oauth2を使うのが簡単。
+
+```go
+import "golang.org/x/oauth2"
+
+ctx := context.Background()
+ts := oauth2.StaticTokenSource(
+	&oauth2.Token{AccessToken: "... your access token ..."},
+)
+tc := oauth2.NewClient(ctx, ts)
+
+client := github.NewClient(tc)
+
+// list all repositories for the authenticated user
+repos, _, err := client.Repositories.List(ctx, "", nil)
+```
+
+### type RepositoriesService
+
+https://pkg.go.dev/github.com/google/go-github/v32/github?tab=doc#RepositoriesService
+
+#### func GetLatestRelease
+
+https://pkg.go.dev/github.com/google/go-github/v32/github?tab=doc#RepositoriesService.GetLatestRelease
+
+```go
+func (s *RepositoriesService) GetLatestRelease(ctx context.Context, owner, repo string) (*RepositoryRelease, *Response, error)
+```
+
+GitHub上の最新リリースを取得。
+
+Example:
+
+```go
+release, res, err := client.Repositories.GetLatestRelease(ctx, owner, repo)
+```
+
+APIリファレンス: https://developer.github.com/v3/repos/releases/#get-the-latest-release
+
 ## gookit/color
 
 - https://github.com/gookit/color

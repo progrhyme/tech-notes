@@ -284,6 +284,7 @@ cmd := exec.Command("sh", "-c", "echo stdout; echo 1>&2 stderr")
 // コマンドの出力を標準（エラー）出力に設定
 cmd.Stdout = os.Stdout
 cmd.Stderr = os.Stderr
+// cmd.Stdin = os.Stdin // 標準入力も設定可能
 
 // コマンド実行
 err := cmd.Run()
