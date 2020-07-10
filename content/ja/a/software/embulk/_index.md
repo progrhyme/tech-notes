@@ -60,7 +60,10 @@ embulk preview [OPTIONS] config.yml[.liquid]
 --------|----|-----
  `-l, --log-level LEVEL` | trace,debug,info,warn,error | ログレベル
 
-## Pitfalls
+## Troubles
+
+遭遇したエラーなどについて書く。  
+個別のプラグインの問題は[Plugins]({{<ref "plugin.md">}})に記す。
 
 全体的にエラーがわかりづらいと思う。
 
@@ -85,3 +88,18 @@ JsonMappingException: Setting null to a task field is not allowed. Use Optional<
 - exportしているか
 
 などを確認するとよさそう。
+
+### A Buffer detected double release() calls
+
+2020年7月、MySQL -> BigQueryへのETL操作をAWS ECS Fargate上で実行しているときに、50GB以上の大きなテーブルで起こった。
+
+- ログ: https://gist.github.com/progrhyme/a0455ba29e3c590daacdb187d3f8282b
+
+今のところ、ECS Taskのストレージ不足なのでは、という気がしている。  
+Fargateのエフェメラルストレージは20GB程度しかないようなので。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ありがとうございます。Errno::ENOSPCって出ているから、中間データを書き込むためのディスク容量が足りないってことはないですか？</p>&mdash; Hiroyuki Sato (@hiroysato) <a href="https://twitter.com/hiroysato/status/1281580625602834438?ref_src=twsrc%5Etfw">July 10, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+参考:
+
+- [Fargate タスクストレージ - Amazon Elastic Container Service](https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/fargate-task-storage.html)

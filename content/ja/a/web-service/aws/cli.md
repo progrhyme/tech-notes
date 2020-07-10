@@ -70,7 +70,7 @@ $ date +%s -d "2017-12-20 09:10:00"
 1513728600
 $ aws logs get-log-events \
   --log-group-name <your-log-group> --log-stream-name <your-log-stream> \
-  --start-time 1513727400000 --end-time 1513728600000
+  --start-time 1513727400000 --end-time 1513728600000 [--output text]
 ```
 
 ### sns

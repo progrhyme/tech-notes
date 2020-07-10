@@ -62,9 +62,32 @@ MySQLの各カラムに対する変換方法を指定することができる。
 
 https://github.com/embulk/embulk-output-bigquery
 
+Configuration（一部）:
+
+ Property | Type | required? | Default | Description
+----------|------|-----------|---------|-------------
+ mode | string | optional | "append" | 追記、入れ替えなどいくつかのモードがある
+ project | string | 基本的にY | | GCP PROJECT_ID
+ dataset | string | Y | | BQ dataset
+ table | string | Y | | BQ table
+ schema_file | string | optional | | path/to/schema.json
+ source_format | string | Y | "CSV" | 他には "NEWLINE_DELIMITED_JSON"
+ compression | string | optional | "NONE" | ローカルファイルを圧縮するかどうか（"GZIP" or "NONE"）
+
 参考:
 
 - [EmbulkのGCS/BigQuery周りのプラグインについて](https://www.slideshare.net/oreradio/embulk-plugin-gcs-bigquery) ... 2015年作者による発表資料
+
+#### Formatterの性能問題
+
+https://github.com/embulk/embulk-output-bigquery#formatter-performance-issue に書かれている問題。
+
+レコードをCSVやJSONにフォーマットする機能があるが、組み込みのプラグインはJRubyで書かれていて、Javaのものより遅いので、Javaで書かれたFilterプラグインを使うといいとのこと。
+
+例:
+
+- [civitaspo/embulk-filter-to_json](https://github.com/civitaspo/embulk-filter-to_json)
+- [civitaspo/embulk-filter-to_csv](https://github.com/civitaspo/embulk-filter-to_csv)
 
 #### BQの4GB制限への対応
 
