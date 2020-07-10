@@ -3296,7 +3296,7 @@ $ date +%s -d &lt;span style="color:#4e9a06">&amp;#34;2017-12-20 09:10:00&amp;#3
 &lt;span style="color:#0000cf;font-weight:bold">1513728600&lt;/span>
 $ aws logs get-log-events &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --log-group-name &amp;lt;your-log-group&amp;gt; --log-stream-name &amp;lt;your-log-stream&amp;gt; &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --start-time &lt;span style="color:#0000cf;font-weight:bold">1513727400000&lt;/span> --end-time &lt;span style="color:#0000cf;font-weight:bold">1513728600000&lt;/span>
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --start-time &lt;span style="color:#0000cf;font-weight:bold">1513727400000&lt;/span> --end-time &lt;span style="color:#0000cf;font-weight:bold">1513728600000&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--output text&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sns">sns&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://docs.aws.amazon.com/cli/latest/reference/sns/">https://docs.aws.amazon.com/cli/latest/reference/sns/&lt;/a>

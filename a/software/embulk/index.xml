@@ -90,9 +90,80 @@
 &lt;p>一覧: &lt;a href="https://plugins.embulk.org/#output">https://plugins.embulk.org/#output&lt;/a>&lt;/p>
 &lt;h3 id="bigquery">BigQuery&lt;/h3>
 &lt;p>&lt;a href="https://github.com/embulk/embulk-output-bigquery">https://github.com/embulk/embulk-output-bigquery&lt;/a>&lt;/p>
+&lt;p>Configuration（一部）:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Property&lt;/th>
+&lt;th>Type&lt;/th>
+&lt;th>required?&lt;/th>
+&lt;th>Default&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>mode&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>optional&lt;/td>
+&lt;td>&amp;ldquo;append&amp;rdquo;&lt;/td>
+&lt;td>追記、入れ替えなどいくつかのモードがある&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>project&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>基本的にY&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>GCP PROJECT_ID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>dataset&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>BQ dataset&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>table&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>BQ table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>schema_file&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>optional&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>path/to/schema.json&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>source_format&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>Y&lt;/td>
+&lt;td>&amp;ldquo;CSV&amp;rdquo;&lt;/td>
+&lt;td>他には &amp;ldquo;NEWLINE_DELIMITED_JSON&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>compression&lt;/td>
+&lt;td>string&lt;/td>
+&lt;td>optional&lt;/td>
+&lt;td>&amp;ldquo;NONE&amp;rdquo;&lt;/td>
+&lt;td>ローカルファイルを圧縮するかどうか（&amp;ldquo;GZIP&amp;rdquo; or &amp;ldquo;NONE&amp;rdquo;）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.slideshare.net/oreradio/embulk-plugin-gcs-bigquery">EmbulkのGCS/BigQuery周りのプラグインについて&lt;/a> &amp;hellip; 2015年作者による発表資料&lt;/li>
+&lt;/ul>
+&lt;h4 id="formatterの性能問題">Formatterの性能問題&lt;/h4>
+&lt;p>&lt;a href="https://github.com/embulk/embulk-output-bigquery#formatter-performance-issue">https://github.com/embulk/embulk-output-bigquery#formatter-performance-issue&lt;/a> に書かれている問題。&lt;/p>
+&lt;p>レコードをCSVやJSONにフォーマットする機能があるが、組み込みのプラグインはJRubyで書かれていて、Javaのものより遅いので、Javaで書かれたFilterプラグインを使うといいとのこと。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/civitaspo/embulk-filter-to_json">civitaspo/embulk-filter-to_json&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/civitaspo/embulk-filter-to_csv">civitaspo/embulk-filter-to_csv&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="bqの4gb制限への対応">BQの4GB制限への対応&lt;/h4>
 &lt;p>2015年4月からイシューが積まれている &lt;a href="https://github.com/embulk/embulk-output-bigquery/issues/6">https://github.com/embulk/embulk-output-bigquery/issues/6&lt;/a>&lt;/p>

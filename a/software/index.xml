@@ -70,7 +70,59 @@ reg tags &amp;lt;repo&amp;gt;
 &lt;li>&lt;a href="https://github.com/docker-library/openjdk/">https://github.com/docker-library/openjdk/&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Javaのリリースサイクルが短くなったこともあり、メンテされているバージョンが多くて所望のイメージを探すのにちょっと苦労する。&lt;/p>
-&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Embulk</title><link>https://progrhy.me/tech-notes/a/software/embulk/</link><pubDate>Wed, 01 Jul 2020 20:19:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/embulk/</guid><description>
+&lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Elasticsearch</title><link>https://progrhy.me/tech-notes/a/software/elasticsearch/</link><pubDate>Fri, 10 Jul 2020 23:39:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/elasticsearch/</guid><description>
+&lt;h2 id="architecture">Architecture&lt;/h2>
+&lt;p>ノードの種類:&lt;/p>
+&lt;ul>
+&lt;li>Master node &amp;hellip; クラスタで1台だけ&lt;/li>
+&lt;li>Master-eligible node &amp;hellip; マスター候補。マスターが故障したら、この中から新たなマスターが選ばれる。&lt;/li>
+&lt;li>Data node&lt;/li>
+&lt;li>Coordinating node&lt;/li>
+&lt;li>Coordinating only node&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.slideshare.net/snuffkin/elasticsearch-107454226">はじめてのElasticsearchクラスタ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/yano3/3f5abc9eba0c1ad6a0508056961b273c">Elasticsearch クラスタ概説&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.creationline.com/blog/15831">elasticsearchでノード障害が起きたときの動作 #elastic - クリエーションライン株式会社&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="kubernetes">Kubernetes&lt;/h2>
+&lt;p>スタートガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html">Quickstart | Elastic Cloud on Kubernetes [1.1] | Elastic&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ryo-yamaoka/items/0b968112f03672991a5f">Elasticsearch on GKEで注意すべき可用性・耐久性のポイント - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="releases">Releases&lt;/h2>
+&lt;h3 id="v60">v6.0&lt;/h3>
+&lt;p>Breaking Changes: &lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html">https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>複数のmapping typesを持つindexは作れなくなった。&lt;/li>
+&lt;/ul>
+&lt;h2 id="mapping">Mapping&lt;/h2>
+&lt;p>JSONとかでデータを入れると良い感じにマッピングしてくれる印象。&lt;br>
+Kibanaとか。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/hello-elasticsearch/elasticsearch-9a8743746467" title="Elasticsearch マッピング – Hello! Elasticsearch. – Medium">Elasticsearch マッピング – Hello! Elasticsearch. – Medium&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="データ型">データ型&lt;/h3>
+&lt;p>&lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html&lt;/a>&lt;/p>
+&lt;h4 id="数値型">数値型&lt;/h4>
+&lt;p>&lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/number.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/number.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>整数型: byte, short, integer, long&lt;/li>
+&lt;li>実数型: &lt;code>scaled_float&lt;/code>, &lt;code>half_float&lt;/code>, &lt;code>float&lt;/code>, &lt;code>double&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="運用">運用&lt;/h2>
+&lt;h3 id="ヒープダンプでdiskを消費する">ヒープダンプでDiskを消費する&lt;/h3>
+&lt;p>ElasticsearchのデフォルトのJVM起動引数に &lt;code>-XX:+HeapDumpOnOutOfMemoryError&lt;/code> がついているそうで、メモリの少ない環境で動かしていると、Elasticsearchを起動したディレクトリに数GBサイズの &lt;code>java_pidXXXX.hprof&lt;/code> ファイルが吐かれるようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/aya_eiya/items/f0871f58c7eb23c85ee8">Elasticsearchをメモリの足りない環境で動かしているとDisk Fullになる。 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Embulk</title><link>https://progrhy.me/tech-notes/a/software/embulk/</link><pubDate>Wed, 01 Jul 2020 20:19:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/embulk/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>Treasure Data社発のOSSで、プラガブルなETLフレームワーク的なソフトウェア。&lt;/p>
 &lt;p>Documentation: &lt;a href="https://www.embulk.org/docs/">https://www.embulk.org/docs/&lt;/a>&lt;/p>
@@ -123,7 +175,9 @@ embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h2 id="pitfalls">Pitfalls&lt;/h2>
+&lt;h2 id="troubles">Troubles&lt;/h2>
+&lt;p>遭遇したエラーなどについて書く。&lt;br>
+個別のプラグインの問題は&lt;a href="https://progrhy.me/tech-notes/a/software/embulk/plugin/">Plugins&lt;/a>に記す。&lt;/p>
 &lt;p>全体的にエラーがわかりづらいと思う。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -140,7 +194,19 @@ JsonMappingException: Setting null to a task field is not allowed. Use Optional&
 &lt;li>キーが間違っていないか&lt;/li>
 &lt;li>exportしているか&lt;/li>
 &lt;/ul>
-&lt;p>などを確認するとよさそう。&lt;/p></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
+&lt;p>などを確認するとよさそう。&lt;/p>
+&lt;h3 id="a-buffer-detected-double-release-calls">A Buffer detected double release() calls&lt;/h3>
+&lt;p>2020年7月、MySQL -&amp;gt; BigQueryへのETL操作をAWS ECS Fargate上で実行しているときに、50GB以上の大きなテーブルで起こった。&lt;/p>
+&lt;ul>
+&lt;li>ログ: &lt;a href="https://gist.github.com/progrhyme/a0455ba29e3c590daacdb187d3f8282b">https://gist.github.com/progrhyme/a0455ba29e3c590daacdb187d3f8282b&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>今のところ、ECS Taskのストレージ不足なのでは、という気がしている。&lt;br>
+Fargateのエフェメラルストレージは20GB程度しかないようなので。&lt;/p>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">ありがとうございます。Errno::ENOSPCって出ているから、中間データを書き込むためのディスク容量が足りないってことはないですか？&lt;/p>&amp;mdash; Hiroyuki Sato (@hiroysato) &lt;a href="https://twitter.com/hiroysato/status/1281580625602834438?ref_src=twsrc%5Etfw">July 10, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/fargate-task-storage.html">Fargate タスクストレージ - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Git</title><link>https://progrhy.me/tech-notes/a/software/git/</link><pubDate>Mon, 27 Apr 2020 23:03:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/git/</guid><description>
 &lt;h2 id="プロトコル">プロトコル&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols&lt;/a>&lt;/p>
 &lt;ul>
