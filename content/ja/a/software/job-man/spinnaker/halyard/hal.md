@@ -8,7 +8,7 @@ date: 2020-05-12T12:05:51+09:00
 
 リファレンス的に各コマンドの解説を書いていく。
 
-ユースケース別の使い方は[Halyard#How-to]({{< ref "/a/software/spinnaker/halyard/_index.md" >}}#how-to)などを参照すること。
+ユースケース別の使い方は[Halyard#How-to]({{< ref "/a/software/job-man/spinnaker/halyard/_index.md" >}}#how-to)などを参照すること。
 
 ## Global Parameters
 

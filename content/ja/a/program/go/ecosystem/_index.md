@@ -52,7 +52,7 @@ Go言語による開発で割とよく使われるようだ。
 
 関連項目:
 
-- [Software > GNU make]({{<ref "/a/software/make.md">}})
+- [Software > GNU make]({{<ref "/a/software/job-man/make.md">}})
 
 参考:
 

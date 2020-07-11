@@ -85,9 +85,38 @@ defer cancel()
 
 参考:
 
+- https://blog.golang.org/context
 - 2016 [Go1.7のcontextパッケージ | SOTA](http://deeeet.com/writing/2016/07/22/context/ "Go1.7のcontextパッケージ | SOTA")
 - 2019年3月 [context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem](https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1)
 - 2019年7月 [golang contextの使い方とか概念(contextとは)的な話 - Qiita](https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc)
+- 2019年12月 [Go の Context を学ぶ - Qiita](https://qiita.com/TsuyoshiUshio@github/items/34b63b663ffd56125c07) ... 簡単な概念の説明とサンプルコード
+
+### contextとは
+
+contextパッケージのgodoc序文より。
+
+contextパッケージはContext型を定義する。
+これはタイムアウトやキャンセルのためのシグナルなどリクエストに紐づく値を保持する。
+これらの値はAPIの境界を越えるものだったり、プロセス間で使われるものだ。
+
+- サーバに入ってくるリクエストはContextを作るべきだし、サーバへのリクエストはContextを受け入れるべき
+- これらの間（サーバがリクエストを処理する間 or Contextを生成してサーバにリクエストを送信するまでの間）で関数が連鎖するときは、Contextは伝播しないといけない
+- ただし、伝播してきたContextをWithCancelやWithDeadline, WithTimeout, WithValueで作り直したContextに置き換えることができる
+- Contextがキャンセルされたとき、そのContextに由来するすべてのContextも同様にキャンセルされるべきである。
+
+Context利用時の作法:
+
+- Contextを構造体の中に保持してはいけない。必要とする全ての関数に明示的に渡すこと。第1引数として、典型的には `ctx` を仮引数名とする
+- 関数が許していても、Contextにnilを渡さないこと。代わりに context.TODO を渡すこと
+- context ValuesはプロセスやAPIをまたぐリクエストスコープのデータに使うようにして、関数へのオプショナルなパラメータのために使わないこと
+
+ユースケース:
+
+- goroutineのキャンセル
+
+参考:
+
+- 2019年3月 [初心者がGo言語のcontextを爆速で理解する ~ cancel編 ~ - Qiita](https://qiita.com/yoshinori_hisakawa/items/a6608b29059a945fbbbd)
 
 ## crypto/sha256
 

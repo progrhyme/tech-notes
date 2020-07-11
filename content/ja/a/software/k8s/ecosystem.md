@@ -114,7 +114,7 @@ NOTE:
 - [Prow](https://github.com/kubernetes/test-infra/tree/master/prow)
   - 参考: [KubernetesベースのCI/CDシステムProwに入門してみた | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/22072/)
 - Skaffold（See below）
-- [Spinnaker]({{< ref "/a/software/spinnaker/_index.md" >}}) *
+- [Spinnaker]({{< ref "/a/software/job-man/spinnaker/_index.md" >}}) *
 - [Tekton](https://tekton.dev/)
 
 参考:
