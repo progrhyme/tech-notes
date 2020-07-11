@@ -89,6 +89,28 @@ NOTE:
 
 - [Solved: Re: Trigger workflow only on pull request MERGE - GitHub Community Forum](https://github.community/t5/GitHub-Actions/Trigger-workflow-only-on-pull-request-MERGE/td-p/43201) ... Solutionは間違ってるので注意
 
+### 定期的に実行する
+
+[crontab](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)と同じ書式でワークフローを定期実行するタイミングを指定することができる。
+
+Example:
+
+```YAML
+on:
+  schedule:
+    # JSTで月曜から金曜の9:05 - 17:05の間、2時間毎に実行
+    - cron: '5 0-8/2 * * MON-FRI'
+```
+
+NOTE:
+
+- cronのタイムゾーンはUTCなので注意
+
+リファレンス:
+
+- [on.schedule](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule)
+- [Events that trigger workflows - GitHub Docs#Scheduled-events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events)
+
 ### 対象branchやpathをフィルタする
 
 Example:
@@ -278,6 +300,70 @@ Documents:
 > GitHubは、ワークフローで利用する `GITHUB_TOKEN` シークレットを自動的に生成します。 この `GITHUB_TOKEN` は、ワークフローの実行内での認証に利用できます。
 
 ## How-to
+### Workflow内でgit commit & push
+
+ユースケースの例:
+
+- コードフォーマッタや、静的解析による修正を自動実行する
+- ビルドしたアーティファクトを追加する
+
+checkoutアクションでチェックアウトしたものと同じリポジトリであれば、そのままpushできるようだ。
+
+Example:
+
+```YAML
+jobs:
+  update:
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+        git config --global user.name "Your Name"
+        git config --global user.email "your-address@example.com"
+        ./do-something.sh
+        git add .
+        git commit -m "Update by GitHub Action"
+        git push
+```
+
+checkoutアクションではデフォルトで `${{ github.token }}` が使われており、これにリポジトリへの書込み権限もついているからだろう。
+
+git commit & pushを行うActionもある:
+
+- [stefanzweifel/git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action)
+
+参考:
+
+- [master への push 時に生成物を git push する - Qiita](https://qiita.com/mizchi/items/7b55f8a6782a4ab00989)
+- [GitHub にコード整形してもらおう - GitHub Actions でコード整形&amp;コミット - Qiita](https://qiita.com/Ouvill/items/7b6df0e9b981093b330f)
+
+#### 別ブランチを更新するには
+
+権限は `${{ github.token }}` で十分なので、上と同様にcheckoutアクションを使って、オプションで別ブランチをチェックアウトして更新を行えばよい。
+
+Example:
+
+```YAML
+jobs:
+  publish:
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: public
+      - run: |
+        git config --global user.name "Your Name"
+        git config --global user.email "your-address@example.com"
+        make build
+        cd public
+        git add .
+        git commit -m "Update by GitHub Action"
+        git push
+```
+
+上の設定自体は試してないが、やり方的には合っているはず。  
+[progrhyme/binq-index](https://github.com/progrhyme/binq-index/blob/master/.github/workflows/binq-gh.yml)ではこのやり方を取っている。
+
 ### Workflow内でパッケージインストール
 
 Ubuntuだったら単純に `sudo apt install <package>` を `run` すればいい。
