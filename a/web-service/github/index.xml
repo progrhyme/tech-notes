@@ -84,6 +84,22 @@
 &lt;ul>
 &lt;li>&lt;a href="https://github.community/t5/GitHub-Actions/Trigger-workflow-only-on-pull-request-MERGE/td-p/43201">Solved: Re: Trigger workflow only on pull request MERGE - GitHub Community Forum&lt;/a> &amp;hellip; Solutionは間違ってるので注意&lt;/li>
 &lt;/ul>
+&lt;h3 id="定期的に実行する">定期的に実行する&lt;/h3>
+&lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07">crontab&lt;/a>と同じ書式でワークフローを定期実行するタイミングを指定することができる。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">schedule&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># JSTで月曜から金曜の9:05 - 17:05の間、2時間毎に実行&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">cron&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;5 0-8/2 * * MON-FRI&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>cronのタイムゾーンはUTCなので注意&lt;/li>
+&lt;/ul>
+&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#onschedule">on.schedule&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events">Events that trigger workflows - GitHub Docs#Scheduled-events&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="対象branchやpathをフィルタする">対象branchやpathをフィルタする&lt;/h3>
 &lt;p>Example:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -265,6 +281,56 @@
 &lt;p>GitHubは、ワークフローで利用する &lt;code>GITHUB_TOKEN&lt;/code> シークレットを自動的に生成します。 この &lt;code>GITHUB_TOKEN&lt;/code> は、ワークフローの実行内での認証に利用できます。&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="workflow内でgit-commit--push">Workflow内でgit commit &amp;amp; push&lt;/h3>
+&lt;p>ユースケースの例:&lt;/p>
+&lt;ul>
+&lt;li>コードフォーマッタや、静的解析による修正を自動実行する&lt;/li>
+&lt;li>ビルドしたアーティファクトを追加する&lt;/li>
+&lt;/ul>
+&lt;p>checkoutアクションでチェックアウトしたものと同じリポジトリであれば、そのままpushできるようだ。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">jobs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">update&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/checkout@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">|
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git config --global user.name &amp;#34;Your Name&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>config&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--global&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>user.email&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;your-address@example.com&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>./do-something.sh&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>add&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>.&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>commit&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-m&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Update by GitHub Action&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>push&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>checkoutアクションではデフォルトで &lt;code>${{ github.token }}&lt;/code> が使われており、これにリポジトリへの書込み権限もついているからだろう。&lt;/p>
+&lt;p>git commit &amp;amp; pushを行うActionもある:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/stefanzweifel/git-auto-commit-action">stefanzweifel/git-auto-commit-action&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/mizchi/items/7b55f8a6782a4ab00989">master への push 時に生成物を git push する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Ouvill/items/7b6df0e9b981093b330f">GitHub にコード整形してもらおう - GitHub Actions でコード整形&amp;amp;コミット - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="別ブランチを更新するには">別ブランチを更新するには&lt;/h4>
+&lt;p>権限は &lt;code>${{ github.token }}&lt;/code> で十分なので、上と同様にcheckoutアクションを使って、オプションで別ブランチをチェックアウトして更新を行えばよい。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">jobs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">publish&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/checkout@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/checkout@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ref&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>gh-pages&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>public&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">|
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git config --global user.name &amp;#34;Your Name&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>config&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--global&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>user.email&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;your-address@example.com&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>make&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>build&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cd&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>public&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>add&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>.&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>commit&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-m&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Update by GitHub Action&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>git&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>push&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上の設定自体は試してないが、やり方的には合っているはず。&lt;br>
+&lt;a href="https://github.com/progrhyme/binq-index/blob/master/.github/workflows/binq-gh.yml">progrhyme/binq-index&lt;/a>ではこのやり方を取っている。&lt;/p>
 &lt;h3 id="workflow内でパッケージインストール">Workflow内でパッケージインストール&lt;/h3>
 &lt;p>Ubuntuだったら単純に &lt;code>sudo apt install &amp;lt;package&amp;gt;&lt;/code> を &lt;code>run&lt;/code> すればいい。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">jobs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">

@@ -2224,6 +2224,32 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;ul>
 &lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
 &lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
+&lt;/ul></description></item><item><title>A: cron</title><link>https://progrhy.me/tech-notes/a/software/job-man/cron/</link><pubDate>Sat, 11 Jul 2020 17:03:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/cron/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>UNIX系OSで古くから使われる常駐デーモンで、設定したスケジュールに従って、プログラムを定期実行するもの。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://e-words.jp/w/cron.html">cronとは - IT用語辞典 e-Words&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;p>POSIXで規定されている。&lt;/p>
+&lt;p>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07&lt;/a>&lt;/p>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://crontab.guru/">https://crontab.guru/&lt;/a>
+&lt;ul>
+&lt;li>CRON構文チェッカー兼ジェネレーター&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="pitfalls">Pitfalls&lt;/h2>
+&lt;p>cronあるあるなトラブル事例などについて。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>crontab -r&lt;/code> で消してしまう事案&lt;/li>
+&lt;li>cronの書式を間違えて起動しない&lt;/li>
+&lt;li>STDOUT, STDERR垂れ流しでログが出まくる&lt;/li>
+&lt;li>ジョブの多重起動&lt;/li>
+&lt;li>crontabを設定したマシンが死んでしまい、crontabの内容を復旧できない&lt;/li>
 &lt;/ul></description></item><item><title>A: Colaboratory</title><link>https://progrhy.me/tech-notes/a/google/colab/</link><pubDate>Mon, 22 Jun 2020 11:57:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/colab/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>参考記事より引用:&lt;/p>
@@ -5085,45 +5111,4 @@ terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモ�
 terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
 terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
 terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Container Registry</title><link>https://progrhy.me/tech-notes/a/google/gcp/gcr/</link><pubDate>Thu, 07 May 2020 16:23:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gcr/</guid><description>
-&lt;p>Dockerコンテナレジストリ。&lt;/p>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;p>Documentation:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs">https://cloud.google.com/container-registry/docs&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs?hl=ja">リソース&lt;/a> &amp;hellip; 料金、クォータ、リリースノートなど&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="認証">認証&lt;/h3>
-&lt;p>dockerコマンドでGCRにアクセスできるようにする:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth configure-docker
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/advanced-authentication">https://cloud.google.com/container-registry/docs/advanced-authentication&lt;/a>&lt;/p>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="pubsub通知">Pub/Sub通知&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/configuring-notifications?hl=ja">Pub/Sub 通知の構成 | Container Registry のドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>イメージが push、タグ付け、削除されたときなど、Container Registry リポジトリに変更が加えられた場合、Pub/Sub を使用して通知を受け取ることができます&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="spec">Spec&lt;/h2>
-&lt;h3 id="レジストリのgcsバケット">レジストリのGCSバケット&lt;/h3>
-&lt;p>See &lt;a href="https://cloud.google.com/container-registry/docs/access-control?hl=ja#grant-bucket">https://cloud.google.com/container-registry/docs/access-control?hl=ja#grant-bucket&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>レジストリ&lt;/th>
-&lt;th>GCSバケット&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>gcr.io&lt;/code>&lt;/td>
-&lt;td>&lt;code>artifacts.${PROJECT_ID}.appspot.com&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>${STORAGE_REGION}.gcr.io&lt;/code>&lt;/td>
-&lt;td>&lt;code>${STORAGE_REGION}.artifacts.${PROJECT_ID}.appspot.com&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

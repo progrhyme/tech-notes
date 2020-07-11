@@ -1,4 +1,30 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – ジョブ管理システム</title><link>https://progrhy.me/tech-notes/a/software/job-man/</link><description>Recent content in ジョブ管理システム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2020 16:33:27 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/job-man/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GNU make</title><link>https://progrhy.me/tech-notes/a/software/job-man/make/</link><pubDate>Mon, 04 May 2020 19:50:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/make/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – ジョブ管理システム</title><link>https://progrhy.me/tech-notes/a/software/job-man/</link><description>Recent content in ジョブ管理システム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2020 16:33:27 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/job-man/index.xml" rel="self" type="application/rss+xml"/><item><title>A: cron</title><link>https://progrhy.me/tech-notes/a/software/job-man/cron/</link><pubDate>Sat, 11 Jul 2020 17:03:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/cron/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>UNIX系OSで古くから使われる常駐デーモンで、設定したスケジュールに従って、プログラムを定期実行するもの。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://e-words.jp/w/cron.html">cronとは - IT用語辞典 e-Words&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;p>POSIXで規定されている。&lt;/p>
+&lt;p>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07&lt;/a>&lt;/p>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://crontab.guru/">https://crontab.guru/&lt;/a>
+&lt;ul>
+&lt;li>CRON構文チェッカー兼ジェネレーター&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="pitfalls">Pitfalls&lt;/h2>
+&lt;p>cronあるあるなトラブル事例などについて。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>crontab -r&lt;/code> で消してしまう事案&lt;/li>
+&lt;li>cronの書式を間違えて起動しない&lt;/li>
+&lt;li>STDOUT, STDERR垂れ流しでログが出まくる&lt;/li>
+&lt;li>ジョブの多重起動&lt;/li>
+&lt;li>crontabを設定したマシンが死んでしまい、crontabの内容を復旧できない&lt;/li>
+&lt;/ul></description></item><item><title>A: GNU make</title><link>https://progrhy.me/tech-notes/a/software/job-man/make/</link><pubDate>Mon, 04 May 2020 19:50:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/make/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>公式リファレンスは↑&lt;/p>
 &lt;p>サードパーティーのリファレンス的資料:&lt;/p>
