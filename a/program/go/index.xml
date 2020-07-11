@@ -981,9 +981,36 @@ a b c d
 &lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">cancel&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/context">https://blog.golang.org/context&lt;/a>&lt;/li>
 &lt;li>2016 &lt;a href="http://deeeet.com/writing/2016/07/22/context/" title="Go1.7のcontextパッケージ | SOTA">Go1.7のcontextパッケージ | SOTA&lt;/a>&lt;/li>
 &lt;li>2019年3月 &lt;a href="https://christina04.hatenablog.com/entry/tips-for-context-with-cancel_1">context.WithCancel, WithTimeout で知っておいた方が良いこと - Carpe Diem&lt;/a>&lt;/li>
 &lt;li>2019年7月 &lt;a href="https://qiita.com/marnie_ms4/items/985d67c4c1b29e11fffc">golang contextの使い方とか概念(contextとは)的な話 - Qiita&lt;/a>&lt;/li>
+&lt;li>2019年12月 &lt;a href="https://qiita.com/TsuyoshiUshio@github/items/34b63b663ffd56125c07">Go の Context を学ぶ - Qiita&lt;/a> &amp;hellip; 簡単な概念の説明とサンプルコード&lt;/li>
+&lt;/ul>
+&lt;h3 id="contextとは">contextとは&lt;/h3>
+&lt;p>contextパッケージのgodoc序文より。&lt;/p>
+&lt;p>contextパッケージはContext型を定義する。
+これはタイムアウトやキャンセルのためのシグナルなどリクエストに紐づく値を保持する。
+これらの値はAPIの境界を越えるものだったり、プロセス間で使われるものだ。&lt;/p>
+&lt;ul>
+&lt;li>サーバに入ってくるリクエストはContextを作るべきだし、サーバへのリクエストはContextを受け入れるべき&lt;/li>
+&lt;li>これらの間（サーバがリクエストを処理する間 or Contextを生成してサーバにリクエストを送信するまでの間）で関数が連鎖するときは、Contextは伝播しないといけない&lt;/li>
+&lt;li>ただし、伝播してきたContextをWithCancelやWithDeadline, WithTimeout, WithValueで作り直したContextに置き換えることができる&lt;/li>
+&lt;li>Contextがキャンセルされたとき、そのContextに由来するすべてのContextも同様にキャンセルされるべきである。&lt;/li>
+&lt;/ul>
+&lt;p>Context利用時の作法:&lt;/p>
+&lt;ul>
+&lt;li>Contextを構造体の中に保持してはいけない。必要とする全ての関数に明示的に渡すこと。第1引数として、典型的には &lt;code>ctx&lt;/code> を仮引数名とする&lt;/li>
+&lt;li>関数が許していても、Contextにnilを渡さないこと。代わりに context.TODO を渡すこと&lt;/li>
+&lt;li>context ValuesはプロセスやAPIをまたぐリクエストスコープのデータに使うようにして、関数へのオプショナルなパラメータのために使わないこと&lt;/li>
+&lt;/ul>
+&lt;p>ユースケース:&lt;/p>
+&lt;ul>
+&lt;li>goroutineのキャンセル&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>2019年3月 &lt;a href="https://qiita.com/yoshinori_hisakawa/items/a6608b29059a945fbbbd">初心者がGo言語のcontextを爆速で理解する ~ cancel編 ~ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="cryptosha256">crypto/sha256&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/crypto/sha256/">https://golang.org/pkg/crypto/sha256/&lt;/a>&lt;/p>
@@ -1772,7 +1799,7 @@ GNUスタイルのロングオプションが作れる。&lt;/p>
 &lt;p>Go言語による開発で割とよく使われるようだ。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/make/">Software &amp;gt; GNU make&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/job-man/make/">Software &amp;gt; GNU make&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>

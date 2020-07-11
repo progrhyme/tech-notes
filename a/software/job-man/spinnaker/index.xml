@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/</link><description>Recent content in Spinnaker on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 05 May 2020 00:24:18 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/spinnaker/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Halyard</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</link><pubDate>Tue, 05 May 2020 00:27:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/halyard/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Spinnaker</title><link>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/</link><description>Recent content in Spinnaker on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 05 May 2020 00:24:18 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/job-man/spinnaker/index.xml" rel="self" type="application/rss+xml"/><item><title>A: Halyard</title><link>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/halyard/</link><pubDate>Tue, 05 May 2020 00:27:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/halyard/</guid><description>
 &lt;p>Spinnakerの管理ツール。
 daemon + CLI.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
@@ -23,7 +23,7 @@ hal deploy apply
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>指定した &lt;code>$DEPLOYMENT&lt;/code> がなければ新規作成される。&lt;br>
 ちなみに、デフォルトの &lt;code>$DEPLOYMENT&lt;/code> は &lt;code>default&lt;/code> である。&lt;/p>
 &lt;p>このコマンドによって新しく作ったDeploymentはまっさらな状態なので、一通りセットアップしなければならない。&lt;br>
-（日記はここで終わっている。）&lt;/p></description></item><item><title>A: Pipelines</title><link>https://progrhy.me/tech-notes/a/software/spinnaker/pipeline/</link><pubDate>Tue, 05 May 2020 00:28:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/spinnaker/pipeline/</guid><description>
+（日記はここで終わっている。）&lt;/p></description></item><item><title>A: Pipelines</title><link>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/pipeline/</link><pubDate>Tue, 05 May 2020 00:28:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/pipeline/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;p>Guides:&lt;/p>
 &lt;ul>

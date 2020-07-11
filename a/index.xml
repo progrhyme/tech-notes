@@ -1572,7 +1572,7 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;/ul>
 &lt;/li>
 &lt;li>Skaffold（See below）&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/spinnaker/">Spinnaker&lt;/a> *&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/job-man/spinnaker/">Spinnaker&lt;/a> *&lt;/li>
 &lt;li>&lt;a href="https://tekton.dev/">Tekton&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
