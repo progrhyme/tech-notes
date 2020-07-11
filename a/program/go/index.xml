@@ -693,7 +693,16 @@ ImportPath = string_lit .
 &lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">テスト&lt;/a>&lt;/p>
-&lt;h2 id="コマンドライン引数">コマンドライン引数&lt;/h2>
+&lt;h2 id="コマンドライン">コマンドライン&lt;/h2>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/io/#%E6%A8%99%E6%BA%96%E5%85%A5%E5%87%BA%E5%8A%9B">入出力 &amp;gt; 標準入出力&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/izumin5210/items/25a27d4f3c5078588f79">ボイラプレート編 - #golang で CLI 作るときにいつもつかうやつ - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コマンド引数">コマンド引数&lt;/h3>
 &lt;p>入門サンプル:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://gobyexample.com/command-line-arguments">Go by Example: Command-Line Arguments&lt;/a>&lt;/li>
@@ -845,6 +854,10 @@ ImportPath = string_lit .
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/text/#texttemplate">pkg (stdlib) &amp;gt; text/template&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://curtisvermeeren.github.io/2017/09/14/Golang-Templates-Cheatsheet">Golang Templates Cheatsheet | curtisvermeeren.github.io&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="template構文">template構文&lt;/h3>
 &lt;p>html/templateやtext/templateの構文。&lt;/p>

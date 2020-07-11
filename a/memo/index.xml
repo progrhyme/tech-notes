@@ -1,4 +1,86 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-26</title><link>https://progrhy.me/tech-notes/a/memo/20200626/</link><pubDate>Fri, 26 Jun 2020 15:58:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200626/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-07-12</title><link>https://progrhy.me/tech-notes/a/memo/20200712/</link><pubDate>Sun, 12 Jul 2020 01:44:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200712/</guid><description>
+&lt;h2 id="712">7/12&lt;/h2>
+&lt;h3 id="hugoでmemo用のarchetypeを作る">Hugoでmemo用のarchetypeを作る&lt;/h3>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/static-site-generator/hugo/#archetypes">Hugo#Archetypes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>上手く行ったパターン①:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">---&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ dateFormat &amp;#34;&lt;/span>&lt;span style="color:#000">2006-01-02&lt;/span>&lt;span style="color:#4e9a06">&amp;#34; .Date }}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">linkTitle&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ dateFormat &amp;#34;&lt;/span>&lt;span style="color:#000">2006-01-02&lt;/span>&lt;span style="color:#4e9a06">&amp;#34; .Date }}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">date&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>.Date&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>---&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>現在日時から日付を作る場合は上で良いが、たまに昨日のメモとか作りたくなることがあるので、ファイル名を元に作るようにした。&lt;/p>
+&lt;p>上手く行ったパターン②:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">---&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ substr .Name 0 4 }}-{{ substr .Name 4 2 }}-{{ substr .Name 6 2 }}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">linkTitle&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ substr .Name 0 4 }}-{{ substr .Name 4 2 }}-{{ substr .Name 6 2 }}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">date&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>{{&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>.Date&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>}}&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>---&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>工夫すればもう少しすっきり書けるかもしれない。&lt;/p>
+&lt;p>駄目だったパターン:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic"># Hugoのリファレンスに載ってるのにエラーになる。 .Dateが文字列扱いで、 .Format ってメソッドはない的な&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ .Date.Format &amp;#34;&lt;/span>&lt;span style="color:#000">2006-01-02&lt;/span>&lt;span style="color:#4e9a06">&amp;#34; }}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># sprigのリファレンスを見たらこれが正しいかと思ったが、Hugoだと違った&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">title&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{{ substr 0 3 .Name }}-{{ substr 4 5 .Name }}-{{ substr 6 7 .Name }}&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/functions/format/">https://gohugo.io/functions/format/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gohugo.io/functions/substr/">https://gohugo.io/functions/substr/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://masterminds.github.io/sprig/strings.html">http://masterminds.github.io/sprig/strings.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="binqのメタデータサーバによるメタデータの公開は著作権やライセンス侵害にあたるのか">binqのメタデータサーバによるメタデータの公開は著作権やライセンス侵害にあたるのか？&lt;/h3>
+&lt;p>少し前から作っていたbinqについて、先ほどようやくブログを書くことができた:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/07/binq-v0.6.1">GitHub Pagesをメタデータサーバとする簡易インストーラー「binq」をGo言語で作った - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>「免責事項」として書いたのだけど、こういうメタデータの収集・公開が著作権やライセンス侵害に当たるのかが気になったので、少し調べた。&lt;/p>
+&lt;p>あまりそのものズバリな事例はないのだけど、少なくとも、元々コピーや再配布を許可しているライセンスで問題になることはないだろう。&lt;/p>
+&lt;p>ゆるいOSSライセンスはそういうものもある。&lt;/p>
+&lt;p>逆に、著作権法上の「公表権」や「頒布権」を理由に、「絶対に自分のHPに来てダウンロードしなきゃ駄目」みたいに書いているソフトウェアがあったら、それをbinqのインデックスに載せると怒られるかもしれない。&lt;br>
+そもそもインターネットにOSSとして公開しているソフトウェアで、そんな風に書いているものがあるのか知らないが。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.vector.co.jp/for_users/study/chosakuken.html">フリーソフト、シェアウェアの基礎知識 - フリーソフトの著作権&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://e-words.jp/w/%E5%86%8D%E9%85%8D%E5%B8%83.html">再配布（二次配布）とは - IT用語辞典 e-Words&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://onm-tm.jp/news/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E7%AD%89%E3%81%AE%E8%91%97%E4%BD%9C%E6%A8%A9%E5%95%8F%E9%A1%8C%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E7%94%A8%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84/">ソフトウェア等の著作権問題に関する用語について（用語解説） | 大島・西村・宮永商標特許事務所&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10110939465">ソフトウェアの二次配布禁止する理由について質問です。 - 出来たらこの&amp;hellip; - Yahoo!知恵袋&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="goで任意の処理の出力を構造化データとして上手く扱いたい">Goで任意の処理の出力を構造化データとして上手く扱いたい&lt;/h3>
+&lt;p>構造体だったら &lt;code>fmt.Printf(&amp;quot;%+v&amp;quot;, x)&lt;/code> とやればある程度きれいに出力できるけど、それをもっと汎用的にできると嬉しいかなというところ。&lt;/p>
+&lt;p>背景として、最近はCLIでも構造化されたデータを色んなフォーマットで出力できることがクールになってる、というのがある。&lt;/p>
+&lt;p>kubectl然り、Google Cloud SDK然り、AWS SDK然り。&lt;br>
+最近の事例だと、Rust製のnushellでは、デフォルトでコマンドの出力結果がテーブルになっており、パイプによってコマンド間でデータの受け渡しが可能になっている。&lt;/p>
+&lt;p>nushellの実装がどうなっているのかは見てないけど、まあなんかそんな感じでやりたい。&lt;/p>
+&lt;p>サンプルとして参考になりそうな候補:&lt;/p>
+&lt;ul>
+&lt;li>Kubernetes
+&lt;ul>
+&lt;li>追ってみたところ、&lt;a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/runtime">k8s.io/apimachinery/pkg/runtime&lt;/a>が汎用データ型及びプロセッサっぽい。単独では使いづらい気がするんだけど、めちゃimportされているのはコアなライブラリだからか&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>クラウドのSDKとか…まだ見てない&lt;/li>
+&lt;li>logger系
+&lt;ul>
+&lt;li>hashedhyphenさんに「zapはどう？」と言われたので少し見てみたけど、やはりロギングに比重が置かれている感じで、ちょっとユースケースが限定されすぎている感がある&lt;/li>
+&lt;li>&lt;a href="https://github.com/fluent/fluent-logger-golang">fluent/fluent-logger-golang&lt;/a> &amp;hellip; まだちゃんと見てない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://awesome-go.com/">Awesome Go&lt;/a>で見つけたやつ:
+&lt;ul>
+&lt;li>Data Structureカテゴリだと、アルゴリズム系ばかりが見つかる。&lt;/li>
+&lt;li>&lt;a href="https://github.com/mickep76/encoding">https://github.com/mickep76/encoding&lt;/a> &amp;hellip; これは自分が目指しているものに近い気がする。WIPって感じがするけど&lt;/li>
+&lt;li>&lt;a href="https://github.com/bndr/gotabulate">https://github.com/bndr/gotabulate&lt;/a> &amp;hellip; テーブル形式で出力してくれる君。2次元のデータにしか対応してない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>今回の話と関係ないけど、調べている途中で目に入って気になったライブラリ:&lt;/p>
+&lt;ul>
+&lt;li>kubernetes関係を見ているときに&lt;a href="https://pkg.go.dev/k8s.io/klog">k8s.io/klog&lt;/a>というロギングライブラリを見つけた。今回の用途には向かないが、依存がなくて割とシンプルなレベル付きロガーなので、使いやすいシチュエーションもあるかも（Google寄りなライブラリ）&lt;/li>
+&lt;li>&lt;a href="https://github.com/mvdan/sh">https://github.com/mvdan/sh&lt;/a> &amp;hellip; 全然関係ないけどawesome-goで目に入った。shfmtとかgosh (PoC)が入ってる&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-26</title><link>https://progrhy.me/tech-notes/a/memo/20200626/</link><pubDate>Fri, 26 Jun 2020 15:58:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200626/</guid><description>
 &lt;h2 id="626">6/26&lt;/h2>
 &lt;h3 id="mysqlコマンドでmycnfが指定できないできた">mysqlコマンドでmy.cnfが指定できない→できた&lt;/h3>
 &lt;p>&lt;code>--defaults-file&lt;/code> オプションで指定できるらしいが、エラーになる。&lt;/p>
