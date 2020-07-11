@@ -78,7 +78,17 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 
 See [テスト]({{<ref "../test.md">}})
 
-## コマンドライン引数
+## コマンドライン
+
+関連項目:
+
+- [入出力 > 標準入出力]({{<ref "io.md">}}#標準入出力)
+
+参考:
+
+- [ボイラプレート編 - #golang で CLI 作るときにいつもつかうやつ - Qiita](https://qiita.com/izumin5210/items/25a27d4f3c5078588f79)
+
+### コマンド引数
 
 入門サンプル:
 
@@ -250,6 +260,10 @@ Webサーバなどで使うときは、パフォーマンスに気をつける�
 関連項目:
 
 - [pkg (stdlib) > text/template]({{<ref "../std-pkg/text.md">}}#texttemplate)
+
+参考:
+
+- [Golang Templates Cheatsheet | curtisvermeeren.github.io](https://curtisvermeeren.github.io/2017/09/14/Golang-Templates-Cheatsheet)
 
 ### template構文
 

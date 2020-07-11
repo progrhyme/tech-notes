@@ -54,7 +54,9 @@ Snapの場合:
 snap install hugo --channel=extended
 ```
 
-### [Quickstart](https://gohugo.io/getting-started/quick-start/)
+### Quickstart
+
+https://gohugo.io/getting-started/quick-start/
 
 ```sh
 # 新しくサイトを作る
@@ -133,6 +135,7 @@ NOTE:
   - See [2020-05-31#DocsyでGoogleカスタム検索エンジンを使う]({{<ref "20200531.md">}}#docsyでgoogleカスタム検索エンジンを使う)
 
 ## 設定項目
+
 設定ファイルの設定項目について。
 
 ### Table Of Contents
@@ -148,6 +151,30 @@ https://gohugo.io/getting-started/configuration-markup/#table-of-contents
     ordered = false
     startLevel = 2
 ```
+
+## コンテンツ管理
+
+https://gohugo.io/content-management/
+
+### Archetypes
+
+https://gohugo.io/content-management/archetypes/
+
+「archetype」……典型、原型。アーキタイプ
+
+ページテンプレート。  
+
+Spec:
+
+- `archetypes/${kind}.md` として配置する
+- `${kind}/foo.md` を作ると、 `archetypes/${kind}.md` が使われる
+- `hugo new -k $kind foo.md` のようにarchetypeを指定可能
+
+テンプレート機能を使っていい感じのarchetypeを作ると便利かも。
+
+参考:
+
+- [2020-07-12#Hugoでmemo用のarchetypeを作る]({{<ref "20200712.md">}}#hugoでmemo用のarchetypeを作る)
 
 ## Writing Pages
 
