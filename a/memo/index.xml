@@ -65,7 +65,19 @@
 &lt;li>logger系
 &lt;ul>
 &lt;li>hashedhyphenさんに「zapはどう？」と言われたので少し見てみたけど、やはりロギングに比重が置かれている感じで、ちょっとユースケースが限定されすぎている感がある&lt;/li>
-&lt;li>&lt;a href="https://github.com/fluent/fluent-logger-golang">fluent/fluent-logger-golang&lt;/a> &amp;hellip; まだちゃんと見てない&lt;/li>
+&lt;li>後でもう一度見直したところ、内部に抽象データ型があるので使えるかもしれないと思った。が、それはやはりロギングに最適化されたデータ構造で、汎用的な用途で使うにはどうしたらいいかわからなかった。&lt;/li>
+&lt;li>&lt;a href="https://github.com/fluent/fluent-logger-golang">fluent/fluent-logger-golang&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://pkg.go.dev/github.com/fluent/fluent-logger-golang/fluent">https://pkg.go.dev/github.com/fluent/fluent-logger-golang/fluent&lt;/a>&lt;/li>
+&lt;li>↓のmsgpackのインタフェースを使っている&lt;/li>
+&lt;li>&lt;a href="https://pkg.go.dev/github.com/tinylib/msgp/msgp">https://pkg.go.dev/github.com/tinylib/msgp/msgp&lt;/a>
+&lt;ul>
+&lt;li>コードジェネレータのヘルパーと書いてあるけど、普通にシリアライザ・デシリアライザの機能を持つ。&lt;/li>
+&lt;li>真面目にやるとこのぐらいは必要だよなぁという感想&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;a href="https://awesome-go.com/">Awesome Go&lt;/a>で見つけたやつ:
@@ -80,7 +92,10 @@
 &lt;ul>
 &lt;li>kubernetes関係を見ているときに&lt;a href="https://pkg.go.dev/k8s.io/klog">k8s.io/klog&lt;/a>というロギングライブラリを見つけた。今回の用途には向かないが、依存がなくて割とシンプルなレベル付きロガーなので、使いやすいシチュエーションもあるかも（Google寄りなライブラリ）&lt;/li>
 &lt;li>&lt;a href="https://github.com/mvdan/sh">https://github.com/mvdan/sh&lt;/a> &amp;hellip; 全然関係ないけどawesome-goで目に入った。shfmtとかgosh (PoC)が入ってる&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-06-26</title><link>https://progrhy.me/tech-notes/a/memo/20200626/</link><pubDate>Fri, 26 Jun 2020 15:58:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200626/</guid><description>
+&lt;/ul>
+&lt;h4 id="実験で作ったdfmtというもの">実験で作ったdfmtというもの&lt;/h4>
+&lt;p>&lt;a href="https://github.com/progrhyme/experiments/tree/master/go/dfmt">https://github.com/progrhyme/experiments/tree/master/go/dfmt&lt;/a>&lt;/p>
+&lt;p>ちょっとまだ道筋が見えない。&lt;/p></description></item><item><title>A: 2020-06-26</title><link>https://progrhy.me/tech-notes/a/memo/20200626/</link><pubDate>Fri, 26 Jun 2020 15:58:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200626/</guid><description>
 &lt;h2 id="626">6/26&lt;/h2>
 &lt;h3 id="mysqlコマンドでmycnfが指定できないできた">mysqlコマンドでmy.cnfが指定できない→できた&lt;/h3>
 &lt;p>&lt;code>--defaults-file&lt;/code> オプションで指定できるらしいが、エラーになる。&lt;/p>

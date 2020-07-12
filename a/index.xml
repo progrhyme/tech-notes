@@ -2312,6 +2312,10 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E6%A7%8B%E9%80%A0%E5%8C%96%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%8F%96%E3%82%8A%E6%89%B1%E3%81%84">道場#構造化データファイルの取り扱い&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.com/kltl/n/n62bab4edad7c">[Go] JSONをUnmarshalした場合の型｜tabatak｜note&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="structタグの使い方">structタグの使い方&lt;/h3>
 &lt;p>リファレンス: &lt;a href="https://golang.org/pkg/encoding/json/#Marshal">https://golang.org/pkg/encoding/json/#Marshal&lt;/a>&lt;/p>
 &lt;p>&lt;code>json&lt;/code> タグの最初の値がJSONのキー名として使われる。&lt;br>
@@ -2382,7 +2386,11 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Marshal&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">group&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">//=&amp;gt; {&amp;#34;ID&amp;#34;:1,&amp;#34;Name&amp;#34;:&amp;#34;Reds&amp;#34;,&amp;#34;Colors&amp;#34;:[&amp;#34;Crimson&amp;#34;,&amp;#34;Red&amp;#34;,&amp;#34;Ruby&amp;#34;,&amp;#34;Maroon&amp;#34;]}
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="func-marshalindent">func MarshalIndent&lt;/h3>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>構造体やmapしか扱えないわけではなく、任意の型の値を変換可能&lt;/li>
+&lt;/ul>
+&lt;h3 id="func-marshalindent">func MarshalIndent&lt;/h3>
 &lt;p>&lt;a href="https://golang.org/pkg/encoding/json/#MarshalIndent">https://golang.org/pkg/encoding/json/#MarshalIndent&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">MarshalIndent&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{},&lt;/span> &lt;span style="color:#000">prefix&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">indent&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">([]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">byte&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
