@@ -36,6 +36,10 @@ if err := json.Unmarshal([]byte(blob), &zoo); err != nil {
 
 - [道場#構造化データファイルの取り扱い]({{<ref "/a/program/go/dojo/_index.md">}}#構造化データファイルの取り扱い)
 
+参考:
+
+- [\[Go\] JSONをUnmarshalした場合の型｜tabatak｜note](https://note.com/kltl/n/n62bab4edad7c)
+
 ### structタグの使い方
 
 リファレンス: https://golang.org/pkg/encoding/json/#Marshal
@@ -104,6 +108,10 @@ group := ColorGroup{
 b, err := json.Marshal(group)
 //=> {"ID":1,"Name":"Reds","Colors":["Crimson","Red","Ruby","Maroon"]}
 ```
+
+NOTE:
+
+- 構造体やmapしか扱えないわけではなく、任意の型の値を変換可能
 
 ### func MarshalIndent
 

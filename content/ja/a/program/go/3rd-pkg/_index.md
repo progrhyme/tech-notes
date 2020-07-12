@@ -119,6 +119,20 @@ https://pkg.go.dev/github.com/google/go-cmp/cmp
 
 主にテストで使える値の比較のためのライブラリ。
 
+Example:
+
+```go
+got, want := MakeGatewayInfo()
+
+if diff := cmp.Diff(want, got); diff != "" {
+	t.Errorf("MakeGatewayInfo() mismatch (-want +got):\n%s", diff)
+}
+```
+
+メモ:
+
+- cmp.Diff は文字列でも構造体でもhuman readableな感じで差分が見れて便利
+
 参考:
 
 - [構造体などをテストするのに便利なgoogle/go-cmpの使い方 - Qiita](https://qiita.com/hgsgtk/items/bd78bada902c91745fa5)

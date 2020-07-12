@@ -155,8 +155,10 @@ type ninja struct {
 - bool型: `false`
 - string型: "" （空文字列）
 - スライス: `[]` （空スライス）
+- map: `nil`
 - 構造体: `{}` （空の構造体）
 - ポインタ型: `nil`
+- 関数型: `nil`
 
 ## 真偽判定
 

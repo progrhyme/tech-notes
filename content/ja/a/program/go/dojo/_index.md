@@ -358,3 +358,11 @@ Go 1.8で[plugin](https://golang.org/pkg/plugin/)パッケージが標準ライ�
 
 - [Go 1.8のpluginパッケージを試してみる - Qiita](https://qiita.com/qt-luigi/items/47a7913145fc747da0c7)
 - [Go言語でプラグイン機構をつくる | SOTA](https://deeeet.com/writing/2015/04/28/pingo/)
+
+## リフレクション
+
+reflectパッケージを使う。
+
+参考:
+
+- [Go 言語 reflect チートシート - Qiita](https://qiita.com/nirasan/items/b6b89f8c61c35b563e8c)
