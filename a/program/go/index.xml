@@ -268,8 +268,10 @@ continue for import return var
 &lt;li>bool型: &lt;code>false&lt;/code>&lt;/li>
 &lt;li>string型: &amp;quot;&amp;rdquo; （空文字列）&lt;/li>
 &lt;li>スライス: &lt;code>[]&lt;/code> （空スライス）&lt;/li>
+&lt;li>map: &lt;code>nil&lt;/code>&lt;/li>
 &lt;li>構造体: &lt;code>{}&lt;/code> （空の構造体）&lt;/li>
 &lt;li>ポインタ型: &lt;code>nil&lt;/code>&lt;/li>
+&lt;li>関数型: &lt;code>nil&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="真偽判定">真偽判定&lt;/h2>
 &lt;p>真偽判定（ifの条件式）に使えるのはbool型の値のみのようだ。&lt;br>
@@ -1534,6 +1536,15 @@ godoc -help
 &lt;h2 id="googlego-cmpcmp">google/go-cmp/cmp&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/github.com/google/go-cmp/cmp">https://pkg.go.dev/github.com/google/go-cmp/cmp&lt;/a>&lt;/p>
 &lt;p>主にテストで使える値の比較のためのライブラリ。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">got&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">want&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">MakeGatewayInfo&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">diff&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">cmp&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Diff&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">want&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">got&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#000">diff&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">t&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Errorf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;MakeGatewayInfo() mismatch (-want +got):\n%s&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">diff&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>メモ:&lt;/p>
+&lt;ul>
+&lt;li>cmp.Diff は文字列でも構造体でもhuman readableな感じで差分が見れて便利&lt;/li>
+&lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/hgsgtk/items/bd78bada902c91745fa5">構造体などをテストするのに便利なgoogle/go-cmpの使い方 - Qiita&lt;/a>&lt;/li>
