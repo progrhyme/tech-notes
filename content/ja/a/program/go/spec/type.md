@@ -156,6 +156,23 @@ func merge(m1, m2 map[string]string) map[string]string {
 
 https://play.golang.org/p/OmBHp53UIxn
 
+### mapのネスト
+
+割と直感的に書ける。  
+宣言した時点では子要素のmapもnilなので、使う前に初期化が必要。
+
+Example:
+
+```go
+var nested = map[string]map[string]int{}
+nested["x"] = make(map[string]int)
+nested["x"]["y"] = 1
+```
+
+参考:
+
+- [dictionary - Nested maps in Golang - Stack Overflow](https://stackoverflow.com/questions/44305617/nested-maps-in-golang)
+
 ## 構造体
 
 https://golang.org/ref/spec#Struct_types

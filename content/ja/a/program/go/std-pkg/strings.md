@@ -19,6 +19,23 @@ func Contains(s, substr string) bool
 
 sが部分文字列substrを含むかどうか。
 
+### func Fields
+
+https://golang.org/pkg/strings/#Fields
+
+```go
+func Fields(s string) []string
+```
+
+sをunicode.IsSpaceで定義された空白文字列で分割して返す。
+
+Example:
+
+```go
+strings.Fields("  foo bar  baz   fuga	hoge\tpiyo")
+//=> ["foo" "bar" "baz" "fuga" "hoge" "piyo"]
+```
+
 ### func HasPrefix
 
 https://pkg.go.dev/strings?tab=doc#HasPrefix

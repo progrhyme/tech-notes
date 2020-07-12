@@ -24,6 +24,16 @@ weight: 130
 - [Goでテキストファイルを読み書きする時に使う標準パッケージ - Qiita](https://qiita.com/qt-luigi/items/2c13ad68e7d9f8f8c0f2)
 - [How to read/write from/to file using Go? - Stack Overflow](https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go)
 
+## テキストの読取り
+### 空白区切りのテキストを読み取る
+
+半角スペースやタブ区切りの文字列を読み取るとき。
+
+- フィールド数が固定なら `fmt.Scan` 系の関数が使える
+  - フィールド数が異なるものがあるとエラーになる
+- フィールド数が不定の場合、 `bufio.Scanner` を使う
+  - 分割したいときは [strings.Fields]({{<ref "/a/program/go/std-pkg/strings.md">}}#func-fields) でスライスにできる
+
 ## 標準入出力
 ### 標準入力
 

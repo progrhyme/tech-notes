@@ -335,3 +335,29 @@ func (f Fruit) String() string {
 - [Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話](https://mattn.kaoriya.net/software/lang/go/20141208093852.htm "Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話")
 - [Ten Useful Techniques in Go – Fatih Arslan](https://arslan.io/2015/10/08/ten-useful-techniques-in-go/ "Ten Useful Techniques in Go – Fatih Arslan")
 - https://godoc.org/golang.org/x/tools/cmd/stringer
+
+### mapや配列
+
+Example:
+
+```go
+type pos [2]int
+type myMap map[string]pos
+
+func (m *myMap) set(k string, p pos) {
+	(*m)[k] = p
+}
+
+func main() {
+	p := [2]int{5, 10}
+	m := myMap{}
+	m.set("foo", p)
+	fmt.Println("m = ", m)
+}
+```
+
+注意点はメソッドを使うとき:
+
+- レシーバはポインタ型にする。でないと値渡しになって、結果が反映されない
+- ので、メソッド内ではデリファレンスして使う
+- 呼び出し側で値を初期化してメソッドを呼び出す

@@ -20,6 +20,8 @@ ZIPアーカイブの読み書き機能を提供。
 
 ## bufio
 
+https://pkg.go.dev/bufio
+
 バッファリング付きI/Oを提供する。
 
 Examples:
@@ -56,6 +58,50 @@ Tips:
 
 - [CLI#ターミナルでEOFを入力する方法]({{<ref "/a/cli/_index.md">}}#ターミナルでeofを入力する方法)
 - [Go言語で標準入力 - Qiita](https://qiita.com/kosukeKK/items/865e06de03d20664a83f)
+
+### func NewScanner
+
+https://pkg.go.dev/bufio?tab=doc#NewScanner
+
+```go
+func NewScanner(r io.Reader) *Scanner
+```
+
+rに対するScannerを生成。  
+デフォルトで改行区切りとなる。
+
+### type Scanner (struct)
+
+https://pkg.go.dev/bufio?tab=doc#Scanner
+
+スキャナーオブジェクト。読み取ったテキストやエラーを保持する。
+
+#### func Split
+
+https://pkg.go.dev/bufio?tab=doc#Scanner.Split
+
+```go
+func (s *Scanner) Split(split SplitFunc)
+```
+
+読取り時にテキストを分割する方法（1回のs.Scan()でどこまで読み取るか）を変更する。
+
+Example:
+
+```go
+scanner := bufio.NewScanner(strings.NewReader(input))
+// 空白文字区切りで読み取る
+scanner.Split(bufio.ScanWords)
+// Count the words.
+count := 0
+for scanner.Scan() {
+	count++
+}
+// エラー処理は省略
+fmt.Printf("%d\n", count)
+```
+
+See also https://pkg.go.dev/bufio?tab=doc#example-Scanner-Words
 
 ## compress/gzip
 

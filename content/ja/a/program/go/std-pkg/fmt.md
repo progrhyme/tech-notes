@@ -23,6 +23,11 @@ if err != nil {
 }
 ```
 
+関連項目:
+
+- [道場 > 文字列]({{<ref "/a/program/go/dojo/type.md">}}#文字列)
+- [道場 > 入出力]({{<ref "/a/program/go/dojo/io.md">}})
+
 ## 書式指定子
 
 だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。
@@ -92,7 +97,10 @@ func Scan(a ...interface{}) (n int, err error)
 改行もスペースとみなされる。  
 読み取った数が引数より少なかったらエラーを返す。
 
-任意の入力ソースから読み取るには、Fscan, Fscanf, Fscanlnを使う。
+Hints:
+
+- 任意の入力ソースから読み取るには、Fscan, Fscanf, Fscanlnを使う。
+- 入力の要素数が不定の場合は、[bufio.Scanner]({{<ref "_index.md">}}#bufio)を使うといい
 
 Examples:
 
@@ -124,7 +132,8 @@ x y z
 func Scanln(a ...interface{}) (n int, err error)
 ```
 
-Scanと似ているが、改行で処理を止める。
+Scanと似ているが、改行で処理を止める。  
+最後の引数の後に改行を期待するので、入力が引数より多くてもNG.
 
 Examples:
 
