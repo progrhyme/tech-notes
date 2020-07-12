@@ -3087,6 +3087,25 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;li>&lt;a href="https://mattn.kaoriya.net/software/lang/go/20141208093852.htm" title="Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話">Big Sky :: Re: GoLangでJavaのenumっぽいライブラリ作った話&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://arslan.io/2015/10/08/ten-useful-techniques-in-go/" title="Ten Useful Techniques in Go – Fatih Arslan">Ten Useful Techniques in Go – Fatih Arslan&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://godoc.org/golang.org/x/tools/cmd/stringer">https://godoc.org/golang.org/x/tools/cmd/stringer&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mapや配列">mapや配列&lt;/h3>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">pos&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">type&lt;/span> &lt;span style="color:#000">myMap&lt;/span> &lt;span style="color:#204a87;font-weight:bold">map&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#000">pos&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">m&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">myMap&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">set&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">k&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">p&lt;/span> &lt;span style="color:#000">pos&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000">p&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">p&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">m&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">myMap&lt;/span>&lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">set&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">p&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;m = &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意点はメソッドを使うとき:&lt;/p>
+&lt;ul>
+&lt;li>レシーバはポインタ型にする。でないと値渡しになって、結果が反映されない&lt;/li>
+&lt;li>ので、メソッド内ではデリファレンスして使う&lt;/li>
+&lt;li>呼び出し側で値を初期化してメソッドを呼び出す&lt;/li>
 &lt;/ul></description></item><item><title>A: Road to Rubyist</title><link>https://progrhy.me/tech-notes/a/program/ruby/dojo/</link><pubDate>Thu, 25 Jun 2020 18:38:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/dojo/</guid><description>
 &lt;p>一人前のRubyistを名乗るために必要な基礎的なトピック群を取り扱う予定。&lt;/p>
 &lt;h2 id="コマンドライン引数">コマンドライン引数&lt;/h2>
@@ -3444,7 +3463,12 @@ cargo run &lt;span style="color:#8f5902;font-style:italic"># バイナリを作�
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Error occured!!&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Fprintf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fprintf: %v\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="書式指定子">書式指定子&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/type/#%E6%96%87%E5%AD%97%E5%88%97">道場 &amp;gt; 文字列&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/io/">道場 &amp;gt; 入出力&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="書式指定子">書式指定子&lt;/h2>
 &lt;p>だいたいprintfと一緒だけど、違うやつとか難しいやつを出くわしたときに追記していくつもり。&lt;/p>
 &lt;p>&lt;code>%v&lt;/code>, &lt;code>%+v&lt;/code>, &lt;code>%#v&lt;/code> が便利。&lt;/p>
 &lt;table>
@@ -3554,7 +3578,11 @@ Error: Error occured! I am guilty!
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>標準入力からスペース区切りで入力を受付け、変数に格納する。&lt;br>
 改行もスペースとみなされる。&lt;br>
 読み取った数が引数より少なかったらエラーを返す。&lt;/p>
-&lt;p>任意の入力ソースから読み取るには、Fscan, Fscanf, Fscanlnを使う。&lt;/p>
+&lt;p>Hints:&lt;/p>
+&lt;ul>
+&lt;li>任意の入力ソースから読み取るには、Fscan, Fscanf, Fscanlnを使う。&lt;/li>
+&lt;li>入力の要素数が不定の場合は、&lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/#bufio">bufio.Scanner&lt;/a>を使うといい&lt;/li>
+&lt;/ul>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
@@ -3571,7 +3599,8 @@ $ go run main.go
 x y z
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="func-scanln">func Scanln&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">Scanln&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interface&lt;/span>&lt;span style="color:#000;font-weight:bold">{})&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">err&lt;/span> &lt;span style="color:#204a87;font-weight:bold">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Scanと似ているが、改行で処理を止める。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Scanと似ているが、改行で処理を止める。&lt;br>
+最後の引数の後に改行を期待するので、入力が引数より多くてもNG.&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">string&lt;/span>
 &lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Input 2 strings: &amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
@@ -3837,6 +3866,21 @@ structを定義することでコマンドライン引数を解析する。&lt;/
 &lt;li>&lt;a href="https://ashitani.jp/golangtips/tips_file.html">逆引きGolang (ファイル)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/qt-luigi/items/2c13ad68e7d9f8f8c0f2">Goでテキストファイルを読み書きする時に使う標準パッケージ - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/1821811/how-to-read-write-from-to-file-using-go">How to read/write from/to file using Go? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="テキストの読取り">テキストの読取り&lt;/h2>
+&lt;h3 id="空白区切りのテキストを読み取る">空白区切りのテキストを読み取る&lt;/h3>
+&lt;p>半角スペースやタブ区切りの文字列を読み取るとき。&lt;/p>
+&lt;ul>
+&lt;li>フィールド数が固定なら &lt;code>fmt.Scan&lt;/code> 系の関数が使える
+&lt;ul>
+&lt;li>フィールド数が異なるものがあるとエラーになる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>フィールド数が不定の場合、 &lt;code>bufio.Scanner&lt;/code> を使う
+&lt;ul>
+&lt;li>分割したいときは &lt;a href="https://progrhy.me/tech-notes/a/program/go/std-pkg/strings/#func-fields">strings.Fields&lt;/a> でスライスにできる&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="標準入出力">標準入出力&lt;/h2>
 &lt;h3 id="標準入力">標準入力&lt;/h3>

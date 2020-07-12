@@ -951,6 +951,7 @@ ImportPath = string_lit .
 &lt;p>&lt;a href="https://golang.org/pkg/archive/zip/">https://golang.org/pkg/archive/zip/&lt;/a>&lt;/p>
 &lt;p>ZIPアーカイブの読み書き機能を提供。&lt;/p>
 &lt;h2 id="bufio">bufio&lt;/h2>
+&lt;p>&lt;a href="https://pkg.go.dev/bufio">https://pkg.go.dev/bufio&lt;/a>&lt;/p>
 &lt;p>バッファリング付きI/Oを提供する。&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// 1行ずつテキストを読み込んで、EOFが入力されるまで読んだ行をそのまま表示し続ける
@@ -978,6 +979,30 @@ a b c d
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/#%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%81%A7eof%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">CLI#ターミナルでEOFを入力する方法&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/kosukeKK/items/865e06de03d20664a83f">Go言語で標準入力 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="func-newscanner">func NewScanner&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/bufio?tab=doc#NewScanner">https://pkg.go.dev/bufio?tab=doc#NewScanner&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">NewScanner&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Reader&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Scanner&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>rに対するScannerを生成。&lt;br>
+デフォルトで改行区切りとなる。&lt;/p>
+&lt;h3 id="type-scanner-struct">type Scanner (struct)&lt;/h3>
+&lt;p>&lt;a href="https://pkg.go.dev/bufio?tab=doc#Scanner">https://pkg.go.dev/bufio?tab=doc#Scanner&lt;/a>&lt;/p>
+&lt;p>スキャナーオブジェクト。読み取ったテキストやエラーを保持する。&lt;/p>
+&lt;h4 id="func-split">func Split&lt;/h4>
+&lt;p>&lt;a href="https://pkg.go.dev/bufio?tab=doc#Scanner.Split">https://pkg.go.dev/bufio?tab=doc#Scanner.Split&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">Scanner&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000">Split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">split&lt;/span> &lt;span style="color:#000">SplitFunc&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>読取り時にテキストを分割する方法（1回のs.Scan()でどこまで読み取るか）を変更する。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#000">scanner&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">bufio&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">NewScanner&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">strings&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">NewReader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 空白文字区切りで読み取る
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">scanner&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">bufio&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ScanWords&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// Count the words.
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">count&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">scanner&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Scan&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">count&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// エラー処理は省略
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Printf&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%d\n&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">count&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="https://pkg.go.dev/bufio?tab=doc#example-Scanner-Words">https://pkg.go.dev/bufio?tab=doc#example-Scanner-Words&lt;/a>&lt;/p>
 &lt;h2 id="compressgzip">compress/gzip&lt;/h2>
 &lt;p>&lt;a href="https://pkg.go.dev/compress/gzip">https://pkg.go.dev/compress/gzip&lt;/a>&lt;/p>
 &lt;p>RFC 1952に準拠したgzip圧縮ファイルの読み書き。&lt;/p>
