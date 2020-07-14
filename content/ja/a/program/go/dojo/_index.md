@@ -5,36 +5,12 @@ date: 2020-06-06T18:08:05+09:00
 weight: 40
 ---
 
-Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。
+Gopherを名乗る上で必須と思われる基礎的・汎用的なトピックを扱う。  
+あるいは用途別逆引き見出しリスト。
 
 前提:
 
 - [言語仕様]({{<ref "../spec/_index.md">}})の内容を把握していること
-
-## コーディング規約
-
-公式ガイド:
-
-- [Effective Go - The Go Programming Language](https://golang.org/doc/effective_go.html)
-- [CodeReviewComments · golang/go Wiki](https://github.com/golang/go/wiki/CodeReviewComments) ... Goらしい書き方を学べる
-  - 邦訳: [Go Codereview Comments](https://knsh14.github.io/translations/go-codereview-comments/)
-
-### Mixed Caps
-
-- https://golang.org/doc/effective_go.html#mixed-caps
-- https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps
-
-複数の単語から成る名前には以下のような命名を行う:
-
-- `mixedCaps` ... unexported
-- `MixedCaps` ... exported
-
-定数でも同じ。  
-`os.O_CREATE` とかは他言語由来の一部の例外。
-
-参考:
-
-- [constants - Go naming conventions for const - Stack Overflow](https://stackoverflow.com/questions/22688906/go-naming-conventions-for-const)
 
 ## 例外処理
 
@@ -58,21 +34,6 @@ Gopherを名乗る上で必須と思われる基礎的なトピックを扱う�
 - [panicはともかくrecoverに使いどころはほとんどない - Qiita](https://qiita.com/ruiu/items/ff98ded599d97cf6646e)
 - [golangでrecoverしたときの戻り値 - PartyIX](https://h3poteto.hatenablog.com/entry/2015/12/13/010000)
 - [Golangでエラー時にスタックトレースを表示する - Qiita](https://qiita.com/deeeet/items/dacc71932393ab35d9f8)
-
-## ドキュメントコメント
-
-ドキュメンテーションコメント、いわゆるGoDocの書き方。
-
-公式リソース:
-
-- [Effective Go - The Go Programming Language#Commentary](https://golang.org/doc/effective_go.html#commentary)
-- [Godoc: documenting Go code - The Go Blog](https://blog.golang.org/godoc)
-- [Testable Examples in Go - The Go Blog](https://blog.golang.org/examples)
-
-参考:
-
-- [チョットできるGoプログラマーになるための詳解GoDoc - Qiita](https://qiita.com/shibukawa/items/8c70fdd1972fad76a5ce)
-- [GoDocドキュメントの書き方 - Plan 9とGo言語のブログ](https://blog.lufia.org/entry/2018/05/14/150400)
 
 ## テスト
 
@@ -289,12 +250,6 @@ Tips:
 - [Go言語のテンプレート機能について - Qiita](https://qiita.com/ryokwkm/items/774927f43a3fc5d89cb0)
 - [テンプレート機能を使用する (text/template, html/template) | まくまくHugo/Goノート](https://maku77.github.io/hugo/go/template.html)
 
-## リファクタリング
-
-関連項目:
-
-- [tools > gorename]({{<ref "../tools.md">}}#cmdgorename)
-
 ## デバッグ
 
 キーワード:
@@ -366,3 +321,17 @@ reflectパッケージを使う。
 参考:
 
 - [Go 言語 reflect チートシート - Qiita](https://qiita.com/nirasan/items/b6b89f8c61c35b563e8c)
+
+## コード生成
+
+コンパイラ付属の `go generate` によって、コードを自動生成できる。
+
+ソースコード内に `//go:generate COMMAND ARGUMENTS` というコメント行を追加することで、 `go generate` が実行するコマンドを指定できる。  
+これは任意のコマンドを指定できるようだ。
+
+参考:
+
+- [Generating code - The Go Blog](https://blog.golang.org/generate)
+- [go generateでコードを自動生成する](https://techblog.yourcast.co.jp/go-generate/)
+- [実行例と stringer から学ぶ go generate 入門 - Qiita](https://qiita.com/nirasan/items/d9399394b57a72e6a90f)
+- [go generate のベストプラクティス - Qiita](https://qiita.com/yaegashi/items/d1fd9f7d0c75b2bb7446)
