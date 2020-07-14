@@ -2224,6 +2224,61 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;ul>
 &lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
 &lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
+&lt;/ul></description></item><item><title>A: コーディング</title><link>https://progrhy.me/tech-notes/a/program/go/dojo/code/</link><pubDate>Tue, 14 Jul 2020 23:11:44 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/dojo/code/</guid><description>
+&lt;h2 id="コーディング規約">コーディング規約&lt;/h2>
+&lt;p>公式ガイド:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html">Effective Go - The Go Programming Language&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments · golang/go Wiki&lt;/a> &amp;hellip; Goらしい書き方を学べる
+&lt;ul>
+&lt;li>邦訳: &lt;a href="https://knsh14.github.io/translations/go-codereview-comments/">Go Codereview Comments&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="mixed-caps">Mixed Caps&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html#mixed-caps">https://golang.org/doc/effective_go.html#mixed-caps&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps">https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>複数の単語から成る名前には以下のような命名を行う:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>mixedCaps&lt;/code> &amp;hellip; unexported&lt;/li>
+&lt;li>&lt;code>MixedCaps&lt;/code> &amp;hellip; exported&lt;/li>
+&lt;/ul>
+&lt;p>定数でも同じ。&lt;br>
+&lt;code>os.O_CREATE&lt;/code> とかは他言語由来の一部の例外。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/22688906/go-naming-conventions-for-const">constants - Go naming conventions for const - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ドキュメントコメント">ドキュメントコメント&lt;/h2>
+&lt;p>ドキュメンテーションコメント、いわゆるGoDocの書き方。&lt;/p>
+&lt;p>公式リソース:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://golang.org/doc/effective_go.html#commentary">Effective Go - The Go Programming Language#Commentary&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/godoc">Godoc: documenting Go code - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.golang.org/examples">Testable Examples in Go - The Go Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/shibukawa/items/8c70fdd1972fad76a5ce">チョットできるGoプログラマーになるための詳解GoDoc - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.lufia.org/entry/2018/05/14/150400">GoDocドキュメントの書き方 - Plan 9とGo言語のブログ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="exampleをつける">Exampleをつける&lt;/h3>
+&lt;p>上の参考記事を読むといい。&lt;/p>
+&lt;p>ポイント:&lt;/p>
+&lt;ul>
+&lt;li>テストコードとして記述する。 &lt;code>xxx_test.go&lt;/code> というファイルに書く。&lt;/li>
+&lt;li>&lt;strong>package名はテスト対象のパッケージと異なる。 &lt;code>package xxx_test&lt;/code> のように &lt;code>_test&lt;/code> を付ける&lt;/strong>
+&lt;ul>
+&lt;li>同じでも動くんだけど、Exampleとしては相応しくないコードになる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="リファクタリング">リファクタリング&lt;/h2>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/tools/#cmdgorename">tools &amp;gt; gorename&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: cron</title><link>https://progrhy.me/tech-notes/a/software/job-man/cron/</link><pubDate>Sat, 11 Jul 2020 17:03:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/cron/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>UNIX系OSで古くから使われる常駐デーモンで、設定したスケジュールに従って、プログラムを定期実行するもの。&lt;/p>
@@ -5137,30 +5192,4 @@ brew bundle dump &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTI
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>VMからカスタムイメージを作る場合は、VMを停止しないと駄目みたい&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/">https://www.terraform.io/docs/commands/&lt;/a>&lt;/p>
-&lt;h2 id="import">import&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/import/usage.html">https://www.terraform.io/docs/import/usage.html&lt;/a>&lt;/p>
-&lt;p>&lt;code>terraform import&lt;/code> コマンドにより、既存インフラをTerraform管理下に置くことができる。&lt;/p>
-&lt;p>一部インフラを手動で作った後、リソースのidを指定して取り込む、といった使い方ができる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tyasu/items/32b23dd76d25f7af712f" title="terraform importの使い方メモ - Qiita">terraform importの使い方メモ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="plan">plan&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/plan.html">https://www.terraform.io/docs/commands/plan.html&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 対象を限定する&lt;/span>
-terraform plan -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type1.identifier1 -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type2.identifier2
-&lt;span style="color:#8f5902;font-style:italic"># planファイルを書き出す&lt;/span>
-terraform plan -out&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/tfplan
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="state">state&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/state/">https://www.terraform.io/docs/commands/state/&lt;/a>&lt;/p>
-&lt;p>stateの管理・編集を行うコマンド。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform state list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>filtering-arg&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># terraform管理下のリソース一覧&lt;/span>
-terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモートのstateファイルをダウンロードして標準出力に表示&lt;/span>
-terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
-terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
-terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

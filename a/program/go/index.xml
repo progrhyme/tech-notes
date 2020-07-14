@@ -627,36 +627,11 @@ ImportPath = string_lit .
 &lt;ul>
 &lt;li>&lt;a href="http://golang.jp/tag/effective-go/page/2" title="Effective Go - golang.jp">Effective Go - golang.jp&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Road to Gopher</title><link>https://progrhy.me/tech-notes/a/program/go/dojo/</link><pubDate>Sat, 06 Jun 2020 18:08:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/dojo/</guid><description>
-&lt;p>Gopherを名乗る上で必須と思われる基礎的なトピックを扱う（予定）。&lt;/p>
+&lt;p>Gopherを名乗る上で必須と思われる基礎的・汎用的なトピックを扱う。&lt;br>
+あるいは用途別逆引き見出しリスト。&lt;/p>
 &lt;p>前提:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/spec/">言語仕様&lt;/a>の内容を把握していること&lt;/li>
-&lt;/ul>
-&lt;h2 id="コーディング規約">コーディング規約&lt;/h2>
-&lt;p>公式ガイド:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://golang.org/doc/effective_go.html">Effective Go - The Go Programming Language&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments · golang/go Wiki&lt;/a> &amp;hellip; Goらしい書き方を学べる
-&lt;ul>
-&lt;li>邦訳: &lt;a href="https://knsh14.github.io/translations/go-codereview-comments/">Go Codereview Comments&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="mixed-caps">Mixed Caps&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://golang.org/doc/effective_go.html#mixed-caps">https://golang.org/doc/effective_go.html#mixed-caps&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps">https://github.com/golang/go/wiki/CodeReviewComments#mixed-caps&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>複数の単語から成る名前には以下のような命名を行う:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>mixedCaps&lt;/code> &amp;hellip; unexported&lt;/li>
-&lt;li>&lt;code>MixedCaps&lt;/code> &amp;hellip; exported&lt;/li>
-&lt;/ul>
-&lt;p>定数でも同じ。&lt;br>
-&lt;code>os.O_CREATE&lt;/code> とかは他言語由来の一部の例外。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/22688906/go-naming-conventions-for-const">constants - Go naming conventions for const - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>入門ガイド:&lt;/p>
@@ -679,19 +654,6 @@ ImportPath = string_lit .
 &lt;li>&lt;a href="https://qiita.com/ruiu/items/ff98ded599d97cf6646e">panicはともかくrecoverに使いどころはほとんどない - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://h3poteto.hatenablog.com/entry/2015/12/13/010000">golangでrecoverしたときの戻り値 - PartyIX&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/deeeet/items/dacc71932393ab35d9f8">Golangでエラー時にスタックトレースを表示する - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ドキュメントコメント">ドキュメントコメント&lt;/h2>
-&lt;p>ドキュメンテーションコメント、いわゆるGoDocの書き方。&lt;/p>
-&lt;p>公式リソース:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://golang.org/doc/effective_go.html#commentary">Effective Go - The Go Programming Language#Commentary&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.golang.org/godoc">Godoc: documenting Go code - The Go Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.golang.org/examples">Testable Examples in Go - The Go Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/shibukawa/items/8c70fdd1972fad76a5ce">チョットできるGoプログラマーになるための詳解GoDoc - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.lufia.org/entry/2018/05/14/150400">GoDocドキュメントの書き方 - Plan 9とGo言語のブログ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/go/test/">テスト&lt;/a>&lt;/p>
@@ -879,11 +841,6 @@ ImportPath = string_lit .
 &lt;li>&lt;a href="https://qiita.com/ryokwkm/items/774927f43a3fc5d89cb0">Go言語のテンプレート機能について - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://maku77.github.io/hugo/go/template.html">テンプレート機能を使用する (text/template, html/template) | まくまくHugo/Goノート&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="リファクタリング">リファクタリング&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/tools/#cmdgorename">tools &amp;gt; gorename&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="デバッグ">デバッグ&lt;/h2>
 &lt;p>キーワード:&lt;/p>
 &lt;ul>
@@ -951,6 +908,17 @@ ImportPath = string_lit .
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/nirasan/items/b6b89f8c61c35b563e8c">Go 言語 reflect チートシート - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="コード生成">コード生成&lt;/h2>
+&lt;p>コンパイラ付属の &lt;code>go generate&lt;/code> によって、コードを自動生成できる。&lt;/p>
+&lt;p>ソースコード内に &lt;code>//go:generate COMMAND ARGUMENTS&lt;/code> というコメント行を追加することで、 &lt;code>go generate&lt;/code> が実行するコマンドを指定できる。&lt;br>
+これは任意のコマンドを指定できるようだ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.golang.org/generate">Generating code - The Go Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://techblog.yourcast.co.jp/go-generate/">go generateでコードを自動生成する&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/nirasan/items/d9399394b57a72e6a90f">実行例と stringer から学ぶ go generate 入門 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/yaegashi/items/d1fd9f7d0c75b2bb7446">go generate のベストプラクティス - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 標準パッケージ</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/</link><pubDate>Sun, 31 May 2020 16:18:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/</guid><description>
 &lt;h2 id="archivetar">archive/tar&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/archive/tar/">https://golang.org/pkg/archive/tar/&lt;/a>&lt;/p>
