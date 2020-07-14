@@ -284,6 +284,39 @@ cpanm Foo::Bar
 &lt;li>&lt;a href="http://omake.accense.com/static/doc-ja/cython/src/userguide/wrapping_CPlusPlus.html">Cython から C++ を使う — Cython 0.17.1 documentation&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://www.randpy.tokyo/entry/numba_cython">Pythonで高速化処理！numbaとCythonの実行速度を比較してみた。 - これで無理なら諦めて！世界一やさしいデータ分析教室&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="開発環境">開発環境&lt;/h2>
+&lt;h3 id="visual-studio-code">Visual Studio Code&lt;/h3>
+&lt;h4 id="venvを使う">venvを使う&lt;/h4>
+&lt;p>関係しそうな設定値が2つある。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>キー&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>python.venvFolders&lt;/td>
+&lt;td>ホームディレクトリ内で仮想環境を格納するフォルダのリスト&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>python.venvPath&lt;/td>
+&lt;td>仮想環境を格納するフォルダへのパス&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>どっちを指定すればいいのかわからん。。&lt;br>
+プロジェクトごとにvenvを作るような場合は venvFoldersに &lt;code>.venv&lt;/code> を入れておけばいいのかな？&lt;/p>
+&lt;p>ある環境では &lt;code>~/my/venv/&lt;/code> の下にまとめていたので、次のように設定した:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JSON" data-lang="JSON">&lt;span style="color:#4e9a06">&amp;#34;python.venvPath&amp;#34;&lt;/span>&lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~/my/venv&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで問題なさそう。&lt;br>
+VS CodeのWindowをリロードすると、Pythonインタプリタのリストにvenvのリストが出てくるようになった。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad">[VS Code] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)&lt;/a>&lt;/li>
+&lt;li>Windows: &lt;a href="https://hachian.com/2019/09/19/vscode_venv/">【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="文字列処理">文字列処理&lt;/h3>
 &lt;h4 id="文字列検索-in-not-in">文字列検索 &lt;code>in&lt;/code>, &lt;code>not in&lt;/code>&lt;/h4>
