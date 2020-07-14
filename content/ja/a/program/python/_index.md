@@ -36,6 +36,33 @@ weight: 720
 - [Cython から C\+\+ を使う — Cython 0\.17\.1 documentation](http://omake.accense.com/static/doc-ja/cython/src/userguide/wrapping_CPlusPlus.html)
 - [Pythonで高速化処理！numbaとCythonの実行速度を比較してみた。 \- これで無理なら諦めて！世界一やさしいデータ分析教室](http://www.randpy.tokyo/entry/numba_cython)
 
+## 開発環境
+### Visual Studio Code
+#### venvを使う
+
+関係しそうな設定値が2つある。
+
+ キー | 意味
+-----|------
+ python.venvFolders | ホームディレクトリ内で仮想環境を格納するフォルダのリスト
+ python.venvPath | 仮想環境を格納するフォルダへのパス
+
+どっちを指定すればいいのかわからん。。  
+プロジェクトごとにvenvを作るような場合は venvFoldersに `.venv` を入れておけばいいのかな？
+
+ある環境では `~/my/venv/` の下にまとめていたので、次のように設定した:
+
+```JSON
+"python.venvPath": "~/my/venv"
+```
+
+これで問題なさそう。  
+VS CodeのWindowをリロードすると、Pythonインタプリタのリストにvenvのリストが出てくるようになった。
+
+参考:
+
+- [\[VS Code\] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)](https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad)
+- Windows: [【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ](https://hachian.com/2019/09/19/vscode_venv/)
 
 ## How-to
 ### 文字列処理
