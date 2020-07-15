@@ -31,6 +31,13 @@ https://cloud.google.com/bigquery/pricing
 - データセット ... プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
   - データセットの概要 | BigQuery | Google Cloud
 
+## 機能
+### Cloud SQL連携
+
+[Cloud SQL 連携クエリ | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/cloud-sql-federated-queries?hl=ja)
+
+連携設定を行うことで、Cloud SQL上のデータをリアルタイムに参照するVIEWを作成できる。
+
 ## 仕様
 ### `0000-00-00 00:00:00` は取り扱えない
 
