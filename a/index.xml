@@ -2201,6 +2201,10 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;h2 id="機能">機能&lt;/h2>
+&lt;h3 id="cloud-sql連携">Cloud SQL連携&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/cloud-sql-federated-queries?hl=ja">Cloud SQL 連携クエリ | BigQuery | Google Cloud&lt;/a>&lt;/p>
+&lt;p>連携設定を行うことで、Cloud SQL上のデータをリアルタイムに参照するVIEWを作成できる。&lt;/p>
 &lt;h2 id="仕様">仕様&lt;/h2>
 &lt;h3 id="0000-00-00-000000-は取り扱えない">&lt;code>0000-00-00 00:00:00&lt;/code> は取り扱えない&lt;/h3>
 &lt;p>MySQLサーバで &lt;code>NO_ZERO_DATE&lt;/code> modeが有効でないと入ってくるデータだが、BQでは扱えない。&lt;/p>
