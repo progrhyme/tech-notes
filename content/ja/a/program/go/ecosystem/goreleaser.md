@@ -205,3 +205,33 @@ jobs:
 参考:
 
 - [2020-06-17#goreleaserのドキュメントに修正PRを送った]({{<ref "20200617.md">}}#goreleaserのドキュメントに修正prを送った)
+
+#### コマンドでリリースノートを生成
+
+最終的に、binqでは次のように設定した（一部抜粋）:
+
+```YAML
+steps:
+  - run: ./gen-release-note.sh > /tmp/release-note.md
+  - uses: goreleaser/goreleaser-action@v2
+    with:
+      version: latest
+      args: release --rm-dist --release-notes=/tmp/release-note.md
+```
+
+初め、 `--release-notes <(./gen-release-note.sh)` とやろうとしたが、GitHub Action上でエラーになってしまった:
+
+- https://github.com/binqry/binq/runs/874286495?check_suite_focus=true
+
+```
+generating changelog
+   ⨯ release failed after 2.35s error=open <(./gen-release-note.sh): no such file or directory
+##[error]The process '/opt/hostedtoolcache/goreleaser-action/0.140.0/x64/goreleaser' failed with exit code 1
+```
+
+その後、何度か試したが、どうもプロセス置換 `<(...)` で上手くコマンドが動かないようだった。  
+※ひょっとしたら、shで起動していてプロセス置換が効いてないとか？
+
+参考:
+
+- [bashのプロセス置換(Process Substitution)で中間ファイルを不要に - grep Tips *](https://www.greptips.com/posts/189/)

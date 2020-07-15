@@ -70,6 +70,22 @@ s[0]       //=> 65
 string(82) //=> "R"
 ```
 
+### 繰り返し
+
+bytes, stringsパッケージにRepeat関数がある:
+
+```go
+buf := []byte("あいうえお")
+str := "あいうえお"
+
+fmt.Println(string(bytes.Repeat(buf, 3)))
+fmt.Println(strings.Repeat(str, 3))
+```
+
+参考:
+
+- [Golang: 文字列を繰り返す - Sarabande.jp](https://blog.sarabande.jp/post/89685305348)
+
 ## 配列・スライス
 
 参考:
