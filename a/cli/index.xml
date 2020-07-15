@@ -17,6 +17,12 @@
 &lt;/li>
 &lt;li>&lt;a href="https://linux.die.net/man/1/awk">https://linux.die.net/man/1/awk&lt;/a> &amp;hellip; gawk&lt;/li>
 &lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/key-amb/items/754a12eda28e7650a47c" title="AWK によるテキストのワンライナー処理クックブック集 - Qiita">AWK によるテキストのワンライナー処理クックブック集 - Qiita&lt;/a> &amp;hellip; 以前に自分でまとめたもの&lt;/li>
+&lt;li>&lt;a href="https://bi.biopapyrus.jp/os/linux/awk.html">awk | テキストのパターンマッチ処理に長けたスクリプト言語&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://shellscript.sunone.me/awk.html">AWK リファレンス | UNIX &amp;amp; Linux コマンド・シェルスクリプト リファレンス&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="awkコマンド">awkコマンド&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># AWKスクリプトが短いとき&lt;/span>
 command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;{ AWK SCRIPT }&amp;#39;&lt;/span>
@@ -38,8 +44,16 @@ command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> sci
 &lt;td>&lt;code>-F&amp;lt;c&amp;gt;&lt;/code>&lt;/td>
 &lt;td>フィールドの区切り文字を &lt;code>&amp;lt;c&amp;gt;&lt;/code> に変える。例: &lt;code>-F,&lt;/code> でカンマ区切り&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-v &amp;lt;KEY&amp;gt;=&amp;lt;VALUE&amp;gt;&lt;/code>&lt;/td>
+&lt;td>awkスクリプト内で使える変数を設定する。 &lt;code>-v x=y&lt;/code> を繰り返すことで複数設定可&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/tkykmw/items/1622970830262355a5a3">awkからシェル変数を参照する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="スクリプティング">スクリプティング&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-awk" data-lang="awk">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/awk -f&lt;/span>
 &lt;span style="color:#204a87">BEGIN&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;start&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
@@ -65,10 +79,37 @@ command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> sci
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tkykmw/items/89c67530c322baedb002" title="awkの変数と文字列、正規表現のキホン - Qiita">awkの変数と文字列、正規表現のキホン - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="参考">参考&lt;/h2>
+&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-awk" data-lang="awk">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span> &lt;span style="color:#000">c&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">$&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">~&lt;/span> &lt;span style="color:#4e9a06">/foo/&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://qiita.com/key-amb/items/754a12eda28e7650a47c" title="AWK によるテキストのワンライナー処理クックブック集 - Qiita">AWK によるテキストのワンライナー処理クックブック集 - Qiita&lt;/a> &amp;hellip; 以前に自分でまとめたもの&lt;/li>
-&lt;/ul></description></item><item><title>A: curl</title><link>https://progrhy.me/tech-notes/a/cli/curl/</link><pubDate>Fri, 19 Jun 2020 20:30:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/curl/</guid><description>
+&lt;li>&lt;a href="https://it-ojisan.tokyo/awk-if/">awkのif文のサンプルコード | ITを使っていこう&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="パターンマッチ">パターンマッチ&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-awk" data-lang="awk">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">regexp&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;.*\.sh$&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">/^[abc]+/&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># $0 にマッチ&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">$&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">~&lt;/span> &lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">$&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ワンライナー">ワンライナー&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># マッチする行のみ表示&lt;/span>
+awk &lt;span style="color:#4e9a06">&amp;#39;/abc/{print $0}&amp;#39;&lt;/span> sample.tsv
+&lt;span style="color:#8f5902;font-style:italic"># 偶数行だけを出力&lt;/span>
+awk &lt;span style="color:#4e9a06">&amp;#39;NR % 2 == 0 {print $0}&amp;#39;&lt;/span> sample.tsv
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: curl</title><link>https://progrhy.me/tech-notes/a/cli/curl/</link><pubDate>Fri, 19 Jun 2020 20:30:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/curl/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>Man: &lt;a href="https://curl.haxx.se/docs/manpage.html">https://curl.haxx.se/docs/manpage.html&lt;/a>&lt;/li>
