@@ -91,17 +91,21 @@ NOTE:
 
 `.goreleaser.yml` でカスタマイズしたくなりそうなところを記す。
 
-リファレンス:
+### Builds
 
-- https://goreleaser.com/customization/build/
-- https://goreleaser.com/customization/archive/
-- https://goreleaser.com/customization/release/
+https://goreleaser.com/customization/build/
 
 ```YAML
 builds:
-- goos:
+# 複数のビルド対象を記述可能
+- 
+  # mainパッケージまたはmain.goへのパス
+  # デフォルトは "."
+  main: ./cmd/main.go
+
   # デフォルトは [linux, darwin]
   # Windowsもサポートしたいなら足す
+  goos:
   - linux
   - darwin
   goarch:
@@ -109,17 +113,33 @@ builds:
   - amd64
 ```
 
+### Archive
+
+https://goreleaser.com/customization/archive/
+
+アーカイブファイル形式や、含めるファイルとか、ファイル名の設定。
+
 ```YAML
 archives:
 - 
   # デフォルトはtar.gzだけど、単バイナリでいいときとか変えたくなりそう
-  format: binary
+  #format: binary
 
   # アップロードされるファイルで、GOOSやGOARCHの文字列を置換したい
   # ときに設定する。設定しなくてもよさそう
   replacements:
     amd64: x86_64
+
+  files:
+  # アーカイブに何も追加したくない場合は、マッチしないglob文字列を書かないといけない
+  - nothing*
 ```
+
+### Release
+
+https://goreleaser.com/customization/release/
+
+リリース作成の設定。
 
 ```YAML
 changelog:
@@ -132,6 +152,15 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+```
+
+リリースノートをもっと自由にカスタマイズしたい場合、goreleaserコマンドの引数に指定する。
+
+```sh
+# 静的ファイル
+goreleaser --release-notes=FILE
+# コマンドで動的に生成
+goreleaser --release-notes <(some_change_log_generator)
 ```
 
 ## CI設定
