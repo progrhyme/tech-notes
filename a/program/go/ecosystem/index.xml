@@ -134,4 +134,25 @@ goreleaser --release-notes &amp;lt;&lt;span style="color:#ce5c00;font-weight:bol
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200617/#goreleaser%E3%81%AE%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AB%E4%BF%AE%E6%AD%A3pr%E3%82%92%E9%80%81%E3%81%A3%E3%81%9F">2020-06-17#goreleaserのドキュメントに修正PRを送った&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="コマンドでリリースノートを生成">コマンドでリリースノートを生成&lt;/h4>
+&lt;p>最終的に、binqでは次のように設定した（一部抜粋）:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>./gen-release-note.sh&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/tmp/release-note.md&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>goreleaser/goreleaser-action@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">version&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>latest&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">args&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>release&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--rm-dist&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>--release-notes=/tmp/release-note.md&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>初め、 &lt;code>--release-notes &amp;lt;(./gen-release-note.sh)&lt;/code> とやろうとしたが、GitHub Action上でエラーになってしまった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/binqry/binq/runs/874286495?check_suite_focus=true">https://github.com/binqry/binq/runs/874286495?check_suite_focus=true&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>generating changelog
+⨯ release failed after 2.35s error=open &amp;lt;(./gen-release-note.sh): no such file or directory
+##[error]The process '/opt/hostedtoolcache/goreleaser-action/0.140.0/x64/goreleaser' failed with exit code 1
+&lt;/code>&lt;/pre>&lt;p>その後、何度か試したが、どうもプロセス置換 &lt;code>&amp;lt;(...)&lt;/code> で上手くコマンドが動かないようだった。&lt;br>
+※ひょっとしたら、shで起動していてプロセス置換が効いてないとか？&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.greptips.com/posts/189/">bashのプロセス置換(Process Substitution)で中間ファイルを不要に - grep Tips *&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
