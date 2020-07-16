@@ -101,7 +101,16 @@
 goreleaser --release-notes&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>FILE
 &lt;span style="color:#8f5902;font-style:italic"># コマンドで動的に生成&lt;/span>
 goreleaser --release-notes &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>some_change_log_generator&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ci設定">CI設定&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="homebrew-formula生成">Homebrew Formula生成&lt;/h3>
+&lt;p>&lt;a href="https://goreleaser.com/customization/homebrew/">https://goreleaser.com/customization/homebrew/&lt;/a>&lt;/p>
+&lt;p>GoReleaserでHomebrewのFormulaを生成することができる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/momotaro98/items/a421c8b3412dec3fb2fc">goreleaserで簡単にオレオレコマンドをbrew installできちゃう - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/knqyf263/items/53dd0d0916afc5472281">goreleaserでHomebrewのFormulaを自動生成する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ci設定">CI設定&lt;/h2>
 &lt;p>各種CIツールへの設定方法についても公式ガイドがあって捗る。&lt;/p>
 &lt;h3 id="github-actions">GitHub Actions&lt;/h3>
 &lt;p>&lt;a href="https://goreleaser.com/ci/actions/">https://goreleaser.com/ci/actions/&lt;/a>&lt;/p>

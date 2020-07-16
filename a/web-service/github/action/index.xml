@@ -35,6 +35,10 @@
 &lt;/ul>
 &lt;h2 id="公式actions">公式Actions&lt;/h2>
 &lt;p>GitHub公式のactionはたぶん &lt;a href="https://github.com/actions">https://github.com/actions&lt;/a> にあるもの。&lt;/p>
+&lt;h3 id="cache">cache&lt;/h3>
+&lt;p>&lt;a href="https://github.com/actions/cache">https://github.com/actions/cache&lt;/a>&lt;/p>
+&lt;p>依存関係をキャッシュしてワークフローの実行時間を短くしてくれる。&lt;br>
+&lt;a href="https://github.com/actions/cache#implementation-examples">リポジトリに各種言語における設定例&lt;/a>も同梱されているので、そちらを参考に設定するといい。&lt;/p>
 &lt;h3 id="checkout">checkout&lt;/h3>
 &lt;p>&lt;a href="https://github.com/actions/checkout">https://github.com/actions/checkout&lt;/a>&lt;/p>
 &lt;p>リポジトリをチェックアウトする。&lt;br>
@@ -105,7 +109,20 @@
 &lt;li>&lt;a href="https://help.github.com/ja/actions/language-and-framework-guides/using-nodejs-with-github-actions">GitHub ActionsでのNode.jsの利用 - GitHub ヘルプ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml">https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="3rd-party-actions">3rd Party Actions&lt;/h2>
+&lt;h3 id="setup-python">setup-python&lt;/h3>
+&lt;p>&lt;a href="https://github.com/actions/setup-python">https://github.com/actions/setup-python&lt;/a>&lt;/p>
+&lt;p>Python実行環境のセットアップ。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">jobs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">build&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Setup&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Python&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/setup-python@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">python-version&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;3.x&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Python 3系を使う&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">architecture&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;x64&amp;#39;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3rd-party-actions">3rd Party Actions&lt;/h2>
 &lt;h3 id="slack通知用">Slack通知用&lt;/h3>
 &lt;p>たくさんあるが、starが多くて目についたものを載せる:&lt;/p>
 &lt;ul>

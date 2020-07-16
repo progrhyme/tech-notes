@@ -109,6 +109,8 @@ command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> sci
 awk &lt;span style="color:#4e9a06">&amp;#39;/abc/{print $0}&amp;#39;&lt;/span> sample.tsv
 &lt;span style="color:#8f5902;font-style:italic"># 偶数行だけを出力&lt;/span>
 awk &lt;span style="color:#4e9a06">&amp;#39;NR % 2 == 0 {print $0}&amp;#39;&lt;/span> sample.tsv
+&lt;span style="color:#8f5902;font-style:italic"># N行目以降を出力&lt;/span>
+awk -v &lt;span style="color:#000">n&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;NR &amp;gt; n {print $0}&amp;#39;&lt;/span> sample.tsv
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: curl</title><link>https://progrhy.me/tech-notes/a/cli/curl/</link><pubDate>Fri, 19 Jun 2020 20:30:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/curl/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
