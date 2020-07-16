@@ -163,6 +163,18 @@ goreleaser --release-notes=FILE
 goreleaser --release-notes <(some_change_log_generator)
 ```
 
+## Features
+### Homebrew Formula生成
+
+https://goreleaser.com/customization/homebrew/
+
+GoReleaserでHomebrewのFormulaを生成することができる。
+
+参考:
+
+- [goreleaserで簡単にオレオレコマンドをbrew installできちゃう - Qiita](https://qiita.com/momotaro98/items/a421c8b3412dec3fb2fc)
+- [goreleaserでHomebrewのFormulaを自動生成する - Qiita](https://qiita.com/knqyf263/items/53dd0d0916afc5472281)
+
 ## CI設定
 
 各種CIツールへの設定方法についても公式ガイドがあって捗る。

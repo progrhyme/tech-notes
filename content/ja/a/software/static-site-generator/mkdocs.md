@@ -64,6 +64,76 @@ nav:
 theme: readthedocs
 ```
 
+### GitHub Pagesへのデプロイ
+
+公式マニュアルがあるが、GitHub ActionなどCIを利用した方が楽だろう。
+
+#### GitHub Action
+
+下の参考記事に上げた@peaceiris先生の記事に詳しいやり方が載っているので、一読すると良い。
+
+2020-07-17、[binqry.github.io](https://github.com/binqry/binqry.github.io)では次のように設定した。
+
+```YAML
+name: github pages
+
+on:
+  push:
+    branches:
+      - source
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r ./requirements.txt
+
+      - run: mkdocs build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: master
+```
+
+参考:
+
+- [GitHub Actions による GitHub Pages への自動デプロイ - Qiita](https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d)
+
+#### 公式マニュアル
+
+https://www.mkdocs.org/user-guide/deploying-your-docs/
+
+下のコマンドがある。
+
+```sh
+mkdocs gh-deploy
+```
+
+User / Organizationリポジトリの場合、単にこのコマンドを実行するだけでは上手く行かない。
+
+
 ## Themes
 
 一覧: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes

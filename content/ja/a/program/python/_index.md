@@ -64,6 +64,39 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 - [\[VS Code\] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)](https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad)
 - Windows: [【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ](https://hachian.com/2019/09/19/vscode_venv/)
 
+## パッケージ管理
+### pip
+#### コマンド
+
+Examples:
+
+```sh
+# パッケージのインストール
+pip install PACKAGE
+
+# パッケージの更新
+pip install -U|--upgrade PACKAGE
+
+# パッケージリストを記したファイルに従ってパッケージ群をインストール
+pip install -r requirements.txt
+
+# インストールされたパッケージ一覧
+pip list
+## 更新可能なパッケージリスト
+pip list -o
+```
+
+参考:
+
+- [pipでアップデートするときのコマンド pip update - Qiita](https://qiita.com/HyunwookPark/items/242a8ceea656416b6da8)
+
+#### How-to
+##### インストール済みのパッケージを一括更新
+
+```sh
+pip list -o | awk 'NR>2{print $1}' | xargs -t pip install -U
+```
+
 ## How-to
 ### 文字列処理
 #### 文字列検索 `in`, `not in`

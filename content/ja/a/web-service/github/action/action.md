@@ -35,6 +35,13 @@ https://help.github.com/en/actions/configuring-and-managing-workflows/configurin
 
 GitHub公式のactionはたぶん https://github.com/actions にあるもの。  
 
+### cache
+
+https://github.com/actions/cache
+
+依存関係をキャッシュしてワークフローの実行時間を短くしてくれる。  
+[リポジトリに各種言語における設定例](https://github.com/actions/cache#implementation-examples)も同梱されているので、そちらを参考に設定するといい。
+
 ### checkout
 
 https://github.com/actions/checkout
@@ -129,6 +136,26 @@ jobs:
 
 - [GitHub ActionsでのNode.jsの利用 - GitHub ヘルプ](https://help.github.com/ja/actions/language-and-framework-guides/using-nodejs-with-github-actions)
 - https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml
+
+### setup-python
+
+https://github.com/actions/setup-python
+
+Python実行環境のセットアップ。
+
+Example:
+
+```YAML
+jobs:
+  build:
+    :
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Python 3系を使う
+          architecture: 'x64'
+```
 
 ## 3rd Party Actions
 

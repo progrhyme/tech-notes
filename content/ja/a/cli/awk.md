@@ -126,5 +126,8 @@ awk '/abc/{print $0}' sample.tsv
 
 # 偶数行だけを出力
 awk 'NR % 2 == 0 {print $0}' sample.tsv
+
+# N行目以降を出力
+awk -v n=5 'NR > n {print $0}' sample.tsv
 ```
 
