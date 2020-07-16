@@ -21,6 +21,15 @@ https://www.terraform.io/docs/import/usage.html
 
 - [terraform importの使い方メモ - Qiita](https://qiita.com/tyasu/items/32b23dd76d25f7af712f "terraform importの使い方メモ - Qiita")
 
+## output
+
+https://www.terraform.io/docs/commands/output.html
+
+stateファイルから値を出力する。
+
+```sh
+terraform output [options] [NAME]
+```
 
 ## plan
 
