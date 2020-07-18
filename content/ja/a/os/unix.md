@@ -29,3 +29,9 @@ UNIX風の仕様や操作感、振る舞いのOS。
 - BSD系
   - FreeBSD, OpenBSD, NetBSD
   - macOS
+
+## POSIX
+
+仕様ドキュメント:
+
+- [The Open Group Base Specifications Issue 7, 2018 edition](https://pubs.opengroup.org/onlinepubs/9699919799/)

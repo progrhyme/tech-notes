@@ -20,12 +20,14 @@ https://en.wikipedia.org/wiki/AWK#Versions_and_implementations を参考に。
 
 ## Documentation
 
+- [awk - pubs.opengroup.org](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html) ... POSIX
 - [The GNU Awk User’s Guide](https://www.gnu.org/software/gawk/manual/gawk.html) ... gawk
   - 邦訳: [The GNU Awk User's Guide - Table of Contents](http://www.kt.rim.or.jp/~kbk/gawk-30/gawk_toc.html)
 - https://linux.die.net/man/1/awk ... gawk
 
 参考:
 
+- [どの環境でも使えるシェルスクリプトを書くためのメモ ver4.60 - Qiita](https://qiita.com/richmikan@github/items/bd4b21cf1fe503ab2e5c#awk%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89)
 - [AWK によるテキストのワンライナー処理クックブック集 - Qiita](https://qiita.com/key-amb/items/754a12eda28e7650a47c "AWK によるテキストのワンライナー処理クックブック集 - Qiita") ... 以前に自分でまとめたもの
 - [awk | テキストのパターンマッチ処理に長けたスクリプト言語](https://bi.biopapyrus.jp/os/linux/awk.html)
 - [AWK リファレンス | UNIX &amp; Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/awk.html)
@@ -58,8 +60,11 @@ command-output-text | scirpt.awk
 
 ```awk
 #!/usr/bin/awk -f
+
 BEGIN { print "start" }
-      { print } # ループ処理
+/<pattern>/ { print } # <pattern>マッチ時に行を出力
+NR % 2 == 0 { print } # 偶数行を出力
+            { print } # 無条件で出力
 END   { print "end" }
 ```
 
@@ -72,7 +77,19 @@ NOTE:
 - シバンに `#!/usr/bin/env awk -f` のように記すことはできない
   - See [CLI#シバン]({{<ref "/a/cli/_index.md">}}#シバン)
 
-## Syntax
+## 言語仕様
+
+主にPOSIX仕様について記すが、今のところググった結果を貼り付けたものも混ざっている。
+
+- ユーザ定義関数
+  - [awk - POSIX#User-Defined Functions](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_15)
+
+### 演算子
+
+参考:
+
+- [Let's AWK - aoki2.si.gunma-u.ac.jp](http://aoki2.si.gunma-u.ac.jp/Hanasi/Algo/letsawk/WhatIsOperator.html)
+
 ### 文字列の連結
 
 単純にスペースでつなぐ。
@@ -118,7 +135,46 @@ awk '{print $1 "-" $2 "-" $3}' sample.tsv
 }
 ```
 
-## ワンライナー
+### Statements
+#### exit
+
+[awk - POSIX#Actions](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_09)
+
+ループ処理を中断してENDブロックに飛ぶ。
+
+参考:
+
+- [\[awk\] exit文でawkの実行処理を終了 - Qiita](https://qiita.com/kaw/items/329b524336e1400828b0)
+
+### 文字列関数
+
+[awk - POSIX#String Functions](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_13)
+
+Tips:
+
+- 関数引数が `$0` のときは省略できることが多いようだ
+
+#### sub, gsub
+
+```awk
+sub(ere, repl[, in])
+gsub(ere, repl[, in])
+```
+
+文字列置換を行う。  
+in中のereという正規表現パターンをreplに置換する。  
+repl内では `&` でマッチした文字列を参照できるみたい。  
+inを省略した時には `$0` が対象になる。
+
+subは最初に出現したパターンを1回だけ置換。  
+gsubは出現した全パターンに置換を適用する。
+
+参考:
+
+- [awkの文字列置換関数gsub()の使い方 | ITを使っていこう](https://it-ojisan.tokyo/awk-gsub/)
+
+## How-to
+### ワンライナー
 
 ```sh
 # マッチする行のみ表示
@@ -131,4 +187,3 @@ awk 'NR % 2 == 0' sample.tsv
 # N行目以降を出力
 awk -v n=5 'NR > n' sample.tsv
 ```
-

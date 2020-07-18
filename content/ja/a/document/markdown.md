@@ -11,6 +11,9 @@ https://commonmark.org/
 
 Markdownの原典というべき仕様だが、表現力が乏しかったので亜種がたくさん生まれた。
 
+- Syntax: https://commonmark.org/help/
+- Spec: https://spec.commonmark.org/
+
 ## Markdownの亜種
 
 - [GitHub Flavored Markdown](https://github.github.com/gfm/)
