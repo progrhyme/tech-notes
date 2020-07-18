@@ -1,11 +1,17 @@
 ---
-title: "goreleaser"
-linkTitle: "goreleaser"
+title: "GoReleaser"
+linkTitle: "GoReleaser"
 description: https://goreleaser.com/
 date: 2020-06-11T00:21:42+09:00
 ---
 
+2020-07-18 このページの内容を元にQiitaに記事を書いた:
+
+- [GoReleaser覚え書き - Qiita](https://qiita.com/progrhyme/items/d6db1bbb2a9d3c43ab33)
+
 ## About
+
+https://goreleaser.com/intro/
 
 Goプロジェクトのリリース自動化ツール。
 
@@ -16,14 +22,14 @@ Goプロジェクトのリリース自動化ツール。
   - 公開済みのtagを参照してreleaseを作り、バイナリをアップロードする
   - Release Note生成 ... commit logからChange Logを生成
 
-CIと組合せて使うことも、ローカルから実行することもできる。
+CIツールから使われることを念頭に作られているようだが、ローカルにインストールして実行することもできる。
 
 参考:
 
 - [goreleaser を使って Github Releases へ簡単デプロイ #golang - Qiita](https://qiita.com/ynozue/items/f939cff562ec782b33f0)
 - [GitHub Actions での goreleaser と Docker Image の Push | | 1Q77](https://blog.1q77.com/2020/04/github-actions-goreleaser-docker-image-push/)
 
-## Install
+## Installation
 
 https://goreleaser.com/install/
 
@@ -47,49 +53,82 @@ docker pull goreleaser/goreleaser
 
 ## Usage
 
-雛形となる `.goreleaser.yml` を生成:
+ここではローカルで実行できる手順を示すが、CIツールを使うにしても、大まかなプロセスの内容は変わらない。
+
+### ①.goreleaser.ymlの生成
+
+.goreleaser.ymlは、goreleaserを使うために必須の設定ファイルで、ふつうはプロジェクトのルートディレクトリに置く。  
+goreleaserコマンドのオプションでパスを指定可能なので、好みで変えることはできそう。
+
+次のコマンドで雛形を生成できる:
 
 ```sh
 goreleaser init
 ```
 
-YAMLを編集して設定をカスタマイズすることができる。
+### ②設定の編集
 
-リリースを実行する前に、GitHubのAPI Tokenを環境変数に設定しておく必要がある:
+生成したYAMLを編集して、挙動をカスタマイズすることができる。
+自分がよく使う設定については後述する。
+
+### ③APIトークンの設定
+
+GitHubやGitLabにリリースする際、goreleaserが利用するAPIトークンを設定する必要がある。
+GitHubの場合、次のようにする:
 
 ```sh
 export GITHUB_TOKEN="<YOUR API TOKEN>"
 ```
 
-GitHubにタグをpushした後、次のコマンドでリリースを行う:
+GitHub Actionsで設定する場合については後述する。
+
+### ④goreleaserコマンド実行
+
+ローカルから実行する場合、GitHubにタグをpushした後、次のコマンドでリリースを行う:
 
 ```sh
 goreleaser --rm-dist
 ```
 
-ただし、ふつうにこうやって実行するとカレントパスの情報がバイナリに含まれてしまう。  
-ので、CIから実行するか、Dockerを使う方がベター。
+### Dockerでgoreleaserを実行
+
+④で示したように、ローカルにインストールしたgoreleaserのバイナリを使ってビルドを行うと、生成物にカレントパス（など）の情報が含まれてしまう。
+即ち、生成されたバイナリを実行して、panicした際などにビルド環境のパスが露出したりする。
+
+これを避けるには、CIから実行するか、goreleaserのDockerイメージを使って実行するとよい。
 
 dockerコマンドで実行する場合は次のようにする:
 
 ```sh
+src_path="/go/src/github.com/<account>/<repo>"  # Module/パッケージに合わせて適切に設定する
 docker run --rm --privileged \
-  -v $PWD:/go/src/github.com/<account>/<repo> \
+  -v $PWD:$src_path \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -w /go/src/github.com/<account>/<repo> \
+  -w $src_path \
   -e GITHUB_TOKEN \
   goreleaser/goreleaser release --rm-dist
 ```
 
-NOTE:
+### （ローカル実行時の）ハマりポイント
+
+主にローカルで実行する際に、初心者が一度はハマるだろうと思われるポイント:
 
 - ワーキングツリーの最新のコミットが最新のタグと一致してないとNG
+  - これはCIでも同じと思われる
 - ワーキングツリーがdirtyだと失敗する。管理外のファイル、ディレクトリがあってもNG
-- `dist/` が空じゃないとき、 `--rm-dist` オプションを付けてないと失敗する
+- 前回のビルド生成物が残っているなどで `dist/` が空じゃないとき、 `--rm-dist` オプションを付けてないと失敗する
 
-## カスタマイズ
+## Configuration
 
-`.goreleaser.yml` でカスタマイズしたくなりそうなところを記す。
+`.goreleaser.yml` でカスタマイズしたくなりそうなところや、設定のTipsを記す。
+
+（公式サイトに詳しいYAMLのサンプルがあるのは良いのだけど、大き過ぎて見切れてるとつらいのなんとかならないかな。。）
+
+### テンプレート変数
+
+GoReleaserでは、YAML内の様々なフィールドでGoのテンプレート機能を使えるようだ。
+
+使える変数は https://goreleaser.com/customization/templates に記されている。
 
 ### Builds
 
@@ -109,7 +148,7 @@ builds:
   - linux
   - darwin
   goarch:
-  # デフォルトは386も含まれるが、もう要らないんじゃないかな
+  # デフォルトでは386（32-bit）も含まれる
   - amd64
 ```
 
@@ -125,8 +164,8 @@ archives:
   # デフォルトはtar.gzだけど、単バイナリでいいときとか変えたくなりそう
   #format: binary
 
-  # アップロードされるファイルで、GOOSやGOARCHの文字列を置換したい
-  # ときに設定する。設定しなくてもよさそう
+  # アップロードされるファイルで、GOOSやGOARCHの文字列を置換したいときに設定する。
+  # 特にこだわりがなければ設定不要
   replacements:
     amd64: x86_64
 
@@ -139,7 +178,7 @@ archives:
 
 https://goreleaser.com/customization/release/
 
-リリース作成の設定。
+GitHubやGitLabに作成するリリースに関する設定。
 
 ```YAML
 changelog:
@@ -172,6 +211,8 @@ GoReleaserでHomebrewのFormulaを生成することができる。
 
 参考:
 
+- [メモ > 2020-07-18#GoReleaserでHomebrewのFormulaを作るようにした]({{<ref "20200718.md">}}#goreleaserでhomebrewのformulaを作るようにした)
+- [GoReleaser+GithubActionsを使って、releaseファイルのアップロードとhomebrew対応を自動で行う - 年中アイス](https://reiki4040.hatenablog.com/entry/2020/02/10/080000)
 - [goreleaserで簡単にオレオレコマンドをbrew installできちゃう - Qiita](https://qiita.com/momotaro98/items/a421c8b3412dec3fb2fc)
 - [goreleaserでHomebrewのFormulaを自動生成する - Qiita](https://qiita.com/knqyf263/items/53dd0d0916afc5472281)
 
@@ -185,7 +226,7 @@ https://goreleaser.com/ci/actions/
 
 公式のアクションを利用できるので、簡単。
 
-2020-06-14現在、[shelp](https://github.com/progrhyme/shelp)での設定は下の通り。
+2020-06-14現在、[progrhyme/shelp](https://github.com/progrhyme/shelp)での設定は下の通り。
 
 ```YAML
 name: goreleaser
@@ -201,6 +242,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          # コミットログからリリースノートを作るならこのオプションが必要
           fetch-depth: 0
       - uses: actions/setup-go@v2
         with:
@@ -218,7 +260,11 @@ jobs:
 
 - [2020-06-17#goreleaserのドキュメントに修正PRを送った]({{<ref "20200617.md">}}#goreleaserのドキュメントに修正prを送った)
 
-#### コマンドでリリースノートを生成
+#### 任意のコマンドでリリースノートを生成
+
+これについては、Qiitaに記事を書いた:
+
+- [ChangeLogからGitHub用のリリースノートを作ってGoReleaserでリリースする - Qiita](https://qiita.com/progrhyme/items/e2fb3ceb772430bea4d9)
 
 最終的に、binqでは次のように設定した（一部抜粋）:
 

@@ -122,12 +122,13 @@ awk '{print $1 "-" $2 "-" $3}' sample.tsv
 
 ```sh
 # マッチする行のみ表示
-awk '/abc/{print $0}' sample.tsv
+awk '/abc/' sample.tsv
+# awk '/abc/ {print $0}' sample.tsv と同じ。以下同
 
 # 偶数行だけを出力
-awk 'NR % 2 == 0 {print $0}' sample.tsv
+awk 'NR % 2 == 0' sample.tsv
 
 # N行目以降を出力
-awk -v n=5 'NR > n {print $0}' sample.tsv
+awk -v n=5 'NR > n' sample.tsv
 ```
 
