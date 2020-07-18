@@ -34,6 +34,10 @@ man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="
 &lt;h2 id="commonmark">CommonMark&lt;/h2>
 &lt;p>&lt;a href="https://commonmark.org/">https://commonmark.org/&lt;/a>&lt;/p>
 &lt;p>Markdownの原典というべき仕様だが、表現力が乏しかったので亜種がたくさん生まれた。&lt;/p>
+&lt;ul>
+&lt;li>Syntax: &lt;a href="https://commonmark.org/help/">https://commonmark.org/help/&lt;/a>&lt;/li>
+&lt;li>Spec: &lt;a href="https://spec.commonmark.org/">https://spec.commonmark.org/&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="markdownの亜種">Markdownの亜種&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.github.com/gfm/">GitHub Flavored Markdown&lt;/a>

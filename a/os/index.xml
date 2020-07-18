@@ -424,4 +424,9 @@ cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> pbcopy
 &lt;li>macOS&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h2 id="posix">POSIX&lt;/h2>
+&lt;p>仕様ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/">The Open Group Base Specifications Issue 7, 2018 edition&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

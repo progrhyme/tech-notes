@@ -1078,6 +1078,7 @@ zle clear-screen
 &lt;/table>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/073dbf58844caa0e4b5c">シェルスクリプトの説明をコメントで書いてコマンドラインでヘルプとして表示する - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200509/#%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92pod%E3%81%A7%E6%9B%B8%E3%81%8F%E3%81%AE%E3%81%AF%E3%82%82%E3%81%86%E3%82%84%E3%82%81%E3%81%A6%E3%81%84%E3%81%84%E3%81%8B%E3%81%AA">2020-05-09#シェルスクリプトのドキュメントコメントをPODで書くのはもうやめていいかな&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Package Managers</title><link>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</link><pubDate>Mon, 18 May 2020 23:21:41 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/pkg-man/</guid><description>
 &lt;p>シェルスクリプトのパッケージ管理ツールについて。&lt;br>
