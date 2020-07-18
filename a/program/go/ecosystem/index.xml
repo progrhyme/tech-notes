@@ -1,5 +1,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – エコシステム</title><link>https://progrhy.me/tech-notes/a/program/go/ecosystem/</link><description>Recent content in エコシステム on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 08 Jun 2020 00:52:03 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/go/ecosystem/index.xml" rel="self" type="application/rss+xml"/><item><title>A: GoReleaser</title><link>https://progrhy.me/tech-notes/a/program/go/ecosystem/goreleaser/</link><pubDate>Thu, 11 Jun 2020 00:21:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/ecosystem/goreleaser/</guid><description>
+&lt;p>2020-07-18 このページの内容を元にQiitaに記事を書いた:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/d6db1bbb2a9d3c43ab33">GoReleaser覚え書き - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="https://goreleaser.com/intro/">https://goreleaser.com/intro/&lt;/a>&lt;/p>
 &lt;p>Goプロジェクトのリリース自動化ツール。&lt;/p>
 &lt;p>主な機能:&lt;/p>
 &lt;ul>
@@ -11,13 +16,13 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>CIと組合せて使うことも、ローカルから実行することもできる。&lt;/p>
+&lt;p>CIツールから使われることを念頭に作られているようだが、ローカルにインストールして実行することもできる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/ynozue/items/f939cff562ec782b33f0">goreleaser を使って Github Releases へ簡単デプロイ #golang - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.1q77.com/2020/04/github-actions-goreleaser-docker-image-push/">GitHub Actions での goreleaser と Docker Image の Push | | 1Q77&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="install">Install&lt;/h2>
+&lt;h2 id="installation">Installation&lt;/h2>
 &lt;p>&lt;a href="https://goreleaser.com/install/">https://goreleaser.com/install/&lt;/a>&lt;/p>
 &lt;p>macOS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install goreleaser/tap/goreleaser
@@ -26,30 +31,49 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Docker:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker pull goreleaser/goreleaser
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="usage">Usage&lt;/h2>
-&lt;p>雛形となる &lt;code>.goreleaser.yml&lt;/code> を生成:&lt;/p>
+&lt;p>ここではローカルで実行できる手順を示すが、CIツールを使うにしても、大まかなプロセスの内容は変わらない。&lt;/p>
+&lt;h3 id="goreleaserymlの生成">①.goreleaser.ymlの生成&lt;/h3>
+&lt;p>.goreleaser.ymlは、goreleaserを使うために必須の設定ファイルで、ふつうはプロジェクトのルートディレクトリに置く。&lt;br>
+goreleaserコマンドのオプションでパスを指定可能なので、好みで変えることはできそう。&lt;/p>
+&lt;p>次のコマンドで雛形を生成できる:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">goreleaser init
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>YAMLを編集して設定をカスタマイズすることができる。&lt;/p>
-&lt;p>リリースを実行する前に、GitHubのAPI Tokenを環境変数に設定しておく必要がある:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="設定の編集">②設定の編集&lt;/h3>
+&lt;p>生成したYAMLを編集して、挙動をカスタマイズすることができる。
+自分がよく使う設定については後述する。&lt;/p>
+&lt;h3 id="apiトークンの設定">③APIトークンの設定&lt;/h3>
+&lt;p>GitHubやGitLabにリリースする際、goreleaserが利用するAPIトークンを設定する必要がある。
+GitHubの場合、次のようにする:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">GITHUB_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;YOUR API TOKEN&amp;gt;&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>GitHubにタグをpushした後、次のコマンドでリリースを行う:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>GitHub Actionsで設定する場合については後述する。&lt;/p>
+&lt;h3 id="goreleaserコマンド実行">④goreleaserコマンド実行&lt;/h3>
+&lt;p>ローカルから実行する場合、GitHubにタグをpushした後、次のコマンドでリリースを行う:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">goreleaser --rm-dist
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、ふつうにこうやって実行するとカレントパスの情報がバイナリに含まれてしまう。&lt;br>
-ので、CIから実行するか、Dockerを使う方がベター。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dockerでgoreleaserを実行">Dockerでgoreleaserを実行&lt;/h3>
+&lt;p>④で示したように、ローカルにインストールしたgoreleaserのバイナリを使ってビルドを行うと、生成物にカレントパス（など）の情報が含まれてしまう。
+即ち、生成されたバイナリを実行して、panicした際などにビルド環境のパスが露出したりする。&lt;/p>
+&lt;p>これを避けるには、CIから実行するか、goreleaserのDockerイメージを使って実行するとよい。&lt;/p>
 &lt;p>dockerコマンドで実行する場合は次のようにする:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker run --rm --privileged &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v &lt;span style="color:#000">$PWD&lt;/span>:/go/src/github.com/&amp;lt;account&amp;gt;/&amp;lt;repo&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">src_path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;/go/src/github.com/&amp;lt;account&amp;gt;/&amp;lt;repo&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># Module/パッケージに合わせて適切に設定する&lt;/span>
+docker run --rm --privileged &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v &lt;span style="color:#000">$PWD&lt;/span>:&lt;span style="color:#000">$src_path&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v /var/run/docker.sock:/var/run/docker.sock &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -w /go/src/github.com/&amp;lt;account&amp;gt;/&amp;lt;repo&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -w &lt;span style="color:#000">$src_path&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -e GITHUB_TOKEN &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> goreleaser/goreleaser release --rm-dist
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ローカル実行時のハマりポイント">（ローカル実行時の）ハマりポイント&lt;/h3>
+&lt;p>主にローカルで実行する際に、初心者が一度はハマるだろうと思われるポイント:&lt;/p>
 &lt;ul>
-&lt;li>ワーキングツリーの最新のコミットが最新のタグと一致してないとNG&lt;/li>
+&lt;li>ワーキングツリーの最新のコミットが最新のタグと一致してないとNG
+&lt;ul>
+&lt;li>これはCIでも同じと思われる&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>ワーキングツリーがdirtyだと失敗する。管理外のファイル、ディレクトリがあってもNG&lt;/li>
-&lt;li>&lt;code>dist/&lt;/code> が空じゃないとき、 &lt;code>--rm-dist&lt;/code> オプションを付けてないと失敗する&lt;/li>
+&lt;li>前回のビルド生成物が残っているなどで &lt;code>dist/&lt;/code> が空じゃないとき、 &lt;code>--rm-dist&lt;/code> オプションを付けてないと失敗する&lt;/li>
 &lt;/ul>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>&lt;code>.goreleaser.yml&lt;/code> でカスタマイズしたくなりそうなところや、設定のTipsを記す。&lt;/p>
+&lt;p>（公式サイトに詳しいYAMLのサンプルがあるのは良いのだけど、大き過ぎて見切れてるとつらいのなんとかならないかな。。）&lt;/p>
 &lt;h3 id="テンプレート変数">テンプレート変数&lt;/h3>
 &lt;p>GoReleaserでは、YAML内の様々なフィールドでGoのテンプレート機能を使えるようだ。&lt;/p>
 &lt;p>使える変数は &lt;a href="https://goreleaser.com/customization/templates">https://goreleaser.com/customization/templates&lt;/a> に記されている。&lt;/p>
@@ -68,7 +92,7 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- linux&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- darwin&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">goarch&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトは386も含まれるが、もう要らないんじゃないかな&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトでは386（32-bit）も含まれる&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- amd64&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="archive">Archive&lt;/h3>
 &lt;p>&lt;a href="https://goreleaser.com/customization/archive/">https://goreleaser.com/customization/archive/&lt;/a>&lt;/p>
@@ -78,8 +102,8 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトはtar.gzだけど、単バイナリでいいときとか変えたくなりそう&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">#format: binary&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># アップロードされるファイルで、GOOSやGOARCHの文字列を置換したい&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ときに設定する。設定しなくてもよさそう&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># アップロードされるファイルで、GOOSやGOARCHの文字列を置換したいときに設定する。&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 特にこだわりがなければ設定不要&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">replacements&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">amd64&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>x86_64&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -88,7 +112,7 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- nothing*&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="release">Release&lt;/h3>
 &lt;p>&lt;a href="https://goreleaser.com/customization/release/">https://goreleaser.com/customization/release/&lt;/a>&lt;/p>
-&lt;p>リリース作成の設定。&lt;/p>
+&lt;p>GitHubやGitLabに作成するリリースに関する設定。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">changelog&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># changelog要らない場合はtrueに設定。デフォルトは未設定&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">skip&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -120,7 +144,7 @@ goreleaser --release-notes &amp;lt;&lt;span style="color:#ce5c00;font-weight:bol
 &lt;h3 id="github-actions">GitHub Actions&lt;/h3>
 &lt;p>&lt;a href="https://goreleaser.com/ci/actions/">https://goreleaser.com/ci/actions/&lt;/a>&lt;/p>
 &lt;p>公式のアクションを利用できるので、簡単。&lt;/p>
-&lt;p>2020-06-14現在、&lt;a href="https://github.com/progrhyme/shelp">shelp&lt;/a>での設定は下の通り。&lt;/p>
+&lt;p>2020-06-14現在、&lt;a href="https://github.com/progrhyme/shelp">progrhyme/shelp&lt;/a>での設定は下の通り。&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>goreleaser&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">on&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -134,6 +158,7 @@ goreleaser --release-notes &amp;lt;&lt;span style="color:#ce5c00;font-weight:bol
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/checkout@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># コミットログからリリースノートを作るならこのオプションが必要&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">fetch-depth&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>actions/setup-go@v2&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -149,7 +174,11 @@ goreleaser --release-notes &amp;lt;&lt;span style="color:#ce5c00;font-weight:bol
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200617/#goreleaser%E3%81%AE%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AB%E4%BF%AE%E6%AD%A3pr%E3%82%92%E9%80%81%E3%81%A3%E3%81%9F">2020-06-17#goreleaserのドキュメントに修正PRを送った&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="コマンドでリリースノートを生成">コマンドでリリースノートを生成&lt;/h4>
+&lt;h4 id="任意のコマンドでリリースノートを生成">任意のコマンドでリリースノートを生成&lt;/h4>
+&lt;p>これについては、Qiitaに記事を書いた:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/progrhyme/items/e2fb3ceb772430bea4d9">ChangeLogからGitHub用のリリースノートを作ってGoReleaserでリリースする - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>最終的に、binqでは次のように設定した（一部抜粋）:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>./gen-release-note.sh&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/tmp/release-note.md&lt;span style="color:#f8f8f8;text-decoration:underline">
