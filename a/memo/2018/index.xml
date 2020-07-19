@@ -1,0 +1,109 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2018 archive</title><link>https://progrhy.me/tech-notes/a/memo/2018/</link><description>Recent content in 2018 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 01 Jan 2018 16:05:34 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2018/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2018-09-22</title><link>https://progrhy.me/tech-notes/a/memo/2018/20180922/</link><pubDate>Sun, 19 Jul 2020 16:05:23 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2018/20180922/</guid><description>
+&lt;h2 id="922">9/22&lt;/h2>
+&lt;h3 id="自宅データバックアップ用にnasを買った">自宅データバックアップ用にNASを買った&lt;/h3>
+&lt;p>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/20180904">9/4&lt;/a>にデータバックアップについて調べて、NASを買おうと決心した。&lt;br>
+で、先週の3連休の最後の日、久しぶりに秋葉原に行ってTSUKUMOで店員と相談した上でSynology製の&lt;a href="https://www.synology.com/ja-jp/products/DS218play">DS218play&lt;/a>というモノを買った。&lt;/p>
+&lt;p>HDDは同じくTSUKUMOで&lt;a href="https://www.wdc.com/ja-jp/products/internal-storage/wd-red.html">WD Red&lt;/a>というNAS向けの高性能HDDを買った。&lt;br>
+容量1TB x 2本。&lt;/p>
+&lt;h4 id="セットアップ">セットアップ&lt;/h4>
+&lt;p>先ほどHDDを装着して起動し、セットアップした。&lt;br>
+NASを自宅の無線ルータに有線で接続した上で、 &lt;a href="http://find.synology.com">http://find.synology.com&lt;/a> にアクセスすると、LAN内のNASにアクセスできた。&lt;br>
+初回のOSインストールは10分ほど。&lt;br>
+その後、細々したことを聞かれて、Synologyのアカウントを作ってQuickConnectを有効にしたりした後、最終的にはブラウザ上で管理画面が立ち上がった。&lt;/p>
+&lt;p>RAIDを組もうと調べたところ、勝手に &lt;a href="https://www.synology.com/ja-jp/knowledgebase/DSM/tutorial/Storage/What_is_Synology_Hybrid_RAID_SHR">Synology Hibrid RAID&lt;/a> とやらが有効になっており、RAID 1相当の構成になっているようだった。&lt;/p>
+&lt;p>(余談)&lt;br>
+後でHDDのネジ止めしてないことに気づいて、一度電源を切って箱開けてネジ止めした。&lt;/p>
+&lt;p>※追記&lt;br>
+QuickConnectを使うと外出先からでもアクセスできる。&lt;br>
+便利だが、今は不要なので無効化した。&lt;/p>
+&lt;h4 id="同期バックアップ設定">同期・バックアップ設定&lt;/h4>
+&lt;p>&lt;a href="https://www.synology.com/ja-jp/knowledgebase/DSM/help/CloudStation/cloudstation">CloudStation Server&lt;/a>というパッケージを使い、（一応）メイン機のWindows機で双方向のデータ同期を設定した。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.synology.com/ja-jp/knowledgebase/DSM/help/DSM/Tutorial/cloud_sync_files">Cloud Station を使って Synology NAS とコンピュータでファイルを同期する | Synology Inc.&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>後ほど試したところ、このクライアントソフトとなるCloudStation DriveはUbuntuでも使えた。&lt;/p>
+&lt;p>この設定をした後、SMBでもアクセスできることに気づいた。&lt;br>
+SMBで放り込んでおくだけでもいいものもありそうだ。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.synology.com/ja-jp/knowledgebase/DSM/help/DSM/AdminCenter/file_winmacnfs_win">SMB | Synology Inc.&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>※CloudStation Backupは未設定。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.itmedia.co.jp/pcuser/articles/1612/28/news079.html">バックアップ初心者から卒業！　Synology NASで構築するPC・スマホのデータバックアップ環境 (1/3) - ITmedia PC USER&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="その他の設定セットアップ">その他の設定・セットアップ&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>コントロールパネル &amp;gt; 通知&lt;/code> からGmail連携してメール通知を有効に。&lt;/li>
+&lt;li>家族用アカウント発行
+&lt;ul>
+&lt;li>webアクセスも許可&lt;/li>
+&lt;li>共有フォルダはhomes以外のメディアフォルダにr/wアクセス許可&lt;/li>
+&lt;li>アプリは全て使用を許可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>マルチメディア
+&lt;ul>
+&lt;li>「Photo Station」を試したがサーバでphpを動かす必要があるし、indexが遅い。後述のDLNAを使った方が良いか。&lt;/li>
+&lt;li>「Video Station」はphpは不要だが、動画が大きいせいか日本語フォルダ名だからか、全くindexされなかったので、後述の「PlayerXtreme Media Player」を使うことにした。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>DLNA
+&lt;ul>
+&lt;li>標準の「メディアサーバ」で写真・音楽・動画のDLNAサーバになってる。&lt;/li>
+&lt;li>iPadでいくつかアプリを試したが、「PlayerXtreme Media Player」に落ち着いた。写真・動画はこれでよさそう。音楽もこれでいいかも。音楽は標準の「Audio Station」を先に入れたので、ひとまずこれを使っている。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://upgraderb.net/web-internet/34.html">2017年iPad用おすすめDLNAアプリ – upgraderb.net&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.skeg.jp/archives/2018/04/media-server-homevideo.html">620GB分のホームビデオをiPadやiPhoneで見られるようにメディアサーバ設置＆DLNAアプリで視聴する方法｜SKEGLOG&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ubuntuでnfs-mount">ubuntuでNFS mount&lt;/h3>
+&lt;p>mountコマンドを打ったところ、下のようなエラーが出た。&lt;/p>
+&lt;pre>&lt;code>mount: wrong fs type, bad option, bad superblock on XXX.XX.XXX.XXX:/YYYY,
+missing codepage or helper program, or other error
+(for several filesystems (e.g. nfs, cifs) you might
+need a /sbin/mount. helper program)
+In some cases useful info is found in syslog - try
+dmesg | tail or so
+&lt;/code>&lt;/pre>&lt;p>&lt;code>nfs-common&lt;/code> のインストールで解決。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install nfs-common
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、Synology DS218playにおいては、パーミッションの関係でmountしてもディレクトリにアクセスできず、とても不便なのでWindows同様にSMBでアクセスすることにした。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Accent/items/0d99c4652e2101760b50">NFSでマウントするときに出るエラーの対処( mount: wrong fs type, bad option, bad superblock on&amp;hellip;.) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ubuntu-1804-ltsにアップグレード">Ubuntu 18.04 LTSにアップグレード&lt;/h3>
+&lt;p>バックアップも整ったので、これで最悪コケても問題ないというわけでUbuntuのアップグレードを実行。&lt;br>
+公式の手順はここにあった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes#Upgrading_from_Ubuntu_16.04_LTS_or_17.10">https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes#Upgrading_from_Ubuntu_16.04_LTS_or_17.10&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>デスクトップ用とサーバ用で手順が分かれていたのだが、下のQiitaの記事を鵜呑みにしてしまい、サーバ用の手順を実行してしまった。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/TsutomuNakamura/items/bbd712e3afe5f4bacfac">ubuntu 18.04 LTS にアップグレードする(コマンドライン編) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>気づいた時には長い長いアップグレード処理が始まっていたので、指をくわえて見守るしかなかった。&lt;br>
+結果的には問題なかったようだ。&lt;/p>
+&lt;p>深夜1時頃から作業を始めて、途中寝落ちしたせいもあって朝までかかった。&lt;/p>
+&lt;h4 id="インストール中に訊かれたこととその対応">インストール中に訊かれたこととその対応&lt;/h4>
+&lt;ul>
+&lt;li>Networkの設定いじってるけどどうする？ =&amp;gt; 「現在の設定を維持」を選択&lt;/li>
+&lt;li>古いパッケージ（もうサポートされてない）削除する？ =&amp;gt; Yes. 内容を見たが、システムパッケージとか、依存で入ったものっぽくて、自分の意思で入れたものはなかった。&lt;/li>
+&lt;/ul>
+&lt;h4 id="再起動後の作業">再起動後の作業&lt;/h4>
+&lt;ul>
+&lt;li>デュアルディスプレイのレイアウトが狂ったので直した&lt;/li>
+&lt;li>xkbキーマップの設定
+&lt;ul>
+&lt;li>&lt;a href="https://keyamb.hatenablog.com/entry/2016/06/04/130022">Ubuntu + xkb で JISキーボードのキー配置入れ替え - weblog of key_amb&lt;/a>&lt;/li>
+&lt;li>&lt;code>setxkbmap -layout jp,us&lt;/code> で反映できた&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://askubuntu.com/questions/968107/how-can-i-reload-my-xkb-configuration-without-restarting-my-computer-or-logging">keyboard - How can I reload my XKB configuration without restarting my computer or logging back in - Ask Ubuntu&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

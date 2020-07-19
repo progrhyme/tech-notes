@@ -29,6 +29,10 @@
 &lt;li>公式Wiki（日本語） &lt;a href="https://wiki.ubuntu.com/FocalFossa/ReleaseNotes/Ja">FocalFossa/ReleaseNotes/Ja - Ubuntu Wiki&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/hitobb/items/2ee9b1c2c49760976e0f">Ubuntu 18.04(LTS)→20.04(LTS)アップグレード方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>前回（18.04アップグレード時）のログ:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2018/20180922/#ubuntu-1804-lts%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89">2018-09-22#Ubuntu 18.04 LTSにアップグレード&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;p>以下、実施手順。&lt;/p>
 &lt;h4 id="アップグレード実施手順と詳細">アップグレード実施手順と詳細&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt update
@@ -475,4 +479,4 @@ Formulaは次のようになった:&lt;/p>
 &lt;span style="color:#204a87">system&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/shelp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;--version&amp;#39;&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item><item><title>A: 2018 archive</title><link>https://progrhy.me/tech-notes/a/memo/2018/</link><pubDate>Mon, 01 Jan 2018 16:05:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2018/</guid><description/></item></channel></rss>
