@@ -54,25 +54,21 @@ weight: 130
 ### TTYにつながっているか判定
 
 CLIで、インタラクティブかどうかによって処理を変えたいことがある。  
-そんなときは[golang.org/x/crypto/ssh/terminal](https://pkg.go.dev/golang.org/x/crypto/ssh/terminal)を使う。
+そんなときは [github.com/mattn/go-isatty](https://pkg.go.dev/github.com/mattn/go-isatty) を使うといい。
 
-Examples:
+Example:
 
 ```go
-import (
-    "golang.org/x/crypto/ssh/terminal"
-)
-
-if terminal.IsTerminal(0) {
-    // 標準入力はTTY
+if isatty.IsTerminal(os.Stdout.Fd()) {
+	fmt.Println("Is Terminal")
 } else {
-    // 標準入力はTTYでない
+	fmt.Println("Is Not Terminal")
 }
 ```
 
-Hint:
+他に使えるもの:
 
-- 標準出力なら `IsTerminal(1)` で
+- [golang.org/x/crypto/ssh/terminal](https://pkg.go.dev/golang.org/x/crypto/ssh/terminal) ... 2020-07-19以前はこちらを使っていたが、上に乗り換えた。"golang.org/x/crypto" に含まれるので、これだけのために使うにはちょっと重い
 
 参考:
 
