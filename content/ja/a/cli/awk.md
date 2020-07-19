@@ -102,7 +102,13 @@ awk '{print $1 "-" $2 "-" $3}' sample.tsv
 
 - [awkの変数と文字列、正規表現のキホン - Qiita](https://qiita.com/tkykmw/items/89c67530c322baedb002 "awkの変数と文字列、正規表現のキホン - Qiita")
 
-### 条件分岐
+### 制御構文
+
+リファレンス:
+- [awk#Expressions in awk](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_02)
+- [awk#Actions](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_09)
+
+if, elseのサンプル:
 
 ```awk
 {
@@ -115,6 +121,20 @@ awk '{print $1 "-" $2 "-" $3}' sample.tsv
   }
 }
 ```
+
+その他使える構文:
+
+- for
+- while, do ... while
+
+Spec:
+
+- 制御構文（break, continue含む）はC言語に由来している
+  - See [Introduction#Concepts Derived from the ISO C Standard](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap01.html#tag_17_01_02)
+- 真偽判定:
+  - 数値の場合、0は偽、他は真
+  - 文字の場合、ヌル文字は偽、他は真
+- if, else等で実行される文が単文の場合、中括弧は省略可
 
 参考:
 
