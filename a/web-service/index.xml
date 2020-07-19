@@ -373,21 +373,14 @@ Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
 &lt;p>&lt;a href="https://api.slack.com/authentication/basics">Basic app setup | Slack&lt;/a>&lt;/p>
 &lt;h3 id="アプリの配布">アプリの配布&lt;/h3>
 &lt;ul>
-&lt;li>
-&lt;p>Overview: &lt;a href="https://api.slack.com/start/distributing">https://api.slack.com/start/distributing&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>アプリの公開: &lt;a href="https://api.slack.com/start/distributing/public">https://api.slack.com/start/distributing/public&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>デフォルトではアプリを作成したワークスペースのみにインストールされる。この際、アプリでは全機能が有効&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>OAuth 2.0対応をすることで、アプリを公開することができる&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>更に、SlackのApp Directoryに登録することで、一定の品質と有用性を保証することができる&lt;/p>
-&lt;/li>
+&lt;li>Overview: &lt;a href="https://api.slack.com/start/distributing">https://api.slack.com/start/distributing&lt;/a>&lt;/li>
+&lt;li>アプリの公開: &lt;a href="https://api.slack.com/start/distributing/public">https://api.slack.com/start/distributing/public&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Hints:&lt;/p>
+&lt;ul>
+&lt;li>デフォルトではアプリを作成したワークスペースのみにインストールされる。この際、アプリでは全機能が有効&lt;/li>
+&lt;li>OAuth 2.0対応をすることで、アプリを公開することができる&lt;/li>
+&lt;li>更に、SlackのApp Directoryに登録することで、一定の品質と有用性を保証することができる&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
