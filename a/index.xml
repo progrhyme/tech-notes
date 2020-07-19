@@ -322,7 +322,13 @@ command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> sci
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tkykmw/items/89c67530c322baedb002" title="awkの変数と文字列、正規表現のキホン - Qiita">awkの変数と文字列、正規表現のキホン - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;h3 id="制御構文">制御構文&lt;/h3>
+&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_02">awk#Expressions in awk&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html#tag_20_06_13_09">awk#Actions&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>if, elseのサンプル:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-awk" data-lang="awk">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">||&lt;/span> &lt;span style="color:#000">c&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
@@ -332,7 +338,27 @@ command-output-text &lt;span style="color:#000;font-weight:bold">|&lt;/span> sci
 &lt;span style="color:#8f5902;font-style:italic"># ...&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>その他使える構文:&lt;/p>
+&lt;ul>
+&lt;li>for&lt;/li>
+&lt;li>while, do &amp;hellip; while&lt;/li>
+&lt;/ul>
+&lt;p>Spec:&lt;/p>
+&lt;ul>
+&lt;li>制御構文（break, continue含む）はC言語に由来している
+&lt;ul>
+&lt;li>See &lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap01.html#tag_17_01_02">Introduction#Concepts Derived from the ISO C Standard&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>真偽判定:
+&lt;ul>
+&lt;li>数値の場合、0は偽、他は真&lt;/li>
+&lt;li>文字の場合、ヌル文字は偽、他は真&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>if, else等で実行される文が単文の場合、中括弧は省略可&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://it-ojisan.tokyo/awk-if/">awkのif文のサンプルコード | ITを使っていこう&lt;/a>&lt;/li>
 &lt;/ul>
