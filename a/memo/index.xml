@@ -18,7 +18,59 @@
 &lt;/ul>
 &lt;/li>
 &lt;li>Secretの設定でこのAccess Tokenの名前に初め &lt;code>GITHUB_TOKEN_HOMEBREW_TAP&lt;/code> と付けようとしたら、エラーで設定できなかった。GitHubの仕様っぽい（？）&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-07-12</title><link>https://progrhy.me/tech-notes/a/memo/20200712/</link><pubDate>Sun, 12 Jul 2020 01:44:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200712/</guid><description>
+&lt;/ul>
+&lt;h2 id="719">7/19&lt;/h2>
+&lt;h3 id="ubuntu-1804---2004-ltsにアップグレード">Ubuntu 18.04 -&amp;gt; 20.04 LTSにアップグレード&lt;/h3>
+&lt;p>普段使いのデスクトップPCでアップグレードを行った。&lt;br>
+7月に入ったらやろうと思っていたが、binqの開発を優先していたりして、今になった。&lt;/p>
+&lt;p>参考にした記事:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.imuza.com/entry/ubuntu2004">Ubuntu 20.04 LTS にアップグレード - IMUZA.com&lt;/a>&lt;/li>
+&lt;li>公式Wiki（日本語） &lt;a href="https://wiki.ubuntu.com/FocalFossa/ReleaseNotes/Ja">FocalFossa/ReleaseNotes/Ja - Ubuntu Wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/hitobb/items/2ee9b1c2c49760976e0f">Ubuntu 18.04(LTS)→20.04(LTS)アップグレード方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>以下、実施手順。&lt;/p>
+&lt;h4 id="アップグレード実施手順と詳細">アップグレード実施手順と詳細&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※実際はパッケージは最新状態だったので、上のコマンド実行は不要だったと思われる。&lt;/p>
+&lt;p>GUIの「ソフトウェアの更新」を確認したところ、Ubuntuの新バージョンの通知（LTS）は有効になっていたが、まだ通知は来ていなかった。&lt;/p>
+&lt;p>結局、1つ目の参考記事に従い、「Alt + F2」を押した後、フォームに &lt;code>update-manager -c -d&lt;/code> を入力してEnterを押すと、20.04 LTSへのアップグレードが可能になった。&lt;/p>
+&lt;p>新規追加されるパッケージが1,800弱あり、1時間弱は掛かった気がする。&lt;/p>
+&lt;h5 id="etcsysctlconfのリセット">/etc/sysctl.confのリセット&lt;/h5>
+&lt;p>途中でダイアログが出てきて、「なんかカスタマイズされてるけど、リセットしてもいい？」みたいなことを聞かれた。&lt;/p>
+&lt;p>何やってたっけと思ってdiffを見ると、VS Codeで変更検知するために &lt;code>fs.inotify.max_user_watches&lt;/code> を引き上げていたのだった。&lt;br>
+リセットによる差分はコメント行の変更しかなかったので、そのままにしておいてもらった。&lt;/p>
+&lt;h4 id="アップグレード後の作業">アップグレード後の作業&lt;/h4>
+&lt;h5 id="etcaptsourceslistの確認">/etc/apt/sources.listの確認&lt;/h5>
+&lt;p>なんかアップグレード中に「デフォルトじゃないやつは無効にするから、必要なら後で足してね」みたいなメッセージがあったので、確認した。&lt;br>
+元のやつは sources.list.save として残っているようだった。&lt;br>
+差分を見たが特に独自に足したものはなかったようだったので、何もしない。&lt;br>
+Dockerかpecoか何かで弄ってなかったっけ？&lt;/p>
+&lt;h5 id="設定--外観">設定 &amp;gt; 外観&lt;/h5>
+&lt;ul>
+&lt;li>ダークモードが選べたので、それにした。&lt;/li>
+&lt;li>アイコンサイズが小さくなってちょっと見づらかったので少し大きくした。&lt;/li>
+&lt;/ul>
+&lt;h5 id="テキストエディタ">テキストエディタ&lt;/h5>
+&lt;p>中身はいつものgedit.&lt;br>
+ダークモードにしたせいかカーソル位置が見づらくなったので、カラースキームをSolarized Lightにした。&lt;br>
+ついでにフォントを見慣れたRoboto Mono for Powerlineに変えた。&lt;/p>
+&lt;h5 id="xkbキーマップの設定">xkbキーマップの設定&lt;/h5>
+&lt;p>いつものキーマップ変更:&lt;/p>
+&lt;ul>
+&lt;li>「変換」 -&amp;gt; 「全角/半角」&lt;/li>
+&lt;li>「無変換」 -&amp;gt; 「Esc」&lt;/li>
+&lt;li>「Esc」 -&amp;gt; 「無変換」&lt;/li>
+&lt;li>「全角/半角」 -&amp;gt; 「変換」&lt;/li>
+&lt;/ul>
+&lt;p>設定手順: &lt;a href="https://keyamb.hatenablog.com/entry/2016/06/04/130022">Ubuntu + xkb で JISキーボードのキー配置入れ替え - weblog of key_amb&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 設定ファイルの編集&lt;/span>
+$ sudo vim /usr/share/X11/xkb/symbols/inet
+&lt;span style="color:#8f5902;font-style:italic"># 設定の反映&lt;/span>
+$ setxkbmap -layout jp,us
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>何かあればまたここに追記するかも。&lt;/p></description></item><item><title>A: 2020-07-12</title><link>https://progrhy.me/tech-notes/a/memo/20200712/</link><pubDate>Sun, 12 Jul 2020 01:44:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200712/</guid><description>
 &lt;h2 id="712">7/12&lt;/h2>
 &lt;h3 id="hugoでmemo用のarchetypeを作る">Hugoでmemo用のarchetypeを作る&lt;/h3>
 &lt;p>関連項目:&lt;/p>
