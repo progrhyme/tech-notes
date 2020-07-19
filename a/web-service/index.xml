@@ -346,7 +346,60 @@ Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
 &lt;li>&lt;a href="https://qiita.com/nwtgck/items/e9a355c2ccb03d8e8eb0">Netlifyへのデプロイをビルド時間0で行うためのGitHub Actions - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://medium.com/@kosa3/github-actions%E3%81%A7netlify%E3%81%AB%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B-22ac30e02528">Github ActionsでNetlifyに自動デプロイする - kosa3 - Medium&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Slack</title><link>https://progrhy.me/tech-notes/a/web-service/slack/</link><pubDate>Thu, 11 Jun 2020 00:01:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/slack/</guid><description>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>（日本語）&lt;a href="https://slack.com/intl/ja-jp/help">Slack ヘルプセンター | Slack&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://api.slack.com/">https://api.slack.com/&lt;/a> &amp;hellip; API Docs&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="-で始まる任意のユーザグループを作る">@ で始まる任意のユーザグループを作る&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://get.slack.help/hc/en-us/articles/212906697-User-Groups" title="User Groups – Slack Help Center">User Groups – Slack Help Center&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="apps">Apps&lt;/h2>
+&lt;ul>
+&lt;li>イントロ: &lt;a href="https://api.slack.com/start/overview#apps">https://api.slack.com/start/overview#apps&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="チュートリアル">チュートリアル&lt;/h3>
+&lt;p>アプリの作成:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://api.slack.com/tutorials/slack-apps-and-postman">Create a Slack app and authenticate with Postman | Slack&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>アプリのカスタマイズ:&lt;/p>
+&lt;ul>
+&lt;li>Homeタブの作成: &lt;a href="https://api.slack.com/tutorials/app-home-with-modal">Building a home for your app 🏡 | Slack&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="認証認可">認証・認可&lt;/h3>
+&lt;p>&lt;a href="https://api.slack.com/authentication/basics">Basic app setup | Slack&lt;/a>&lt;/p>
+&lt;h3 id="アプリの配布">アプリの配布&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Overview: &lt;a href="https://api.slack.com/start/distributing">https://api.slack.com/start/distributing&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>アプリの公開: &lt;a href="https://api.slack.com/start/distributing/public">https://api.slack.com/start/distributing/public&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>デフォルトではアプリを作成したワークスペースのみにインストールされる。この際、アプリでは全機能が有効&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>OAuth 2.0対応をすることで、アプリを公開することができる&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>更に、SlackのApp Directoryに登録することで、一定の品質と有用性を保証することができる&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://workabroad.jp/posts/2239">SlackのOAuthを使って独自アプリをインストールさせる | Workabroad.jp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://dotnsf.blog.jp/archives/1074688701.html">Slack の OAuth API を使ってみる : まだプログラマーですが何か？&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="参考事例">参考事例&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://tonari-it.com/gas-slack-create-app/">【初心者向けGAS×Slack】はじめてのSlackアプリを作成しよう&lt;/a> &amp;hellip; GASでSlackに天気予報を通知。SlackアプリとしてはSingle-Workspaceモードで、Incoming Webhookしか使ってない。&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Quikky/items/9de56c049304885a4f4f">Google Apps Script で Slack Botを作ってみた。(お勉強編) - Qiita&lt;/a> &amp;hellip; ↑に毛が生えた程度の事例だが、GASのエンドポイントでSlashコマンドにも対応している。&lt;/li>
+&lt;/ul>
+&lt;h2 id="メッセージapi">メッセージAPI&lt;/h2>
 &lt;h3 id="メッセージ書式">メッセージ書式&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://api.slack.com/docs/messages#formatting_messages">https://api.slack.com/docs/messages#formatting_messages&lt;/a>&lt;/li>
@@ -365,13 +418,20 @@ Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
 &lt;h4 id="色">色&lt;/h4>
 &lt;p>&lt;a href="https://api.slack.com/reference/messaging/attachments">https://api.slack.com/reference/messaging/attachments&lt;/a>&lt;/p>
 &lt;p>任意の色が指定可能だけど、プリセットとして &lt;code>good&lt;/code> （緑）, &lt;code>warning&lt;/code> （黃）, &lt;code>danger&lt;/code> （赤）がある。&lt;/p>
-&lt;h3 id="-で始まる任意のユーザグループを作る">@ で始まる任意のユーザグループを作る&lt;/h3>
+&lt;h3 id="incoming-webhooks-with-apps">Incoming Webhooks (With Apps)&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://get.slack.help/hc/en-us/articles/212906697-User-Groups" title="User Groups – Slack Help Center">User Groups – Slack Help Center&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://api.slack.com/messaging/webhooks">https://api.slack.com/messaging/webhooks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://slack.com/intl/ja-jp/help/articles/115005265063-Slack-%E3%81%A7%E3%81%AE-Incoming-Webhook-%E3%81%AE%E5%88%A9%E7%94%A8">Slack での Incoming Webhook の利用 | Slack&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="features">Features&lt;/h2>
-&lt;h3 id="incoming-webhooks">Incoming Webhooks&lt;/h3>
+&lt;p>シンプルに書くと、アプリを作ってIncoming Webhookを有効にすればいい。&lt;br>
+アプリを配布する場合は話が全然変わってくるが、当該ワークスペースで使うだけならそれで十分である。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>2019年7月初出: &lt;a href="https://qiita.com/kshibata101/items/0e13c420080a993c5d16">slackのIncoming webhookが新しくなっていたのでまとめてみた - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="incoming-webhooks-legacy">Incoming Webhooks (Legacy)&lt;/h3>
 &lt;p>&lt;a href="https://api.slack.com/legacy/custom-integrations/incoming-webhooks">https://api.slack.com/legacy/custom-integrations/incoming-webhooks&lt;/a>&lt;/p>
+&lt;p>※2020-07-19現在、まだ利用できるが、Slack Appsへの移行が推奨されている。&lt;/p>
 &lt;h4 id="メッセージのカスタマイズ">メッセージのカスタマイズ&lt;/h4>
 &lt;p>Incoming Webhook特有のパラメータは以下:&lt;/p>
 &lt;ul>
@@ -380,6 +440,7 @@ Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
 &lt;li>&lt;code>icon_url&lt;/code> : アイコン画像URL&lt;/li>
 &lt;li>&lt;code>channel&lt;/code> : 投稿先チャネルのコード（上書きする場合）&lt;/li>
 &lt;/ul>
+&lt;p>※この辺りのパラメータは新方式（With Apps）の方では使えなくなっている。&lt;/p>
 &lt;p>あとは普通のメッセージのカスタマイズと同じ（はず）。&lt;/p>
 &lt;h2 id="administration">Administration&lt;/h2>
 &lt;h3 id="roles--permissions">Roles &amp;amp; Permissions&lt;/h3>
