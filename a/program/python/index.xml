@@ -3,6 +3,13 @@
 &lt;h2 id="os">os&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html">https://docs.python.org/ja/3/library/os.html&lt;/a>&lt;/p>
 &lt;p>ファイル名、コマンドライン引数、環境変数など&lt;/p>
+&lt;h3 id="osgetenv">os.getenv&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html#os.getenv">https://docs.python.org/ja/3/library/os.html#os.getenv&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#3465a4">None&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>環境変数keyが存在すればその値を返し、存在しなければdefaultを返す&lt;/li>
+&lt;li>key, default, 返り値は文字列&lt;/li>
+&lt;/ul>
 &lt;h2 id="ospath">os.path&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.path.html">https://docs.python.org/ja/3/library/os.path.html&lt;/a>&lt;/p>
 &lt;p>パス名操作&lt;/p>
@@ -42,4 +49,71 @@ deactivate
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/13317536/get-list-of-all-routes-defined-in-the-flask-app">python - Get list of all routes defined in the Flask app - Stack Overflow&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/13151161/display-links-to-new-webpages-created/13161594#13161594">python - Display links to new webpages created - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/python/spec/</link><pubDate>Mon, 20 Jul 2020 23:15:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/spec/</guid><description>
+&lt;h2 id="データ型">データ型&lt;/h2>
+&lt;ul>
+&lt;li>int
+&lt;ul>
+&lt;li>bool
+&lt;ul>
+&lt;li>&lt;code>True == 1&lt;/code>&lt;/li>
+&lt;li>&lt;code>False == 0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="真偽値">真偽値&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing">https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>オブジェクトはデフォルトでは真&lt;/li>
+&lt;li>次の場合は偽:
+&lt;ul>
+&lt;li>&lt;code>__bool__()&lt;/code> メソッドが &lt;code>False&lt;/code> を返す&lt;/li>
+&lt;li>&lt;code>__len__()&lt;/code> メソッドが &lt;code>0&lt;/code> を返す&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>偽と判定されるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>None&lt;/code>, &lt;code>False&lt;/code>&lt;/li>
+&lt;li>数値型のゼロ: &lt;code>0&lt;/code>, &lt;code>0.0&lt;/code>, &lt;code>0j&lt;/code>, &lt;code>Decimal(0)&lt;/code>, &lt;code>Fraction(0, 1)&lt;/code>&lt;/li>
+&lt;li>空のシーケンス: &lt;code>''&lt;/code>, &lt;code>()&lt;/code>, &lt;code>[]&lt;/code>, &lt;code>{}&lt;/code>, &lt;code>set()&lt;/code>, &lt;code>range(0)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>組み込み関数 &lt;code>bool()&lt;/code> を使うと他の型のオブジェクトを &lt;code>True&lt;/code> or &lt;code>False&lt;/code> に変換できる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="演算子">演算子&lt;/h2>
+&lt;h3 id="三項演算子">三項演算子&lt;/h3>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Trueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Falseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5">三項演算子(Python) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="制御構文">制御構文&lt;/h2>
+&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">xxx&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">elif&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">yyy&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">zzz&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.javadrive.jp/python/if/index1.html">if文を使った条件分岐 | Python入門&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

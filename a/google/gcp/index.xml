@@ -737,6 +737,12 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/firmware/uefi/#%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88">UEFI#セキュアブート&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/56100268/why-my-google-cloud-instance-often-shut-down-automatically-by-itself">why my google cloud instance often shut down automatically by itself - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="インスタンスメタデータ">インスタンスメタデータ&lt;/h2>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/storing-retrieving-metadata?hl=ja">インスタンス メタデータの保存と取得 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>エンドポイントURL: &lt;code>http://metadata.google.internal/computeMetadata/v1/&lt;/code>&lt;/p>
 &lt;h2 id="machine-images">Machine Images&lt;/h2>
 &lt;p>Beta at 2020-04-16現在&lt;/p>
 &lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-images">https://cloud.google.com/compute/docs/machine-images&lt;/a>&lt;/p>
