@@ -36,6 +36,33 @@ NOTE:
 
 > Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み
 
+例えば、次のコマンドでノードに対してtaintを設定する:
+
+```sh
+# taintの設定
+kubectl taint nodes node1 key=value:NoSchedule
+
+# 上のtaintを削除するコマンド
+kubectl taint nodes node1 key:NoSchedule-
+```
+
+このtaintがつけられたノードにPodをスケジュールするには、下のいずれかのtolerationを設定する必要がある:
+
+```YAML
+# ①
+tolerations:
+- key: "key"
+  operator: "Equal"
+  value: "value"
+  effect: "NoSchedule"
+
+# ②
+tolerations:
+- key: "key"
+  operator: "Exists"
+  effect: "NoSchedule"
+```
+
 ## ライフサイクル
 
 [Podのライフサイクル - Kubernetes](https://kubernetes.io/ja/docs/concepts/workloads/pods/pod-lifecycle/)

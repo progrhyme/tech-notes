@@ -36,18 +36,15 @@ Cloud Loggingで `compute.instances.preempted` で検索。
 
 - [ssh - GCP VM consistently shutting down without warning - Stack Overflow](https://stackoverflow.com/questions/58256153/gcp-vm-consistently-shutting-down-without-warning)
 
-
 #### 参考
 
 - [格安に使えるGCEのプリエンプティブインスタンスの勝手に停止対策 | marketechlabo](https://www.marketechlabo.com/gce-preemptible-instance/)
-
 
 ### インスタンスグループ
 
 - マネージド ... オートスケールする。インスタンステンプレートを使う
 - 非マネージド ... 自前でインスタンスを登録して管理
   - [非マネージド インスタンス グループの作成 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances?hl=ja)
-
 
 ### Shielded VM
 
@@ -67,6 +64,14 @@ NOTE:
 
 - [UEFI#セキュアブート]({{< ref "/a/firmware/uefi.md" >}}#セキュアブート)
 - [why my google cloud instance often shut down automatically by itself - Stack Overflow](https://stackoverflow.com/questions/56100268/why-my-google-cloud-instance-often-shut-down-automatically-by-itself)
+
+## インスタンスメタデータ
+
+ドキュメント:
+
+- [インスタンス メタデータの保存と取得 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/storing-retrieving-metadata?hl=ja)
+
+エンドポイントURL: `http://metadata.google.internal/computeMetadata/v1/`
 
 ## Machine Images
 

@@ -25,8 +25,17 @@ http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html#a
 - `COPY` で間に合うときは `COPY` を使うべき
 - `ADD` は圧縮ファイルの展開などの機能もある
 
-## Syntax
+## .dockerignore
 
+https://docs.docker.jp/engine/reference/builder.html#dockerignore
+
+ADDやCOPYによってDockerイメージに含めたくないファイルを記しておく。
+
+参考:
+
+- [.dockerignore アンチパターン - Qiita](https://qiita.com/munisystem/items/b0f08b28e8cc26132212)
+
+## Syntax
 ### 環境変数の利用
 
 http://docs.docker.jp/engine/reference/builder.html#environment-replacement
@@ -37,9 +46,7 @@ http://docs.docker.jp/engine/reference/builder.html#environment-replacement
   - これらを `CMD` や `ENTRYPOINT` で解釈する際は、exec形式(= `["実行コマンド", "引数"...]`の形式)では展開されないため、シェル形式(= `実行コマンド 引数...`)で記す必要がある。
   - または、ラッパースクリプトを指定するという手もアリだろう。
 
-
 ### Instructions
-
 #### CMD
 
 コンテナのデフォルトの実行コマンド、またはその引数を指定する。 

@@ -14,6 +14,17 @@ https://docs.python.org/ja/3/library/os.html
 
 ファイル名、コマンドライン引数、環境変数など
 
+### os.getenv
+
+https://docs.python.org/ja/3/library/os.html#os.getenv
+
+```Python
+os.getenv(key, default=None)
+```
+
+- 環境変数keyが存在すればその値を返し、存在しなければdefaultを返す
+- key, default, 返り値は文字列
+
 ## os.path
 
 https://docs.python.org/ja/3/library/os.path.html
