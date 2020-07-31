@@ -1,4 +1,276 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Python</title><link>https://progrhy.me/tech-notes/a/program/python/</link><description>Recent content in Python on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 20 Jun 2020 20:23:39 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/python/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 標準ライブラリ</title><link>https://progrhy.me/tech-notes/a/program/python/library/</link><pubDate>Sat, 20 Jun 2020 20:27:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/library/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Python</title><link>https://progrhy.me/tech-notes/a/program/python/</link><description>Recent content in Python on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 20 Jun 2020 20:23:39 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/python/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/python/spec/</link><pubDate>Mon, 20 Jul 2020 23:15:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/spec/</guid><description>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>基本的にPython3の仕様のみを書く。&lt;br>
+ただし、ぐぐった結果とかを貼っているものはPython2のことがあるかもしれない。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.python.org/ja/3/">https://docs.python.org/ja/3/&lt;/a>
+&lt;ul>
+&lt;li>言語仕様: &lt;a href="https://docs.python.org/ja/3/reference/">https://docs.python.org/ja/3/reference/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="モジュール検索パス">モジュール検索パス&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path">https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html#sys.path">sys.path&lt;/a> のリストから探す。sys.path は以下で初期化される:&lt;/p>
+&lt;ul>
+&lt;li>カレントディレクトリ（あるいは入力されたスクリプトのあるディレクトリ）&lt;/li>
+&lt;li>環境変数 &lt;a href="https://docs.python.org/ja/3/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH&lt;/a>&lt;/li>
+&lt;li>インストールごとのデフォルト&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-import-module-search-path/">Pythonでimportの対象ディレクトリのパスを確認・追加（sys.pathなど） | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="コメント">コメント&lt;/h2>
+&lt;p>複数行のコメントは &lt;code>&amp;quot;&amp;quot;&amp;quot;&lt;/code> または &lt;code>'''&lt;/code> で書く。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> コメント1
+&lt;/span>&lt;span style="color:#4e9a06"> コメント2
+&lt;/span>&lt;span style="color:#4e9a06"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/7of9/items/5fb6d57ccb0ce9a47dd6">python &amp;gt; 複数行のコメント &amp;gt; indentに気をつける - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="データ型">データ型&lt;/h2>
+&lt;p>組み込み型: &lt;a href="https://docs.python.org/ja/3/library/stdtypes.html">https://docs.python.org/ja/3/library/stdtypes.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>int
+&lt;ul>
+&lt;li>bool
+&lt;ul>
+&lt;li>&lt;code>True == 1&lt;/code>&lt;/li>
+&lt;li>&lt;code>False == 0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="真偽値">真偽値&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing">https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>オブジェクトはデフォルトでは真&lt;/li>
+&lt;li>次の場合は偽:
+&lt;ul>
+&lt;li>&lt;code>__bool__()&lt;/code> メソッドが &lt;code>False&lt;/code> を返す&lt;/li>
+&lt;li>&lt;code>__len__()&lt;/code> メソッドが &lt;code>0&lt;/code> を返す&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>偽と判定されるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>None&lt;/code>, &lt;code>False&lt;/code>&lt;/li>
+&lt;li>数値型のゼロ: &lt;code>0&lt;/code>, &lt;code>0.0&lt;/code>, &lt;code>0j&lt;/code>, &lt;code>Decimal(0)&lt;/code>, &lt;code>Fraction(0, 1)&lt;/code>&lt;/li>
+&lt;li>空のシーケンス: &lt;code>''&lt;/code>, &lt;code>()&lt;/code>, &lt;code>[]&lt;/code>, &lt;code>{}&lt;/code>, &lt;code>set()&lt;/code>, &lt;code>range(0)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>組み込み関数 &lt;code>bool()&lt;/code> を使うと他の型のオブジェクトを &lt;code>True&lt;/code> or &lt;code>False&lt;/code> に変換できる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="シーケンス型---list-tuple-range">シーケンス型 - list, tuple, range&lt;/h3>
+&lt;p>ミュータブルなものとイミュータブルなものがある。tupleオブジェクトはイミュータブルらしい。&lt;/p>
+&lt;p>共通の演算:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>len(s)&lt;/code> &amp;hellip; 長さ&lt;/li>
+&lt;/ul>
+&lt;h4 id="ミュータブル">ミュータブル&lt;/h4>
+&lt;p>listオブジェクトとか。&lt;/p>
+&lt;p>演算:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>s.append(x)&lt;/code> &amp;hellip; 要素追加&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/yumimue/20071205/1196839438">リスト - 作成、取り出し、置換、追加、検索、削除、要素数 - ひきメモ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.yukun.info/blog/2008/06/python-list2.html">Python: リストの要素の追加と削除、取出し – append()、extend()、pop()、remove()メソッド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="マッピング型---dict">マッピング型 - dict&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict">https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict&lt;/a>&lt;/p>
+&lt;p>ミュータブルなオブジェクト。&lt;br>
+hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic"># 生成&lt;/span>
+&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bar&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;BAR&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;baz&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#3465a4">True&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 演算&lt;/span>
+&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">value&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">del&lt;/span> &lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
+&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
+&lt;span style="color:#204a87">iter&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">clear&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 全てのエントリを削除&lt;/span>
+&lt;span style="color:#000">copy&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># shallow copy&lt;/span>
+&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ヌル---none">ヌル - None&lt;/h3>
+&lt;p>&lt;code>None&lt;/code> オブジェクト&lt;/p>
+&lt;h2 id="演算子">演算子&lt;/h2>
+&lt;h3 id="二項演算子">二項演算子&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/expressions.html">6. 式 (expression) — Python 3 ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>@&lt;/code> &amp;hellip; 行列の乗算&lt;/li>
+&lt;/ul>
+&lt;h3 id="累算代入演算子">累算代入演算子&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements">https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 剰余&lt;/span>
+&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">//=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 切り捨て除算&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Rubyの &lt;code>||=&lt;/code> 相当はない&lt;/li>
+&lt;/ul>
+&lt;h3 id="三項演算子">三項演算子&lt;/h3>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Trueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Falseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5">三項演算子(Python) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="制御構文">制御構文&lt;/h2>
+&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements">https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">xxx&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">elif&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">yyy&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">zzz&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.javadrive.jp/python/if/index1.html">if文を使った条件分岐 | Python入門&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ループ">ループ&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">range&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">list&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">elm&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">elm&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Usek/items/3a2f2529e2e7a0dd2542">Python基礎講座(9 反復) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="クラス">クラス&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/classes.html">https://docs.python.org/ja/3/tutorial/classes.html&lt;/a>&lt;/p>
+&lt;h2 id="例外処理">例外処理&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.jp/3/tutorial/errors.html">https://docs.python.jp/3/tutorial/errors.html&lt;/a>&lt;/p>
+&lt;h2 id="書式付き文字列">書式付き文字列&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#4e9a06">&amp;#39;Hello, {}!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/u_kan/items/2a7b4201beb0d467e5b8">Python3での文字列フォーマットまとめ　旧型で生きるか、新型で生きるか - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ジェネレータ">ジェネレータ&lt;/h2>
+&lt;p>反復可能なオブジェクト&lt;/p>
+&lt;ul>
+&lt;li>ジェネレータ関数 &amp;hellip; &lt;code>yield&lt;/code> を使う&lt;/li>
+&lt;li>ジェネレータ式&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.python-izm.com/advanced/generator/">ジェネレータ (yield) | Python-izm&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="組み込み関数">組み込み関数&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html">https://docs.python.jp/3/library/functions.html&lt;/a>&lt;/p>
+&lt;h3 id="list">list()&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html#func-list">https://docs.python.jp/3/library/functions.html#func-list&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">somedict&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keys&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; dictのキーをリスト化&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python">How to return dictionary keys as a list in Python? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
+&lt;h2 id="pip">pip&lt;/h2>
+&lt;p>標準のパッケージマネージャー。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pip.pypa.io/en/stable/reference/">Reference Guide — pip 9.0.1 documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コマンド">コマンド&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># パッケージのインストール&lt;/span>
+pip install PACKAGE
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの更新&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 最新に更新&lt;/span>
+pip install -U&lt;span style="color:#000;font-weight:bold">|&lt;/span>--upgrade PACKAGE
+&lt;span style="color:#8f5902;font-style:italic">### pip自体を最新に更新&lt;/span>
+pip install -U pip
+&lt;span style="color:#8f5902;font-style:italic">## バージョン指定。ダウングレードも可&lt;/span>
+pip install &lt;span style="color:#000">urllib3&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>1.13.1
+&lt;span style="color:#8f5902;font-style:italic"># パッケージリストを記したファイルに従ってパッケージ群をインストール&lt;/span>
+pip install -r requirements.txt
+&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージ一覧&lt;/span>
+pip list
+&lt;span style="color:#8f5902;font-style:italic">## 更新可能なパッケージリスト&lt;/span>
+pip list -o
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/HyunwookPark/items/242a8ceea656416b6da8">pipでアップデートするときのコマンド pip update - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lifewithpython.com/2015/07/pip-upgrade-itself.html">Python Tips：pip そのものをアップデートしたい - Life with Python&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="config-file">Config file&lt;/h3>
+&lt;p>&lt;a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$HOME/.pip/pip.conf&lt;/code> &amp;hellip; レガシーだが、今でもUnix/Macで有効。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-pip-list-deprecation-warning/">pip.confを作成してpip listの警告を消す | Python / note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="how-to">How-to&lt;/h3>
+&lt;h4 id="インストール済みのパッケージを一括更新">インストール済みのパッケージを一括更新&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pip list -o &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;NR&amp;gt;2{print $1}&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -t pip install -U
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pipenv">Pipenv&lt;/h2>
+&lt;p>python.org公式のパッケージツール。&lt;br>
+RubyのBundlerっぽい雰囲気。&lt;/p>
+&lt;p>公式:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/pypa/pipenv">https://github.com/pypa/pipenv&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.pipenv.org/">https://docs.pipenv.org/&lt;/a>
+&lt;ul>
+&lt;li>邦訳: &lt;a href="http://pipenv-ja.readthedocs.io/ja/translate-ja/">http://pipenv-ja.readthedocs.io/ja/translate-ja/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/euxn23/items/fdd79bad28ccc0476a36">pyenv と pipenv による python 環境 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="install">Install&lt;/h3>
+&lt;p>&lt;a href="https://pipenv-ja.readthedocs.io/ja/translate-ja/install.html#installing-pipenv">https://pipenv-ja.readthedocs.io/ja/translate-ja/install.html#installing-pipenv&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## Mac&lt;/span>
+brew install pipenv
+&lt;span style="color:#8f5902;font-style:italic">## Fedora&lt;/span>
+sudo dnf install pipenv
+&lt;span style="color:#8f5902;font-style:italic">## Python (pip)&lt;/span>
+pip install --user pipenv
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pypi">PyPI&lt;/h2>
+&lt;p>&lt;a href="https://pypi.python.org/pypi">https://pypi.python.org/pypi&lt;/a>&lt;/p>
+&lt;p>the Python Package Index.&lt;br>
+RubyのRubyGems相当。&lt;/p>
+&lt;h3 id="pypirc">.pypirc&lt;/h3>
+&lt;p>アップロード先PyPIのサーバ情報や認証情報を記す設定ファイル&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nittyan/items/6dce0ab5598dda7f8f55">pypiへの登録方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="3rd-party-tools">3rd Party Tools&lt;/h2>
+&lt;h3 id="pip-tools">pip-tools&lt;/h3>
+&lt;p>&lt;a href="https://github.com/jazzband/pip-tools">https://github.com/jazzband/pip-tools&lt;/a>&lt;/p></description></item><item><title>A: 標準ライブラリ</title><link>https://progrhy.me/tech-notes/a/program/python/library/</link><pubDate>Sat, 20 Jun 2020 20:27:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/library/</guid><description>
 &lt;p>※基本、Python3前提。&lt;/p>
 &lt;h2 id="os">os&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html">https://docs.python.org/ja/3/library/os.html&lt;/a>&lt;/p>
@@ -37,7 +309,7 @@ deactivate
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/fiftystorm36/items/b2fd47cf32c7694adc2e">venv: Python 仮想環境管理 - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Packages</title><link>https://progrhy.me/tech-notes/a/program/python/package/</link><pubDate>Mon, 22 Jun 2020 14:58:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/package/</guid><description>
+&lt;/ul></description></item><item><title>A: 3rd-Party Packages</title><link>https://progrhy.me/tech-notes/a/program/python/package/</link><pubDate>Mon, 22 Jun 2020 14:58:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/package/</guid><description>
 &lt;p>サードパーティー製のパッケージ。&lt;/p>
 &lt;h2 id="flask">Flask&lt;/h2>
 &lt;ul>
@@ -49,71 +321,17 @@ deactivate
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/13317536/get-list-of-all-routes-defined-in-the-flask-app">python - Get list of all routes defined in the Flask app - Stack Overflow&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/13151161/display-links-to-new-webpages-created/13161594#13161594">python - Display links to new webpages created - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/python/spec/</link><pubDate>Mon, 20 Jul 2020 23:15:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/spec/</guid><description>
-&lt;h2 id="データ型">データ型&lt;/h2>
-&lt;ul>
-&lt;li>int
-&lt;ul>
-&lt;li>bool
-&lt;ul>
-&lt;li>&lt;code>True == 1&lt;/code>&lt;/li>
-&lt;li>&lt;code>False == 0&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
+&lt;h2 id="requests">requests&lt;/h2>
+&lt;p>Documentation:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;li>英語: &lt;a href="https://requests.readthedocs.io/en/master/">Requests: HTTP for Humans™ — Requests 2.23.0 documentation&lt;/a>&lt;/li>
+&lt;li>日本語: &lt;a href="http://requests-docs-ja.readthedocs.org/en/latest/">Requests: 人間のためのHTTP — requests-docs-ja 1.0.4 documentation&lt;/a> &amp;hellip; 古いのであまり読まない方がよさそう&lt;/li>
 &lt;/ul>
-&lt;h2 id="真偽値">真偽値&lt;/h2>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing">https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>オブジェクトはデフォルトでは真&lt;/li>
-&lt;li>次の場合は偽:
-&lt;ul>
-&lt;li>&lt;code>__bool__()&lt;/code> メソッドが &lt;code>False&lt;/code> を返す&lt;/li>
-&lt;li>&lt;code>__len__()&lt;/code> メソッドが &lt;code>0&lt;/code> を返す&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>偽と判定されるもの:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>None&lt;/code>, &lt;code>False&lt;/code>&lt;/li>
-&lt;li>数値型のゼロ: &lt;code>0&lt;/code>, &lt;code>0.0&lt;/code>, &lt;code>0j&lt;/code>, &lt;code>Decimal(0)&lt;/code>, &lt;code>Fraction(0, 1)&lt;/code>&lt;/li>
-&lt;li>空のシーケンス: &lt;code>''&lt;/code>, &lt;code>()&lt;/code>, &lt;code>[]&lt;/code>, &lt;code>{}&lt;/code>, &lt;code>set()&lt;/code>, &lt;code>range(0)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>組み込み関数 &lt;code>bool()&lt;/code> を使うと他の型のオブジェクトを &lt;code>True&lt;/code> or &lt;code>False&lt;/code> に変換できる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="演算子">演算子&lt;/h2>
-&lt;h3 id="三項演算子">三項演算子&lt;/h3>
-&lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Trueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Falseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5">三項演算子(Python) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="制御構文">制御構文&lt;/h2>
-&lt;h3 id="条件分岐">条件分岐&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">xxx&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">elif&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">yyy&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">zzz&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.javadrive.jp/python/if/index1.html">if文を使った条件分岐 | Python入門&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;h3 id="カスタムヘッダを付ける">カスタムヘッダを付ける&lt;/h3>
+&lt;p>&lt;a href="https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers">https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers&lt;/a>&lt;/p>
+&lt;p>dict型の &lt;code>header&lt;/code> パラメータを渡せばいい。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;https://api.github.com/some/endpoint&amp;#39;&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;user-agent&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;my-app/0.0.1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">requests&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">url&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

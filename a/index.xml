@@ -1531,6 +1531,202 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;ul>
 &lt;li>&lt;a href="https://k3s.io/">K3s: Lightweight Kubernetes&lt;/a> &amp;hellip; Rancherが出してる軽量版K8s&lt;/li>
 &lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/python/spec/</link><pubDate>Mon, 20 Jul 2020 23:15:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/spec/</guid><description>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>基本的にPython3の仕様のみを書く。&lt;br>
+ただし、ぐぐった結果とかを貼っているものはPython2のことがあるかもしれない。&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.python.org/ja/3/">https://docs.python.org/ja/3/&lt;/a>
+&lt;ul>
+&lt;li>言語仕様: &lt;a href="https://docs.python.org/ja/3/reference/">https://docs.python.org/ja/3/reference/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="モジュール検索パス">モジュール検索パス&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path">https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html#sys.path">sys.path&lt;/a> のリストから探す。sys.path は以下で初期化される:&lt;/p>
+&lt;ul>
+&lt;li>カレントディレクトリ（あるいは入力されたスクリプトのあるディレクトリ）&lt;/li>
+&lt;li>環境変数 &lt;a href="https://docs.python.org/ja/3/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH&lt;/a>&lt;/li>
+&lt;li>インストールごとのデフォルト&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-import-module-search-path/">Pythonでimportの対象ディレクトリのパスを確認・追加（sys.pathなど） | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="コメント">コメント&lt;/h2>
+&lt;p>複数行のコメントは &lt;code>&amp;quot;&amp;quot;&amp;quot;&lt;/code> または &lt;code>'''&lt;/code> で書く。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> コメント1
+&lt;/span>&lt;span style="color:#4e9a06"> コメント2
+&lt;/span>&lt;span style="color:#4e9a06"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/7of9/items/5fb6d57ccb0ce9a47dd6">python &amp;gt; 複数行のコメント &amp;gt; indentに気をつける - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="データ型">データ型&lt;/h2>
+&lt;p>組み込み型: &lt;a href="https://docs.python.org/ja/3/library/stdtypes.html">https://docs.python.org/ja/3/library/stdtypes.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>int
+&lt;ul>
+&lt;li>bool
+&lt;ul>
+&lt;li>&lt;code>True == 1&lt;/code>&lt;/li>
+&lt;li>&lt;code>False == 0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="真偽値">真偽値&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing">https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>オブジェクトはデフォルトでは真&lt;/li>
+&lt;li>次の場合は偽:
+&lt;ul>
+&lt;li>&lt;code>__bool__()&lt;/code> メソッドが &lt;code>False&lt;/code> を返す&lt;/li>
+&lt;li>&lt;code>__len__()&lt;/code> メソッドが &lt;code>0&lt;/code> を返す&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>偽と判定されるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>None&lt;/code>, &lt;code>False&lt;/code>&lt;/li>
+&lt;li>数値型のゼロ: &lt;code>0&lt;/code>, &lt;code>0.0&lt;/code>, &lt;code>0j&lt;/code>, &lt;code>Decimal(0)&lt;/code>, &lt;code>Fraction(0, 1)&lt;/code>&lt;/li>
+&lt;li>空のシーケンス: &lt;code>''&lt;/code>, &lt;code>()&lt;/code>, &lt;code>[]&lt;/code>, &lt;code>{}&lt;/code>, &lt;code>set()&lt;/code>, &lt;code>range(0)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>組み込み関数 &lt;code>bool()&lt;/code> を使うと他の型のオブジェクトを &lt;code>True&lt;/code> or &lt;code>False&lt;/code> に変換できる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="シーケンス型---list-tuple-range">シーケンス型 - list, tuple, range&lt;/h3>
+&lt;p>ミュータブルなものとイミュータブルなものがある。tupleオブジェクトはイミュータブルらしい。&lt;/p>
+&lt;p>共通の演算:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>len(s)&lt;/code> &amp;hellip; 長さ&lt;/li>
+&lt;/ul>
+&lt;h4 id="ミュータブル">ミュータブル&lt;/h4>
+&lt;p>listオブジェクトとか。&lt;/p>
+&lt;p>演算:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>s.append(x)&lt;/code> &amp;hellip; 要素追加&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/yumimue/20071205/1196839438">リスト - 作成、取り出し、置換、追加、検索、削除、要素数 - ひきメモ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.yukun.info/blog/2008/06/python-list2.html">Python: リストの要素の追加と削除、取出し – append()、extend()、pop()、remove()メソッド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="マッピング型---dict">マッピング型 - dict&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict">https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict&lt;/a>&lt;/p>
+&lt;p>ミュータブルなオブジェクト。&lt;br>
+hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic"># 生成&lt;/span>
+&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bar&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;BAR&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;baz&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#3465a4">True&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 演算&lt;/span>
+&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">value&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">del&lt;/span> &lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
+&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
+&lt;span style="color:#204a87">iter&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">clear&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 全てのエントリを削除&lt;/span>
+&lt;span style="color:#000">copy&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># shallow copy&lt;/span>
+&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ヌル---none">ヌル - None&lt;/h3>
+&lt;p>&lt;code>None&lt;/code> オブジェクト&lt;/p>
+&lt;h2 id="演算子">演算子&lt;/h2>
+&lt;h3 id="二項演算子">二項演算子&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/expressions.html">6. 式 (expression) — Python 3 ドキュメント&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>@&lt;/code> &amp;hellip; 行列の乗算&lt;/li>
+&lt;/ul>
+&lt;h3 id="累算代入演算子">累算代入演算子&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements">https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 剰余&lt;/span>
+&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">//=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 切り捨て除算&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>Rubyの &lt;code>||=&lt;/code> 相当はない&lt;/li>
+&lt;/ul>
+&lt;h3 id="三項演算子">三項演算子&lt;/h3>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Trueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Falseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5">三項演算子(Python) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="制御構文">制御構文&lt;/h2>
+&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements">https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">xxx&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">elif&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">yyy&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">zzz&lt;/span>
+&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.javadrive.jp/python/if/index1.html">if文を使った条件分岐 | Python入門&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ループ">ループ&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">range&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">list&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">elm&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">elm&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Usek/items/3a2f2529e2e7a0dd2542">Python基礎講座(9 反復) - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="クラス">クラス&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/classes.html">https://docs.python.org/ja/3/tutorial/classes.html&lt;/a>&lt;/p>
+&lt;h2 id="例外処理">例外処理&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.jp/3/tutorial/errors.html">https://docs.python.jp/3/tutorial/errors.html&lt;/a>&lt;/p>
+&lt;h2 id="書式付き文字列">書式付き文字列&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#4e9a06">&amp;#39;Hello, {}!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/u_kan/items/2a7b4201beb0d467e5b8">Python3での文字列フォーマットまとめ　旧型で生きるか、新型で生きるか - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ジェネレータ">ジェネレータ&lt;/h2>
+&lt;p>反復可能なオブジェクト&lt;/p>
+&lt;ul>
+&lt;li>ジェネレータ関数 &amp;hellip; &lt;code>yield&lt;/code> を使う&lt;/li>
+&lt;li>ジェネレータ式&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.python-izm.com/advanced/generator/">ジェネレータ (yield) | Python-izm&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="組み込み関数">組み込み関数&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html">https://docs.python.jp/3/library/functions.html&lt;/a>&lt;/p>
+&lt;h3 id="list">list()&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html#func-list">https://docs.python.jp/3/library/functions.html#func-list&lt;/a>&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">somedict&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keys&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; dictのキーをリスト化&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python">How to return dictionary keys as a list in Python? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 組み込みライブラリ</title><link>https://progrhy.me/tech-notes/a/program/ruby/builtin/</link><pubDate>Thu, 25 Jun 2020 15:30:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/builtin/</guid><description>
 &lt;h2 id="class-array">class Array&lt;/h2>
 &lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Array.html">https://docs.ruby-lang.org/ja/latest/class/Array.html&lt;/a>&lt;/p>
@@ -2158,7 +2354,83 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;ul>
 &lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
 &lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
-&lt;/ul></description></item><item><title>A: コーディング</title><link>https://progrhy.me/tech-notes/a/program/go/dojo/code/</link><pubDate>Tue, 14 Jul 2020 23:11:44 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/dojo/code/</guid><description>
+&lt;/ul></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
+&lt;h2 id="pip">pip&lt;/h2>
+&lt;p>標準のパッケージマネージャー。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pip.pypa.io/en/stable/reference/">Reference Guide — pip 9.0.1 documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="コマンド">コマンド&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># パッケージのインストール&lt;/span>
+pip install PACKAGE
+&lt;span style="color:#8f5902;font-style:italic"># パッケージの更新&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 最新に更新&lt;/span>
+pip install -U&lt;span style="color:#000;font-weight:bold">|&lt;/span>--upgrade PACKAGE
+&lt;span style="color:#8f5902;font-style:italic">### pip自体を最新に更新&lt;/span>
+pip install -U pip
+&lt;span style="color:#8f5902;font-style:italic">## バージョン指定。ダウングレードも可&lt;/span>
+pip install &lt;span style="color:#000">urllib3&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>1.13.1
+&lt;span style="color:#8f5902;font-style:italic"># パッケージリストを記したファイルに従ってパッケージ群をインストール&lt;/span>
+pip install -r requirements.txt
+&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージ一覧&lt;/span>
+pip list
+&lt;span style="color:#8f5902;font-style:italic">## 更新可能なパッケージリスト&lt;/span>
+pip list -o
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/HyunwookPark/items/242a8ceea656416b6da8">pipでアップデートするときのコマンド pip update - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lifewithpython.com/2015/07/pip-upgrade-itself.html">Python Tips：pip そのものをアップデートしたい - Life with Python&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="config-file">Config file&lt;/h3>
+&lt;p>&lt;a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>$HOME/.pip/pip.conf&lt;/code> &amp;hellip; レガシーだが、今でもUnix/Macで有効。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-pip-list-deprecation-warning/">pip.confを作成してpip listの警告を消す | Python / note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="how-to">How-to&lt;/h3>
+&lt;h4 id="インストール済みのパッケージを一括更新">インストール済みのパッケージを一括更新&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pip list -o &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;NR&amp;gt;2{print $1}&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -t pip install -U
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pipenv">Pipenv&lt;/h2>
+&lt;p>python.org公式のパッケージツール。&lt;br>
+RubyのBundlerっぽい雰囲気。&lt;/p>
+&lt;p>公式:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/pypa/pipenv">https://github.com/pypa/pipenv&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.pipenv.org/">https://docs.pipenv.org/&lt;/a>
+&lt;ul>
+&lt;li>邦訳: &lt;a href="http://pipenv-ja.readthedocs.io/ja/translate-ja/">http://pipenv-ja.readthedocs.io/ja/translate-ja/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/euxn23/items/fdd79bad28ccc0476a36">pyenv と pipenv による python 環境 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="install">Install&lt;/h3>
+&lt;p>&lt;a href="https://pipenv-ja.readthedocs.io/ja/translate-ja/install.html#installing-pipenv">https://pipenv-ja.readthedocs.io/ja/translate-ja/install.html#installing-pipenv&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## Mac&lt;/span>
+brew install pipenv
+&lt;span style="color:#8f5902;font-style:italic">## Fedora&lt;/span>
+sudo dnf install pipenv
+&lt;span style="color:#8f5902;font-style:italic">## Python (pip)&lt;/span>
+pip install --user pipenv
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pypi">PyPI&lt;/h2>
+&lt;p>&lt;a href="https://pypi.python.org/pypi">https://pypi.python.org/pypi&lt;/a>&lt;/p>
+&lt;p>the Python Package Index.&lt;br>
+RubyのRubyGems相当。&lt;/p>
+&lt;h3 id="pypirc">.pypirc&lt;/h3>
+&lt;p>アップロード先PyPIのサーバ情報や認証情報を記す設定ファイル&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/nittyan/items/6dce0ab5598dda7f8f55">pypiへの登録方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="3rd-party-tools">3rd Party Tools&lt;/h2>
+&lt;h3 id="pip-tools">pip-tools&lt;/h3>
+&lt;p>&lt;a href="https://github.com/jazzband/pip-tools">https://github.com/jazzband/pip-tools&lt;/a>&lt;/p></description></item><item><title>A: コーディング</title><link>https://progrhy.me/tech-notes/a/program/go/dojo/code/</link><pubDate>Tue, 14 Jul 2020 23:11:44 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/dojo/code/</guid><description>
 &lt;h2 id="コーディング規約">コーディング規約&lt;/h2>
 &lt;p>公式ガイド:&lt;/p>
 &lt;ul>
@@ -3130,7 +3402,46 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;span style="color:#000">$0&lt;/span>：sample.rb
 ARGV&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>0&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>：hoge
 ARGV&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>：piyo
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: curl</title><link>https://progrhy.me/tech-notes/a/cli/curl/</link><pubDate>Fri, 19 Jun 2020 20:30:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/curl/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 標準ライブラリ</title><link>https://progrhy.me/tech-notes/a/program/python/library/</link><pubDate>Sat, 20 Jun 2020 20:27:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/library/</guid><description>
+&lt;p>※基本、Python3前提。&lt;/p>
+&lt;h2 id="os">os&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html">https://docs.python.org/ja/3/library/os.html&lt;/a>&lt;/p>
+&lt;p>ファイル名、コマンドライン引数、環境変数など&lt;/p>
+&lt;h3 id="osgetenv">os.getenv&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html#os.getenv">https://docs.python.org/ja/3/library/os.html#os.getenv&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#3465a4">None&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>環境変数keyが存在すればその値を返し、存在しなければdefaultを返す&lt;/li>
+&lt;li>key, default, 返り値は文字列&lt;/li>
+&lt;/ul>
+&lt;h2 id="ospath">os.path&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.path.html">https://docs.python.org/ja/3/library/os.path.html&lt;/a>&lt;/p>
+&lt;p>パス名操作&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;usr&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;local&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;/usr/local/bin&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pprint">pprint&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/pprint.html">https://docs.python.org/ja/3/library/pprint.html&lt;/a>&lt;/p>
+&lt;p>Rubyの &lt;code>pp&lt;/code> 的なもの。&lt;/p>
+&lt;h2 id="urllibrequest">urllib.request&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/urllib.request.html">https://docs.python.org/ja/3/library/urllib.request.html&lt;/a>&lt;/p>
+&lt;p>HTTPリクエストを送る。&lt;/p>
+&lt;p>使い方: &lt;a href="https://docs.python.jp/3.6/howto/urllib2.html">https://docs.python.jp/3.6/howto/urllib2.html&lt;/a>&lt;/p>
+&lt;h2 id="venv">venv&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/venv.html">https://docs.python.org/ja/3/library/venv.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 仮想環境の作成&lt;/span>
+python3 -m venv path/to/new_environment
+&lt;span style="color:#8f5902;font-style:italic"># 仮想環境の利用&lt;/span>
+&lt;span style="color:#204a87">source&lt;/span> path/to/new_environment/bin/activate
+&lt;span style="color:#8f5902;font-style:italic">## module install&lt;/span>
+pip install &amp;lt;some_modules&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## installしたモジュールの表示&lt;/span>
+pip freeze
+&lt;span style="color:#8f5902;font-style:italic">## 仮想環境の利用を終了&lt;/span>
+deactivate
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/fiftystorm36/items/b2fd47cf32c7694adc2e">venv: Python 仮想環境管理 - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: curl</title><link>https://progrhy.me/tech-notes/a/cli/curl/</link><pubDate>Fri, 19 Jun 2020 20:30:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/curl/</guid><description>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>Man: &lt;a href="https://curl.haxx.se/docs/manpage.html">https://curl.haxx.se/docs/manpage.html&lt;/a>&lt;/li>
@@ -4514,6 +4825,31 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">RemoveAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">logsDir&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// clean up
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 3rd-Party Packages</title><link>https://progrhy.me/tech-notes/a/program/python/package/</link><pubDate>Mon, 22 Jun 2020 14:58:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/package/</guid><description>
+&lt;p>サードパーティー製のパッケージ。&lt;/p>
+&lt;h2 id="flask">Flask&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://pypi.org/project/Flask/">https://pypi.org/project/Flask/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://palletsprojects.com/p/flask/">https://palletsprojects.com/p/flask/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="エンドポイントリストの取得">エンドポイントリストの取得&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/13317536/get-list-of-all-routes-defined-in-the-flask-app">python - Get list of all routes defined in the Flask app - Stack Overflow&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/13151161/display-links-to-new-webpages-created/13161594#13161594">python - Display links to new webpages created - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="requests">requests&lt;/h2>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>英語: &lt;a href="https://requests.readthedocs.io/en/master/">Requests: HTTP for Humans™ — Requests 2.23.0 documentation&lt;/a>&lt;/li>
+&lt;li>日本語: &lt;a href="http://requests-docs-ja.readthedocs.org/en/latest/">Requests: 人間のためのHTTP — requests-docs-ja 1.0.4 documentation&lt;/a> &amp;hellip; 古いのであまり読まない方がよさそう&lt;/li>
+&lt;/ul>
+&lt;h3 id="カスタムヘッダを付ける">カスタムヘッダを付ける&lt;/h3>
+&lt;p>&lt;a href="https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers">https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers&lt;/a>&lt;/p>
+&lt;p>dict型の &lt;code>header&lt;/code> パラメータを渡せばいい。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;https://api.github.com/some/endpoint&amp;#39;&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;user-agent&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;my-app/0.0.1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">requests&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">url&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: fish shell</title><link>https://progrhy.me/tech-notes/a/cli/shell/fish/</link><pubDate>Sat, 20 Jun 2020 16:39:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/fish/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;blockquote>
@@ -4822,351 +5158,4 @@ fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
 &lt;h3 id="flush-required-method">flush (Required Method)&lt;/h3>
 &lt;p>&lt;a href="https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush">https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush&lt;/a>&lt;/p>
 &lt;p>&lt;code>fn flush(&amp;amp;mut self) -&amp;gt; Result&amp;lt;()&amp;gt;&lt;/code>&lt;/p>
-&lt;p>出力ストリームをフラッシュする。&lt;/p></description></item><item><title>A: kustomize</title><link>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</link><pubDate>Mon, 04 May 2020 17:54:50 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kustomize/</guid><description>
-&lt;p>Kubernetesのマニフェスト管理ツール。&lt;/p>
-&lt;p>リポジトリ: &lt;a href="https://github.com/kubernetes-sigs/kustomize">https://github.com/kubernetes-sigs/kustomize&lt;/a>&lt;/p>
-&lt;p>kubectl 1.14からkustomizeが統合されている。&lt;/p>
-&lt;h2 id="ドキュメント情報リソース">ドキュメント/情報リソース&lt;/h2>
-&lt;ul>
-&lt;li>Reference: &lt;a href="https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html">https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html&lt;/a>&lt;/li>
-&lt;li>Examples: &lt;a href="https://github.com/kubernetes-sigs/kustomize/tree/master/examples">https://github.com/kubernetes-sigs/kustomize/tree/master/examples&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cli-usage">CLI Usage&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl kustomize
-&lt;span style="color:#8f5902;font-style:italic"># kustomization.yaml を含むディレクトリで&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## Apply the Resource Config&lt;/span>
-kubectl apply -k .
-&lt;span style="color:#8f5902;font-style:italic">## View the Resources&lt;/span>
-kubectl get -k .
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubectl.docs.kubernetes.io/pages/app_management/apply.html">https://kubectl.docs.kubernetes.io/pages/app_management/apply.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="configmapの管理">ConfigMapの管理&lt;/h3>
-&lt;ol>
-&lt;li>configMapGeneratorで生成&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>(2020-03-18) &lt;code>behavior&lt;/code> を &lt;code>create&lt;/code>, &lt;code>replace&lt;/code>, &lt;code>merge&lt;/code> から選べるのだが、 &lt;code>create&lt;/code> 以外だとdiffでエラーが出るのだが…&lt;/li>
-&lt;/ul>
-&lt;ol>
-&lt;li>resourcesで管理&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>ConfigMapをYAMLで管理することになる。こっちの方が扱いやすいように感じた&lt;/li>
-&lt;/ul>
-&lt;h2 id="参考">参考&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://deeeet.com/writing/2018/07/10/kustomize/">KustomizeでKubernetes YAMLを管理する | SOTA&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://blog.mosuke.tech/entry/2019/06/21/kustomize/">Kustomizeで環境ごとに異なるマニフェストを作る | Goldstine研究所&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Homebrew</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</link><pubDate>Mon, 04 May 2020 17:19:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/brew/</guid><description>
-&lt;p>かねてからmacOSでユーザーランドで動くパッケージ管理ソフトとして開発者に親しまれてきたツールだが、2019年にLinuxにも正式に対応した。&lt;/p>
-&lt;p>関連ページ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/os/mac/">OS &amp;gt; macOS&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;ul>
-&lt;li>インストール &amp;hellip; &lt;a href="https://brew.sh/">https://brew.sh/&lt;/a> に従う&lt;/li>
-&lt;/ul>
-&lt;h2 id="macos">macOS&lt;/h2>
-&lt;ul>
-&lt;li>デフォルトで &lt;code>/usr/local&lt;/code> にインストールされる&lt;/li>
-&lt;/ul>
-&lt;h2 id="linux">Linux&lt;/h2>
-&lt;p>&lt;a href="https://docs.brew.sh/Homebrew-on-Linux">https://docs.brew.sh/Homebrew-on-Linux&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>デフォルトで &lt;code>/home/linuxbrew/.linuxbrew&lt;/code> にインストールされる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://tech-progrhyme.hatenablog.com/entry/2020/04/29/222302">UbuntuにHomebrewを入れてHomebrew Bundleでパッケージ管理することにした - progrhyme&amp;rsquo;s tech blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://docs.brew.sh/">https://docs.brew.sh/&lt;/a>&lt;/p>
-&lt;h2 id="brewコマンド">brewコマンド&lt;/h2>
-&lt;h3 id="create">create&lt;/h3>
-&lt;p>Formulaの雛形を作成する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew create &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> URL
-&lt;span style="color:#8f5902;font-style:italic"># 例&lt;/span>
-brew create https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
-&lt;span style="color:#8f5902;font-style:italic">## カスタムのTapを指定し、Golang向けの雛形を作る&lt;/span>
-brew create --go --tap progrhyme/taps -v https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>-v, &amp;ndash;verbose&lt;/td>
-&lt;td>冗長ログを表示&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="contribution">Contribution&lt;/h2>
-&lt;p>ガイド:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request">How To Open a Homebrew Pull Request — Homebrew Documentation&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>メモ:&lt;/p>
-&lt;ul>
-&lt;li>基本的には、ふつうにGitHubでforkして、featureブランチを作成してPull Requestを送る&lt;/li>
-&lt;li>ローカルでHomebrewを展開したディレクトリが作業ツリーになる。そこで自分のforkしたリポジトリもremoteに追加する&lt;/li>
-&lt;li>ローカルでtestを行ってからPRを送るべし&lt;/li>
-&lt;/ul>
-&lt;h3 id="formulaの作成更新">Formulaの作成・更新&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.brew.sh/Formula-Cookbook">https://docs.brew.sh/Formula-Cookbook&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.brew.sh/Acceptable-Formulae">https://docs.brew.sh/Acceptable-Formulae&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md">Homebrew/homebrew-core/CONTRIBUTING.md&lt;/a>&lt;/li>
-&lt;li>RubyDoc &lt;a href="https://rubydoc.brew.sh/Formula">https://rubydoc.brew.sh/Formula&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>homebrew-coreに取り込まれるには、ある程度ツールのレピュテーションが必要らしい。参考記事参照。GitHubリポジトリの場合、 &lt;code>&amp;lt;20 forks, &amp;lt;20 watchers and &amp;lt;50 stars&lt;/code> だとNGだとか
-&lt;ul>
-&lt;li>そんなときはbrew tapを使う方式にすればいいっぽい&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb">https://github.com/syhw/homebrew/blob/master/Library/Contributions/example-formula.rb&lt;/a> &amp;hellip; 最初に作るときに参考にしたのだが、実は非公式で、しかもだいぶ古い。2020-06-15現在は、公式にはこういう便利な雛形はなさそう（または、まだ私が見つけてない）&lt;/li>
-&lt;li>&lt;a href="https://syossan.hateblo.jp/entry/2018/01/24/192104">自作ツールをHomebrewに登録したい人生だった - 生涯未熟&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">ユーザーがつくまではしばらく brew tap にしておくのがよさそうですね。&lt;/p>&amp;mdash; Kazuhiro Sera (瀬良) (@seratch_ja) &lt;a href="https://twitter.com/seratch_ja/status/1272188680526942208?ref_src=twsrc%5Etfw">June 14, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
-&lt;h3 id="formulaの書き方">Formulaの書き方&lt;/h3>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>sha256&lt;/code> の値はLinuxだと &lt;code>sha256sum&lt;/code> コマンドで求められる
-&lt;ul>
-&lt;li>または、空欄にしておいて &lt;code>brew fetch --force&lt;/code> すると正しい値を表示してくれるそうだ&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>bottle do ... end&lt;/code> ブロックは、botが自動で足してくれるらしい。&lt;/li>
-&lt;/ul>
-&lt;h3 id="linuxbrew">Linuxbrew&lt;/h3>
-&lt;p>&lt;a href="https://github.com/Homebrew/linuxbrew-core/blob/master/CONTRIBUTING.md">https://github.com/Homebrew/linuxbrew-core/blob/master/CONTRIBUTING.md&lt;/a>&lt;/p>
-&lt;p>2020-06-15現在、Linuxbrewは1日に1回はHomebrewをマージしてるから、Formulaの追加や更新はHomebrew側にした方がいいって書いてある。&lt;/p>
-&lt;h2 id="tap">Tap&lt;/h2>
-&lt;ul>
-&lt;li>公式ドキュメント: &lt;a href="https://github.com/Homebrew/brew/blob/master/docs/Taps.md">https://github.com/Homebrew/brew/blob/master/docs/Taps.md&lt;/a>&lt;/li>
-&lt;li>非公式和訳: &lt;a href="https://qiita.com/saa/items/85ed5e914d424fbf9fd6">brew tapとは - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>メモ:&lt;/p>
-&lt;ul>
-&lt;li>Third-Party Repositoriesのことだそうだ。&lt;/li>
-&lt;li>非公式のツールをbrew管理にできる仕組み。&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://songmu.jp/riji/entry/2019-02-22-maltmill.html">Homebrewで自作ツールを簡単にインストール可能にする | おそらくはそれさえも平凡な日々&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200615/#maltmill%E3%82%92%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F">2020-06-15#maltmillを使いたかったが動かなかった&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ruby-api">Ruby API&lt;/h2>
-&lt;p>&lt;a href="https://rubydoc.brew.sh/">https://rubydoc.brew.sh/&lt;/a>&lt;/p>
-&lt;h3 id="formula">Formula&lt;/h3>
-&lt;p>&lt;a href="https://rubydoc.brew.sh/Formula.html">https://rubydoc.brew.sh/Formula.html&lt;/a>&lt;/p>
-&lt;h4 id="bininstall">bin.install&lt;/h4>
-&lt;p>&lt;a href="https://docs.brew.sh/Formula-Cookbook#bininstall-foo">https://docs.brew.sh/Formula-Cookbook#bininstall-foo&lt;/a>&lt;/p>
-&lt;p>任意のファイルを &lt;code>bin/&lt;/code> に移して、実行ビットを立てる（&lt;code>chmod 0555&lt;/code>）。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">install&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># fooをインストール&lt;/span>
-&lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">install&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># bar.pyをbarにリネームしてインストール&lt;/span>
-&lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">install&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bar.py&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bar&amp;#39;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="on_linux">.on_linux&lt;/h4>
-&lt;p>&lt;a href="https://rubydoc.brew.sh/Formula.html#on_linux-class_method">https://rubydoc.brew.sh/Formula.html#on_linux-class_method&lt;/a>&lt;/p>
-&lt;p>Linuxでのみ実行されるブロックを作る。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#000">on_linux&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-&lt;span style="color:#000">depends_on&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;linux_only_dep&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="on_macos">.on_macos&lt;/h4>
-&lt;p>macOSでのみ実行されるブロックを作る。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#000">on_macos&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-&lt;span style="color:#000">depends_on&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;mac_only_dep&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="version">.version&lt;/h4>
-&lt;p>&lt;a href="https://rubydoc.brew.sh/Formula#version-class_method">https://rubydoc.brew.sh/Formula#version-class_method&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">version&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">val&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">⇒&lt;/span> &lt;span style="color:#000">Object&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>基本はURLからautodetectしてくれるので、それが上手く行かないときに指定するそうだ。&lt;/p>
-&lt;h3 id="os">OS&lt;/h3>
-&lt;p>&lt;a href="https://rubydoc.brew.sh/OS.html">https://rubydoc.brew.sh/OS.html&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">OS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">mac?&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># for macOS installation&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">elsif&lt;/span> &lt;span style="color:#000">OS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">linux?&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># for Linuxbrew installation&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="homebrew-bundle">Homebrew Bundle&lt;/h2>
-&lt;p>&lt;a href="https://github.com/Homebrew/homebrew-bundle">https://github.com/Homebrew/homebrew-bundle&lt;/a>&lt;/p>
-&lt;p>Rubyのbundlerのように、brewでインストールするパッケージをBrewfileという構成ファイルにまとめる。&lt;/p>
-&lt;p>オプションなしで実行した場合、カレントディレクトリの &lt;code>Brewfile&lt;/code> を参照する。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Brewfileに基づいてパッケージインストール&lt;/span>
-brew bundle &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>install&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Brewfileに入ってないパッケージを削除する&lt;/span>
-brew bundle cleanup &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--force&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># インストールされているパッケージリストをBrewfileに書き出す&lt;/span>
-brew bundle dump &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>--global&lt;/code>&lt;/td>
-&lt;td>&lt;code>~/.Brewfile&lt;/code> を見に行く&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>--file &amp;lt;File&amp;gt;&lt;/code>&lt;/td>
-&lt;td>Brewfileを指定する&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kiririmode.hatenablog.jp/entry/20200103/1578033722">Macでのアプリケーションインストールの自動化 - 理系学生日記&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="brewfile">Brewfile&lt;/h3>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#000">tap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;homebrew/bundle&amp;#34;&lt;/span>
-&lt;span style="color:#000">tap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;homebrew/core&amp;#34;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># macOSでcaskを使う&lt;/span>
-&lt;span style="color:#000">tap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;homebrew/cask&amp;#34;&lt;/span>
-&lt;span style="color:#000">cask_args&lt;/span> &lt;span style="color:#4e9a06">appdir&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;/Applications&amp;#34;&lt;/span>
-&lt;span style="color:#000">cask&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google-chrome&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;bash&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;zsh&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;git&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;vim&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tmux&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;direnv&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;jq&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;the_silver_searcher&amp;#34;&lt;/span>
-&lt;span style="color:#000">brew&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;coreutils&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>RubyのDSLなので普通に &lt;code># ...&lt;/code> でコメントが書けるらしい
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/Homebrew/homebrew-bundle/issues/146">Allow comments in Brewfile · Issue #146 · Homebrew/homebrew-bundle&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>A: Compute Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gce/</link><pubDate>Mon, 04 May 2020 09:10:38 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gce/</guid><description>
-&lt;h2 id="仮想マシン">仮想マシン&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-types?hl=ja">マシンタイプ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
-&lt;h3 id="プリエンプティブルvmインスタンス">プリエンプティブルVMインスタンス&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/preemptible">https://cloud.google.com/compute/docs/instances/preemptible&lt;/a>&lt;/p>
-&lt;p>Preemptible VM Instance. AWSでいうところのスポットインスタンス。&lt;/p>
-&lt;ul>
-&lt;li>いつでも停止される可能性がある&lt;/li>
-&lt;li>24時間実行したら必ず停止される&lt;/li>
-&lt;/ul>
-&lt;h4 id="プリエンプト処理">プリエンプト処理&lt;/h4>
-&lt;ol>
-&lt;li>プリエンプション通知を&lt;a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface#Power_states">ACPI G2 ソフトオフ&lt;/a>形式でインスタンスに送信&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#handle_preemption">シャットダウンスクリプト&lt;/a>によってプリエンプションを処理。インスタンス停止前にクリーンアップ操作を実施できる&lt;/li>
-&lt;li>インスタンスが30秒以内に停止しないと、&lt;a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface#Power_states">ACPI G3 メカニカルオフ&lt;/a>信号がOSに送信される&lt;/li>
-&lt;li>インスタンスは &lt;code>TERMINATED&lt;/code> 状態になる&lt;/li>
-&lt;/ol>
-&lt;h4 id="プリエンプトされたかどうか調べる">プリエンプトされたかどうか調べる&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#detecting_if_an_instance_was_preempted">https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance?hl=ja#detecting_if_an_instance_was_preempted&lt;/a>&lt;/p>
-&lt;p>Cloud Loggingで &lt;code>compute.instances.preempted&lt;/code> で検索。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/58256153/gcp-vm-consistently-shutting-down-without-warning">ssh - GCP VM consistently shutting down without warning - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="参考">参考&lt;/h4>
-&lt;ul>
-&lt;li>&lt;a href="https://www.marketechlabo.com/gce-preemptible-instance/">格安に使えるGCEのプリエンプティブインスタンスの勝手に停止対策 | marketechlabo&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="インスタンスグループ">インスタンスグループ&lt;/h3>
-&lt;ul>
-&lt;li>マネージド &amp;hellip; オートスケールする。インスタンステンプレートを使う&lt;/li>
-&lt;li>非マネージド &amp;hellip; 自前でインスタンスを登録して管理
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances?hl=ja">非マネージド インスタンス グループの作成 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="shielded-vm">Shielded VM&lt;/h3>
-&lt;p>Documents:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/security/shielded-cloud/shielded-vm?hl=ja">Shielded VM | ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Features:&lt;/p>
-&lt;ul>
-&lt;li>セキュアブート&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/instances/integrity-monitoring?hl=ja">整合性モニタリング&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>整合性チェックに引っかかると、インスタンスが起動しない（起動直後にシャットダウンする）ことがある&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/firmware/uefi/#%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%83%96%E3%83%BC%E3%83%88">UEFI#セキュアブート&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/56100268/why-my-google-cloud-instance-often-shut-down-automatically-by-itself">why my google cloud instance often shut down automatically by itself - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="インスタンスメタデータ">インスタンスメタデータ&lt;/h2>
-&lt;p>ドキュメント:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/storing-retrieving-metadata?hl=ja">インスタンス メタデータの保存と取得 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>エンドポイントURL: &lt;code>http://metadata.google.internal/computeMetadata/v1/&lt;/code>&lt;/p>
-&lt;h2 id="machine-images">Machine Images&lt;/h2>
-&lt;p>Beta at 2020-04-16現在&lt;/p>
-&lt;p>&lt;a href="https://cloud.google.com/compute/docs/machine-images">https://cloud.google.com/compute/docs/machine-images&lt;/a>&lt;/p>
-&lt;p>最近リリースされたやつ。&lt;br>
-従来のImageとの違いは↑に書いてある。&lt;/p>
-&lt;h2 id="images">Images&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/compute/docs/images?hl=ja">https://cloud.google.com/compute/docs/images?hl=ja&lt;/a>&lt;/p>
-&lt;p>AWS AMIみたいなもの&lt;/p>
-&lt;p>Documents:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>VMからカスタムイメージを作る場合は、VMを停止しないと駄目みたい&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/">https://www.terraform.io/docs/commands/&lt;/a>&lt;/p>
-&lt;h2 id="import">import&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/import/usage.html">https://www.terraform.io/docs/import/usage.html&lt;/a>&lt;/p>
-&lt;p>&lt;code>terraform import&lt;/code> コマンドにより、既存インフラをTerraform管理下に置くことができる。&lt;/p>
-&lt;p>一部インフラを手動で作った後、リソースのidを指定して取り込む、といった使い方ができる。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/tyasu/items/32b23dd76d25f7af712f" title="terraform importの使い方メモ - Qiita">terraform importの使い方メモ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="output">output&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/output.html">https://www.terraform.io/docs/commands/output.html&lt;/a>&lt;/p>
-&lt;p>stateファイルから値を出力する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform output &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="plan">plan&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/plan.html">https://www.terraform.io/docs/commands/plan.html&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 対象を限定する&lt;/span>
-terraform plan -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type1.identifier1 -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type2.identifier2
-&lt;span style="color:#8f5902;font-style:italic"># planファイルを書き出す&lt;/span>
-terraform plan -out&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/tfplan
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="state">state&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/commands/state/">https://www.terraform.io/docs/commands/state/&lt;/a>&lt;/p>
-&lt;p>stateの管理・編集を行うコマンド。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform state list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>filtering-arg&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># terraform管理下のリソース一覧&lt;/span>
-terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモートのstateファイルをダウンロードして標準出力に表示&lt;/span>
-terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
-terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
-terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;p>出力ストリームをフラッシュする。&lt;/p></description></item></channel></rss>

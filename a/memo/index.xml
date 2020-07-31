@@ -16,6 +16,20 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/10022323/check-isatty-in-bash">shell - check isatty in bash - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="731">7/31&lt;/h2>
+&lt;h3 id="vs-code--pythonで内部モジュールのimportエラー">VS Code + Pythonで内部モジュールのimportエラー&lt;/h3>
+&lt;p>&lt;code>oreno/modules&lt;/code> 以下に内部モジュールを置いているとする。&lt;br>
+次の2設定でエラー回避できそう。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;quot;python.autoComplete.extraPaths&amp;quot;: [&amp;quot;./oreno/modules&amp;quot;]&lt;/code>&lt;/li>
+&lt;li>ワークスペースのルートに次の内容で pylintrc ファイルを作る:&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>init-hook=&amp;quot;./oreno/modules&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/kurikou02/items/beb3d638f93cc372b3c3">VSCodeで自作モジュールimport時のエラー表示(unresolved import &amp;lsquo;hoge&amp;rsquo;)が消えない - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/New_enpitsu_15/items/c1e680cc0c24cf87c581">VSCodeのPylintがimportでうざい！！！！ - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 2020-07-18</title><link>https://progrhy.me/tech-notes/a/memo/20200718/</link><pubDate>Sat, 18 Jul 2020 14:40:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200718/</guid><description>
 &lt;h2 id="718">7/18&lt;/h2>
 &lt;h3 id="goreleaserでhomebrewのformulaを作るようにした">GoReleaserでHomebrewのFormulaを作るようにした&lt;/h3>
