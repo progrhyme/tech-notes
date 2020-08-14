@@ -23,6 +23,10 @@ mysql, mysqldumpといったCLIやクライアントライブラリを介した�
 
 https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html
 
+ Option | 説明
+--------|-----
+ `--no-tablespaces, -y` | CREATE LOGFILE GROUP ステートメントおよび CREATE TABLESPACE ステートメントを出力に書き出さない
+
 ### パスワードの渡し方
 
 `mysql -u$USER -p$PASS` みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？

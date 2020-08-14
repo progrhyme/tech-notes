@@ -18,14 +18,6 @@ https://cloud.google.com/bigquery/pricing
   - アクティブストレージ ... 2020-04-22現在、GCSのStandard Storageより若干安い
   - 長期保存 ... テーブルに90日編集がなければ↑から50%値引きされる。2020-04-22現在、GCSのNealineと同額
 
-### Quotas
-
-ストリーミング挿入:
-
- Item | Quota
-------|-------
- 行の最大サイズ | 1MB
-
 ## Concept
 
 - データセット ... プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
@@ -47,6 +39,19 @@ MySQLサーバで `NO_ZERO_DATE` modeが有効でないと入ってくるデー�
 
 - [MySQL#SQL-Mode]({{<ref "/a/software/mysql/_index.md">}}#sql-mode)
 
+## Limitations (Quota)
+
+- https://cloud.google.com/bigquery/quotas
+- https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language#limitations
+
+### ストリーミング挿入
+
+ Item | Quota
+------|-------
+ 行の最大サイズ | 1MB
+
+- ストリーミング（tabledata.insertall メソッド）を使用して直近30分以内にテーブルに書き込まれた行は、UPDATE、DELETE、MERGE ステートメントを使用して変更することはできない
+
 ## How-to
 ### Colaboratoryから使う
 
@@ -65,3 +70,23 @@ https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration
 
 - **テーブルの有効期限** ... テーブル作成時からの日数を設定できる
 - **パーティションの有効期限** ... パーティション分割テーブルで、パーティションの有効期限を設定できる
+
+## 標準SQL
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/
+
+### タイムスタンプ関数
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions
+
+Examples:
+
+```sql
+-- 現在日時
+CURRENT_TIMESTAMP()
+
+-- タイムスタンプの減算
+TIMESTAMP_SUB(<timestamp_expression>, INTERVAL <int64_expression> <date_part>)
+-- 10分前
+TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 10 MINUTE)
+```
