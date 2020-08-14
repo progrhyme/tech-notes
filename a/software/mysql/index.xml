@@ -11,6 +11,20 @@
 &lt;h3 id="mysql">mysql&lt;/h3>
 &lt;h3 id="mysqldump">mysqldump&lt;/h3>
 &lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>--no-tablespaces, -y&lt;/code>&lt;/td>
+&lt;td>CREATE LOGFILE GROUP ステートメントおよび CREATE TABLESPACE ステートメントを出力に書き出さない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="パスワードの渡し方">パスワードの渡し方&lt;/h3>
 &lt;p>&lt;code>mysql -u$USER -p$PASS&lt;/code> みたいなやり方をしてると警告が出るようになったのは 5.5 ぐらいからだったかな？&lt;/p>
 &lt;p>このページにガイドがある:&lt;/p>

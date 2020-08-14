@@ -599,6 +599,25 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;code>NO_ZERO_DATE&lt;/code> &amp;hellip; &lt;code>0000-00-00&lt;/code> を日付として許可しない。&lt;/li>
 &lt;/ul>
+&lt;h3 id="権限">権限&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/grant.html">https://dev.mysql.com/doc/refman/8.0/en/grant.html&lt;/a>&lt;/p>
+&lt;p>GRANT文やREVOKE文で指定できる権限。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>権限&lt;/th>
+&lt;th>付与可能レベル&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>PROCESS&lt;/td>
+&lt;td>グローバル&lt;/td>
+&lt;td>ユーザーが SHOW PROCESSLIST を使用してすべてのプロセスを表示できるようにする&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;h3 id="オンラインddl">オンラインDDL&lt;/h3>
 &lt;ul>
@@ -675,6 +694,26 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;a href="https://tmtms.hatenablog.com/entry/2015/08/22/mysql-timezone">MySQLのタイムゾーン - @tmtms のメモ&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="versions">Versions&lt;/h2>
+&lt;h3 id="8">8&lt;/h3>
+&lt;h4 id="8021">8.0.21&lt;/h4>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html">https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>mysqldumpに &lt;code>PROCESS&lt;/code> 権限が必要に（または &lt;code>--no-tablespaces&lt;/code> オプション指定）&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h4 id="8016">8.0.16&lt;/h4>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-16.html">https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-16.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>global / schema / tablespaceレベルでDEFAULT ENCRYPTIONを設定可能に&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/hmatsu47/items/bae53fd0f6d09511732c">MySQL 8.0.16 でテーブルスペース・REDO ログ／UNDO ログ・システムテーブル暗号化 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="cookbooks">Cookbooks&lt;/h2>
 &lt;p>TODO: 標準SQLについて別ページにまとめ、ここには差分だけ記す。&lt;/p>
 &lt;h3 id="create-table">CREATE TABLE&lt;/h3>
@@ -708,7 +747,13 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/tnnsst35/20110604/1307181215" title="MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記">MySQLの CREATE TABLE &amp;hellip; LIKE &amp;hellip; - 不思議なサービスをつくる新人プログラマーの日記&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
+&lt;/ul>
+&lt;h3 id="show-grants">SHOW GRANTS&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/show-grants.html">https://dev.mysql.com/doc/refman/8.0/en/show-grants.html&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在のユーザの権限を表示
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#000">GRANTS&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
 &lt;p>&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/">https://www.freedesktop.org/wiki/Software/systemd/&lt;/a>&lt;/p>
 &lt;p>昨今のLinuxのinit（最初に起動するプログラム）としてほぼデファクトになっているソフトウェア。&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>

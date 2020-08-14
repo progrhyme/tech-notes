@@ -2303,22 +2303,6 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="quotas">Quotas&lt;/h3>
-&lt;p>ストリーミング挿入:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Item&lt;/th>
-&lt;th>Quota&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>行の最大サイズ&lt;/td>
-&lt;td>1MB&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
 &lt;h2 id="concept">Concept&lt;/h2>
 &lt;ul>
 &lt;li>データセット &amp;hellip; プロジェクトに属し、テーブルやビューを管理する最上位のコンテナ
@@ -2338,6 +2322,29 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/mysql/#sql-mode">MySQL#SQL-Mode&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="limitations-quota">Limitations (Quota)&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas">https://cloud.google.com/bigquery/quotas&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language#limitations">https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language#limitations&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ストリーミング挿入">ストリーミング挿入&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Item&lt;/th>
+&lt;th>Quota&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>行の最大サイズ&lt;/td>
+&lt;td>1MB&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>ストリーミング（tabledata.insertall メソッド）を使用して直近30分以内にテーブルに書き込まれた行は、UPDATE、DELETE、MERGE ステートメントを使用して変更することはできない&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="colaboratoryから使う">Colaboratoryから使う&lt;/h3>
 &lt;p>関連項目:&lt;/p>
@@ -2354,7 +2361,19 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;ul>
 &lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
 &lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
-&lt;/ul></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
+&lt;/ul>
+&lt;h2 id="標準sql">標準SQL&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/">https://cloud.google.com/bigquery/docs/reference/standard-sql/&lt;/a>&lt;/p>
+&lt;h3 id="タイムスタンプ関数">タイムスタンプ関数&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions">https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在日時
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CURRENT_TIMESTAMP&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">-- タイムスタンプの減算
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">TIMESTAMP_SUB&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timestamp_expression&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">INTERVAL&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">int64_expression&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">date_part&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">-- 10分前
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">TIMESTAMP_SUB&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CURRENT_TIMESTAMP&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span> &lt;span style="color:#204a87">INTERVAL&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">MINUTE&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
 &lt;h2 id="pip">pip&lt;/h2>
 &lt;p>標準のパッケージマネージャー。&lt;/p>
 &lt;ul>
