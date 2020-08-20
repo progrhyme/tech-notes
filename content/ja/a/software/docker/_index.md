@@ -25,6 +25,21 @@ weight: 90
 
 - [Engine tutorials | Docker Documentation](https://docs.docker.com/engine/tutorials/)
 
+## How-to
+### dockerコンテナからホストOSのlocalhostにアクセスする
+
+Docker for MacやDocker for Windowsなら、 `host.docker.internal` でアクセスできる。
+
+Examples:
+
+```sh
+docker run -it --rm mysql mysql -hhost.docker.internal -uroot -p
+```
+
+参考:
+
+- [Dockerのコンテナの中からホストOS上のプロセスと通信する方法 - Qiita](https://qiita.com/ijufumi/items/badde64d530e6bade382)
+
 ## Registry
 ### API
 

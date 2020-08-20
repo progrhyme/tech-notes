@@ -64,23 +64,6 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 - [\[VS Code\] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)](https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad)
 - Windows: [【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ](https://hachian.com/2019/09/19/vscode_venv/)
 
-## How-to
-### 文字列処理
-#### 文字列検索 `in`, `not in`
-
-```python
-word = 'abcde'
-'abc' in word #=> True
-'x' in word #=> False
-
-'abc' not in word #=> False
-'x' not in word #=> True
-```
-
-参考:
-
-- [Python3の文字列操作 \- Qiita](https://qiita.com/Kenta-Han/items/e64035e9c3e4ef08e394)
-
 ## Python3
 ### Python2との違い
 #### 書式付き文字列

@@ -219,6 +219,25 @@ https://docs.python.org/ja/3/tutorial/classes.html
 
 https://docs.python.jp/3/tutorial/errors.html
 
+Examples:
+
+```Python
+import sys
+
+try:
+    f = open('myfile.txt')
+    s = f.readline()
+    i = int(s.strip())
+except OSError as err:
+    print("OS error: {0}".format(err))
+except ValueError:
+    print("Could not convert data to an integer.")
+except:
+    print("Unexpected error:", sys.exc_info()[0])
+    raise
+```
+
+
 ## 書式付き文字列
 
 ```python

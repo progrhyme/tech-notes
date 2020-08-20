@@ -42,6 +42,22 @@ https://docs.python.org/ja/3/library/pprint.html
 
 Rubyの `pp` 的なもの。
 
+## re
+
+https://docs.python.org/ja/3/library/re.html
+
+正規表現操作モジュール。
+
+See also [道場#正規表現]({{<ref "dojo.md">}}#正規表現)
+
+### フラグ
+
+RegexFlagのインスタンス（Python v3.6〜）
+
+ flag | 機能
+------|-----
+ re.I, re.IGNORECASE | 大文字・小文字を区別しない
+
 ## urllib.request
 
 https://docs.python.org/ja/3/library/urllib.request.html

@@ -90,6 +90,16 @@ GRANT文やREVOKE文で指定できる権限。
 -----|--------------|-----
  PROCESS | グローバル | ユーザーが SHOW PROCESSLIST を使用してすべてのプロセスを表示できるようにする
 
+### INFORMATION_SCHEMA
+
+https://dev.mysql.com/doc/refman/5.6/ja/information-schema.html
+
+メタデータDB
+
+#### COLUMNS
+
+https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html
+
 ## Features
 ### オンラインDDL
 
@@ -186,10 +196,6 @@ https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html
 
 - mysqldumpに `PROCESS` 権限が必要に（または `--no-tablespaces` オプション指定）
 
-参考:
-
-- 
-
 #### 8.0.16
 
 https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-16.html
@@ -199,65 +205,3 @@ https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-16.html
 参考:
 
 - [MySQL 8.0.16 でテーブルスペース・REDO ログ／UNDO ログ・システムテーブル暗号化 - Qiita](https://qiita.com/hmatsu47/items/bae53fd0f6d09511732c)
-
-## Cookbooks
-
-TODO: 標準SQLについて別ページにまとめ、ここには差分だけ記す。
-
-### CREATE TABLE
-
-Examples:
-
-```sql
-CREATE TABLE animals (
-     id MEDIUMINT NOT NULL AUTO_INCREMENT,
-     name CHAR(30) NOT NULL,
-     PRIMARY KEY (id)
-);
-```
-
-### CREATE DATABASE
-
-Examples:
-
-```sql
-CREATE DATABASE foo CHARACTER SET utf8mb4;
-```
-
-参考:
-
-- [データベースを作成する(CREATE DATABASE文) | MySQLの使い方](https://www.dbonline.jp/mysql/database/index1.html)
-
-### INSERT
-
-Examples:
-
-```sql
-INSERT INTO animals (name) VALUES
-    ('dog'),('cat'),('penguin'),
-    ('lax'),('whale'),('ostrich');
-```
-
-## Reference
-### CREATE TABLE
-
-- https://dev.mysql.com/doc/refman/5.6/ja/create-table.html
-
-Tips:
-
-- `CREATE TABLE B LIKE A;` でテーブルAと同じカラム構成のテーブルBを作れる。
-
-参考:
-
-- [MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記](http://d.hatena.ne.jp/tnnsst35/20110604/1307181215 "MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記")
-
-### SHOW GRANTS
-
-https://dev.mysql.com/doc/refman/8.0/en/show-grants.html
-
-Examples:
-
-```sql
--- 現在のユーザの権限を表示
-SHOW GRANTS;
-```
