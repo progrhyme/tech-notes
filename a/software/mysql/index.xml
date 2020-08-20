@@ -1,4 +1,63 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – MySQL</title><link>https://progrhy.me/tech-notes/a/software/mysql/</link><description>Recent content in MySQL on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 22 Jun 2020 16:02:33 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – MySQL</title><link>https://progrhy.me/tech-notes/a/software/mysql/</link><description>Recent content in MySQL on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 22 Jun 2020 16:02:33 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/software/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>A: SQL</title><link>https://progrhy.me/tech-notes/a/software/mysql/sql/</link><pubDate>Thu, 20 Aug 2020 11:54:48 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/sql/</guid><description>
+&lt;p>SQLリファレンス。&lt;/p>
+&lt;p>標準SQLについてはSee &lt;a href="https://progrhy.me/tech-notes/a/sql/">SQL&lt;/a>&lt;/p>
+&lt;h2 id="dml">DML&lt;/h2>
+&lt;h3 id="insert">INSERT&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">INSERT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">INTO&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VALUES&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;dog&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;cat&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;penguin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;lax&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;whale&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ostrich&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ddl">DDL&lt;/h2>
+&lt;h3 id="create-database">CREATE DATABASE&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">DATABASE&lt;/span> &lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#204a87">CHARACTER&lt;/span> &lt;span style="color:#204a87;font-weight:bold">SET&lt;/span> &lt;span style="color:#000">utf8mb4&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.dbonline.jp/mysql/database/index1.html">データベースを作成する(CREATE DATABASE文) | MySQLの使い方&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="create-table">CREATE TABLE&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/create-table.html">https://dev.mysql.com/doc/refman/5.6/ja/create-table.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">TABLE&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#000">id&lt;/span> &lt;span style="color:#000">MEDIUMINT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span> &lt;span style="color:#000">AUTO_INCREMENT&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87">CHAR&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">PRIMARY&lt;/span> &lt;span style="color:#204a87;font-weight:bold">KEY&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>CREATE TABLE B LIKE A;&lt;/code> でテーブルAと同じカラム構成のテーブルBを作れる。&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/tnnsst35/20110604/1307181215" title="MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記">MySQLの CREATE TABLE &amp;hellip; LIKE &amp;hellip; - 不思議なサービスをつくる新人プログラマーの日記&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="その他">その他&lt;/h2>
+&lt;h3 id="show-binary-logs">SHOW BINARY LOGS&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/show-binary-logs.html">https://dev.mysql.com/doc/refman/5.6/ja/show-binary-logs.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>binlogファイルを一覧表示する&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#204a87">BINARY&lt;/span> &lt;span style="color:#000">LOGS&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#000">MASTER&lt;/span> &lt;span style="color:#000">LOGS&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="show-binlog-events">SHOW BINLOG EVENTS&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/show-binlog-events.html">https://dev.mysql.com/doc/refman/5.6/ja/show-binlog-events.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#000">BINLOG&lt;/span> &lt;span style="color:#000">EVENTS&lt;/span>
+&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IN&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;log_name&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span> &lt;span style="color:#000">pos&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">LIMIT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">offset&lt;/span>&lt;span style="color:#000;font-weight:bold">,]&lt;/span> &lt;span style="color:#204a87;font-weight:bold">row_count&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>LIMIT句なしで指定すると全バイナリログの内容を出力するので、リソースを大量に消費する可能性がある&lt;/li>
+&lt;/ul>
+&lt;h3 id="show-grants">SHOW GRANTS&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/show-grants.html">https://dev.mysql.com/doc/refman/8.0/en/show-grants.html&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在のユーザの権限を表示
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#000">GRANTS&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
 &lt;p>mysql, mysqldumpといったCLIやクライアントライブラリを介した利用、設定方法等について。&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>関連項目:&lt;/p>

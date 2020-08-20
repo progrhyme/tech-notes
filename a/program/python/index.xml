@@ -169,7 +169,20 @@ hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/classes.html">https://docs.python.org/ja/3/tutorial/classes.html&lt;/a>&lt;/p>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.jp/3/tutorial/errors.html">https://docs.python.jp/3/tutorial/errors.html&lt;/a>&lt;/p>
-&lt;h2 id="書式付き文字列">書式付き文字列&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">sys&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">try&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;myfile.txt&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">readline&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">strip&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">OSError&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;OS error: {0}&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">ValueError&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Could not convert data to an integer.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">except&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Unexpected error:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exc_info&lt;/span>&lt;span style="color:#000;font-weight:bold">()[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">raise&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="書式付き文字列">書式付き文字列&lt;/h2>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#4e9a06">&amp;#39;Hello, {}!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -194,6 +207,81 @@ hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python">How to return dictionary keys as a list in Python? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 道場</title><link>https://progrhy.me/tech-notes/a/program/python/dojo/</link><pubDate>Thu, 20 Aug 2020 16:32:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/dojo/</guid><description>
+&lt;p>Road to Pythonian.&lt;br>
+Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/p>
+&lt;h2 id="データ型">データ型&lt;/h2>
+&lt;h3 id="型変換">型変換&lt;/h3>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/masakielastic/items/21ba9f68ef6c4fd7692d">Python 3 で16進数とバイト列の相互変換 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="整数--16進数文字列">整数 &amp;lt;=&amp;gt; 16進数文字列&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># 整数 =&amp;gt; 16進数文字列&lt;/span>
+&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;{:02x}&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#4e9a06">%02x&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
+&lt;span style="color:#204a87">hex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;0xabcd&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 16進数文字列 =&amp;gt; 整数&lt;/span>
+&lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;0xabcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 43981&lt;/span>
+&lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 43981&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="16進数文字列--バイト列">16進数文字列 &amp;lt;=&amp;gt; バイト列&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">codecs&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 16進数文字列 =&amp;gt; バイト列&lt;/span>
+&lt;span style="color:#204a87">bytes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">fromhex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; b&amp;#39;\xab\xcd&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">unhexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 同上&lt;/span>
+&lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 同上&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バイト列 =&amp;gt; 16進数文字列&lt;/span>
+&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#4e9a06">\xab\xcd&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">hex&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
+&lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">hexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#4e9a06">\xab\xcd&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 同上&lt;/span>
+&lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">encode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#4e9a06">\xab\xcd&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; b&amp;#39;abcd&amp;#39;&lt;/span>
+&lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="文字列処理">文字列処理&lt;/h2>
+&lt;h3 id="文字列検索-in-not-in">文字列検索 &lt;code>in&lt;/code>, &lt;code>not in&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">word&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abcde&amp;#39;&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; True&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; False&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; False&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; True&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Kenta-Han/items/e64035e9c3e4ef08e394">Python3の文字列操作 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="正規表現">正規表現&lt;/h3>
+&lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/python/library/#re">library#re&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">re&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># マッチ&lt;/span>
+&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;hellow python, 123, end.&amp;#39;&lt;/span>
+&lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hel&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## compileしない&lt;/span>
+&lt;span style="color:#000">result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## compileしてマッチ&lt;/span>
+&lt;span style="color:#000">repatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">compile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">repatter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 置換&lt;/span>
+&lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">sub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;^H\w+&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Good morning&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hello, world.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 大文字小文字を無視&lt;/span>
+&lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">sub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;test&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;xxxx&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Testing&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">flags&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">IGNORECASE&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/luohao0404/items/7135b2b96f9b0b196bf3">分かりやすいpythonの正規表現の例 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://note.nkmk.me/python-str-replace-translate-re-sub/">Pythonで文字列を置換（replace, translate, re.sub, re.subn） | note.nkmk.me&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.it-swarm.dev/ja/python/recompile%E3%81%9B%E3%81%9A%E3%81%AB%E5%A4%A7%E6%96%87%E5%AD%97%E3%81%A8%E5%B0%8F%E6%96%87%E5%AD%97%E3%82%92%E5%8C%BA%E5%88%A5%E3%81%97%E3%81%AA%E3%81%84%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%EF%BC%9F/958186732/">python — re.compileせずに大文字と小文字を区別しない正規表現？&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ロギング">ロギング&lt;/h2>
+&lt;h3 id="変数のダンプ">変数のダンプ&lt;/h3>
+&lt;p>クラスのインスタンスなど、 &lt;code>__dict__&lt;/code> attributeを持つオブジェクトであれば &lt;code>vars&lt;/code> 関数で1階層のダンプができる:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyClass&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">val1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">val2&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">val1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">val1&lt;/span>
+&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">val2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">val2&lt;/span>
+&lt;span style="color:#000">mc&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">MyClass&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">vars&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">mc&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; {&amp;#39;val1&amp;#39;: 10, &amp;#39;val2&amp;#39;: 20}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://minus9d.hatenablog.com/entry/2015/08/02/204226">Pythonでインスタンスの状態をダンプするにはvars()を使う - minus9d&amp;rsquo;s diary&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
 &lt;h2 id="pip">pip&lt;/h2>
 &lt;p>標準のパッケージマネージャー。&lt;/p>
@@ -290,6 +378,26 @@ RubyのRubyGems相当。&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pprint">pprint&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/pprint.html">https://docs.python.org/ja/3/library/pprint.html&lt;/a>&lt;/p>
 &lt;p>Rubyの &lt;code>pp&lt;/code> 的なもの。&lt;/p>
+&lt;h2 id="re">re&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/re.html">https://docs.python.org/ja/3/library/re.html&lt;/a>&lt;/p>
+&lt;p>正規表現操作モジュール。&lt;/p>
+&lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/program/python/dojo/#%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE">道場#正規表現&lt;/a>&lt;/p>
+&lt;h3 id="フラグ">フラグ&lt;/h3>
+&lt;p>RegexFlagのインスタンス（Python v3.6〜）&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>flag&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>re.I, re.IGNORECASE&lt;/td>
+&lt;td>大文字・小文字を区別しない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="urllibrequest">urllib.request&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/urllib.request.html">https://docs.python.org/ja/3/library/urllib.request.html&lt;/a>&lt;/p>
 &lt;p>HTTPリクエストを送る。&lt;/p>

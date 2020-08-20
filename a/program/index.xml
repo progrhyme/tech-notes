@@ -317,18 +317,6 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;li>&lt;a href="https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad">[VS Code] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)&lt;/a>&lt;/li>
 &lt;li>Windows: &lt;a href="https://hachian.com/2019/09/19/vscode_venv/">【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="文字列処理">文字列処理&lt;/h3>
-&lt;h4 id="文字列検索-in-not-in">文字列検索 &lt;code>in&lt;/code>, &lt;code>not in&lt;/code>&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">word&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abcde&amp;#39;&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; True&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; False&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; False&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; True&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/Kenta-Han/items/e64035e9c3e4ef08e394">Python3の文字列操作 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
 &lt;h2 id="python3">Python3&lt;/h2>
 &lt;h3 id="python2との違い">Python2との違い&lt;/h3>
 &lt;h4 id="書式付き文字列">書式付き文字列&lt;/h4>

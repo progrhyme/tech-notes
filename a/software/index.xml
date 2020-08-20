@@ -37,6 +37,15 @@
 &lt;ul>
 &lt;li>&lt;a href="https://docs.docker.com/engine/tutorials/">Engine tutorials | Docker Documentation&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="dockerコンテナからホストosのlocalhostにアクセスする">dockerコンテナからホストOSのlocalhostにアクセスする&lt;/h3>
+&lt;p>Docker for MacやDocker for Windowsなら、 &lt;code>host.docker.internal&lt;/code> でアクセスできる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker run -it --rm mysql mysql -hhost.docker.internal -uroot -p
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ijufumi/items/badde64d530e6bade382">Dockerのコンテナの中からホストOS上のプロセスと通信する方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="registry">Registry&lt;/h2>
 &lt;h3 id="api">API&lt;/h3>
 &lt;p>&lt;a href="https://docs.docker.com/registry/spec/api/">https://docs.docker.com/registry/spec/api/&lt;/a>&lt;/p>
@@ -618,6 +627,11 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;h3 id="information_schema">INFORMATION_SCHEMA&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/information-schema.html">https://dev.mysql.com/doc/refman/5.6/ja/information-schema.html&lt;/a>&lt;/p>
+&lt;p>メタデータDB&lt;/p>
+&lt;h4 id="columns">COLUMNS&lt;/h4>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html">https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html&lt;/a>&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
 &lt;h3 id="オンラインddl">オンラインDDL&lt;/h3>
 &lt;ul>
@@ -701,10 +715,6 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>mysqldumpに &lt;code>PROCESS&lt;/code> 権限が必要に（または &lt;code>--no-tablespaces&lt;/code> オプション指定）&lt;/li>
 &lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;/li>
-&lt;/ul>
 &lt;h4 id="8016">8.0.16&lt;/h4>
 &lt;p>&lt;a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-16.html">https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-16.html&lt;/a>&lt;/p>
 &lt;ul>
@@ -713,47 +723,7 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/hmatsu47/items/bae53fd0f6d09511732c">MySQL 8.0.16 でテーブルスペース・REDO ログ／UNDO ログ・システムテーブル暗号化 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cookbooks">Cookbooks&lt;/h2>
-&lt;p>TODO: 標準SQLについて別ページにまとめ、ここには差分だけ記す。&lt;/p>
-&lt;h3 id="create-table">CREATE TABLE&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">TABLE&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
-&lt;span style="color:#000">id&lt;/span> &lt;span style="color:#000">MEDIUMINT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span> &lt;span style="color:#000">AUTO_INCREMENT&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#204a87">CHAR&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NOT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">PRIMARY&lt;/span> &lt;span style="color:#204a87;font-weight:bold">KEY&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">id&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="create-database">CREATE DATABASE&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CREATE&lt;/span> &lt;span style="color:#204a87;font-weight:bold">DATABASE&lt;/span> &lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#204a87">CHARACTER&lt;/span> &lt;span style="color:#204a87;font-weight:bold">SET&lt;/span> &lt;span style="color:#000">utf8mb4&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.dbonline.jp/mysql/database/index1.html">データベースを作成する(CREATE DATABASE文) | MySQLの使い方&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="insert">INSERT&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">INSERT&lt;/span> &lt;span style="color:#204a87;font-weight:bold">INTO&lt;/span> &lt;span style="color:#000">animals&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VALUES&lt;/span>
-&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;dog&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;cat&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;penguin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>
-&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;lax&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;whale&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ostrich&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
-&lt;h3 id="create-table-1">CREATE TABLE&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/create-table.html">https://dev.mysql.com/doc/refman/5.6/ja/create-table.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>CREATE TABLE B LIKE A;&lt;/code> でテーブルAと同じカラム構成のテーブルBを作れる。&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://d.hatena.ne.jp/tnnsst35/20110604/1307181215" title="MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記">MySQLの CREATE TABLE &amp;hellip; LIKE &amp;hellip; - 不思議なサービスをつくる新人プログラマーの日記&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="show-grants">SHOW GRANTS&lt;/h3>
-&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/show-grants.html">https://dev.mysql.com/doc/refman/8.0/en/show-grants.html&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在のユーザの権限を表示
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#000">GRANTS&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
+&lt;/ul></description></item><item><title>A: systemd</title><link>https://progrhy.me/tech-notes/a/software/systemd/</link><pubDate>Mon, 18 May 2020 16:14:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/systemd/</guid><description>
 &lt;p>&lt;a href="https://www.freedesktop.org/wiki/Software/systemd/">https://www.freedesktop.org/wiki/Software/systemd/&lt;/a>&lt;/p>
 &lt;p>昨今のLinuxのinit（最初に起動するプログラム）としてほぼデファクトになっているソフトウェア。&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
