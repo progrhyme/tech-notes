@@ -1,0 +1,92 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/python/spec/</link><description>Recent content in 言語仕様 on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 20 Jul 2020 23:15:40 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/program/python/spec/index.xml" rel="self" type="application/rss+xml"/><item><title>A: データ型</title><link>https://progrhy.me/tech-notes/a/program/python/spec/types/</link><pubDate>Fri, 21 Aug 2020 17:34:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/spec/types/</guid><description>
+&lt;h2 id="組み込み型">組み込み型&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html">https://docs.python.org/ja/3/library/stdtypes.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>int
+&lt;ul>
+&lt;li>bool
+&lt;ul>
+&lt;li>&lt;code>True == 1&lt;/code>&lt;/li>
+&lt;li>&lt;code>False == 0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="真偽値">真偽値&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing">https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>オブジェクトはデフォルトでは真&lt;/li>
+&lt;li>次の場合は偽:
+&lt;ul>
+&lt;li>&lt;code>__bool__()&lt;/code> メソッドが &lt;code>False&lt;/code> を返す&lt;/li>
+&lt;li>&lt;code>__len__()&lt;/code> メソッドが &lt;code>0&lt;/code> を返す&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>偽と判定されるもの:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>None&lt;/code>, &lt;code>False&lt;/code>&lt;/li>
+&lt;li>数値型のゼロ: &lt;code>0&lt;/code>, &lt;code>0.0&lt;/code>, &lt;code>0j&lt;/code>, &lt;code>Decimal(0)&lt;/code>, &lt;code>Fraction(0, 1)&lt;/code>&lt;/li>
+&lt;li>空のシーケンス: &lt;code>''&lt;/code>, &lt;code>()&lt;/code>, &lt;code>[]&lt;/code>, &lt;code>{}&lt;/code>, &lt;code>set()&lt;/code>, &lt;code>range(0)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>組み込み関数 &lt;code>bool()&lt;/code> を使うと他の型のオブジェクトを &lt;code>True&lt;/code> or &lt;code>False&lt;/code> に変換できる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="シーケンス型---list-tuple-range">シーケンス型 - list, tuple, range&lt;/h2>
+&lt;p>ミュータブルなものとイミュータブルなものがある。tupleオブジェクトはイミュータブルらしい。&lt;/p>
+&lt;p>共通の演算:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>len(s)&lt;/code> &amp;hellip; 長さ&lt;/li>
+&lt;/ul>
+&lt;h3 id="ミュータブル">ミュータブル&lt;/h3>
+&lt;p>listオブジェクトとか。&lt;/p>
+&lt;p>演算:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>s.append(x)&lt;/code> &amp;hellip; 要素追加&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://d.hatena.ne.jp/yumimue/20071205/1196839438">リスト - 作成、取り出し、置換、追加、検索、削除、要素数 - ひきメモ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.yukun.info/blog/2008/06/python-list2.html">Python: リストの要素の追加と削除、取出し – append()、extend()、pop()、remove()メソッド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="マッピング型---dict">マッピング型 - dict&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict">https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict&lt;/a>&lt;/p>
+&lt;p>ミュータブルなオブジェクト。&lt;br>
+hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic"># 生成&lt;/span>
+&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bar&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;BAR&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;baz&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#3465a4">True&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 演算&lt;/span>
+&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">value&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">del&lt;/span> &lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
+&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
+&lt;span style="color:#204a87">iter&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">clear&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 全てのエントリを削除&lt;/span>
+&lt;span style="color:#000">copy&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># shallow copy&lt;/span>
+&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ヌル---none">ヌル - None&lt;/h2>
+&lt;p>&lt;code>None&lt;/code> オブジェクト&lt;/p>
+&lt;h2 id="バイトオブジェクト---bytes-bytearray">バイトオブジェクト - bytes, bytearray&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html#bytes-objects">https://docs.python.org/ja/3/library/stdtypes.html#bytes-objects&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>bytes &amp;hellip; 不変型。リテラル: &lt;code>b'...'&lt;/code>&lt;/li>
+&lt;li>bytearray &amp;hellip; 可変型。リテラル構文はないので、コンストラクタで生成する&lt;/li>
+&lt;/ul>
+&lt;h3 id="replace">replace&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html#bytes.replace">https://docs.python.org/ja/3/library/stdtypes.html#bytes.replace&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87">bytes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">replace&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">old&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">count&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;span style="color:#204a87">bytearray&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">replace&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">old&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">count&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>oldをnewにすべて置換する。countがある場合、先頭からcount個数分だけ置換する。&lt;/p></description></item></channel></rss>

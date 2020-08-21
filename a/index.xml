@@ -1531,215 +1531,6 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;ul>
 &lt;li>&lt;a href="https://k3s.io/">K3s: Lightweight Kubernetes&lt;/a> &amp;hellip; Rancherが出してる軽量版K8s&lt;/li>
 &lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/python/spec/</link><pubDate>Mon, 20 Jul 2020 23:15:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/spec/</guid><description>
-&lt;h2 id="はじめに">はじめに&lt;/h2>
-&lt;p>基本的にPython3の仕様のみを書く。&lt;br>
-ただし、ぐぐった結果とかを貼っているものはPython2のことがあるかもしれない。&lt;/p>
-&lt;p>ドキュメント:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.python.org/ja/3/">https://docs.python.org/ja/3/&lt;/a>
-&lt;ul>
-&lt;li>言語仕様: &lt;a href="https://docs.python.org/ja/3/reference/">https://docs.python.org/ja/3/reference/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="モジュール検索パス">モジュール検索パス&lt;/h2>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path">https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html#sys.path">sys.path&lt;/a> のリストから探す。sys.path は以下で初期化される:&lt;/p>
-&lt;ul>
-&lt;li>カレントディレクトリ（あるいは入力されたスクリプトのあるディレクトリ）&lt;/li>
-&lt;li>環境変数 &lt;a href="https://docs.python.org/ja/3/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH&lt;/a>&lt;/li>
-&lt;li>インストールごとのデフォルト&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://note.nkmk.me/python-import-module-search-path/">Pythonでimportの対象ディレクトリのパスを確認・追加（sys.pathなど） | note.nkmk.me&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="コメント">コメント&lt;/h2>
-&lt;p>複数行のコメントは &lt;code>&amp;quot;&amp;quot;&amp;quot;&lt;/code> または &lt;code>'''&lt;/code> で書く。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> コメント1
-&lt;/span>&lt;span style="color:#4e9a06"> コメント2
-&lt;/span>&lt;span style="color:#4e9a06"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/7of9/items/5fb6d57ccb0ce9a47dd6">python &amp;gt; 複数行のコメント &amp;gt; indentに気をつける - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="データ型">データ型&lt;/h2>
-&lt;p>組み込み型: &lt;a href="https://docs.python.org/ja/3/library/stdtypes.html">https://docs.python.org/ja/3/library/stdtypes.html&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>int
-&lt;ul>
-&lt;li>bool
-&lt;ul>
-&lt;li>&lt;code>True == 1&lt;/code>&lt;/li>
-&lt;li>&lt;code>False == 0&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="真偽値">真偽値&lt;/h3>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing">https://docs.python.org/ja/3/library/stdtypes.html?#truth-value-testing&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>オブジェクトはデフォルトでは真&lt;/li>
-&lt;li>次の場合は偽:
-&lt;ul>
-&lt;li>&lt;code>__bool__()&lt;/code> メソッドが &lt;code>False&lt;/code> を返す&lt;/li>
-&lt;li>&lt;code>__len__()&lt;/code> メソッドが &lt;code>0&lt;/code> を返す&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>偽と判定されるもの:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>None&lt;/code>, &lt;code>False&lt;/code>&lt;/li>
-&lt;li>数値型のゼロ: &lt;code>0&lt;/code>, &lt;code>0.0&lt;/code>, &lt;code>0j&lt;/code>, &lt;code>Decimal(0)&lt;/code>, &lt;code>Fraction(0, 1)&lt;/code>&lt;/li>
-&lt;li>空のシーケンス: &lt;code>''&lt;/code>, &lt;code>()&lt;/code>, &lt;code>[]&lt;/code>, &lt;code>{}&lt;/code>, &lt;code>set()&lt;/code>, &lt;code>range(0)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>組み込み関数 &lt;code>bool()&lt;/code> を使うと他の型のオブジェクトを &lt;code>True&lt;/code> or &lt;code>False&lt;/code> に変換できる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://note.nkmk.me/python-bool-true-false-usage/">Pythonの真偽値bool型（True, False）と他の型との変換・判定 | note.nkmk.me&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="シーケンス型---list-tuple-range">シーケンス型 - list, tuple, range&lt;/h3>
-&lt;p>ミュータブルなものとイミュータブルなものがある。tupleオブジェクトはイミュータブルらしい。&lt;/p>
-&lt;p>共通の演算:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>len(s)&lt;/code> &amp;hellip; 長さ&lt;/li>
-&lt;/ul>
-&lt;h4 id="ミュータブル">ミュータブル&lt;/h4>
-&lt;p>listオブジェクトとか。&lt;/p>
-&lt;p>演算:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>s.append(x)&lt;/code> &amp;hellip; 要素追加&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://d.hatena.ne.jp/yumimue/20071205/1196839438">リスト - 作成、取り出し、置換、追加、検索、削除、要素数 - ひきメモ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.yukun.info/blog/2008/06/python-list2.html">Python: リストの要素の追加と削除、取出し – append()、extend()、pop()、remove()メソッド&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="マッピング型---dict">マッピング型 - dict&lt;/h3>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict">https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict&lt;/a>&lt;/p>
-&lt;p>ミュータブルなオブジェクト。&lt;br>
-hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic"># 生成&lt;/span>
-&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bar&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;BAR&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;baz&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#3465a4">True&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 演算&lt;/span>
-&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">value&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">del&lt;/span> &lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
-&lt;span style="color:#000">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">d&lt;/span>
-&lt;span style="color:#204a87">iter&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">clear&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 全てのエントリを削除&lt;/span>
-&lt;span style="color:#000">copy&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># shallow copy&lt;/span>
-&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ヌル---none">ヌル - None&lt;/h3>
-&lt;p>&lt;code>None&lt;/code> オブジェクト&lt;/p>
-&lt;h2 id="演算子">演算子&lt;/h2>
-&lt;h3 id="二項演算子">二項演算子&lt;/h3>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/expressions.html">6. 式 (expression) — Python 3 ドキュメント&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>@&lt;/code> &amp;hellip; 行列の乗算&lt;/li>
-&lt;/ul>
-&lt;h3 id="累算代入演算子">累算代入演算子&lt;/h3>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements">https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 剰余&lt;/span>
-&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">//=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 切り捨て除算&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>Rubyの &lt;code>||=&lt;/code> 相当はない&lt;/li>
-&lt;/ul>
-&lt;h3 id="三項演算子">三項演算子&lt;/h3>
-&lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Trueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#a40000">条件が&lt;/span>&lt;span style="color:#000">Falseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5">三項演算子(Python) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="制御構文">制御構文&lt;/h2>
-&lt;h3 id="条件分岐">条件分岐&lt;/h3>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements">https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">xxx&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">elif&lt;/span> &lt;span style="color:#a40000">条件&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">yyy&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">zzz&lt;/span>
-&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.javadrive.jp/python/if/index1.html">if文を使った条件分岐 | Python入門&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ループ">ループ&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">range&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87">list&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">elm&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">elm&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/Usek/items/3a2f2529e2e7a0dd2542">Python基礎講座(9 反復) - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="クラス">クラス&lt;/h2>
-&lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/classes.html">https://docs.python.org/ja/3/tutorial/classes.html&lt;/a>&lt;/p>
-&lt;h2 id="例外処理">例外処理&lt;/h2>
-&lt;p>&lt;a href="https://docs.python.jp/3/tutorial/errors.html">https://docs.python.jp/3/tutorial/errors.html&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">sys&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">try&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;myfile.txt&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">readline&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
-&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">strip&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">OSError&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;OS error: {0}&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">ValueError&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Could not convert data to an integer.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">except&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Unexpected error:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exc_info&lt;/span>&lt;span style="color:#000;font-weight:bold">()[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">raise&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="書式付き文字列">書式付き文字列&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#4e9a06">&amp;#39;Hello, {}!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/u_kan/items/2a7b4201beb0d467e5b8">Python3での文字列フォーマットまとめ　旧型で生きるか、新型で生きるか - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ジェネレータ">ジェネレータ&lt;/h2>
-&lt;p>反復可能なオブジェクト&lt;/p>
-&lt;ul>
-&lt;li>ジェネレータ関数 &amp;hellip; &lt;code>yield&lt;/code> を使う&lt;/li>
-&lt;li>ジェネレータ式&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.python-izm.com/advanced/generator/">ジェネレータ (yield) | Python-izm&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="組み込み関数">組み込み関数&lt;/h2>
-&lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html">https://docs.python.jp/3/library/functions.html&lt;/a>&lt;/p>
-&lt;h3 id="list">list()&lt;/h3>
-&lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html#func-list">https://docs.python.jp/3/library/functions.html#func-list&lt;/a>&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">somedict&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keys&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; dictのキーをリスト化&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python">How to return dictionary keys as a list in Python? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 組み込みライブラリ</title><link>https://progrhy.me/tech-notes/a/program/ruby/builtin/</link><pubDate>Thu, 25 Jun 2020 15:30:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/builtin/</guid><description>
 &lt;h2 id="class-array">class Array&lt;/h2>
 &lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Array.html">https://docs.ruby-lang.org/ja/latest/class/Array.html&lt;/a>&lt;/p>
@@ -2233,7 +2024,27 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;span style="color:#8f5902;font-style:italic"># 16進数文字列 =&amp;gt; 整数&lt;/span>
 &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;0xabcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 43981&lt;/span>
 &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 43981&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="16進数文字列--バイト列">16進数文字列 &amp;lt;=&amp;gt; バイト列&lt;/h4>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="文字列--16進数文字列">文字列 &amp;lt;=&amp;gt; 16進数文字列&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># 文字列 =&amp;gt; 16進数文字列&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">hexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;48656c6c6f&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">b2a_hex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;48656c6c6f&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">hexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">u&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;こんにちは&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">encode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">b2a_hex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">u&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;こんにちは&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">encode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">codecs&lt;/span>
+&lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">encode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex_codec&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;48656c6c6f&amp;#39;&lt;/span>
+&lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">encode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">u&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;こんにちは&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">encode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex_codec&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 16進数文字列 =&amp;gt; 文字列&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">unhexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;48656c6c6f&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;Hello&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">a2b_hex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;48656c6c6f&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;Hello&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">unhexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#39;こんにちは&amp;#39;&lt;/span>
+&lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">a2b_hex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#39;こんにちは&amp;#39;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">codecs&lt;/span>
+&lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;48656c6c6f&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex_codec&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;Hello&amp;#39;&lt;/span>
+&lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex_codec&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#39;こんにちは&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://qiita.com/atsaki/items/6120cad2e3c448d774bf">16進文字列と文字列の変換 - Qiita&lt;/a>&lt;/p>
+&lt;h4 id="16進数文字列--バイト列">16進数文字列 &amp;lt;=&amp;gt; バイト列&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">codecs&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 16進数文字列 =&amp;gt; バイト列&lt;/span>
@@ -2277,6 +2088,26 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;li>&lt;a href="https://qiita.com/luohao0404/items/7135b2b96f9b0b196bf3">分かりやすいpythonの正規表現の例 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://note.nkmk.me/python-str-replace-translate-re-sub/">Pythonで文字列を置換（replace, translate, re.sub, re.subn） | note.nkmk.me&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.it-swarm.dev/ja/python/recompile%E3%81%9B%E3%81%9A%E3%81%AB%E5%A4%A7%E6%96%87%E5%AD%97%E3%81%A8%E5%B0%8F%E6%96%87%E5%AD%97%E3%82%92%E5%8C%BA%E5%88%A5%E3%81%97%E3%81%AA%E3%81%84%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%EF%BC%9F/958186732/">python — re.compileせずに大文字と小文字を区別しない正規表現？&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="例外処理">例外処理&lt;/h2>
+&lt;p>例外オブジェクトを文字列として扱うには、 &lt;code>str(e)&lt;/code> のようにする。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/37684153/convert-exception-error-to-string">python - Convert exception error to string - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="テスト">テスト&lt;/h2>
+&lt;h3 id="構文チェック">構文チェック&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">python -m py_compile foo.py
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sussan-po.com/2017/10/23/python-syntax-check/">Pythonのシンタックスチェックに使えるコマンド - すっさんぽ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="オブジェクト指向">オブジェクト指向&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># クラス名の取得&lt;/span>
+&lt;span style="color:#000">obj&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__class__&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__name__&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pcl.solima.net/pyblog/archives/949">オブジェクトのクラス名を文字列で取得する – Pythonプログラミング物語&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="ロギング">ロギング&lt;/h2>
 &lt;h3 id="変数のダンプ">変数のダンプ&lt;/h3>
@@ -5214,4 +5045,75 @@ fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>A: std::io</title><link>https://progrhy.me/tech-notes/a/program/rust/std/io/</link><pubDate>Sun, 31 May 2020 01:23:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/std/io/</guid><description>
+&lt;p>基礎的なI/O機能を提供する。&lt;/p>
+&lt;h2 id="stderr-function">stderr (Function)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stderr.html">Function std::io::stderr&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn stderr() -&amp;gt; Stderr&lt;/code>&lt;/p>
+&lt;p>当該プロセスの新しい標準エラー出力ハンドルを生成する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">write_all&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&amp;#34;hello world&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Using explicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">lock&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">write_all&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&amp;#34;hello world&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stdin-function">stdin (Function)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdin.html">Function std::io::stdin&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn stdin() -&amp;gt; Stdin&lt;/code>&lt;/p>
+&lt;p>当該プロセスの新しい標準入力ハンドルを生成する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Read&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_to_string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stdout-function">stdout (Function)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdout.html">Function std::io::stdout&lt;/a>&lt;/p>
+&lt;p>当該プロセスの新しい標準出力ハンドルを生成する。&lt;/p>
+&lt;h2 id="stderr-struct">Stderr (Struct)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stderr.html">Struct std::io::Stderr&lt;/a>&lt;/p>
+&lt;p>プロセスの標準エラー出力ストリームのハンドル。&lt;/p>
+&lt;p>詳しくは&lt;a href="">io::stderr&lt;/a>を見よ。&lt;/p>
+&lt;h2 id="stdin-struct">Stdin (Struct)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdin.html">Struct std::io::Stdin&lt;/a>&lt;/p>
+&lt;p>プロセスの標準入力ストリームのハンドル。&lt;br>
+個々のハンドルは、当該プロセスに対する入力データのグローバルバッファの参照を共有する。
+ハンドルは &lt;code>BufRead&lt;/code> メソッドにフルアクセスを得るためにロックされることがある。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">match&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{} bytes read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;error: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="read_line-method">read_line (Method)&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method Stdin::read_line&lt;/a>&lt;/p>
+&lt;p>&lt;code>pub fn read_line(&amp;amp;self, buf: &amp;amp;mut String) -&amp;gt; Result&amp;lt;usize&amp;gt;&lt;/code>&lt;/p>
+&lt;p>当該ハンドルをロックして入力行を読み込む。&lt;/p>
+&lt;p>詳しくは &lt;a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">BufRead::read_line&lt;/a> を見よ。&lt;/p>
+&lt;h2 id="stdout-struct">Stdout (Struct)&lt;/h2>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdout.html">Struct std::io::Stdout&lt;/a>&lt;/p>
+&lt;p>プロセスの標準出力ストリームのハンドル。&lt;br>
+&lt;a href="#stdout-function">io::stdout&lt;/a>関数によって生成される。&lt;/p>
+&lt;h2 id="write-trait">Write (Trait)&lt;/h2>
+&lt;h3 id="flush-required-method">flush (Required Method)&lt;/h3>
+&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush">https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush&lt;/a>&lt;/p>
+&lt;p>&lt;code>fn flush(&amp;amp;mut self) -&amp;gt; Result&amp;lt;()&amp;gt;&lt;/code>&lt;/p>
+&lt;p>出力ストリームをフラッシュする。&lt;/p></description></item></channel></rss>
