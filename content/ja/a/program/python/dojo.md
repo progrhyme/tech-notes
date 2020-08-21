@@ -29,6 +29,34 @@ int('0xabcd', 16) #=> 43981
 int('abcd', 16)   #=> 43981
 ```
 
+#### 文字列 <=> 16進数文字列
+
+```Python
+# 文字列 => 16進数文字列
+import binascii
+binascii.hexlify(b'Hello') # => b'48656c6c6f'
+binascii.b2a_hex(b'Hello') # => b'48656c6c6f'
+binascii.hexlify(u'こんにちは'.encode('utf-8')) # => b'e38193e38293e381abe381a1e381af'
+binascii.b2a_hex(u'こんにちは'.encode('utf-8')) # => b'e38193e38293e381abe381a1e381af'
+
+import codecs
+codecs.encode(b'Hello', 'hex_codec') # => b'48656c6c6f'
+codecs.encode(u'こんにちは'.encode('utf-8'), 'hex_codec') # => b'e38193e38293e381abe381a1e381af'
+
+# 16進数文字列 => 文字列
+import binascii
+binascii.unhexlify(b'48656c6c6f') # => b'Hello'
+binascii.a2b_hex(b'48656c6c6f')   # => b'Hello'
+binascii.unhexlify(b'e38193e38293e381abe381a1e381af').decode('utf-8') # => 'こんにちは'
+binascii.a2b_hex(b'e38193e38293e381abe381a1e381af').decode('utf-8') # => 'こんにちは'
+
+import codecs
+codecs.decode(b'48656c6c6f', 'hex_codec') # => b'Hello'
+codecs.decode(b'e38193e38293e381abe381a1e381af', 'hex_codec').decode('utf-8') # => 'こんにちは'
+```
+
+参考: [16進文字列と文字列の変換 - Qiita](https://qiita.com/atsaki/items/6120cad2e3c448d774bf)
+
 #### 16進数文字列 <=> バイト列
 
 ```Python
@@ -93,6 +121,36 @@ re.sub('test', 'xxxx', 'Testing', flags=re.IGNORECASE)
 - [分かりやすいpythonの正規表現の例 - Qiita](https://qiita.com/luohao0404/items/7135b2b96f9b0b196bf3)
 - [Pythonで文字列を置換（replace, translate, re.sub, re.subn） | note.nkmk.me](https://note.nkmk.me/python-str-replace-translate-re-sub/)
 - [python — re.compileせずに大文字と小文字を区別しない正規表現？](https://www.it-swarm.dev/ja/python/recompile%E3%81%9B%E3%81%9A%E3%81%AB%E5%A4%A7%E6%96%87%E5%AD%97%E3%81%A8%E5%B0%8F%E6%96%87%E5%AD%97%E3%82%92%E5%8C%BA%E5%88%A5%E3%81%97%E3%81%AA%E3%81%84%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%EF%BC%9F/958186732/)
+
+## 例外処理
+
+例外オブジェクトを文字列として扱うには、 `str(e)` のようにする。
+
+参考:
+
+- [python - Convert exception error to string - Stack Overflow](https://stackoverflow.com/questions/37684153/convert-exception-error-to-string)
+
+## テスト
+### 構文チェック
+
+```sh
+python -m py_compile foo.py
+```
+
+参考:
+
+- [Pythonのシンタックスチェックに使えるコマンド - すっさんぽ](https://sussan-po.com/2017/10/23/python-syntax-check/)
+
+## オブジェクト指向
+
+```Python
+# クラス名の取得
+obj.__class__.__name__
+```
+
+参考:
+
+- [オブジェクトのクラス名を文字列で取得する – Pythonプログラミング物語](https://pcl.solima.net/pyblog/archives/949)
 
 ## ロギング
 ### 変数のダンプ

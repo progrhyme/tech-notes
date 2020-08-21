@@ -8,6 +8,12 @@ weight: 910
 コンピュータ上での文字の取り扱いについて。  
 主に文字コードの話になるだろうと想定。
 
+## ASCII
+
+参考:
+
+- [ASCII Table - ASCII character codes](https://www.rapidtables.com/code/text/ascii-table.html)
+
 ## Unicode
 
 世界中の様々な言語の文字を収録して通し番号を割り当て、同じコード体系で使えるようにしたもの。
