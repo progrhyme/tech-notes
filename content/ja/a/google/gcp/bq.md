@@ -63,6 +63,17 @@ MySQLサーバで `NO_ZERO_DATE` modeが有効でないと入ってくるデー�
 
 - [ColaboratoryでBigQueryにアクセスする3つの方法 - Qiita](https://qiita.com/Hyperion13fleet/items/a77ca93a61cb39d50138)
 
+### INFORMATION_SCHEMAによるメタデータの取得
+
+https://cloud.google.com/bigquery/docs/information-schema-tables?hl=ja
+
+Examples:
+
+```sql
+-- テーブル情報一覧
+SELECT * FROM [[project_id.]dataset_id.]INFORMATION_SCHEMA.TABLES
+```
+
 ## 運用
 ### 有効期限の設定
 
@@ -89,4 +100,16 @@ CURRENT_TIMESTAMP()
 TIMESTAMP_SUB(<timestamp_expression>, INTERVAL <int64_expression> <date_part>)
 -- 10分前
 TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 10 MINUTE)
+```
+
+### DROP VIEW
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language?hl=ja#drop_view_statement
+
+ビューの削除。
+
+Syntax:
+
+```sql
+DROP VIEW [IF EXISTS] [[project_name.]dataset_name.]view_name
 ```

@@ -70,7 +70,7 @@ hashableな値を任意のオブジェクトに対応付ける。
 
 SYNOPSIS:
 
-```python
+```Python
 # 生成
 d = {'foo': 1, 'bar': 'BAR', 'baz': {'x': True}}
 
@@ -86,6 +86,34 @@ clear() # 全てのエントリを削除
 copy() # shallow copy
 get(key[, default])
 ```
+
+### ループ処理
+
+Examples:
+
+```Python
+d = {'key1': 1, 'key2': 2, 'key3': 3}
+
+for key in d:
+  print(key)
+
+for key in d.keys():
+  print(key)
+
+for val in d.values():
+  print(val)
+
+for key, val in d.items():
+  print(key, val)
+
+# タプル
+for tup in d.items():
+  print(tup) #=> ('key1', 1)
+```
+
+参考:
+
+- [Pythonの辞書（dict）のforループ処理（keys, values, items） | note.nkmk.me](https://note.nkmk.me/python-dict-keys-values-items/)
 
 ## ヌル - None
 

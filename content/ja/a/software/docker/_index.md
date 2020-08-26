@@ -40,6 +40,21 @@ docker run -it --rm mysql mysql -hhost.docker.internal -uroot -p
 
 - [Dockerのコンテナの中からホストOS上のプロセスと通信する方法 - Qiita](https://qiita.com/ijufumi/items/badde64d530e6bade382)
 
+## Knowledge
+### コンテナの終了コード
+
+ Exit Code | 意味
+-----------|-----
+ 0 | 正常終了
+ 1 | アプリケーションエラー
+ 137 | SIGKILL (OOMなど)
+ 139 | SIGSEGV
+ 143 | SIGTERM
+
+参考:
+
+- [Understanding Docker Container Exit Codes | by Sandeep Madamanchi | Better Programming | Medium](https://medium.com/better-programming/understanding-docker-container-exit-codes-5ee79a1d58f6)
+
 ## Registry
 ### API
 
