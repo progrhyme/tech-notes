@@ -2274,7 +2274,12 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/Hyperion13fleet/items/a77ca93a61cb39d50138">ColaboratoryでBigQueryにアクセスする3つの方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="運用">運用&lt;/h2>
+&lt;h3 id="information_schemaによるメタデータの取得">INFORMATION_SCHEMAによるメタデータの取得&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/information-schema-tables?hl=ja">https://cloud.google.com/bigquery/docs/information-schema-tables?hl=ja&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- テーブル情報一覧
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SELECT&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span> &lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_id&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_id&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">INFORMATION_SCHEMA&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">TABLES&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="運用">運用&lt;/h2>
 &lt;h3 id="有効期限の設定">有効期限の設定&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration">https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration&lt;/a>&lt;/p>
 &lt;ul>
@@ -2292,6 +2297,11 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">TIMESTAMP_SUB&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timestamp_expression&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">INTERVAL&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">int64_expression&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">date_part&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">-- 10分前
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">TIMESTAMP_SUB&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CURRENT_TIMESTAMP&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span> &lt;span style="color:#204a87">INTERVAL&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">MINUTE&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="drop-view">DROP VIEW&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language?hl=ja#drop_view_statement">https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language?hl=ja#drop_view_statement&lt;/a>&lt;/p>
+&lt;p>ビューの削除。&lt;/p>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">DROP&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VIEW&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span> &lt;span style="color:#204a87;font-weight:bold">EXISTS&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">view_name&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
 &lt;h2 id="pip">pip&lt;/h2>
 &lt;p>標準のパッケージマネージャー。&lt;/p>

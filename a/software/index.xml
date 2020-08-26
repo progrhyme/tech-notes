@@ -46,6 +46,42 @@
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/ijufumi/items/badde64d530e6bade382">Dockerのコンテナの中からホストOS上のプロセスと通信する方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="knowledge">Knowledge&lt;/h2>
+&lt;h3 id="コンテナの終了コード">コンテナの終了コード&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Exit Code&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>0&lt;/td>
+&lt;td>正常終了&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>アプリケーションエラー&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>137&lt;/td>
+&lt;td>SIGKILL (OOMなど)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>139&lt;/td>
+&lt;td>SIGSEGV&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>143&lt;/td>
+&lt;td>SIGTERM&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://medium.com/better-programming/understanding-docker-container-exit-codes-5ee79a1d58f6">Understanding Docker Container Exit Codes | by Sandeep Madamanchi | Better Programming | Medium&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="registry">Registry&lt;/h2>
 &lt;h3 id="api">API&lt;/h3>
 &lt;p>&lt;a href="https://docs.docker.com/registry/spec/api/">https://docs.docker.com/registry/spec/api/&lt;/a>&lt;/p>
