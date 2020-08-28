@@ -1,4 +1,19 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-07-30</title><link>https://progrhy.me/tech-notes/a/memo/20200730/</link><pubDate>Thu, 30 Jul 2020 11:02:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200730/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-08-28</title><link>https://progrhy.me/tech-notes/a/memo/20200828/</link><pubDate>Fri, 28 Aug 2020 16:49:31 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200828/</guid><description>
+&lt;h2 id="828">8/28&lt;/h2>
+&lt;h3 id="macosでecs-cliをセットアップ">macOSでecs-cliをセットアップ&lt;/h3>
+&lt;h4 id="インストール">インストール&lt;/h4>
+&lt;p>公式には書いてないが、Homebrewに対応していた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install amazon-ecs-cli
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://formulae.brew.sh/formula/amazon-ecs-cli">https://formulae.brew.sh/formula/amazon-ecs-cli&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_installation.html">Amazon ECS CLI のインストール - Amazon Elastic Container Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="セットアップ">セットアップ&lt;/h4>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_Configuration.html">Amazon ECS CLI の設定 - Amazon Elastic Container Service&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ecs-cli configure profile --profile-name PROFILE_NAME --access-key &lt;span style="color:#000">$AWS_ACCESS_KEY_ID&lt;/span> --secret-key &lt;span style="color:#000">$AWS_SECRET_ACCESS_KEY&lt;/span>
+ecs-cli configure --cluster CLUSTER --default-launch-type LAUNCH_TYPE --region REGION --config-name NAME
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-07-30</title><link>https://progrhy.me/tech-notes/a/memo/20200730/</link><pubDate>Thu, 30 Jul 2020 11:02:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20200730/</guid><description>
 &lt;h2 id="730">7/30&lt;/h2>
 &lt;h3 id="scp時にシェルが予期しない挙動をする">scp時にシェルが予期しない挙動をする&lt;/h3>
 &lt;p>自分のdotfilesで考慮できていないのがよくない。&lt;br>
