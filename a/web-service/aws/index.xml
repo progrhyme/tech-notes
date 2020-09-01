@@ -35,7 +35,16 @@ aws configure list
 &lt;ul>
 &lt;li>&lt;a href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/s3-locate-credentials-error/">S3 バケットの「認証情報が見つかりません」エラーを修正する&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="logs">logs&lt;/h3>
+&lt;h3 id="ecs">ecs&lt;/h3>
+&lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/&lt;/a>&lt;/p>
+&lt;h4 id="update-service">update-service&lt;/h4>
+&lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タスク定義を更新&lt;/span>
+aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> --service &lt;span style="color:#000">$SERVICE&lt;/span> --task-definition &lt;span style="color:#000">$TASK_DEFINITION&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># サービス定義を更新せずに再起動&lt;/span>
+aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> --service &lt;span style="color:#000">$SERVICE&lt;/span> --force-new-deployment
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logs">logs&lt;/h3>
 &lt;p>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/logs/index.html">http://docs.aws.amazon.com/cli/latest/reference/logs/index.html&lt;/a>&lt;/p>
 &lt;p>CloudWatch Logs.&lt;/p>
 &lt;ul>
