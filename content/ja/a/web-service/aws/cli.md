@@ -50,6 +50,24 @@ aws configure list
 
 - [S3 バケットの「認証情報が見つかりません」エラーを修正する](https://aws.amazon.com/jp/premiumsupport/knowledge-center/s3-locate-credentials-error/)
 
+### ecs
+
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/
+
+#### update-service
+
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html
+
+Examples:
+
+```sh
+# タスク定義を更新
+aws ecs update-service --cluster $CLUSTER --service $SERVICE --task-definition $TASK_DEFINITION
+
+# サービス定義を更新せずに再起動
+aws ecs update-service --cluster $CLUSTER --service $SERVICE --force-new-deployment
+```
+
 ### logs
 
 http://docs.aws.amazon.com/cli/latest/reference/logs/index.html

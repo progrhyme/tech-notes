@@ -86,6 +86,30 @@ https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration
 
 https://cloud.google.com/bigquery/docs/reference/standard-sql/
 
+### 文字列関数
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions
+
+Examples:
+
+```sql
+-- 置換
+REGEXP_REPLACE(value, regexp, replacement)
+REPLACE(original_value, from_value, to_value)
+```
+
+### 日時関数
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions
+
+Examples:
+
+```sql
+-- 現在日時
+CURRENT_DATETIME()
+CURRENT_DATETIME("Asia/Tokyo")
+```
+
 ### タイムスタンプ関数
 
 https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions
@@ -96,11 +120,24 @@ Examples:
 -- 現在日時
 CURRENT_TIMESTAMP()
 
+-- TIMESTAMP型への変換
+TIMESTAMP("2008-12-25 15:30:00+00")
+TIMESTAMP("2008-12-25 15:30:00", "Asia/Tokyo")
+TIMESTAMP("2008-12-25 15:30:00 UTC")
+TIMESTAMP(DATETIME "2008-12-25 15:30:00")
+TIMESTAMP(DATE "2008-12-25")
+
 -- タイムスタンプの減算
 TIMESTAMP_SUB(<timestamp_expression>, INTERVAL <int64_expression> <date_part>)
 -- 10分前
 TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 10 MINUTE)
 ```
+
+### タイムゾーンの指定方法
+
+https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions?hl=ja#timezone_definitions
+
+タイムゾーン名（例: `Asia/Tokyo` ）か、オフセット（例: `+09` ）を指定する。
 
 ### DROP VIEW
 

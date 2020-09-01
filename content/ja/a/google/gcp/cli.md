@@ -46,6 +46,24 @@ BigQuery操作CLI
 
 リファレンス: https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja
 
+### cp
+
+- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp
+- https://cloud.google.com/bigquery/docs/managing-tables?hl=ja#copy-table
+
+Examples:
+
+```sh
+bq --location=LOCATION cp [OPTIONS] \
+  project_id:dataset.source_table project_id:dataset.destination_table
+```
+
+ Option | デフォルト | 機能
+--------|----------|-----
+ `-a, --append_table` | `false` | 指定すると元のテーブルがコピーされて既存の宛先テーブルに追加される
+ `-f, --force` | `false` | 指定すると宛先テーブルが存在する場合にプロンプト表示なしで上書きされる
+ `-n, --no_clobber` | `false` | 指定すると宛先テーブルが存在する場合は上書きしない
+
 ### load
 
 ドキュメント:
@@ -70,6 +88,22 @@ Specs:
 
 - [bq loadのCSVにダブルクォーテーションや改行を含むときの対処法 | ppoohh 's blog](https://www.ppoohh.info/post-331/)
 - [bigqueryでtsvをインポート | ハックノート](https://hacknote.jp/archives/32117/)
+
+### ls
+
+- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_ls
+- https://cloud.google.com/bigquery/docs/managing-jobs?hl=ja#listing_jobs
+
+Examples:
+
+```sh
+# 現在のユーザのジョブを表示
+bq ls -j myproject
+# すべてのユーザのジョブを表示
+bq ls -j -a myproject
+# 直近10件のジョブを表示
+bq ls -j -a -n 10 myproject
+```
 
 ### mk
 
