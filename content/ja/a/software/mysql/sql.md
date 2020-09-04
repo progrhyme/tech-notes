@@ -54,7 +54,35 @@ Tips:
 
 - [MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記](http://d.hatena.ne.jp/tnnsst35/20110604/1307181215 "MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記")
 
+## 関数
+### LEFT, RIGHT
+
+文字列の左端 or 右端からの部分文字列を取得。
+
+Syntax:
+
+```sql
+LEFT(str, len)
+RIGHT(str, len)
+```
+
+参考:
+
+- [LEFT関数 / RIGHT関数 (文字列の左端または右端から指定した文字数分だけ取得する) | MySQLの使い方](https://www.dbonline.jp/mysql/function/index31.html)
+
 ## その他
+### DO
+
+https://dev.mysql.com/doc/refman/8.0/en/do.html
+
+Examples:
+
+```sql
+DO SLEEP(5);
+```
+
+`SELECT ...` と違って、結果を返さずに関数を実行。
+
 ### SHOW BINARY LOGS
 
 - https://dev.mysql.com/doc/refman/5.6/ja/show-binary-logs.html
@@ -91,3 +119,15 @@ Examples:
 -- 現在のユーザの権限を表示
 SHOW GRANTS;
 ```
+
+### SHOW MASTER STATUS
+
+https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html
+
+現在のbinlogポジションがわかる。
+
+### SHOW SLAVE STATUS
+
+https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html
+
+レプリケーションしている場合に、レプリケーションの遅延など情報がわかる。

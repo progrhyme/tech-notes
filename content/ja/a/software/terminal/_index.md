@@ -12,6 +12,24 @@ weight: 2400
 - ターミナル.app ... 標準でインストールされている端末アプリ
 - [iTerm2]({{<ref "iterm2.md">}})
 
+## How-to
+### 入力がおかしくなったときの直し方
+
+現象:
+
+- 入力文字が表示されない
+- 改行が反映されない
+
+直し方:
+
+```sh
+stty sane
+```
+
+参考:
+
+- [Terminalの入力が異常になったときの直し方 - Qiita](https://qiita.com/m-sakano/items/7f1afc7eb452a1a57015)
+
 ## Topics
 ### 色
 
