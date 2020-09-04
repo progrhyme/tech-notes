@@ -33,7 +33,22 @@
 &lt;ul>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/tnnsst35/20110604/1307181215" title="MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記">MySQLの CREATE TABLE &amp;hellip; LIKE &amp;hellip; - 不思議なサービスをつくる新人プログラマーの日記&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="関数">関数&lt;/h2>
+&lt;h3 id="left-right">LEFT, RIGHT&lt;/h3>
+&lt;p>文字列の左端 or 右端からの部分文字列を取得。&lt;/p>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">LEFT&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">len&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">RIGHT&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">len&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.dbonline.jp/mysql/function/index31.html">LEFT関数 / RIGHT関数 (文字列の左端または右端から指定した文字数分だけ取得する) | MySQLの使い方&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="その他">その他&lt;/h2>
+&lt;h3 id="do">DO&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/do.html">https://dev.mysql.com/doc/refman/8.0/en/do.html&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">DO&lt;/span> &lt;span style="color:#000">SLEEP&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>SELECT ...&lt;/code> と違って、結果を返さずに関数を実行。&lt;/p>
 &lt;h3 id="show-binary-logs">SHOW BINARY LOGS&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/show-binary-logs.html">https://dev.mysql.com/doc/refman/5.6/ja/show-binary-logs.html&lt;/a>&lt;/li>
@@ -57,7 +72,12 @@
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在のユーザの権限を表示
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SHOW&lt;/span> &lt;span style="color:#000">GRANTS&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="show-master-status">SHOW MASTER STATUS&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html">https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html&lt;/a>&lt;/p>
+&lt;p>現在のbinlogポジションがわかる。&lt;/p>
+&lt;h3 id="show-slave-status">SHOW SLAVE STATUS&lt;/h3>
+&lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html">https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html&lt;/a>&lt;/p>
+&lt;p>レプリケーションしている場合に、レプリケーションの遅延など情報がわかる。&lt;/p></description></item><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
 &lt;p>mysql, mysqldumpといったCLIやクライアントライブラリを介した利用、設定方法等について。&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>関連項目:&lt;/p>
@@ -81,6 +101,10 @@
 &lt;tr>
 &lt;td>&lt;code>--no-tablespaces, -y&lt;/code>&lt;/td>
 &lt;td>CREATE LOGFILE GROUP ステートメントおよび CREATE TABLESPACE ステートメントを出力に書き出さない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>--single-transaction&lt;/code>&lt;/td>
+&lt;td>データダンプ前に分離レベルをREPEATABLE READにして &lt;code>START TRANSACTION&lt;/code> を発行する&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

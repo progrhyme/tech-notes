@@ -957,6 +957,19 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>ターミナル.app &amp;hellip; 標準でインストールされている端末アプリ&lt;/li>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terminal/iterm2/">iTerm2&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="入力がおかしくなったときの直し方">入力がおかしくなったときの直し方&lt;/h3>
+&lt;p>現象:&lt;/p>
+&lt;ul>
+&lt;li>入力文字が表示されない&lt;/li>
+&lt;li>改行が反映されない&lt;/li>
+&lt;/ul>
+&lt;p>直し方:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">stty sane
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/m-sakano/items/7f1afc7eb452a1a57015">Terminalの入力が異常になったときの直し方 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="色">色&lt;/h3>
 &lt;p>参考:&lt;/p>
