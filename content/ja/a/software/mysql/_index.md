@@ -189,6 +189,16 @@ PerlやRubyのクライアントではよく `connect_timeout`, `read_timeout` �
 - [MySQLのタイムゾーン - @tmtms のメモ](https://tmtms.hatenablog.com/entry/2015/08/22/mysql-timezone)
 
 ## Versions
+
+### EOL
+
+[MySQL :: MySQL Product Support EOL Announcements](https://www.mysql.com/jp/support/eol-notice.html)
+
+参考:
+
+- [MySQL | End of Life(EOL)まとめサイト](https://support-version.com/index.php?MySQL)
+- [MySQL Community Edition の EOL について - Qiita](https://qiita.com/witchcraze/items/820dd848d48dfb8a5f96)
+
 ### 8
 #### 8.0.21
 
