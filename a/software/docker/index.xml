@@ -248,62 +248,62 @@ docker network create -d &lt;span style="color:#000">$DRIVER&lt;/span> &lt;span 
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th align="center">オプション&lt;/th>
-&lt;th align="left">意味&lt;/th>
+&lt;th style="text-align:center">オプション&lt;/th>
+&lt;th style="text-align:left">意味&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td align="center">-d, &amp;ndash;detach&lt;/td>
-&lt;td align="left">バックグラウンドでコンテナを動かす&lt;/td>
+&lt;td style="text-align:center">-d, &amp;ndash;detach&lt;/td>
+&lt;td style="text-align:left">バックグラウンドでコンテナを動かす&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">-e, &amp;ndash;env&lt;/td>
-&lt;td align="left">環境変数を1つずつ指定&lt;/td>
+&lt;td style="text-align:center">-e, &amp;ndash;env&lt;/td>
+&lt;td style="text-align:left">環境変数を1つずつ指定&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">&amp;ndash;env-file &lt;file>&lt;/td>
-&lt;td align="left">ファイルを指定して、環境変数を設定&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;env-file &lt;file>&lt;/td>
+&lt;td style="text-align:left">ファイルを指定して、環境変数を設定&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">-i, &amp;ndash;interactive&lt;/td>
-&lt;td align="left">STDIN を開く&lt;/td>
+&lt;td style="text-align:center">-i, &amp;ndash;interactive&lt;/td>
+&lt;td style="text-align:left">STDIN を開く&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">&amp;ndash;name NAME&lt;/td>
-&lt;td align="left">コンテナに名前をつける&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;name NAME&lt;/td>
+&lt;td style="text-align:left">コンテナに名前をつける&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">&amp;ndash;net NW&lt;/td>
-&lt;td align="left">ネットワーク NW に配置する。未指定だとデフォルトのネットワークになる&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;net NW&lt;/td>
+&lt;td style="text-align:left">ネットワーク NW に配置する。未指定だとデフォルトのネットワークになる&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">-P, &amp;ndash;publish-all&lt;/td>
-&lt;td align="left">コンテナが外部に開くポートをすべてランダムにホストのエフェメラルポートに割当てる&lt;/td>
+&lt;td style="text-align:center">-P, &amp;ndash;publish-all&lt;/td>
+&lt;td style="text-align:left">コンテナが外部に開くポートをすべてランダムにホストのエフェメラルポートに割当てる&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">-p, &amp;ndash;publish=[]&lt;/td>
-&lt;td align="left">ポートを指定してポートを公開する&lt;/td>
+&lt;td style="text-align:center">-p, &amp;ndash;publish=[]&lt;/td>
+&lt;td style="text-align:left">ポートを指定してポートを公開する&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">&amp;ndash;privileged&lt;/td>
-&lt;td align="left">特権を付与&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;privileged&lt;/td>
+&lt;td style="text-align:left">特権を付与&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">&amp;ndash;restart=&amp;lt;string&amp;gt;&lt;/td>
-&lt;td align="left">コンテナが既に存在するときの再起動ポリシー。デフォルトは &lt;code>no&lt;/code>. 他に &lt;code>always&lt;/code> が指定可能&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;restart=&amp;lt;string&amp;gt;&lt;/td>
+&lt;td style="text-align:left">コンテナが既に存在するときの再起動ポリシー。デフォルトは &lt;code>no&lt;/code>. 他に &lt;code>always&lt;/code> が指定可能&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">&amp;ndash;rm&lt;/td>
-&lt;td align="left">コンテナ停止時に削除&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;rm&lt;/td>
+&lt;td style="text-align:left">コンテナ停止時に削除&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">-t, &amp;ndash;tty&lt;/td>
-&lt;td align="left">TTY 割当て&lt;/td>
+&lt;td style="text-align:center">-t, &amp;ndash;tty&lt;/td>
+&lt;td style="text-align:left">TTY 割当て&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">-v, &amp;ndash;volume=[]&lt;/td>
-&lt;td align="left">データボリュームのマウント&lt;/td>
+&lt;td style="text-align:center">-v, &amp;ndash;volume=[]&lt;/td>
+&lt;td style="text-align:left">データボリュームのマウント&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

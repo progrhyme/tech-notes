@@ -556,7 +556,7 @@ GitHub, GitLabの既存プロジェクトをインポートしてワンクリッ
 やはりノートンが老舗でバランス良く、安心感ある印象。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://thehikaku.net/security/hikaku.html">セキュリティソフトの比較 2020 - the比較&lt;/a> &amp;hellip; これ表になっててわかりやすい&lt;/li>
-&lt;li>&lt;a href="http://monomania.sblo.jp/article/60532423.html">比較2020&amp;rsquo;【Mac用】ウイルス対策ソフト31点のおすすめ；軽いセキュリティソフト: 家電批評モノマニア&lt;/a> &amp;hellip; 縦に長い。ざっと流し見した&lt;/li>
+&lt;li>&lt;a href="http://monomania.sblo.jp/article/60532423.html">比較2020'【Mac用】ウイルス対策ソフト31点のおすすめ；軽いセキュリティソフト: 家電批評モノマニア&lt;/a> &amp;hellip; 縦に長い。ざっと流し見した&lt;/li>
 &lt;/ul>
 &lt;h3 id="久しぶりにrustを触った">久しぶりにRustを触った&lt;/h3>
 &lt;p>最後に触ったのは2年前ぐらいかな？&lt;br>
@@ -1655,8 +1655,8 @@ gpg &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GnuPG&lt;span sty
 &lt;p>ハッシュのマージはアンカーとエイリアスでできるのだけど、配列のマージはできなさそう。&lt;/p>
 &lt;p>参考: &lt;a href="https://stackoverflow.com/questions/24090177/how-to-merge-yaml-arrays">list - How to merge YAML arrays? - Stack Overflow&lt;/a>&lt;/p>
 &lt;p>配列の1つ1つの要素にアンカーを付けて、再利用することは可能。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">- &lt;span style="color:#8f5902;font-style:italic">&amp;amp;mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>foo&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- bar&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">- &lt;span style="color:#8f5902;font-style:italic">&amp;amp;mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#000">bar&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#8f5902;font-style:italic">*mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#8f5902;font-style:italic">*mark&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; [&amp;#39;foo&amp;#39;, &amp;#39;bar&amp;#39;, &amp;#39;foo&amp;#39;, &amp;#39;foo&amp;#39;]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">

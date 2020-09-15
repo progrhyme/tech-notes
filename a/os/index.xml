@@ -196,32 +196,32 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th align="center">略記&lt;/th>
-&lt;th align="left">意味&lt;/th>
+&lt;th style="text-align:center">略記&lt;/th>
+&lt;th style="text-align:left">意味&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td align="center">{電源}&lt;/td>
-&lt;td align="left">電源キーまたはメディア取り出しキー&lt;/td>
+&lt;td style="text-align:center">{電源}&lt;/td>
+&lt;td style="text-align:left">電源キーまたはメディア取り出しキー&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th align="center">Key&lt;/th>
-&lt;th align="left">機能&lt;/th>
+&lt;th style="text-align:center">Key&lt;/th>
+&lt;th style="text-align:left">機能&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td align="center">Ctrl + Shift + {電源}&lt;/td>
-&lt;td align="left">ディスプレイをスリープにする。画面ロック&lt;/td>
+&lt;td style="text-align:center">Ctrl + Shift + {電源}&lt;/td>
+&lt;td style="text-align:left">ディスプレイをスリープにする。画面ロック&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td align="center">Ctrl + {電源}&lt;/td>
-&lt;td align="left">「再起動・スリープ・システム終了」ダイアログを表示&lt;/td>
+&lt;td style="text-align:center">Ctrl + {電源}&lt;/td>
+&lt;td style="text-align:left">「再起動・スリープ・システム終了」ダイアログを表示&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>

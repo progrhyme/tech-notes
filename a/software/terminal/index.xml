@@ -194,14 +194,14 @@ tmux -2
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th align="center">コマンド&lt;/th>
-&lt;th align="left">説明&lt;/th>
+&lt;th style="text-align:center">コマンド&lt;/th>
+&lt;th style="text-align:left">説明&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td align="center">&lt;code>&amp;lt;prefix&amp;gt;!&lt;/code>&lt;/td>
-&lt;td align="left">ペイン分割解除&lt;/td>
+&lt;td style="text-align:center">&lt;code>&amp;lt;prefix&amp;gt;!&lt;/code>&lt;/td>
+&lt;td style="text-align:left">ペイン分割解除&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item></channel></rss>

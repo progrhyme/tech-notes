@@ -745,6 +745,13 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>&lt;a href="https://tmtms.hatenablog.com/entry/2015/08/22/mysql-timezone">MySQLのタイムゾーン - @tmtms のメモ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="versions">Versions&lt;/h2>
+&lt;h3 id="eol">EOL&lt;/h3>
+&lt;p>&lt;a href="https://www.mysql.com/jp/support/eol-notice.html">MySQL :: MySQL Product Support EOL Announcements&lt;/a>&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://support-version.com/index.php?MySQL">MySQL | End of Life(EOL)まとめサイト&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/witchcraze/items/820dd848d48dfb8a5f96">MySQL Community Edition の EOL について - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="8">8&lt;/h3>
 &lt;h4 id="8021">8.0.21&lt;/h4>
 &lt;p>&lt;a href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html">https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html&lt;/a>&lt;/p>
