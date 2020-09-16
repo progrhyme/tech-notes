@@ -82,6 +82,12 @@ https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration
 - **テーブルの有効期限** ... テーブル作成時からの日数を設定できる
 - **パーティションの有効期限** ... パーティション分割テーブルで、パーティションの有効期限を設定できる
 
+### 権限管理
+
+- [データセットへのアクセスの制御 | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/dataset-access-controls?hl=ja)
+- [テーブルおよびビューへのアクセスの制御 | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/table-access-controls)
+- [BigQuery の列レベルのセキュリティの概要 | Google Cloud](https://cloud.google.com/bigquery/docs/column-level-security-intro?hl=ja)
+
 ## 標準SQL
 
 https://cloud.google.com/bigquery/docs/reference/standard-sql/

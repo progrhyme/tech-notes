@@ -131,3 +131,7 @@ https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html
 https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html
 
 レプリケーションしている場合に、レプリケーションの遅延など情報がわかる。
+
+## Tips
+
+- [MySQLで集合差を出す - Qiita](https://qiita.com/Hiraku/items/71873bf31e503eb1b4e1)

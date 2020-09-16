@@ -12,8 +12,26 @@ weight: 220
 - [Bucket locations | Cloud Storage | Google Cloud](https://cloud.google.com/storage/docs/locations?hl=en#location-r)
 
 ## Spec
+### オブジェクトのバージョニング
 
-- [オブジェクトのバージョニング | Cloud Storage | Google Cloud](https://cloud.google.com/storage/docs/object-versioning?hl=ja)
+[オブジェクトのバージョニング | Cloud Storage | Google Cloud](https://cloud.google.com/storage/docs/object-versioning?hl=ja)
+
+CLI操作
+
+```sh
+# バージョニングのON/OFF確認
+gsutil versioning get gs://[BUCKET_NAME]
+# バージョニングの有効化
+gsutil versioning set on gs://[BUCKET_NAME]
+# バージョニングの無効化
+gsutil versioning set off gs://[BUCKET_NAME]
+
+# バージョン化されたオブジェクトの一覧表示
+gsutil ls -a gs://[BUCKET_NAME]
+
+# 非現行バージョンのオブジェクトの削除
+gsutil rm gs://[BUCKET_NAME]/[OBJECT_NAME]#[GENERATION_NUMBER]
+```
 
 ## アクセス制御
 ### IAM
