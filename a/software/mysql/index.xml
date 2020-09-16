@@ -77,7 +77,11 @@
 &lt;p>現在のbinlogポジションがわかる。&lt;/p>
 &lt;h3 id="show-slave-status">SHOW SLAVE STATUS&lt;/h3>
 &lt;p>&lt;a href="https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html">https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html&lt;/a>&lt;/p>
-&lt;p>レプリケーションしている場合に、レプリケーションの遅延など情報がわかる。&lt;/p></description></item><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
+&lt;p>レプリケーションしている場合に、レプリケーションの遅延など情報がわかる。&lt;/p>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Hiraku/items/71873bf31e503eb1b4e1">MySQLで集合差を出す - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: クライアント</title><link>https://progrhy.me/tech-notes/a/software/mysql/client/</link><pubDate>Fri, 26 Jun 2020 13:24:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/mysql/client/</guid><description>
 &lt;p>mysql, mysqldumpといったCLIやクライアントライブラリを介した利用、設定方法等について。&lt;/p>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;p>関連項目:&lt;/p>

@@ -275,4 +275,129 @@ $ sudo start ecs
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/naomichi-y/items/d933867127f27524686a">ECS運用のノウハウ - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: RDS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/rds/</link><pubDate>Wed, 16 Sep 2020 13:09:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/rds/</guid><description>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;h3 id="パラメータ">パラメータ&lt;/h3>
+&lt;ul>
+&lt;li>Aurora PostgreSQL
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="管理ユーザ">管理ユーザ&lt;/h3>
+&lt;p>&lt;code>rdsadmin&lt;/code> という管理ユーザが作られるが、ユーザは操作不能。&lt;br>
+より弱い権限のユーザで作業することになる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_MySQL.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_MySQL.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Security.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Security.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://pgsqldeepdive.blogspot.com/2013/11/rds-for-postgresql.html">PostgreSQL Deep Dive: RDS for PostgreSQLの中を覗いてみた（追記あり）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="拡張モニタリング">拡張モニタリング&lt;/h3>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>IAM設定が必要&lt;/li>
+&lt;/ul>
+&lt;h3 id="maintenance-api">Maintenance API&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html&lt;/a>
+&lt;ul>
+&lt;li>未適用のメンテナンス情報取得&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="イベント通知">イベント通知&lt;/h3>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_Events.html" title="Amazon RDS イベント通知の使用 - Amazon Relational Database Service">Amazon RDS イベント通知の使用 - Amazon Relational Database Service&lt;/a>&lt;/p>
+&lt;p>RDSに関する様々なイベントの通知をSNSで受け取ることができる。&lt;/p>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="メンテナンス情報の通知">メンテナンス情報の通知&lt;/h3>
+&lt;p>RDSではセキュリティアップデートなどで再起動される場合にアカウントのメールアドレスに通知してくれない。&lt;/p>
+&lt;p>ので、DescribePendingMaintenanceActions APIを叩いて、未適用のメンテナンス情報を取得するのが良さそう。&lt;br>
+イベント通知機能ではメンテナンスが起こったことは取得できるが、事前通知はしてくれない。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://blog.jicoman.info/2017/01/rds_maintenance/" title="Amazon RDSのメンテナンスについて調べてみた | 本日も乙">Amazon RDSのメンテナンスについて調べてみた | 本日も乙&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html" title="Amazon RDS メンテナンス - Amazon Relational Database Service">Amazon RDS メンテナンス - Amazon Relational Database Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mysql">MySQL&lt;/h2>
+&lt;h3 id="ストアドプロシージャ">ストアドプロシージャ&lt;/h3>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Appendix.MySQL.SQLRef.html">MySQL RDSインスタンスで利用できるシステムストアドプロシージャのリファレンス&lt;/a>&lt;/p>
+&lt;h4 id="mysqlrds_show_configuration">mysql.rds_show_configuration&lt;/h4>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/mysql_rds_show_configuration.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/mysql_rds_show_configuration.html&lt;/a>&lt;/p>
+&lt;p>バイナリログを保持する時間数を表示する。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CALL&lt;/span> &lt;span style="color:#000">mysql&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rds_show_configuration&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="postgresql">PostgreSQL&lt;/h2>
+&lt;p>ログの保持期間:&lt;/p>
+&lt;ul>
+&lt;li>DBパラメータグループの &lt;code>rds.log_retention_period&lt;/code> で設定する。分単位。デフォルトは &lt;code>4320&lt;/code> (3日分).&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.html">PostgreSQL データベースのログファイル - Amazon Relational Database Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="how-to">How-to&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html">PostgreSQL の一般的な DBA タスク - Amazon Relational Database Service&lt;/a>
+&lt;ul>
+&lt;li>pg_repackの利用&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="aurora">Aurora&lt;/h2>
+&lt;h3 id="getting-started">Getting Started&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Aurora.Overview.html" title="Amazon Aurora の概要 - Amazon Relational Database Service">Amazon Aurora の概要 - Amazon Relational Database Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="監視">監視&lt;/h3>
+&lt;h4 id="cloudwatchメトリクス">CloudWatchメトリクス&lt;/h4>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Aurora.Monitoring.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Aurora.Monitoring.html&lt;/a>&lt;/p>
+&lt;p>AWS/RDS&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>メトリクス&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;th>Applies to&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>FreeLocalStorage&lt;/td>
+&lt;td>一時テーブルやログで使用可能なストレージ容量。インスタンスタイプごとに上限値が決まっているようだ。&lt;/td>
+&lt;td>MySQL, PostgreSQL&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>VolumeBytesUsed&lt;/td>
+&lt;td>使用されたストレージ容量(Byte)&lt;/td>
+&lt;td>MySQL, PostgreSQL&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="フェールオーバー">フェールオーバー&lt;/h3>
+&lt;p>&lt;code>tier0 &amp;gt; tier1 &amp;gt; ... &amp;gt; tier15&lt;/code> と優先順位が設定できる。&lt;/p>
+&lt;p>異なるインスタンスタイプのレプリカを立ち上げてフェールオーバーさせることが簡単にできるみたい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/cloud/aws/amazon-aurora-failover-order/" title="[新機能]RDS for Auroraでフェイルオーバー先の優先順序を指定できます ｜ Developers.IO">[新機能]RDS for Auroraでフェイルオーバー先の優先順序を指定できます ｜ Developers.IO&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev.classmethod.jp/cloud/aws/aurora-changed-failover/" title="Auroraのインスタンスタイプ変更をフェイルオーバで行ってみた ｜ Developers.IO">Auroraのインスタンスタイプ変更をフェイルオーバで行ってみた ｜ Developers.IO&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="tips">Tips&lt;/h3>
+&lt;h4 id="temporary-diskのサイズがインスタンスサイズに比例">temporary diskのサイズがインスタンスサイズに比例&lt;/h4>
+&lt;p>2019-08-01時点で非公開仕様らしい。&lt;br>
+実用上ネックになり得るのでスケールダウン時には要注意。&lt;/p>
+&lt;h3 id="topics-1">Topics&lt;/h3>
+&lt;h4 id="auroraは1インスタンスでも可用性高い">Auroraは1インスタンスでも可用性高い&lt;/h4>
+&lt;ul>
+&lt;li>ダウンタイムは10分ぐらいとか
+&lt;ul>
+&lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Aurora.Managing.html" title="Amazon Aurora DB クラスターの管理 - Amazon Relational Database Service">Amazon Aurora DB クラスターの管理 - Amazon Relational Database Service&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/rds/details/multi-az/">https://aws.amazon.com/jp/rds/details/multi-az/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev.classmethod.jp/cloud/aws/decision-method-for-aurora-multiaz/" title="ちょっと待って！Auroraを使う時にMulti-AZが本当に必要ですか？ ｜ Developers.IO">ちょっと待って！Auroraを使う時にMulti-AZが本当に必要ですか？ ｜ Developers.IO&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

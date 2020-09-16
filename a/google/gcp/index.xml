@@ -620,6 +620,12 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
 &lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
 &lt;/ul>
+&lt;h3 id="権限管理">権限管理&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/dataset-access-controls?hl=ja">データセットへのアクセスの制御 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/table-access-controls">テーブルおよびビューへのアクセスの制御 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/column-level-security-intro?hl=ja">BigQuery の列レベルのセキュリティの概要 | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="標準sql">標準SQL&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/">https://cloud.google.com/bigquery/docs/reference/standard-sql/&lt;/a>&lt;/p>
 &lt;h3 id="文字列関数">文字列関数&lt;/h3>
@@ -902,10 +908,20 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;li>&lt;a href="https://cloud.google.com/storage/docs/locations?hl=en#location-r">Bucket locations | Cloud Storage | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="spec">Spec&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/storage/docs/object-versioning?hl=ja">オブジェクトのバージョニング | Cloud Storage | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="アクセス制御">アクセス制御&lt;/h2>
+&lt;h3 id="オブジェクトのバージョニング">オブジェクトのバージョニング&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/object-versioning?hl=ja">オブジェクトのバージョニング | Cloud Storage | Google Cloud&lt;/a>&lt;/p>
+&lt;p>CLI操作&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バージョニングのON/OFF確認&lt;/span>
+gsutil versioning get gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バージョニングの有効化&lt;/span>
+gsutil versioning &lt;span style="color:#204a87">set&lt;/span> on gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バージョニングの無効化&lt;/span>
+gsutil versioning &lt;span style="color:#204a87">set&lt;/span> off gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># バージョン化されたオブジェクトの一覧表示&lt;/span>
+gsutil ls -a gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 非現行バージョンのオブジェクトの削除&lt;/span>
+gsutil rm gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OBJECT_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic">#[GENERATION_NUMBER]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="アクセス制御">アクセス制御&lt;/h2>
 &lt;h3 id="iam">IAM&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/storage/docs/access-control/iam">Cloud Identity and Access Management | Cloud Storage | Google Cloud&lt;/a>&lt;/p>
 &lt;p>関連項目:&lt;/p>

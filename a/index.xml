@@ -2332,6 +2332,12 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;li>&lt;strong>テーブルの有効期限&lt;/strong> &amp;hellip; テーブル作成時からの日数を設定できる&lt;/li>
 &lt;li>&lt;strong>パーティションの有効期限&lt;/strong> &amp;hellip; パーティション分割テーブルで、パーティションの有効期限を設定できる&lt;/li>
 &lt;/ul>
+&lt;h3 id="権限管理">権限管理&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/dataset-access-controls?hl=ja">データセットへのアクセスの制御 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/table-access-controls">テーブルおよびビューへのアクセスの制御 | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/column-level-security-intro?hl=ja">BigQuery の列レベルのセキュリティの概要 | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="標準sql">標準SQL&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/">https://cloud.google.com/bigquery/docs/reference/standard-sql/&lt;/a>&lt;/p>
 &lt;h3 id="文字列関数">文字列関数&lt;/h3>
