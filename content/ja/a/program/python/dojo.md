@@ -101,8 +101,8 @@ Examples:
 import re
 
 # マッチ
-content = r'hellow python, 123, end.' 
-pattern = 'hel'
+pattern = r'hellow python, 123, end.'
+content = 'hel'
 
 ## compileしない
 result = re.match(pattern, content)
