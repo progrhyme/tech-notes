@@ -199,8 +199,8 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">re&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># マッチ&lt;/span>
-&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;hellow python, 123, end.&amp;#39;&lt;/span>
-&lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hel&amp;#39;&lt;/span>
+&lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;hellow python, 123, end.&amp;#39;&lt;/span>
+&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hel&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## compileしない&lt;/span>
 &lt;span style="color:#000">result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## compileしてマッチ&lt;/span>
