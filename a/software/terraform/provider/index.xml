@@ -405,8 +405,35 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_topic.html">google_pubsub_topic&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html">google_pubsub_subscription&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h4 id="topicsubscription-iam">Topic/Subscription IAM&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html">pubsub_topic_iam&lt;/a>
+&lt;ul>
+&lt;li>以下の3種類のリソースがあり、管理したい粒度に応じていずれかを使う&lt;/li>
+&lt;li>いずれも特定のトピックに対する権限をセットする&lt;/li>
+&lt;li>&lt;code>google_pubsub_topic_iam_policy&lt;/code> &amp;hellip; 該当トピックに対する全ロール x 全メンバーの権限を含むポリシーを管理する&lt;/li>
+&lt;li>&lt;code>google_pubsub_topic_iam_binding&lt;/code> &amp;hellip; 特定のロールを持つメンバーセットを管理する&lt;/li>
+&lt;li>&lt;code>google_pubsub_topic_iam_member&lt;/code> &amp;hellip; 特定のロール x メンバーの組み合わせを1つ1つ管理する&lt;/li>
+&lt;li>たぶん、最も細かい粒度の &lt;code>google_pubsub_topic_iam_member&lt;/code> を使うのが無難&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_subscription_iam.html">pubsub_subscription_iam&lt;/a>
+&lt;ul>
+&lt;li>topicの方と同様に3種類のリソースを選択的に使う&lt;/li>
+&lt;li>いずれも特定のサブスクリプションに対する権限をセットする&lt;/li>
+&lt;li>&lt;code>google_pubsub_subscription_iam_policy&lt;/code> &amp;hellip; 該当サブスクリプションに対する全ロール x 全メンバーの権限を含むポリシーを管理する&lt;/li>
+&lt;li>&lt;code>google_pubsub_subscription_iam_binding&lt;/code> &amp;hellip; 特定のロールを持つメンバーセットを管理する&lt;/li>
+&lt;li>&lt;code>google_pubsub_subscription_iam_member&lt;/code> &amp;hellip; 特定のロール x メンバーの組み合わせを1つ1つ管理する&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/pubsub/docs/access-control?hl=ja">アクセス制御 | Cloud Pub/Sub ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="storage-gcs-系">storage (GCS) 系&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket.html">google_storage_bucket&lt;/a> &amp;hellip; GCS (Cloud Storage) バケット&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html">google_storage_bucket_object&lt;/a> &amp;hellip; GCSオブジェクト。ローカルのファイルからアップロードできる&lt;/li>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_notification.html">google_storage_notification&lt;/a> &amp;hellip; GCSでのイベントをPub/Subに通知する通知リソース&lt;/li>
 &lt;/ul></description></item></channel></rss>

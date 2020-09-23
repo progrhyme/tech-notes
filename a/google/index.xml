@@ -122,6 +122,16 @@ G Suiteだとドメインに紐づくか。&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>gcloud logging logs list&lt;/code>&lt;/li>
 &lt;/ul>
+&lt;h2 id="services">Services&lt;/h2>
+&lt;p>だいたい子ページを作っているが、雑多なものをここにまとめる。&lt;/p>
+&lt;h3 id="storage-transfer">Storage Transfer&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/storage-transfer/docs/overview?hl=ja">概要 | Cloud Storage Transfer Service のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>次のことを可能にするサービス:&lt;/p>
+&lt;ul>
+&lt;li>他のクラウド ストレージ プロバイダから、またはオンプレミス ストレージから Cloud Storage バケットにデータを転送またはバックアップします。&lt;/li>
+&lt;li>ある Cloud Storage バケットから別の Cloud Storage バケットにデータを転送し、さまざまなユーザー グループやアプリケーションで使用できるようにします。&lt;/li>
+&lt;li>データ処理パイプラインまたは分析ワークフローの一部として、データを定期的に移動する。&lt;/li>
+&lt;/ul>
 &lt;h2 id="tips">Tips&lt;/h2>
 &lt;h3 id="ラベルの運用">ラベルの運用&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/resource-manager/docs/creating-managing-labels?hl=ja">ラベルの作成と管理 | Resource Manager のドキュメント | Google Cloud&lt;/a>&lt;/p>

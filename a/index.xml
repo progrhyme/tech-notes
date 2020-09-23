@@ -2055,6 +2055,17 @@ go &lt;span style="color:#204a87">test&lt;/span> -v ./... -run Foo
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://qiita.com/kiduki/items/df724a7a7ae50e70c08c">vimの置換で改行を(挿入|削除)する - Qiita&lt;/a>&lt;/p></description></item><item><title>A: 道場</title><link>https://progrhy.me/tech-notes/a/program/python/dojo/</link><pubDate>Thu, 20 Aug 2020 16:32:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/dojo/</guid><description>
 &lt;p>Road to Pythonian.&lt;br>
 Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/p>
+&lt;h2 id="値と変数">値と変数&lt;/h2>
+&lt;h3 id="定数を使う">定数を使う&lt;/h3>
+&lt;ul>
+&lt;li>言語仕様上は定数はない&lt;/li>
+&lt;li>定数として扱う場合、 &lt;code>FOO_VALUE&lt;/code> のように変数名を大文字 + アンダースコアで表すのが標準規約&lt;/li>
+&lt;li>定数を扱うためのクラスを作るテクニックがある&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://maku77.github.io/python/syntax/const.html">Python で定数を定義する | まくまくPythonノート&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="データ型">データ型&lt;/h2>
 &lt;h3 id="型変換">型変換&lt;/h3>
 &lt;p>参考:&lt;/p>
@@ -2118,13 +2129,16 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;p>Examples:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">re&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># マッチ&lt;/span>
-&lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;hellow python, 123, end.&amp;#39;&lt;/span>
-&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hel&amp;#39;&lt;/span>
+&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello, Python. 123, end.&amp;#39;&lt;/span>
+&lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hel&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## compileしない&lt;/span>
-&lt;span style="color:#000">result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### re.match ... 先頭からぴったり一致する必要がある&lt;/span>
+&lt;span style="color:#000">match_result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">### re.search ... 存在すればOK&lt;/span>
+&lt;span style="color:#000">search_result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">search&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## compileしてマッチ&lt;/span>
 &lt;span style="color:#000">repatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">compile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">pattern&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">repatter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">match_result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">repatter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">match&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">content&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 置換&lt;/span>
 &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">sub&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;^H\w+&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Good morning&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hello, world.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 大文字小文字を無視&lt;/span>
