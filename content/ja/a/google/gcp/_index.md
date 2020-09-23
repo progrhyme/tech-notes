@@ -118,6 +118,20 @@ QuotaやBillingの操作をするとき、 `serviceusage.services.use` が要求
 
 - `gcloud logging logs list`
 
+## Services
+
+だいたい子ページを作っているが、雑多なものをここにまとめる。
+
+### Storage Transfer
+
+[概要 | Cloud Storage Transfer Service のドキュメント | Google Cloud](https://cloud.google.com/storage-transfer/docs/overview?hl=ja)
+
+次のことを可能にするサービス:
+
+- 他のクラウド ストレージ プロバイダから、またはオンプレミス ストレージから Cloud Storage バケットにデータを転送またはバックアップします。
+- ある Cloud Storage バケットから別の Cloud Storage バケットにデータを転送し、さまざまなユーザー グループやアプリケーションで使用できるようにします。
+- データ処理パイプラインまたは分析ワークフローの一部として、データを定期的に移動する。
+
 ## Tips
 ### ラベルの運用
 

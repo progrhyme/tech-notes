@@ -151,7 +151,28 @@ resource "google_container_cluster" "experiment" {
 - [google_pubsub_topic](https://www.terraform.io/docs/providers/google/r/pubsub_topic.html)
 - [google_pubsub_subscription](https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html)
 
+#### Topic/Subscription IAM
+
+- [pubsub_topic_iam](https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html)
+  - 以下の3種類のリソースがあり、管理したい粒度に応じていずれかを使う
+  - いずれも特定のトピックに対する権限をセットする
+  - `google_pubsub_topic_iam_policy` ... 該当トピックに対する全ロール x 全メンバーの権限を含むポリシーを管理する
+  - `google_pubsub_topic_iam_binding` ... 特定のロールを持つメンバーセットを管理する
+  - `google_pubsub_topic_iam_member` ... 特定のロール x メンバーの組み合わせを1つ1つ管理する
+  - たぶん、最も細かい粒度の `google_pubsub_topic_iam_member` を使うのが無難
+- [pubsub_subscription_iam](https://www.terraform.io/docs/providers/google/r/pubsub_subscription_iam.html)
+  - topicの方と同様に3種類のリソースを選択的に使う
+  - いずれも特定のサブスクリプションに対する権限をセットする
+  - `google_pubsub_subscription_iam_policy` ... 該当サブスクリプションに対する全ロール x 全メンバーの権限を含むポリシーを管理する
+  - `google_pubsub_subscription_iam_binding` ... 特定のロールを持つメンバーセットを管理する
+  - `google_pubsub_subscription_iam_member` ... 特定のロール x メンバーの組み合わせを1つ1つ管理する
+
+参考:
+
+- [アクセス制御 | Cloud Pub/Sub ドキュメント | Google Cloud](https://cloud.google.com/pubsub/docs/access-control?hl=ja)
+
 ### storage (GCS) 系
 
 - [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) ... GCS (Cloud Storage) バケット
 - [google_storage_bucket_object](https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html) ... GCSオブジェクト。ローカルのファイルからアップロードできる
+- [google_storage_notification](https://www.terraform.io/docs/providers/google/r/storage_notification.html) ... GCSでのイベントをPub/Subに通知する通知リソース

@@ -8,6 +8,17 @@ weight: 30
 Road to Pythonian.  
 Pythonianを名乗るための基礎的なトピックを並べる予定。
 
+## 値と変数
+### 定数を使う
+
+- 言語仕様上は定数はない
+- 定数として扱う場合、 `FOO_VALUE` のように変数名を大文字 + アンダースコアで表すのが標準規約
+- 定数を扱うためのクラスを作るテクニックがある
+
+参考:
+
+- [Python で定数を定義する | まくまくPythonノート](https://maku77.github.io/python/syntax/const.html)
+
 ## データ型
 ### 型変換
 
@@ -101,14 +112,18 @@ Examples:
 import re
 
 # マッチ
-pattern = r'hellow python, 123, end.'
-content = 'hel'
+content = r'Hello, Python. 123, end.'
+pattern = 'Hel'
 
 ## compileしない
-result = re.match(pattern, content)
+### re.match ... 先頭からぴったり一致する必要がある
+match_result = re.match(pattern, content)
+### re.search ... 存在すればOK
+search_result = re.search(pattern, content)
+
 ## compileしてマッチ
 repatter = re.compile(pattern)
-result = repatter.match(content)
+match_result = repatter.match(content)
 
 # 置換
 re.sub('^H\w+', 'Good morning', 'Hello, world.')
