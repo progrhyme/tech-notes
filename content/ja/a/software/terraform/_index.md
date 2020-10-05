@@ -16,7 +16,6 @@ weight: 700
 
 - [terraform使い方(超基礎編) - Qiita](https://qiita.com/kohey18/items/38400d8c498baa0a0ed8 "terraform使い方(超基礎編) - Qiita")
 
-
 ## 仕様
 ### State
 
@@ -27,7 +26,6 @@ https://www.terraform.io/docs/state/
 https://www.terraform.io/docs/state/locking.html
 
 [backend](https://www.terraform.io/docs/backends)によってサポートされていれば、排他制御が可能。
-
 
 ## Examples
 
@@ -52,6 +50,17 @@ https://www.terraform.io/docs/state/locking.html
 参考:
 
 - [Structuring HashiCorp Terraform Configuration for Production](https://www.hashicorp.com/blog/structuring-hashicorp-terraform-configuration-for-production/) ... 2020-03-27. Workspacesを使わずにディレクトリを分けることのメリットが述べられている。
+
+## Versions
+### v0.13
+
+[2020年8月にGA](https://www.hashicorp.com/blog/announcing-hashicorp-terraform-0-13)。
+
+v0.12ほどではないが、非互換の変更があり、アップグレード時には対応が必要。
+
+https://www.terraform.io/upgrade-guides/0-13.html
+
+v0.11以前の人は一度、v0.12に上げてからv0.13にアップグレードする必要がある。
 
 ## How-to
 ### バージョン固定
@@ -87,7 +96,6 @@ provider "http" {
 参考:
 
 - [Backend の S3 や DynamoDB 自体を terraform で管理するセットアップ方法 - Qiita](https://qiita.com/saiya_moebius/items/a8f8aa3683c2347d607c)
-
 
 ## Tips
 ### デバッグ

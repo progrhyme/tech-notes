@@ -22,6 +22,24 @@ Electronをベースにしており、IDE並の機能を持つ。
 
 
 ## Features
+### 矩形選択 / 複数行同時編集
+
+マウスで範囲を選択する場合:
+
+- Macの場合:
+  1. 始点にカーソルを合わせる
+  1. `Shift + Option` を押しながら終点にカーソルを合わせる
+
+キーボードで範囲を選択する場合:
+
+- Macの場合:
+  1. 始点にカーソルを合わせる
+  1. `Shift + Option + ⌘` を押しながら矢印キーで終点までカーソルを移動
+
+参考:
+
+- [【VSCode】テキストを縦に選択し、一括で入力・削除する方法｜ブロック選択・短冊選択](https://blog-and-destroy.com/28272)
+
 ### スニペット機能
 
 - ユーザ定義のスニペットを作成可能
@@ -35,7 +53,6 @@ Electronをベースにしており、IDE並の機能を持つ。
 
 - [独自のスニペットを作成 | 非公式 - Visual Studio Code Docs](https://vscode-doc-jp.github.io/docs/userguide/userdefinedsnippets.html)
 - [VS Codeをスニペット作成は簡単で便利だった！ - lisz-works](https://www.lisz-works.com/entry/vscode-snippets)
-
 
 ## Preferences
 

@@ -46,9 +46,9 @@ See also:
 ## Data Sources
 ### compute系
 
+- [google_compute_default_service_account](https://www.terraform.io/docs/providers/google/d/compute_default_service_account.html) ... プロジェクトのデフォルトのサービスアカウントを取得する
 - [google_compute_network](https://www.terraform.io/docs/providers/google/d/datasource_compute_network.html)
 - [google_compute_subnetwork](https://www.terraform.io/docs/providers/google/d/datasource_compute_subnetwork.html)
-
 
 ## Resources
 
@@ -176,3 +176,15 @@ resource "google_container_cluster" "experiment" {
 - [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) ... GCS (Cloud Storage) バケット
 - [google_storage_bucket_object](https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html) ... GCSオブジェクト。ローカルのファイルからアップロードできる
 - [google_storage_notification](https://www.terraform.io/docs/providers/google/r/storage_notification.html) ... GCSでのイベントをPub/Subに通知する通知リソース
+
+#### IAM for GCS Bucket
+
+https://www.terraform.io/docs/providers/google/r/storage_bucket_iam.html
+
+Pub/SubのTopic/Subscription IAMと同じように3種類のリソースが用意されている。
+
+- `google_storage_bucket_iam_policy` ... そのバケットに対するIAM x 権限(Role)をフルコントロールしたい場合に使う
+- `google_storage_bucket_iam_binding` ... そのバケットに対して特定のRoleの権限を持つIAMメンバーリストを管理する
+- `google_storage_bucket_iam_member` ... 特定の (IAM x Role) の組合せを管理する。既存の他の権限セットとは独立して管理することが可能
+
+特定のIAMアカウントに対して権限を追加したい場合、基本的には `google_storage_bucket_iam_member` を使えばよさそう。

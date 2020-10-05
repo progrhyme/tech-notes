@@ -34,6 +34,17 @@ gsutil rm gs://[BUCKET_NAME]/[OBJECT_NAME]#[GENERATION_NUMBER]
 ```
 
 ## アクセス制御
+
+https://cloud.google.com/storage/docs/access-control
+
+バケットのアクセス制御のタイプが2つある:
+
+- 均一アクセス（Uniform） ... 2020-10-05時点の推奨
+  - IAMのみで権限管理する。IAM Coditionsを使える
+- きめ細かいアクセス（Fine-grained）
+  - レガシー
+  - IAMとACLを併用して権限管理できる。Amazon S3と相互運用できるようにデザインされている
+
 ### IAM
 
 [Cloud Identity and Access Management | Cloud Storage | Google Cloud](https://cloud.google.com/storage/docs/access-control/iam)

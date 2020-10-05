@@ -32,6 +32,20 @@ https://cloud.google.com/container-registry/docs/advanced-authentication
 
 > イメージが push、タグ付け、削除されたときなど、Container Registry リポジトリに変更が加えられた場合、Pub/Sub を使用して通知を受け取ることができます
 
+### アクセス制御
+
+https://cloud.google.com/container-registry/docs/access-control
+
+NOTE:
+
+- GCRはストレージとしてGCSバケットを使っている ... See below
+- イメージへのアクセスを制御するには、ユーザ、グループ、サービスアカウントなどのIDに該当のGCSバケットへの権限を付与する
+
+ 操作 | 権限(Role)
+-----|------------
+ push (R/W) | roles/strage.admin
+ pull (RO) | roles/storage.objectViewer
+
 ## Spec
 ### レジストリのGCSバケット
 

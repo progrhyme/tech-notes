@@ -34,6 +34,21 @@ query-option:
 - [digコマンドで覚えておきたい使い方11個 \| 俺的備忘録 〜なんかいろいろ〜](https://orebibou.com/2016/11/dig%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E4%BD%BF%E3%81%84%E6%96%B911%E5%80%8B/)
 - [digコマンド 使い方 オプション DNS BIND](http://www.geocities.jp/yasasikukaitou/dig.html)
 
+## lsof
+
+ファイルディスクリプタを表示するコマンドだが、ネットワークソケットの表示にも使える。
+
+Examples:
+
+```sh
+# ネットワークコネクションを表示
+lsof -i -P
+```
+
+参考:
+
+- [lsof, netstat コマンド - Qiita](https://qiita.com/sinsengumi/items/b9e0c1fde8075f9153e1)
+
 ## mtr
 
 デフォルトは ICMP を使う。
