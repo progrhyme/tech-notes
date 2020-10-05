@@ -288,7 +288,7 @@ mdbook serve &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&
 &lt;p>後述のmkdocs-materialを使うなら、そちらのDockerイメージを使う手も有る。MkDocsも含まれているので。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#mkdocs%E4%BA%8B%E5%A7%8B%E3%82%81">2020-06-20#MkDocs事始め&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200620/#mkdocs%E4%BA%8B%E5%A7%8B%E3%82%81">2020-06-20#MkDocs事始め&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="quickstart">Quickstart&lt;/h3>
 &lt;p>&lt;a href="https://www.mkdocs.org/#getting-started">https://www.mkdocs.org/#getting-started&lt;/a>&lt;/p>
@@ -396,7 +396,7 @@ mkdocs build
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#mkdocs-material%E3%82%92docker%E3%81%A7%E5%8B%95%E3%81%8B%E3%81%99">2020-06-20#mkdocs-materialをDockerで動かす&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200620/#mkdocs-material%E3%82%92docker%E3%81%A7%E5%8B%95%E3%81%8B%E3%81%99">2020-06-20#mkdocs-materialをDockerで動かす&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="features">Features&lt;/h3>
 &lt;ul>

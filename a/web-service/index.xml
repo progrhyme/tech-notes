@@ -164,7 +164,7 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;p>リポジトリと連携可能な静的サイトホスティングサービス。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200624/#github-pages%E3%82%92json%E3%82%B5%E3%83%BC%E3%83%90%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%86">2020-06-24#GitHub PagesをJSONサーバとして使う&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200624/#github-pages%E3%82%92json%E3%82%B5%E3%83%BC%E3%83%90%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%86">2020-06-24#GitHub PagesをJSONサーバとして使う&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="deployments">Deployments&lt;/h2>
 &lt;p>Deploymentを作成するとリポジトリに「environment」というメニューができて、デプロイ履歴などが見えるようになる。&lt;/p>

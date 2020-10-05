@@ -1,4 +1,287 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-13</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200613/</link><pubDate>Sat, 13 Jun 2020 03:10:06 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200613/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><description>Recent content in 2020 archive on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 01 Jan 2020 15:38:43 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/2020/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-06-24</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200624/</link><pubDate>Wed, 24 Jun 2020 02:06:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200624/</guid><description>
+&lt;h2 id="624">6/24&lt;/h2>
+&lt;h3 id="github-pagesをjsonサーバとして使う">GitHub PagesをJSONサーバとして使う&lt;/h3>
+&lt;p>使える。&lt;br>
+やってみた。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ curl https://progrhy.me/gh-page-test/foo.json
+&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;bar&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/39199042/serve-json-data-from-github-pages">api - Serve JSON Data from Github Pages - Stack Overflow&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/Kanahiro/items/e7021b05199ae52e818b">GitHub Actionsを活用して擬似APIサーバーを用意する - Qiita&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Kanahiro/items/9cfa6fa5cc9c3fcb57fd">GitHub Pagesを活用して擬似REST APIサーバーを作る - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="progrhymegithubio-でやったらハマった">progrhyme.github.io でやったらハマった&lt;/h4>
+&lt;p>最初プロフィールサイトにjsonファイル置いたら、なぜか404になってハマった。&lt;br>
+他のコンテンツがあると駄目なのか、 progrhyme.github.io リポが例外的に駄目なのか、仕様がよくわからん。&lt;/p>
+&lt;h3 id="久しぶりにmysqlをdockerで動かしたら接続できなかった">久しぶりにmysqlをdockerで動かしたら接続できなかった&lt;/h3>
+&lt;p>mysql 8をdockerで動かして、別のdockerコンテナから接続しようとしたが、認証エラーで接続できなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># サーバ実行&lt;/span>
+$ docker run --rm --name mysql -e &lt;span style="color:#000">MYSQL_ROOT_PASSWORD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>mysql -d -p 3306:3306 mysql
+&lt;span style="color:#8f5902;font-style:italic"># クライアント実行&lt;/span>
+$ docker run --rm --link mysql:mysql -it myapp bash -l
+&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>myapp&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&amp;gt; mysql -h mysql -uroot -pmysql
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>出くわしたエラーは &lt;code>ERROR 2026&lt;/code> と &lt;code>ERROR 2061&lt;/code> かな。&lt;br>
+SSL接続を回避して解消できないかトライしたけどできなかったので、とりあえずmysql 5.7にして回避した。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/astrsk_hori/items/e3d6c237d68be1a6f548">dockerでmysqlを使う - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://yoku0825.blogspot.com/2018/10/mysql-80cachingsha2password-ssl.html">日々の覚書: MySQL 8.0のcaching_sha2_password + 非SSL接続が転ける&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ah-2.com/g1/2017/01/30/mysql_ssl_connect_error.html">ah-2.com | SSLを有効にしているMySQLに接続時にERROR 2026 (HY000): SSL connection error: protocol version mismatch が出る&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/ssl-options.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 6.3.10.4 SSL コマンドのオプション&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-22</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200622/</link><pubDate>Mon, 22 Jun 2020 11:53:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200622/</guid><description>
+&lt;h2 id="622">6/22&lt;/h2>
+&lt;h3 id="flaskで作ったapiのドキュメントを作りたい">Flaskで作ったAPIのドキュメントを作りたい&lt;/h3>
+&lt;p>まださっとググっただけだけど、色んなツールがありそう。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://flask-apispec.readthedocs.io/en/latest/">https://flask-apispec.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/14295322/what-tools-are-available-to-auto-produce-documentation-for-a-rest-api-written-in">python - What tools are available to auto-produce documentation for a REST API written in Flask? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="librariesio">libraries.io&lt;/h3>
+&lt;p>&lt;a href="https://libraries.io/">https://libraries.io/&lt;/a>&lt;/p>
+&lt;p>というのがある。Go, npmなど各種言語のパッケージをまとめてホスト（？）しているようだ。&lt;/p>
+&lt;p>&lt;a href="https://libraries.io/gitlab/timkoi/shelldoc">https://libraries.io/gitlab/timkoi/shelldoc&lt;/a>&lt;/p>
+&lt;p>↑で見つけた。&lt;br>
+これはbpkgに対応しているようだけど、libraries.ioがどう扱っているのかはよくわからん。
+libraries.ioの対応パッケージにbpkgはなさそう。&lt;/p>
+&lt;p>&lt;a href="https://libraries.io/languages/Shell">https://libraries.io/languages/Shell&lt;/a>&lt;/p>
+&lt;p>っていうカテゴリがあるが、実はnpmのものが多い。&lt;br>
+タグがついてるだけなのか、中にシェルスクリプトを含んでいるものなのか？&lt;/p></description></item><item><title>A: 2020-06-20</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200620/</link><pubDate>Sat, 20 Jun 2020 07:45:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200620/</guid><description>
+&lt;h2 id="620">6/20&lt;/h2>
+&lt;h3 id="gitconfigでpullrebase--trueにしていたらローカルの履歴が失われた">gitconfigでpull.rebase = trueにしていたらローカルの履歴が失われた&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/myenv/commits/a75f069fad8dd05fe26d40526deab10d7912cb51">https://github.com/progrhyme/myenv/commits/a75f069fad8dd05fe26d40526deab10d7912cb51&lt;/a>&lt;/p>
+&lt;p>この辺の作業をしていたとき。&lt;br>
+macOSで作業した後、Ubuntuに戻ったときについ &lt;code>git push -f&lt;/code> してしまい、 &lt;code>[darwin]&lt;/code> なコミットログが失われてしまった。&lt;/p>
+&lt;p>その後macOSに戻ってgit pullしたが、 &lt;code>pull.rebase = true&lt;/code> にしていたからtopにあったコミットはなかったことにされてしまったようだ。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/git/#pull">Git#config-pull&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="go-moduleの更新をpkggodevに反映する">Go moduleの更新をpkg.go.devに反映する&lt;/h3>
+&lt;p>shelpはmodule / packageとしての利用は想定してないのだけど、久しぶりにpkg.go.devで見てみたら、未だにv0.1.0しかないのが気になった。&lt;/p>
+&lt;p>&lt;a href="https://pkg.go.dev/mod/github.com/progrhyme/shelp?tab=versions">https://pkg.go.dev/mod/github.com/progrhyme/shelp?tab=versions&lt;/a>&lt;/p>
+&lt;p>※今は後述の操作を行って、v0.5.3までインデックされている。&lt;/p>
+&lt;p>ふつうにGitHubにリリースしているだけでは新しいバージョンがインデックスされないみたい。&lt;br>
+&lt;a href="https://go.dev/about">https://go.dev/about&lt;/a> によると&lt;/p>
+&lt;blockquote>
+&lt;p>Data for the site is downloaded from proxy.golang.org. We monitor the Go Module Index regularly for new packages to add to pkg.go.dev. If you don’t see a package on pkg.go.dev, you can add it by doing one of the following:&lt;/p>
+&lt;/blockquote>
+&lt;p>以下、いずれかの操作が必要だそうだ:&lt;/p>
+&lt;ul>
+&lt;li>proxy.golang.org に当該バージョンのモジュールをリクエストする
+&lt;ul>
+&lt;li>例) &lt;a href="https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info">https://proxy.golang.org/example.com/my/module/@v/v1.0.0.info&lt;/a> にGETリクエストを送る&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>GOPROXY=&amp;ldquo;&lt;a href="https://proxy.golang.org">https://proxy.golang.org&lt;/a>&amp;rdquo; をつけてmodule-aware modeでgo getする
+&lt;ul>
+&lt;li>例) &lt;code>GOPROXY=&amp;quot;https://proxy.golang.org&amp;quot; GO111MODULE=on go get example.com/my/module@v1.0.0&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/go/dojo/#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E6%9B%B4%E6%96%B0">プログラム言語 &amp;gt; Golang &amp;gt; 道場#モジュール更新&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="golangでmoduleのパスの外でmodule-aware-modeで入れたmoduleの消し方がわからん">Golangでmoduleのパスの外でmodule-aware modeで入れたmoduleの消し方がわからん&lt;/h3>
+&lt;p>&lt;a href="https://golang.org/cmd/go/">https://golang.org/cmd/go/&lt;/a> には載ってないと思う。&lt;/p>
+&lt;p>go mod tidyで消えるかもしれないが、何が対象になるかわからなくて、怖くてまだ打ってない。&lt;br>
+別に全部消えてもなんとかなると思うけど。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/k-kurikuri/items/609141727320eb1a6d2b">go mod tidy で不要なpackageを削除する - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mkdocs事始め">MkDocs事始め&lt;/h3>
+&lt;p>shelpのドキュメントサイトを作ろうと思った。&lt;br>
+そんなにページ数も行かないだろうから、Docsyは牛刀過ぎる。&lt;br>
+このぐらいのサイトならMkDocsで十分行けそうである。&lt;/p>
+&lt;p>そして、&lt;a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs&lt;/a>はとてもデザインが良い。&lt;/p>
+&lt;p>というわけで、まずはMkDocs環境をセットアップ。&lt;/p>
+&lt;p>全部mkdocs-materialのDockerでやろうかとも思ったけど、まあPythonも既にpyenvで3.8を入れてたし、そんなに面倒じゃなかったのと、Dockerでファイルを作るとパーミッションがあーって感じになりがちなので、mkdocs用のvenvを作ってやることにした。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># venvセットアップ&lt;/span>
+python -m venv venv/mkdocs
+&lt;span style="color:#204a87">source&lt;/span> venv/mkdocs/bin/activate
+&lt;span style="color:#8f5902;font-style:italic"># mkdocsインストール&lt;/span>
+pip install mkdocs
+&lt;span style="color:#8f5902;font-style:italic"># リポジトリ作成&lt;/span>
+mkdocs new shelp-doc
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/static-site-generator/mkdocs/">Software &amp;gt; 静的サイトジェネレーター &amp;gt; MkDocs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="mkdocs-materialをdockerで動かす">mkdocs-materialをDockerで動かす&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/docker-wraps">docker-wraps&lt;/a>というリポジトリを作って、ラッパースクリプトを書いた。&lt;br>
+やってることはこれだけ:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>docker run --rm -it -p 8000:8000 -v &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">PWD&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>:/docs squidfunk/mkdocs-material &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これを上で作ったshelp-docリポジトリで動かす…の前に、mkdocs.ymlでテーマを設定してから:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">site_name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">shelp doc&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">theme&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">material&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ラッパーコマンドを実行すると、docker pull -&amp;gt; runが行われ、 0.0.0.0:8000 でmkdocsのWebサーバが起動した。&lt;/p></description></item><item><title>A: 2020-06-17</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200617/</link><pubDate>Wed, 17 Jun 2020 00:14:59 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200617/</guid><description>
+&lt;h2 id="617">6/17&lt;/h2>
+&lt;h3 id="shelpのリファクタでgorenameを叩きまくった">shelpのリファクタでgorenameを叩きまくった&lt;/h3>
+&lt;p>gorenameの使い方などは&lt;a href="https://progrhy.me/tech-notes/a/program/go/tools/#cmdgorename">プログラム言語 &amp;gt; Golang &amp;gt; tools#cmd/gorename&lt;/a>に書いた。&lt;/p>
+&lt;p>具体的にはこのコミット: &lt;a href="https://github.com/progrhyme/shelp/pull/5/commits/9b33d0e78dfa9b984a24eca80d9fef89b0556157">https://github.com/progrhyme/shelp/pull/5/commits/9b33d0e78dfa9b984a24eca80d9fef89b0556157&lt;/a>&lt;/p>
+&lt;p>gorenameを通算30回ぐらいは叩いたか。&lt;br>
+下のようにシェル関数を作ってタイプ数を減らした:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gorename-cli&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87">local&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$1&lt;/span>
+&lt;span style="color:#204a87">local&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$2&lt;/span>
+gorename -from &lt;span style="color:#4e9a06">&amp;#34;\&amp;#34;github.com/progrhyme/shelp/internal/cli\&amp;#34;.&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">from&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> -to &lt;span style="color:#000">$to&lt;/span> -v
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+gorename-cli removeCmd.name op
+gorename-cli commonCmd.command name
+gorename-cli removeCmd.op &lt;span style="color:#204a87">command&lt;/span>
+gorename-cli installCmd.op &lt;span style="color:#204a87">command&lt;/span>
+:
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="shelpのhomebrew-tap-formulaを更新したが手元でupgradeを打っても更新されなかった">shelpのHomebrew Tap Formulaを更新したが、手元でupgradeを打っても更新されなかった&lt;/h3>
+&lt;p>&lt;a href="https://github.com/progrhyme/homebrew-taps/commit/351ee0f987043968bad1ff9fc386f895d86f8406">shelpのFormulaをv0.5.1に更新した&lt;/a>が、 &lt;code>brew upgrade&lt;/code> で更新できなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ brew bundle --global
+:
+&lt;span style="color:#8f5902;font-style:italic"># 更新されず&lt;/span>
+$ brew update
+$ brew upgrade shelp
+Warning: progrhyme/taps/shelp 86.64 already installed
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>仕方ないので &lt;code>brew remove shelp&lt;/code> -&amp;gt; &lt;code>brew bundle&lt;/code> したが、 &lt;code>brew reinstall&lt;/code> でもよかったか。&lt;/p>
+&lt;h4 id="追記-autodetectに失敗していた">追記 autodetectに失敗していた&lt;/h4>
+&lt;p>↑のログにも出ているように、バージョンが &lt;code>86.64&lt;/code> だと思われていたらしい。&lt;br>
+んなアホな…。&lt;/p>
+&lt;p>&lt;code>.version&lt;/code> メソッドで明示的に指定した。&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/homebrew-taps/commit/af68e9c05b604b32048cada29cc5c54e2c4dd96a">https://github.com/progrhyme/homebrew-taps/commit/af68e9c05b604b32048cada29cc5c54e2c4dd96a&lt;/a>&lt;/p>
+&lt;h3 id="goreleaserのドキュメントに修正prを送った">goreleaserのドキュメントに修正PRを送った&lt;/h3>
+&lt;p>&lt;a href="https://goreleaser.com/ci/actions/">https://goreleaser.com/ci/actions/&lt;/a>&lt;/p>
+&lt;p>で紹介されているサンプルのYAMLに問題があって、履歴が取れていなかったので。&lt;/p>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">GoReleaserで、GitHub ActionsでリリースするとChangelogに全コミット履歴が載ってしまう原因がわかった。履歴取得のために&lt;br>git fetch --prune --unshallowしてるけど、これだとタグ情報が取れてないので、--tagsオプションが必要だ。&lt;/p>&amp;mdash; progrhyme (@progrhyme) &lt;a href="https://twitter.com/progrhyme/status/1272139558994378753?ref_src=twsrc%5Etfw">June 14, 2020&lt;/a>&lt;/blockquote> &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/goreleaser/goreleaser/pull/1608">https://github.com/goreleaser/goreleaser/pull/1608&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>上のPRを送ったが、actions/checkout@v2のオプションで行けたので、そちらでやることになった:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/goreleaser/goreleaser/pull/1610">https://github.com/goreleaser/goreleaser/pull/1610&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-06-15</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200615/</link><pubDate>Mon, 15 Jun 2020 01:53:26 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200615/</guid><description>
+&lt;h2 id="615">6/15&lt;/h2>
+&lt;h3 id="maltmillを使いたかったが動かなかった">maltmillを使いたかったが動かなかった&lt;/h3>
+&lt;p>shelpのbrew tapを作ろうと思って、&lt;a href="https://songmu.jp/riji/entry/2019-02-22-maltmill.html">Songmuさんの記事&lt;/a>を見つけ、&lt;a href="https://github.com/Songmu/maltmill">maltmill&lt;/a>を使ってFormulaを作ろうとしたが、動かなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ maltmill new -w progrhyme/shelp
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>maltmill&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>!!ERROR!!&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> no assets found from latest release
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>いまGitHubの最新版は &lt;a href="https://github.com/progrhyme/shelp/releases/tag/v0.5.1-pre-release">https://github.com/progrhyme/shelp/releases/tag/v0.5.1-pre-release&lt;/a>&lt;br>
+Assetsはあるんだけどな。&lt;br>
+まあ、きっとツールが想定している形式に沿ってないんだろう。&lt;/p>
+&lt;p>残念。&lt;/p>
+&lt;p>ついでにいうと、Ubuntu 18で作業してたのだけど、brewで入れようとしたらバイナリはdarwinだったから駄目だった。&lt;br>
+（この辺はFormula作るときはどうしたらいいんだろう？）&lt;/p>
+&lt;p>次に &lt;code>go get&lt;/code> したらビルドがこけ、ghgが手元にあったので、ghgでインストールした。&lt;/p>
+&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/pkg-man/brew/">Software &amp;gt; パッケージ管理 &amp;gt; Homebrew&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="初めてのbrew-formula">初めてのBrew Formula&lt;/h3>
+&lt;p>shelpのFormulaを作った。&lt;/p>
+&lt;p>だいたいこれ &lt;a href="https://docs.brew.sh/Formula-Cookbook">https://docs.brew.sh/Formula-Cookbook&lt;/a> に沿って作業した。&lt;/p>
+&lt;p>他のドキュメント類のリンクは↑のページにメモしてある。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Taps/homebrew/homebrew-core
+brew create https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで &lt;code>Formula/shelp.rb&lt;/code> に雛形ができる。&lt;/p>
+&lt;p>あとは&lt;a href="https://github.com/Homebrew/homebrew-core/blob/master/Formula/peco.rb">pecoのFormula&lt;/a>や、その辺にあったexampleや、リファレンスを読みながらちょこちょこ書き換えた。&lt;/p>
+&lt;p>最終的に出来たのがこれ:&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/homebrew-core/blob/db315c00862854800f8f4ee75dd45e70d10c7862/Formula/shelp.rb">https://github.com/progrhyme/homebrew-core/blob/db315c00862854800f8f4ee75dd45e70d10c7862/Formula/shelp.rb&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">Shelp&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#000">Formula&lt;/span>
+&lt;span style="color:#000">desc&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Git-based package manager for shell scripts written in Go&amp;#34;&lt;/span>
+&lt;span style="color:#000">homepage&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/progrhyme/shelp&amp;#34;&lt;/span>
+&lt;span style="color:#000">url&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz&amp;#34;&lt;/span>
+&lt;span style="color:#000">sha256&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;32ef1a1c0c85cc3fdca607dcc415d3032a9b3b770e6e7d1446c76ccb910c3c6a&amp;#34;&lt;/span>
+&lt;span style="color:#000">head&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/progrhyme/shelp.git&amp;#34;&lt;/span>
+&lt;span style="color:#000">depends_on&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;go&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#4e9a06">:build&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">install&lt;/span>
+&lt;span style="color:#000">ENV&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;GOPATH&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">buildpath&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buildpath&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">/&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;src/github.com/progrhyme/shelp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">install&lt;/span> &lt;span style="color:#000">buildpath&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">children&lt;/span>
+&lt;span style="color:#000">cd&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;src/github.com/progrhyme/shelp&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#204a87">system&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;go&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;build&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-o&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">/&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;shelp&amp;#34;&lt;/span>
+&lt;span style="color:#000">prefix&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">install_metafiles&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#204a87">system&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/shelp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;--version&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>単純にgoでbuildしてインストールする形。&lt;/p>
+&lt;h4 id="検証">検証&lt;/h4>
+&lt;p>ビルドのチェックを行う。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install --interactive shelp
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>こうすると、テンポラリなディレクトリにtarballが展開され、そのディレクトリでシェルが起動する。
+ここで、ビルド環境に問題がないかチェックするようだ。&lt;/p>
+&lt;p>shelpの場合、goがあればいいので特に問題ない。&lt;/p>
+&lt;p>何もせずに &lt;code>exit&lt;/code> した。&lt;/p>
+&lt;h4 id="インストールする">インストールする&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ brew install --verbose --debug shelp
+&lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Homebrew/brew.rb &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Formulary::FormulaLoader&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: loading &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/go.rb
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Downloading https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
+/usr/bin/curl --disable --globoff --show-error --user-agent Linuxbrew/2.4.0-41-g0125c4c&lt;span style="color:#4e9a06">\ \(&lt;/span>Linux&lt;span style="color:#4e9a06">\;\ &lt;/span>x86_64&lt;span style="color:#4e9a06">\ &lt;/span>Ubuntu&lt;span style="color:#4e9a06">\ &lt;/span>18.04.4&lt;span style="color:#4e9a06">\ &lt;/span>LTS&lt;span style="color:#4e9a06">\)\ &lt;/span>curl/7.58.0 --retry &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> --location --silent --head --request GET https://github.com/progrhyme/shelp/archive/v0.5.0.tar.gz
+Already downloaded: /home/progrhyme/.cache/Homebrew/downloads/953ed657e86e0d4247c629ba0e66f0a7a0690b35b0122db90d9cf2160b8a6a61--shelp-0.5.0.tar.gz
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Verifying 953ed657e86e0d4247c629ba0e66f0a7a0690b35b0122db90d9cf2160b8a6a61--shelp-0.5.0.tar.gz checksum
+&lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Homebrew/build.rb &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Formulary::FormulaLoader&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: loading &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/go.rb
+&lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Homebrew/build.rb &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Formulary::FormulaLoader&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: loading &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/gcc.rb
+&lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Homebrew/build.rb &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Formulary::FormulaLoader&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: loading &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/binutils.rb
+&lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Homebrew/build.rb &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>Formulary::FormulaLoader&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: loading &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/make.rb
+tar xof /home/progrhyme/.cache/Homebrew/downloads/953ed657e86e0d4247c629ba0e66f0a7a0690b35b0122db90d9cf2160b8a6a61--shelp-0.5.0.tar.gz -C /tmp/d20200615-27628-1gx29yu
+cp -pR /tmp/d20200615-27628-1gx29yu/shelp-0.5.0/. /tmp/shelp-20200615-27628-1cuvuid/shelp-0.5.0
+chmod -Rf +w /tmp/d20200615-27628-1gx29yu
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; go build -o &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Cellar/shelp/0.5.0/bin/shelp
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9
+go: downloading gopkg.in/yaml.v2 v2.3.0
+go: downloading golang.org/x/sys v0.0.0-20190412213103-97732733099d
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; &lt;span style="color:#000">Cleaning&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Fixing &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Cellar/shelp/0.5.0/bin/shelp permissions from &lt;span style="color:#0000cf;font-weight:bold">755&lt;/span> to &lt;span style="color:#000">555&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Finishing up
+ln -s ../Cellar/shelp/0.5.0/bin/shelp &lt;span style="color:#000">shelp&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span>&amp;gt; Summary
+🍺 &lt;span style="color:#000">$HOMEBREW_PREFIX&lt;/span>/Cellar/shelp/0.5.0: &lt;span style="color:#0000cf;font-weight:bold">6&lt;/span> files, 5.1MB, built in &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> seconds
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="バイナリインストールに対応できていない">バイナリインストールに対応できていない&lt;/h4>
+&lt;p>bottleブロックが追加されたら、バイナリインストールにも自動的に対応されるのかな？ とはいえそれには、homebrew-coreに取り込まれなければならない。&lt;/p>
+&lt;p>自前のTapでそれをやる方法はまだわかってない。&lt;/p>
+&lt;p>&lt;a href="https://github.com/Songmu/homebrew-tap/tree/master/Formula">SongmuさんのFormula&lt;/a>を真似すればいいんだろうけど、最近Ubuntuを使う頻度が多いので、できればmacOS, Linusの両方に対応したい。&lt;/p>
+&lt;h3 id="shelpをbrew-tapでインストールできるようにした">shelpをbrew tapでインストールできるようにした&lt;/h3>
+&lt;p>上に書いたようにmaltmillが動かなかったので、先ほど作ったFormulaをそのまま使った。&lt;/p>
+&lt;p>&lt;a href="https://github.com/progrhyme/homebrew-taps">https://github.com/progrhyme/homebrew-taps&lt;/a>&lt;/p>
+&lt;p>このリポジトリを用意して、Songmuさんの記事を参考にして、Formulaを配置した。
+実際、やることはこれだけ。&lt;/p>
+&lt;p>あとは&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew tap progrhyme/taps
+brew install shelp
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>でOK.&lt;/p>
+&lt;h3 id="shelpでbrewによるバイナリインストールに対応">shelpでbrewによるバイナリインストールに対応&lt;/h3>
+&lt;p>Ruby APIとCookbookを見ながら頑張って対応した。&lt;br>
+Formulaは次のようになった:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Ruby" data-lang="Ruby">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">Shelp&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span> &lt;span style="color:#000">Formula&lt;/span>
+&lt;span style="color:#000">Version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;0.5.0&amp;#39;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">OS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">mac?&lt;/span>
+&lt;span style="color:#000">Binary&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;shelp_&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">Version&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">_darwin_x86_64&amp;#34;&lt;/span>
+&lt;span style="color:#000">sha256&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;18665382a6519b59741740cd9edbcc667be3bf99d06fd7d914274a30d5cba889&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">elsif&lt;/span> &lt;span style="color:#000">OS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">linux?&lt;/span>
+&lt;span style="color:#000">Binary&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;shelp_&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">Version&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">_linux_x86_64&amp;#34;&lt;/span>
+&lt;span style="color:#000">sha256&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;7a8797cbd3af61d0cb83b2ee6f8720a208c05e653871d55fee34b837c8f1e8bf&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#000">url&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/progrhyme/shelp/releases/download/v&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">Version&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">Binary&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#000">desc&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Git-based package manager for shell scripts written in Go&amp;#34;&lt;/span>
+&lt;span style="color:#000">homepage&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/progrhyme/shelp&amp;#34;&lt;/span>
+&lt;span style="color:#000">head&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/progrhyme/shelp.git&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">install&lt;/span>
+&lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">install&lt;/span> &lt;span style="color:#000">Binary&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;shelp&amp;#39;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;span style="color:#204a87">system&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">#{&lt;/span>&lt;span style="color:#000">bin&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/shelp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;--version&amp;#39;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-06-13</title><link>https://progrhy.me/tech-notes/a/memo/2020/20200613/</link><pubDate>Sat, 13 Jun 2020 03:10:06 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/20200613/</guid><description>
 &lt;h2 id="613">6/13&lt;/h2>
 &lt;h3 id="macosのgolang環境をアップデート">macOSのGolang環境をアップデート&lt;/h3>
 &lt;p>約1年ぶりにgoをアップデート。&lt;/p>

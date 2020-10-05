@@ -168,7 +168,7 @@ brew create --go --tap progrhyme/taps -v https://github.com/progrhyme/shelp/arch
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://songmu.jp/riji/entry/2019-02-22-maltmill.html">Homebrewで自作ツールを簡単にインストール可能にする | おそらくはそれさえも平凡な日々&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200615/#maltmill%E3%82%92%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F">2020-06-15#maltmillを使いたかったが動かなかった&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200615/#maltmill%E3%82%92%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%8C%E5%8B%95%E3%81%8B%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F">2020-06-15#maltmillを使いたかったが動かなかった&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="ruby-api">Ruby API&lt;/h2>
 &lt;p>&lt;a href="https://rubydoc.brew.sh/">https://rubydoc.brew.sh/&lt;/a>&lt;/p>

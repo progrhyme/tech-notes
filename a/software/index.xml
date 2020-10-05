@@ -332,7 +332,7 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#gitconfig%E3%81%A7pullrebase--true%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%82%89%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E5%B1%A5%E6%AD%B4%E3%81%8C%E5%A4%B1%E3%82%8F%E3%82%8C%E3%81%9F">2020-06-20#gitconfigでpull.rebase=trueにしていたらローカルの履歴が失われた&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200620/#gitconfig%E3%81%A7pullrebase--true%E3%81%AB%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%82%89%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E5%B1%A5%E6%AD%B4%E3%81%8C%E5%A4%B1%E3%82%8F%E3%82%8C%E3%81%9F">2020-06-20#gitconfigでpull.rebase=trueにしていたらローカルの履歴が失われた&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/nog/items/c79469afbf3e632f10a1">gitのmerge &amp;ndash;no-ff のススメ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
@@ -838,6 +838,12 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;ul>
 &lt;li>&lt;a href="https://www.hashicorp.com/blog/structuring-hashicorp-terraform-configuration-for-production/">Structuring HashiCorp Terraform Configuration for Production&lt;/a> &amp;hellip; 2020-03-27. Workspacesを使わずにディレクトリを分けることのメリットが述べられている。&lt;/li>
 &lt;/ul>
+&lt;h2 id="versions">Versions&lt;/h2>
+&lt;h3 id="v013">v0.13&lt;/h3>
+&lt;p>&lt;a href="https://www.hashicorp.com/blog/announcing-hashicorp-terraform-0-13">2020年8月にGA&lt;/a>。&lt;/p>
+&lt;p>v0.12ほどではないが、非互換の変更があり、アップグレード時には対応が必要。&lt;/p>
+&lt;p>&lt;a href="https://www.terraform.io/upgrade-guides/0-13.html">https://www.terraform.io/upgrade-guides/0-13.html&lt;/a>&lt;/p>
+&lt;p>v0.11以前の人は一度、v0.12に上げてからv0.13にアップグレードする必要がある。&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="バージョン固定">バージョン固定&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/terraform.html">Terraform Settings - Configuration Language - Terraform by HashiCorp&lt;/a>&lt;/p>

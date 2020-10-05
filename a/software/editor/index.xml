@@ -140,6 +140,29 @@ Electronをベースにしており、IDE並の機能を持つ。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="矩形選択--複数行同時編集">矩形選択 / 複数行同時編集&lt;/h3>
+&lt;p>マウスで範囲を選択する場合:&lt;/p>
+&lt;ul>
+&lt;li>Macの場合:
+&lt;ol>
+&lt;li>始点にカーソルを合わせる&lt;/li>
+&lt;li>&lt;code>Shift + Option&lt;/code> を押しながら終点にカーソルを合わせる&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;p>キーボードで範囲を選択する場合:&lt;/p>
+&lt;ul>
+&lt;li>Macの場合:
+&lt;ol>
+&lt;li>始点にカーソルを合わせる&lt;/li>
+&lt;li>&lt;code>Shift + Option + ⌘&lt;/code> を押しながら矢印キーで終点までカーソルを移動&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog-and-destroy.com/28272">【VSCode】テキストを縦に選択し、一括で入力・削除する方法｜ブロック選択・短冊選択&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="スニペット機能">スニペット機能&lt;/h3>
 &lt;ul>
 &lt;li>ユーザ定義のスニペットを作成可能

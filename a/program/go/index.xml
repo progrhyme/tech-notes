@@ -765,7 +765,7 @@ ImportPath = string_lit .
 &lt;/ul>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200620/#go-module%E3%81%AE%E6%9B%B4%E6%96%B0%E3%82%92pkggodev%E3%81%AB%E5%8F%8D%E6%98%A0%E3%81%99%E3%82%8B">2020-06-20#Go-moduleの更新をpkg.go.devに反映する&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200620/#go-module%E3%81%AE%E6%9B%B4%E6%96%B0%E3%82%92pkggodev%E3%81%AB%E5%8F%8D%E6%98%A0%E3%81%99%E3%82%8B">2020-06-20#Go-moduleの更新をpkg.go.devに反映する&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Reference:&lt;/p>
 &lt;ul>
