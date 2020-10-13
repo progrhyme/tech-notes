@@ -207,6 +207,14 @@ https://www.terraform.io/docs/configuration/resources.html#meta-parameters
 - depends_on (list of strings) ... リソースやmoduleの依存関係を指定する。
 - lifecycle (block)
 
+### for_each (v0.12.6〜)
+
+`count` のように複数のリソースを定義できる。
+
+参考:
+
+- [Terraformのfor_eachで配列を渡したときのインデックス取得 - Qiita](https://qiita.com/KAndy/items/611d6d6ab9ca0f3047b8)
+
 ### lifecycle
 
 このブロックは以下のキーを取る:
@@ -314,5 +322,48 @@ Tips:
 moduleの属性値を他のmoduleで利用できるようにしたり、remote stateとして他の環境から参照可能にしたりする。
 
 https://www.terraform.io/docs/configuration/outputs.html
+
+## How-to
+### resourceを二重ループで作成する
+
+for構文はネストできるので、for構文で所望のパラメータを持ったリストを生成し、それを `for_each` や `count` で使う。
+
+Example:
+
+```HCL
+locals {
+  params = flatten([
+    for project in var.project_ids :
+    [ for key in var.keys : join(",", [project, key]) ]
+  ])
+}
+
+resource "foo_resource" "my_foo" {
+  for_each = toset(local.params)
+  project  = split(",", each_value)[0]
+  key      = split(",", each_value)[1]
+}
+```
+
+NGなやり方（v0.13以前）:
+
+- `for_each` や `count` 単体ではできない
+- moduleの中で `for_each` や `count` を使い、moduleを `for_each` や `count` で定義する <- サポートされていない
+
+参考:
+
+- [Terraformのmoduleでcount/for_eachが使えない問題 • masu-mi's blog(Dirty Cache)](https://blog.masu-mi.me/post/2020/04/22/terraform-module-count-for_each/)
+
+## Topics
+### count VS for_each
+
+Terraform v0.12から `for_each` によって複数のresourceの定義が可能になった。  
+従来の `count` と違い、個々のresourceのtfstate内の識別子は連番の番号ではなく、文字列のキーがつくので、要素の追加や削除があっても複数のresourceがまとめて作り直される、ということがない。
+
+よって、 `for_each` が使えるならば、 `for_each` を使ったほうがいい。
+
+参考:
+
+- [Terraformで配列をloopする時はfor_eachを使った方がいい - cloudfishのブログ](https://cloudfish.hatenablog.com/entry/2020/02/19/183548)
 
 ## Child Pages

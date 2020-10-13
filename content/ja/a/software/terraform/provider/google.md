@@ -188,3 +188,9 @@ Pub/SubのTopic/Subscription IAMと同じように3種類のリソースが用�
 - `google_storage_bucket_iam_member` ... 特定の (IAM x Role) の組合せを管理する。既存の他の権限セットとは独立して管理することが可能
 
 特定のIAMアカウントに対して権限を追加したい場合、基本的には `google_storage_bucket_iam_member` を使えばよさそう。
+
+### Cloud Logging
+
+Resources:
+
+- [google_logging_metric](https://www.terraform.io/docs/providers/google/r/logging_metric.html) ... カスタムログベース指標
