@@ -167,6 +167,12 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;li>depends_on (list of strings) &amp;hellip; リソースやmoduleの依存関係を指定する。&lt;/li>
 &lt;li>lifecycle (block)&lt;/li>
 &lt;/ul>
+&lt;h3 id="for_each-v0126">for_each (v0.12.6〜)&lt;/h3>
+&lt;p>&lt;code>count&lt;/code> のように複数のリソースを定義できる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/KAndy/items/611d6d6ab9ca0f3047b8">Terraformのfor_eachで配列を渡したときのインデックス取得 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="lifecycle">lifecycle&lt;/h3>
 &lt;p>このブロックは以下のキーを取る:&lt;/p>
 &lt;ul>
@@ -249,6 +255,39 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;h2 id="output">Output&lt;/h2>
 &lt;p>moduleの属性値を他のmoduleで利用できるようにしたり、remote stateとして他の環境から参照可能にしたりする。&lt;/p>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/outputs.html">https://www.terraform.io/docs/configuration/outputs.html&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="resourceを二重ループで作成する">resourceを二重ループで作成する&lt;/h3>
+&lt;p>for構文はネストできるので、for構文で所望のパラメータを持ったリストを生成し、それを &lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> で使う。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">locals&lt;/span> {
+&lt;span style="color:#000"> params&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">flatten&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">project&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project_ids&lt;/span> &lt;span style="color:#a40000">:&lt;/span>
+&lt;span style="color:#000;font-weight:bold">[&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">keys&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span> &lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+}
+&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo_resource&amp;#34; &amp;#34;my_foo&amp;#34;&lt;/span> {
+&lt;span style="color:#000"> for_each&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">toset&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">local&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">params&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">each_value&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000"> key&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">each_value&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NGなやり方（v0.13以前）:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> 単体ではできない&lt;/li>
+&lt;li>moduleの中で &lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> を使い、moduleを &lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> で定義する &amp;lt;- サポートされていない&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.masu-mi.me/post/2020/04/22/terraform-module-count-for_each/">Terraformのmoduleでcount/for_eachが使えない問題 • masu-mi&amp;rsquo;s blog(Dirty Cache)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="topics">Topics&lt;/h2>
+&lt;h3 id="count-vs-for_each">count VS for_each&lt;/h3>
+&lt;p>Terraform v0.12から &lt;code>for_each&lt;/code> によって複数のresourceの定義が可能になった。&lt;br>
+従来の &lt;code>count&lt;/code> と違い、個々のresourceのtfstate内の識別子は連番の番号ではなく、文字列のキーがつくので、要素の追加や削除があっても複数のresourceがまとめて作り直される、ということがない。&lt;/p>
+&lt;p>よって、 &lt;code>for_each&lt;/code> が使えるならば、 &lt;code>for_each&lt;/code> を使ったほうがいい。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloudfish.hatenablog.com/entry/2020/02/19/183548">Terraformで配列をloopする時はfor_eachを使った方がいい - cloudfishのブログ&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/software/terraform/cli/</link><pubDate>Sun, 26 Apr 2020 23:06:08 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/cli/</guid><description>
 &lt;p>&lt;a href="https://www.terraform.io/docs/commands/">https://www.terraform.io/docs/commands/&lt;/a>&lt;/p>
 &lt;h2 id="import">import&lt;/h2>

@@ -225,8 +225,8 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">FIRST_NAME&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Mona&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">MIDDLE_NAME&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">The&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">LAST_NAME&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Octocat&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">|
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="#%E5%A4%89%E6%95%B0%E3%82%84%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8">#変数やシークレットの利用&lt;/a>&lt;/p>
 &lt;h3 id="jobやstepを特定の条件で実行する">jobやstepを特定の条件で実行する&lt;/h3>
 &lt;p>&lt;code>jobs.&amp;lt;job_id&amp;gt;.if&lt;/code> や &lt;code>jobs.&amp;lt;job_id&amp;gt;.steps.if&lt;/code> の値に条件式を記述することで、該当のjobやstepを条件が真のときのみ実行することができる。&lt;/p>
@@ -293,13 +293,13 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">update&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">steps&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">uses&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">actions/checkout@v2&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">|
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git config --global user.name &amp;#34;Your Name&amp;#34;
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git config --global user.email &amp;#34;your-address@example.com&amp;#34;
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> ./do-something.sh
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git add .
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git commit -m &amp;#34;Update by GitHub Action&amp;#34;
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git push
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git push&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>checkoutアクションではデフォルトで &lt;code>${{ github.token }}&lt;/code> が使われており、これにリポジトリへの書込み権限もついているからだろう。&lt;/p>
 &lt;p>git commit &amp;amp; pushを行うActionもある:&lt;/p>
 &lt;ul>
@@ -321,14 +321,14 @@
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">with&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ref&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">gh-pages&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">path&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">public&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">|
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">run&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git config --global user.name &amp;#34;Your Name&amp;#34;
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git config --global user.email &amp;#34;your-address@example.com&amp;#34;
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> make build
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> cd public
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git add .
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git commit -m &amp;#34;Update by GitHub Action&amp;#34;
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git push
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> git push&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上の設定自体は試してないが、やり方的には合っているはず。&lt;br>
 &lt;a href="https://github.com/progrhyme/binq-index/blob/master/.github/workflows/binq-gh.yml">progrhyme/binq-index&lt;/a>ではこのやり方を取っている。&lt;/p>
 &lt;h3 id="workflow内でパッケージインストール">Workflow内でパッケージインストール&lt;/h3>

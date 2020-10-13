@@ -446,4 +446,9 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;code>google_storage_bucket_iam_binding&lt;/code> &amp;hellip; そのバケットに対して特定のRoleの権限を持つIAMメンバーリストを管理する&lt;/li>
 &lt;li>&lt;code>google_storage_bucket_iam_member&lt;/code> &amp;hellip; 特定の (IAM x Role) の組合せを管理する。既存の他の権限セットとは独立して管理することが可能&lt;/li>
 &lt;/ul>
-&lt;p>特定のIAMアカウントに対して権限を追加したい場合、基本的には &lt;code>google_storage_bucket_iam_member&lt;/code> を使えばよさそう。&lt;/p></description></item></channel></rss>
+&lt;p>特定のIAMアカウントに対して権限を追加したい場合、基本的には &lt;code>google_storage_bucket_iam_member&lt;/code> を使えばよさそう。&lt;/p>
+&lt;h3 id="cloud-logging">Cloud Logging&lt;/h3>
+&lt;p>Resources:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/logging_metric.html">google_logging_metric&lt;/a> &amp;hellip; カスタムログベース指標&lt;/li>
+&lt;/ul></description></item></channel></rss>
