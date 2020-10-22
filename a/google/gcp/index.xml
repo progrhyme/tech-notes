@@ -1364,7 +1364,45 @@ some_key:*
 &lt;/table>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="利用量の確認">利用量の確認&lt;/h3>
-&lt;p>Logs Ingestionでresource type別のログ利用量を確認できる。&lt;/p></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
+&lt;p>Logs Ingestionでresource type別のログ利用量を確認できる。&lt;/p></description></item><item><title>A: Cloud Monitoring</title><link>https://progrhy.me/tech-notes/a/google/gcp/monitoring/</link><pubDate>Thu, 22 Oct 2020 09:18:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/monitoring/</guid><description>
+&lt;p>旧Stackdriver Monitoring&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/docs">https://cloud.google.com/monitoring/docs&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/docs/apis">https://cloud.google.com/monitoring/docs/apis&lt;/a> &amp;hellip; APIリファレンス
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/api/metrics">https://cloud.google.com/monitoring/api/metrics&lt;/a> &amp;hellip; メトリクス一覧&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/docs/resources">https://cloud.google.com/monitoring/docs/resources&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="アラート">アラート&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/alerts/ui-conditions-ga?hl=ja">アラート ポリシーの条件を指定する | Stackdriver Monitoring | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/alerts/concepts-indepth?hl=ja">アラート ポリシーの詳細 | Stackdriver Monitoring | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/alerts/incidents-events?hl=ja">インシデントとイベント | Stackdriver Monitoring | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="limitation">Limitation&lt;/h3>
+&lt;p>2020-10-22更新。&lt;/p>
+&lt;ul>
+&lt;li>指標データが欠落または遅延していると、ポリシーによってアラートされなくなり、インシデントが閉じられなくなる可能性がある &lt;a href="https://cloud.google.com/monitoring/alerts/concepts-indepth?hl=ja#partial-metric-data">https://cloud.google.com/monitoring/alerts/concepts-indepth?hl=ja#partial-metric-data&lt;/a>&lt;/li>
+&lt;li>メトリクスデータがない状態を正常とするようなアラートを作ると、エラーが解消しても7日間クローズされなくなる&lt;/li>
+&lt;li>インシデントの状態を手動で解決済みに変更することはできない&lt;/li>
+&lt;/ul>
+&lt;h2 id="稼働時間チェック-uptime-checks">稼働時間チェック (Uptime Checks)&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/monitoring/uptime-checks">https://cloud.google.com/monitoring/uptime-checks&lt;/a>&lt;/p>
+&lt;p>無料の外形監視ツール。&lt;/p>
+&lt;h2 id="エージェント">エージェント&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/monitoring/agent">https://cloud.google.com/monitoring/agent&lt;/a>&lt;/p>
+&lt;p>Cloud Monitoringエージェント。&lt;br>
+GCE等にインストールして使える。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/agent/install-agent?hl=ja">Cloud Monitoring エージェントをインストールする | Google Cloud&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/monitoring/agent/plugins/statsd?hl=ja">StatsD プラグイン | Cloud Monitoring | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: Cloud SQL</title><link>https://progrhy.me/tech-notes/a/google/gcp/sql/</link><pubDate>Mon, 18 May 2020 16:04:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/sql/</guid><description>
 &lt;h2 id="tools">Tools&lt;/h2>
 &lt;h3 id="cloud-sql-proxy">Cloud SQL Proxy&lt;/h3>
 &lt;p>Cloud SQL第2世代インスタンスにアクセスできる公式のプロキシサーバ。&lt;/p>
