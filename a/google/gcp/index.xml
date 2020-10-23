@@ -335,7 +335,7 @@ gcloud config configurations activate プロファイル名
 &lt;/ul>
 &lt;h3 id="container">container&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container">https://cloud.google.com/sdk/gcloud/reference/container&lt;/a>&lt;/p>
-&lt;p>GKE操作。&lt;/p>
+&lt;p>GKEなどコンテナサービスに関する操作。&lt;/p>
 &lt;h4 id="clusters">clusters&lt;/h4>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters">https://cloud.google.com/sdk/gcloud/reference/container/clusters&lt;/a>&lt;/p>
 &lt;p>GKEクラスタの操作。&lt;/p>
@@ -379,6 +379,29 @@ gcloud container clusters get-credentials クラスタ名 &lt;span style="color:
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;h4 id="images">images&lt;/h4>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># イメージ一覧&lt;/span>
+gcloud container images list --repository&lt;span style="color:#ce5c00;font-weight:bold">=[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># イメージのタグ一覧&lt;/span>
+gcloud container images list-tags &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 完全なダイジェストを表示&lt;/span>
+gcloud container images list-tags --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;get(digest)&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 既存イメージに別のタグをつける（下記いずれか）&lt;/span>
+gcloud container images add-tag &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NEW_TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+gcloud container images add-tag &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>@&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE_DIGEST&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NEW_TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gcloud container images add-tag&lt;/code> コマンドは、別プロジェクトのリポジトリへのイメージのコピーにも使える&lt;/li>
+&lt;/ul>
+&lt;p>関連ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs/managing">Managing images | Container Registry Documentation | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="endpoints">endpoints&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints">https://cloud.google.com/sdk/gcloud/reference/endpoints&lt;/a>&lt;/p>
 &lt;p>APIサービスの作成・有効化・管理を行う。&lt;/p>
@@ -631,7 +654,9 @@ gsutil rm -a gs://bucket/path/to/object
 &lt;h3 id="文字列関数">文字列関数&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions">https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 置換
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 結合
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">CONCAT&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">value1&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">value2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">...])&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">-- 置換
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">REGEXP_REPLACE&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">value&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">regexp&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">replacement&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">REPLACE&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">original_value&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">from_value&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">to_value&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="日時関数">日時関数&lt;/h3>
