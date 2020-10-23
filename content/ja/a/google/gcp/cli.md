@@ -416,7 +416,7 @@ Tips:
 
 https://cloud.google.com/sdk/gcloud/reference/container
 
-GKE操作。
+GKEなどコンテナサービスに関する操作。
 
 #### clusters
 
@@ -449,6 +449,36 @@ https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create
  オプション | 意味
 ----------|-----
  --release-channel=CHANNEL | rapid, regular, stableのどれか。リリースチャネルの設定。
+
+#### images
+
+Examples:
+
+```sh
+# イメージ一覧
+gcloud container images list --repository=[HOSTNAME]/[PROJECT-ID]
+
+# イメージのタグ一覧
+gcloud container images list-tags [HOSTNAME]/[PROJECT-ID]/[IMAGE]
+
+## 完全なダイジェストを表示
+gcloud container images list-tags --format='get(digest)' [HOSTNAME]/[PROJECT-ID]/[IMAGE]
+
+# 既存イメージに別のタグをつける（下記いずれか）
+gcloud container images add-tag \
+  [HOSTNAME]/[PROJECT-ID]/[IMAGE]:[TAG] \
+  [HOSTNAME]/[PROJECT-ID]/[IMAGE]:[NEW_TAG]
+
+gcloud container images add-tag \
+  [HOSTNAME]/[PROJECT-ID]/[IMAGE]@[IMAGE_DIGEST] \
+  [HOSTNAME]/[PROJECT-ID]/[IMAGE]:[NEW_TAG]
+```
+
+Tips:
+- `gcloud container images add-tag` コマンドは、別プロジェクトのリポジトリへのイメージのコピーにも使える
+
+関連ドキュメント:
+- [Managing images | Container Registry Documentation | Google Cloud](https://cloud.google.com/container-registry/docs/managing)
 
 ### endpoints
 

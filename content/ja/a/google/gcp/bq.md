@@ -99,6 +99,9 @@ https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions
 Examples:
 
 ```sql
+-- 結合
+CONCAT(value1[, value2, ...])
+
 -- 置換
 REGEXP_REPLACE(value, regexp, replacement)
 REPLACE(original_value, from_value, to_value)
