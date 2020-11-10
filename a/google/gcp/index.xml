@@ -89,6 +89,10 @@
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tnagao3000/items/ff7dd2e89fd8cb42ad5a">Cloud Buildの進行状況をSlackに通知する - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: BigQuery</title><link>https://progrhy.me/tech-notes/a/google/gcp/bq/</link><pubDate>Mon, 22 Jun 2020 11:57:02 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/bq/</guid><description>
+&lt;h2 id="関連ページ">関連ページ&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/cli/bq/">bq CLI&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="documentation">Documentation&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas?hl=ja">割り当てと上限 | BigQuery | Google Cloud&lt;/a>&lt;/li>
@@ -115,6 +119,11 @@
 &lt;h3 id="cloud-sql連携">Cloud SQL連携&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/cloud-sql-federated-queries?hl=ja">Cloud SQL 連携クエリ | BigQuery | Google Cloud&lt;/a>&lt;/p>
 &lt;p>連携設定を行うことで、Cloud SQL上のデータをリアルタイムに参照するVIEWを作成できる。&lt;/p>
+&lt;h3 id="authorized-view-承認済みビュー">Authorized View (承認済みビュー)&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/share-access-views?hl=ja">承認済みビューの作成 | BigQuery | Google Cloud&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>データセットに表示アクセス権を設定する場合、BigQuery では承認済みビューを作成します。承認済みビューを使用すると、元のテーブルへのアクセス権がないユーザーでも、クエリの結果を特定のユーザーやグループと共有できます。ビューの SQL クエリを使用して、ユーザーがクエリを実行できる列（フィールド）を制限することもできます&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="仕様">仕様&lt;/h2>
 &lt;h3 id="0000-00-00-000000-は取り扱えない">&lt;code>0000-00-00 00:00:00&lt;/code> は取り扱えない&lt;/h3>
 &lt;p>MySQLサーバで &lt;code>NO_ZERO_DATE&lt;/code> modeが有効でないと入ってくるデータだが、BQでは扱えない。&lt;/p>

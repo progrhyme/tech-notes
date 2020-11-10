@@ -1,6 +1,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><description>Recent content in CLI on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 29 Apr 2020 22:59:42 +0900</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/google/gcp/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>A: bq</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/bq/</link><pubDate>Tue, 10 Nov 2020 09:49:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/bq/</guid><description>
 &lt;p>BigQuery操作CLI&lt;/p>
 &lt;p>リファレンス: &lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja&lt;/a>&lt;/p>
+&lt;h2 id="関連ページ">関連ページ&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/bq/">BigQuery&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="cp">cp&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp&lt;/a>&lt;/li>
