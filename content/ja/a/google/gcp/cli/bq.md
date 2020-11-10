@@ -9,6 +9,10 @@ BigQuery操作CLI
 
 リファレンス: https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja
 
+## 関連ページ
+
+- [BigQuery]({{<ref "/a/google/gcp/bq.md">}})
+
 ## cp
 
 - https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp

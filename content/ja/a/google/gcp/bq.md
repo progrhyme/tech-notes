@@ -6,6 +6,10 @@ date: 2020-06-22T11:57:02+09:00
 weight: 45
 ---
 
+## 関連ページ
+
+- [bq CLI]({{<ref "cli/bq.md">}})
+
 ## Documentation
 
 - [割り当てと上限 | BigQuery | Google Cloud](https://cloud.google.com/bigquery/quotas?hl=ja)
@@ -29,6 +33,12 @@ https://cloud.google.com/bigquery/pricing
 [Cloud SQL 連携クエリ | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/cloud-sql-federated-queries?hl=ja)
 
 連携設定を行うことで、Cloud SQL上のデータをリアルタイムに参照するVIEWを作成できる。
+
+### Authorized View (承認済みビュー)
+
+[承認済みビューの作成 | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/share-access-views?hl=ja)
+
+> データセットに表示アクセス権を設定する場合、BigQuery では承認済みビューを作成します。承認済みビューを使用すると、元のテーブルへのアクセス権がないユーザーでも、クエリの結果を特定のユーザーやグループと共有できます。ビューの SQL クエリを使用して、ユーザーがクエリを実行できる列（フィールド）を制限することもできます
 
 ## 仕様
 ### `0000-00-00 00:00:00` は取り扱えない
