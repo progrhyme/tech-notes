@@ -1,154 +1,9 @@
 ---
-title: "CLI"
-linkTitle: "CLI"
-date: 2020-04-29T22:59:42+09:00
-weight: 10
+title: "gcloud"
+linkTitle: "gcloud"
+date: 2020-11-10T09:49:12+09:00
+weight: 40
 ---
-
-Quick links:
-
-- [bq](#bq)
-- [cbt](#cbt)
-- [gcloud](#gcloud)
-- [gsutil](#gsutil)
-
-## Cloud SDK
-
-https://cloud.google.com/sdk/docs?hl=ja
-
-`gcloud`, `gsutil`, `bq` CLIもこれに含まれる。
-
-- プロキシ設定
-  - [プロキシ / ファイアウォールの背後で Cloud SDK を使用する場合の構成 | Cloud SDK のドキュメント](https://cloud.google.com/sdk/docs/proxy-settings?hl=ja)
-
-### Install
-
-https://cloud.google.com/sdk/install
-
-- インタラクティブインストーラー: https://cloud.google.com/sdk/docs/downloads-interactive
-- yum, apt, snapパッケージでの提供がある
-  - snap: https://cloud.google.com/sdk/docs/downloads-snap
-- Docker Image ... See below
-- [旧バージョンアーカイブ](https://cloud.google.com/sdk/docs/downloads-versioned-archives)
-
-### Docker Image
-
-https://cloud.google.com/sdk/docs/downloads-docker
-
-参考:
-
-- [DockerコンテナからGoogle Cloud SDKのコマンドを簡単に実行できるコマンドをつくってみた | cloudpack.media](https://cloudpack.media/50237)
-- [Docker で Google Cloud SDK を使う - yt coffee](https://yuku.takahashi.coffee/blog/2019/01/google-cloud-sdk-in-docker)
-
-## bq
-
-BigQuery操作CLI
-
-リファレンス: https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja
-
-### cp
-
-- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp
-- https://cloud.google.com/bigquery/docs/managing-tables?hl=ja#copy-table
-
-Examples:
-
-```sh
-bq --location=LOCATION cp [OPTIONS] \
-  project_id:dataset.source_table project_id:dataset.destination_table
-```
-
- Option | デフォルト | 機能
---------|----------|-----
- `-a, --append_table` | `false` | 指定すると元のテーブルがコピーされて既存の宛先テーブルに追加される
- `-f, --force` | `false` | 指定すると宛先テーブルが存在する場合にプロンプト表示なしで上書きされる
- `-n, --no_clobber` | `false` | 指定すると宛先テーブルが存在する場合は上書きしない
-
-### load
-
-ドキュメント:
-
-- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load
-- [Cloud Storage からの CSV データの読み込み | BigQuery | Google Cloud](https://cloud.google.com/bigquery/docs/loading-data-cloud-storage-csv?hl=ja)
-
-Examples:
-
-```sh
-# TSVファイルをロードする
-bq load --source_format=CSV --encoding=UTF-8 --field_delimiter="\t" [dataset].[table] SOURCE [SCHEMA]
-# ↑SOURCEはファイルでもGCSバケットでもいい
-```
-
-Specs:
-
-- 要素が改行を含むデータを取り込むには、該当要素を `--quote` 文字（デフォルトは `"` ）で囲み、 `--allow_quoted_newlines` （デフォルトfalse）を指定する
-  - 更に、該当要素が元々 `"` を含む場合、 `""` でエスケープする必要がある。
-
-参考:
-
-- [bq loadのCSVにダブルクォーテーションや改行を含むときの対処法 | ppoohh 's blog](https://www.ppoohh.info/post-331/)
-- [bigqueryでtsvをインポート | ハックノート](https://hacknote.jp/archives/32117/)
-
-### ls
-
-- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_ls
-- https://cloud.google.com/bigquery/docs/managing-jobs?hl=ja#listing_jobs
-
-Examples:
-
-```sh
-# 現在のユーザのジョブを表示
-bq ls -j myproject
-# すべてのユーザのジョブを表示
-bq ls -j -a myproject
-# 直近10件のジョブを表示
-bq ls -j -a -n 10 myproject
-```
-
-### mk
-
-- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk
-- テーブル作成: https://cloud.google.com/bigquery/docs/tables?hl=ja
-
-Syntax:
-
-```sh
-bq mk \
---table \
---expiration integer \
---description description \
---label key:value, key:value \
-project_id:dataset.table \
-schema
-```
-
-- `schema` ... field:data_type,field:data_type という形式のインラインスキーマ定義か、ローカルマシン上のJSONスキーマファイルのパス
-
-### show
-
-- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show
-- データセットの情報表示: https://cloud.google.com/bigquery/docs/dataset-metadata?hl=ja
-
-```sh
-# schemaをJSON形式で表示
-bq show --schema --format=prettyjson PROJECT_ID:DATASET.TABLE
-
-# ジョブの詳細情報を取得
-bq show --format=prettyjson -j JOB_ID
-```
-
-参考:
-
-- [google cloud platform - BigQuery - Where can I find the error stream? - Stack Overflow](https://stackoverflow.com/questions/52100812/bigquery-where-can-i-find-the-error-stream)
-
-## cbt
-
-Bigtable操作CLI
-
-- リファレンス: https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja
-- インストール: [cbt ツールの概要 | Cloud Bigtable ドキュメント | Google Cloud](https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja)
-
-## gcloud
 
 - Getting Started: https://cloud.google.com/sdk/gcloud/?hl=ja
 - リファレンス: https://cloud.google.com/sdk/gcloud/reference
@@ -157,7 +12,7 @@ NOTE:
 
 - 新しめの機能の場合、 `gcloud beta ...` や `gcloud alpha ...` にしかコマンドがなかったり、 `beta ...` や `alpha ...` を付けることで結果が変わることがある
 
-### 認証
+## 認証
 
 See also [#auth](#auth)
 
@@ -169,13 +24,13 @@ gcloud init
 参考:
 - [Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud](https://cloud.google.com/sdk/docs/authorizing?hl=ja)
 
-### 環境変数
+## 環境変数
 
  Variable | 用途
 ----------|-----
  CLOUDSDK_ACTIVE_CONFIG_NAME | 利用するconfigurationを設定する。See [#configurations](#configurations)
 
-### 全体で使えるオプション
+## 全体で使えるオプション
 
 リファレンスで「GCLOUD WIDE FLAGS」とされているもの。
 
@@ -187,7 +42,7 @@ https://cloud.google.com/sdk/gcloud/reference に簡単な説明がある。
 - `--project` ... コマンドの対象となるプロジェクトをプロジェクトIDで指定する
 - `--verbosity=VERBOSITY` ... ログレベルの設定。デフォルトは `warning`. 他に、debug, info, error, critical, noneが設定可能
 
-#### filter
+### filter
 
 https://cloud.google.com/sdk/gcloud/reference/topic/filters
 
@@ -208,7 +63,7 @@ gcloud projects list \
 gcloud config configurations list --filter='IS_ACTIVE=true'
 ```
 
-#### format
+### format
 
 https://cloud.google.com/sdk/gcloud/reference/topic/formats
 
@@ -234,7 +89,7 @@ gcloud config configurations list --format='value(name)'
 gcloud info --format='value(config.paths.global_config_dir)'
 ```
 
-### auth
+## auth
 
 https://cloud.google.com/sdk/gcloud/reference/auth
 
@@ -251,7 +106,7 @@ gcloud auth activate-service-account --key-file <KEYFILE>
 gcloud auth print-access-token
 ```
 
-### compute
+## compute
 
 https://cloud.google.com/sdk/gcloud/reference/compute
 
@@ -270,7 +125,7 @@ gcloud compute scp [--project=<PROJECT>] [--zone=<ZONE>] [--internal-ip | --tunn
 gcloud compute images create my-image --source-disk my-vm-disk
 ```
 
-#### instances
+### instances
 
 VM操作
 
@@ -300,7 +155,7 @@ gcloud compute instances create my-instance \
 
 - [イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja)
 
-#### regions
+### regions
 
 https://cloud.google.com/sdk/gcloud/reference/compute/regions
 
@@ -313,7 +168,7 @@ gcloud compute regions list
 gcloud compute regions describe REGION
 ```
 
-#### ssl-certificates
+### ssl-certificates
 
 https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates
 
@@ -333,7 +188,7 @@ gcloud compute ssl-certificates create <name> --domains=<fqdn1>,...
 gcloud compute ssl-certificates delete <name>
 ```
 
-#### zones
+### zones
 
 https://cloud.google.com/sdk/gcloud/reference/compute/zones
 
@@ -346,7 +201,7 @@ gcloud compute zones list
 gcloud compute zones describe ZONE
 ```
 
-### config
+## config
 
 https://cloud.google.com/sdk/gcloud/reference/config
 
@@ -380,7 +235,7 @@ gcloud config set compute/zone asia-northeast1-a
 
 - [gcloud configで複数の設定を持って切り替える - Qiita](https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d)
 
-#### configurations
+### configurations
 
 https://cloud.google.com/sdk/gcloud/reference/config/configurations
 
@@ -412,13 +267,13 @@ Tips:
 - [SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud](https://cloud.google.com/sdk/docs/configurations?hl=ja)
 - https://cloud.google.com/sdk/gcloud/reference/topic/configurations
 
-### container
+## container
 
 https://cloud.google.com/sdk/gcloud/reference/container
 
 GKEなどコンテナサービスに関する操作。
 
-#### clusters
+### clusters
 
 https://cloud.google.com/sdk/gcloud/reference/container/clusters
 
@@ -433,7 +288,7 @@ gcloud container clusters list
 gcloud container clusters get-credentials クラスタ名 [--region=REGION] [--project=PROJECT_ID]
 ```
 
-##### create
+#### create
 
 https://cloud.google.com/sdk/gcloud/reference/container/clusters/create
 
@@ -442,7 +297,7 @@ https://cloud.google.com/sdk/gcloud/reference/container/clusters/create
  --enable-master-authorized-networks | Master Authorized Networksの有効化
  --master-authorized-networks=NETWORK,[NETWORK,…] | Master Authorized Networksの設定
 
-###### beta版（2020-05-13更新）
+##### beta版（2020-05-13更新）
 
 https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create
 
@@ -450,7 +305,7 @@ https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create
 ----------|-----
  --release-channel=CHANNEL | rapid, regular, stableのどれか。リリースチャネルの設定。
 
-#### images
+### images
 
 Examples:
 
@@ -480,13 +335,13 @@ Tips:
 関連ドキュメント:
 - [Managing images | Container Registry Documentation | Google Cloud](https://cloud.google.com/container-registry/docs/managing)
 
-### endpoints
+## endpoints
 
 https://cloud.google.com/sdk/gcloud/reference/endpoints
 
 APIサービスの作成・有効化・管理を行う。
 
-#### services
+### services
 
 https://cloud.google.com/sdk/gcloud/reference/endpoints/services
 
@@ -499,13 +354,13 @@ gcloud endpoints services list
 gcloud endpoints services delete ENDPOINT
 ```
 
-### functions
+## functions
 
 https://cloud.google.com/sdk/gcloud/reference/functions
 
 Cloud Functionsの操作
 
-#### deploy
+### deploy
 
 https://cloud.google.com/sdk/gcloud/reference/functions/deploy
 
@@ -522,7 +377,7 @@ gcloud functions deploy <Function Name> \
   --project my-project
 ```
 
-### info
+## info
 
 https://cloud.google.com/sdk/gcloud/reference/info
 
@@ -540,7 +395,7 @@ gcloud info --run-diagnostics
 gcloud info --show-log
 ```
 
-### logging
+## logging
 
 https://cloud.google.com/sdk/gcloud/reference/logging
 
@@ -548,7 +403,7 @@ NOTE:
 
 - `read`, `list`などのコマンド利用時には serviceusage.services.use 権限が必要
 
-#### read
+### read
 
 https://cloud.google.com/sdk/gcloud/reference/logging/read
 
@@ -563,7 +418,7 @@ gcloud logging read 'timestamp>="2020-03-19T05:28:00Z" timestamp<="2020-03-25T05
 ※2020-04-20現在、 `tail -f` 相当のオプションはなさそう
 
 
-### projects
+## projects
 
 https://cloud.google.com/sdk/gcloud/reference/projects/
 
@@ -574,80 +429,6 @@ SYNOPSIS:
 gcloud projects list
 ```
 
-### 参考
+## 参考
 
 - [よく使うgcloudコマンドたち - Qiita](https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c)
-
-
-## gsutil
-
-Cloud Storage用のPython製CLI
-
-- ドキュメント: https://cloud.google.com/storage/docs/gsutil
-- コマンドリファレンス: https://cloud.google.com/storage/docs/gsutil/commands/help
-
-### バケット操作
-
-- [mb](https://cloud.google.com/storage/docs/gsutil/commands/mb)
-- [rb](https://cloud.google.com/storage/docs/gsutil/commands/rb)
-
-Examples:
-
-```sh
-# バケット作成
-gsutil mb -l asia gs://mybucket
-# バケット削除
-gsutil rb [-f] gs://<bucket_name>
-```
-
-### iam
-
-https://cloud.google.com/storage/docs/gsutil/commands/iam
-
-```sh
-# bucket/objectのIAM権限を取得
-gsutil iam get gs://bucket[/path]
-# bucket/objectにIAM権限を設定
-gsutil iam set [-afRr] [-e <etag>] file gs://bucket[/path] ...
-# bucket/objectにIAM権限を設定。メンバー単位で個々に設定
-gsutil iam ch [-fRr] binding ... gs://bucket
-```
-
-関連項目:
-
-- [GCS#IAM]({{<ref "gcs.md">}}#iam)
-
-### ls
-
-https://cloud.google.com/storage/docs/gsutil/commands/ls
-
-バケットやオブジェクトのリスト表示。
-
-Examples:
-
-```sh
-gsutil ls gs://my-bucket/
-
-# 古いバージョンも含める
-gsutil ls -a gs://my-bucket/
-```
-
-### rm
-
-https://cloud.google.com/storage/docs/gsutil/commands/rm
-
-オブジェクトの削除。
-
-Examples:
-
-```sh
-# subdir/ 直下のオブジェクトを削除
-gsutil rm gs://bucket/subdir/*
-# subdir/ 下の全てのオブジェクトを削除
-gsutil rm gs://bucket/subdir/**
-# 上と同じ
-gsutil rm -r gs://bucket/subdir/
-
-# 古いバージョンも含めて削除
-gsutil rm -a gs://bucket/path/to/object
-```

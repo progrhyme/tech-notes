@@ -51,7 +51,7 @@ https://cloud.google.com/storage/docs/access-control
 
 関連項目:
 
-- [CLI#gsutil-iam]({{<ref "cli.md">}}#iam)
+- [CLI#gsutil-iam]({{<ref "cli/_index.md">}}#iam)
 
 #### メンバータイプ
 
