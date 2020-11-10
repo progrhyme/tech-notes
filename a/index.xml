@@ -1,4 +1,104 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/ruby/spec/</link><pubDate>Thu, 25 Jun 2020 15:26:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/spec/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – progrhyme's Tech Notes</title><link>https://progrhy.me/tech-notes/a/</link><description>Recent content on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://progrhy.me/tech-notes/a/index.xml" rel="self" type="application/rss+xml"/><item><title>A: bq</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/bq/</link><pubDate>Tue, 10 Nov 2020 09:49:17 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/bq/</guid><description>
+&lt;p>BigQuery操作CLI&lt;/p>
+&lt;p>リファレンス: &lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja&lt;/a>&lt;/p>
+&lt;h2 id="cp">cp&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/managing-tables?hl=ja#copy-table">https://cloud.google.com/bigquery/docs/managing-tables?hl=ja#copy-table&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">bq --location&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>LOCATION cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> project_id:dataset.source_table project_id:dataset.destination_table
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>デフォルト&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-a, --append_table&lt;/code>&lt;/td>
+&lt;td>&lt;code>false&lt;/code>&lt;/td>
+&lt;td>指定すると元のテーブルがコピーされて既存の宛先テーブルに追加される&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-f, --force&lt;/code>&lt;/td>
+&lt;td>&lt;code>false&lt;/code>&lt;/td>
+&lt;td>指定すると宛先テーブルが存在する場合にプロンプト表示なしで上書きされる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-n, --no_clobber&lt;/code>&lt;/td>
+&lt;td>&lt;code>false&lt;/code>&lt;/td>
+&lt;td>指定すると宛先テーブルが存在する場合は上書きしない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="load">load&lt;/h2>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/loading-data-cloud-storage-csv?hl=ja">Cloud Storage からの CSV データの読み込み | BigQuery | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># TSVファイルをロードする&lt;/span>
+bq load --source_format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>CSV --encoding&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>UTF-8 --field_delimiter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;\t&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>dataset&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>table&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> SOURCE &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCHEMA&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ↑SOURCEはファイルでもGCSバケットでもいい&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Specs:&lt;/p>
+&lt;ul>
+&lt;li>要素が改行を含むデータを取り込むには、該当要素を &lt;code>--quote&lt;/code> 文字（デフォルトは &lt;code>&amp;quot;&lt;/code> ）で囲み、 &lt;code>--allow_quoted_newlines&lt;/code> （デフォルトfalse）を指定する
+&lt;ul>
+&lt;li>更に、該当要素が元々 &lt;code>&amp;quot;&lt;/code> を含む場合、 &lt;code>&amp;quot;&amp;quot;&lt;/code> でエスケープする必要がある。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.ppoohh.info/post-331/">bq loadのCSVにダブルクォーテーションや改行を含むときの対処法 | ppoohh &amp;rsquo;s blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hacknote.jp/archives/32117/">bigqueryでtsvをインポート | ハックノート&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ls">ls&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_ls">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_ls&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/managing-jobs?hl=ja#listing_jobs">https://cloud.google.com/bigquery/docs/managing-jobs?hl=ja#listing_jobs&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のユーザのジョブを表示&lt;/span>
+bq ls -j myproject
+&lt;span style="color:#8f5902;font-style:italic"># すべてのユーザのジョブを表示&lt;/span>
+bq ls -j -a myproject
+&lt;span style="color:#8f5902;font-style:italic"># 直近10件のジョブを表示&lt;/span>
+bq ls -j -a -n &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> myproject
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mk">mk&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk&lt;/a>&lt;/li>
+&lt;li>テーブル作成: &lt;a href="https://cloud.google.com/bigquery/docs/tables?hl=ja">https://cloud.google.com/bigquery/docs/tables?hl=ja&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">bq mk &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--table &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--expiration integer &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--description description &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--label key:value, key:value &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>project_id:dataset.table &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>schema
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>schema&lt;/code> &amp;hellip; field:data_type,field:data_type という形式のインラインスキーマ定義か、ローカルマシン上のJSONスキーマファイルのパス&lt;/li>
+&lt;/ul>
+&lt;h2 id="show">show&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show&lt;/a>&lt;/li>
+&lt;li>データセットの情報表示: &lt;a href="https://cloud.google.com/bigquery/docs/dataset-metadata?hl=ja">https://cloud.google.com/bigquery/docs/dataset-metadata?hl=ja&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># schemaをJSON形式で表示&lt;/span>
+bq show --schema --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prettyjson PROJECT_ID:DATASET.TABLE
+&lt;span style="color:#8f5902;font-style:italic"># ジョブの詳細情報を取得&lt;/span>
+bq show --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prettyjson -j JOB_ID
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/52100812/bigquery-where-can-i-find-the-error-stream">google cloud platform - BigQuery - Where can I find the error stream? - Stack Overflow&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 言語仕様</title><link>https://progrhy.me/tech-notes/a/program/ruby/spec/</link><pubDate>Thu, 25 Jun 2020 15:26:36 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/spec/</guid><description>
 &lt;h2 id="リテラル">リテラル&lt;/h2>
 &lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html">https://docs.ruby-lang.org/ja/latest/doc/spec=2fliteral.html&lt;/a>&lt;/p>
 &lt;h3 id="記法">%記法&lt;/h3>
@@ -508,513 +608,7 @@
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/hyt48/items/2534237d96f991f31966">Google Apps ScriptでWebアプリケーションをつくる - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: CLI</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/</link><pubDate>Wed, 29 Apr 2020 22:59:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/</guid><description>
-&lt;p>Quick links:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="#bq">bq&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#cbt">cbt&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#gcloud">gcloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#gsutil">gsutil&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cloud-sdk">Cloud SDK&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/docs?hl=ja">https://cloud.google.com/sdk/docs?hl=ja&lt;/a>&lt;/p>
-&lt;p>&lt;code>gcloud&lt;/code>, &lt;code>gsutil&lt;/code>, &lt;code>bq&lt;/code> CLIもこれに含まれる。&lt;/p>
-&lt;ul>
-&lt;li>プロキシ設定
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/proxy-settings?hl=ja">プロキシ / ファイアウォールの背後で Cloud SDK を使用する場合の構成 | Cloud SDK のドキュメント&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="install">Install&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/install">https://cloud.google.com/sdk/install&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>インタラクティブインストーラー: &lt;a href="https://cloud.google.com/sdk/docs/downloads-interactive">https://cloud.google.com/sdk/docs/downloads-interactive&lt;/a>&lt;/li>
-&lt;li>yum, apt, snapパッケージでの提供がある
-&lt;ul>
-&lt;li>snap: &lt;a href="https://cloud.google.com/sdk/docs/downloads-snap">https://cloud.google.com/sdk/docs/downloads-snap&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Docker Image &amp;hellip; See below&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/downloads-versioned-archives">旧バージョンアーカイブ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="docker-image">Docker Image&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/docs/downloads-docker">https://cloud.google.com/sdk/docs/downloads-docker&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloudpack.media/50237">DockerコンテナからGoogle Cloud SDKのコマンドを簡単に実行できるコマンドをつくってみた | cloudpack.media&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://yuku.takahashi.coffee/blog/2019/01/google-cloud-sdk-in-docker">Docker で Google Cloud SDK を使う - yt coffee&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="bq">bq&lt;/h2>
-&lt;p>BigQuery操作CLI&lt;/p>
-&lt;p>リファレンス: &lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja&lt;/a>&lt;/p>
-&lt;h3 id="cp">cp&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_cp&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/managing-tables?hl=ja#copy-table">https://cloud.google.com/bigquery/docs/managing-tables?hl=ja#copy-table&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">bq --location&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>LOCATION cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> project_id:dataset.source_table project_id:dataset.destination_table
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>デフォルト&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-a, --append_table&lt;/code>&lt;/td>
-&lt;td>&lt;code>false&lt;/code>&lt;/td>
-&lt;td>指定すると元のテーブルがコピーされて既存の宛先テーブルに追加される&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-f, --force&lt;/code>&lt;/td>
-&lt;td>&lt;code>false&lt;/code>&lt;/td>
-&lt;td>指定すると宛先テーブルが存在する場合にプロンプト表示なしで上書きされる&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-n, --no_clobber&lt;/code>&lt;/td>
-&lt;td>&lt;code>false&lt;/code>&lt;/td>
-&lt;td>指定すると宛先テーブルが存在する場合は上書きしない&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="load">load&lt;/h3>
-&lt;p>ドキュメント:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_load&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/loading-data-cloud-storage-csv?hl=ja">Cloud Storage からの CSV データの読み込み | BigQuery | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># TSVファイルをロードする&lt;/span>
-bq load --source_format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>CSV --encoding&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>UTF-8 --field_delimiter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;\t&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>dataset&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>table&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> SOURCE &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCHEMA&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># ↑SOURCEはファイルでもGCSバケットでもいい&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Specs:&lt;/p>
-&lt;ul>
-&lt;li>要素が改行を含むデータを取り込むには、該当要素を &lt;code>--quote&lt;/code> 文字（デフォルトは &lt;code>&amp;quot;&lt;/code> ）で囲み、 &lt;code>--allow_quoted_newlines&lt;/code> （デフォルトfalse）を指定する
-&lt;ul>
-&lt;li>更に、該当要素が元々 &lt;code>&amp;quot;&lt;/code> を含む場合、 &lt;code>&amp;quot;&amp;quot;&lt;/code> でエスケープする必要がある。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.ppoohh.info/post-331/">bq loadのCSVにダブルクォーテーションや改行を含むときの対処法 | ppoohh &amp;rsquo;s blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://hacknote.jp/archives/32117/">bigqueryでtsvをインポート | ハックノート&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ls">ls&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_ls">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_ls&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/managing-jobs?hl=ja#listing_jobs">https://cloud.google.com/bigquery/docs/managing-jobs?hl=ja#listing_jobs&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のユーザのジョブを表示&lt;/span>
-bq ls -j myproject
-&lt;span style="color:#8f5902;font-style:italic"># すべてのユーザのジョブを表示&lt;/span>
-bq ls -j -a myproject
-&lt;span style="color:#8f5902;font-style:italic"># 直近10件のジョブを表示&lt;/span>
-bq ls -j -a -n &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> myproject
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="mk">mk&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk&lt;/a>&lt;/li>
-&lt;li>テーブル作成: &lt;a href="https://cloud.google.com/bigquery/docs/tables?hl=ja">https://cloud.google.com/bigquery/docs/tables?hl=ja&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">bq mk &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--table &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--expiration integer &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--description description &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--label key:value, key:value &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>project_id:dataset.table &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>schema
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>&lt;code>schema&lt;/code> &amp;hellip; field:data_type,field:data_type という形式のインラインスキーマ定義か、ローカルマシン上のJSONスキーマファイルのパス&lt;/li>
-&lt;/ul>
-&lt;h3 id="show">show&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show&lt;/a>&lt;/li>
-&lt;li>データセットの情報表示: &lt;a href="https://cloud.google.com/bigquery/docs/dataset-metadata?hl=ja">https://cloud.google.com/bigquery/docs/dataset-metadata?hl=ja&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># schemaをJSON形式で表示&lt;/span>
-bq show --schema --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prettyjson PROJECT_ID:DATASET.TABLE
-&lt;span style="color:#8f5902;font-style:italic"># ジョブの詳細情報を取得&lt;/span>
-bq show --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prettyjson -j JOB_ID
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/52100812/bigquery-where-can-i-find-the-error-stream">google cloud platform - BigQuery - Where can I find the error stream? - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cbt">cbt&lt;/h2>
-&lt;p>Bigtable操作CLI&lt;/p>
-&lt;ul>
-&lt;li>リファレンス: &lt;a href="https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja">https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja&lt;/a>&lt;/li>
-&lt;li>インストール: &lt;a href="https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja">cbt ツールの概要 | Cloud Bigtable ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="gcloud">gcloud&lt;/h2>
-&lt;ul>
-&lt;li>Getting Started: &lt;a href="https://cloud.google.com/sdk/gcloud/?hl=ja">https://cloud.google.com/sdk/gcloud/?hl=ja&lt;/a>&lt;/li>
-&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>新しめの機能の場合、 &lt;code>gcloud beta ...&lt;/code> や &lt;code>gcloud alpha ...&lt;/code> にしかコマンドがなかったり、 &lt;code>beta ...&lt;/code> や &lt;code>alpha ...&lt;/code> を付けることで結果が変わることがある&lt;/li>
-&lt;/ul>
-&lt;h3 id="認証">認証&lt;/h3>
-&lt;p>See also &lt;a href="#auth">#auth&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 初期設定(認証込)&lt;/span>
-gcloud init
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="環境変数">環境変数&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Variable&lt;/th>
-&lt;th>用途&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/td>
-&lt;td>利用するconfigurationを設定する。See &lt;a href="#configurations">#configurations&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="全体で使えるオプション">全体で使えるオプション&lt;/h3>
-&lt;p>リファレンスで「GCLOUD WIDE FLAGS」とされているもの。&lt;/p>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a> に簡単な説明がある。&lt;/p>
-&lt;p>例:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>--configuration&lt;/code> &amp;hellip; コマンドを実行するconfiguration. See &lt;a href="#configurations">#configurations&lt;/a>&lt;/li>
-&lt;li>&lt;code>--project&lt;/code> &amp;hellip; コマンドの対象となるプロジェクトをプロジェクトIDで指定する&lt;/li>
-&lt;li>&lt;code>--verbosity=VERBOSITY&lt;/code> &amp;hellip; ログレベルの設定。デフォルトは &lt;code>warning&lt;/code>. 他に、debug, info, error, critical, noneが設定可能&lt;/li>
-&lt;/ul>
-&lt;h4 id="filter">filter&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/filters">https://cloud.google.com/sdk/gcloud/reference/topic/filters&lt;/a>&lt;/p>
-&lt;p>結果をリストで出力するコマンドに対し、フィルタ条件を記すことができる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute instances list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;machineType:f1-micro&amp;#34;&lt;/span>
-gcloud compute instances list &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;zone ~ ^us AND -machineType:f1-micro&amp;#34;&lt;/span>
-gcloud compute instances list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;tags.items=my-tag&amp;#34;&lt;/span>
-gcloud projects list &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;table(projectNumber,projectId,createTime)&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;createTime&amp;gt;=2018-01-15&amp;#34;&lt;/span>
-gcloud config configurations list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;IS_ACTIVE=true&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="format">format&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/formats">https://cloud.google.com/sdk/gcloud/reference/topic/formats&lt;/a>&lt;/p>
-&lt;p>結果を出力するコマンドに対し、出力フォーマットや、抽出するプロパティ、ヘッダの有無などを指定できる。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># デフォルトのテーブル表示にボックス装飾を付ける&lt;/span>
-gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;[box]&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># JSON形式&lt;/span>
-gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>json
-&lt;span style="color:#8f5902;font-style:italic"># YAML形式&lt;/span>
-gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>yaml
-&lt;span style="color:#8f5902;font-style:italic"># ヘッダ無しCSV形式&lt;/span>
-gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;csv[no-heading]&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># ヘッダ無しCSVで、特定のカラム値だけ取得&lt;/span>
-gcloud config list --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;csv[no-heading](core.project,core.account)&amp;#34;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 特定の値だけ取得&lt;/span>
-gcloud config configurations list --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(name)&amp;#39;&lt;/span>
-gcloud info --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(config.paths.global_config_dir)&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="auth">auth&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/auth">https://cloud.google.com/sdk/gcloud/reference/auth&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ログイン認証&lt;/span>
-gcloud auth login
-&lt;span style="color:#8f5902;font-style:italic"># 現在認証済みのアカウント一覧&lt;/span>
-gcloud auth list
-&lt;span style="color:#8f5902;font-style:italic"># サービスアカウントの認証&lt;/span>
-gcloud auth activate-service-account --key-file &amp;lt;KEYFILE&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># アクセストークンの表示&lt;/span>
-gcloud auth print-access-token
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compute">compute&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute">https://cloud.google.com/sdk/gcloud/reference/compute&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## ssh&lt;/span>
-gcloud compute ssh &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;INSTANCE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-- &amp;lt;SSH_ARGS&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## scp&lt;/span>
-gcloud compute scp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--recurse&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> host:/path/to/dir path/to/local
-&lt;span style="color:#8f5902;font-style:italic">## イメージの作成&lt;/span>
-gcloud compute images create my-image --source-disk my-vm-disk
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="instances">instances&lt;/h4>
-&lt;p>VM操作&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances">https://cloud.google.com/sdk/gcloud/reference/compute/instances&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create">create&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
-gcloud compute instances list
-&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
-gcloud compute instances start &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
-gcloud compute instances stop &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
-gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1-b &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --no-address &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 外部IPなし&lt;/span>
---custom-vm-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>n1 &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># N1インスタンス&lt;/span>
---custom-cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> --custom-memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8GB &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># リソースをカスタマイズする場合&lt;/span>
---image-project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>another-project --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-image &lt;span style="color:#8f5902;font-style:italic"># 別プロジェクトのイメージを使う&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="regions">regions&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/regions">https://cloud.google.com/sdk/gcloud/reference/compute/regions&lt;/a>&lt;/p>
-&lt;p>GCEリージョンの表示。&lt;/p>
-&lt;p>SYNPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute regions list
-gcloud compute regions describe REGION
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="ssl-certificates">ssl-certificates&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates">https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates&lt;/a>&lt;/p>
-&lt;p>証明書の管理。マネージド証明書が作れる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
-gcloud compute ssl-certificates list
-&lt;span style="color:#8f5902;font-style:italic"># 詳細表示&lt;/span>
-gcloud compute ssl-certificates describe &amp;lt;name&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
-gcloud compute ssl-certificates create &amp;lt;name&amp;gt; --domains&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;fqdn1&amp;gt;,...
-&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
-gcloud compute ssl-certificates delete &amp;lt;name&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="zones">zones&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/zones">https://cloud.google.com/sdk/gcloud/reference/compute/zones&lt;/a>&lt;/p>
-&lt;p>GCEゾーンの表示。&lt;/p>
-&lt;p>SYNPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute zones list
-gcloud compute zones describe ZONE
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="config">config&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
-&lt;p>Subcommands:&lt;/p>
-&lt;ul>
-&lt;li>configurations &amp;hellip; See below&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/get-value">get-value&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/list">list&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">set&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>configurationという単位でプロパティ値のセットを管理できる。&lt;br>
-configurations以外のサブコマンドは現在のconfigurationに対する操作を行う。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 設定プロパティ値一覧表示&lt;/span>
-gcloud config list
-&lt;span style="color:#8f5902;font-style:italic"># プロパティ値の取得&lt;/span>
-gcloud config get-value account
-gcloud config get-value artifacts/location
-&lt;span style="color:#8f5902;font-style:italic"># プロパティ値の設定&lt;/span>
-gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
-gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
-gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d">gcloud configで複数の設定を持って切り替える - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="configurations">configurations&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
-&lt;p>設定プロファイルの管理。各プロファイルでは、プロパティ値のセットを管理することができる。&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># プロファイル一覧表示&lt;/span>
-gcloud config configurations list
-&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
-gcloud config configurations describe プロファイル名
-&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
-gcloud config configurations create プロファイル名
-&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
-gcloud config configurations delete プロファイル名
-&lt;span style="color:#8f5902;font-style:italic"># 有効化&lt;/span>
-gcloud config configurations activate プロファイル名
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>gcloudコマンドは現在アクティブなconfigurationの設定プロパティをデフォルト値として参照する&lt;/li>
-&lt;li>アクティブなconfigurationは &lt;code>--configuration&lt;/code> 引数か、環境変数 &lt;code>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/code> で上書き指定することもできる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/configurations">https://cloud.google.com/sdk/gcloud/reference/topic/configurations&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="container">container&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container">https://cloud.google.com/sdk/gcloud/reference/container&lt;/a>&lt;/p>
-&lt;p>GKEなどコンテナサービスに関する操作。&lt;/p>
-&lt;h4 id="clusters">clusters&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters">https://cloud.google.com/sdk/gcloud/reference/container/clusters&lt;/a>&lt;/p>
-&lt;p>GKEクラスタの操作。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters list
-&lt;span style="color:#8f5902;font-style:italic"># $KUBECONFIG or ~/.kube/config に認証情報を取得&lt;/span>
-gcloud container clusters get-credentials クラスタ名 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>PROJECT_ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="create">create&lt;/h5>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&amp;ndash;enable-master-authorized-networks&lt;/td>
-&lt;td>Master Authorized Networksの有効化&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;ndash;master-authorized-networks=NETWORK,[NETWORK,…]&lt;/td>
-&lt;td>Master Authorized Networksの設定&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h6 id="beta版2020-05-13更新">beta版（2020-05-13更新）&lt;/h6>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create">https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>意味&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&amp;ndash;release-channel=CHANNEL&lt;/td>
-&lt;td>rapid, regular, stableのどれか。リリースチャネルの設定。&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h4 id="images">images&lt;/h4>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># イメージ一覧&lt;/span>
-gcloud container images list --repository&lt;span style="color:#ce5c00;font-weight:bold">=[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># イメージのタグ一覧&lt;/span>
-gcloud container images list-tags &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 完全なダイジェストを表示&lt;/span>
-gcloud container images list-tags --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;get(digest)&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 既存イメージに別のタグをつける（下記いずれか）&lt;/span>
-gcloud container images add-tag &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NEW_TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-gcloud container images add-tag &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>@&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE_DIGEST&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NEW_TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>gcloud container images add-tag&lt;/code> コマンドは、別プロジェクトのリポジトリへのイメージのコピーにも使える&lt;/li>
-&lt;/ul>
-&lt;p>関連ドキュメント:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs/managing">Managing images | Container Registry Documentation | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="endpoints">endpoints&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints">https://cloud.google.com/sdk/gcloud/reference/endpoints&lt;/a>&lt;/p>
-&lt;p>APIサービスの作成・有効化・管理を行う。&lt;/p>
-&lt;h4 id="services">services&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints/services">https://cloud.google.com/sdk/gcloud/reference/endpoints/services&lt;/a>&lt;/p>
-&lt;p>サービスの管理を行う。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud endpoints services list
-gcloud endpoints services delete ENDPOINT
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="functions">functions&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
-&lt;p>Cloud Functionsの操作&lt;/p>
-&lt;h4 id="deploy">deploy&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions/deploy">https://cloud.google.com/sdk/gcloud/reference/functions/deploy&lt;/a>&lt;/p>
-&lt;p>Cloud Functionのデプロイ（作成・更新）&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cloud-buildsイベントをフックに動くFunctionのデプロイ&lt;/span>
-gcloud functions deploy &amp;lt;Function Name&amp;gt; &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --trigger-topic cloud-builds &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --runtime nodejs10 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set-env-vars &lt;span style="color:#4e9a06">&amp;#34;FOO=foo,BAR=bar&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project my-project
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="info">info&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/info">https://cloud.google.com/sdk/gcloud/reference/info&lt;/a>&lt;/p>
-&lt;p>gcloudのconfigファイルのパスなど環境構成情報を表示する。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud info
-&lt;span style="color:#8f5902;font-style:italic"># 特定の値を抽出&lt;/span>
-gcloud info --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(config.paths.global_config_dir)&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># ネットワーク接続や隠し属性のチェック&lt;/span>
-gcloud info --run-diagnostics
-&lt;span style="color:#8f5902;font-style:italic"># 直近のログを表示&lt;/span>
-gcloud info --show-log
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logging">logging&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging">https://cloud.google.com/sdk/gcloud/reference/logging&lt;/a>&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>read&lt;/code>, &lt;code>list&lt;/code>などのコマンド利用時には serviceusage.services.use 権限が必要&lt;/li>
-&lt;/ul>
-&lt;h4 id="read">read&lt;/h4>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging/read">https://cloud.google.com/sdk/gcloud/reference/logging/read&lt;/a>&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud logging &lt;span style="color:#204a87">read&lt;/span> --format json
-gcloud logging &lt;span style="color:#204a87">read&lt;/span> --limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> --order&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asc
-gcloud logging &lt;span style="color:#204a87">read&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;timestamp&amp;gt;=&amp;#34;2020-03-19T05:28:00Z&amp;#34; timestamp&amp;lt;=&amp;#34;2020-03-25T05:33:28Z&amp;#34;&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-04-20現在、 &lt;code>tail -f&lt;/code> 相当のオプションはなさそう&lt;/p>
-&lt;h3 id="projects">projects&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/projects/">https://cloud.google.com/sdk/gcloud/reference/projects/&lt;/a>&lt;/p>
-&lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロジェクト一覧&lt;/span>
-gcloud projects list
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考">参考&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c">よく使うgcloudコマンドたち - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="gsutil">gsutil&lt;/h2>
-&lt;p>Cloud Storage用のPython製CLI&lt;/p>
-&lt;ul>
-&lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
-&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="バケット操作">バケット操作&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">mb&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/rb">rb&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バケット作成&lt;/span>
-gsutil mb -l asia gs://mybucket
-&lt;span style="color:#8f5902;font-style:italic"># バケット削除&lt;/span>
-gsutil rb &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-f&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> gs://&amp;lt;bucket_name&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="iam">iam&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/iam">https://cloud.google.com/storage/docs/gsutil/commands/iam&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># bucket/objectのIAM権限を取得&lt;/span>
-gsutil iam get gs://bucket&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>/path&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># bucket/objectにIAM権限を設定&lt;/span>
-gsutil iam &lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-afRr&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-e &amp;lt;etag&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> file gs://bucket&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>/path&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ...
-&lt;span style="color:#8f5902;font-style:italic"># bucket/objectにIAM権限を設定。メンバー単位で個々に設定&lt;/span>
-gsutil iam ch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-fRr&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> binding ... gs://bucket
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/gcs/#iam">GCS#IAM&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="ls-1">ls&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/ls">https://cloud.google.com/storage/docs/gsutil/commands/ls&lt;/a>&lt;/p>
-&lt;p>バケットやオブジェクトのリスト表示。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil ls gs://my-bucket/
-&lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含める&lt;/span>
-gsutil ls -a gs://my-bucket/
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="rm">rm&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/rm">https://cloud.google.com/storage/docs/gsutil/commands/rm&lt;/a>&lt;/p>
-&lt;p>オブジェクトの削除。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># subdir/ 直下のオブジェクトを削除&lt;/span>
-gsutil rm gs://bucket/subdir/*
-&lt;span style="color:#8f5902;font-style:italic"># subdir/ 下の全てのオブジェクトを削除&lt;/span>
-gsutil rm gs://bucket/subdir/**
-&lt;span style="color:#8f5902;font-style:italic"># 上と同じ&lt;/span>
-gsutil rm -r gs://bucket/subdir/
-&lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含めて削除&lt;/span>
-gsutil rm -a gs://bucket/path/to/object
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
+&lt;/ul></description></item><item><title>A: Concept</title><link>https://progrhy.me/tech-notes/a/software/k8s/concept/</link><pubDate>Mon, 27 Apr 2020 10:53:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/concept/</guid><description>
 &lt;h2 id="このページについて">このページについて&lt;/h2>
 &lt;p>何を書くか:&lt;/p>
 &lt;ul>
@@ -1600,7 +1194,36 @@ Linuxのみだが、ハイパーバイザを噛まさず、ローカルのdocker
 &lt;ul>
 &lt;li>&lt;a href="https://k3s.io/">K3s: Lightweight Kubernetes&lt;/a> &amp;hellip; Rancherが出してる軽量版K8s&lt;/li>
 &lt;li>&lt;a href="https://ksync.github.io/ksync/">ksync | Sync files between your local system and a kubernetes cluster.&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 組み込みライブラリ</title><link>https://progrhy.me/tech-notes/a/program/ruby/builtin/</link><pubDate>Thu, 25 Jun 2020 15:30:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/builtin/</guid><description>
+&lt;/ul></description></item><item><title>A: cbt</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/cbt/</link><pubDate>Tue, 10 Nov 2020 09:49:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/cbt/</guid><description>
+&lt;p>Bigtable操作CLI&lt;/p>
+&lt;ul>
+&lt;li>リファレンス: &lt;a href="https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja">https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja&lt;/a>&lt;/li>
+&lt;li>インストール: &lt;a href="https://cloud.google.com/bigtable/docs/cbt-reference?hl=ja">cbt ツールの概要 | Cloud Bigtable ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="全般オプション">全般オプション&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-project&lt;/code>&lt;/td>
+&lt;td>プロジェクトID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>-instance&lt;/code>&lt;/td>
+&lt;td>インスタンス&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="count">count&lt;/h2>
+&lt;p>テーブル内の行数を数える&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">cbt count &amp;lt;table&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 組み込みライブラリ</title><link>https://progrhy.me/tech-notes/a/program/ruby/builtin/</link><pubDate>Thu, 25 Jun 2020 15:30:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/ruby/builtin/</guid><description>
 &lt;h2 id="class-array">class Array&lt;/h2>
 &lt;p>&lt;a href="https://docs.ruby-lang.org/ja/latest/class/Array.html">https://docs.ruby-lang.org/ja/latest/class/Array.html&lt;/a>&lt;/p>
 &lt;p>.ancestors: Enumerable, Object, &amp;hellip;&lt;/p>
@@ -2242,6 +1865,320 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200429/#ubuntu-1804%E3%81%A7intellij-idea%E3%82%9220201%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88">2020年に2018年版から2020.1にアップデートしたときのログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2018/20180331#TOC-Ubuntu-16.04-IntelliJ-IDEA-">2018年に2017年版から2018.1にアップデートしたときのログ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: gcloud</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/gcloud/</link><pubDate>Tue, 10 Nov 2020 09:49:12 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/gcloud/</guid><description>
+&lt;ul>
+&lt;li>Getting Started: &lt;a href="https://cloud.google.com/sdk/gcloud/?hl=ja">https://cloud.google.com/sdk/gcloud/?hl=ja&lt;/a>&lt;/li>
+&lt;li>リファレンス: &lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>新しめの機能の場合、 &lt;code>gcloud beta ...&lt;/code> や &lt;code>gcloud alpha ...&lt;/code> にしかコマンドがなかったり、 &lt;code>beta ...&lt;/code> や &lt;code>alpha ...&lt;/code> を付けることで結果が変わることがある&lt;/li>
+&lt;/ul>
+&lt;h2 id="認証">認証&lt;/h2>
+&lt;p>See also &lt;a href="#auth">#auth&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 初期設定(認証込)&lt;/span>
+gcloud init
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/authorizing?hl=ja">Cloud SDK ツールの承認 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="環境変数">環境変数&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Variable&lt;/th>
+&lt;th>用途&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/td>
+&lt;td>利用するconfigurationを設定する。See &lt;a href="#configurations">#configurations&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="全体で使えるオプション">全体で使えるオプション&lt;/h2>
+&lt;p>リファレンスで「GCLOUD WIDE FLAGS」とされているもの。&lt;/p>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference">https://cloud.google.com/sdk/gcloud/reference&lt;/a> に簡単な説明がある。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>--configuration&lt;/code> &amp;hellip; コマンドを実行するconfiguration. See &lt;a href="#configurations">#configurations&lt;/a>&lt;/li>
+&lt;li>&lt;code>--project&lt;/code> &amp;hellip; コマンドの対象となるプロジェクトをプロジェクトIDで指定する&lt;/li>
+&lt;li>&lt;code>--verbosity=VERBOSITY&lt;/code> &amp;hellip; ログレベルの設定。デフォルトは &lt;code>warning&lt;/code>. 他に、debug, info, error, critical, noneが設定可能&lt;/li>
+&lt;/ul>
+&lt;h3 id="filter">filter&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/filters">https://cloud.google.com/sdk/gcloud/reference/topic/filters&lt;/a>&lt;/p>
+&lt;p>結果をリストで出力するコマンドに対し、フィルタ条件を記すことができる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute instances list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;machineType:f1-micro&amp;#34;&lt;/span>
+gcloud compute instances list &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;zone ~ ^us AND -machineType:f1-micro&amp;#34;&lt;/span>
+gcloud compute instances list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;tags.items=my-tag&amp;#34;&lt;/span>
+gcloud projects list &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;table(projectNumber,projectId,createTime)&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;createTime&amp;gt;=2018-01-15&amp;#34;&lt;/span>
+gcloud config configurations list --filter&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;IS_ACTIVE=true&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="format">format&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/formats">https://cloud.google.com/sdk/gcloud/reference/topic/formats&lt;/a>&lt;/p>
+&lt;p>結果を出力するコマンドに対し、出力フォーマットや、抽出するプロパティ、ヘッダの有無などを指定できる。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># デフォルトのテーブル表示にボックス装飾を付ける&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;[box]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># JSON形式&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>json
+&lt;span style="color:#8f5902;font-style:italic"># YAML形式&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>yaml
+&lt;span style="color:#8f5902;font-style:italic"># ヘッダ無しCSV形式&lt;/span>
+gcloud ... --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;csv[no-heading]&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ヘッダ無しCSVで、特定のカラム値だけ取得&lt;/span>
+gcloud config list --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;csv[no-heading](core.project,core.account)&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 特定の値だけ取得&lt;/span>
+gcloud config configurations list --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(name)&amp;#39;&lt;/span>
+gcloud info --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(config.paths.global_config_dir)&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="auth">auth&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/auth">https://cloud.google.com/sdk/gcloud/reference/auth&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ログイン認証&lt;/span>
+gcloud auth login
+&lt;span style="color:#8f5902;font-style:italic"># 現在認証済みのアカウント一覧&lt;/span>
+gcloud auth list
+&lt;span style="color:#8f5902;font-style:italic"># サービスアカウントの認証&lt;/span>
+gcloud auth activate-service-account --key-file &amp;lt;KEYFILE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># アクセストークンの表示&lt;/span>
+gcloud auth print-access-token
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="compute">compute&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute">https://cloud.google.com/sdk/gcloud/reference/compute&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## ssh&lt;/span>
+gcloud compute ssh &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;INSTANCE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-- &amp;lt;SSH_ARGS&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## scp&lt;/span>
+gcloud compute scp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--internal-ip &lt;span style="color:#000;font-weight:bold">|&lt;/span> --tunnel-through-iap&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--recurse&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> host:/path/to/dir path/to/local
+&lt;span style="color:#8f5902;font-style:italic">## イメージの作成&lt;/span>
+gcloud compute images create my-image --source-disk my-vm-disk
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="instances">instances&lt;/h3>
+&lt;p>VM操作&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances">https://cloud.google.com/sdk/gcloud/reference/compute/instances&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create">create&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
+gcloud compute instances list
+&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
+gcloud compute instances start &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
+gcloud compute instances stop &amp;lt;INSTANCE&amp;gt; --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ZONE&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic">## 作成&lt;/span>
+gcloud compute instances create my-instance &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-project --zone&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1-b &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --no-address &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 外部IPなし&lt;/span>
+--custom-vm-type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>n1 &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># N1インスタンス&lt;/span>
+--custom-cpu&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> --custom-memory&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>8GB &lt;span style="color:#4e9a06">\ &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># リソースをカスタマイズする場合&lt;/span>
+--image-project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>another-project --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-image &lt;span style="color:#8f5902;font-style:italic"># 別プロジェクトのイメージを使う&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/compute/docs/images/sharing-images-across-projects?hl=ja">イメージとスナップショットの共有 | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="regions">regions&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/regions">https://cloud.google.com/sdk/gcloud/reference/compute/regions&lt;/a>&lt;/p>
+&lt;p>GCEリージョンの表示。&lt;/p>
+&lt;p>SYNPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute regions list
+gcloud compute regions describe REGION
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ssl-certificates">ssl-certificates&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates">https://cloud.google.com/sdk/gcloud/reference/compute/ssl-certificates&lt;/a>&lt;/p>
+&lt;p>証明書の管理。マネージド証明書が作れる。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
+gcloud compute ssl-certificates list
+&lt;span style="color:#8f5902;font-style:italic"># 詳細表示&lt;/span>
+gcloud compute ssl-certificates describe &amp;lt;name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
+gcloud compute ssl-certificates create &amp;lt;name&amp;gt; --domains&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;fqdn1&amp;gt;,...
+&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
+gcloud compute ssl-certificates delete &amp;lt;name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="zones">zones&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/compute/zones">https://cloud.google.com/sdk/gcloud/reference/compute/zones&lt;/a>&lt;/p>
+&lt;p>GCEゾーンの表示。&lt;/p>
+&lt;p>SYNPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud compute zones list
+gcloud compute zones describe ZONE
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="config">config&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config">https://cloud.google.com/sdk/gcloud/reference/config&lt;/a>&lt;/p>
+&lt;p>Subcommands:&lt;/p>
+&lt;ul>
+&lt;li>configurations &amp;hellip; See below&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/get-value">get-value&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/list">list&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/set">set&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>configurationという単位でプロパティ値のセットを管理できる。&lt;br>
+configurations以外のサブコマンドは現在のconfigurationに対する操作を行う。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 設定プロパティ値一覧表示&lt;/span>
+gcloud config list
+&lt;span style="color:#8f5902;font-style:italic"># プロパティ値の取得&lt;/span>
+gcloud config get-value account
+gcloud config get-value artifacts/location
+&lt;span style="color:#8f5902;font-style:italic"># プロパティ値の設定&lt;/span>
+gcloud config &lt;span style="color:#204a87">set&lt;/span> project my-project
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/region asia-northeast1
+gcloud config &lt;span style="color:#204a87">set&lt;/span> compute/zone asia-northeast1-a
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sky0621/items/597d4de7ed9ba7e31f6d">gcloud configで複数の設定を持って切り替える - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="configurations">configurations&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/config/configurations">https://cloud.google.com/sdk/gcloud/reference/config/configurations&lt;/a>&lt;/p>
+&lt;p>設定プロファイルの管理。各プロファイルでは、プロパティ値のセットを管理することができる。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># プロファイル一覧表示&lt;/span>
+gcloud config configurations list
+&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
+gcloud config configurations describe プロファイル名
+&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
+gcloud config configurations create プロファイル名
+&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
+gcloud config configurations delete プロファイル名
+&lt;span style="color:#8f5902;font-style:italic"># 有効化&lt;/span>
+gcloud config configurations activate プロファイル名
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>gcloudコマンドは現在アクティブなconfigurationの設定プロパティをデフォルト値として参照する&lt;/li>
+&lt;li>アクティブなconfigurationは &lt;code>--configuration&lt;/code> 引数か、環境変数 &lt;code>CLOUDSDK_ACTIVE_CONFIG_NAME&lt;/code> で上書き指定することもできる&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/docs/configurations?hl=ja">SDK 構成の管理 | Cloud SDK のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/topic/configurations">https://cloud.google.com/sdk/gcloud/reference/topic/configurations&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="container">container&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container">https://cloud.google.com/sdk/gcloud/reference/container&lt;/a>&lt;/p>
+&lt;p>GKEなどコンテナサービスに関する操作。&lt;/p>
+&lt;h3 id="clusters">clusters&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters">https://cloud.google.com/sdk/gcloud/reference/container/clusters&lt;/a>&lt;/p>
+&lt;p>GKEクラスタの操作。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters list
+&lt;span style="color:#8f5902;font-style:italic"># $KUBECONFIG or ~/.kube/config に認証情報を取得&lt;/span>
+gcloud container clusters get-credentials クラスタ名 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>PROJECT_ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create">create&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/container/clusters/create">https://cloud.google.com/sdk/gcloud/reference/container/clusters/create&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;enable-master-authorized-networks&lt;/td>
+&lt;td>Master Authorized Networksの有効化&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;ndash;master-authorized-networks=NETWORK,[NETWORK,…]&lt;/td>
+&lt;td>Master Authorized Networksの設定&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h5 id="beta版2020-05-13更新">beta版（2020-05-13更新）&lt;/h5>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create">https://cloud.google.com/sdk/gcloud/reference/beta/container/clusters/create&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>オプション&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&amp;ndash;release-channel=CHANNEL&lt;/td>
+&lt;td>rapid, regular, stableのどれか。リリースチャネルの設定。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="images">images&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># イメージ一覧&lt;/span>
+gcloud container images list --repository&lt;span style="color:#ce5c00;font-weight:bold">=[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># イメージのタグ一覧&lt;/span>
+gcloud container images list-tags &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 完全なダイジェストを表示&lt;/span>
+gcloud container images list-tags --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;get(digest)&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 既存イメージに別のタグをつける（下記いずれか）&lt;/span>
+gcloud container images add-tag &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NEW_TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+gcloud container images add-tag &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>@&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE_DIGEST&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>HOSTNAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PROJECT-ID&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>IMAGE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>:&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NEW_TAG&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gcloud container images add-tag&lt;/code> コマンドは、別プロジェクトのリポジトリへのイメージのコピーにも使える&lt;/li>
+&lt;/ul>
+&lt;p>関連ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/container-registry/docs/managing">Managing images | Container Registry Documentation | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="endpoints">endpoints&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints">https://cloud.google.com/sdk/gcloud/reference/endpoints&lt;/a>&lt;/p>
+&lt;p>APIサービスの作成・有効化・管理を行う。&lt;/p>
+&lt;h3 id="services">services&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/endpoints/services">https://cloud.google.com/sdk/gcloud/reference/endpoints/services&lt;/a>&lt;/p>
+&lt;p>サービスの管理を行う。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud endpoints services list
+gcloud endpoints services delete ENDPOINT
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="functions">functions&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions">https://cloud.google.com/sdk/gcloud/reference/functions&lt;/a>&lt;/p>
+&lt;p>Cloud Functionsの操作&lt;/p>
+&lt;h3 id="deploy">deploy&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/functions/deploy">https://cloud.google.com/sdk/gcloud/reference/functions/deploy&lt;/a>&lt;/p>
+&lt;p>Cloud Functionのデプロイ（作成・更新）&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cloud-buildsイベントをフックに動くFunctionのデプロイ&lt;/span>
+gcloud functions deploy &amp;lt;Function Name&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --trigger-topic cloud-builds &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --runtime nodejs10 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set-env-vars &lt;span style="color:#4e9a06">&amp;#34;FOO=foo,BAR=bar&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --project my-project
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="info">info&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/info">https://cloud.google.com/sdk/gcloud/reference/info&lt;/a>&lt;/p>
+&lt;p>gcloudのconfigファイルのパスなど環境構成情報を表示する。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud info
+&lt;span style="color:#8f5902;font-style:italic"># 特定の値を抽出&lt;/span>
+gcloud info --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;value(config.paths.global_config_dir)&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># ネットワーク接続や隠し属性のチェック&lt;/span>
+gcloud info --run-diagnostics
+&lt;span style="color:#8f5902;font-style:italic"># 直近のログを表示&lt;/span>
+gcloud info --show-log
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="logging">logging&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging">https://cloud.google.com/sdk/gcloud/reference/logging&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>read&lt;/code>, &lt;code>list&lt;/code>などのコマンド利用時には serviceusage.services.use 権限が必要&lt;/li>
+&lt;/ul>
+&lt;h3 id="read">read&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/logging/read">https://cloud.google.com/sdk/gcloud/reference/logging/read&lt;/a>&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud logging &lt;span style="color:#204a87">read&lt;/span> --format json
+gcloud logging &lt;span style="color:#204a87">read&lt;/span> --limit&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> --order&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asc
+gcloud logging &lt;span style="color:#204a87">read&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;timestamp&amp;gt;=&amp;#34;2020-03-19T05:28:00Z&amp;#34; timestamp&amp;lt;=&amp;#34;2020-03-25T05:33:28Z&amp;#34;&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>※2020-04-20現在、 &lt;code>tail -f&lt;/code> 相当のオプションはなさそう&lt;/p>
+&lt;h2 id="projects">projects&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/sdk/gcloud/reference/projects/">https://cloud.google.com/sdk/gcloud/reference/projects/&lt;/a>&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロジェクト一覧&lt;/span>
+gcloud projects list
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c">よく使うgcloudコマンドたち - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Cloud Build</title><link>https://progrhy.me/tech-notes/a/google/gcp/build/</link><pubDate>Wed, 10 Jun 2020 11:39:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/build/</guid><description>
 &lt;h2 id="ビルド構成">ビルド構成&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/build-config">https://cloud.google.com/cloud-build/docs/build-config&lt;/a>&lt;/p>
@@ -2414,6 +2351,53 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;p>ビューの削除。&lt;/p>
 &lt;p>Syntax:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">DROP&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VIEW&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span> &lt;span style="color:#204a87;font-weight:bold">EXISTS&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">view_name&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: gsutil</title><link>https://progrhy.me/tech-notes/a/google/gcp/cli/gsutil/</link><pubDate>Tue, 10 Nov 2020 09:49:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/cli/gsutil/</guid><description>
+&lt;p>Cloud Storage用のPython製CLI&lt;/p>
+&lt;ul>
+&lt;li>ドキュメント: &lt;a href="https://cloud.google.com/storage/docs/gsutil">https://cloud.google.com/storage/docs/gsutil&lt;/a>&lt;/li>
+&lt;li>コマンドリファレンス: &lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/help">https://cloud.google.com/storage/docs/gsutil/commands/help&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="バケット操作">バケット操作&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">mb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/rb">rb&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バケット作成&lt;/span>
+gsutil mb -l asia gs://mybucket
+&lt;span style="color:#8f5902;font-style:italic"># バケット削除&lt;/span>
+gsutil rb &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-f&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> gs://&amp;lt;bucket_name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="iam">iam&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/iam">https://cloud.google.com/storage/docs/gsutil/commands/iam&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># bucket/objectのIAM権限を取得&lt;/span>
+gsutil iam get gs://bucket&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>/path&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># bucket/objectにIAM権限を設定&lt;/span>
+gsutil iam &lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-afRr&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-e &amp;lt;etag&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> file gs://bucket&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>/path&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ...
+&lt;span style="color:#8f5902;font-style:italic"># bucket/objectにIAM権限を設定。メンバー単位で個々に設定&lt;/span>
+gsutil iam ch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-fRr&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> binding ... gs://bucket
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/gcs/#iam">GCS#IAM&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ls">ls&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/ls">https://cloud.google.com/storage/docs/gsutil/commands/ls&lt;/a>&lt;/p>
+&lt;p>バケットやオブジェクトのリスト表示。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil ls gs://my-bucket/
+&lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含める&lt;/span>
+gsutil ls -a gs://my-bucket/
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="rm">rm&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/storage/docs/gsutil/commands/rm">https://cloud.google.com/storage/docs/gsutil/commands/rm&lt;/a>&lt;/p>
+&lt;p>オブジェクトの削除。&lt;/p>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># subdir/ 直下のオブジェクトを削除&lt;/span>
+gsutil rm gs://bucket/subdir/*
+&lt;span style="color:#8f5902;font-style:italic"># subdir/ 下の全てのオブジェクトを削除&lt;/span>
+gsutil rm gs://bucket/subdir/**
+&lt;span style="color:#8f5902;font-style:italic"># 上と同じ&lt;/span>
+gsutil rm -r gs://bucket/subdir/
+&lt;span style="color:#8f5902;font-style:italic"># 古いバージョンも含めて削除&lt;/span>
+gsutil rm -a gs://bucket/path/to/object
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
 &lt;h2 id="pip">pip&lt;/h2>
 &lt;p>標準のパッケージマネージャー。&lt;/p>
@@ -4914,337 +4898,4 @@ osパッケージなどにある様々なI/Oプリミティブを抽象化する
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">defer&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">RemoveAll&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">logsDir&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// clean up
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 3rd-Party Packages</title><link>https://progrhy.me/tech-notes/a/program/python/package/</link><pubDate>Mon, 22 Jun 2020 14:58:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/package/</guid><description>
-&lt;p>サードパーティー製のパッケージ。&lt;/p>
-&lt;h2 id="flask">Flask&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://pypi.org/project/Flask/">https://pypi.org/project/Flask/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://palletsprojects.com/p/flask/">https://palletsprojects.com/p/flask/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="エンドポイントリストの取得">エンドポイントリストの取得&lt;/h3>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/13317536/get-list-of-all-routes-defined-in-the-flask-app">python - Get list of all routes defined in the Flask app - Stack Overflow&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/13151161/display-links-to-new-webpages-created/13161594#13161594">python - Display links to new webpages created - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="requests">requests&lt;/h2>
-&lt;p>Documentation:&lt;/p>
-&lt;ul>
-&lt;li>英語: &lt;a href="https://requests.readthedocs.io/en/master/">Requests: HTTP for Humans™ — Requests 2.23.0 documentation&lt;/a>&lt;/li>
-&lt;li>日本語: &lt;a href="http://requests-docs-ja.readthedocs.org/en/latest/">Requests: 人間のためのHTTP — requests-docs-ja 1.0.4 documentation&lt;/a> &amp;hellip; 古いのであまり読まない方がよさそう&lt;/li>
-&lt;/ul>
-&lt;h3 id="カスタムヘッダを付ける">カスタムヘッダを付ける&lt;/h3>
-&lt;p>&lt;a href="https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers">https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers&lt;/a>&lt;/p>
-&lt;p>dict型の &lt;code>header&lt;/code> パラメータを渡せばいい。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;https://api.github.com/some/endpoint&amp;#39;&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;user-agent&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;my-app/0.0.1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">requests&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">url&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: fish shell</title><link>https://progrhy.me/tech-notes/a/cli/shell/fish/</link><pubDate>Sat, 20 Jun 2020 16:39:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/fish/</guid><description>
-&lt;h2 id="about">About&lt;/h2>
-&lt;blockquote>
-&lt;p>&lt;strong>Finally, a command line shell for the 90s&lt;/strong>&lt;br>
-fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.&lt;/p>
-&lt;/blockquote>
-&lt;p>使いやすいシェルとして人気のもの。&lt;/p>
-&lt;ul>
-&lt;li>C++ 実装&lt;/li>
-&lt;li>POSIX &lt;strong>非互換&lt;/strong>&lt;/li>
-&lt;li>プラグイン機能がある&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://nulab.com/ja/blog/backlog/fish-shell-tutorial/">fish-shell でシェルの海をスイスイ泳いでみた | 株式会社ヌーラボ(Nulab inc.)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/hennin/items/33758226a0de8c963ddf">fish shellが結構良かった話 - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/kuwa72/items/f3a90fcd215938f5817e">シェル芸人のためのfish入門 - Qiita&lt;/a> &amp;hellip; Bashとの違いがわかりやすかった&lt;/li>
-&lt;/ul>
-&lt;h2 id="getting-started">Getting Started&lt;/h2>
-&lt;p>Install:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://fishshell.com/">https://fishshell.com/&lt;/a> の「Go fish」から&lt;/li>
-&lt;/ul>
-&lt;p>Documentation:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://fishshell.com/docs/current/">https://fishshell.com/docs/current/&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://fishshell.com/docs/current/tutorial.html">Tutorial — fish-shell 3.1.2 documentation&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>有志和訳:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://natsukium.github.io/fish-docs-jp/">https://natsukium.github.io/fish-docs-jp/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
-&lt;ul>
-&lt;li>配列のインデックスは1から始まる&lt;/li>
-&lt;/ul>
-&lt;h3 id="変数のスコープ">変数のスコープ&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/#variable-scope">https://fishshell.com/docs/current/#variable-scope&lt;/a>&lt;/p>
-&lt;p>3種類のスコープ:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Universal&lt;/strong> &amp;hellip; 該当ユーザの全fishセッションで共有される&lt;/li>
-&lt;li>&lt;strong>Global&lt;/strong> &amp;hellip; 現在のfishセッションに閉じるが、他のブロックスコープに結びつかず、 &lt;code>set -e&lt;/code> で明示的に消されない限り消えない&lt;/li>
-&lt;li>&lt;strong>Local&lt;/strong> &amp;hellip; 特定のブロックに関連付けられ、ブロックを抜けると消える。ブロックは &lt;code>for&lt;/code>, &lt;code>while&lt;/code>, &lt;code>if&lt;/code>, &lt;code>function&lt;/code>, &lt;code>begin&lt;/code> や &lt;code>switch&lt;/code> で作られ、 &lt;code>end&lt;/code> で閉じる&lt;/li>
-&lt;/ul>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Universal. -U, --universal で定義&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -U fish_user_paths . &lt;span style="color:#000">$fish_user_paths&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Global. -g, --global で定義&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -g PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
-begin
-&lt;span style="color:#8f5902;font-style:italic"># Local. -l, --local で定義&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -l pirate &lt;span style="color:#4e9a06">&amp;#39;There be treasure in them thar hills&amp;#39;&lt;/span>
-end
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$pirate&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># pirateはlocalなので何も出力されない&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commands">Commands&lt;/h2>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/commands.html">https://fishshell.com/docs/current/commands.html&lt;/a>&lt;/p>
-&lt;h3 id="contains">contains&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/contains.html">https://fishshell.com/docs/current/cmds/contains.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">contains &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> KEY &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VALUES...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワードがリストに含まれるか調べる。&lt;br>
-オプション &lt;code>-i, --index&lt;/code> を付けると、ワードのインデックス値を返す。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># PATHにまだ含まれていなければ追加&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> not contains &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="eval">eval&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/eval.html">https://fishshell.com/docs/current/cmds/eval.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>COMMANDS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>テキストをコマンドとして評価する。&lt;br>
-コマンドが標準入力を使わないのなら &lt;code>source&lt;/code> を使ったほうがいいかも。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">set&lt;/span> cmd ls &lt;span style="color:#4e9a06">\|&lt;/span> cut -c 1-12
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#000">$cmd&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="function">function&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/function.html">https://fishshell.com/docs/current/cmds/function.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> NAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> BODY&lt;span style="color:#000;font-weight:bold">;&lt;/span> end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を作る。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> ll
-ls -l &lt;span style="color:#000">$argv&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Spec:&lt;/p>
-&lt;ul>
-&lt;li>引数は &lt;code>$argv&lt;/code> でリストとして渡される&lt;/li>
-&lt;/ul>
-&lt;h3 id="functions">functions&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/functions.html">https://fishshell.com/docs/current/cmds/functions.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -a &lt;span style="color:#000;font-weight:bold">|&lt;/span> --all &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -n &lt;span style="color:#000;font-weight:bold">|&lt;/span> --names &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -D &lt;span style="color:#000;font-weight:bold">|&lt;/span> --details &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -v &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTION
-functions -c OLDNAME NEWNAME
-functions -d DESCRIPTION FUNCTION
-functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> -q &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTIONS...
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を表示したり消したりする。&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-a, -all&lt;/code>&lt;/td>
-&lt;td>&lt;code>_&lt;/code> で始まるものも全て表示&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-e, --erase FUNCTIONS...&lt;/code>&lt;/td>
-&lt;td>関数を消す&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">functions -n
-&lt;span style="color:#8f5902;font-style:italic"># Displays a list of currently-defined functions&lt;/span>
-functions -c foo bar
-&lt;span style="color:#8f5902;font-style:italic"># Copies the &amp;#39;foo&amp;#39; function to a new function called &amp;#39;bar&amp;#39;&lt;/span>
-functions -e bar
-&lt;span style="color:#8f5902;font-style:italic"># Erases the function ``bar``&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="if">if&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/if.html">https://fishshell.com/docs/current/cmds/if.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION2&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE2...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_FALSE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>条件分岐構文として使える。&lt;/p>
-&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f foo.txt
-&lt;span style="color:#204a87">echo&lt;/span> foo.txt exists
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f bar.txt
-&lt;span style="color:#204a87">echo&lt;/span> bar.txt exists
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> foo.txt and bar.txt &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> not exist
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="set">set&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/set.html">https://fishshell.com/docs/current/cmds/set.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME VALUES...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>... VALUES...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -q &lt;span style="color:#000;font-weight:bold">|&lt;/span> --query &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAMES...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -S &lt;span style="color:#000;font-weight:bold">|&lt;/span> --show &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>シェル変数の表示や操作を行う。&lt;/p>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97">変数のスコープ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Option&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>-e, --erase NAME&lt;/code>&lt;/td>
-&lt;td>変数を削除する&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-x, --export NAME VALUES...&lt;/code>&lt;/td>
-&lt;td>変数をエクスポートし、環境変数にする&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>-u, --unexport NAME VALUES...&lt;/code>&lt;/td>
-&lt;td>変数をアンエクスポートし、環境変数ではなくする&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Prints all global, exported variables.&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -xg
-&lt;span style="color:#8f5902;font-style:italic"># Sets the value of the variable $foo to be &amp;#39;hi&amp;#39;.&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> foo hi
-&lt;span style="color:#8f5902;font-style:italic"># $fooを配列と見なして&amp;#34;there&amp;#34;をappendする&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -a foo there
-&lt;span style="color:#8f5902;font-style:italic"># Does the same thing as the previous two commands the way it would be done pre-fish 3.0.&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> foo hi
-&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#000">$foo&lt;/span> there
-&lt;span style="color:#8f5902;font-style:italic"># 先頭に要素を追加&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#4e9a06">&amp;#34;Hello, &amp;#34;&lt;/span> &lt;span style="color:#000">$foo&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Removes the variable $smurf&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -e smurf
-&lt;span style="color:#8f5902;font-style:italic"># Changes the fourth element of the $PATH list to ~/bin&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>4&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ~/bin
-&lt;span style="color:#8f5902;font-style:italic"># PATH変数の3つ目を削除&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -e PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="source">source&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/source.html">https://fishshell.com/docs/current/cmds/source.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
-&lt;span style="color:#204a87">source&lt;/span> FILENAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ARGUMENTS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
-somecommand &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">source&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルや標準入力から受け取ったコマンド群を現在のシェルのコンテキストで評価・実行する。&lt;/p>
-&lt;h3 id="test">test&lt;/h3>
-&lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/test.html">https://fishshell.com/docs/current/cmds/test.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
-&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/posix/#test">POSIX shellのtest&lt;/a>ユーティリティのように機能する。&lt;br>
-互換性のために2番めの構文も利用可能だが、fishでは &lt;code>test ...&lt;/code> 形式が好まれるとのこと。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -d /tmp
-cp /etc/motd /tmp/motd
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$MANPATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$MANPATH&lt;/span>
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> ! &lt;span style="color:#204a87">test&lt;/span> -r secret.txt
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Can&amp;#39;t read secret.txt&amp;#34;&lt;/span> &amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#4e9a06">\(&lt;/span> -f /foo -o -f /bar &lt;span style="color:#4e9a06">\)&lt;/span> -a &lt;span style="color:#4e9a06">\(&lt;/span> -f /baz -o -f /bat &lt;span style="color:#4e9a06">\)&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> Success
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000">$status&lt;/span> -ne &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Previous command failed&amp;#34;&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
-&lt;p>関連項目:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="fisher">fisher&lt;/h3>
-&lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
-&lt;p>人気のパッケージ管理ツール。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># oh-my-fishのテーマをfisherでインストール&lt;/span>
-fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: std::io</title><link>https://progrhy.me/tech-notes/a/program/rust/std/io/</link><pubDate>Sun, 31 May 2020 01:23:54 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/std/io/</guid><description>
-&lt;p>基礎的なI/O機能を提供する。&lt;/p>
-&lt;h2 id="stderr-function">stderr (Function)&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stderr.html">Function std::io::stderr&lt;/a>&lt;/p>
-&lt;p>&lt;code>pub fn stderr() -&amp;gt; Stderr&lt;/code>&lt;/p>
-&lt;p>当該プロセスの新しい標準エラー出力ハンドルを生成する。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Write&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">write_all&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&amp;#34;hello world&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">// Using explicit synchronization
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">stderr&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">lock&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">handle&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">write_all&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&amp;#34;hello world&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stdin-function">stdin (Function)&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdin.html">Function std::io::stdin&lt;/a>&lt;/p>
-&lt;p>&lt;code>pub fn stdin() -&amp;gt; Stdin&lt;/code>&lt;/p>
-&lt;p>当該プロセスの新しい標準入力ハンドルを生成する。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#8f5902;font-style:italic">// Using implicit synchronization
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Read&lt;/span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fn&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>-&amp;gt; &lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#204a87">Result&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_to_string&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">buffer&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">?&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(())&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stdout-function">stdout (Function)&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/fn.stdout.html">Function std::io::stdout&lt;/a>&lt;/p>
-&lt;p>当該プロセスの新しい標準出力ハンドルを生成する。&lt;/p>
-&lt;h2 id="stderr-struct">Stderr (Struct)&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stderr.html">Struct std::io::Stderr&lt;/a>&lt;/p>
-&lt;p>プロセスの標準エラー出力ストリームのハンドル。&lt;/p>
-&lt;p>詳しくは&lt;a href="">io::stderr&lt;/a>を見よ。&lt;/p>
-&lt;h2 id="stdin-struct">Stdin (Struct)&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdin.html">Struct std::io::Stdin&lt;/a>&lt;/p>
-&lt;p>プロセスの標準入力ストリームのハンドル。&lt;br>
-個々のハンドルは、当該プロセスに対する入力データのグローバルバッファの参照を共有する。
-ハンドルは &lt;code>BufRead&lt;/code> メソッドにフルアクセスを得るためにロックされることがある。&lt;/p>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Rust" data-lang="Rust">&lt;span style="color:#204a87;font-weight:bold">use&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">std&lt;/span>::&lt;span style="color:#000">io&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">String&lt;/span>::&lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">();&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">match&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">io&lt;/span>::&lt;span style="color:#000">stdin&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">read_line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">mut&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Ok&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{} bytes read&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87">Err&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">println&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;error: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">error&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="read_line-method">read_line (Method)&lt;/h3>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/string/struct.String.html#method.new">Method Stdin::read_line&lt;/a>&lt;/p>
-&lt;p>&lt;code>pub fn read_line(&amp;amp;self, buf: &amp;amp;mut String) -&amp;gt; Result&amp;lt;usize&amp;gt;&lt;/code>&lt;/p>
-&lt;p>当該ハンドルをロックして入力行を読み込む。&lt;/p>
-&lt;p>詳しくは &lt;a href="https://doc.rust-lang.org/std/io/trait.BufRead.html#method.read_line">BufRead::read_line&lt;/a> を見よ。&lt;/p>
-&lt;h2 id="stdout-struct">Stdout (Struct)&lt;/h2>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/struct.Stdout.html">Struct std::io::Stdout&lt;/a>&lt;/p>
-&lt;p>プロセスの標準出力ストリームのハンドル。&lt;br>
-&lt;a href="#stdout-function">io::stdout&lt;/a>関数によって生成される。&lt;/p>
-&lt;h2 id="write-trait">Write (Trait)&lt;/h2>
-&lt;h3 id="flush-required-method">flush (Required Method)&lt;/h3>
-&lt;p>&lt;a href="https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush">https://doc.rust-lang.org/std/io/trait.Write.html#tymethod.flush&lt;/a>&lt;/p>
-&lt;p>&lt;code>fn flush(&amp;amp;mut self) -&amp;gt; Result&amp;lt;()&amp;gt;&lt;/code>&lt;/p>
-&lt;p>出力ストリームをフラッシュする。&lt;/p></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
