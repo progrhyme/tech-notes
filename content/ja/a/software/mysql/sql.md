@@ -54,6 +54,21 @@ Tips:
 
 - [MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記](http://d.hatena.ne.jp/tnnsst35/20110604/1307181215 "MySQLの CREATE TABLE ... LIKE ... - 不思議なサービスをつくる新人プログラマーの日記")
 
+### ALTER TABLE
+
+- https://dev.mysql.com/doc/refman/5.6/ja/alter-table.html
+
+Examples:
+
+```sql
+-- AUTO_INCREMENT値のリセット
+ALTER TABLE foo AUTO_INCREMENT = 1;
+```
+
+参考:
+
+- [AUTO_INCREMENTを設定する(連続した数値を自動でカラムに格納する) | MySQLの使い方](https://www.dbonline.jp/mysql/table/index7.html)
+
 ## 関数
 ### LEFT, RIGHT
 
