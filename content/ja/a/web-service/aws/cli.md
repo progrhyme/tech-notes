@@ -91,6 +91,22 @@ $ aws logs get-log-events \
   --start-time 1513727400000 --end-time 1513728600000 [--output text]
 ```
 
+#### create-log-group
+
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html
+
+```sh
+aws logs create-log-group --log-group-name <value> [OPTIONS]
+```
+
+#### describe-log-groups
+
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html
+
+```sh
+aws logs describe-log-groups [OPTIONS]
+```
+
 ### sns
 
 - https://docs.aws.amazon.com/cli/latest/reference/sns/

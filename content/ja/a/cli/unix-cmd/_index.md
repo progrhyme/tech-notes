@@ -242,6 +242,23 @@ Mac版の違い:
 - [\[Linux\] top コマンドをインタラクティブに操作する | バシャログ。](http://bashalog.c-brains.jp/11/05/24-220315.php)
 
 ## ユーティリティー
+### history
+
+Bash, Zshで引数の扱いが異なるところがある。
+
+```sh
+# Zsh
+history -N
+
+# Bash
+history N
+```
+
+参考:
+
+- [【Mac】historyコマンドの表示件数でハマってしまった件 - Qiita](https://qiita.com/JUNO-LEARN/items/5322cccb1aff5661604d)
+
+
 ### watch
 
 ```bash

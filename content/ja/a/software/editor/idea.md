@@ -23,6 +23,14 @@ Preferences > Editor > General > SoftWraps
 > Use original line’s indent for wrapped parts
 ```
 
+### 矩形選択
+
+メニュー: `Edit > Column Selection Mode` でON/OFFできる。
+
+参考:
+
+- [IntelliJ IDEA - 【IntelliJ IDEA】フリーカーソル＆矩形選択の解除の方法｜teratail](https://teratail.com/questions/117537)
+
 ### File Typeの関連付け
 
 `Preferences > Editor > File Types` で関連付けを設定できる。  

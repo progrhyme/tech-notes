@@ -42,6 +42,8 @@ Cloud Loggingで `compute.instances.preempted` で検索。
 
 ### インスタンスグループ
 
+[インスタンス グループ | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/instance-groups)
+
 - マネージド ... オートスケールする。インスタンステンプレートを使う
 - 非マネージド ... 自前でインスタンスを登録して管理
   - [非マネージド インスタンス グループの作成 | Compute Engine ドキュメント | Google Cloud](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances?hl=ja)
