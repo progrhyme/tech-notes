@@ -64,6 +64,12 @@ $ date +%s -d &lt;span style="color:#4e9a06">&amp;#34;2017-12-20 09:10:00&amp;#3
 $ aws logs get-log-events &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --log-group-name &amp;lt;your-log-group&amp;gt; --log-stream-name &amp;lt;your-log-stream&amp;gt; &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --start-time &lt;span style="color:#0000cf;font-weight:bold">1513727400000&lt;/span> --end-time &lt;span style="color:#0000cf;font-weight:bold">1513728600000&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--output text&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create-log-group">create-log-group&lt;/h4>
+&lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">aws logs create-log-group --log-group-name &amp;lt;value&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="describe-log-groups">describe-log-groups&lt;/h4>
+&lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">aws logs describe-log-groups &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sns">sns&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://docs.aws.amazon.com/cli/latest/reference/sns/">https://docs.aws.amazon.com/cli/latest/reference/sns/&lt;/a>

@@ -11,7 +11,13 @@
 &lt;h3 id="行の折り返しsoft-wrap">行の折り返し（Soft-Wrap）&lt;/h3>
 &lt;pre>&lt;code>Preferences &amp;gt; Editor &amp;gt; General &amp;gt; SoftWraps
 &amp;gt; Use original line’s indent for wrapped parts
-&lt;/code>&lt;/pre>&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h3 id="矩形選択">矩形選択&lt;/h3>
+&lt;p>メニュー: &lt;code>Edit &amp;gt; Column Selection Mode&lt;/code> でON/OFFできる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://teratail.com/questions/117537">IntelliJ IDEA - 【IntelliJ IDEA】フリーカーソル＆矩形選択の解除の方法｜teratail&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="file-typeの関連付け">File Typeの関連付け&lt;/h3>
 &lt;p>&lt;code>Preferences &amp;gt; Editor &amp;gt; File Types&lt;/code> で関連付けを設定できる。&lt;br>
 まだ関連付けがない拡張子のファイルであれば、エディタ上で右クリックして「Associate File Type」を選んで設定することもできる。&lt;/p>
 &lt;h2 id="plugins">Plugins&lt;/h2>

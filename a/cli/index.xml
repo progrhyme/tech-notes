@@ -394,6 +394,16 @@ top -b -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -1
 &lt;li>&lt;a href="http://bashalog.c-brains.jp/11/05/24-220315.php">[Linux] top コマンドをインタラクティブに操作する | バシャログ。&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="ユーティリティー">ユーティリティー&lt;/h2>
+&lt;h3 id="history">history&lt;/h3>
+&lt;p>Bash, Zshで引数の扱いが異なるところがある。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Zsh&lt;/span>
+&lt;span style="color:#204a87">history&lt;/span> -N
+&lt;span style="color:#8f5902;font-style:italic"># Bash&lt;/span>
+&lt;span style="color:#204a87">history&lt;/span> N
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/JUNO-LEARN/items/5322cccb1aff5661604d">【Mac】historyコマンドの表示件数でハマってしまった件 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="watch">watch&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">watch -n &amp;lt;N&amp;gt; &lt;span style="color:#204a87">command&lt;/span> args...
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>N秒ごとにコマンドを実行して出力を表示。&lt;/p>

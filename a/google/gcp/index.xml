@@ -370,6 +370,7 @@
 &lt;li>&lt;a href="https://www.marketechlabo.com/gce-preemptible-instance/">格安に使えるGCEのプリエンプティブインスタンスの勝手に停止対策 | marketechlabo&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="インスタンスグループ">インスタンスグループ&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/compute/docs/instance-groups">インスタンス グループ | Compute Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>マネージド &amp;hellip; オートスケールする。インスタンステンプレートを使う&lt;/li>
 &lt;li>非マネージド &amp;hellip; 自前でインスタンスを登録して管理
