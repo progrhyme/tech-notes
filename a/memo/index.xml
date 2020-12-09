@@ -1,4 +1,23 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-12-02</title><link>https://progrhy.me/tech-notes/a/memo/20201202/</link><pubDate>Wed, 02 Dec 2020 13:31:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201202/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2020-12-09</title><link>https://progrhy.me/tech-notes/a/memo/20201209/</link><pubDate>Wed, 09 Dec 2020 08:38:39 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201209/</guid><description>
+&lt;h2 id="129">12/9&lt;/h2>
+&lt;h3 id="最近のknown_hostsはホスト部が暗号化されている">最近のknown_hostsはホスト部が暗号化されている&lt;/h3>
+&lt;p>ssh configでHashKnownHostsがYesになってるみたい。&lt;/p>
+&lt;p>これを復号する方法を調べてみたが、まだ見つかっていない。ハッシュ化=一方向変換なら、無理か。&lt;/p>
+&lt;p>次の操作は可能:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 該当ホストがknown_hostsに存在するか探す&lt;/span>
+ssh-keygen -F &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
+&lt;span style="color:#8f5902;font-style:italic"># 該当ホストをknown_hostsから削除&lt;/span>
+ssh-keygen -R &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>いまのところ考えられるやり方は、次の手順:&lt;/p>
+&lt;ol>
+&lt;li>ユーザの ~/.ssh/configでHashKnownHostsをnoにする&lt;/li>
+&lt;li>known_hostsからエントリを消して再接続する&lt;/li>
+&lt;/ol>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.mothule.com/tools/ssh/tools-ssh-keygen-basic">SSH公開鍵認証で必要なssh-keygenの使い方を理解する - もちゅろぐ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://qiita.com/kamijin_fanta/items/323c14facdf87d723b01">SSHでいつもやる設定 (ControlMaster / Bash補完) - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2020-12-02</title><link>https://progrhy.me/tech-notes/a/memo/20201202/</link><pubDate>Wed, 02 Dec 2020 13:31:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201202/</guid><description>
 &lt;h2 id="122">12/2&lt;/h2>
 &lt;h3 id="binqにargocdを追加">binqにargocdを追加&lt;/h3>
 &lt;p>すっかり使い方が記憶の彼方だったが、過去ログとかGitHub Pages上の他の設定を見たらなんとかなった。&lt;/p>
