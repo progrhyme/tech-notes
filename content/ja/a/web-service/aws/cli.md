@@ -131,3 +131,16 @@ Parameter Store:
 - http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html
 - http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters.html
 - http://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html
+
+### sts
+
+SYNOPSIS:
+
+```sh
+# 現在のAWSアカウントや利用しているIAMの情報を表示する
+aws sts get-caller-identity
+```
+
+参考:
+
+- [【小ネタ】AWS CLIでAWS Account IDが取れるようになりました！ | Developers.IO](https://dev.classmethod.jp/articles/get-aws-account-id-with-get-caller-identity/)

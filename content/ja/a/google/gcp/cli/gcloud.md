@@ -429,6 +429,30 @@ SYNOPSIS:
 gcloud projects list
 ```
 
+## beta
+
+正式版になってないか適宜チェックすること。
+
+### builds triggers
+
+最終更新: 2020-12-09
+
+Cloud Buildのトリガーを操作する。
+
+SYNOPSIS:
+
+```sh
+# 既存のトリガー設定をエクスポート
+gcloud beta builds triggers export <トリガー名> --destination=my-trigger.yml
+
+# ファイルからトリガー設定をインポート
+gcloud beta builds triggers import --source=my-trigger.yml
+```
+
+NOTE:
+- エクスポート/インポートについて:
+  - YAML内のidが一致していると、nameを変えても既存のトリガーが更新されてしまう
+
 ## 参考
 
 - [よく使うgcloudコマンドたち - Qiita](https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c)
