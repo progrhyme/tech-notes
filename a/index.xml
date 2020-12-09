@@ -2186,7 +2186,25 @@ gcloud logging &lt;span style="color:#204a87">read&lt;/span> &lt;span style="col
 &lt;p>SYNOPSIS:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## プロジェクト一覧&lt;/span>
 gcloud projects list
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="beta">beta&lt;/h2>
+&lt;p>正式版になってないか適宜チェックすること。&lt;/p>
+&lt;h3 id="builds-triggers">builds triggers&lt;/h3>
+&lt;p>最終更新: 2020-12-09&lt;/p>
+&lt;p>Cloud Buildのトリガーを操作する。&lt;/p>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 既存のトリガー設定をエクスポート&lt;/span>
+gcloud beta builds triggers &lt;span style="color:#204a87">export&lt;/span> &amp;lt;トリガー名&amp;gt; --destination&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-trigger.yml
+&lt;span style="color:#8f5902;font-style:italic"># ファイルからトリガー設定をインポート&lt;/span>
+gcloud beta builds triggers import --source&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my-trigger.yml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>エクスポート/インポートについて:
+&lt;ul>
+&lt;li>YAML内のidが一致していると、nameを変えても既存のトリガーが更新されてしまう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/masaaania/items/7a83c5e44e351b4a3a2c">よく使うgcloudコマンドたち - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Cloud Build</title><link>https://progrhy.me/tech-notes/a/google/gcp/build/</link><pubDate>Wed, 10 Jun 2020 11:39:18 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/build/</guid><description>
@@ -3778,6 +3796,14 @@ aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:
 &lt;li>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="sts">sts&lt;/h3>
+&lt;p>SYNOPSIS:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のAWSアカウントや利用しているIAMの情報を表示する&lt;/span>
+aws sts get-caller-identity
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/get-aws-account-id-with-get-caller-identity/">【小ネタ】AWS CLIでAWS Account IDが取れるようになりました！ | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Cargo</title><link>https://progrhy.me/tech-notes/a/program/rust/cargo/</link><pubDate>Sat, 30 May 2020 09:37:39 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/cargo/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>&lt;a href="https://doc.rust-lang.org/cargo/">https://doc.rust-lang.org/cargo/&lt;/a>&lt;/p>
