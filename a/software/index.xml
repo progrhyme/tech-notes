@@ -517,6 +517,12 @@ kubectl delete -f my-ns.yml
 &lt;li>&lt;a href="https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466">Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/k8s-namespace-force-delete/">[小ネタ]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="全リソースオブジェクト取得">全リソースオブジェクト取得&lt;/h3>
+&lt;p>&lt;code>kubectl get all&lt;/code> では一部しか取れない。&lt;/p>
+&lt;p>こんな感じで行ける。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl api-resources --verbs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>list --namespaced -o name &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> kubectl get --show-kind --ignore-not-found -l &amp;lt;label&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;value&amp;gt; -n &amp;lt;namespace&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022">https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022&lt;/a>&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="cfs-quotaが有効のときcpu-limits設定によってコンテナがストールする問題">CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題&lt;/h3>
 &lt;p>2018年には起こっていた問題。&lt;br>

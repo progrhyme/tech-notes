@@ -1853,6 +1853,26 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;li>&lt;a href="https://qiita.com/pipi_taro/items/859d445960bb79a3ac78">IntelliJの使い方 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/non0311/items/71109f284b6b32f1b25e">IntelliJ IDEA 初期設定・プラグイン・ショートカットコマンド - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="ショートカットキー">ショートカットキー&lt;/h3>
+&lt;p>macOS&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>キー&lt;/th>
+&lt;th>機能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>+⌘+Shift+f&lt;/code>&lt;/td>
+&lt;td>検索 / パス内検索&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pleiades.io/help/idea/finding-and-replacing-text-in-project.html#limit_search">プロジェクト内のターゲットを検索および置換する — IntelliJ IDEA&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="行の折り返しsoft-wrap">行の折り返し（Soft-Wrap）&lt;/h3>
 &lt;pre>&lt;code>Preferences &amp;gt; Editor &amp;gt; General &amp;gt; SoftWraps
 &amp;gt; Use original line’s indent for wrapped parts
