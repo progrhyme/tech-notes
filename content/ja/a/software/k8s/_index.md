@@ -55,11 +55,9 @@ See
 
 - [全ての Pod を一発でリロードさせる方法 - Qiita](https://qiita.com/dtan4/items/9e0ab5dbe8c64ed6dd21)
 
-
 ### 複数クラスタを設定する
 
 - https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/ ... `kubectl config use-context` で複数クラスタを切り替えられるようにする設定チュートリアル
-
 
 ### 機密情報や環境設定の扱い
 
@@ -68,7 +66,6 @@ SecretsやConfigMapを使う。
 参考:
 
 - [Kubernetes 上で Credentials を扱う | tellme.tokyo](https://tellme.tokyo/post/2018/08/07/kubernetes-configmaps-secrets/)
-
 
 ### Namespaceの削除
 
@@ -83,6 +80,19 @@ kubectl delete -f my-ns.yml
 
 - [Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita](https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466)
 - [\[小ネタ\]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO](https://dev.classmethod.jp/articles/k8s-namespace-force-delete/)
+
+### 全リソースオブジェクト取得
+
+`kubectl get all` では一部しか取れない。
+
+こんな感じで行ける。
+
+```sh
+kubectl api-resources --verbs=list --namespaced -o name \
+  | xargs -n 1 kubectl get --show-kind --ignore-not-found -l <label>=<value> -n <namespace>
+```
+
+参考: https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022
 
 ## Topics
 ### CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題

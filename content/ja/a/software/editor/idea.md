@@ -16,6 +16,18 @@ weight: 30
 - [IntelliJの使い方 - Qiita](https://qiita.com/pipi_taro/items/859d445960bb79a3ac78)
 - [IntelliJ IDEA 初期設定・プラグイン・ショートカットコマンド - Qiita](https://qiita.com/non0311/items/71109f284b6b32f1b25e)
 
+### ショートカットキー
+
+macOS
+
+ キー | 機能
+-----|------
+ `+⌘+Shift+f` | 検索 / パス内検索
+
+参考:
+
+- [プロジェクト内のターゲットを検索および置換する — IntelliJ IDEA](https://pleiades.io/help/idea/finding-and-replacing-text-in-project.html#limit_search)
+
 ### 行の折り返し（Soft-Wrap）
 
 ```
