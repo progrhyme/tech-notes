@@ -340,8 +340,8 @@ locals {
 
 resource "foo_resource" "my_foo" {
   for_each = toset(local.params)
-  project  = split(",", each_value)[0]
-  key      = split(",", each_value)[1]
+  project  = split(",", each.value)[0]
+  key      = split(",", each.value)[1]
 }
 ```
 
