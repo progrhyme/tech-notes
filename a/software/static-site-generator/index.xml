@@ -157,7 +157,7 @@ hugo server -D
 &lt;p>テンプレート機能を使っていい感じのarchetypeを作ると便利かも。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200712/#hugo%E3%81%A7memo%E7%94%A8%E3%81%AEarchetype%E3%82%92%E4%BD%9C%E3%82%8B">2020-07-12#Hugoでmemo用のarchetypeを作る&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200712/#hugo%E3%81%A7memo%E7%94%A8%E3%81%AEarchetype%E3%82%92%E4%BD%9C%E3%82%8B">2020-07-12#Hugoでmemo用のarchetypeを作る&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="writing-pages">Writing Pages&lt;/h2>
 &lt;p>記事の作成・編集で使う基本的な機能などについて書く。&lt;/p>
