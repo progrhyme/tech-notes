@@ -318,6 +318,11 @@ terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモ�
 terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
 terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
 terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="workspace">workspace&lt;/h2>
+&lt;p>&lt;a href="https://www.terraform.io/docs/cli/commands/workspace/">https://www.terraform.io/docs/cli/commands/workspace/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform workspace new &lt;span style="color:#000">$env&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># workspace作成&lt;/span>
+terraform workspace list &lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
+terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/span> &lt;span style="color:#000">$env&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># workspace切替え&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
