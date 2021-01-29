@@ -60,3 +60,13 @@ terraform state push [OPTION] PATH     # ローカルのstateファイルをリ�
 terraform state mv SOURCE DESTINATION  # リソースの名称変更。module化も可能
 terraform state rm リソース             # リソースをterraform管理から除く = tfstateファイルから削除
 ```
+
+## workspace
+
+https://www.terraform.io/docs/cli/commands/workspace/
+
+```sh
+terraform workspace new $env     # workspace作成
+terraform workspace list         # 一覧表示
+terraform workspace select $env  # workspace切替え
+```
