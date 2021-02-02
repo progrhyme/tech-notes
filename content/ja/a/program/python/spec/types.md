@@ -61,6 +61,29 @@ listオブジェクトとか。
 - [リスト \- 作成、取り出し、置換、追加、検索、削除、要素数 \- ひきメモ](http://d.hatena.ne.jp/yumimue/20071205/1196839438)
 - [Python: リストの要素の追加と削除、取出し – append\(\)、extend\(\)、pop\(\)、remove\(\)メソッド](http://www.yukun.info/blog/2008/06/python-list2.html)
 
+## テキストシーケンス型 - str
+
+https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str
+
+strクラスのオブジェクト、即ち文字列。
+
+See also:
+
+- [リテラル > 文字列]({{<ref _index.md>}}#文字列)
+
+### スライス - 部分文字列
+
+Examples:
+
+```Python
+s = "abcdef"
+s[1:3] #=> "bc"
+```
+
+参考:
+
+- [Python | スライスを使って文字列の指定範囲の部分文字列を取得する](https://www.javadrive.jp/python/string/index11.html)
+
 ## マッピング型 - dict
 
 https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict

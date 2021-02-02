@@ -51,6 +51,23 @@ def foo():
 
 https://docs.python.org/ja/3/reference/lexical_analysis.html#literals
 
+### 文字列
+
+Examples:
+
+```Python
+'foo'
+"foo"
+```
+
+See also:
+
+- [データ型 > テキストシーケンス型(str)]({{<ref types.md>}}#テキストシーケンス型---str)
+
+参考:
+
+- [Python | 文字列リテラルを記述する](https://www.javadrive.jp/python/string/index1.html)
+
 ## 演算子
 ### 二項演算子
 
@@ -161,12 +178,19 @@ except:
 ## 書式付き文字列
 
 ```python
+a = "foo"
+b = 123
+
 'Hello, {}!'.format('world')
+
+# f文字列 ... Python 3.6以上
+print(f"{a} has {b} apples")
 ```
 
 参考:
 
 - [Python3での文字列フォーマットまとめ　旧型で生きるか、新型で生きるか \- Qiita](https://qiita.com/u_kan/items/2a7b4201beb0d467e5b8)
+- [Pythonのf文字列（フォーマット済み文字列リテラル）の使い方 | note.nkmk.me](https://note.nkmk.me/python-f-strings/)
 
 ## ジェネレータ
 
