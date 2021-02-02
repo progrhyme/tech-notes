@@ -36,6 +36,16 @@ weight: 720
 - [Cython から C\+\+ を使う — Cython 0\.17\.1 documentation](http://omake.accense.com/static/doc-ja/cython/src/userguide/wrapping_CPlusPlus.html)
 - [Pythonで高速化処理！numbaとCythonの実行速度を比較してみた。 \- これで無理なら諦めて！世界一やさしいデータ分析教室](http://www.randpy.tokyo/entry/numba_cython)
 
+## Documentation
+
+See also:
+
+- [言語仕様#コメント]({{<ref "spec/_index.md">}}#コメント)
+
+参考:
+
+- [Pythonコードの文書化：完全なガイド](https://www.codeflow.site/ja/article/documenting-python-code)
+
 ## 開発環境
 ### Visual Studio Code
 #### venvを使う
@@ -63,6 +73,19 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 
 - [\[VS Code\] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)](https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad)
 - Windows: [【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ](https://hachian.com/2019/09/19/vscode_venv/)
+
+## コーディング規約
+
+- PEP 8: [はじめに — pep8-ja 1.0 ドキュメント](https://pep8-ja.readthedocs.io/ja/latest/)
+- Google: [styleguide | Style guides for Google-originated open-source projects](https://google.github.io/styleguide/pyguide.html)
+
+### フォーマッタ
+
+- https://github.com/psf/black
+
+参考:
+
+- [blackとpylintを使った快適なPython開発 - Qiita](https://qiita.com/navitime_tech/items/0a431a2d74c156d0bda2)
 
 ## Python3
 ### Python2との違い
