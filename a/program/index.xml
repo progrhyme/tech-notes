@@ -284,6 +284,15 @@ cpanm Foo::Bar
 &lt;li>&lt;a href="http://omake.accense.com/static/doc-ja/cython/src/userguide/wrapping_CPlusPlus.html">Cython から C++ を使う — Cython 0.17.1 documentation&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://www.randpy.tokyo/entry/numba_cython">Pythonで高速化処理！numbaとCythonの実行速度を比較してみた。 - これで無理なら諦めて！世界一やさしいデータ分析教室&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>See also:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/python/spec/#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88">言語仕様#コメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.codeflow.site/ja/article/documenting-python-code">Pythonコードの文書化：完全なガイド&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="開発環境">開発環境&lt;/h2>
 &lt;h3 id="visual-studio-code">Visual Studio Code&lt;/h3>
 &lt;h4 id="venvを使う">venvを使う&lt;/h4>
@@ -316,6 +325,19 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;ul>
 &lt;li>&lt;a href="https://tekunabe.hatenablog.jp/entry/2018/12/28/vscode_venv_default_rolad">[VS Code] デフォルトで読み込む venv/virtualenv 環境のパス - てくなべ (tekunabe)&lt;/a>&lt;/li>
 &lt;li>Windows: &lt;a href="https://hachian.com/2019/09/19/vscode_venv/">【vscode】環境構築 #1-venvで仮想環境作成-【Python】 | ハチアンアーカイブズ&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="コーディング規約">コーディング規約&lt;/h2>
+&lt;ul>
+&lt;li>PEP 8: &lt;a href="https://pep8-ja.readthedocs.io/ja/latest/">はじめに — pep8-ja 1.0 ドキュメント&lt;/a>&lt;/li>
+&lt;li>Google: &lt;a href="https://google.github.io/styleguide/pyguide.html">styleguide | Style guides for Google-originated open-source projects&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="フォーマッタ">フォーマッタ&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/psf/black">https://github.com/psf/black&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/navitime_tech/items/0a431a2d74c156d0bda2">blackとpylintを使った快適なPython開発 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="python3">Python3&lt;/h2>
 &lt;h3 id="python2との違い">Python2との違い&lt;/h3>
