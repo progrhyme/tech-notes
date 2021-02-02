@@ -59,6 +59,21 @@
 &lt;li>&lt;a href="http://d.hatena.ne.jp/yumimue/20071205/1196839438">リスト - 作成、取り出し、置換、追加、検索、削除、要素数 - ひきメモ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://www.yukun.info/blog/2008/06/python-list2.html">Python: リストの要素の追加と削除、取出し – append()、extend()、pop()、remove()メソッド&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="テキストシーケンス型---str">テキストシーケンス型 - str&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str">https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str&lt;/a>&lt;/p>
+&lt;p>strクラスのオブジェクト、即ち文字列。&lt;/p>
+&lt;p>See also:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/program/python/spec/#%E6%96%87%E5%AD%97%E5%88%97">リテラル &amp;gt; 文字列&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="スライス---部分文字列">スライス - 部分文字列&lt;/h3>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;abcdef&amp;#34;&lt;/span>
+&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#34;bc&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.javadrive.jp/python/string/index11.html">Python | スライスを使って文字列の指定範囲の部分文字列を取得する&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="マッピング型---dict">マッピング型 - dict&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict">https://docs.python.org/ja/3/library/stdtypes.html?highlight=dict#mapping-types-dict&lt;/a>&lt;/p>
 &lt;p>ミュータブルなオブジェクト。&lt;br>
