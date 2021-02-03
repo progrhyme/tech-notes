@@ -326,6 +326,15 @@ MEMO:
 - [Using Images from a Private Registry on GKE - Engineering Tomorrow’s Systems](https://estl.tech/using-images-from-a-private-registry-on-gke-b3bfb2562b16)
 - [hawksnowlog: Google Container Engine に Dockerhub で公開しているイメージをデプロイする方法](https://hawksnowlog.blogspot.com/2017/02/dockerhub-image-deploy-on-gke.html)
 
+### ワークロードを特定のnodepoolで実行する
+
+GKEのノードはnodepoolを表すラベルとして `cloud.google.com/gke-nodepool: <nodepool名>` が設定されている。  
+これを用いて、nodeSelector、またはNode Affinityを設定する。
+
+参考:
+
+- [Node上へのPodのスケジューリング | Kubernetes](https://kubernetes.io/ja/docs/concepts/scheduling-eviction/assign-pod-node/)
+
 ## Topics
 ### Logging
 
