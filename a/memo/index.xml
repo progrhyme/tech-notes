@@ -1,4 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2021-01-19</title><link>https://progrhy.me/tech-notes/a/memo/20210119/</link><pubDate>Tue, 19 Jan 2021 18:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210119/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2021-02-09</title><link>https://progrhy.me/tech-notes/a/memo/20210209/</link><pubDate>Tue, 09 Feb 2021 09:16:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210209/</guid><description>
+&lt;h2 id="29">2/9&lt;/h2>
+&lt;h3 id="aws-ecsタスク実行でエラー">AWS ECSタスク実行でエラー&lt;/h3>
+&lt;p>&lt;code>aws ecs run-task&lt;/code> コマンドで実行し、下のエラーに引っかかった。&lt;/p>
+&lt;pre>&lt;code>Error: ClientException: No Fargate configuration exists for given values.
+&lt;/code>&lt;/pre>&lt;p>cpu, memoryの値の組がサポートされていなかったため。&lt;br>
+下のドキュメントに定められている:&lt;/p>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task-cpu-memory-error.html">指定された CPU またはメモリの値が無効 - Amazon Elastic Container Service&lt;/a>&lt;/p></description></item><item><title>A: 2021-01-19</title><link>https://progrhy.me/tech-notes/a/memo/20210119/</link><pubDate>Tue, 19 Jan 2021 18:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210119/</guid><description>
 &lt;h2 id="119">1/19&lt;/h2>
 &lt;h3 id="awsと閉域接続したgcpの共有vpc上のinternal-lbにawsからアクセスするには">AWSと閉域接続したGCPの共有VPC上のInternal LBにAWSからアクセスするには&lt;/h3>
 &lt;p>Internal LBでGlobal Accessを有効にする必要がある。&lt;/p>
