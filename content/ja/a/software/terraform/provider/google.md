@@ -114,6 +114,18 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 - [google_compute_router](https://www.terraform.io/docs/providers/google/r/compute_router.html) ... Cloud Router
 - [google_compute_router_nat](https://www.terraform.io/docs/providers/google/r/compute_router_nat.html) ... Cloud NAT w/ Cloud Router
 
+#### custom machine typeを使う
+
+例:
+
+```HCL
+resource "google_compute_instance" "default" {
+  machine_type = "custom-6-20480" # 6 vCPU, Mem 20GB
+}
+```
+
+`google_container_node_pool` などでも同様の指定が行える。
+
 ### GKE関連
 
 - [google_container_cluster](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
