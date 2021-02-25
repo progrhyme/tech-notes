@@ -416,6 +416,16 @@ deactivate
 &lt;li>&lt;a href="https://qiita.com/fiftystorm36/items/b2fd47cf32c7694adc2e">venv: Python 仮想環境管理 - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: 3rd-Party Packages</title><link>https://progrhy.me/tech-notes/a/program/python/package/</link><pubDate>Mon, 22 Jun 2020 14:58:14 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/package/</guid><description>
 &lt;p>サードパーティー製のパッケージ。&lt;/p>
+&lt;h2 id="apscheduler">APScheduler&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://pypi.org/project/APScheduler/">https://pypi.org/project/APScheduler/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/agronholm/apscheduler">https://github.com/agronholm/apscheduler&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ジョブスケジューリングを可能にするライブラリ。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://programgenjin.hatenablog.com/entry/2019/04/01/093005">APSchedulerの使い方（初心者向け） - プログラミング原人の進化論&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="flask">Flask&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://pypi.org/project/Flask/">https://pypi.org/project/Flask/&lt;/a>&lt;/li>
@@ -427,6 +437,39 @@ deactivate
 &lt;li>&lt;a href="https://stackoverflow.com/questions/13317536/get-list-of-all-routes-defined-in-the-flask-app">python - Get list of all routes defined in the Flask app - Stack Overflow&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/13151161/display-links-to-new-webpages-created/13161594#13161594">python - Display links to new webpages created - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="gunicorn">gunicorn&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://pypi.org/project/gunicorn/">https://pypi.org/project/gunicorn/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gunicorn.org/">https://gunicorn.org/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.gunicorn.org/">https://docs.gunicorn.org/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://devcenter.heroku.com/ja/articles/python-gunicorn">Gunicorn を使用した Python アプリケーションのデプロイ | Heroku Dev Center&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="設定値">設定値&lt;/h3>
+&lt;p>&lt;a href="https://docs.gunicorn.org/en/latest/settings.html">https://docs.gunicorn.org/en/latest/settings.html&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>項目&lt;/th>
+&lt;th>コマンドオプション&lt;/th>
+&lt;th>default&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>timeout&lt;/td>
+&lt;td>&lt;code>-t &amp;lt;INT&amp;gt;&lt;/code> &lt;code>--timeout &amp;lt;INT&amp;gt;&lt;/code>&lt;/td>
+&lt;td>30&lt;/td>
+&lt;td>この時間に何の処理もしていない場合、ワーカーが再起動される。0を指定すると無限大&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="requests">requests&lt;/h2>
 &lt;p>Documentation:&lt;/p>
 &lt;ul>

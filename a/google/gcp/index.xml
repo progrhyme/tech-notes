@@ -771,6 +771,20 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;/li>
 &lt;li>クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる&lt;/li>
 &lt;/ol>
+&lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja">クラスタのセキュリティの強化 | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;h3 id="最小権限のgoogleサービスアカウント">最小権限のGoogleサービスアカウント&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa">https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>前提として、Compute Engineのデフォルトサービスアカウントを使わないようにする&lt;/li>
+&lt;li>カスタムサービスアカウントには、最低でも以下の権限が必要:
+&lt;ul>
+&lt;li>monitoring.viewer&lt;/li>
+&lt;li>monitoring.metricWriter&lt;/li>
+&lt;li>logging.logWriter&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="アップグレード">アップグレード&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster">https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-cluster&lt;/a>&lt;/p>
@@ -837,6 +851,22 @@ See &lt;a href="https://github.com/kubernetes/ingress-gce/issues/1001">https://g
 &lt;h3 id="logging">Logging&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/solutions/customizing-stackdriver-logs-fluentd?hl=ja">Google Kubernetes Engine の Stackdriver ログを Fluentd でカスタマイズする | ソリューション&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="マルチテナント運用">マルチテナント運用&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/best-practices/enterprise-multitenancy?hl=ja">エンタープライズ マルチテナンシーのベスト プラクティス | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ロギング">ロギング&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/stackdriver/docs/solutions/gke/multi-tenant-logging?hl=ja">GKE でのマルチテナント ロギング | オペレーション スイート | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>ログシンクを使って、テナントごとにログバケットを分割することができる
+&lt;ul>
+&lt;li>namespaceによるフィルタを使うことになる&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
@@ -976,6 +1006,16 @@ GCE等にインストールして使える。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja">Cloud SQL Proxy について | Cloud SQL for MySQL | Google Cloud&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja">Cloud SQL Proxy を使用して MySQL クライアントを接続する | Cloud SQL for MySQL&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="仕様">仕様&lt;/h4>
+&lt;p>接続文字列 &lt;code>INSTANCE_CONNECTION_NAME&lt;/code>&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;pre>&lt;code>myproject:myregion:myinstance
+&lt;/code>&lt;/pre>&lt;h4 id="プライベートipでの接続">プライベートIPでの接続&lt;/h4>
+&lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja#private-ip">https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja#private-ip&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>プロキシがそのインスタンスと同じVPCネットワークにアクセスできるリソース上にある必要がある&lt;/li>
+&lt;li>インスタンスにパブリックIPとプライベートIPの両方が設定されているときは、 &lt;code>-ip_address_types=PRIVATE&lt;/code> オプションを指定する&lt;/li>
 &lt;/ul>
 &lt;h4 id="systemd対応">systemd対応&lt;/h4>
 &lt;p>下の記事にあるように、SystemdのTemplate Unit Filesを使うと、1台で複数のDBに接続したいときに便利。&lt;/p>
