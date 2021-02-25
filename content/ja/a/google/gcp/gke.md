@@ -257,6 +257,20 @@ TL;DR:
    - ユーザー管理のセカンダリ範囲割り当て
 1. クラスタとサブネットを同時に作成する。セカンダリアドレス範囲の割り当てはGKE管理となる
 
+## セキュリティ
+
+[クラスタのセキュリティの強化 | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja)
+
+### 最小権限のGoogleサービスアカウント
+
+https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa
+
+- 前提として、Compute Engineのデフォルトサービスアカウントを使わないようにする
+- カスタムサービスアカウントには、最低でも以下の権限が必要:
+  - monitoring.viewer
+  - monitoring.metricWriter
+  - logging.logWriter
+
 ## How-to
 ### アップグレード
 
@@ -339,6 +353,19 @@ GKEのノードはnodepoolを表すラベルとして `cloud.google.com/gke-node
 ### Logging
 
 - [Google Kubernetes Engine の Stackdriver ログを Fluentd でカスタマイズする | ソリューション](https://cloud.google.com/solutions/customizing-stackdriver-logs-fluentd?hl=ja)
+
+### マルチテナント運用
+
+- [エンタープライズ マルチテナンシーのベスト プラクティス | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/best-practices/enterprise-multitenancy?hl=ja)
+
+#### ロギング
+
+- [GKE でのマルチテナント ロギング | オペレーション スイート | Google Cloud](https://cloud.google.com/stackdriver/docs/solutions/gke/multi-tenant-logging?hl=ja)
+
+Tips:
+
+- ログシンクを使って、テナントごとにログバケットを分割することができる
+  - namespaceによるフィルタを使うことになる
 
 ## 参考
 

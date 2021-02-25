@@ -258,6 +258,24 @@ history N
 
 - [【Mac】historyコマンドの表示件数でハマってしまった件 - Qiita](https://qiita.com/JUNO-LEARN/items/5322cccb1aff5661604d)
 
+### timeout
+
+```sh
+timeout <N> command args...
+```
+
+指定した秒数の経過後、コマンドを終了する。
+
+オプション:
+
+ オプション | 意味
+----------|------
+ `-s <シグナル>` <br /> `--signal=<シグナル>` | タイムアウト時に送信するシグナル。デフォルトは `TERM`
+ `-k <N>` <br /> `--kill-after=<N>` | 最初のタイムアウトでシグナル送信後、指定時間を過ぎてもコマンドが動いている場合、 `KILL` シグナルを送る
+
+参考:
+
+- [【 timeout 】コマンド――制限時間を付けて指定のコマンドを実行する：Linux基本コマンドTips（316） - ＠IT](https://www.atmarkit.co.jp/ait/articles/1906/27/news008.html)
 
 ### watch
 

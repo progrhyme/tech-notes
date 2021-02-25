@@ -16,6 +16,23 @@ Getting Started:
 - [Cloud SQL Proxy について | Cloud SQL for MySQL | Google Cloud](https://cloud.google.com/sql/docs/mysql/sql-proxy?hl=ja)
 - [Cloud SQL Proxy を使用して MySQL クライアントを接続する | Cloud SQL for MySQL](https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja)
 
+#### 仕様
+
+接続文字列 `INSTANCE_CONNECTION_NAME`
+
+例:
+
+```
+myproject:myregion:myinstance
+```
+
+#### プライベートIPでの接続
+
+https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja#private-ip
+
+- プロキシがそのインスタンスと同じVPCネットワークにアクセスできるリソース上にある必要がある
+- インスタンスにパブリックIPとプライベートIPの両方が設定されているときは、 `-ip_address_types=PRIVATE` オプションを指定する
+
 #### systemd対応
 
 下の記事にあるように、SystemdのTemplate Unit Filesを使うと、1台で複数のDBに接続したいときに便利。

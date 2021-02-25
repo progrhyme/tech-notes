@@ -8,6 +8,17 @@ weight: 200
 
 サードパーティー製のパッケージ。
 
+## APScheduler
+
+- https://pypi.org/project/APScheduler/
+- https://github.com/agronholm/apscheduler
+
+ジョブスケジューリングを可能にするライブラリ。
+
+参考:
+
+- [APSchedulerの使い方（初心者向け） - プログラミング原人の進化論](https://programgenjin.hatenablog.com/entry/2019/04/01/093005)
+
 ## Flask
 
 - https://pypi.org/project/Flask/
@@ -19,6 +30,27 @@ weight: 200
 
 - [python - Get list of all routes defined in the Flask app - Stack Overflow](https://stackoverflow.com/questions/13317536/get-list-of-all-routes-defined-in-the-flask-app)
 - [python - Display links to new webpages created - Stack Overflow](https://stackoverflow.com/questions/13151161/display-links-to-new-webpages-created/13161594#13161594)
+
+## gunicorn
+
+- https://pypi.org/project/gunicorn/
+- https://gunicorn.org/
+
+Documentation:
+
+- https://docs.gunicorn.org/
+
+参考:
+
+- [Gunicorn を使用した Python アプリケーションのデプロイ | Heroku Dev Center](https://devcenter.heroku.com/ja/articles/python-gunicorn)
+
+### 設定値
+
+https://docs.gunicorn.org/en/latest/settings.html
+
+ 項目 | コマンドオプション | default | 説明
+-----|-----------------|---------|-------
+ timeout | `-t <INT>` `--timeout <INT>` | 30 | この時間に何の処理もしていない場合、ワーカーが再起動される。0を指定すると無限大
 
 ## requests
 
