@@ -8,6 +8,37 @@ date: 2020-06-20T20:27:53+09:00
 
 ※基本、Python3前提。
 
+## datetime
+
+https://docs.python.org/ja/3/library/datetime.html
+
+日付、時刻モジュール。
+
+### datetime.timedelta
+
+https://docs.python.org/ja/3/library/datetime.html#timedelta-objects
+
+経過時間、即ち、2つの時刻の差を表す。
+
+Example:
+
+```Python
+>>> from datetime import timedelta
+>>> delta = timedelta(
+...     days=50,
+...     seconds=27,
+...     microseconds=10,
+...     milliseconds=29000,
+...     minutes=5,
+...     hours=8,
+...     weeks=2
+... )
+>>> # Only days, seconds, and microseconds remain
+>>> delta
+datetime.timedelta(days=64, seconds=29156, microseconds=10)
+```
+
+
 ## os
 
 https://docs.python.org/ja/3/library/os.html

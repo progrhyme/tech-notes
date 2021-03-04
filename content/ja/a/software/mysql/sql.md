@@ -62,12 +62,25 @@ Examples:
 
 ```sql
 -- AUTO_INCREMENT値のリセット
-ALTER TABLE foo AUTO_INCREMENT = 1;
+ALTER TABLE foo AUTO_INCREMENT = 1
+
+-- RENAME TABLE相当
+ALTER TABLE A RENAME [TO|AS] B
 ```
 
 参考:
 
 - [AUTO_INCREMENTを設定する(連続した数値を自動でカラムに格納する) | MySQLの使い方](https://www.dbonline.jp/mysql/table/index7.html)
+
+### RENAME TABLE
+
+- https://dev.mysql.com/doc/refman/5.6/ja/rename-table.html
+
+Examples:
+
+```sql
+RENAME TABLE A TO B [, C TO D [...]]
+```
 
 ## 関数
 ### LEFT, RIGHT

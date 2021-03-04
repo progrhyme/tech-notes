@@ -145,6 +145,34 @@ for elm in list:
 
 - [Python基礎講座\(9 反復\) \- Qiita](https://qiita.com/Usek/items/3a2f2529e2e7a0dd2542)
 
+## 関数
+### return
+
+https://docs.python.org/ja/3/reference/simple_stmts.html#the-return-statement
+
+構文:
+
+```
+return_stmt ::=  "return" [expression_list]
+```
+
+NOTE:
+
+- 多値を返すこともできる
+
+Examples:
+
+```Python
+def test():
+    return 'abc', 100
+
+a, b = test()
+```
+
+参考:
+
+- [Pythonの関数で複数の戻り値を返す方法 | note.nkmk.me](https://note.nkmk.me/python-function-return-multiple-values/)
+
 ## クラス
 
 https://docs.python.org/ja/3/tutorial/classes.html
@@ -164,11 +192,18 @@ try:
     i = int(s.strip())
 except OSError as err:
     print("OS error: {0}".format(err))
+except IOError as err:
+    # 例外の連鎖/変換
+    raise RuntimeError('Failed to open or read file!') from err
 except ValueError:
     print("Could not convert data to an integer.")
 except:
     print("Unexpected error:", sys.exc_info()[0])
     raise
+else:
+    print("No error.")
+finally:
+    f.close()
 ```
 
 参考:

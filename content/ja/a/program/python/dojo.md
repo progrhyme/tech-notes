@@ -185,3 +185,16 @@ print(vars(mc)) #=> {'val1': 10, 'val2': 20}
 参考:
 
 - [Pythonでインスタンスの状態をダンプするにはvars()を使う - minus9d's diary](https://minus9d.hatenablog.com/entry/2015/08/02/204226)
+
+## for文による射影操作
+
+Examples:
+
+```Python
+keys = [1,2,3,4,5,6,7,8]
+newkeys = [(k*2) for k in keys if k % 2 == 0]
+```
+
+参考:
+
+- [Python3でforループ式をワンライナーで記述する - みずりゅの自由帳](https://mzryuka.hatenablog.jp/entry/2018/11/17/115720)

@@ -66,7 +66,7 @@ weight: 10
 
 APIオブジェクトとも呼ばれるようだ。
 
-[Kubernetes API Reference Docs (v1.18 at 2020-04-13)](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/)に従い、カテゴライズして記す。
+[Kubernetes API](https://kubernetes.io/docs/reference/kubernetes-api/)に従い、カテゴライズして記す。
 
 NOTE:
 
