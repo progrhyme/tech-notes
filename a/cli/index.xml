@@ -264,6 +264,10 @@ date -r &lt;span style="color:#0000cf;font-weight:bold">1530675922&lt;/span> &lt
 date -r FILE
 &lt;span style="color:#8f5902;font-style:italic">## unixtime形式で取得&lt;/span>
 date +%s -r FILE
+&lt;span style="color:#8f5902;font-style:italic"># macOSで任意の日時を任意のフォーマットで&lt;/span>
+date -f &lt;span style="color:#4e9a06">&amp;#39;入力フォーマット&amp;#39;&lt;/span> -j &lt;span style="color:#4e9a06">&amp;#39;日時&amp;#39;&lt;/span> +&lt;span style="color:#4e9a06">&amp;#39;出力フォーマット&amp;#39;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">## 具体例&lt;/span>
+date -f &lt;span style="color:#4e9a06">&amp;#39;%F %T&amp;#39;&lt;/span> -j &lt;span style="color:#4e9a06">&amp;#39;2021-03-01 01:30:00&amp;#39;&lt;/span> +&lt;span style="color:#4e9a06">&amp;#39;%s&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>Mac だと &lt;code>-d '〜'&lt;/code> オプションが使えない&lt;/li>
@@ -282,6 +286,7 @@ date +%s -r FILE
 &lt;/li>
 &lt;li>&lt;a href="https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc">unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/___uhu/items/3c2312359da542cda163">Macのdateコマンドで前日の日付を取得する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nonoichi123.hatenablog.com/entry/mac%25e3%2581%25a7date%25e3%2582%25b3%25e3%2583%259e%25e3%2583%25b3%25e3%2583%2589%25e3%2582%2592%25e4%25bd%25bf%25e3%2581%2584%25e3%2581%2593%25e3%2581%25aa%25e3%2581%2599/">Macでdateコマンドを使いこなす - ののいち の １.２..３&amp;hellip;&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="アーカイブ">アーカイブ&lt;/h2>
 &lt;h3 id="zipunzip">zip/unzip&lt;/h3>
