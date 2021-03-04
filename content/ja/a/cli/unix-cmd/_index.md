@@ -61,6 +61,11 @@ date -r 1530675922 # unixtime
 date -r FILE
 ## unixtime形式で取得
 date +%s -r FILE
+
+# macOSで任意の日時を任意のフォーマットで
+date -f '入力フォーマット' -j '日時' +'出力フォーマット'
+## 具体例
+date -f '%F %T' -j '2021-03-01 01:30:00' +'%s'
 ```
 
 NOTE:
@@ -78,6 +83,7 @@ NOTE:
   - [date(1) \[osx man page\]](https://www.unix.com/man-page/osx/1/date/)
 - [unixtimeとdatetimeを変換する（Mac/BSD編） - Qiita](https://qiita.com/zaburo/items/6929bea1f094c8c6a4fc)
 - [Macのdateコマンドで前日の日付を取得する - Qiita](https://qiita.com/___uhu/items/3c2312359da542cda163)
+- [Macでdateコマンドを使いこなす - ののいち の １.２..３...](https://nonoichi123.hatenablog.com/entry/mac%25e3%2581%25a7date%25e3%2582%25b3%25e3%2583%259e%25e3%2583%25b3%25e3%2583%2589%25e3%2582%2592%25e4%25bd%25bf%25e3%2581%2584%25e3%2581%2593%25e3%2581%25aa%25e3%2581%2599/)
 
 ## アーカイブ
 ### zip/unzip
