@@ -70,7 +70,7 @@
 &lt;/ul>
 &lt;h2 id="リソースオブジェクト">リソースオブジェクト&lt;/h2>
 &lt;p>APIオブジェクトとも呼ばれるようだ。&lt;/p>
-&lt;p>&lt;a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/">Kubernetes API Reference Docs (v1.18 at 2020-04-13)&lt;/a>に従い、カテゴライズして記す。&lt;/p>
+&lt;p>&lt;a href="https://kubernetes.io/docs/reference/kubernetes-api/">Kubernetes API&lt;/a>に従い、カテゴライズして記す。&lt;/p>
 &lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>以下、「*」は本サイト内のページを表すとする。&lt;/li>
@@ -644,7 +644,33 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://44smkn.hatenadiary.com/entry/2018/08/01/022312">pod(Kubernetes)のlifecycle.prestopの挙動 - １クール続けるブログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-06/">Kubernetes道場 6日目 - Init Container / Lifecycleについて - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: Deployment</title><link>https://progrhy.me/tech-notes/a/software/k8s/deployment/</link><pubDate>Mon, 04 May 2020 21:45:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/deployment/</guid><description>
+&lt;/ul></description></item><item><title>A: CronJob</title><link>https://progrhy.me/tech-notes/a/software/k8s/cronjob/</link><pubDate>Thu, 04 Mar 2021 09:12:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/cronjob/</guid><description>
+&lt;p>繰り返し実行されるジョブ。&lt;br>
+Cron形式でスケジュールの記述が可能。&lt;/p>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/controllers/cron-jobs/">CronJob | Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/">Running Automated Tasks with a CronJob | Kubernetes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/cron-job-v1beta1/">APIリファレンス v1beta1&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubernetes-api/workloads-resources/cron-job-v2alpha1/">APIリファレンス v2alpha1&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="spec">Spec&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Field&lt;/th>
+&lt;th>Data Type&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>startingDeadlineSeconds&lt;/td>
+&lt;td>int64&lt;/td>
+&lt;td>オプショナル。ジョブが開始するまでの期限を秒数で表す。スケジュール通りに実行されなかったジョブは失敗として数えられる&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>A: Deployment</title><link>https://progrhy.me/tech-notes/a/software/k8s/deployment/</link><pubDate>Mon, 04 May 2020 21:45:16 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/deployment/</guid><description>
 &lt;p>&lt;a href="https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/">https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/&lt;/a>&lt;/p>
 &lt;blockquote>
 &lt;p>Deployment コントローラーはPodとReplicaSetの宣言的なアップデート機能を提供します。&lt;/p>

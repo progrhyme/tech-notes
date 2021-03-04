@@ -99,6 +99,23 @@
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/Usek/items/3a2f2529e2e7a0dd2542">Python基礎講座(9 反復) - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="関数">関数&lt;/h2>
+&lt;h3 id="return">return&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#the-return-statement">https://docs.python.org/ja/3/reference/simple_stmts.html#the-return-statement&lt;/a>&lt;/p>
+&lt;p>構文:&lt;/p>
+&lt;pre>&lt;code>return_stmt ::= &amp;quot;return&amp;quot; [expression_list]
+&lt;/code>&lt;/pre>&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>多値を返すこともできる&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>
+&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-function-return-multiple-values/">Pythonの関数で複数の戻り値を返す方法 | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="クラス">クラス&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/classes.html">https://docs.python.org/ja/3/tutorial/classes.html&lt;/a>&lt;/p>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
@@ -111,11 +128,18 @@
 &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">strip&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">OSError&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;OS error: {0}&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">IOError&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">err&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 例外の連鎖/変換&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">raise&lt;/span> &lt;span style="color:#c00;font-weight:bold">RuntimeError&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Failed to open or read file!&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">err&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">ValueError&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Could not convert data to an integer.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">except&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Unexpected error:&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exc_info&lt;/span>&lt;span style="color:#000;font-weight:bold">()[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">raise&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;No error.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">finally&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">close&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://note.nkmk.me/python-try-except-else-finally/">Pythonの例外処理（try, except, else, finally） | note.nkmk.me&lt;/a>&lt;/li>
@@ -279,6 +303,14 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://minus9d.hatenablog.com/entry/2015/08/02/204226">Pythonでインスタンスの状態をダンプするにはvars()を使う - minus9d&amp;rsquo;s diary&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="for文による射影操作">for文による射影操作&lt;/h2>
+&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">keys&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">newkeys&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[(&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">keys&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">k&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://mzryuka.hatenablog.jp/entry/2018/11/17/115720">Python3でforループ式をワンライナーで記述する - みずりゅの自由帳&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: パッケージ管理</title><link>https://progrhy.me/tech-notes/a/program/python/pkg-man/</link><pubDate>Fri, 31 Jul 2020 16:39:19 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/pkg-man/</guid><description>
 &lt;h2 id="pip">pip&lt;/h2>
 &lt;p>標準のパッケージマネージャー。&lt;/p>
@@ -357,7 +389,27 @@ RubyのRubyGems相当。&lt;/p>
 &lt;h3 id="pip-tools">pip-tools&lt;/h3>
 &lt;p>&lt;a href="https://github.com/jazzband/pip-tools">https://github.com/jazzband/pip-tools&lt;/a>&lt;/p></description></item><item><title>A: 標準ライブラリ</title><link>https://progrhy.me/tech-notes/a/program/python/library/</link><pubDate>Sat, 20 Jun 2020 20:27:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/library/</guid><description>
 &lt;p>※基本、Python3前提。&lt;/p>
-&lt;h2 id="os">os&lt;/h2>
+&lt;h2 id="datetime">datetime&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/datetime.html">https://docs.python.org/ja/3/library/datetime.html&lt;/a>&lt;/p>
+&lt;p>日付、時刻モジュール。&lt;/p>
+&lt;h3 id="datetimetimedelta">datetime.timedelta&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/datetime.html#timedelta-objects">https://docs.python.org/ja/3/library/datetime.html#timedelta-objects&lt;/a>&lt;/p>
+&lt;p>経過時間、即ち、2つの時刻の差を表す。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">datetime&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">timedelta&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">delta&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">timedelta&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">days&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">50&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">seconds&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">27&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">microseconds&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">milliseconds&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">29000&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">minutes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">hours&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">weeks&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># Only days, seconds, and microseconds remain&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">delta&lt;/span>
+&lt;span style="color:#000">datetime&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">timedelta&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">days&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">64&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">seconds&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">29156&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">microseconds&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="os">os&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html">https://docs.python.org/ja/3/library/os.html&lt;/a>&lt;/p>
 &lt;p>ファイル名、コマンドライン引数、環境変数など&lt;/p>
 &lt;h3 id="osgetenv">os.getenv&lt;/h3>
