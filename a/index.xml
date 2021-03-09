@@ -3601,6 +3601,27 @@ ARGV&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>1&lt;span style="
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/urllib.request.html">https://docs.python.org/ja/3/library/urllib.request.html&lt;/a>&lt;/p>
 &lt;p>HTTPリクエストを送る。&lt;/p>
 &lt;p>使い方: &lt;a href="https://docs.python.jp/3.6/howto/urllib2.html">https://docs.python.jp/3.6/howto/urllib2.html&lt;/a>&lt;/p>
+&lt;h2 id="sys">sys&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html">https://docs.python.org/ja/3/library/sys.html&lt;/a>&lt;/p>
+&lt;p>常に利用可能&lt;/p>
+&lt;h3 id="sysexit">sys.exit&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html#sys.exit">https://docs.python.org/ja/3/library/sys.html#sys.exit&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exit&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#000">arg&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pythonを終了する。&lt;/p>
+&lt;p>引数(arg):&lt;/p>
+&lt;ul>
+&lt;li>整数: 終了コード
+&lt;ul>
+&lt;li>0 (デフォルト) &amp;hellip; 正常終了&lt;/li>
+&lt;li>1-127 &amp;hellip; 異常終了&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>他の型のオブジェクト
+&lt;ul>
+&lt;li>オブジェクトがstderrに出力され、終了コードは1になる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="venv">venv&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/venv.html">https://docs.python.org/ja/3/library/venv.html&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 仮想環境の作成&lt;/span>
