@@ -91,6 +91,25 @@ schema
 
 - `schema` ... field:data_type,field:data_type という形式のインラインスキーマ定義か、ローカルマシン上のJSONスキーマファイルのパス
 
+## rm
+
+- https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_rm
+- https://cloud.google.com/bigquery/docs/managing-tables#bq_4
+
+```sh
+# データセットの削除
+bq rm [OPTIONS] -d|--dataset PROJECT_ID:DATASET
+
+# テーブルの削除
+bq rm [OPTIONS] -t|--table PROJECT_ID:DATASET.TABLE
+```
+
+Options:
+
+ Option | 意味
+--------|-----
+ `-f,--force` | 指定するとプロンプトを表示せずに削除を実行。デフォルトはfalse
+
 ## show
 
 - https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show

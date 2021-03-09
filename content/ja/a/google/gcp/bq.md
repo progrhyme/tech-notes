@@ -49,6 +49,12 @@ MySQLサーバで `NO_ZERO_DATE` modeが有効でないと入ってくるデー�
 
 - [MySQL#SQL-Mode]({{<ref "/a/software/mysql/_index.md">}}#sql-mode)
 
+### テーブルのリネームはできない（2021-03-09現在）
+
+https://cloud.google.com/bigquery/docs/managing-tables#renaming_a_table
+
+代わりに `bq cp` コマンドなどでコピーする。
+
 ## Limitations (Quota)
 
 - https://cloud.google.com/bigquery/quotas
@@ -101,6 +107,10 @@ https://cloud.google.com/bigquery/docs/updating-datasets?hl=ja#table-expiration
 ## 標準SQL
 
 https://cloud.google.com/bigquery/docs/reference/standard-sql/
+
+### リファレンス
+
+- [Expressions, functions, and operators in Standard SQL | BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators)
 
 ### 文字列関数
 
@@ -169,3 +179,18 @@ Syntax:
 ```sql
 DROP VIEW [IF EXISTS] [[project_name.]dataset_name.]view_name
 ```
+
+## 独自SQL
+### except
+
+特定のカラムを除いてSELECTする。
+
+```SQL
+SELECT
+    * except(species)
+FROM
+    `bigquery-public-data.ml_datasets.iris`;
+```
+
+参考:
+- [\[BigQuery\] 一部のカラムだけクエリしたくない場合はexcept関数があるよ - Qiita](https://qiita.com/Hyperion13fleet/items/02901432f733a226a0f8)
