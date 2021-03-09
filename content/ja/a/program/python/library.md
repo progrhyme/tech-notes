@@ -97,6 +97,29 @@ HTTPリクエストを送る。
 
 使い方: https://docs.python.jp/3.6/howto/urllib2.html
 
+## sys
+
+https://docs.python.org/ja/3/library/sys.html
+
+常に利用可能
+
+### sys.exit
+
+https://docs.python.org/ja/3/library/sys.html#sys.exit
+
+```Python
+sys.exit([arg])
+```
+
+Pythonを終了する。
+
+引数(arg):
+- 整数: 終了コード
+  - 0 (デフォルト) ... 正常終了
+  - 1-127 ... 異常終了
+- 他の型のオブジェクト
+  - オブジェクトがstderrに出力され、終了コードは1になる
+
 ## venv
 
 https://docs.python.org/ja/3/library/venv.html
