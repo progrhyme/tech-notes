@@ -131,6 +131,9 @@
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/mysql/#sql-mode">MySQL#SQL-Mode&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="テーブルのリネームはできない2021-03-09現在">テーブルのリネームはできない（2021-03-09現在）&lt;/h3>
+&lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/managing-tables#renaming_a_table">https://cloud.google.com/bigquery/docs/managing-tables#renaming_a_table&lt;/a>&lt;/p>
+&lt;p>代わりに &lt;code>bq cp&lt;/code> コマンドなどでコピーする。&lt;/p>
 &lt;h2 id="limitations-quota">Limitations (Quota)&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/bigquery/quotas">https://cloud.google.com/bigquery/quotas&lt;/a>&lt;/li>
@@ -184,6 +187,10 @@
 &lt;/ul>
 &lt;h2 id="標準sql">標準SQL&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/">https://cloud.google.com/bigquery/docs/reference/standard-sql/&lt;/a>&lt;/p>
+&lt;h3 id="リファレンス">リファレンス&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators">Expressions, functions, and operators in Standard SQL | BigQuery&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="文字列関数">文字列関数&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions">https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -221,7 +228,17 @@
 &lt;p>ビューの削除。&lt;/p>
 &lt;p>Syntax:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">DROP&lt;/span> &lt;span style="color:#204a87;font-weight:bold">VIEW&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span> &lt;span style="color:#204a87;font-weight:bold">EXISTS&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">view_name&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="独自sql">独自SQL&lt;/h2>
+&lt;h3 id="except">except&lt;/h3>
+&lt;p>特定のカラムを除いてSELECTする。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-SQL" data-lang="SQL">&lt;span style="color:#204a87;font-weight:bold">SELECT&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#204a87;font-weight:bold">except&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">species&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">`&lt;/span>&lt;span style="color:#000">bigquery&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">public&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ml_datasets&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">iris&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">`&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/Hyperion13fleet/items/02901432f733a226a0f8">[BigQuery] 一部のカラムだけクエリしたくない場合はexcept関数があるよ - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>

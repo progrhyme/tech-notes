@@ -90,6 +90,30 @@ bq ls -j -a -n &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> mypr
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>&lt;code>schema&lt;/code> &amp;hellip; field:data_type,field:data_type という形式のインラインスキーマ定義か、ローカルマシン上のJSONスキーマファイルのパス&lt;/li>
 &lt;/ul>
+&lt;h2 id="rm">rm&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_rm">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_rm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/managing-tables#bq_4">https://cloud.google.com/bigquery/docs/managing-tables#bq_4&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># データセットの削除&lt;/span>
+bq rm &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> -d&lt;span style="color:#000;font-weight:bold">|&lt;/span>--dataset PROJECT_ID:DATASET
+&lt;span style="color:#8f5902;font-style:italic"># テーブルの削除&lt;/span>
+bq rm &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> -t&lt;span style="color:#000;font-weight:bold">|&lt;/span>--table PROJECT_ID:DATASET.TABLE
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Options:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Option&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>-f,--force&lt;/code>&lt;/td>
+&lt;td>指定するとプロンプトを表示せずに削除を実行。デフォルトはfalse&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="show">show&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_show&lt;/a>&lt;/li>
