@@ -367,7 +367,15 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html">google_compute_managed_ssl_certificate&lt;/a> &amp;hellip; β (2020-03-18) HTTPS LBのためのマネージドTLS証明書&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_security_policy.html">google_compute_security_policy&lt;/a> &amp;hellip; Cloud Armorのセキュリティポリシー&lt;/li>
 &lt;/ul>
-&lt;p>ネットワーク関係:&lt;/p>
+&lt;p>IAM関係:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance_iam&lt;/a>
+&lt;ul>
+&lt;li>基本的には &lt;code>google_compute_instance_iam_member&lt;/code> で管理すればいいと思う&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="ネットワーク関係">ネットワーク関係&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_address.html">google_compute_address&lt;/a> &amp;hellip; &lt;code>EXTERNAL&lt;/code> なアドレスも発行できる。Cloud NATに使うのはこっち&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_global_address.html">google_compute_global_address&lt;/a> &amp;hellip; HTTP(S) LBで使うやつ&lt;/li>
@@ -376,7 +384,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_router.html">google_compute_router&lt;/a> &amp;hellip; Cloud Router&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_router_nat.html">google_compute_router_nat&lt;/a> &amp;hellip; Cloud NAT w/ Cloud Router&lt;/li>
 &lt;/ul>
-&lt;h4 id="custom-machine-typeを使う">custom machine typeを使う&lt;/h4>
+&lt;h4 id="インスタンスでcustom-machine-typeを使う">インスタンスでcustom machine typeを使う&lt;/h4>
 &lt;p>例:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_instance&amp;#34; &amp;#34;default&amp;#34;&lt;/span> {
 &lt;span style="color:#000"> machine_type&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;custom-6-20480&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # 6 vCPU, Mem 20GB

@@ -57,13 +57,50 @@
 &lt;li>entrypoint &amp;hellip; ビルダーのデフォルトのエントリーポイント（実行コマンド）を上書き可能&lt;/li>
 &lt;/ul>
 &lt;h2 id="ビルドトリガーによるビルドの自動化">ビルドトリガーによるビルドの自動化&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/running-builds/automate-builds?hl=ja">ビルドトリガーを使用したビルドの自動化 | Cloud Build のドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;p>ドキュメント:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/cloud-build/docs/running-builds/automate-builds?hl=ja">ビルドトリガーを使用したビルドの自動化 | Cloud Build のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/build/docs/automating-builds/create-manage-triggers">Creating and managing build triggers | Cloud Build Documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>MEMO:&lt;/p>
 &lt;ul>
 &lt;li>GCSR, GitHub or Bitbucketにソースコードが必要
 &lt;ul>
 &lt;li>Bitbucketの場合GCSRにミラーリングするか、コンソールからリポジトリ登録時に認証を行う&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;h3 id="トリガー設定">トリガー設定&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>項目&lt;/th>
+&lt;th>必須？&lt;/th>
+&lt;th>説明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Source&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>リポジトリとブランチ/タグを選ぶ&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Included files&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>設定されていると、ビルドをトリガーするには最低でもここに含まれるいずれかのファイルの変更が必要&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Ignored files&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>設定されたファイルリストのみの変更はビルドをトリガーしない&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Included files / Ignored filesについて:&lt;/p>
+&lt;ul>
+&lt;li>あるファイルを両方に指定したら、そのファイルへの変更はビルドをトリガーしない&lt;/li>
+&lt;li>新規ブランチをpushした場合、全ファイルが変更されたとみなされる&lt;/li>
 &lt;/ul>
 &lt;h2 id="ビルド通知の送信">ビルド通知の送信&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/cloud-build/docs/send-build-notifications">https://cloud.google.com/cloud-build/docs/send-build-notifications&lt;/a>&lt;/p>
@@ -671,6 +708,21 @@ gsutil rm gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET
 &lt;/ol>
 &lt;h2 id="セキュリティ">セキュリティ&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja">クラスタのセキュリティの強化 | Kubernetes Engine ドキュメント | Google Cloud&lt;/a>&lt;/p>
+&lt;h3 id="secretリソースへのアクセスを制限する">Secretリソースへのアクセスを制限する&lt;/h3>
+&lt;p>いずれか:&lt;/p>
+&lt;ol>
+&lt;li>IAMで &lt;code>container.secrets.*&lt;/code> の権限を与えない&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;code>roles/container.viewer&lt;/code> なら権限なし&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>RBACで権限制御する&lt;/li>
+&lt;/ol>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://zenn.dev/nekoshita/articles/30809412399f70">【GKE】kubernetesのsecretリソースにアクセスできるユーザーを制限したい&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="最小権限のgoogleサービスアカウント">最小権限のGoogleサービスアカウント&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa">https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa&lt;/a>&lt;/p>
 &lt;ul>
