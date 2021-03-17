@@ -105,7 +105,12 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 - [google_compute_managed_ssl_certificate](https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html) ... β (2020-03-18) HTTPS LBのためのマネージドTLS証明書
 - [google_compute_security_policy](https://www.terraform.io/docs/providers/google/r/compute_security_policy.html) ... Cloud Armorのセキュリティポリシー
 
-ネットワーク関係:
+IAM関係:
+
+- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance_iam
+  - 基本的には `google_compute_instance_iam_member` で管理すればいいと思う
+
+#### ネットワーク関係
 
 - [google_compute_address](https://www.terraform.io/docs/providers/google/r/compute_address.html) ... `EXTERNAL` なアドレスも発行できる。Cloud NATに使うのはこっち
 - [google_compute_global_address](https://www.terraform.io/docs/providers/google/r/compute_global_address.html) ... HTTP(S) LBで使うやつ
@@ -114,7 +119,7 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 - [google_compute_router](https://www.terraform.io/docs/providers/google/r/compute_router.html) ... Cloud Router
 - [google_compute_router_nat](https://www.terraform.io/docs/providers/google/r/compute_router_nat.html) ... Cloud NAT w/ Cloud Router
 
-#### custom machine typeを使う
+#### インスタンスでcustom machine typeを使う
 
 例:
 

@@ -116,6 +116,17 @@ TL;DR:
 
 [クラスタのセキュリティの強化 | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja)
 
+### Secretリソースへのアクセスを制限する
+
+いずれか:
+
+1. IAMで `container.secrets.*` の権限を与えない
+  - `roles/container.viewer` なら権限なし
+1. RBACで権限制御する
+
+参考:
+- [【GKE】kubernetesのsecretリソースにアクセスできるユーザーを制限したい](https://zenn.dev/nekoshita/articles/30809412399f70)
+
 ### 最小権限のGoogleサービスアカウント
 
 https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa

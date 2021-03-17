@@ -13,7 +13,6 @@ https://cloud.google.com/cloud-build/docs/build-config
 - docker build -> Dockerfile
 - その他の処理 -> ビルド構成ファイル(YAML or JSON)
 
-
 ### ビルド構成ファイル
 
 https://cloud.google.com/cloud-build/docs/build-config?hl=ja#structure_of_a_build_config_file
@@ -29,11 +28,27 @@ https://cloud.google.com/cloud-build/docs/build-config?hl=ja#build_steps
 
 ## ビルドトリガーによるビルドの自動化
 
-[ビルドトリガーを使用したビルドの自動化 | Cloud Build のドキュメント | Google Cloud](https://cloud.google.com/cloud-build/docs/running-builds/automate-builds?hl=ja)
+ドキュメント:
+
+- [ビルドトリガーを使用したビルドの自動化 | Cloud Build のドキュメント | Google Cloud](https://cloud.google.com/cloud-build/docs/running-builds/automate-builds?hl=ja)
+- [Creating and managing build triggers | Cloud Build Documentation](https://cloud.google.com/build/docs/automating-builds/create-manage-triggers)
+
+MEMO:
 
 - GCSR, GitHub or Bitbucketにソースコードが必要
   - Bitbucketの場合GCSRにミラーリングするか、コンソールからリポジトリ登録時に認証を行う
 
+### トリガー設定
+
+ 項目 | 必須？ | 説明
+-----|-------|------
+Source | Yes | リポジトリとブランチ/タグを選ぶ
+Included files | No | 設定されていると、ビルドをトリガーするには最低でもここに含まれるいずれかのファイルの変更が必要
+Ignored files | No | 設定されたファイルリストのみの変更はビルドをトリガーしない
+
+Included files / Ignored filesについて:
+- あるファイルを両方に指定したら、そのファイルへの変更はビルドをトリガーしない
+- 新規ブランチをpushした場合、全ファイルが変更されたとみなされる
 
 ## ビルド通知の送信
 
