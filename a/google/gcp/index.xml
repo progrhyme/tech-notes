@@ -715,6 +715,7 @@ gsutil rm gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET
 &lt;/ol>
 &lt;ul>
 &lt;li>&lt;code>roles/container.viewer&lt;/code> なら権限なし&lt;/li>
+&lt;li>&lt;code>roles/container.developer&lt;/code> なら権限あり&lt;/li>
 &lt;/ul>
 &lt;ol>
 &lt;li>RBACで権限制御する&lt;/li>

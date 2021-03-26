@@ -17,4 +17,12 @@
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="demo">Demo&lt;/h2>
-&lt;p>&lt;a href="https://cd.apps.argoproj.io/applications">https://cd.apps.argoproj.io/applications&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>&lt;a href="https://cd.apps.argoproj.io/applications">https://cd.apps.argoproj.io/applications&lt;/a>&lt;/p>
+&lt;h2 id="specification">Specification&lt;/h2>
+&lt;ul>
+&lt;li>AppProject Custom Resourceはnamespaceバウンドだけど、別namespaceのリソースのデプロイはサポートされている
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/argoproj/argo-cd/pull/842">Issue #696 - Support apps with static namespaces in resources by alexmt · Pull Request #842 · argoproj/argo-cd · GitHub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

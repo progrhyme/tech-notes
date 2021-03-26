@@ -3078,7 +3078,16 @@ Cron形式でスケジュールの記述が可能。&lt;/p>
 &lt;td>オプショナル。ジョブが開始するまでの期限を秒数で表す。スケジュール通りに実行されなかったジョブは失敗として数えられる&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>A: errors</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</link><pubDate>Sat, 27 Jun 2020 22:50:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</guid><description>
+&lt;/table>
+&lt;h2 id="issues">Issues&lt;/h2>
+&lt;ul>
+&lt;li>v1beta1にはscheduleを変更するとジョブが起動してしまう問題がある
+&lt;ul>
+&lt;li>startingDeadlineSecondsを設定しておくと回避できるようだ&lt;/li>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/63371">Updating a cronjob causes jobs to be scheduled retroactively · Issue #63371 · kubernetes/kubernetes · GitHub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>A: errors</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</link><pubDate>Sat, 27 Jun 2020 22:50:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/errors/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>Go標準のエラーパッケージ。&lt;/p>
 &lt;p>Examples:&lt;/p>
