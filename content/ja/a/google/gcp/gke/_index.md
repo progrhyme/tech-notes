@@ -122,6 +122,7 @@ TL;DR:
 
 1. IAMで `container.secrets.*` の権限を与えない
   - `roles/container.viewer` なら権限なし
+  - `roles/container.developer` なら権限あり
 1. RBACで権限制御する
 
 参考:

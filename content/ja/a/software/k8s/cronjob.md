@@ -20,3 +20,9 @@ Cron形式でスケジュールの記述が可能。
  Field | Data Type | Description
 -------|-----------|-------------
  startingDeadlineSeconds | int64 | オプショナル。ジョブが開始するまでの期限を秒数で表す。スケジュール通りに実行されなかったジョブは失敗として数えられる
+
+## Issues
+
+- v1beta1にはscheduleを変更するとジョブが起動してしまう問題がある
+  - startingDeadlineSecondsを設定しておくと回避できるようだ
+  - [Updating a cronjob causes jobs to be scheduled retroactively · Issue #63371 · kubernetes/kubernetes · GitHub](https://github.com/kubernetes/kubernetes/issues/63371)
