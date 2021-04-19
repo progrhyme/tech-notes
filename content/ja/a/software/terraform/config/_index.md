@@ -310,6 +310,19 @@ Tips:
 
 - [terraform module内でtemplatefile関数を実行した際に、ファイルが見つけられなくて困った - Qiita](https://qiita.com/mh4gf/items/0590038ed41a698b7623)
 
+### Source
+
+https://www.terraform.io/docs/language/modules/sources.html
+
+moduleのsourceとして指定できるものにはどんな種類があるか。  
+以下は例:
+
+- ローカルのファイルパス
+- Terraform Registry
+- GitHub
+- Gitリポジトリ
+- S3
+- GCS
 
 ## Data Source
 

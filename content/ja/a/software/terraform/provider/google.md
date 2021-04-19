@@ -188,7 +188,7 @@ resource "google_container_cluster" "experiment" {
 
 - [アクセス制御 | Cloud Pub/Sub ドキュメント | Google Cloud](https://cloud.google.com/pubsub/docs/access-control?hl=ja)
 
-### storage (GCS) 系
+### Storage (GCS) 系
 
 - [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) ... GCS (Cloud Storage) バケット
 - [google_storage_bucket_object](https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html) ... GCSオブジェクト。ローカルのファイルからアップロードできる
@@ -211,3 +211,13 @@ Pub/SubのTopic/Subscription IAMと同じように3種類のリソースが用�
 Resources:
 
 - [google_logging_metric](https://www.terraform.io/docs/providers/google/r/logging_metric.html) ... カスタムログベース指標
+
+### Bigtable関係
+
+IAM管理:
+
+- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam ... インスタンスに対するIAM権限設定
+- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam ... テーブルに対するIAM権限設定
+  - `google_bigtable_table_iam_policy`
+  - `google_bigtable_table_iam_binding`
+  - `google_bigtable_table_iam_member` ... 基本はこれを使えばいいだろう
