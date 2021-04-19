@@ -247,6 +247,18 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/mh4gf/items/0590038ed41a698b7623">terraform module内でtemplatefile関数を実行した際に、ファイルが見つけられなくて困った - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="source">Source&lt;/h3>
+&lt;p>&lt;a href="https://www.terraform.io/docs/language/modules/sources.html">https://www.terraform.io/docs/language/modules/sources.html&lt;/a>&lt;/p>
+&lt;p>moduleのsourceとして指定できるものにはどんな種類があるか。&lt;br>
+以下は例:&lt;/p>
+&lt;ul>
+&lt;li>ローカルのファイルパス&lt;/li>
+&lt;li>Terraform Registry&lt;/li>
+&lt;li>GitHub&lt;/li>
+&lt;li>Gitリポジトリ&lt;/li>
+&lt;li>S3&lt;/li>
+&lt;li>GCS&lt;/li>
+&lt;/ul>
 &lt;h2 id="data-source">Data Source&lt;/h2>
 &lt;p>データを既存インフラや他のTerraform被管理物から取ってくる。&lt;/p>
 &lt;ul>

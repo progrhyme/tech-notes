@@ -446,7 +446,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/pubsub/docs/access-control?hl=ja">アクセス制御 | Cloud Pub/Sub ドキュメント | Google Cloud&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="storage-gcs-系">storage (GCS) 系&lt;/h3>
+&lt;h3 id="storage-gcs-系">Storage (GCS) 系&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket.html">google_storage_bucket&lt;/a> &amp;hellip; GCS (Cloud Storage) バケット&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html">google_storage_bucket_object&lt;/a> &amp;hellip; GCSオブジェクト。ローカルのファイルからアップロードできる&lt;/li>
@@ -465,4 +465,16 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;p>Resources:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/logging_metric.html">google_logging_metric&lt;/a> &amp;hellip; カスタムログベース指標&lt;/li>
+&lt;/ul>
+&lt;h3 id="bigtable関係">Bigtable関係&lt;/h3>
+&lt;p>IAM管理:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam&lt;/a> &amp;hellip; インスタンスに対するIAM権限設定&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam&lt;/a> &amp;hellip; テーブルに対するIAM権限設定
+&lt;ul>
+&lt;li>&lt;code>google_bigtable_table_iam_policy&lt;/code>&lt;/li>
+&lt;li>&lt;code>google_bigtable_table_iam_binding&lt;/code>&lt;/li>
+&lt;li>&lt;code>google_bigtable_table_iam_member&lt;/code> &amp;hellip; 基本はこれを使えばいいだろう&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item></channel></rss>
