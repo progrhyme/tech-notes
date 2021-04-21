@@ -303,7 +303,7 @@ https://www.terraform.io/docs/backends/config.html#partial-configuration
 
 Tips:
 
-- module内では `${module.path}` によってmoduleのルートパスを取得できる
+- module内では `${path.module}` によってmoduleのルートパスを取得できる
   - 相対パス `.` などでは上手く行かないケースがありそう
 
 参考:
