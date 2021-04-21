@@ -237,7 +237,7 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;/ul>
 &lt;p>Tips:&lt;/p>
 &lt;ul>
-&lt;li>module内では &lt;code>${module.path}&lt;/code> によってmoduleのルートパスを取得できる
+&lt;li>module内では &lt;code>${path.module}&lt;/code> によってmoduleのルートパスを取得できる
 &lt;ul>
 &lt;li>相対パス &lt;code>.&lt;/code> などでは上手く行かないケースがありそう&lt;/li>
 &lt;/ul>
