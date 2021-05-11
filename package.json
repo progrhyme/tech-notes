@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/bep/tech-doc-hugo#readme",
   "dependencies": {
-    "lodash": ">=4.17.19"
+    "lodash": ">=4.17.21"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.5",
