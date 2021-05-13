@@ -70,6 +70,12 @@ bq ls -j myproject
 bq ls -j -a myproject
 # 直近10件のジョブを表示
 bq ls -j -a -n 10 myproject
+
+# JSON形式
+bq ls -j --format [pretty]json
+
+# 日時絞り込み
+bq ls -j --min_creation_time $start_unixtime_ms --max_creation_time $end_unixtime_ms
 ```
 
 ## mk
