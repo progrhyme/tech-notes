@@ -74,6 +74,10 @@ bq ls -j myproject
 bq ls -j -a myproject
 &lt;span style="color:#8f5902;font-style:italic"># 直近10件のジョブを表示&lt;/span>
 bq ls -j -a -n &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> myproject
+&lt;span style="color:#8f5902;font-style:italic"># JSON形式&lt;/span>
+bq ls -j --format &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>pretty&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>json
+&lt;span style="color:#8f5902;font-style:italic"># 日時絞り込み&lt;/span>
+bq ls -j --min_creation_time &lt;span style="color:#000">$start_unixtime_ms&lt;/span> --max_creation_time &lt;span style="color:#000">$end_unixtime_ms&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mk">mk&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk">https://cloud.google.com/bigquery/docs/reference/bq-cli-reference?hl=ja#bq_mk&lt;/a>&lt;/li>

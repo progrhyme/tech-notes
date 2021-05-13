@@ -162,6 +162,16 @@ GCPなどでアカウント管理にも使える。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://support.office.com/ja-jp/article/2-%e3%81%a4%e3%81%ae%e6%99%82%e5%88%bb%e3%81%ae%e5%b7%ae%e3%82%92%e8%a8%88%e7%ae%97%e3%81%99%e3%82%8b-e1c78778-749b-49a3-b13e-737715505ff6">2 つの時刻の差を計算する - Excel&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h3 id="unix時間を日時に変換">UNIX時間を日時に変換&lt;/h3>
+&lt;p>UNIX時間 &lt;code>1606057200&lt;/code> がセルA1に入っているとする。&lt;/p>
+&lt;ul>
+&lt;li>日付: &lt;code>=(A1/86400) + date(1970,1,1)&lt;/code> =&amp;gt; &lt;code>2020/11/23&lt;/code>&lt;/li>
+&lt;li>時刻: &lt;code>=TEXT(A1/86400, &amp;quot;hh:mm:ss&amp;quot;&lt;/code> =&amp;gt; &lt;code>00:00:00&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/narikei/items/6678799d2d6acc29c8c1">スプレッドシートでUNIX timeを日時に変換する方法 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="数値によって分類する">数値によって分類する&lt;/h3>
 &lt;p>LOOKUP系の関数（ &lt;code>[VH]LOOKUP&lt;/code> ）の最後の引数に &lt;code>true&lt;/code> を与えると、「検索値以下で最も近い値」を取り出すことができる。&lt;br>
 これによって、「点数によってランクを付ける」といったことが可能。&lt;/p>
