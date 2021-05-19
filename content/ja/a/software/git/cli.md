@@ -235,6 +235,10 @@ git log --format="%h %s"  # short hash + title
  %s | 件名
  %D | ref name
  %d | ref name
+ %cd | コミット日時
+ %ct | コミット日時（Unixタイムスタンプ）
+ %cI | コミット日時（ISO 8601形式）
+ %cs | コミット日（YYYY-MM-DD）
 
 参考:
 
@@ -243,6 +247,7 @@ git log --format="%h %s"  # short hash + title
 - [git log をいい感じに alias して色付きで見やすくしておく - Qiita](http://qiita.com/key-amb/items/9ee8339d2da971581cfb)
 - [git logのフォーマットを指定する - Qiita](https://qiita.com/harukasan/items/9149542584385e8dea75)
 - [`git log --pretty=format` で tagを表示する方法 - Qiita](https://qiita.com/isuke/items/35b192b0899872aa7b03)
+- [gitで特定commitの日付を取得する - $shibayu36-&gt;blog;](https://blog.shibayu36.org/entry/2015/07/24/153904)
 
 ## pull
 

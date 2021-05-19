@@ -137,6 +137,24 @@ re.sub('test', 'xxxx', 'Testing', flags=re.IGNORECASE)
 - [Pythonで文字列を置換（replace, translate, re.sub, re.subn） | note.nkmk.me](https://note.nkmk.me/python-str-replace-translate-re-sub/)
 - [python — re.compileせずに大文字と小文字を区別しない正規表現？](https://www.it-swarm.dev/ja/python/recompile%E3%81%9B%E3%81%9A%E3%81%AB%E5%A4%A7%E6%96%87%E5%AD%97%E3%81%A8%E5%B0%8F%E6%96%87%E5%AD%97%E3%82%92%E5%8C%BA%E5%88%A5%E3%81%97%E3%81%AA%E3%81%84%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%EF%BC%9F/958186732/)
 
+## ライブラリの利用
+### 外部ファイルの関数を利用
+
+```Python
+# mymodule.py
+def foo(a, b):
+    return a + b
+
+# main.py
+import mymodule
+c = mymodule.foo(5, 10)
+print(c)
+```
+
+参考:
+
+- [Python で別ファイルに書いた関数を呼び出す方法 - Python の関数 - Python の基本 - Python 入門](https://python.keicode.com/lang/functions-call-function-defined-in-another-file.php)
+
 ## 例外処理
 
 例外オブジェクトを文字列として扱うには、 `str(e)` のようにする。
