@@ -271,6 +271,19 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;li>&lt;a href="https://note.nkmk.me/python-str-replace-translate-re-sub/">Pythonで文字列を置換（replace, translate, re.sub, re.subn） | note.nkmk.me&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.it-swarm.dev/ja/python/recompile%E3%81%9B%E3%81%9A%E3%81%AB%E5%A4%A7%E6%96%87%E5%AD%97%E3%81%A8%E5%B0%8F%E6%96%87%E5%AD%97%E3%82%92%E5%8C%BA%E5%88%A5%E3%81%97%E3%81%AA%E3%81%84%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%EF%BC%9F/958186732/">python — re.compileせずに大文字と小文字を区別しない正規表現？&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="ライブラリの利用">ライブラリの利用&lt;/h2>
+&lt;h3 id="外部ファイルの関数を利用">外部ファイルの関数を利用&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># mymodule.py&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">b&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># main.py&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">mymodule&lt;/span>
+&lt;span style="color:#000">c&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">mymodule&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">c&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://python.keicode.com/lang/functions-call-function-defined-in-another-file.php">Python で別ファイルに書いた関数を呼び出す方法 - Python の関数 - Python の基本 - Python 入門&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>例外オブジェクトを文字列として扱うには、 &lt;code>str(e)&lt;/code> のようにする。&lt;/p>
 &lt;p>参考:&lt;/p>

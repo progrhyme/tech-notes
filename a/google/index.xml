@@ -148,7 +148,35 @@ GCPなどでアカウント管理にも使える。&lt;/p>
 &lt;p>&lt;a href="https://support.google.com/a/answer/2727156?hl=ja" title="グループのアドレスを追加する - G Suite 管理者 ヘルプ">グループのアドレスを追加する - G Suite 管理者 ヘルプ&lt;/a>&lt;/p></description></item><item><title>A: Google Sheets</title><link>https://progrhy.me/tech-notes/a/google/sheet/</link><pubDate>Sat, 09 May 2020 09:38:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/sheet/</guid><description>
 &lt;h2 id="関数">関数&lt;/h2>
 &lt;p>&lt;a href="https://support.google.com/docs/table/25273?hl=ja">Google スプレッドシートの関数リスト - ドキュメント エディタ ヘルプ&lt;/a>&lt;/p>
-&lt;h3 id="sumifs">SUMIFS&lt;/h3>
+&lt;h3 id="address">ADDRESS&lt;/h3>
+&lt;p>&lt;a href="https://support.google.com/docs/answer/3093308?hl=ja">https://support.google.com/docs/answer/3093308?hl=ja&lt;/a>&lt;/p>
+&lt;p>セル参照を文字列として返す。&lt;/p>
+&lt;p>Format: &lt;code>ADDRESS(行, 列, [絶対相対モード], [A1表記の使用], [シート])&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>絶対相対モード&lt;/strong> （省略可 - デフォルトは 1） &amp;hellip; 行/列の絶対参照であるかどうかを指定します。行と列の絶対参照（例: $A$1）である場合は 1、行の絶対参照で列の相対参照（例: A$1）である場合は 2、行の相対参照で列の絶対参照（例: $A1）である場合は 3、行と列の相対参照（例: A1）である場合は 4&lt;/li>
+&lt;li>&lt;strong>A1表記の使用&lt;/strong> （省略可 - デフォルトは TRUE） &amp;hellip; A1 型表記を使用するか（TRUE）、R1C1 型表示を使用するか（FALSE）を指定する&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;pre>&lt;code>ADDRESS(1,2)
+ADDRESS(1,2,4,FALSE)
+ADDRESS(1,2,,,&amp;quot;シート2&amp;quot;)
+&lt;/code>&lt;/pre>&lt;h3 id="match">MATCH&lt;/h3>
+&lt;p>&lt;a href="https://support.google.com/docs/answer/3093378?hl=ja">https://support.google.com/docs/answer/3093378?hl=ja&lt;/a>&lt;/p>
+&lt;p>指定した値と一致する範囲内のアイテムの相対的な位置を返します。&lt;/p>
+&lt;p>Format: &lt;code>MATCH(検索キー, 範囲, 検索の種類)&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>検索の種類&lt;/strong> （省略可 - デフォルトは 1） &amp;hellip; 検索の方法
+&lt;ul>
+&lt;li>1（デフォルト） &amp;hellip; MATCH 関数は範囲が昇順で並べ替えられていると想定し、検索キー以下の最も大きい値を返す&lt;/li>
+&lt;li>0 &amp;hellip; 完全一致を示し、範囲が並べ替えられていない場合に必須の値&lt;/li>
+&lt;li>-1 &amp;hellip; MATCH 関数は範囲が降順で並べ替えられていると想定し、検索キー以上の最も小さい値を返す&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Examples:&lt;/p>
+&lt;pre>&lt;code>MATCH(&amp;quot;日曜日&amp;quot;,A2:A9,0)
+MATCH(DATE(2012,1,1),A2:F2)
+&lt;/code>&lt;/pre>&lt;h3 id="sumifs">SUMIFS&lt;/h3>
 &lt;p>&lt;a href="https://support.google.com/docs/answer/3238496?hl=ja">https://support.google.com/docs/answer/3238496?hl=ja&lt;/a>&lt;/p>
 &lt;p>SUMIFの条件部を複数指定できるバージョン。&lt;/p>
 &lt;p>Format: &lt;code>SUMIFS(合計範囲, 条件範囲1, 条件1, [条件範囲2, 条件2, ...])&lt;/code>&lt;/p>

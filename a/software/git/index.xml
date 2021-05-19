@@ -225,6 +225,22 @@ git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;s
 &lt;td>%d&lt;/td>
 &lt;td>ref name&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>%cd&lt;/td>
+&lt;td>コミット日時&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%ct&lt;/td>
+&lt;td>コミット日時（Unixタイムスタンプ）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%cI&lt;/td>
+&lt;td>コミット日時（ISO 8601形式）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%cs&lt;/td>
+&lt;td>コミット日（YYYY-MM-DD）&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>参考:&lt;/p>
@@ -234,6 +250,7 @@ git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;s
 &lt;li>&lt;a href="http://qiita.com/key-amb/items/9ee8339d2da971581cfb">git log をいい感じに alias して色付きで見やすくしておく - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/harukasan/items/9149542584385e8dea75">git logのフォーマットを指定する - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/isuke/items/35b192b0899872aa7b03">&lt;code>git log --pretty=format&lt;/code> で tagを表示する方法 - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.shibayu36.org/entry/2015/07/24/153904">gitで特定commitの日付を取得する - $shibayu36-&amp;gt;blog;&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="pull">pull&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull&lt;/a>&lt;/p>
