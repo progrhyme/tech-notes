@@ -134,7 +134,7 @@ goreleaser --release-notes &amp;lt;&lt;span style="color:#ce5c00;font-weight:bol
 &lt;p>GoReleaserでHomebrewのFormulaを生成することができる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/20200718/#goreleaser%E3%81%A7homebrew%E3%81%AEformula%E3%82%92%E4%BD%9C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F">メモ &amp;gt; 2020-07-18#GoReleaserでHomebrewのFormulaを作るようにした&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/memo/2020/20200718/#goreleaser%E3%81%A7homebrew%E3%81%AEformula%E3%82%92%E4%BD%9C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F">メモ &amp;gt; 2020-07-18#GoReleaserでHomebrewのFormulaを作るようにした&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://reiki4040.hatenablog.com/entry/2020/02/10/080000">GoReleaser+GithubActionsを使って、releaseファイルのアップロードとhomebrew対応を自動で行う - 年中アイス&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/momotaro98/items/a421c8b3412dec3fb2fc">goreleaserで簡単にオレオレコマンドをbrew installできちゃう - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/knqyf263/items/53dd0d0916afc5472281">goreleaserでHomebrewのFormulaを自動生成する - Qiita&lt;/a>&lt;/li>
