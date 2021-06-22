@@ -1,4 +1,16 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2021-06-08</title><link>https://progrhy.me/tech-notes/a/memo/20210608/</link><pubDate>Tue, 08 Jun 2021 13:12:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210608/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2021-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20210622/</link><pubDate>Tue, 22 Jun 2021 10:56:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210622/</guid><description>
+&lt;h2 id="622">6/22&lt;/h2>
+&lt;h3 id="cloud-runをgaeみたいに複数バージョンのアプリの実行環境として使えるか">Cloud RunをGAEみたいに複数バージョンのアプリの実行環境として使えるか？&lt;/h3>
+&lt;p>できそう。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/run/docs/managing/revisions?hl=ja">リビジョンの管理 | Cloud Run のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://chidakiyo.hatenablog.com/entry/run-traffic-latest">Cloud Run で最新のリリースバージョンにトラフィックを流す - 寝ても覚めてもこんぴうた&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>VPCとつなぐには、サーバレスVPCアクセスを使う:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/run/docs/configuring/connecting-vpc">https://cloud.google.com/run/docs/configuring/connecting-vpc&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2021-06-08</title><link>https://progrhy.me/tech-notes/a/memo/20210608/</link><pubDate>Tue, 08 Jun 2021 13:12:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210608/</guid><description>
 &lt;h2 id="68">6/8&lt;/h2>
 &lt;h3 id="sshコマンドによるsocksサーバの実行">SSHコマンドによるSOCKSサーバの実行&lt;/h3>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$HOST&lt;/span>

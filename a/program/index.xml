@@ -345,16 +345,16 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic">## Python2&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;Hello, &lt;/span>&lt;span style="color:#4e9a06">%s&lt;/span>&lt;span style="color:#4e9a06">!&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## Python3&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#39;Hello, {}!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;Hello, &lt;/span>&lt;span style="color:#4e9a06">{}&lt;/span>&lt;span style="color:#4e9a06">!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/u_kan/items/2a7b4201beb0d467e5b8">Python3での文字列フォーマットまとめ　旧型で生きるか、新型で生きるか - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="print関数に括弧が必要">print関数に括弧が必要&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic">## Python2&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hello, world!&amp;#39;&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hello, world!&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## Python3&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello, world!&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello, world!&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/pugiemonn/items/94ac57ba1b7b03548efe">SyntaxError: Missing parentheses in call to &amp;lsquo;print&amp;rsquo; と言われました - Qiita&lt;/a>&lt;/li>
