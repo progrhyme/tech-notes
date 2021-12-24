@@ -2,13 +2,13 @@
 title: "Google"
 linkTitle: "Google"
 description: >
-  https://www.terraform.io/docs/providers/google/
+  https://registry.terraform.io/providers/hashicorp/google
 date: 2020-04-26T23:20:30+09:00
 ---
 
 ## Versions
 
-https://www.terraform.io/docs/providers/google/guides/provider_versions.html
+https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_versions
 
 β機能をサポートした [google-beta](https://github.com/terraform-providers/terraform-provider-google-beta) というProviderもある。
 
@@ -20,7 +20,7 @@ NOTE:
 
 ## Configuration
 
-[Google Provider Configuration Reference - Terraform by HashiCorp](https://www.terraform.io/docs/providers/google/guides/provider_reference.html)
+[Google Provider Configuration Reference | Guides | hashicorp/google | Terraform Registry](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference)
 
 SYNOPSIS:
 
@@ -46,25 +46,25 @@ See also:
 ## Data Sources
 ### compute系
 
-- [google_compute_default_service_account](https://www.terraform.io/docs/providers/google/d/compute_default_service_account.html) ... プロジェクトのデフォルトのサービスアカウントを取得する
-- [google_compute_network](https://www.terraform.io/docs/providers/google/d/datasource_compute_network.html)
-- [google_compute_subnetwork](https://www.terraform.io/docs/providers/google/d/datasource_compute_subnetwork.html)
+- [google_compute_default_service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_default_service_account) ... プロジェクトのデフォルトのサービスアカウントを取得する
+- [google_compute_network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network)
+- [google_compute_subnetwork](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_subnetwork)
 
 ## Resources
 
 未分類のもの:
 
-- [google_cloudfunctions_function](https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html) ... Cloud Function作成・管理
-- [google_cloud_scheduler_job](https://www.terraform.io/docs/providers/google/r/cloud_scheduler_job.html) ... Cloud Scheduler Job
-- [google_redis_instance](https://www.terraform.io/docs/providers/google/r/redis_instance.html) ... Memorystore (Redis)
+- [google_cloudfunctions_function](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudfunctions_function) ... Cloud Function作成・管理
+- [google_cloud_scheduler_job](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_scheduler_job) ... Cloud Scheduler Job
+- [google_redis_instance](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/redis_instance) ... Memorystore (Redis)
 
 ### GCP (IAM, API, Billing, Organization)
 
 Providerリファレンスで、「Google Cloud Platform Resources」というカテゴリに属するもの。
 
-- [google_project_service](https://www.terraform.io/docs/providers/google/r/google_project_service.html) ... APIs & Servicesの有効化
-- [google_service_account](https://www.terraform.io/docs/providers/google/r/google_service_account.html)
-- [google_service_account_key](https://www.terraform.io/docs/providers/google/r/google_service_account_key.html)
+- [google_project_service](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) ... APIs & Servicesの有効化
+- [google_service_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account)
+- [google_service_account_key](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_key)
 
 Examples:
 
@@ -89,7 +89,7 @@ resource local_file "terraform_key_json" {
 
 #### IAM policy for projects
 
-https://www.terraform.io/docs/providers/google/r/google_project_iam.html
+https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 
 - `google_project_iam_policy`
 - `google_project_iam_binding` ... role : member = 1 : Nの権限を設定する。Service Accountの権限にも対応
@@ -98,12 +98,12 @@ https://www.terraform.io/docs/providers/google/r/google_project_iam.html
 
 ### compute系
 
-- [google_compute_backend_bucket](https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html) ... HTTP(S) LBのバックエンドになるGCSバケット設定
-- [google_compute_backend_service](https://www.terraform.io/docs/providers/google/r/compute_backend_service.html) ... GCLBのバックエンドになるサービスの設定
-- [google_compute_health_check](https://www.terraform.io/docs/providers/google/r/compute_health_check.html) ... ヘルスチェック
-- [google_compute_instance](https://www.terraform.io/docs/providers/google/r/compute_instance.html)
-- [google_compute_managed_ssl_certificate](https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html) ... β (2020-03-18) HTTPS LBのためのマネージドTLS証明書
-- [google_compute_security_policy](https://www.terraform.io/docs/providers/google/r/compute_security_policy.html) ... Cloud Armorのセキュリティポリシー
+- [google_compute_backend_bucket](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_bucket) ... HTTP(S) LBのバックエンドになるGCSバケット設定
+- [google_compute_backend_service](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_service) ... GCLBのバックエンドになるサービスの設定
+- [google_compute_health_check](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_health_check) ... ヘルスチェック
+- [google_compute_instance](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance)
+- [google_compute_managed_ssl_certificate](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_managed_ssl_certificate) ... β (2020-03-18) HTTPS LBのためのマネージドTLS証明書
+- [google_compute_security_policy](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_security_policy) ... Cloud Armorのセキュリティポリシー
 
 IAM関係:
 
@@ -112,12 +112,12 @@ IAM関係:
 
 #### ネットワーク関係
 
-- [google_compute_address](https://www.terraform.io/docs/providers/google/r/compute_address.html) ... `EXTERNAL` なアドレスも発行できる。Cloud NATに使うのはこっち
-- [google_compute_global_address](https://www.terraform.io/docs/providers/google/r/compute_global_address.html) ... HTTP(S) LBで使うやつ
-- [google_compute_network](https://www.terraform.io/docs/providers/google/r/compute_network.html)
-- [google_compute_subnetwork](https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html)
-- [google_compute_router](https://www.terraform.io/docs/providers/google/r/compute_router.html) ... Cloud Router
-- [google_compute_router_nat](https://www.terraform.io/docs/providers/google/r/compute_router_nat.html) ... Cloud NAT w/ Cloud Router
+- [google_compute_address](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address) ... `EXTERNAL` なアドレスも発行できる。Cloud NATに使うのはこっち
+- [google_compute_global_address](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_global_address) ... HTTP(S) LBで使うやつ
+- [google_compute_network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network)
+- [google_compute_subnetwork](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork)
+- [google_compute_router](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) ... Cloud Router
+- [google_compute_router_nat](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat) ... Cloud NAT w/ Cloud Router
 
 #### インスタンスでcustom machine typeを使う
 
@@ -133,8 +133,8 @@ resource "google_compute_instance" "default" {
 
 ### GKE関連
 
-- [google_container_cluster](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
-- [google_container_node_pool](https://www.terraform.io/docs/providers/google/r/container_node_pool.html)
+- [google_container_cluster](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster)
+- [google_container_node_pool](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool)
 
 参考:
 
@@ -165,19 +165,19 @@ resource "google_container_cluster" "experiment" {
 
 ### Pub/Sub
 
-- [google_pubsub_topic](https://www.terraform.io/docs/providers/google/r/pubsub_topic.html)
-- [google_pubsub_subscription](https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html)
+- [google_pubsub_topic](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic)
+- [google_pubsub_subscription](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription)
 
 #### Topic/Subscription IAM
 
-- [pubsub_topic_iam](https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html)
+- [pubsub_topic_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic_iam)
   - 以下の3種類のリソースがあり、管理したい粒度に応じていずれかを使う
   - いずれも特定のトピックに対する権限をセットする
   - `google_pubsub_topic_iam_policy` ... 該当トピックに対する全ロール x 全メンバーの権限を含むポリシーを管理する
   - `google_pubsub_topic_iam_binding` ... 特定のロールを持つメンバーセットを管理する
   - `google_pubsub_topic_iam_member` ... 特定のロール x メンバーの組み合わせを1つ1つ管理する
   - たぶん、最も細かい粒度の `google_pubsub_topic_iam_member` を使うのが無難
-- [pubsub_subscription_iam](https://www.terraform.io/docs/providers/google/r/pubsub_subscription_iam.html)
+- [pubsub_subscription_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription_iam)
   - topicの方と同様に3種類のリソースを選択的に使う
   - いずれも特定のサブスクリプションに対する権限をセットする
   - `google_pubsub_subscription_iam_policy` ... 該当サブスクリプションに対する全ロール x 全メンバーの権限を含むポリシーを管理する
@@ -190,13 +190,13 @@ resource "google_container_cluster" "experiment" {
 
 ### Storage (GCS) 系
 
-- [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) ... GCS (Cloud Storage) バケット
-- [google_storage_bucket_object](https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html) ... GCSオブジェクト。ローカルのファイルからアップロードできる
-- [google_storage_notification](https://www.terraform.io/docs/providers/google/r/storage_notification.html) ... GCSでのイベントをPub/Subに通知する通知リソース
+- [google_storage_bucket](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) ... GCS (Cloud Storage) バケット
+- [google_storage_bucket_object](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_object) ... GCSオブジェクト。ローカルのファイルからアップロードできる
+- [google_storage_notification](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_notification) ... GCSでのイベントをPub/Subに通知する通知リソース
 
 #### IAM for GCS Bucket
 
-https://www.terraform.io/docs/providers/google/r/storage_bucket_iam.html
+https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam
 
 Pub/SubのTopic/Subscription IAMと同じように3種類のリソースが用意されている。
 
@@ -210,14 +210,14 @@ Pub/SubのTopic/Subscription IAMと同じように3種類のリソースが用�
 
 Resources:
 
-- [google_logging_metric](https://www.terraform.io/docs/providers/google/r/logging_metric.html) ... カスタムログベース指標
+- [google_logging_metric](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_metric) ... カスタムログベース指標
 
 ### Bigtable関係
 
 IAM管理:
 
-- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam ... インスタンスに対するIAM権限設定
-- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam ... テーブルに対するIAM権限設定
+- [bigtable_instance_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam) ... インスタンスに対するIAM権限設定
+- [bigtable_table_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam) ... テーブルに対するIAM権限設定
   - `google_bigtable_table_iam_policy`
   - `google_bigtable_table_iam_binding`
   - `google_bigtable_table_iam_member` ... 基本はこれを使えばいいだろう
