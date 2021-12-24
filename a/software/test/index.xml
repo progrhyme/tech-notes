@@ -25,7 +25,7 @@
 &lt;/ul>
 &lt;h2 id="locustコマンド">locustコマンド&lt;/h2>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com
 locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com --no-web -c &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span> -r &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> -t 30m
 &lt;span style="color:#8f5902;font-style:italic">## 20分毎に20クライアントずつ増加させる&lt;/span>
 locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://example.com --no-web -c &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span> -r &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> -t 1h40m &lt;span style="color:#4e9a06">\
@@ -109,7 +109,7 @@ locust -f locustfile.py --host&lt;span style="color:#ce5c00;font-weight:bold">=&
 &lt;/ul>
 &lt;p>※Qiitaにも書いた。&lt;a href="https://qiita.com/progrhyme/items/2bf7e9ad24baf2c24951">Locustを1台のマシンで分散実行する（CLI編） - Qiita&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">##!bash&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">##!bash&lt;/span>
 &lt;span style="color:#000">host&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
 &lt;span style="color:#000">locustfile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>yourlocustfile.py
 &lt;span style="color:#000">slave_num&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">15&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># slave数（並列数 - 1）&lt;/span>
@@ -156,7 +156,7 @@ nohup taskset -c &lt;span style="color:#000">$no&lt;/span> locust -f &lt;span st
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="locustでプロキシサーバ経由でテストリクエスト送信">Locustでプロキシサーバ経由でテストリクエスト送信&lt;/h3>
 &lt;p>&lt;a href="https://github.com/locustio/locust/issues/203">https://github.com/locustio/locust/issues/203&lt;/a> によると環境変数を設定するだけでも行けるということなのだが、私が試したときは駄目だったので、下のようにした&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">proxies&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">proxies&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{}&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;HTTP_PROXY&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#000">proxies&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;http&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;HTTP_PROXY&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;HTTPS_PROXY&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">environ&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
@@ -173,7 +173,7 @@ nohup taskset -c &lt;span style="color:#000">$no&lt;/span> locust -f &lt;span st
 &lt;/li>
 &lt;/ul>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">locust&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">TaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">task&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">between&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">locust&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">TaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">task&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">between&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">locust.contrib.fasthttp&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">FastHttpLocust&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyTaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">TaskSet&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
 &lt;span style="color:#5c35cc;font-weight:bold">@task&lt;/span>

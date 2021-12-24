@@ -274,7 +274,7 @@
 &lt;/li>
 &lt;/ul>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">HorizontalPodAutoscaler&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">HorizontalPodAutoscaler&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">autoscaling/v2alpha1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">WebFrontend&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -595,7 +595,7 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;h2 id="コマンド引数の定義">コマンド/引数の定義&lt;/h2>
 &lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes">https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Pod&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">command-demo&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -627,7 +627,7 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;/ul>
 &lt;p>詳細な仕様はAPIリファレンスを見よ。&lt;/p>
 &lt;p>設定例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Pod&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">lifecycle-demo&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -685,7 +685,7 @@ Cron形式でスケジュールの記述が可能。&lt;/p>
 &lt;p>Deployment コントローラーはPodとReplicaSetの宣言的なアップデート機能を提供します。&lt;/p>
 &lt;/blockquote>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">apps/v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">apps/v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Deployment&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">nginx-deployment&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -713,7 +713,7 @@ Cron形式でスケジュールの記述が可能。&lt;/p>
 &lt;h3 id="strategy">strategy&lt;/h3>
 &lt;p>更新戦略。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">strategy&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">rollingUpdate&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">maxSurge&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">25&lt;/span>&lt;span style="color:#000">%&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -774,7 +774,7 @@ Cron形式でスケジュールの記述が可能。&lt;/p>
 &lt;/ul>
 &lt;h2 id="ユースケース">ユースケース&lt;/h2>
 &lt;h3 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
 kubectl config view
 &lt;span style="color:#8f5902;font-style:italic">### 現在のcontextだけを表示&lt;/span>
 kubectl config view --minify
@@ -795,7 +795,7 @@ kubectl config rename-context &amp;lt;old-name&amp;gt; &amp;lt;new-name&amp;gt;
 &lt;/ul>
 &lt;h3 id="namespaceの操作設定">Namespaceの操作・設定&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンテキストのデフォルトnamespaceを設定する&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンテキストのデフォルトnamespaceを設定する&lt;/span>
 kubectl config set-context &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>kubectl config current-context&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NAMESPACE
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -806,7 +806,7 @@ kubectl config set-context &lt;span style="color:#204a87;font-weight:bold">$(&lt
 &lt;li>run &amp;hellip; コンテナイメージを実行する。deploymentまたはjobが作られる。&lt;/li>
 &lt;li>expose &amp;hellip; リソースをクラスタ外にServiceとして公開する。&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## run&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## run&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
 kubectl run nginx --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
 &lt;span style="color:#8f5902;font-style:italic">## expose&lt;/span>
@@ -823,7 +823,7 @@ kubectl expose deployment &amp;lt;deployment-name&amp;gt; --type&lt;span style="
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## scale&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## scale&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### ReplicaSet &amp;#39;foo&amp;#39; を3に&lt;/span>
 kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> rs/foo
 kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> -f foo.yml
@@ -835,7 +835,7 @@ kubectl scale --current-replicas&lt;span style="color:#ce5c00;font-weight:bold">
 &lt;li>create/apply/replace &amp;hellip; JSON or YAMLのリソース定義ファイルを適用して、リソースを作成/更新する。&lt;/li>
 &lt;li>patch &amp;hellip; YAML/JSONのマージを用いて、リソース定義を差分更新する&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># create&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># create&lt;/span>
 kubectl create -f &amp;lt;Path or URL of config file&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic">## ファイルから Secret を作成&lt;/span>
 kubectl create secret generic my-secret --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./secret/secret.json
@@ -864,7 +864,7 @@ kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;
 &lt;li>exec &amp;hellip; コマンドをコンテナ内で実行する&lt;/li>
 &lt;li>cp &amp;hellip; ファイルをクライアント環境とPod間でやりとり&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## exec&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## exec&lt;/span>
 kubectl &lt;span style="color:#204a87">exec&lt;/span> &amp;lt;pod&amp;gt; -- &amp;lt;command&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>args...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">### podにbashでログイン&lt;/span>
 kubectl &lt;span style="color:#204a87">exec&lt;/span> -it &amp;lt;pod&amp;gt; -- /bin/bash -l
@@ -880,7 +880,7 @@ kubectl cp &amp;lt;pod&amp;gt;:/path/to/remotefile /path/to/localfile
 &lt;li>cordon &amp;hellip; ノードへのスケジュールを停止&lt;/li>
 &lt;li>drain &amp;hellip; ノードからPodを削除&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cordon&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## cordon&lt;/span>
 kubectl cordon &amp;lt;node-name&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic">## drain&lt;/span>
 kubectl drain &amp;lt;node-name&amp;gt;
@@ -897,7 +897,7 @@ kubectl drain &amp;lt;node-name&amp;gt; --ignore-daemonsets
 &lt;li>describe &amp;hellip; 単一リソース or グループの情報を表示&lt;/li>
 &lt;li>diff &amp;hellip; リソースファイルとクラスタの状態を差分表示&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># get&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># get&lt;/span>
 kubectl get deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ments&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-o json&lt;span style="color:#000;font-weight:bold">|&lt;/span>yaml&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## フィルタの例&lt;/span>
@@ -913,7 +913,7 @@ kubectl diff -f foo.yml
 &lt;span style="color:#8f5902;font-style:italic">## kustomizeバージョン&lt;/span>
 kubectl diff -k .
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="削除">削除&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## delete&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## delete&lt;/span>
 kubectl delete deployment &amp;lt;deployment-name&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="サブコマンド">サブコマンド&lt;/h2>
 &lt;h3 id="apply">apply&lt;/h3>
@@ -941,17 +941,17 @@ kubectl delete deployment &amp;lt;deployment-name&amp;gt;
 &lt;/tbody>
 &lt;/table>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># app=nginxラベルのリソースにマニフェストを適用し、マニフェスト外のリソースを削除する&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># app=nginxラベルのリソースにマニフェストを適用し、マニフェスト外のリソースを削除する&lt;/span>
 kubectl apply --prune -f manifest.yaml -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
 &lt;span style="color:#8f5902;font-style:italic"># マニフェストに書かれていないConfigMapを全て削除&lt;/span>
 kubectl apply --prune -f manifest.yaml --all --prune-whitelist&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>core/v1/ConfigMap
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logs">logs&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 基本構文&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 基本構文&lt;/span>
 kubectl logs &amp;lt;Pod名&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 10行 tail -f&lt;/span>
 kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> -f
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="port-forward">port-forward&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Syntax&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Syntax&lt;/span>
 kubectl port-forward TYPE/NAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>LOCAL_PORT:&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>REMOTE_PORT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>...&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>LOCAL_PORT_N:&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>REMOTE_PORT_N&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># Examples&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## サービスの80番ポートをローカルの8080番ポートにforward&lt;/span>
@@ -962,13 +962,13 @@ kubectl port-forward deployment/mydeployment &lt;span style="color:#0000cf;font-
 kubectl port-forward pod/mypod &lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="proxy">proxy&lt;/h3>
 &lt;p>API Proxyサーバを起動する&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
 curl http://localhost:8080/api/
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="evictedなpodを一括削除するワンライナー">EvictedなPodを一括削除するワンライナー&lt;/h3>
 &lt;p>EvictionしたPodは手動削除しないといけないっぽい。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get pods &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;{if ($3 ~ /Evicted/) system (&amp;#34;kubectl delete pods &amp;#34; $1)}&amp;#39;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get pods &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;{if ($3 ~ /Evicted/) system (&amp;#34;kubectl delete pods &amp;#34; $1)}&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>PodのEvictionについてはSee &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -977,7 +977,7 @@ curl http://localhost:8080/api/
 &lt;/ul>
 &lt;h3 id="全てのマニフェストを取得したい">全てのマニフェストを取得したい&lt;/h3>
 &lt;p>これでよさそう:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get all --export -o yaml
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl get all --export -o yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>※v1.14で &lt;code>--export&lt;/code> オプションはdeprecateされているが、2020-05-07, 代替手段は見つけられていない。&lt;/li>
@@ -999,7 +999,7 @@ curl http://localhost:8080/api/
 &lt;li>Examples: &lt;a href="https://github.com/kubernetes-sigs/kustomize/tree/master/examples">https://github.com/kubernetes-sigs/kustomize/tree/master/examples&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="cli-usage">CLI Usage&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl kustomize
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl kustomize
 &lt;span style="color:#8f5902;font-style:italic"># kustomization.yaml を含むディレクトリで&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## Apply the Resource Config&lt;/span>
 kubectl apply -k .
@@ -1031,7 +1031,7 @@ kubectl get -k .
 &lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/&lt;/a>&lt;/p>
 &lt;p>Kubernetesでは、複数の仮想的なクラスタを同じ物理クラスタ上に構築することができる。この仮想クラスタのことを &lt;strong>Namespace&lt;/strong> と呼ぶ。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Namespace&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">myapp&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1045,7 +1045,7 @@ kubectl get -k .
 &lt;h3 id="resourcequotas">ResourceQuotas&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">https://kubernetes.io/docs/concepts/policy/resource-quotas/&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ResourceQuota&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">compute-resources&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1056,7 +1056,7 @@ kubectl get -k .
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits.cpu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">limits.memory&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">2Gi&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>適用例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl create -f ./compute-resources.yaml --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>myspace
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl create -f ./compute-resources.yaml --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>myspace
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Note:&lt;/p>
 &lt;ul>
 &lt;li>ResourceQuotaを設定したnamespaceに属する全Podの合計値が上限になる&lt;/li>
@@ -1065,7 +1065,7 @@ kubectl get -k .
 &lt;h3 id="limitrange">LimitRange&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/concepts/policy/limit-range/">https://kubernetes.io/docs/concepts/policy/limit-range/&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">LimitRange&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">limit-mem-cpu-per-container&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1117,12 +1117,12 @@ kubectl get -k .
 &lt;p>Node SelectorやNode Affinityが特定のノードに特定のPodをスケジュールするための仕組みに対し、TaintsとTolerationsは特定のノードにPodをスケジュールしないための仕組み&lt;/p>
 &lt;/blockquote>
 &lt;p>例えば、次のコマンドでノードに対してtaintを設定する:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># taintの設定&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># taintの設定&lt;/span>
 kubectl taint nodes node1 &lt;span style="color:#000">key&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>value:NoSchedule
 &lt;span style="color:#8f5902;font-style:italic"># 上のtaintを削除するコマンド&lt;/span>
 kubectl taint nodes node1 key:NoSchedule-
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>このtaintがつけられたノードにPodをスケジュールするには、下のいずれかのtolerationを設定する必要がある:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic"># ①&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic"># ①&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">tolerations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;key&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">operator&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Equal&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1174,15 +1174,15 @@ kubectl taint nodes node1 key:NoSchedule-
 &lt;/ul>
 &lt;h2 id="secretsの作成">Secretsの作成&lt;/h2>
 &lt;p>例1) テキストファイルから作成&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &amp;gt; ./username.txt
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &amp;gt; ./username.txt
 &lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;1f2d1e2e67df&amp;#39;&lt;/span> &amp;gt; ./password.txt
 kubectl create secret generic db-user-pass --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./username.txt --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./password.txt
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>例2) 自分で定義ファイル(YAML)を作る&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;admin&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
 &lt;span style="color:#000">YWRtaW4&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
 &lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#39;1f2d1e2e67df&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> base64
 MWYyZDFlMmU2N2Rm
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic">## secret.yaml&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#8f5902;font-style:italic">## secret.yaml&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Secret&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1191,7 +1191,7 @@ MWYyZDFlMmU2N2Rm
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">username&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">YWRtaW4=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">password&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MWYyZDFlMmU2N2Rm&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">kubectl apply -f ./secret.yaml
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">kubectl apply -f ./secret.yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="secretの参照">Secretの参照&lt;/h2>
 &lt;p>ワークロードからSecretを参照したい場合、次のやり方を取ることができる:&lt;/p>
 &lt;ul>
@@ -1199,7 +1199,7 @@ MWYyZDFlMmU2N2Rm
 &lt;li>ボリュームとしてマウントし、ファイルを参照する&lt;/li>
 &lt;/ul>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Pod&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">run&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1232,7 +1232,7 @@ MWYyZDFlMmU2N2Rm
 &lt;p>Podの集合で実行されている持続的なワークロードをネットワークサービスとして公開する抽象的な手法。&lt;/p>
 &lt;p>Serviceを使用すると、メンバーPodのIPアドレスが変更されても、Serviceが存続している間に固定のIPアドレスを取得できる。&lt;/p>
 &lt;p>Service定義ファイルのサンプル:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Service&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Service&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">my-service&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -1263,7 +1263,7 @@ MWYyZDFlMmU2N2Rm
 &lt;p>外部から参照できるDNS名を提供する。&lt;br>
 この機能を使うには、GKEなどのように、KubernetesにDNSコンポーネントが導入されている必要がある。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">Service&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">my-service&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">

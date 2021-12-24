@@ -72,7 +72,7 @@
 &lt;/ul>
 &lt;h4 id="cli">CLI&lt;/h4>
 &lt;p>小さいCLIで、ライブラリとして提供しないものは、下のような感じでもよさそう:&lt;/p>
-&lt;pre>&lt;code>.
+&lt;pre tabindex="0">&lt;code>.
 ├── internal
 │   ├── bar
 │   └── foo
@@ -82,7 +82,7 @@
 &lt;p>&lt;a href="https://golang.org/pkg/go/build/">https://golang.org/pkg/go/build/&lt;/a>&lt;/p>
 &lt;p>&lt;code>Build Constraints&lt;/code> という機能は「build tag」としても知られている。&lt;br>
 こんなの:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// (A)
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#8f5902;font-style:italic">// (A)
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">// +build foo
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">// (B)
@@ -161,7 +161,7 @@ Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>G
 &lt;h3 id="json">JSON&lt;/h3>
 &lt;p>&lt;a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">obj&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">obj&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">str&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">JSON&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">stringify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">obj&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tips">Tips&lt;/h2>
 &lt;h3 id="デバッグ">デバッグ&lt;/h3>
@@ -226,14 +226,14 @@ Go 1.5ではexperimental扱いで、有効化するには環境変数 &lt;code>G
 &lt;p>&lt;a href="https://metacpan.org/pod/App::cpanminus">https://metacpan.org/pod/App::cpanminus&lt;/a>&lt;/p>
 &lt;p>&lt;code>cpanm&lt;/code> のためにまずこれを入れる。&lt;/p>
 &lt;p>ユーザ環境のperl（plenvなど）にインストールするには、下のコマンドでよい:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -L https://cpanmin.us &lt;span style="color:#000;font-weight:bold">|&lt;/span> perl - App::cpanminus
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -L https://cpanmin.us &lt;span style="color:#000;font-weight:bold">|&lt;/span> perl - App::cpanminus
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>使い方:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># モジュールインストール&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># モジュールインストール&lt;/span>
 cpanm Foo::Bar
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="podmarkdown">Pod::Markdown&lt;/h3>
 &lt;p>&lt;a href="https://metacpan.org/release/Pod-Markdown">https://metacpan.org/release/Pod-Markdown&lt;/a>&lt;/p>
 &lt;p>pod2markdown コマンドを提供してくれる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pod2markdown Foo.pm &amp;gt; Foo.md
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pod2markdown Foo.pm &amp;gt; Foo.md
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="cpanモジュールのメンテに関する備忘録">CPANモジュールのメンテに関する備忘録&lt;/h3>
 &lt;ul>
@@ -318,7 +318,7 @@ cpanm Foo::Bar
 &lt;p>どっちを指定すればいいのかわからん。。&lt;br>
 プロジェクトごとにvenvを作るような場合は venvFoldersに &lt;code>.venv&lt;/code> を入れておけばいいのかな？&lt;/p>
 &lt;p>ある環境では &lt;code>~/my/venv/&lt;/code> の下にまとめていたので、次のように設定した:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JSON" data-lang="JSON">&lt;span style="color:#4e9a06">&amp;#34;python.venvPath&amp;#34;&lt;/span>&lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~/my/venv&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JSON" data-lang="JSON">&lt;span style="color:#4e9a06">&amp;#34;python.venvPath&amp;#34;&lt;/span>&lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~/my/venv&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>これで問題なさそう。&lt;br>
 VS CodeのWindowをリロードすると、Pythonインタプリタのリストにvenvのリストが出てくるようになった。&lt;/p>
 &lt;p>参考:&lt;/p>
@@ -342,7 +342,7 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;h2 id="python3">Python3&lt;/h2>
 &lt;h3 id="python2との違い">Python2との違い&lt;/h3>
 &lt;h4 id="書式付き文字列">書式付き文字列&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic">## Python2&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic">## Python2&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;Hello, &lt;/span>&lt;span style="color:#4e9a06">%s&lt;/span>&lt;span style="color:#4e9a06">!&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## Python3&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;Hello, &lt;/span>&lt;span style="color:#4e9a06">{}&lt;/span>&lt;span style="color:#4e9a06">!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
@@ -351,7 +351,7 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;li>&lt;a href="https://qiita.com/u_kan/items/2a7b4201beb0d467e5b8">Python3での文字列フォーマットまとめ　旧型で生きるか、新型で生きるか - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="print関数に括弧が必要">print関数に括弧が必要&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic">## Python2&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic">## Python2&lt;/span>
 &lt;span style="color:#204a87">print&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hello, world!&amp;#39;&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## Python3&lt;/span>
 &lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello, world!&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
@@ -428,7 +428,7 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;li>&lt;a href="https://qiita.com/key-amb/items/a134e2c3bea172b3deeb">Ruby で標準入出力のテスト - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="プロコンにおける標準入力の処理">プロコンにおける標準入力の処理&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic"># 1行入力の場合&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ruby" data-lang="ruby">&lt;span style="color:#8f5902;font-style:italic"># 1行入力の場合&lt;/span>
 &lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">gets&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">chomp&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 複数行入力の場合&lt;/span>
 &lt;span style="color:#000">lines&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">$stdin&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">readlines&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 各要素は末尾に改行コードを含む&lt;/span>
@@ -497,7 +497,7 @@ VS CodeのWindowをリロードすると、Pythonインタプリタのリスト�
 &lt;h3 id="rustup">rustup&lt;/h3>
 &lt;p>Rust toolchain installer.&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
 rustup &lt;span style="color:#204a87">help&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># Update Rust toolchains and rustup&lt;/span>
 rustup update
@@ -507,7 +507,7 @@ rustup check
 rustup doc
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="rustc">rustc&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンパイル&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンパイル&lt;/span>
 rustc main.rs
 &lt;span style="color:#8f5902;font-style:italic"># ヘルプ表示&lt;/span>
 rustc --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>h&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>elp

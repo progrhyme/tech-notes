@@ -207,7 +207,7 @@
 &lt;h3 id="information_schemaによるメタデータの取得">INFORMATION_SCHEMAによるメタデータの取得&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/information-schema-tables?hl=ja">https://cloud.google.com/bigquery/docs/information-schema-tables?hl=ja&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- テーブル情報一覧
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- テーブル情報一覧
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SELECT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_id&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_id&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">INFORMATION_SCHEMA&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">TABLES&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="運用">運用&lt;/h2>
 &lt;h3 id="有効期限の設定">有効期限の設定&lt;/h3>
@@ -231,7 +231,7 @@
 &lt;h3 id="文字列関数">文字列関数&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions">https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 結合
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 結合
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">CONCAT&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">value1&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">value2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">...])&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- 置換
@@ -240,13 +240,13 @@
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="日時関数">日時関数&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions">https://cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在日時
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在日時
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">CURRENT_DATETIME&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">CURRENT_DATETIME&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Asia/Tokyo&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="タイムスタンプ関数">タイムスタンプ関数&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions">https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在日時
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- 現在日時
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CURRENT_TIMESTAMP&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- TIMESTAMP型への変換
@@ -267,11 +267,11 @@
 &lt;p>&lt;a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language?hl=ja#drop_view_statement">https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language?hl=ja#drop_view_statement&lt;/a>&lt;/p>
 &lt;p>ビューの削除。&lt;/p>
 &lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">DROP&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">VIEW&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXISTS&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">view_name&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">DROP&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">VIEW&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">IF&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">EXISTS&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[[&lt;/span>&lt;span style="color:#000">project_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">dataset_name&lt;/span>&lt;span style="color:#000;font-weight:bold">.]&lt;/span>&lt;span style="color:#000">view_name&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="独自sql">独自SQL&lt;/h2>
 &lt;h3 id="except">except&lt;/h3>
 &lt;p>特定のカラムを除いてSELECTする。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-SQL" data-lang="SQL">&lt;span style="color:#204a87;font-weight:bold">SELECT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-SQL" data-lang="SQL">&lt;span style="color:#204a87;font-weight:bold">SELECT&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">except&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">species&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">`&lt;/span>&lt;span style="color:#000">bigquery&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">public&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ml_datasets&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">iris&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">`&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -489,7 +489,7 @@
 &lt;/ul>
 &lt;h3 id="認証">認証&lt;/h3>
 &lt;p>dockerコマンドでGCRにアクセスできるようにする:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth configure-docker
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth configure-docker
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://cloud.google.com/container-registry/docs/advanced-authentication">https://cloud.google.com/container-registry/docs/advanced-authentication&lt;/a>&lt;/p>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="pubsub通知">Pub/Sub通知&lt;/h3>
@@ -552,7 +552,7 @@
 &lt;h3 id="オブジェクトのバージョニング">オブジェクトのバージョニング&lt;/h3>
 &lt;p>&lt;a href="https://cloud.google.com/storage/docs/object-versioning?hl=ja">オブジェクトのバージョニング | Cloud Storage | Google Cloud&lt;/a>&lt;/p>
 &lt;p>CLI操作&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バージョニングのON/OFF確認&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># バージョニングのON/OFF確認&lt;/span>
 gsutil versioning get gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># バージョニングの有効化&lt;/span>
 gsutil versioning &lt;span style="color:#204a87">set&lt;/span> on gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -595,7 +595,7 @@ gsutil rm gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET
 &lt;p>ただし、これらの権限はコンソールや &lt;code>gsutil iam ch&lt;/code> コマンドでは設定できないようだ。&lt;br>
 &lt;code>gsutil iam set&lt;/code> コマンドであれば設定することができる。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil iam &lt;span style="color:#204a87">set&lt;/span> policy.json gs://my-bucket
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gsutil iam &lt;span style="color:#204a87">set&lt;/span> policy.json gs://my-bucket
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Google Kubernetes Engine</title><link>https://progrhy.me/tech-notes/a/google/gcp/gke/</link><pubDate>Mon, 27 Apr 2020 11:01:49 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/gke/</guid><description>
 &lt;p>関連ページ:&lt;/p>
 &lt;ul>
@@ -747,7 +747,7 @@ gsutil rm gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET
 &lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">リリースチャネル&lt;/a>を指定することで、自動アップグレードできる&lt;/li>
 &lt;/ul>
 &lt;h3 id="kubeconfigエントリを生成">kubeconfigエントリを生成&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters get-credentials &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>CLUSTER_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project PROJECT&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud container clusters get-credentials &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>CLUSTER_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--project PROJECT&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--region REGION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>↑のコマンドは更に、クラスタをデフォルトのkubectlのcontextに設定する。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -829,7 +829,7 @@ gsutil rm gs://&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>BUCKET
 &lt;p>旧Stackdriver Logging&lt;/p>
 &lt;h2 id="クエリ">クエリ&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/logging/docs/view/advanced-queries?hl=ja">高度なログクエリ | Stackdriver Logging | Google Cloud&lt;/a>&lt;/p>
-&lt;pre>&lt;code>// 特定のフィールド/エントリが含まれるログ
+&lt;pre tabindex="0">&lt;code>// 特定のフィールド/エントリが含まれるログ
 some_key:*
 &lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -964,7 +964,7 @@ GCE等にインストールして使える。&lt;/p>
 &lt;h4 id="仕様">仕様&lt;/h4>
 &lt;p>接続文字列 &lt;code>INSTANCE_CONNECTION_NAME&lt;/code>&lt;/p>
 &lt;p>例:&lt;/p>
-&lt;pre>&lt;code>myproject:myregion:myinstance
+&lt;pre tabindex="0">&lt;code>myproject:myregion:myinstance
 &lt;/code>&lt;/pre>&lt;h4 id="プライベートipでの接続">プライベートIPでの接続&lt;/h4>
 &lt;p>&lt;a href="https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja#private-ip">https://cloud.google.com/sql/docs/mysql/connect-admin-proxy?hl=ja#private-ip&lt;/a>&lt;/p>
 &lt;ul>

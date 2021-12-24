@@ -9,7 +9,7 @@ POSIXとLinuxではやや仕様が異なるようだ。&lt;/p>
 &lt;/ul>
 &lt;h2 id="cli-usage">CLI Usage&lt;/h2>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">man ls
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">man ls
 &lt;span style="color:#8f5902;font-style:italic">## セクション番号を指定する&lt;/span>
 man &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#204a87">printf&lt;/span>
 man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#204a87">printf&lt;/span>
@@ -52,7 +52,7 @@ man &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="
 &lt;p>「`」で囲んだコード内で「`」を入力するにはどうすればよいか？&lt;br>
 このケースでは、エスケープはしなくていい。&lt;/p>
 &lt;p>下のように「``」で囲み、ホワイトスペースを挟んで記述すると、 &lt;code>`&lt;/code> と表示される。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Markdown" data-lang="Markdown">`` &lt;span style="color:#4e9a06">` `&lt;/span>`
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Markdown" data-lang="Markdown">`` &lt;span style="color:#4e9a06">` `&lt;/span>`
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>MEMO:&lt;/p>
 &lt;ul>
 &lt;li>2020-05-24 やり方がわからなくてググっていたら下の参考記事を見つけた。&lt;/li>

@@ -24,7 +24,7 @@
 &lt;/ul>
 &lt;h2 id="コメント">コメント&lt;/h2>
 &lt;p>複数行のコメントは &lt;code>&amp;quot;&amp;quot;&amp;quot;&lt;/code> または &lt;code>'''&lt;/code> で書く。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;
 &lt;/span>&lt;span style="color:#4e9a06"> コメント1
 &lt;/span>&lt;span style="color:#4e9a06"> コメント2
@@ -38,7 +38,7 @@
 &lt;p>&lt;a href="https://docs.python.org/ja/3/reference/lexical_analysis.html#literals">https://docs.python.org/ja/3/reference/lexical_analysis.html#literals&lt;/a>&lt;/p>
 &lt;h3 id="文字列">文字列&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#4e9a06">&amp;#39;foo&amp;#39;&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>See also:&lt;/p>
 &lt;ul>
@@ -57,7 +57,7 @@
 &lt;h3 id="累算代入演算子">累算代入演算子&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements">https://docs.python.org/ja/3/reference/simple_stmts.html#augmented-assignment-statements&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
 &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 剰余&lt;/span>
 &lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">//=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 切り捨て除算&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
@@ -66,9 +66,9 @@
 &lt;/ul>
 &lt;h3 id="三項演算子">三項演算子&lt;/h3>
 &lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">条件がTrueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">条件がFalseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">変数&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">条件がTrueのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">条件&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">条件がFalseのときの値&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">x&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;OK&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">n&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;NG&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5">三項演算子(Python) - Qiita&lt;/a>&lt;/li>
@@ -76,7 +76,7 @@
 &lt;h2 id="制御構文">制御構文&lt;/h2>
 &lt;h3 id="条件分岐">条件分岐&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements">https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">条件1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">条件1&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#000">xxx&lt;/span>
 &lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">elif&lt;/span> &lt;span style="color:#000">条件2&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
@@ -90,7 +90,7 @@
 &lt;li>&lt;a href="https://www.javadrive.jp/python/if/index1.html">if文を使った条件分岐 | Python入門&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="ループ">ループ&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">range&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">range&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
 &lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#204a87">list&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">elm&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
@@ -103,13 +103,13 @@
 &lt;h3 id="return">return&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#the-return-statement">https://docs.python.org/ja/3/reference/simple_stmts.html#the-return-statement&lt;/a>&lt;/p>
 &lt;p>構文:&lt;/p>
-&lt;pre>&lt;code>return_stmt ::= &amp;quot;return&amp;quot; [expression_list]
+&lt;pre tabindex="0">&lt;code>return_stmt ::= &amp;quot;return&amp;quot; [expression_list]
 &lt;/code>&lt;/pre>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>多値を返すこともできる&lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">():&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>
 &lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
@@ -121,7 +121,7 @@
 &lt;h2 id="例外処理">例外処理&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.jp/3/tutorial/errors.html">https://docs.python.jp/3/tutorial/errors.html&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">sys&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">sys&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">try&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#000">f&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">open&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;myfile.txt&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#000">s&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">readline&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
@@ -145,7 +145,7 @@
 &lt;li>&lt;a href="https://note.nkmk.me/python-try-except-else-finally/">Pythonの例外処理（try, except, else, finally） | note.nkmk.me&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="書式付き文字列">書式付き文字列&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>
 &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">123&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;Hello, &lt;/span>&lt;span style="color:#4e9a06">{}&lt;/span>&lt;span style="color:#4e9a06">!&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;world&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># f文字列 ... Python 3.6以上&lt;/span>
@@ -170,7 +170,7 @@
 &lt;h3 id="list">list()&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.jp/3/library/functions.html#func-list">https://docs.python.jp/3/library/functions.html#func-list&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">somedict&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keys&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; dictのキーをリスト化&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">list&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">somedict&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keys&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; dictのキーをリスト化&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python">How to return dictionary keys as a list in Python? - Stack Overflow&lt;/a>&lt;/li>
@@ -195,7 +195,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;li>&lt;a href="https://qiita.com/masakielastic/items/21ba9f68ef6c4fd7692d">Python 3 で16進数とバイト列の相互変換 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="整数--16進数文字列">整数 &amp;lt;=&amp;gt; 16進数文字列&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># 整数 =&amp;gt; 16進数文字列&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># 整数 =&amp;gt; 16進数文字列&lt;/span>
 &lt;span style="color:#204a87">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#4e9a06">{:02x}&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;&lt;/span>&lt;span style="color:#4e9a06">%02x&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0xabcd&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
@@ -204,7 +204,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;0xabcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 43981&lt;/span>
 &lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 43981&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="文字列--16進数文字列">文字列 &amp;lt;=&amp;gt; 16進数文字列&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># 文字列 =&amp;gt; 16進数文字列&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># 文字列 =&amp;gt; 16進数文字列&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
 &lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">hexlify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;48656c6c6f&amp;#39;&lt;/span>
 &lt;span style="color:#000">binascii&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">b2a_hex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; b&amp;#39;48656c6c6f&amp;#39;&lt;/span>
@@ -224,7 +224,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;span style="color:#000">codecs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;e38193e38293e381abe381a1e381af&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;hex_codec&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">decode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># =&amp;gt; &amp;#39;こんにちは&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://qiita.com/atsaki/items/6120cad2e3c448d774bf">16進文字列と文字列の変換 - Qiita&lt;/a>&lt;/p>
 &lt;h4 id="16進数文字列--バイト列">16進数文字列 &amp;lt;=&amp;gt; バイト列&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">binascii&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">codecs&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 16進数文字列 =&amp;gt; バイト列&lt;/span>
 &lt;span style="color:#204a87">bytes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">fromhex&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; b&amp;#39;\xab\xcd&amp;#39;&lt;/span>
@@ -237,7 +237,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">b&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;abcd&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; &amp;#39;abcd&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="文字列処理">文字列処理&lt;/h2>
 &lt;h3 id="文字列検索-in-not-in">文字列検索 &lt;code>in&lt;/code>, &lt;code>not in&lt;/code>&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">word&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abcde&amp;#39;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">word&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;abcde&amp;#39;&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; True&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;x&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; False&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;abc&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">not&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">word&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; False&lt;/span>
@@ -249,7 +249,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;h3 id="正規表現">正規表現&lt;/h3>
 &lt;p>See &lt;a href="https://progrhy.me/tech-notes/a/program/python/library/#re">library#re&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">re&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">re&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># マッチ&lt;/span>
 &lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Hello, Python. 123, end.&amp;#39;&lt;/span>
 &lt;span style="color:#000">pattern&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;Hel&amp;#39;&lt;/span>
@@ -273,7 +273,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;/ul>
 &lt;h2 id="ライブラリの利用">ライブラリの利用&lt;/h2>
 &lt;h3 id="外部ファイルの関数を利用">外部ファイルの関数を利用&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># mymodule.py&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># mymodule.py&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">b&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">a&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">b&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># main.py&lt;/span>
@@ -292,13 +292,13 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;/ul>
 &lt;h2 id="テスト">テスト&lt;/h2>
 &lt;h3 id="構文チェック">構文チェック&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">python -m py_compile foo.py
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">python -m py_compile foo.py
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://sussan-po.com/2017/10/23/python-syntax-check/">Pythonのシンタックスチェックに使えるコマンド - すっさんぽ&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="オブジェクト指向">オブジェクト指向&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># クラス名の取得&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#8f5902;font-style:italic"># クラス名の取得&lt;/span>
 &lt;span style="color:#000">obj&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__class__&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__name__&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -307,7 +307,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;h2 id="ロギング">ロギング&lt;/h2>
 &lt;h3 id="変数のダンプ">変数のダンプ&lt;/h3>
 &lt;p>クラスのインスタンスなど、 &lt;code>__dict__&lt;/code> attributeを持つオブジェクトであれば &lt;code>vars&lt;/code> 関数で1階層のダンプができる:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyClass&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyClass&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">val1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">val2&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
 &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">val1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">val1&lt;/span>
 &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">val2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">val2&lt;/span>
@@ -319,7 +319,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;/ul>
 &lt;h2 id="for文による射影操作">for文による射影操作&lt;/h2>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">keys&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">keys&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">7&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;span style="color:#000">newkeys&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[(&lt;/span>&lt;span style="color:#000">k&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">k&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">keys&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">k&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">%&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -332,7 +332,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;/ul>
 &lt;h3 id="コマンド">コマンド&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># パッケージのインストール&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># パッケージのインストール&lt;/span>
 pip install PACKAGE
 &lt;span style="color:#8f5902;font-style:italic"># パッケージの更新&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 最新に更新&lt;/span>
@@ -363,7 +363,7 @@ pip list -o
 &lt;/ul>
 &lt;h3 id="how-to">How-to&lt;/h3>
 &lt;h4 id="インストール済みのパッケージを一括更新">インストール済みのパッケージを一括更新&lt;/h4>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pip list -o &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;NR&amp;gt;2{print $1}&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -t pip install -U
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pip list -o &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;NR&amp;gt;2{print $1}&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -t pip install -U
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pipenv">Pipenv&lt;/h2>
 &lt;p>python.org公式のパッケージツール。&lt;br>
 RubyのBundlerっぽい雰囲気。&lt;/p>
@@ -382,7 +382,7 @@ RubyのBundlerっぽい雰囲気。&lt;/p>
 &lt;/ul>
 &lt;h3 id="install">Install&lt;/h3>
 &lt;p>&lt;a href="https://pipenv-ja.readthedocs.io/ja/translate-ja/install.html#installing-pipenv">https://pipenv-ja.readthedocs.io/ja/translate-ja/install.html#installing-pipenv&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## Mac&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## Mac&lt;/span>
 brew install pipenv
 &lt;span style="color:#8f5902;font-style:italic">## Fedora&lt;/span>
 sudo dnf install pipenv
@@ -409,7 +409,7 @@ RubyのRubyGems相当。&lt;/p>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/datetime.html#timedelta-objects">https://docs.python.org/ja/3/library/datetime.html#timedelta-objects&lt;/a>&lt;/p>
 &lt;p>経過時間、即ち、2つの時刻の差を表す。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">datetime&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">timedelta&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">datetime&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">timedelta&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">delta&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">timedelta&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">days&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">50&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">...&lt;/span> &lt;span style="color:#000">seconds&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">27&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -427,7 +427,7 @@ RubyのRubyGems相当。&lt;/p>
 &lt;p>ファイル名、コマンドライン引数、環境変数など&lt;/p>
 &lt;h3 id="osgetenv">os.getenv&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.html#os.getenv">https://docs.python.org/ja/3/library/os.html#os.getenv&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">None&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">getenv&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">key&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">None&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>環境変数keyが存在すればその値を返し、存在しなければdefaultを返す&lt;/li>
 &lt;li>key, default, 返り値は文字列&lt;/li>
@@ -435,7 +435,7 @@ RubyのRubyGems相当。&lt;/p>
 &lt;h2 id="ospath">os.path&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/os.path.html">https://docs.python.org/ja/3/library/os.path.html&lt;/a>&lt;/p>
 &lt;p>パス名操作&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;usr&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;local&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">os&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;usr&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;local&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;bin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#39;/usr/local/bin&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pprint">pprint&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/pprint.html">https://docs.python.org/ja/3/library/pprint.html&lt;/a>&lt;/p>
@@ -469,7 +469,7 @@ RubyのRubyGems相当。&lt;/p>
 &lt;p>常に利用可能&lt;/p>
 &lt;h3 id="sysexit">sys.exit&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html#sys.exit">https://docs.python.org/ja/3/library/sys.html#sys.exit&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exit&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#000">arg&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#000">sys&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">exit&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#000">arg&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Pythonを終了する。&lt;/p>
 &lt;p>引数(arg):&lt;/p>
 &lt;ul>
@@ -487,7 +487,7 @@ RubyのRubyGems相当。&lt;/p>
 &lt;/ul>
 &lt;h2 id="venv">venv&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/venv.html">https://docs.python.org/ja/3/library/venv.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 仮想環境の作成&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 仮想環境の作成&lt;/span>
 python3 -m venv path/to/new_environment
 &lt;span style="color:#8f5902;font-style:italic"># 仮想環境の利用&lt;/span>
 &lt;span style="color:#204a87">source&lt;/span> path/to/new_environment/bin/activate
@@ -565,7 +565,7 @@ deactivate
 &lt;h3 id="カスタムヘッダを付ける">カスタムヘッダを付ける&lt;/h3>
 &lt;p>&lt;a href="https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers">https://requests.readthedocs.io/en/latest/user/quickstart/#custom-headers&lt;/a>&lt;/p>
 &lt;p>dict型の &lt;code>header&lt;/code> パラメータを渡せばいい。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;https://api.github.com/some/endpoint&amp;#39;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;https://api.github.com/some/endpoint&amp;#39;&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;user-agent&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;my-app/0.0.1&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">requests&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">url&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">headers&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

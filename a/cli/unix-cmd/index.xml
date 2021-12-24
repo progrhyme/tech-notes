@@ -2,7 +2,7 @@
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>テキストファイルの差分を取るコマンド。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ディレクトリのdiff&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ディレクトリのdiff&lt;/span>
 diff -r dir1/ dir2/
 &lt;span style="color:#8f5902;font-style:italic"># コマンドの出力結果を比較&lt;/span>
 diff &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>command1&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>command2&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
@@ -14,22 +14,22 @@ diff &amp;lt;&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>command1
 &lt;p>&lt;a href="https://www.colordiff.org/">https://www.colordiff.org/&lt;/a>&lt;/p>
 &lt;p>差分に色を付けて見やすくしてくれる。&lt;/p>
 &lt;p>公式ドキュメントには見つからないが、macOSならbrewでインストールできる。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install colordiff
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install colordiff
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: テキスト処理</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/text/</link><pubDate>Fri, 03 Jul 2020 16:21:13 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/text/</guid><description>
 &lt;h2 id="cut">cut&lt;/h2>
 &lt;p>テキストフィルタツール&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タブ区切りで1, 3つめのフィールドを取得&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タブ区切りで1, 3つめのフィールドを取得&lt;/span>
 cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> cut -f 1,3
 &lt;span style="color:#8f5902;font-style:italic"># カンマ区切り&lt;/span>
 cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> cut -d, -f 1,3
 &lt;span style="color:#8f5902;font-style:italic"># バイト単位で10-20バイト目を取得&lt;/span>
 cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> cut -b10-20
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="grep">grep&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## ファイル名だけ表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## ファイル名だけ表示&lt;/span>
 grep -l PATTERN &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PATH&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="head">head&lt;/h2>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html">https://linuxjm.osdn.jp/html/GNU_textutils/man1/head.1.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 先頭1行を表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 先頭1行を表示&lt;/span>
 head -1 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">## 先頭20行を表示&lt;/span>
 head -n &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>file...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -41,7 +41,7 @@ head --bytes 256k &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>fil
 &lt;p>書式を指定して文字列を標準出力に出力。&lt;/p>
 &lt;p>シェルのビルトイン関数と /usr/bin/printf がある。
 違いはよくわからない。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%s %02d&amp;#34;&lt;/span> foo &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%s %02d&amp;#34;&lt;/span> foo &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; foo 01&lt;/span>
 env &lt;span style="color:#000">LANG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>ja_JP.UTF-8 &lt;span style="color:#204a87">printf&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;%&amp;#39;d&amp;#34;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1234567890&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; 1,234,567,890&lt;/span>
@@ -55,7 +55,7 @@ env &lt;span style="color:#000">LANG&lt;/span>&lt;span style="color:#ce5c00;font
 &lt;p>与えられたテキストに対して、sedスクリプトで指定された文字列置換を行って結果のテキストを表示するストリームエディタ。&lt;/p>
 &lt;p>macOSとLinuxで挙動が違うので、注意が必要。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 各行のxを1つyに置換した結果を表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 各行のxを1つyに置換した結果を表示&lt;/span>
 sed s/x/y/ foo.txt
 &lt;span style="color:#8f5902;font-style:italic"># 各行のxをすべてyに置換した結果を表示&lt;/span>
 sed -e s/x/y/g foo.txt
@@ -91,7 +91,7 @@ sed -e s/x/y/ -e s/a/b/ foo.txt
 &lt;/table>
 &lt;p>※ &lt;code>-e&lt;/code>, &lt;code>-f&lt;/code> のどちらの指定もなければ、最初のオプションでない引数がsedスクリプトとして解釈される。&lt;/p>
 &lt;h2 id="sort">sort&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 第2フィールドで数値の降順ソート&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 第2フィールドで数値の降順ソート&lt;/span>
 cat file &lt;span style="color:#000;font-weight:bold">|&lt;/span> sort -nr -k2
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -108,7 +108,7 @@ cat file &lt;span style="color:#000;font-weight:bold">|&lt;/span> sort -nr -k2
 &lt;code>-exec&lt;/code> オプションで見つけたファイルに対してコマンド実行することもできる。&lt;/p>
 &lt;p>※LinuxとmacOSでオプションが異なる&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># path以下のファイル、ディレクトリを全てリストアップ&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># path以下のファイル、ディレクトリを全てリストアップ&lt;/span>
 find &amp;lt;path&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic"># ファイルのみリストアップ&lt;/span>
 find &amp;lt;path&amp;gt; -type f
@@ -161,7 +161,7 @@ find &amp;lt;path&amp;gt; -type f -mtime +3 -exec rm -f &lt;span style="color:#c
 &lt;h2 id="mktemp">mktemp&lt;/h2>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_coreutils/man1/mktemp.1.html">Man page of MKTEMP&lt;/a>&lt;/p>
 &lt;p>一時ファイル、またはディレクトリを作成する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">mktemp
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">mktemp
 &lt;span style="color:#8f5902;font-style:italic"># ディレクトリを作成&lt;/span>
 mktemp -d
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
@@ -171,7 +171,7 @@ mktemp -d
 &lt;h2 id="readlink1">readlink(1)&lt;/h2>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/GNU_coreutils/man1/readlink.1.html">Man page of READLINK&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シンボリックリンクのリンク先を返す。再帰的に探索はしない&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シンボリックリンクのリンク先を返す。再帰的に探索はしない&lt;/span>
 readlink &amp;lt;link&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic"># realpathと同じ働きをする&lt;/span>
 readlink -f &amp;lt;file&amp;gt;
@@ -181,7 +181,7 @@ readlink -f &amp;lt;file&amp;gt;
 シンボリックリンクであれば、リンク先を再帰的に解決する。&lt;/p>
 &lt;h2 id="tee">tee&lt;/h2>
 &lt;p>標準出力に書きつつファイルにも書く、ということをやりたいときに使う。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log
 ./a.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee -a a.log &lt;span style="color:#8f5902;font-style:italic"># 追記&lt;/span>
 ./a.sh 2&amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> tee a.log &lt;span style="color:#8f5902;font-style:italic"># 標準エラーもファイルに書く&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
@@ -190,7 +190,7 @@ readlink -f &amp;lt;file&amp;gt;
 &lt;/ul>
 &lt;h2 id="touch">touch&lt;/h2>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/gnumaniak/man1/touch.1.html">Man page of TOUCH&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">touch -t &lt;span style="color:#0000cf;font-weight:bold">201807040100&lt;/span> path/to/file &lt;span style="color:#8f5902;font-style:italic"># mtimeを2018/7/4 01:00に変更&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">touch -t &lt;span style="color:#0000cf;font-weight:bold">201807040100&lt;/span> path/to/file &lt;span style="color:#8f5902;font-style:italic"># mtimeを2018/7/4 01:00に変更&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>GNUオプション: ※macOSでは使えない&lt;/p>
 &lt;table>
 &lt;thead>
@@ -212,7 +212,7 @@ readlink -f &amp;lt;file&amp;gt;
 &lt;/ul>
 &lt;h2 id="umask">umask&lt;/h2>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のumask値を表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のumask値を表示&lt;/span>
 &lt;span style="color:#204a87">umask&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># umaskを022に設定&lt;/span>
 &lt;span style="color:#204a87">umask&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">022&lt;/span>
@@ -227,7 +227,7 @@ readlink -f &amp;lt;file&amp;gt;
 &lt;h2 id="kill1">kill(1)&lt;/h2>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/util-linux/man1/kill.1.html">Man page of KILL&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シグナル名のリストを表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シグナル名のリストを表示&lt;/span>
 &lt;span style="color:#204a87">kill&lt;/span> -l
 &lt;span style="color:#8f5902;font-style:italic"># プロセスにSIGTERMを送信&lt;/span>
 &lt;span style="color:#204a87">kill&lt;/span> &amp;lt;PID&amp;gt;...
@@ -252,15 +252,15 @@ readlink -f &amp;lt;file&amp;gt;
 &lt;h2 id="pgrep">pgrep&lt;/h2>
 &lt;p>プロセス名で検索して該当するプロセス番号を表示。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pgrep perl
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pgrep perl
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pkill">pkill&lt;/h2>
 &lt;p>プロセス名で指定してシグナルを送信する。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pkill perl
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">pkill perl
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ps">ps&lt;/h2>
 &lt;p>&lt;a href="https://linuxjm.osdn.jp/html/procps/man1/ps.1.html">Man page of PS&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ps aux
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ps aux
 ps aufxwww
 ps auxwww -L
 ps -ef
@@ -287,9 +287,9 @@ ps -efL
 &lt;h2 id="trap">trap&lt;/h2>
 &lt;p>シグナルによってプロセスが中断・停止させられたときに、実行するコマンドを指定する。&lt;/p>
 &lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;コマンド&amp;#39;&lt;/span> シグナルリスト
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;コマンド&amp;#39;&lt;/span> シグナルリスト
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;echo trapped.&amp;#39;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">15&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;echo trapped.&amp;#39;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">15&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># trapをリセットする&lt;/span>
 &lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">15&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
@@ -307,13 +307,13 @@ ps -efL
 &lt;li>&lt;a href="https://hydrocul.github.io/wiki/commands/trap.html">trap コマンド | コマンドの使い方(Linux) | hydroculのメモ&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ユーザ管理</title><link>https://progrhy.me/tech-notes/a/cli/unix-cmd/user/</link><pubDate>Fri, 03 Jul 2020 16:24:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/unix-cmd/user/</guid><description>
 &lt;h2 id="getent">getent&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">getent group &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># グループに属しているユーザをリスト&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">getent group &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># グループに属しているユーザをリスト&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/niiyz/items/53aa4195dcc69db2052b">Linuxコマンドでユーザーのグループ確認・変更。 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="gpasswd">gpasswd&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">gpasswd -a &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループに所属させる&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">gpasswd -a &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループに所属させる&lt;/span>
 gpasswd -d &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># ユーザをグループから削除&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -321,13 +321,13 @@ gpasswd -d &amp;lt;login&amp;gt; &amp;lt;group&amp;gt; &lt;span style="color:#8f
 &lt;/ul>
 &lt;h2 id="groupadd">groupadd&lt;/h2>
 &lt;p>グループ作成。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">groupadd newgroup
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">groupadd newgroup
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://webkaru.net/linux/groupadd-command/" title="Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru">Linuxコマンド【 groupadd 】新規グループの作成 - Linux入門 - Webkaru&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="passwd">passwd&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">passwd -l &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アカウントをロック&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">passwd -l &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アカウントをロック&lt;/span>
 passwd -u &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># アンロック&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>ロックされたアカウントはログインできず、利用不可になる。&lt;/p>
 &lt;p>参考:&lt;/p>
@@ -355,7 +355,7 @@ passwd -u &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"
 &lt;/tbody>
 &lt;/table>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## ホームディレクトリ作成&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## ホームディレクトリ作成&lt;/span>
 useradd -m &amp;lt;login&amp;gt;
 &lt;span style="color:#8f5902;font-style:italic">## ログインシェルを/bin/bashに&lt;/span>
 useradd -s /bin/bash &amp;lt;login&amp;gt;
@@ -364,7 +364,7 @@ useradd -s /bin/bash &amp;lt;login&amp;gt;
 &lt;li>&lt;a href="https://eng-entrance.com/linux-command-useradd">useraddコマンドについて詳しくまとめました 【Linuxコマンド集】&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="usermod">usermod&lt;/h2>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">usermod -g admin &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 主グループを変更&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">usermod -g admin &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 主グループを変更&lt;/span>
 usermod -aG ops,app,... &amp;lt;login&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># 副グループ追加&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>

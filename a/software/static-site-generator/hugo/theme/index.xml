@@ -17,7 +17,7 @@ kubeflow, Knative, Apache Airflowなどで使われている。&lt;/p>
 &lt;/ul>
 &lt;h3 id="デモサイトのソースをcloneして使う">デモサイトのソースをcloneして使う&lt;/h3>
 &lt;p>ふつうのHugo Themeなら、 &lt;code>hugo new site&lt;/code> してconfig.tomlでthemeを指定すれば大体それっぽく動くのだけど、Docsyはやや作りが複雑なようなので、Exampleサイトのソースを再利用した方が早そう。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/google/docsy-example.git mydocs
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone https://github.com/google/docsy-example.git mydocs
 &lt;span style="color:#204a87">cd&lt;/span> mydocs
 git submodule update --init --recursive
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration">Configuration&lt;/h2>
@@ -34,7 +34,7 @@ git submodule update --init --recursive
 &lt;h2 id="コンテンツ管理">コンテンツ管理&lt;/h2>
 &lt;h3 id="ページの追加">ページの追加&lt;/h3>
 &lt;p>&lt;a href="https://themes.gohugo.io//theme/hugo-theme-learn/en/cont/archetypes/">https://themes.gohugo.io//theme/hugo-theme-learn/en/cont/archetypes/&lt;/a> を参照。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Chapterページ&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Chapterページ&lt;/span>
 hugo new path/to/chapter/_index.md --kind chapter
 &lt;span style="color:#8f5902;font-style:italic"># 普通のページ&lt;/span>
 hugo new path/to/page.md
@@ -54,7 +54,7 @@ hugo new path/to/page.md
 &lt;p>などの機能がある。&lt;/p>
 &lt;p>以下は例:&lt;/p>
 &lt;h3 id="注釈">注釈&lt;/h3>
-&lt;pre>&lt;code>{{% notice note %}}
+&lt;pre tabindex="0">&lt;code>{{% notice note %}}
 A notice disclaimer
 {{% /notice %}}
 &lt;/code>&lt;/pre>&lt;p>&lt;code>note&lt;/code> 以外に、 &lt;code>info&lt;/code>, &lt;code>tip&lt;/code>, &lt;code>warning&lt;/code> が使える。&lt;/p></description></item></channel></rss>

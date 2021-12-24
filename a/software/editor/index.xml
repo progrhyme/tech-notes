@@ -29,7 +29,7 @@
 &lt;li>&lt;a href="https://pleiades.io/help/idea/finding-and-replacing-text-in-project.html#limit_search">プロジェクト内のターゲットを検索および置換する — IntelliJ IDEA&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="行の折り返しsoft-wrap">行の折り返し（Soft-Wrap）&lt;/h3>
-&lt;pre>&lt;code>Preferences &amp;gt; Editor &amp;gt; General &amp;gt; SoftWraps
+&lt;pre tabindex="0">&lt;code>Preferences &amp;gt; Editor &amp;gt; General &amp;gt; SoftWraps
 &amp;gt; Use original line’s indent for wrapped parts
 &lt;/code>&lt;/pre>&lt;h3 id="矩形選択">矩形選択&lt;/h3>
 &lt;p>メニュー: &lt;code>Edit &amp;gt; Column Selection Mode&lt;/code> でON/OFFできる。&lt;/p>
@@ -120,11 +120,11 @@
 &lt;/ul>
 &lt;h3 id="現在編集してるファイルのfiletypeを確認">現在編集してるファイルのfiletypeを確認&lt;/h3>
 &lt;p>エディタ上でどちらかを実行&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">filetype&lt;/span>?&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">filetype&lt;/span>?&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &amp;amp;&lt;span style="color:#000">filetype&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="filetype一覧の確認">filetype一覧の確認&lt;/h3>
 &lt;p>エディタ上で以下を実行:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/ftplugin/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/ftplugin/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/indent/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">echo&lt;/span> &lt;span style="color:#000">glob&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>$&lt;span style="color:#000">VIMRUNTIME&lt;/span> . &lt;span style="color:#4e9a06">&amp;#39;/syntax/*.vim&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">

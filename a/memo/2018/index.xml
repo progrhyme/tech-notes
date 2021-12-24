@@ -62,14 +62,14 @@ SMBで放り込んでおくだけでもいいものもありそうだ。&lt;/p>
 &lt;/ul>
 &lt;h3 id="ubuntuでnfs-mount">ubuntuでNFS mount&lt;/h3>
 &lt;p>mountコマンドを打ったところ、下のようなエラーが出た。&lt;/p>
-&lt;pre>&lt;code>mount: wrong fs type, bad option, bad superblock on XXX.XX.XXX.XXX:/YYYY,
+&lt;pre tabindex="0">&lt;code>mount: wrong fs type, bad option, bad superblock on XXX.XX.XXX.XXX:/YYYY,
 missing codepage or helper program, or other error
 (for several filesystems (e.g. nfs, cifs) you might
 need a /sbin/mount. helper program)
 In some cases useful info is found in syslog - try
 dmesg | tail or so
 &lt;/code>&lt;/pre>&lt;p>&lt;code>nfs-common&lt;/code> のインストールで解決。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install nfs-common
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install nfs-common
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、Synology DS218playにおいては、パーミッションの関係でmountしてもディレクトリにアクセスできず、とても不便なのでWindows同様にSMBでアクセスすることにした。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>

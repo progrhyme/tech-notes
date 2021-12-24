@@ -45,7 +45,7 @@
 &lt;h3 id="instructions">Instructions&lt;/h3>
 &lt;h4 id="cmd">CMD&lt;/h4>
 &lt;p>コンテナのデフォルトの実行コマンド、またはその引数を指定する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec実行形式&lt;/span>&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec実行形式&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># ENTRYPOINTのデフォルト引数&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &amp;lt;コマンド...&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># シェル形式&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
@@ -62,20 +62,20 @@
 &lt;/ul>
 &lt;h4 id="entrypoint">ENTRYPOINT&lt;/h4>
 &lt;p>コンテナのデフォルトの実行コマンドを指定する。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec形式&lt;/span>&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec形式&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> 実行ファイル ARG1 ARG2 ... &lt;span style="color:#8f5902;font-style:italic"># シェル形式&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>上書きするには &lt;code>--entrypoint &amp;lt;コマンド...&amp;gt;&lt;/code> とする。&lt;/li>
 &lt;li>シェル形式の場合、 &lt;code>/bin/sh -c&lt;/code> で起動されるようだ&lt;/li>
 &lt;li>&lt;code>CMD&lt;/code> でデフォルト引数を与えると、 &lt;code>ENTRYPOINT&lt;/code> として指定した「コマンド + 引数」の後に &lt;code>CMD&lt;/code> として与えた引数がくっつく。&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>&lt;span style="color:#4e9a06"> ubuntu&lt;/span>&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>&lt;span style="color:#4e9a06"> ubuntu&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;top&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このコンテナを &lt;code>docker run&lt;/code> で動かすと、 &lt;code>top -b -c&lt;/code> が実行される。&lt;/p>
 &lt;p>&lt;code>CMD&lt;/code> の方はコマンドラインで普通に上書きされる。&lt;br>
 上のDockerfileを &lt;code>ubuntu-top&lt;/code> としてビルドして例を示す:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker run --rm -it ubuntu-top &lt;span style="color:#8f5902;font-style:italic"># top -b -c が実行される&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker run --rm -it ubuntu-top &lt;span style="color:#8f5902;font-style:italic"># top -b -c が実行される&lt;/span>
 docker run --rm -it ubuntu-top -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># top -b -n 1 が実行される&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
@@ -101,14 +101,14 @@ docker run --rm -it ubuntu-top -n &lt;span style="color:#0000cf;font-weight:bold
 &lt;/ul>
 &lt;h2 id="チートシート">チートシート&lt;/h2>
 &lt;h3 id="version-helpの確認">version, helpの確認&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Help&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Help&lt;/span>
 docker --help
 docker &amp;lt;COMMAND&amp;gt; --help
 &lt;span style="color:#8f5902;font-style:italic"># client/server version 表示&lt;/span>
 docker version
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="https://docs.docker.com/engine/reference/commandline/version/">https://docs.docker.com/engine/reference/commandline/version/&lt;/a>&lt;/p>
 &lt;h3 id="コンテナの起動実行">コンテナの起動（実行）&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コマンド実行&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コマンド実行&lt;/span>
 % docker run ubuntu /bin/echo &lt;span style="color:#4e9a06">&amp;#34;Hello, world&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; Hello, world&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># bash を起動し、インタラクティブモードになる&lt;/span>
 % docker run -it ubuntu /bin/bash
@@ -132,7 +132,7 @@ docker run -dP --name web -v /var/lib/docker/volumes/data-webapp:/opt/webapp tra
 docker run -dP --name web -v data-webapp:/opt/webapp training/webapp python app.py
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="#run">run&lt;/a>&lt;/p>
 &lt;h3 id="コンテナ操作run-以外">コンテナ操作(run 以外)&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンテナを作成するが起動しない。オプションは run に似ている&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># コンテナを作成するが起動しない。オプションは run に似ている&lt;/span>
 docker create &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;IMAGE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>COMMAND&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 停止&lt;/span>
 docker stop &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
@@ -147,7 +147,7 @@ docker rm &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># 停止しているコンテナの全削除。動作中のものはエラーになる&lt;/span>
 docker rm &lt;span style="color:#4e9a06">`&lt;/span>docker ps -a -q&lt;span style="color:#4e9a06">`&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="コンテナの情報を見る">コンテナの情報を見る&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 動作中のコンテナ表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 動作中のコンテナ表示&lt;/span>
 docker ps
 &lt;span style="color:#8f5902;font-style:italic"># 停止しているものも含めて表示&lt;/span>
 docker ps -a
@@ -167,7 +167,7 @@ docker inspect &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
 docker inspect --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;{{json .NetworkSettings.Networks}}&amp;#39;&lt;/span> &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
 docker inspect --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&amp;#39;&lt;/span> &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="コンテナのイメージ操作">コンテナのイメージ操作&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 変更を施したコンテナからイメージを作成する&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 変更を施したコンテナからイメージを作成する&lt;/span>
 docker commit -m &lt;span style="color:#4e9a06">&amp;#34;変更についてのコメント&amp;#34;&lt;/span> -a &lt;span style="color:#4e9a06">&amp;#34;名前 &amp;lt;メアド&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#000">$NAME_OR_ID&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;リポジトリ&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>:タグ&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># Dockerfile からイメージ作成&lt;/span>
 docker build -t リポジトリ:タグ path/to/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Dockerfile&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
@@ -188,7 +188,7 @@ docker rmi &lt;span style="color:#000">$ID&lt;/span>
 &lt;h3 id="ネットワーク操作">ネットワーク操作&lt;/h3>
 &lt;p>See &lt;a href="#network">network&lt;/a>&lt;/p>
 &lt;h3 id="不要なイメージボリューム等の掃除">不要なイメージ・ボリューム等の掃除&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 停止したコンテナを削除&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 停止したコンテナを削除&lt;/span>
 docker container prune
 &lt;span style="color:#8f5902;font-style:italic"># 不要ボリュームを削除&lt;/span>
 docker volume prune
@@ -206,7 +206,7 @@ docker system prune
 &lt;h2 id="リファレンス">リファレンス&lt;/h2>
 &lt;h3 id="container">container&lt;/h3>
 &lt;p>コンテナ操作。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># コンテナ一覧&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># コンテナ一覧&lt;/span>
 docker container ls &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># コンテナ停止&lt;/span>
 docker container stop CONTAINER_ID_OR_NAME
@@ -220,11 +220,11 @@ docker container &lt;span style="color:#204a87">exec&lt;/span> -it CONTAINER_ID_
 &lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/cp/">https://docs.docker.com/engine/reference/commandline/cp/&lt;/a>&lt;/p>
 &lt;p>ホスト - コンテナ間でファイル/ディレクトリのコピー&lt;/p>
 &lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> CONTAINER:SRC_PATH DEST_PATH&lt;span style="color:#000;font-weight:bold">|&lt;/span>-
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> CONTAINER:SRC_PATH DEST_PATH&lt;span style="color:#000;font-weight:bold">|&lt;/span>-
 docker cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> SRC_PATH&lt;span style="color:#000;font-weight:bold">|&lt;/span>- CONTAINER:DEST_PATH
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="image">image&lt;/h3>
 &lt;p>イメージ操作。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># 一覧&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># 一覧&lt;/span>
 docker image list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># Dockerfile からイメージ作成&lt;/span>
 docker image build -t リポジトリ:タグ &amp;lt;Dockerfileがあるディレクトリ&amp;gt;
@@ -233,7 +233,7 @@ docker image rm IMAGE_ID
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="network">network&lt;/h3>
 &lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/network/">https://docs.docker.com/engine/reference/commandline/network/&lt;/a>&lt;/p>
 &lt;p>ネットワークの管理&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ネットワーク一覧&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ネットワーク一覧&lt;/span>
 docker network ls
 &lt;span style="color:#8f5902;font-style:italic"># 特定ネットワークの情報表示&lt;/span>
 docker network inspect &lt;span style="color:#000">$NW_NAME&lt;/span>
@@ -310,7 +310,7 @@ docker network create -d &lt;span style="color:#000">$DRIVER&lt;/span> &lt;span 
 &lt;h3 id="volume">volume&lt;/h3>
 &lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/volume/">https://docs.docker.com/engine/reference/commandline/volume/&lt;/a>&lt;/p>
 &lt;p>データボリュームの管理&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ボリューム作成&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ボリューム作成&lt;/span>
 docker volume create &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># flocker driver を使い my-named-volume という名前で 20GB のボリュームを作成&lt;/span>
 docker volume create -d flocker --name my-named-volume -o &lt;span style="color:#000">size&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>20GB

@@ -157,7 +157,7 @@ GCPなどでアカウント管理にも使える。&lt;/p>
 &lt;li>&lt;strong>A1表記の使用&lt;/strong> （省略可 - デフォルトは TRUE） &amp;hellip; A1 型表記を使用するか（TRUE）、R1C1 型表示を使用するか（FALSE）を指定する&lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;pre>&lt;code>ADDRESS(1,2)
+&lt;pre tabindex="0">&lt;code>ADDRESS(1,2)
 ADDRESS(1,2,4,FALSE)
 ADDRESS(1,2,,,&amp;quot;シート2&amp;quot;)
 &lt;/code>&lt;/pre>&lt;h3 id="match">MATCH&lt;/h3>
@@ -174,7 +174,7 @@ ADDRESS(1,2,,,&amp;quot;シート2&amp;quot;)
 &lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;pre>&lt;code>MATCH(&amp;quot;日曜日&amp;quot;,A2:A9,0)
+&lt;pre tabindex="0">&lt;code>MATCH(&amp;quot;日曜日&amp;quot;,A2:A9,0)
 MATCH(DATE(2012,1,1),A2:F2)
 &lt;/code>&lt;/pre>&lt;h3 id="sumifs">SUMIFS&lt;/h3>
 &lt;p>&lt;a href="https://support.google.com/docs/answer/3238496?hl=ja">https://support.google.com/docs/answer/3238496?hl=ja&lt;/a>&lt;/p>
@@ -185,7 +185,7 @@ MATCH(DATE(2012,1,1),A2:F2)
 &lt;ul>
 &lt;li>&lt;a href="https://support.google.com/docs/answer/6055612?hl=ja">DATEDIF&lt;/a> &amp;hellip; 日付、月数、年数に対応&lt;/li>
 &lt;/ul>
-&lt;pre>&lt;code>=(B2-A2) * 86400 // 秒数
+&lt;pre tabindex="0">&lt;code>=(B2-A2) * 86400 // 秒数
 &lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://support.office.com/ja-jp/article/2-%e3%81%a4%e3%81%ae%e6%99%82%e5%88%bb%e3%81%ae%e5%b7%ae%e3%82%92%e8%a8%88%e7%ae%97%e3%81%99%e3%82%8b-e1c78778-749b-49a3-b13e-737715505ff6">2 つの時刻の差を計算する - Excel&lt;/a>&lt;/li>

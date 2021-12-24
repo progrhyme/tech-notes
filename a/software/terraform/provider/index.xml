@@ -32,7 +32,7 @@ JSONテンプレートより融通が効くし、syntax checkも掛かるので�
 &lt;h3 id="ssm_parameter">ssm_parameter&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/d/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/d/ssm_parameter.html&lt;/a>&lt;/p>
 &lt;p>EC2 Parameter Storeからデータ取得&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#8f5902;font-style:italic"># &amp;#34;foo&amp;#34;という名前のパラメータストアを取得
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#8f5902;font-style:italic"># &amp;#34;foo&amp;#34;という名前のパラメータストアを取得
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_ssm_parameter&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#c4a000">name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;foo&amp;#34;&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
@@ -111,7 +111,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;p>動的ポートマッピングをする場合、task_definitionでhostPortを0にする:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># ecs_task_definition.tf
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># ecs_task_definition.tf
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_ecs_task_definition&amp;#34; &amp;#34;service&amp;#34;&lt;/span> {
 &lt;span style="color:#a40000">:&lt;/span>
 &lt;span style="color:#000"> container_definitions&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;task-definitions/service.json&amp;#34;)}&amp;#34;&lt;/span>
@@ -211,7 +211,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/rds_cluster.html">https://www.terraform.io/docs/providers/aws/r/rds_cluster.html&lt;/a> &amp;hellip; Aurora用(?)&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html">https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html&lt;/a> &amp;hellip; Aurora用(?)&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_instance.html">https://www.terraform.io/docs/providers/aws/r/db_instance.html&lt;/a>&lt;/li>
-&lt;li>~~&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html~~">https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html~~&lt;/a> &amp;hellip; これはEC2 Classic用でもう使うことはなさそう。&lt;/li>
+&lt;li>&lt;del>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html">https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html&lt;/a>&lt;/del> &amp;hellip; これはEC2 Classic用でもう使うことはなさそう。&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_security_group.html">https://www.terraform.io/docs/providers/aws/r/db_security_group.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/rds_cluster_parameter_group.html">https://www.terraform.io/docs/providers/aws/r/rds_cluster_parameter_group.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.terraform.io/docs/providers/aws/r/db_parameter_group.html">https://www.terraform.io/docs/providers/aws/r/db_parameter_group.html&lt;/a>&lt;/li>
@@ -283,7 +283,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html">https://www.terraform.io/docs/providers/aws/r/ssm_parameter.html&lt;/a>&lt;/p>
 &lt;p>EC2 Parameter Storeにデータを保存する。&lt;/p></description></item><item><title>A: Google</title><link>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</link><pubDate>Sun, 26 Apr 2020 23:20:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/provider/google/</guid><description>
 &lt;h2 id="versions">Versions&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/guides/provider_versions.html">https://www.terraform.io/docs/providers/google/guides/provider_versions.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_versions">https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_versions&lt;/a>&lt;/p>
 &lt;p>β機能をサポートした &lt;a href="https://github.com/terraform-providers/terraform-provider-google-beta">google-beta&lt;/a> というProviderもある。&lt;/p>
 &lt;p>「要するに、ふつうの &lt;code>gcloud&lt;/code> コマンドの代わりに &lt;code>gcloud beta&lt;/code> コマンドを使うようなもの」&lt;/p>
 &lt;p>NOTE:&lt;/p>
@@ -291,9 +291,9 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>両Providerの併用も可能だが、beta -&amp;gt; 無印への移行時には作業が必要&lt;/li>
 &lt;/ul>
 &lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/guides/provider_reference.html">Google Provider Configuration Reference - Terraform by HashiCorp&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference">Google Provider Configuration Reference | Guides | hashicorp/google | Terraform Registry&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google&amp;#34;&lt;/span> {
 &lt;span style="color:#000"> //credentials&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;account.json&amp;#34;)}&amp;#34;&lt;/span>
 &lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my-project-id&amp;#34;&lt;/span>
 &lt;span style="color:#000"> region&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;us-central1&amp;#34;&lt;/span>
@@ -316,26 +316,26 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;h2 id="data-sources">Data Sources&lt;/h2>
 &lt;h3 id="compute系">compute系&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/d/compute_default_service_account.html">google_compute_default_service_account&lt;/a> &amp;hellip; プロジェクトのデフォルトのサービスアカウントを取得する&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/d/datasource_compute_network.html">google_compute_network&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/d/datasource_compute_subnetwork.html">google_compute_subnetwork&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_default_service_account">google_compute_default_service_account&lt;/a> &amp;hellip; プロジェクトのデフォルトのサービスアカウントを取得する&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network">google_compute_network&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_subnetwork">google_compute_subnetwork&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="resources">Resources&lt;/h2>
 &lt;p>未分類のもの:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/cloudfunctions_function.html">google_cloudfunctions_function&lt;/a> &amp;hellip; Cloud Function作成・管理&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/cloud_scheduler_job.html">google_cloud_scheduler_job&lt;/a> &amp;hellip; Cloud Scheduler Job&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/redis_instance.html">google_redis_instance&lt;/a> &amp;hellip; Memorystore (Redis)&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudfunctions_function">google_cloudfunctions_function&lt;/a> &amp;hellip; Cloud Function作成・管理&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_scheduler_job">google_cloud_scheduler_job&lt;/a> &amp;hellip; Cloud Scheduler Job&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/redis_instance">google_redis_instance&lt;/a> &amp;hellip; Memorystore (Redis)&lt;/li>
 &lt;/ul>
 &lt;h3 id="gcp-iam-api-billing-organization">GCP (IAM, API, Billing, Organization)&lt;/h3>
 &lt;p>Providerリファレンスで、「Google Cloud Platform Resources」というカテゴリに属するもの。&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_service.html">google_project_service&lt;/a> &amp;hellip; APIs &amp;amp; Servicesの有効化&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account.html">google_service_account&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_service_account_key.html">google_service_account_key&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service">google_project_service&lt;/a> &amp;hellip; APIs &amp;amp; Servicesの有効化&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account">google_service_account&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_key">google_service_account_key&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_service_account&amp;#34; &amp;#34;terraform&amp;#34;&lt;/span> {
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_service_account&amp;#34; &amp;#34;terraform&amp;#34;&lt;/span> {
 &lt;span style="color:#000"> account_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;terraform&amp;#34;&lt;/span>
 }
 &lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_service_account_key&amp;#34; &amp;#34;terraform_key&amp;#34;&lt;/span> {
@@ -351,7 +351,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;span style="color:#000"> directory_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0755&amp;#34;&lt;/span>
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="iam-policy-for-projects">IAM policy for projects&lt;/h4>
-&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/google_project_iam.html">https://www.terraform.io/docs/providers/google/r/google_project_iam.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>google_project_iam_policy&lt;/code>&lt;/li>
 &lt;li>&lt;code>google_project_iam_binding&lt;/code> &amp;hellip; role : member = 1 : Nの権限を設定する。Service Accountの権限にも対応&lt;/li>
@@ -360,12 +360,12 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;/ul>
 &lt;h3 id="compute系-1">compute系&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_bucket.html">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_backend_service.html">google_compute_backend_service&lt;/a> &amp;hellip; GCLBのバックエンドになるサービスの設定&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_health_check.html">google_compute_health_check&lt;/a> &amp;hellip; ヘルスチェック&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_instance.html">google_compute_instance&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_managed_ssl_certificate.html">google_compute_managed_ssl_certificate&lt;/a> &amp;hellip; β (2020-03-18) HTTPS LBのためのマネージドTLS証明書&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_security_policy.html">google_compute_security_policy&lt;/a> &amp;hellip; Cloud Armorのセキュリティポリシー&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_bucket">google_compute_backend_bucket&lt;/a> &amp;hellip; HTTP(S) LBのバックエンドになるGCSバケット設定&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_service">google_compute_backend_service&lt;/a> &amp;hellip; GCLBのバックエンドになるサービスの設定&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_health_check">google_compute_health_check&lt;/a> &amp;hellip; ヘルスチェック&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance">google_compute_instance&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_managed_ssl_certificate">google_compute_managed_ssl_certificate&lt;/a> &amp;hellip; β (2020-03-18) HTTPS LBのためのマネージドTLS証明書&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_security_policy">google_compute_security_policy&lt;/a> &amp;hellip; Cloud Armorのセキュリティポリシー&lt;/li>
 &lt;/ul>
 &lt;p>IAM関係:&lt;/p>
 &lt;ul>
@@ -377,23 +377,23 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;/ul>
 &lt;h4 id="ネットワーク関係">ネットワーク関係&lt;/h4>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_address.html">google_compute_address&lt;/a> &amp;hellip; &lt;code>EXTERNAL&lt;/code> なアドレスも発行できる。Cloud NATに使うのはこっち&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_global_address.html">google_compute_global_address&lt;/a> &amp;hellip; HTTP(S) LBで使うやつ&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_network.html">google_compute_network&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html">google_compute_subnetwork&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_router.html">google_compute_router&lt;/a> &amp;hellip; Cloud Router&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/compute_router_nat.html">google_compute_router_nat&lt;/a> &amp;hellip; Cloud NAT w/ Cloud Router&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address">google_compute_address&lt;/a> &amp;hellip; &lt;code>EXTERNAL&lt;/code> なアドレスも発行できる。Cloud NATに使うのはこっち&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_global_address">google_compute_global_address&lt;/a> &amp;hellip; HTTP(S) LBで使うやつ&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network">google_compute_network&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork">google_compute_subnetwork&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router">google_compute_router&lt;/a> &amp;hellip; Cloud Router&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat">google_compute_router_nat&lt;/a> &amp;hellip; Cloud NAT w/ Cloud Router&lt;/li>
 &lt;/ul>
 &lt;h4 id="インスタンスでcustom-machine-typeを使う">インスタンスでcustom machine typeを使う&lt;/h4>
 &lt;p>例:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_instance&amp;#34; &amp;#34;default&amp;#34;&lt;/span> {
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_compute_instance&amp;#34; &amp;#34;default&amp;#34;&lt;/span> {
 &lt;span style="color:#000"> machine_type&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;custom-6-20480&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # 6 vCPU, Mem 20GB
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>}
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>google_container_node_pool&lt;/code> などでも同様の指定が行える。&lt;/p>
 &lt;h3 id="gke関連">GKE関連&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/container_cluster.html">google_container_cluster&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/container_node_pool.html">google_container_node_pool&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster">google_container_cluster&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool">google_container_node_pool&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -401,7 +401,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;/ul>
 &lt;h4 id="examples">Examples&lt;/h4>
 &lt;p>限定公開クラスタ（パブリックエンドポイント有り）&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_container_cluster&amp;#34; &amp;#34;experiment&amp;#34;&lt;/span> {
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;google_container_cluster&amp;#34; &amp;#34;experiment&amp;#34;&lt;/span> {
 &lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;experiment&amp;#34;&lt;/span>
 &lt;span style="color:#000"> location&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;asia-northeast1&amp;#34;&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">private_cluster_config&lt;/span> {
@@ -417,12 +417,12 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pubsub">Pub/Sub&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_topic.html">google_pubsub_topic&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html">google_pubsub_subscription&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic">google_pubsub_topic&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription">google_pubsub_subscription&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="topicsubscription-iam">Topic/Subscription IAM&lt;/h4>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html">pubsub_topic_iam&lt;/a>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic_iam">pubsub_topic_iam&lt;/a>
 &lt;ul>
 &lt;li>以下の3種類のリソースがあり、管理したい粒度に応じていずれかを使う&lt;/li>
 &lt;li>いずれも特定のトピックに対する権限をセットする&lt;/li>
@@ -432,7 +432,7 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;li>たぶん、最も細かい粒度の &lt;code>google_pubsub_topic_iam_member&lt;/code> を使うのが無難&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/pubsub_subscription_iam.html">pubsub_subscription_iam&lt;/a>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription_iam">pubsub_subscription_iam&lt;/a>
 &lt;ul>
 &lt;li>topicの方と同様に3種類のリソースを選択的に使う&lt;/li>
 &lt;li>いずれも特定のサブスクリプションに対する権限をセットする&lt;/li>
@@ -448,12 +448,12 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;/ul>
 &lt;h3 id="storage-gcs-系">Storage (GCS) 系&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket.html">google_storage_bucket&lt;/a> &amp;hellip; GCS (Cloud Storage) バケット&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket_object.html">google_storage_bucket_object&lt;/a> &amp;hellip; GCSオブジェクト。ローカルのファイルからアップロードできる&lt;/li>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_notification.html">google_storage_notification&lt;/a> &amp;hellip; GCSでのイベントをPub/Subに通知する通知リソース&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket">google_storage_bucket&lt;/a> &amp;hellip; GCS (Cloud Storage) バケット&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_object">google_storage_bucket_object&lt;/a> &amp;hellip; GCSオブジェクト。ローカルのファイルからアップロードできる&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_notification">google_storage_notification&lt;/a> &amp;hellip; GCSでのイベントをPub/Subに通知する通知リソース&lt;/li>
 &lt;/ul>
 &lt;h4 id="iam-for-gcs-bucket">IAM for GCS Bucket&lt;/h4>
-&lt;p>&lt;a href="https://www.terraform.io/docs/providers/google/r/storage_bucket_iam.html">https://www.terraform.io/docs/providers/google/r/storage_bucket_iam.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam&lt;/a>&lt;/p>
 &lt;p>Pub/SubのTopic/Subscription IAMと同じように3種類のリソースが用意されている。&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>google_storage_bucket_iam_policy&lt;/code> &amp;hellip; そのバケットに対するIAM x 権限(Role)をフルコントロールしたい場合に使う&lt;/li>
@@ -464,13 +464,13 @@ ECS Serviceなどのオートスケール設定。&lt;/p>
 &lt;h3 id="cloud-logging">Cloud Logging&lt;/h3>
 &lt;p>Resources:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/docs/providers/google/r/logging_metric.html">google_logging_metric&lt;/a> &amp;hellip; カスタムログベース指標&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_metric">google_logging_metric&lt;/a> &amp;hellip; カスタムログベース指標&lt;/li>
 &lt;/ul>
 &lt;h3 id="bigtable関係">Bigtable関係&lt;/h3>
 &lt;p>IAM管理:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam&lt;/a> &amp;hellip; インスタンスに対するIAM権限設定&lt;/li>
-&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam">https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam&lt;/a> &amp;hellip; テーブルに対するIAM権限設定
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance_iam">bigtable_instance_iam&lt;/a> &amp;hellip; インスタンスに対するIAM権限設定&lt;/li>
+&lt;li>&lt;a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_table_iam">bigtable_table_iam&lt;/a> &amp;hellip; テーブルに対するIAM権限設定
 &lt;ul>
 &lt;li>&lt;code>google_bigtable_table_iam_policy&lt;/code>&lt;/li>
 &lt;li>&lt;code>google_bigtable_table_iam_binding&lt;/code>&lt;/li>

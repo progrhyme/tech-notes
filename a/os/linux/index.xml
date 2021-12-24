@@ -14,7 +14,7 @@
 &lt;h2 id="firewall">Firewall&lt;/h2>
 &lt;p>Ubuntu 18.04だとufwが標準で入っている。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 状態表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 状態表示&lt;/span>
 sudo ufw status
 &lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
 sudo ufw &lt;span style="color:#204a87">enable&lt;/span>
@@ -26,7 +26,7 @@ sudo ufw &lt;span style="color:#204a87">enable&lt;/span>
 &lt;h3 id="apparmor">AppArmor&lt;/h3>
 &lt;p>いつからかUbuntuに標準で組み込まれたSELinux的なやつ。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 現在の状態を表示&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 現在の状態を表示&lt;/span>
 aa-enabled
 apparmor_status
 &lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>

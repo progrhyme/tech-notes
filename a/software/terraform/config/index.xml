@@ -6,21 +6,21 @@
 &lt;p>listの要素を取得。&lt;br>
 最初の要素のindexは0.&lt;/p>
 &lt;h3 id="filepath">file(path)&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(path/to/file)}&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ファイルの内容を取り込む
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(path/to/file)}&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ファイルの内容を取り込む
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="formatformat-args-">format(format, args, &amp;hellip;)&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${format(&amp;#34;https://%s/%s&amp;#34;, var.fqdn, var.path)}&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${format(&amp;#34;https://%s/%s&amp;#34;, var.fqdn, var.path)}&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="formatlistformat-args-">formatlist(format, args, &amp;hellip;)&lt;/h3>
 &lt;p>formatのlist版。 &lt;code>args...&lt;/code> としてlistを受け取り、list値を返す。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">urls&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${formatlist(&amp;#34;https://%s/&amp;#34;, var.fqdn_list)}&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">urls&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${formatlist(&amp;#34;https://%s/&amp;#34;, var.fqdn_list)}&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="lookupmap-key--default">lookup(map, key [, default])&lt;/h3>
 &lt;p>mapの &lt;code>key&lt;/code> に対するvalueを参照する。第3引数に見つからなかったときの &lt;code>default&lt;/code> 値を指定することもできる。&lt;/p>
 &lt;p>1階層のmapは &lt;code>stash[&amp;quot;x&amp;quot;]&lt;/code> で良いが、デフォルト値を設定したいときや、2階層のmapでは &lt;code>lookup&lt;/code> を使う必要がある。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${lookup(var.stash[&amp;#34;x&amp;#34;], &amp;#34;y&amp;#34;, &amp;#34;default-value&amp;#34;)}&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#000">v&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${lookup(var.stash[&amp;#34;x&amp;#34;], &amp;#34;y&amp;#34;, &amp;#34;default-value&amp;#34;)}&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="keysmap">keys(map)&lt;/h3>
 &lt;p>mapのキーをソート済みのlistとして返す。See also &lt;code>values&lt;/code>&lt;/p>
 &lt;h3 id="mapkey-value-">map(key, value, &amp;hellip;)&lt;/h3>
 &lt;p>mapを作る。&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#204a87;font-weight:bold">output&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;result&amp;#34;&lt;/span> {
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#204a87;font-weight:bold">output&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;result&amp;#34;&lt;/span> {
 &lt;span style="color:#000"> value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#a40000">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#a40000">map&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#34;key-1&amp;#34;, &amp;#34;${value-1}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#34;key-2&amp;#34;, &amp;#34;${value-2}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -30,6 +30,6 @@
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="splitdelim-string">split(delim, string)&lt;/h3>
 &lt;p>文字列をデリミタ文字で分割してlistを返す。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#4e9a06">&amp;#34;${element(split(&amp;#34;/&amp;#34;, &amp;#34;dir/file&amp;#34;), 1)}&amp;#34; #=&amp;gt; &amp;#34;file&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#4e9a06">&amp;#34;${element(split(&amp;#34;/&amp;#34;, &amp;#34;dir/file&amp;#34;), 1)}&amp;#34; #=&amp;gt; &amp;#34;file&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="valuesmap">values(map)&lt;/h3>
 &lt;p>mapの値をlistとして返す。得られる値の順序は、対応するキーのlistが &lt;code>keys&lt;/code> で返される順序と同じになるようである。&lt;/p></description></item></channel></rss>
