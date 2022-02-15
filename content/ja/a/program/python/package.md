@@ -52,6 +52,16 @@ https://docs.gunicorn.org/en/latest/settings.html
 -----|-----------------|---------|-------
  timeout | `-t <INT>` `--timeout <INT>` | 30 | この時間に何の処理もしていない場合、ワーカーが再起動される。0を指定すると無限大
 
+## pytest
+
+Documentation: https://docs.pytest.org/
+
+著名なテストフレームワーク。
+
+Tips:
+
+- [pytestのmarkを使って一部のテストをデフォルトで実行しない方法 - Qiita](https://qiita.com/yattom/items/dbee14d45a8fb936e2d0)
+
 ## requests
 
 Documentation:
@@ -71,3 +81,25 @@ dict型の `header` パラメータを渡せばいい。
 
 >>> r = requests.get(url, headers=headers)
 ```
+
+## retry
+
+https://github.com/invl/retry
+
+デコレータを付けるだけで簡単に関数にリトライを実装できる。
+
+Examples:
+
+```Python
+# 最大4回トライする（4回実行してすべてエラーだったらエラーとする）
+# トライの間隔は、5秒から始めて、10秒、20秒と2倍ずつ増やしていく
+@retry(tries=4, delay=5, backoff=2)
+def crawl_url(url):
+    print ("crawling...")
+    f = urllib.request.urlopen(url)
+    return f.read()
+```
+
+参考:
+
+- [Tech Tips: 便利なPythonライブラリ（５）retry](http://techtipshoge.blogspot.com/2016/04/pythonretry.html)

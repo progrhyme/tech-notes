@@ -101,6 +101,17 @@ https://dev.mysql.com/doc/refman/5.6/ja/information-schema.html
 https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html
 
 ## Features
+### レプリケーション
+#### レプリケーションとトリガー
+
+Ref. [MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.4.1.32 レプリケーションとトリガー](https://dev.mysql.com/doc/refman/5.6/ja/replication-features-triggers.html)
+
+- ステートメントベースレプリケーションの場合
+  - トリガーがスレーブでも実行される
+- 行ベースレプリケーションの場合
+  - トリガーはスレーブでは実行されない
+  - マスターの行変更が複製され、スレーブに適用される
+
 ### オンラインDDL
 
 - [MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要](https://dev.mysql.com/doc/refman/5.6/ja/innodb-create-index-overview.html "MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要")
