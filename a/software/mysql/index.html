@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.91.1">
+<meta name=generator content="Hugo 0.92.2">
 <meta name=ROBOTS content="INDEX, FOLLOW">
 <link rel=alternate type=application/rss+xml href=https://progrhy.me/tech-notes/a/software/mysql/index.xml>
 <link rel="shortcut icon" href=/favicons/favicon.ico>
@@ -904,6 +904,11 @@
 </li>
 <li><a href=#features>Features</a>
 <ul>
+<li><a href=#レプリケーション>レプリケーション</a>
+<ul>
+<li><a href=#レプリケーションとトリガー>レプリケーションとトリガー</a></li>
+</ul>
+</li>
 <li><a href=#オンラインddl>オンラインDDL</a></li>
 </ul>
 </li>
@@ -1055,6 +1060,22 @@ MySQL 5.7からシステムテーブルでも使われるようになった。</
 <h4 id=columns>COLUMNS</h4>
 <p><a href=https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html>https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html</a></p>
 <h2 id=features>Features</h2>
+<h3 id=レプリケーション>レプリケーション</h3>
+<h4 id=レプリケーションとトリガー>レプリケーションとトリガー</h4>
+<p>Ref. <a href=https://dev.mysql.com/doc/refman/5.6/ja/replication-features-triggers.html>MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.4.1.32 レプリケーションとトリガー</a></p>
+<ul>
+<li>ステートメントベースレプリケーションの場合
+<ul>
+<li>トリガーがスレーブでも実行される</li>
+</ul>
+</li>
+<li>行ベースレプリケーションの場合
+<ul>
+<li>トリガーはスレーブでは実行されない</li>
+<li>マスターの行変更が複製され、スレーブに適用される</li>
+</ul>
+</li>
+</ul>
 <h3 id=オンラインddl>オンラインDDL</h3>
 <ul>
 <li><a href=https://dev.mysql.com/doc/refman/5.6/ja/innodb-create-index-overview.html title="MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要</a></li>
@@ -1169,7 +1190,7 @@ MySQL 5.7からシステムテーブルでも使われるようになった。</
 <p></p>
 </div>
 </div>
-<div class="text-muted mt-5 pt-3 border-top">最終更新 2020-09-15: <a href=https://github.com/progrhyme/tech-notes/commit/7293a29707e2794e0519b1f44c8bb5a375dac8dd>[mysql] Add EOL info (7293a2970)</a>
+<div class="text-muted mt-5 pt-3 border-top">最終更新 2022-02-15: <a href=https://github.com/progrhyme/tech-notes/commit/ef95d0b30db23330e26659c77aebb13e6a18678b>[python,mysql] Add pytest, retry as pymodule; replication of MySQL (ef95d0b30)</a>
 </div>
 </div>
 </main>
@@ -1195,7 +1216,7 @@ MySQL 5.7からシステムテーブルでも使われるようになった。</
 <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
 </div>
 <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-<small class=text-white>&copy; 2021 progrhyme All Rights Reserved</small>
+<small class=text-white>&copy; 2022 progrhyme All Rights Reserved</small>
 <br>
 <small class=text-white>Powered by <a href=https://www.docsy.dev/ target=_blank>Docsy</a> theme of <a href=https://gohugo.io target=_blank>Hugo</a></small>
 </div>

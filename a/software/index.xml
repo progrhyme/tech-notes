@@ -675,6 +675,22 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;h4 id="columns">COLUMNS&lt;/h4>
 &lt;p>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html">https://dev.mysql.com/doc/refman/5.6/ja/information-schema-columns-table.html&lt;/a>&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
+&lt;h3 id="レプリケーション">レプリケーション&lt;/h3>
+&lt;h4 id="レプリケーションとトリガー">レプリケーションとトリガー&lt;/h4>
+&lt;p>Ref. &lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-features-triggers.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.4.1.32 レプリケーションとトリガー&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>ステートメントベースレプリケーションの場合
+&lt;ul>
+&lt;li>トリガーがスレーブでも実行される&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>行ベースレプリケーションの場合
+&lt;ul>
+&lt;li>トリガーはスレーブでは実行されない&lt;/li>
+&lt;li>マスターの行変更が複製され、スレーブに適用される&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h3 id="オンラインddl">オンラインDDL&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/innodb-create-index-overview.html" title="MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要">MySQL :: MySQL 5.6 リファレンスマニュアル :: 14.11.1 オンライン DDL の概要&lt;/a>&lt;/li>

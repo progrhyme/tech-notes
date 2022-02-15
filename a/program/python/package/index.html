@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=generator content="Hugo 0.91.1">
+<meta name=generator content="Hugo 0.92.2">
 <meta name=ROBOTS content="INDEX, FOLLOW">
 <link rel="shortcut icon" href=/favicons/favicon.ico>
 <link rel=apple-touch-icon href=/tech-notes/favicons/apple-touch-icon-180x180.png sizes=180x180>
@@ -19,11 +19,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://progrhy.me/tech-notes/a/program/python/package/"><meta property="article:section" content="a">
 <meta property="article:published_time" content="2020-06-22T14:58:14+09:00">
-<meta property="article:modified_time" content="2021-02-25T09:52:44+09:00"><meta property="og:site_name" content="progrhyme's Tech Notes">
+<meta property="article:modified_time" content="2022-02-15T17:11:36+09:00"><meta property="og:site_name" content="progrhyme's Tech Notes">
 <meta itemprop=name content="3rd-Party Packages">
 <meta itemprop=description content="https://pypi.org/"><meta itemprop=datePublished content="2020-06-22T14:58:14+09:00">
-<meta itemprop=dateModified content="2021-02-25T09:52:44+09:00">
-<meta itemprop=wordCount content="106">
+<meta itemprop=dateModified content="2022-02-15T17:11:36+09:00">
+<meta itemprop=wordCount content="138">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="3rd-Party Packages">
 <meta name=twitter:description content="https://pypi.org/">
@@ -892,11 +892,13 @@
 <li><a href=#設定値>設定値</a></li>
 </ul>
 </li>
+<li><a href=#pytest>pytest</a></li>
 <li><a href=#requests>requests</a>
 <ul>
 <li><a href=#カスタムヘッダを付ける>カスタムヘッダを付ける</a></li>
 </ul>
 </li>
+<li><a href=#retry>retry</a></li>
 </ul>
 </nav>
 </div>
@@ -975,6 +977,13 @@
 </tr>
 </tbody>
 </table>
+<h2 id=pytest>pytest</h2>
+<p>Documentation: <a href=https://docs.pytest.org/>https://docs.pytest.org/</a></p>
+<p>著名なテストフレームワーク。</p>
+<p>Tips:</p>
+<ul>
+<li><a href=https://qiita.com/yattom/items/dbee14d45a8fb936e2d0>pytestのmarkを使って一部のテストをデフォルトで実行しない方法 - Qiita</a></li>
+</ul>
 <h2 id=requests>requests</h2>
 <p>Documentation:</p>
 <ul>
@@ -988,8 +997,22 @@
 <span style=color:#ce5c00;font-weight:700>&gt;&gt;&gt;</span> <span style=color:#000>headers</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000;font-weight:700>{</span><span style=color:#4e9a06>&#39;user-agent&#39;</span><span style=color:#000;font-weight:700>:</span> <span style=color:#4e9a06>&#39;my-app/0.0.1&#39;</span><span style=color:#000;font-weight:700>}</span>
 
 <span style=color:#ce5c00;font-weight:700>&gt;&gt;&gt;</span> <span style=color:#000>r</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>requests</span><span style=color:#ce5c00;font-weight:700>.</span><span style=color:#000>get</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>url</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>headers</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>headers</span><span style=color:#000;font-weight:700>)</span>
-</code></pre></div>
-<div class="text-muted mt-5 pt-3 border-top">最終更新 2021-02-25: <a href=https://github.com/progrhyme/tech-notes/commit/6b6c716524a7166cd43f4253e63f2bdb8630ff38>[unix-cmd,gcp,python] Add some notes (6b6c71652)</a>
+</code></pre></div><h2 id=retry>retry</h2>
+<p><a href=https://github.com/invl/retry>https://github.com/invl/retry</a></p>
+<p>デコレータを付けるだけで簡単に関数にリトライを実装できる。</p>
+<p>Examples:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Python data-lang=Python><span style=color:#8f5902;font-style:italic># 最大4回トライする（4回実行してすべてエラーだったらエラーとする）</span>
+<span style=color:#8f5902;font-style:italic># トライの間隔は、5秒から始めて、10秒、20秒と2倍ずつ増やしていく</span>
+<span style=color:#5c35cc;font-weight:700>@retry</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>tries</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>4</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>delay</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>5</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>backoff</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>)</span>
+<span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>crawl_url</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>url</span><span style=color:#000;font-weight:700>):</span>
+    <span style=color:#204a87>print</span> <span style=color:#000;font-weight:700>(</span><span style=color:#4e9a06>&#34;crawling...&#34;</span><span style=color:#000;font-weight:700>)</span>
+    <span style=color:#000>f</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>urllib</span><span style=color:#ce5c00;font-weight:700>.</span><span style=color:#000>request</span><span style=color:#ce5c00;font-weight:700>.</span><span style=color:#000>urlopen</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>url</span><span style=color:#000;font-weight:700>)</span>
+    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#000>f</span><span style=color:#ce5c00;font-weight:700>.</span><span style=color:#000>read</span><span style=color:#000;font-weight:700>()</span>
+</code></pre></div><p>参考:</p>
+<ul>
+<li><a href=http://techtipshoge.blogspot.com/2016/04/pythonretry.html>Tech Tips: 便利なPythonライブラリ（５）retry</a></li>
+</ul>
+<div class="text-muted mt-5 pt-3 border-top">最終更新 2022-02-15: <a href=https://github.com/progrhyme/tech-notes/commit/ef95d0b30db23330e26659c77aebb13e6a18678b>[python,mysql] Add pytest, retry as pymodule; replication of MySQL (ef95d0b30)</a>
 </div>
 </div>
 </main>
@@ -1015,7 +1038,7 @@
 <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
 </div>
 <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-<small class=text-white>&copy; 2021 progrhyme All Rights Reserved</small>
+<small class=text-white>&copy; 2022 progrhyme All Rights Reserved</small>
 <br>
 <small class=text-white>Powered by <a href=https://www.docsy.dev/ target=_blank>Docsy</a> theme of <a href=https://gohugo.io target=_blank>Hugo</a></small>
 </div>
