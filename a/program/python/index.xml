@@ -197,6 +197,7 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。&lt;/
 &lt;h3 id="型変換">型変換&lt;/h3>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://www.digitalocean.com/community/tutorials/how-to-convert-data-types-in-python-3-ja">Python 3のデータ型を変換する方法 | DigitalOcean&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/masakielastic/items/21ba9f68ef6c4fd7692d">Python 3 で16進数とバイト列の相互変換 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="文字列--10進数">文字列 &amp;lt;=&amp;gt; 10進数&lt;/h4>
