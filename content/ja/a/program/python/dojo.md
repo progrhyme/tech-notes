@@ -24,7 +24,35 @@ Pythonianを名乗るための基礎的なトピックを並べる予定。
 
 参考:
 
+- [Python 3のデータ型を変換する方法 | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-convert-data-types-in-python-3-ja)
 - [Python 3 で16進数とバイト列の相互変換 - Qiita](https://qiita.com/masakielastic/items/21ba9f68ef6c4fd7692d)
+
+#### 文字列 <=> 10進数
+
+リファレンス:
+- [組み込み関数 — Python 3 ドキュメント](https://docs.python.org/ja/3/library/functions.html)
+
+```Python
+# 文字列 => 10進数
+int('123')       #=> 123
+float('123')     #=> 123.0
+float('-1.23e5') #=> -123000.0
+
+# 10進数 => 文字列
+str(123)    #=> '123'
+str(123.0)  #=> '123.0'
+str(10-3)   #=> 7
+str(10-0.1) #=> '9.9'
+```
+
+下記はエラー
+
+```Python
+int('1e5')
+int('10-3')
+float('1a')
+float('10-0.1')
+```
 
 #### 整数 <=> 16進数文字列
 
