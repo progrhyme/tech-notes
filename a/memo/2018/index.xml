@@ -69,8 +69,8 @@ need a /sbin/mount. helper program)
 In some cases useful info is found in syslog - try
 dmesg | tail or so
 &lt;/code>&lt;/pre>&lt;p>&lt;code>nfs-common&lt;/code> のインストールで解決。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo apt install nfs-common
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、Synology DS218playにおいては、パーミッションの関係でmountしてもディレクトリにアクセスできず、とても不便なのでWindows同様にSMBでアクセスすることにした。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt install nfs-common
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、Synology DS218playにおいては、パーミッションの関係でmountしてもディレクトリにアクセスできず、とても不便なのでWindows同様にSMBでアクセスすることにした。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/Accent/items/0d99c4652e2101760b50">NFSでマウントするときに出るエラーの対処( mount: wrong fs type, bad option, bad superblock on&amp;hellip;.) - Qiita&lt;/a>&lt;/li>

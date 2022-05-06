@@ -51,7 +51,7 @@
 &lt;h3 id="txt">TXT&lt;/h3>
 &lt;p>&lt;a href="https://tools.ietf.org/html/rfc1464">https://tools.ietf.org/html/rfc1464&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;pre tabindex="0">&lt;code>example.jp. IN TXT &amp;quot;exampleA&amp;quot; &amp;quot;exampleB&amp;quot;
+&lt;pre tabindex="0">&lt;code>example.jp. IN TXT &amp;#34;exampleA&amp;#34; &amp;#34;exampleB&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>仕様:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>&amp;quot;&lt;/code> で括ってエントリを値を記述する。&lt;/li>

@@ -41,8 +41,8 @@
 &lt;h3 id="dockerコンテナからホストosのlocalhostにアクセスする">dockerコンテナからホストOSのlocalhostにアクセスする&lt;/h3>
 &lt;p>Docker for MacやDocker for Windowsなら、 &lt;code>host.docker.internal&lt;/code> でアクセスできる。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker run -it --rm mysql mysql -hhost.docker.internal -uroot -p
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>docker run -it --rm mysql mysql -hhost.docker.internal -uroot -p
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/ijufumi/items/badde64d530e6bade382">Dockerのコンテナの中からホストOS上のプロセスと通信する方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
@@ -102,9 +102,9 @@
 &lt;li>バイナリをGitHub ReleasesからDL&lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タグ一覧&lt;/span>
-reg tags &amp;lt;repo&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker-hub">Docker Hub&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># タグ一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>reg tags &amp;lt;repo&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker-hub">Docker Hub&lt;/h2>
 &lt;p>&lt;a href="https://hub.docker.com/">https://hub.docker.com/&lt;/a>&lt;/p>
 &lt;p>Dockerイメージのレジストリサービス。&lt;br>
 有料プランなら非公開リポジトリも作れる。&lt;/p>
@@ -191,20 +191,21 @@ Kibanaとか。&lt;/p>
 &lt;li>include&lt;/li>
 &lt;/ul>
 &lt;h3 id="フォーマット">フォーマット&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">in&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Input plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paraser&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Parser plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">decoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Decoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">out&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Output plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Formatter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">encoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Encoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">filters&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Filter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Executor plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="cli">CLI&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
-embulk run &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># プレビュー&lt;/span>
-embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">in&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Input plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">paraser&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Parser plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">decoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Decoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">out&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Output plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Formatter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">encoder&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Encoder plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">filters&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Filter plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">exec&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Executor plugin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="cli">CLI&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 実行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>embulk run &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># プレビュー&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>embulk preview &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> config.yml&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>.liquid&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -286,10 +287,10 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;p>&lt;a href="https://git-scm.com/docs/git-config">https://git-scm.com/docs/git-config&lt;/a>&lt;/p>
 &lt;h3 id="aliasの設定">aliasの設定&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-INI" data-lang="INI">&lt;span style="color:#204a87;font-weight:bold">[alias]&lt;/span>
-&lt;span style="color:#c4a000">st&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">status
-&lt;/span>&lt;span style="color:#4e9a06"> dfc = diff --cached&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-INI" data-lang="INI">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">[alias]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">st&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">status
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> dfc = diff --cached&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
 &lt;ul>
 &lt;li>右辺を &lt;code>!&lt;/code> から記述すると外部コマンドを記述できる&lt;/li>
 &lt;/ul>
@@ -300,9 +301,9 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;/ul>
 &lt;h3 id="include">include&lt;/h3>
 &lt;p>別ファイルをincludeできる&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-INI" data-lang="INI">&lt;span style="color:#204a87;font-weight:bold">[include]&lt;/span>
-&lt;span style="color:#c4a000">path&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">.gitconfig.local&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-INI" data-lang="INI">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">[include]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">path&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">.gitconfig.local&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://z3100.hatenadiary.org/entry/20120505/1336203155">.gitconfigで別ファイルを読み込む - 3100&lt;/a>&lt;/li>
 &lt;/ul>
@@ -315,13 +316,13 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;h3 id="pull">pull&lt;/h3>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullff">https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullff&lt;/a>&lt;/p>
 &lt;p>pull時の挙動を設定する。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-INI" data-lang="INI">&lt;span style="color:#204a87;font-weight:bold">[pull]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 以下いずれかを指定&lt;/span>
-&lt;span style="color:#c4a000">ff&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">only # fast-forwardなマージのみ許可。マージコミットを作らない
-&lt;/span>&lt;span style="color:#4e9a06"> ff = false # fast-forwardなときもマージコミットを作る
-&lt;/span>&lt;span style="color:#4e9a06"> rebase = merges # rebaseする。ローカルのマージコミットは消失
-&lt;/span>&lt;span style="color:#4e9a06"> rebase = preserve # マージコミットを保持してrebaseする&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-INI" data-lang="INI">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">[pull]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># 以下いずれかを指定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">ff&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">only # fast-forwardなマージのみ許可。マージコミットを作らない
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> ff = false # fast-forwardなときもマージコミットを作る
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> rebase = merges # rebaseする。ローカルのマージコミットは消失
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> rebase = preserve # マージコミットを保持してrebaseする&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>コミット履歴をきれいに保ちたいなら &lt;code>rebase = merges&lt;/code> だが、リモートと歴史が変わってしまったときにローカルの履歴が失われるリスクがあると思う。 &lt;code>rebase = preserve&lt;/code> なら大丈夫かもしれない&lt;/li>
 &lt;li>&lt;code>ff = only&lt;/code> は無難な設定&lt;/li>
 &lt;li>&lt;code>ff = false&lt;/code> を設定したい理由はわからない&lt;/li>
@@ -339,9 +340,9 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/git/cli/">gitコマンド&lt;/a>&lt;/p>
 &lt;h3 id="git-diffをpatch適用する">git diffをpatch適用する&lt;/h3>
 &lt;p>2020-06-20記入。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git diff &amp;gt; foo.diff
-git apply foo.diff
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>今はこれでよいようだ。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git diff &amp;gt; foo.diff
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git apply foo.diff
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>今はこれでよいようだ。&lt;/p>
 &lt;p>メモ:&lt;/p>
 &lt;ul>
 &lt;li>昔はgit diffにオプションをつけて、patchコマンドを使ってapplyしていたが、簡単になったものだ。&lt;/li>
@@ -352,15 +353,15 @@ git apply foo.diff
 &lt;/ul>
 &lt;h3 id="committerとauthorを変更する">CommitterとAuthorを変更する&lt;/h3>
 &lt;p>HEADのcommitを修正する場合:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git config --local user.name &lt;span style="color:#4e9a06">&amp;#34;YOUR NAME&amp;#34;&lt;/span>
-git config --local user.email your-address@example.com
-git commit --amend --reset-author
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>過去の履歴についても変更したい場合:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git rebase -i &amp;lt;commit hash&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 該当するコミットを `e` で選ぶ&lt;/span>
-git commit --amend --reset-author
-git rebase --continue
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git config --local user.name &lt;span style="color:#4e9a06">&amp;#34;YOUR NAME&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --local user.email your-address@example.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit --amend --reset-author
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>過去の履歴についても変更したい場合:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git rebase -i &amp;lt;commit hash&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 該当するコミットを `e` で選ぶ&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit --amend --reset-author
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rebase --continue
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://tech-1natsu.hatenablog.com/entry/2018/10/19/021855">過去のgitコミットのCommitとAuthor情報を修正する - ひと夏の技術&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/sea_mountain/items/d70216a5bc16a88ed932">Git の Commit Author と Commiter を変更する - Qiita&lt;/a>&lt;/li>
@@ -368,18 +369,18 @@ git rebase --continue
 &lt;h3 id="歴史を改ざんする">歴史を改ざんする&lt;/h3>
 &lt;p>See &lt;a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E6%AD%B4%E5%8F%B2%E3%81%AE%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88">Git - 歴史の書き換え&lt;/a>&lt;/p>
 &lt;h4 id="特定のファイルディレクトリの履歴を完全に削除">特定のファイル・ディレクトリの履歴を完全に削除&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## file&lt;/span>
-git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -f path/to/file&amp;#39;&lt;/span> HEAD
-&lt;span style="color:#8f5902;font-style:italic">## directory&lt;/span>
-git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -rf path/to/dir/&amp;#39;&lt;/span> HEAD
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## file&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -f path/to/file&amp;#39;&lt;/span> HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## directory&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -rf path/to/dir/&amp;#39;&lt;/span> HEAD
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://gist.github.com/ktx2207/3167fa69531bdd6b44f1">Git ファイルの履歴を完全に削除する&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="マージコミットを-cherry-pick">マージコミットを cherry-pick&lt;/h3>
 &lt;p>merge commit を cherry-pick&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git cherry-pick -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;merge commit のハッシュ&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git cherry-pick -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;merge commit のハッシュ&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://qiita.com/takc923/items/8e2d87d692f840b14464" title="merge commitをcherry-pickする - Qiita">merge commitをcherry-pickする - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
@@ -393,14 +394,16 @@ git filter-branch --tree-filter &lt;span style="color:#4e9a06">&amp;#39;rm -rf p
 &lt;h3 id="特定のファイルを-git-管理対象から除外する">特定のファイルを Git 管理対象から除外する&lt;/h3>
 &lt;p>①&lt;code>.gitignore&lt;/code> や &lt;code>.git/info/exclude&lt;/code> を使う&lt;/p>
 &lt;p>②既に Git 管理下にあるファイルをワーキングツリーで敢えて除外する&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git update-index —assume-unchanged &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-git update-index —skip-worktree &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 確認&lt;/span>
-git ls-files -v
-&lt;span style="color:#8f5902;font-style:italic">## 取り消し&lt;/span>
-git update-index —no-assume-unchanged &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-git update-index —no-skip-worktree &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>git ls-files -v の表示:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git update-index —assume-unchanged &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git update-index —skip-worktree &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 確認&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git ls-files -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 取り消し&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git update-index —no-assume-unchanged &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git update-index —no-skip-worktree &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ファイル名&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>git ls-files -v の表示:&lt;/p>
 &lt;ul>
 &lt;li>assume-unchanged 設定のファイルは、状態が小文字で表示される&lt;/li>
 &lt;li>skip-worktree 設定のファイルは、状態が S と表示される&lt;/li>
@@ -411,10 +414,10 @@ git update-index —no-skip-worktree &lt;span style="color:#ce5c00;font-weight:b
 &lt;/ul>
 &lt;h3 id="リポジトリをサブディレクトリで分割">リポジトリをサブディレクトリで分割&lt;/h3>
 &lt;h4 id="サブディレクトリが1つの場合">サブディレクトリが1つの場合&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone original_dir new_dir
-&lt;span style="color:#204a87">cd&lt;/span> new_dir
-git filter-branch --subdirectory-filter sub_dir_name HEAD
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone original_dir new_dir
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> new_dir
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git filter-branch --subdirectory-filter sub_dir_name HEAD
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://akio0911.net/archives/3421">gitリポジトリのサブディレクトリを別のリポジトリとして抽出する方法 - 拡張現実ライフ&lt;/a>&lt;/li>
 &lt;/ul>
@@ -510,9 +513,9 @@ git filter-branch --subdirectory-filter sub_dir_name HEAD
 &lt;/ul>
 &lt;h3 id="namespaceの削除">Namespaceの削除&lt;/h3>
 &lt;p>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#deleting-a-namespace">https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#deleting-a-namespace&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl delete namespace my-ns
-kubectl delete -f my-ns.yml
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl delete namespace my-ns
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete -f my-ns.yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yusuke_kinoshita/items/d1302cc3ad4657ad3466">Kubernetesでnamespaceを作成・変更・削除する方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/k8s-namespace-force-delete/">[小ネタ]Kubernetesで消せないNamespaceが発生した場合の対処方法 | Developers.IO&lt;/a>&lt;/li>
@@ -520,9 +523,9 @@ kubectl delete -f my-ns.yml
 &lt;h3 id="全リソースオブジェクト取得">全リソースオブジェクト取得&lt;/h3>
 &lt;p>&lt;code>kubectl get all&lt;/code> では一部しか取れない。&lt;/p>
 &lt;p>こんな感じで行ける。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">kubectl api-resources --verbs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>list --namespaced -o name &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> kubectl get --show-kind --ignore-not-found -l &amp;lt;label&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;value&amp;gt; -n &amp;lt;namespace&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022">https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl api-resources --verbs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>list --namespaced -o name &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> xargs -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> kubectl get --show-kind --ignore-not-found -l &amp;lt;label&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;value&amp;gt; -n &amp;lt;namespace&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022">https://github.com/kubernetes/kubectl/issues/151#issuecomment-402003022&lt;/a>&lt;/p>
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="cfs-quotaが有効のときcpu-limits設定によってコンテナがストールする問題">CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題&lt;/h3>
 &lt;p>2018年には起こっていた問題。&lt;br>
@@ -630,11 +633,11 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>🍣🍺問題, ハハパパ問題&lt;/li>
 &lt;/ul>
 &lt;p>SQLでの確認方法:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- charset
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">show&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">variables&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">like&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;chara%&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- collation
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">show&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">variables&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">like&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;collation%&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="クライアントでの指定">クライアントでの指定&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- charset
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">show&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">variables&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">like&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;chara%&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- collation
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">show&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">variables&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">like&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#39;collation%&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="クライアントでの指定">クライアントでの指定&lt;/h4>
 &lt;p>いくつか設定方法がある:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>my.cnf&lt;/code> での指定&lt;/li>
@@ -711,20 +714,20 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;p>参考: &lt;a href="https://chartio.com/resources/tutorials/how-to-rename-a-database-in-mysql/" title="How to Rename a Database in MySQL | Chartio">How to Rename a Database in MySQL | Chartio&lt;/a>&lt;/p>
 &lt;h3 id="遅延レプリケーション">遅延レプリケーション&lt;/h3>
 &lt;p>MySQL5.6以降の場合、Slave側で以下を実行:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#000">CHANGE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MASTER&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MASTER_DELAY&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">N&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- Nは正の整数
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">CHANGE&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MASTER&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">TO&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">MASTER_DELAY&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">N&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- Nは正の整数
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/replication-delayed.html" title="MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション">MySQL :: MySQL 5.6 リファレンスマニュアル :: 17.3.9 遅延レプリケーション&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="タイムゾーンの設定">タイムゾーンの設定&lt;/h3>
 &lt;p>SQLで変更する場合:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#8f5902;font-style:italic">-- SUPER権限があれば、サーバグローバルの設定を変えることができる
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- 稼働中のシステムで実行する場合は最大の注意が必要
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SET&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">GLOBAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">time_zone&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timezone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- クライアントはセッションごとにタイムゾーン設定を変更できる
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SET&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">time_zone&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timezone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- SUPER権限があれば、サーバグローバルの設定を変えることができる
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">-- 稼働中のシステムで実行する場合は最大の注意が必要
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SET&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">GLOBAL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">time_zone&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timezone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic">-- クライアントはセッションごとにタイムゾーン設定を変更できる
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">SET&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">time_zone&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">timezone&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.mysql.com/doc/refman/5.6/ja/time-zone-support.html">MySQL :: MySQL 5.6 リファレンスマニュアル :: 10.6 MySQL Server でのタイムゾーンのサポート&lt;/a>&lt;/li>
 &lt;li>下のトピックの方&lt;/li>
@@ -807,8 +810,8 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;h3 id="daemon-reload">daemon-reload&lt;/h3>
 &lt;p>&lt;a href="https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload">https://www.freedesktop.org/software/systemd/man/systemctl.html#daemon-reload&lt;/a>&lt;/p>
 &lt;p>configと全unit fileを再読込みする。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">systemctl daemon-reload
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Terraform</title><link>https://progrhy.me/tech-notes/a/software/terraform/</link><pubDate>Sun, 26 Apr 2020 22:59:20 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;ul>
 &lt;li>初心者向けガイド: &lt;a href="https://www.terraform.io/guides/">https://www.terraform.io/guides/&lt;/a>&lt;/li>
@@ -871,17 +874,19 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;h3 id="バージョン固定">バージョン固定&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/terraform.html">Terraform Settings - Configuration Language - Terraform by HashiCorp&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
-&lt;span style="color:#000"> required_version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;&amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">12&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">required_providers&lt;/span> {
-&lt;span style="color:#000"> aws&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;&amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
-&lt;span style="color:#000"> local&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.2&amp;#34;&lt;/span>
-}
-}
-&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.2.0&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> required_version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;&amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">12&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">required_providers&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> aws&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;&amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8&lt;/span>&lt;span style="color:#a40000">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> local&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;1.2.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>terraformのversion指定はtfenvでも可能&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
@@ -898,34 +903,34 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;p>&lt;a href="https://www.terraform.io/docs/internals/debugging.html">https://www.terraform.io/docs/internals/debugging.html&lt;/a>&lt;/p>
 &lt;h4 id="ログレベルの変更">ログレベルの変更&lt;/h4>
 &lt;p>&lt;code>TF_LOG&lt;/code> 環境変数に &lt;code>TRACE, DEBUG, INFO, WARN, ERROR&lt;/code> のいずれかをセットすることで変更できる。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">TF_LOG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>DEBUG terraform plan
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※しかし、どれを指定してもtraceレベルのログが出る気が…(v0.10.x)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">TF_LOG&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>DEBUG terraform plan
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※しかし、どれを指定してもtraceレベルのログが出る気が…(v0.10.x)&lt;/p>
 &lt;h3 id="countを使って複数のリソースを作成">countを使って複数のリソースを作成&lt;/h3>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Terraform" data-lang="Terraform">&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;instance_ips&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#c4a000">default&lt;/span> = &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.100&amp;#34;&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.101&amp;#34;&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.102&amp;#34;&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">
-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;app&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#c4a000">count&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;3&amp;#34;&lt;/span>
-&lt;span style="color:#c4a000">private_ip&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">lookup&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">instance_ips&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">count&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ...
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">
-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;rds_roles&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#c4a000">default&lt;/span> = &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;WRITER&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;READER&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">
-&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_cloudwatch_metric_alarm&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;rds_cpu&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#c4a000">count&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>
-&lt;span style="color:#c4a000">alarm_name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;RDS-&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rds_roles&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87">count&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">-CPU&amp;#34;&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Terraform" data-lang="Terraform">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;instance_ips&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">default&lt;/span> = &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;0&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.100&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.101&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;10.11.12.102&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;app&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">count&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">private_ip&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">lookup&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">instance_ips&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">count&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> # ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;rds_roles&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">default&lt;/span> = &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;WRITER&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;READER&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_cloudwatch_metric_alarm&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;rds_cpu&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">count&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">alarm_name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;RDS-&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rds_roles&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87">count&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">-CPU&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/configuration/resources.html#using-variables-with-count">https://www.terraform.io/docs/configuration/resources.html#using-variables-with-count&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/kanagi/items/095037ba3f72de3f9572">terraformでautoscalingしているサーバのcloudwatch alarmを自動設定する - Qiita&lt;/a>&lt;/li>
@@ -946,24 +951,24 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>&lt;a href="https://qiita.com/ringo/items/875f08ec550f0826f0dc" title="Terraform でループして複数のリソースを作成する - Qiita">Terraform でループして複数のリソースを作成する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>…が、手元で試したところ(v0.10.x)、下のようにしてlistとして定義・参照することができた。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my_complex_data&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#c4a000">type&lt;/span> = &lt;span style="color:#204a87">&amp;#34;list&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> default = [
-&lt;/span>&lt;span style="color:#4e9a06"> {
-&lt;/span>&lt;span style="color:#4e9a06"> id = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> name = &amp;#34;&lt;/span>&lt;span style="color:#000">taro&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> height = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">170&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> },
-&lt;/span>&lt;span style="color:#4e9a06"> {
-&lt;/span>&lt;span style="color:#4e9a06"> id = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> name = &amp;#34;&lt;/span>&lt;span style="color:#000">hanako&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> height = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">160&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;span style="color:#4e9a06"> },
-&lt;/span>&lt;span style="color:#4e9a06"> ]
-&lt;/span>&lt;span style="color:#4e9a06">}
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">foo_list = &amp;#34;&lt;/span>&lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">my_complex_data&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tools">Tools&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">variable&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my_complex_data&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">type&lt;/span> = &lt;span style="color:#204a87">&amp;#34;list&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> default = [
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> {
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> id = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> name = &amp;#34;&lt;/span>&lt;span style="color:#000">taro&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> height = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">170&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> },
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> {
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> id = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> name = &amp;#34;&lt;/span>&lt;span style="color:#000">hanako&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> height = &amp;#34;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">160&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> },
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> ]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">}
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">foo_list = &amp;#34;&lt;/span>&lt;span style="color:#a40000">$&lt;/span>&lt;span style="color:#000;font-weight:bold">{&lt;/span>&lt;span style="color:#204a87">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">my_complex_data&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="tools">Tools&lt;/h2>
 &lt;p>3rd Partyのツール&lt;/p>
 &lt;h3 id="tfenv">tfenv&lt;/h3>
 &lt;p>&lt;a href="https://github.com/Zordrak/tfenv">https://github.com/Zordrak/tfenv&lt;/a>&lt;/p>
@@ -1001,8 +1006,8 @@ MySQL 5.7からシステムテーブルでも使われるようになった。&l
 &lt;li>改行が反映されない&lt;/li>
 &lt;/ul>
 &lt;p>直し方:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">stty sane
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>stty sane
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/m-sakano/items/7f1afc7eb452a1a57015">Terminalの入力が異常になったときの直し方 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>

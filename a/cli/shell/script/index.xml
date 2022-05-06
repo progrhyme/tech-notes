@@ -5,19 +5,19 @@
 &lt;/ul>
 &lt;h2 id="ユーザー入力を受け付ける">ユーザー入力を受け付ける&lt;/h2>
 &lt;p>&lt;code>read&lt;/code> を使う。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;Are you sure? (y/N) &amp;#34;&lt;/span>
-&lt;span style="color:#204a87">read&lt;/span> answer
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$answer&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> !&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;y&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Canceled.&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">exit&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;Are you sure? (y/N) &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">read&lt;/span> answer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$answer&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> !&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;y&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Canceled.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://eng-entrance.com/linux-shellscript-keyboard">【Linux】シェルスクリプトでキーボード入力を受付ける方法&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="コマンドの出力結果にタイムスタンプをつける">コマンドの出力結果にタイムスタンプをつける&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">do_something &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#000">IFS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">read&lt;/span> -r line&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>date&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06"> &lt;/span>&lt;span style="color:#000">$line&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>do_something &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#000">IFS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">read&lt;/span> -r line&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>date&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06"> &lt;/span>&lt;span style="color:#000">$line&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://serverfault.com/questions/310098/how-to-add-a-timestamp-to-bash-script-log" title="linux - How to add a timestamp to bash script log? - Server Fault">linux - How to add a timestamp to bash script log? - Server Fault&lt;/a>&lt;/li>
 &lt;/ul>
@@ -55,8 +55,8 @@
 &lt;/ul>
 &lt;h2 id="sourceされたスクリプト内でファイル自身のパスを取得">sourceされたスクリプト内でファイル自身のパスを取得&lt;/h2>
 &lt;p>Bash / Zsh両対応:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">script_dir&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>dirname &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">BASH_SOURCE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">$0&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">pwd&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">script_dir&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>dirname &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">BASH_SOURCE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">$0&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">pwd&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yudoufu/items/48cb6fb71e5b498b2532">bash/zshでsourceされたスクリプト内で、ファイル自身の絶対パスをとるシンプルな記法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>

@@ -190,8 +190,8 @@ JIRAなど他のAtlassian製品との連携が強み（だと思う）。&lt;/p>
 &lt;/ul>
 &lt;p>このトークンはパスワード認証時にパスワードの代わりに利用できる。&lt;br>
 ので、下のように使うこともできる。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone &lt;span style="color:#4e9a06">&amp;#34;https://&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">owner&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">GITHUB_TOKEN&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">@github.com/&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">owner&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">repo&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">.git&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>URLにトークンが入っているので、上のコマンドでcloneしたリポジトリは、トークンにリポジトリへの書込み権限があれば、そのままpushすることができる。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone &lt;span style="color:#4e9a06">&amp;#34;https://&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">owner&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">GITHUB_TOKEN&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">@github.com/&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">owner&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">/&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">repo&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">.git&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>URLにトークンが入っているので、上のコマンドでcloneしたリポジトリは、トークンにリポジトリへの書込み権限があれば、そのままpushすることができる。&lt;/p>
 &lt;p>これを利用して、例えばGitHub Actionsによってリポジトリを自動更新することもできる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -317,8 +317,8 @@ duedate &amp;lt; 30d // 期限30日以内
 &lt;h4 id="pythonのバージョン">Pythonのバージョン&lt;/h4>
 &lt;p>2020-06-21現在、デフォルトのビルドイメージ（Ubuntu 16）のデフォルトのPythonが2.7になっている。&lt;br>
 Python 3を使うには、下のようにruntime.txtを用意する。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> 3.7 &amp;gt; runtime.txt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>リファレンス:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> 3.7 &amp;gt; runtime.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>リファレンス:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://docs.netlify.com/configure-builds/get-started/#build-image-selection">https://docs.netlify.com/configure-builds/get-started/#build-image-selection&lt;/a> &amp;hellip; ビルドイメージの選択&lt;/li>
 &lt;li>&lt;a href="https://github.com/netlify/build-image/blob/xenial/included_software.md#languages">https://github.com/netlify/build-image/blob/xenial/included_software.md#languages&lt;/a> &amp;hellip; Ubuntu 16でサポートされているプログラム言語ランタイム&lt;/li>

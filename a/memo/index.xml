@@ -13,11 +13,12 @@
 &lt;/ul></description></item><item><title>A: 2021-06-08</title><link>https://progrhy.me/tech-notes/a/memo/20210608/</link><pubDate>Tue, 08 Jun 2021 13:12:03 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210608/</guid><description>
 &lt;h2 id="68">6/8&lt;/h2>
 &lt;h3 id="sshコマンドによるsocksサーバの実行">SSHコマンドによるSOCKSサーバの実行&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$HOST&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># -f バックグラウンドで実行&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># -N リモートシェルを起動しない&lt;/span>
-ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$HOST&lt;/span> -N -f
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$HOST&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># -f バックグラウンドで実行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># -N リモートシェルを起動しない&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$HOST&lt;/span> -N -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/testnin2/items/64c570859b297dfac8b1">SSHを使ってSOCKS経由でWebにアクセスする方法 - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www3.kyukyo-u.ac.jp/t/k058/manual/sshdwin.html">SSHダイナミックフォワーディング&lt;/a>&lt;/li>
@@ -25,15 +26,15 @@ ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$
 &lt;/ul>
 &lt;h2 id="611">6/11&lt;/h2>
 &lt;h3 id="javascriptでラジオボタンのチェックを全部外す方法">JavaScriptでラジオボタンのチェックを全部外す方法&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">divs&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">document&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">getElementsByTagName&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;input&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// let radios = [] // デバッグ
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">div&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">div&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">divs&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">];&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;type&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">div&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#000">div&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">type&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;radio&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">// radios.push(div)
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">div&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">checked&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">divs&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">document&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">getElementsByTagName&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;input&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// let radios = [] // デバッグ
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">div&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#000">div&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">divs&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">];&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">++&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;type&amp;#39;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">div&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#000">div&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">type&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;radio&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// radios.push(div)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">div&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">checked&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.nishishi.com/javascript-tips/radiobutton-alloff.html">ラジオボタンのチェックを全部外す機能を作る方法 - JavaScript TIPSふぁくとりー&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://developer.mozilla.org/ja/docs/Web/API/Document/getElementsByTagName">Document.getElementsByTagName() - Web API | MDN&lt;/a>&lt;/li>
@@ -43,15 +44,15 @@ ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$
 &lt;h3 id="gke-rbacでmanagedcertificateを操作するためのrole作成">GKE RBACでManagedCertificateを操作するためのRole作成&lt;/h3>
 &lt;p>基本、K8s組み込みの権限で事足りるかと思っていたが、GKE固有のカスタムリソースは操作できないようだった。&lt;/p>
 &lt;p>今回は次のようなClusterRoleを作ることにした:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ClusterRole&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">rbac.authorization.k8s.io/v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">gke-managedcertificate-admin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">rules&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">apiGroups&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;networking.gke.io&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">resources&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;managedcertificates&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">verbs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;*&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>メモ:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">ClusterRole&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">rbac.authorization.k8s.io/v1&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">gke-managedcertificate-admin&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">rules&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">apiGroups&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;networking.gke.io&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">resources&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;managedcertificates&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">verbs&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;*&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>メモ:&lt;/p>
 &lt;ul>
 &lt;li>apiGroupsはGKEのオブジェクトブラウザで確認できる&lt;/li>
 &lt;li>resourcesは &lt;code>&amp;quot;*&amp;quot;&lt;/code> とか指定できるのかな？&lt;/li>
@@ -83,11 +84,12 @@ ssh -D &lt;span style="color:#000">$PORT&lt;/span> &lt;span style="color:#000">$
 &lt;p>ssh configでHashKnownHostsがYesになってるみたい。&lt;/p>
 &lt;p>これを復号する方法を調べてみたが、まだ見つかっていない。ハッシュ化=一方向変換なら、無理か。&lt;/p>
 &lt;p>次の操作は可能:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 該当ホストがknown_hostsに存在するか探す&lt;/span>
-ssh-keygen -F &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
-&lt;span style="color:#8f5902;font-style:italic"># 該当ホストをknown_hostsから削除&lt;/span>
-ssh-keygen -R &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>いまのところ考えられるやり方は、次の手順:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 該当ホストがknown_hostsに存在するか探す&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ssh-keygen -F &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 該当ホストをknown_hostsから削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ssh-keygen -R &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>いまのところ考えられるやり方は、次の手順:&lt;/p>
 &lt;ol>
 &lt;li>ユーザの ~/.ssh/configでHashKnownHostsをnoにする&lt;/li>
 &lt;li>known_hostsからエントリを消して再接続する&lt;/li>
@@ -100,14 +102,16 @@ ssh-keygen -R &lt;span style="color:#000">$host&lt;/span> -f ~/.ssh/known_hosts
 &lt;h2 id="122">12/2&lt;/h2>
 &lt;h3 id="binqにargocdを追加">binqにargocdを追加&lt;/h3>
 &lt;p>すっかり使い方が記憶の彼方だったが、過去ログとかGitHub Pages上の他の設定を見たらなんとかなった。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">binq new &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/argoproj/argo-cd/releases/download/v{{.Version}}/argocd-{{.OS}}-{{.Arch}}{{.BinExt}}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v 1.7.10 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --rename &lt;span style="color:#4e9a06">&amp;#34;argocd-{{.OS}}-{{.Arch}}:argocd,argocd-{{.OS}}-{{.Arch}}.exe:argocd.exe&amp;#34;&lt;/span>
-binq register index/index.json tmp/argocd.json -p github.com/argoproj/argo-cd/index.json
-binq verify github.com/argoproj/argo-cd/index.json
-binq verify github.com/argoproj/argo-cd/index.json --os linux
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-10-02</title><link>https://progrhy.me/tech-notes/a/memo/20201002/</link><pubDate>Fri, 02 Oct 2020 16:43:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201002/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>binq new &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/argoproj/argo-cd/releases/download/v{{.Version}}/argocd-{{.OS}}-{{.Arch}}{{.BinExt}}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> -v 1.7.10 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> --rename &lt;span style="color:#4e9a06">&amp;#34;argocd-{{.OS}}-{{.Arch}}:argocd,argocd-{{.OS}}-{{.Arch}}.exe:argocd.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binq register index/index.json tmp/argocd.json -p github.com/argoproj/argo-cd/index.json
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binq verify github.com/argoproj/argo-cd/index.json
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binq verify github.com/argoproj/argo-cd/index.json --os linux
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-10-02</title><link>https://progrhy.me/tech-notes/a/memo/20201002/</link><pubDate>Fri, 02 Oct 2020 16:43:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201002/</guid><description>
 &lt;h2 id="102">10/2&lt;/h2>
 &lt;h3 id="terraform-v013へのアップグレード">terraform v0.13へのアップグレード&lt;/h3>
 &lt;p>最近、何度かv0.12からアップグレードする機会があった。&lt;br>
@@ -133,7 +137,7 @@ The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
 Error: Provider configuration not present
 To work with google_xxx.yyy its
-original provider configuration at provider[&amp;quot;registry.terraform.io/-/google&amp;quot;]
+original provider configuration at provider[&amp;#34;registry.terraform.io/-/google&amp;#34;]
 is required, but it has been removed. This occurs when a provider
 configuration is removed while objects created by that provider still exist in
 the state. Re-add the provider configuration to destroy
@@ -150,17 +154,18 @@ google_xxx.yyy, after which you can remove the provider configuration again.
 &lt;h4 id="terraformrequired_providersエントリの追加">terraform.required_providersエントリの追加&lt;/h4>
 &lt;p>必須ではないかもしれないが、利用するプロバイダをterraformブロックの中に記述するようになった。&lt;/p>
 &lt;p>例:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
-&lt;span style="color:#000"> required_version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 0.13.0&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">required_providers&lt;/span> {
-&lt;span style="color:#000"> google&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
-&lt;span style="color:#000"> source&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
-&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 3.41&amp;#34;&lt;/span>
-}
-&lt;span style="color:#000"> google-beta&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
-&lt;span style="color:#000"> source&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hashicorp/google-beta&amp;#34;&lt;/span>
-&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 3.41&amp;#34;&lt;/span>
-}
-}
-}
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item><item><title>A: 2018 archive</title><link>https://progrhy.me/tech-notes/a/memo/2018/</link><pubDate>Mon, 01 Jan 2018 16:05:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2018/</guid><description/></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> required_version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 0.13.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">required_providers&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> google&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> source&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 3.41&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> google-beta&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> source&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hashicorp/google-beta&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 3.41&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item><item><title>A: 2018 archive</title><link>https://progrhy.me/tech-notes/a/memo/2018/</link><pubDate>Mon, 01 Jan 2018 16:05:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2018/</guid><description/></item></channel></rss>

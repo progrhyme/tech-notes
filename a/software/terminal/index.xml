@@ -134,19 +134,25 @@ tmuxと一緒には使えないそうだ。&lt;/p>
 &lt;h3 id="ssh接続時に背景を変更する">SSH接続時に背景を変更する&lt;/h3>
 &lt;p>背景色のみを変えることもできるが、リモート接続用の設定プロファイルを（複数）用意し、接続先によって切り替えるということも可能。&lt;/p>
 &lt;p>某現場では &lt;code>gcloud compute ssh&lt;/code> を使うことが多いので、下のようなスクリプトを作り、 &lt;code>gcloud-ssh&lt;/code> とaliasした。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -eu
-&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">remote&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ITERM_PROFILE&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Restore profile in any case&lt;/span>
-&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo -ne \&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a\&amp;#34;&amp;#34;&lt;/span> EXIT
-&lt;span style="color:#8f5902;font-style:italic"># Set given profile&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
-gcloud compute ssh &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">exit&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#!/usr/bin/env bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -eu
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">remote&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ITERM_PROFILE&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Restore profile in any case&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">trap&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;echo -ne \&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a\&amp;#34;&amp;#34;&lt;/span> EXIT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Set given profile&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">NEW_ITERM_PROFILE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud compute ssh &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$@&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> -ne &lt;span style="color:#4e9a06">&amp;#34;\033]1337;SetProfile=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">original_profile&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">\a&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>最初 &lt;code>INT&lt;/code> でtrapしていたけど、gcloudコマンドが途中でコケたときにtrapできなかったので、 &lt;code>EXIT&lt;/code> にした&lt;/li>
 &lt;/ul>
@@ -186,11 +192,12 @@ set-option -g default-terminal screen-256color
 &lt;li>tmux基本のコマンド — nato’s memo 1.0 documentation : &lt;a href="http://room6933.com/mymemo/tmux/tmux-basic.html">http://room6933.com/mymemo/tmux/tmux-basic.html&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="tmux-コマンド">tmux コマンド&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># セッションのリネーム&lt;/span>
-tmux rename -t &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> hoge
-&lt;span style="color:#8f5902;font-style:italic"># 256色表示&lt;/span>
-tmux -2
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="仮想端末操作">仮想端末操作&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># セッションのリネーム&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux rename -t &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> hoge
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 256色表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux -2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="仮想端末操作">仮想端末操作&lt;/h3>
 &lt;table>
 &lt;thead>
 &lt;tr>

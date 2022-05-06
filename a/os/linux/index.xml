@@ -14,11 +14,12 @@
 &lt;h2 id="firewall">Firewall&lt;/h2>
 &lt;p>Ubuntu 18.04だとufwが標準で入っている。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 状態表示&lt;/span>
-sudo ufw status
-&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
-sudo ufw &lt;span style="color:#204a87">enable&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 状態表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 有効化&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#204a87">enable&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://server.tottio.net/archives/296">Ubuntu 18.04でUbuntuファイアウォール（UFW）を設定する | tottio&lt;/a>&lt;/li>
 &lt;/ul>
@@ -26,15 +27,17 @@ sudo ufw &lt;span style="color:#204a87">enable&lt;/span>
 &lt;h3 id="apparmor">AppArmor&lt;/h3>
 &lt;p>いつからかUbuntuに標準で組み込まれたSELinux的なやつ。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="color:#8f5902;font-style:italic">## 現在の状態を表示&lt;/span>
-aa-enabled
-apparmor_status
-&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
-/etc/init.d/apparmor start
-&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
-/etc/init.d/apparmor stop
-/etc/init.d/apparmor teardown
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 現在の状態を表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aa-enabled
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apparmor_status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 起動&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/etc/init.d/apparmor start
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 停止&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/etc/init.d/apparmor stop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/etc/init.d/apparmor teardown
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://wiki.archlinux.jp/index.php/AppArmor">AppArmor - ArchWiki&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://support.plesk.com/hc/ja/articles/213909965--%E6%89%8B%E9%A0%86-AppArmor-%E3%82%92%E7%84%A1%E5%8A%B9%E5%8C%96%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">[手順] AppArmor を無効化するには – ヘルプセンター&lt;/a>&lt;/li>

@@ -159,7 +159,7 @@ GCPなどでアカウント管理にも使える。&lt;/p>
 &lt;p>Examples:&lt;/p>
 &lt;pre tabindex="0">&lt;code>ADDRESS(1,2)
 ADDRESS(1,2,4,FALSE)
-ADDRESS(1,2,,,&amp;quot;シート2&amp;quot;)
+ADDRESS(1,2,,,&amp;#34;シート2&amp;#34;)
 &lt;/code>&lt;/pre>&lt;h3 id="match">MATCH&lt;/h3>
 &lt;p>&lt;a href="https://support.google.com/docs/answer/3093378?hl=ja">https://support.google.com/docs/answer/3093378?hl=ja&lt;/a>&lt;/p>
 &lt;p>指定した値と一致する範囲内のアイテムの相対的な位置を返します。&lt;/p>
@@ -174,7 +174,7 @@ ADDRESS(1,2,,,&amp;quot;シート2&amp;quot;)
 &lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;pre tabindex="0">&lt;code>MATCH(&amp;quot;日曜日&amp;quot;,A2:A9,0)
+&lt;pre tabindex="0">&lt;code>MATCH(&amp;#34;日曜日&amp;#34;,A2:A9,0)
 MATCH(DATE(2012,1,1),A2:F2)
 &lt;/code>&lt;/pre>&lt;h3 id="sumifs">SUMIFS&lt;/h3>
 &lt;p>&lt;a href="https://support.google.com/docs/answer/3238496?hl=ja">https://support.google.com/docs/answer/3238496?hl=ja&lt;/a>&lt;/p>

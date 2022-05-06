@@ -29,9 +29,9 @@
 &lt;/ul>
 &lt;p>※以下、古いWikiの内容をマイグレートしたので、v1の情報が元になっているものが多い。&lt;/p>
 &lt;h3 id="configure">configure&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># credential等がちゃんと設定されてるか確認&lt;/span>
-aws configure list
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># credential等がちゃんと設定されてるか確認&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://aws.amazon.com/jp/premiumsupport/knowledge-center/s3-locate-credentials-error/">S3 バケットの「認証情報が見つかりません」エラーを修正する&lt;/a>&lt;/li>
 &lt;/ul>
@@ -40,11 +40,12 @@ aws configure list
 &lt;h4 id="update-service">update-service&lt;/h4>
 &lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># タスク定義を更新&lt;/span>
-aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> --service &lt;span style="color:#000">$SERVICE&lt;/span> --task-definition &lt;span style="color:#000">$TASK_DEFINITION&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># サービス定義を更新せずに再起動&lt;/span>
-aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> --service &lt;span style="color:#000">$SERVICE&lt;/span> --force-new-deployment
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logs">logs&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># タスク定義を更新&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> --service &lt;span style="color:#000">$SERVICE&lt;/span> --task-definition &lt;span style="color:#000">$TASK_DEFINITION&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># サービス定義を更新せずに再起動&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> --service &lt;span style="color:#000">$SERVICE&lt;/span> --force-new-deployment
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logs">logs&lt;/h3>
 &lt;p>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/logs/index.html">http://docs.aws.amazon.com/cli/latest/reference/logs/index.html&lt;/a>&lt;/p>
 &lt;p>CloudWatch Logs.&lt;/p>
 &lt;ul>
@@ -56,21 +57,21 @@ aws ecs update-service --cluster &lt;span style="color:#000">$CLUSTER&lt;/span> 
 &lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 2017/12/20 8:50 - 9:10のログを取得&lt;/span>
-$ date +%s -d &lt;span style="color:#4e9a06">&amp;#34;2017-12-20 08:50:00&amp;#34;&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">1513727400&lt;/span>
-$ date +%s -d &lt;span style="color:#4e9a06">&amp;#34;2017-12-20 09:10:00&amp;#34;&lt;/span>
-&lt;span style="color:#0000cf;font-weight:bold">1513728600&lt;/span>
-$ aws logs get-log-events &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --log-group-name &amp;lt;your-log-group&amp;gt; --log-stream-name &amp;lt;your-log-stream&amp;gt; &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --start-time &lt;span style="color:#0000cf;font-weight:bold">1513727400000&lt;/span> --end-time &lt;span style="color:#0000cf;font-weight:bold">1513728600000&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--output text&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create-log-group">create-log-group&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2017/12/20 8:50 - 9:10のログを取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ date +%s -d &lt;span style="color:#4e9a06">&amp;#34;2017-12-20 08:50:00&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0000cf;font-weight:bold">1513727400&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ date +%s -d &lt;span style="color:#4e9a06">&amp;#34;2017-12-20 09:10:00&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0000cf;font-weight:bold">1513728600&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ aws logs get-log-events &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> --log-group-name &amp;lt;your-log-group&amp;gt; --log-stream-name &amp;lt;your-log-stream&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> --start-time &lt;span style="color:#0000cf;font-weight:bold">1513727400000&lt;/span> --end-time &lt;span style="color:#0000cf;font-weight:bold">1513728600000&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--output text&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="create-log-group">create-log-group&lt;/h4>
 &lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">aws logs create-log-group --log-group-name &amp;lt;value&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="describe-log-groups">describe-log-groups&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>aws logs create-log-group --log-group-name &amp;lt;value&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="describe-log-groups">describe-log-groups&lt;/h4>
 &lt;p>&lt;a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html">https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">aws logs describe-log-groups &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sns">sns&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>aws logs describe-log-groups &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sns">sns&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://docs.aws.amazon.com/cli/latest/reference/sns/">https://docs.aws.amazon.com/cli/latest/reference/sns/&lt;/a>
 &lt;ul>
@@ -79,11 +80,12 @@ $ aws logs get-log-events &lt;span style="color:#4e9a06">\
 &lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># テキストファイルの内容を送信&lt;/span>
-aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:ap-northeast-1:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">AWS_ACCOUNT_ID&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">topic&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> --subject &lt;span style="color:#4e9a06">&amp;#34;my sns notification&amp;#34;&lt;/span> --message file://path/to/message-file
-&lt;span style="color:#8f5902;font-style:italic"># コマンドの実行結果を送信&lt;/span>
-aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:ap-northeast-1:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">AWS_ACCOUNT_ID&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">topic&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> --message &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat path/to/file&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ssm">ssm&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># テキストファイルの内容を送信&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:ap-northeast-1:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">AWS_ACCOUNT_ID&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">topic&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> --subject &lt;span style="color:#4e9a06">&amp;#34;my sns notification&amp;#34;&lt;/span> --message file://path/to/message-file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コマンドの実行結果を送信&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:ap-northeast-1:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">AWS_ACCOUNT_ID&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">:&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">topic&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> --message &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat path/to/file&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ssm">ssm&lt;/h3>
 &lt;p>&lt;a href="http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html">http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html&lt;/a>&lt;/p>
 &lt;p>Parameter Store:&lt;/p>
 &lt;ul>
@@ -93,9 +95,9 @@ aws sns publish --topic-arn &lt;span style="color:#4e9a06">&amp;#34;arn:aws:sns:
 &lt;/ul>
 &lt;h3 id="sts">sts&lt;/h3>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 現在のAWSアカウントや利用しているIAMの情報を表示する&lt;/span>
-aws sts get-caller-identity
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 現在のAWSアカウントや利用しているIAMの情報を表示する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws sts get-caller-identity
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://dev.classmethod.jp/articles/get-aws-account-id-with-get-caller-identity/">【小ネタ】AWS CLIでAWS Account IDが取れるようになりました！ | Developers.IO&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: ECS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/ecs/</link><pubDate>Wed, 08 Jul 2020 23:08:55 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/ecs/</guid><description>
@@ -189,25 +191,27 @@ aws sts get-caller-identity
 &lt;/ul>
 &lt;h3 id="デバッグ出力の有効化">デバッグ出力の有効化&lt;/h3>
 &lt;p>&lt;a href="http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/docker-debug-mode.html">http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/docker-debug-mode.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ sudo vi /etc/sysconfig/docker
-&lt;span style="color:#8f5902;font-style:italic">## OPTIONSに下のように&amp;#34;-D&amp;#34;を足す。&lt;/span>
-&lt;span style="color:#000">OPTIONS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-D --default-ulimit nofile=1024:4096&amp;#34;&lt;/span>
-$ sudo service docker restart
-$ sudo start ecs
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ebs-dockerボリュームの変更">EBS Dockerボリュームの変更&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ sudo vi /etc/sysconfig/docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## OPTIONSに下のように&amp;#34;-D&amp;#34;を足す。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">OPTIONS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-D --default-ulimit nofile=1024:4096&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo service docker restart
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo start ecs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ebs-dockerボリュームの変更">EBS Dockerボリュームの変更&lt;/h3>
 &lt;p>デフォルト22Gなのだが、ワークロードが高い場合、Burst Balanceを使い切る可能性がある。&lt;br>
 ボリュームを拡張しておくことでキャパシティを上げることができるが、変えたい場合はEC2作成時やLaunch Configurationで変える必要がある。&lt;/p>
 &lt;p>デバイス名 &lt;code>/dev/xvdcz&lt;/code> のボリュームを変えれば良い。&lt;/p>
 &lt;p>Terraformの場合、 &lt;a href="https://www.terraform.io/docs/providers/aws/r/launch_configuration.html">aws_launch_configuration&lt;/a> resourceの &lt;code>ebs_block_device&lt;/code> ブロックで設定する。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Terraform" data-lang="Terraform">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_launch_configuration&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my_ecs_launch_config&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">ebs_block_device&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#c4a000">device_name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;/dev/xvdcz&amp;#34;&lt;/span>
-&lt;span style="color:#c4a000">volume_type&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;gp2&amp;#34;&lt;/span>
-&lt;span style="color:#c4a000">volume_size&lt;/span> = &lt;span style="color:#0000cf;font-weight:bold">50&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Terraform" data-lang="Terraform">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_launch_configuration&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;my_ecs_launch_config&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">ebs_block_device&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">device_name&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;/dev/xvdcz&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">volume_type&lt;/span> = &lt;span style="color:#4e9a06">&amp;#34;gp2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c4a000">volume_size&lt;/span> = &lt;span style="color:#0000cf;font-weight:bold">50&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" title="Amazon EBS ボリュームの種類 - Amazon Elastic Compute Cloud">Amazon EBS ボリュームの種類 - Amazon Elastic Compute Cloud&lt;/a>&lt;/li>
 &lt;/ul>
@@ -341,8 +345,8 @@ $ sudo start ecs
 &lt;h4 id="mysqlrds_show_configuration">mysql.rds_show_configuration&lt;/h4>
 &lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/mysql_rds_show_configuration.html">https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/mysql_rds_show_configuration.html&lt;/a>&lt;/p>
 &lt;p>バイナリログを保持する時間数を表示する。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sql" data-lang="sql">&lt;span style="color:#204a87;font-weight:bold">CALL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">mysql&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rds_show_configuration&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="postgresql">PostgreSQL&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">CALL&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">mysql&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rds_show_configuration&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="postgresql">PostgreSQL&lt;/h2>
 &lt;p>ログの保持期間:&lt;/p>
 &lt;ul>
 &lt;li>DBパラメータグループの &lt;code>rds.log_retention_period&lt;/code> で設定する。分単位。デフォルトは &lt;code>4320&lt;/code> (3日分).&lt;/li>

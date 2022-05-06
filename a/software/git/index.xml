@@ -6,9 +6,9 @@
 &lt;li>&lt;a href="http://qiita.com/konweb/items/621722f67fdd8f86a017">【Git】基本コマンド - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="apply">apply&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## git diffコマンドで作ったpatchを適用する&lt;/span>
-git apply file.patch
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## git diffコマンドで作ったpatchを適用する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git apply file.patch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://maku77.github.io/git/git-patch.html">Git でパッチファイルを作成する | まくまくGitノート&lt;/a>&lt;/li>
 &lt;/ul>
@@ -23,88 +23,95 @@ git apply file.patch
 &lt;/ul>
 &lt;h2 id="branch">branch&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-branch">https://git-scm.com/docs/git-branch&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ローカルのbranchを表示&lt;/span>
-git branch
-&lt;span style="color:#8f5902;font-style:italic">## マージ済みのbranchを表示&lt;/span>
-git branch --merged
-&lt;span style="color:#8f5902;font-style:italic">## 出力フォーマット指定&lt;/span>
-git branch --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;FORMAT&amp;gt;&amp;#34;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 追跡branchも含めて表示&lt;/span>
-git branch -vv
-&lt;span style="color:#8f5902;font-style:italic"># 今のbranchを元に新しいbranchを作る&lt;/span>
-git branch &amp;lt;newbranch&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 既存のbranchを元に新しいbranchを作る&lt;/span>
-git branch &amp;lt;oldbranch&amp;gt; &amp;lt;newbranch&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 追跡ブランチを設定&lt;/span>
-git branch -u&lt;span style="color:#000;font-weight:bold">|&lt;/span>--set-upstream-to origin/&amp;lt;branch&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>--format&lt;/code> オプションで指定できるフォーマットについては&lt;a href="#for-each-ref">git-for-each-ref&lt;/a>を見よ。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ローカルのbranchを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## マージ済みのbranchを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch --merged
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 出力フォーマット指定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;FORMAT&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 追跡branchも含めて表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch -vv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 今のbranchを元に新しいbranchを作る&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch &amp;lt;newbranch&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 既存のbranchを元に新しいbranchを作る&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch &amp;lt;oldbranch&amp;gt; &amp;lt;newbranch&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 追跡ブランチを設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch -u&lt;span style="color:#000;font-weight:bold">|&lt;/span>--set-upstream-to origin/&amp;lt;branch&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>--format&lt;/code> オプションで指定できるフォーマットについては&lt;a href="#for-each-ref">git-for-each-ref&lt;/a>を見よ。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/kz_morita/items/c624f8cf27ec82de0baa">gitでローカルのブランチが追跡しているリモートブランチを確認する方法 - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="checkout">checkout&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## topicブランチを作成&lt;/span>
-git checkout -b topic
-&lt;span style="color:#8f5902;font-style:italic">## remoteブランチからローカルブランチを作成&lt;/span>
-git checkout -b foo origin/foo
-&lt;span style="color:#8f5902;font-style:italic">## 空ブランチを作る&lt;/span>
-git checkout --orphan empty
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## topicブランチを作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git checkout -b topic
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## remoteブランチからローカルブランチを作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git checkout -b foo origin/foo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 空ブランチを作る&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git checkout --orphan empty
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/akiko-pusu/items/7c0a99b8cb37882d2cfe" title="gitの空ブランチを作る - Qiita">gitの空ブランチを作る - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="cherry-pick">cherry-pick&lt;/h2>
 &lt;p>別ブランチで開発中の機能などをコミット単位で取り込むときに使う。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git cherry-pick &amp;lt;SHA1&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## マージコミットのcherry-pick&lt;/span>
-git cherry-pick -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;SHA1&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git cherry-pick &amp;lt;SHA1&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## マージコミットのcherry-pick&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git cherry-pick -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;SHA1&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://qiita.com/takc923/items/8e2d87d692f840b14464" title="merge commitをcherry-pickする - Qiita">merge commitをcherry-pickする - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="clone">clone&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-clone">https://git-scm.com/docs/git-clone&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 深さ1の shallow clone&lt;/span>
-git clone --depth &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;URL&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## ブランチ指定&lt;/span>
-git clone --branch BRANCH URL
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commit">commit&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 深さ1の shallow clone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone --depth &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;URL&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## ブランチ指定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone --branch BRANCH URL
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commit">commit&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-commit">https://git-scm.com/docs/git-commit&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># 変更・削除したファイルを全てコミットする&lt;/span>
-git commit --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>ll
-&lt;span style="color:#8f5902;font-style:italic"># 変更点を表示してコミット&lt;/span>
-git commit -v
-&lt;span style="color:#8f5902;font-style:italic"># 空コミット&lt;/span>
-git commit --allow-empty
-&lt;span style="color:#8f5902;font-style:italic"># コミットメッセージを変更&lt;/span>
-git commit --amend
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="config">config&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 変更・削除したファイルを全てコミットする&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit --&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>ll
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 変更点を表示してコミット&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 空コミット&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit --allow-empty
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コミットメッセージを変更&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit --amend
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="config">config&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-config">https://git-scm.com/docs/git-config&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 特定のキーの値を取得&lt;/span>
-git config &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--get&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;key&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
-git config &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--get&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> remote.origin.url
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="diff">diff&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 特定のキーの値を取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--get&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;key&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--get&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> remote.origin.url
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="diff">diff&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-diff">https://git-scm.com/docs/git-diff&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># スペース等の差分を無視&lt;/span>
-git diff -w
-&lt;span style="color:#8f5902;font-style:italic"># ファイル名のみ表示&lt;/span>
-git diff --name-only
-&lt;span style="color:#8f5902;font-style:italic"># 差分があるときに失敗&lt;/span>
-git diff --exit-code
-&lt;span style="color:#8f5902;font-style:italic">## 何も出力しない&lt;/span>
-git diff --quiet
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># スペース等の差分を無視&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git diff -w
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ファイル名のみ表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git diff --name-only
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 差分があるときに失敗&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git diff --exit-code
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 何も出力しない&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git diff --quiet
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://inaz2.hatenablog.com/entry/2014/07/03/003551">colordiffを使わずにdiffをカラー表示する - ももいろテクノロジー&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/progrhyme/items/a5ae31b7dd23cec51b03">gitコマンドでワーキングツリーがクリーンかどうか判定する - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="fetch">fetch&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-fetch">https://git-scm.com/docs/git-fetch&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git fetch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
-git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git fetch &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## remote で削除された branch について、local のトラッキングブランチも消す&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -128,15 +135,17 @@ git fetch -p&lt;span style="color:#000;font-weight:bold">|&lt;/span>--prune
 &lt;h2 id="for-each-ref">for-each-ref&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-for-each-ref">https://git-scm.com/docs/git-for-each-ref&lt;/a>&lt;/p>
 &lt;p>local branch, remote branchのHEAD, tagの情報を表示。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># A simple example showing the use of shell eval on the output, demonstrating the use of --shell.&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># List the prefixes of all heads:&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">#!/bin/sh&lt;/span>
-git &lt;span style="color:#204a87;font-weight:bold">for&lt;/span>-each-ref --shell --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ref=%(refname)&amp;#34;&lt;/span> refs/heads &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#204a87">read&lt;/span> entry&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$entry&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">`&lt;/span>dirname &lt;span style="color:#000">$ref&lt;/span>&lt;span style="color:#4e9a06">`&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>FORMATで指定できるフィールド:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># A simple example showing the use of shell eval on the output, demonstrating the use of --shell.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># List the prefixes of all heads:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#!/bin/sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git &lt;span style="color:#204a87;font-weight:bold">for&lt;/span>-each-ref --shell --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ref=%(refname)&amp;#34;&lt;/span> refs/heads &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> &lt;span style="color:#204a87">read&lt;/span> entry&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$entry&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">`&lt;/span>dirname &lt;span style="color:#000">$ref&lt;/span>&lt;span style="color:#4e9a06">`&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>FORMATで指定できるフィールド:&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -169,15 +178,17 @@ git &lt;span style="color:#204a87;font-weight:bold">for&lt;/span>-each-ref --she
 &lt;/table>
 &lt;h2 id="log">log&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-log">https://git-scm.com/docs/git-log&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic">## 過去のコミットから対象文字列を含むコミットを検索&lt;/span>
-git log -S 文字列
-&lt;span style="color:#8f5902;font-style:italic">## 1行で表示&lt;/span>
-git log --pretty&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>oneline
-git log --oneline --graph --decorate
-&lt;span style="color:#8f5902;font-style:italic">## フォーマット指定&lt;/span>
-git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%H&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># full commit hash のみ&lt;/span>
-git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%h %s&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># short hash + title&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 過去のコミットから対象文字列を含むコミットを検索&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log -S 文字列
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 1行で表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --pretty&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>oneline
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --oneline --graph --decorate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## フォーマット指定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%H&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># full commit hash のみ&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%h %s&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># short hash + title&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -254,9 +265,9 @@ git log --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;s
 &lt;/ul>
 &lt;h2 id="pull">pull&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-pull">https://git-scm.com/docs/git-pull&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># リファレンスには書いてないが、fetch時に--pruneしてくれるらしい&lt;/span>
-git pull --prune
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リファレンスには書いてないが、fetch時に--pruneしてくれるらしい&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git pull --prune
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -284,13 +295,15 @@ git pull --prune
 &lt;/ul>
 &lt;h2 id="rebase">rebase&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-rebase">https://git-scm.com/docs/git-rebase&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># （現在のブランチの）Nコミット前に遡って編集&lt;/span>
-git rebase -i HEAD~N
-&lt;span style="color:#8f5902;font-style:italic"># 特定のコミットを除くそれ以降の履歴を編集&lt;/span>
-git rebase -i &amp;lt;after-this-commit&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 1st コミットから編集&lt;/span>
-git rebase -i --root
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># （現在のブランチの）Nコミット前に遡って編集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rebase -i HEAD~N
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 特定のコミットを除くそれ以降の履歴を編集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rebase -i &amp;lt;after-this-commit&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1st コミットから編集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rebase -i --root
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>masterにtopicブランチをマージした後で &lt;code>git rebase -i HEAD~N&lt;/code> とやると、topicブランチの履歴は数に数えられないので注意&lt;/li>
 &lt;/ul>
@@ -301,29 +314,34 @@ git rebase -i --root
 &lt;h2 id="remote">remote&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote&lt;/a>&lt;/p>
 &lt;p>リモートリポジトリの管理。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ一覧&lt;/span>
-git remote
-git remote -v
-&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ追加&lt;/span>
-git remote add &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ削除&lt;/span>
-git remote rm &amp;lt;リポジトリ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># URL変更&lt;/span>
-git remote set-url &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># リポジトリ名変更&lt;/span>
-git remote rename &amp;lt;リポジトリ名&amp;gt; &amp;lt;新しいリポジトリ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># remote groupに属するブランチをfetchする&lt;/span>
-git remote update
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ追加&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote add &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リモートリポジトリ削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote rm &amp;lt;リポジトリ名&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># URL変更&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote set-url &amp;lt;リポジトリ名&amp;gt; &amp;lt;URL&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リポジトリ名変更&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote rename &amp;lt;リポジトリ名&amp;gt; &amp;lt;新しいリポジトリ名&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># remote groupに属するブランチをfetchする&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.sejuku.net/blog/71492">これで完璧! git remoteでリポジトリを【追加,削除,確認,変更】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverrun.com/ja/q/4825185">「git remote update」と「git fetch」と「git pull」の違いは何ですか？&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="revert">revert&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git revert &amp;lt;SHA1&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## マージコミットの取消し&lt;/span>
-git revert -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;SHA1&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git revert &amp;lt;SHA1&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## マージコミットの取消し&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git revert -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;lt;SHA1&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt">https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://d.hatena.ne.jp/koba04/20121122/1353512656" title="gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記">gitのmerge-commitをrevertする - 車輪を再発明 / koba04の日記&lt;/a>&lt;/li>
@@ -332,11 +350,12 @@ git revert -m &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &amp;l
 &lt;p>&lt;a href="https://git-scm.com/docs/git-rev-list">https://git-scm.com/docs/git-rev-list&lt;/a>&lt;/p>
 &lt;p>コミットオブジェクトを新しいものから順に表示する。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># masterにないコミットを表示&lt;/span>
-git rev-list master...HEAD
-&lt;span style="color:#8f5902;font-style:italic"># upstreamとの間にあるコミットを検出&lt;/span>
-git rev-list HEAD...HEAD@&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>upstream&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># masterにないコミットを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rev-list master...HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># upstreamとの間にあるコミットを検出&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rev-list HEAD...HEAD@&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>upstream&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -353,31 +372,33 @@ git rev-list HEAD...HEAD@&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/s
 &lt;h2 id="show-ref">show-ref&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-show-ref">https://git-scm.com/docs/git-show-ref&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git show-ref
-ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/heads/master
-ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/HEAD
-58f3ac4dc2e1b893bbacb09fa300244dc95ab3e5 refs/remotes/origin/gh-pages
-ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/master
-$ git show-ref --tags --abbrev
-4eb72e6 refs/tags/v0.1.0
-f0edeb9 refs/tags/v0.2.0
-e711338 refs/tags/v0.3.0
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="status">status&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ git show-ref
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/heads/master
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>58f3ac4dc2e1b893bbacb09fa300244dc95ab3e5 refs/remotes/origin/gh-pages
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ccdda98f76466a7fe19a7ed1b99f4dbc0f9aff2d refs/remotes/origin/master
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git show-ref --tags --abbrev
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4eb72e6 refs/tags/v0.1.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>f0edeb9 refs/tags/v0.2.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>e711338 refs/tags/v0.3.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="status">status&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-status">https://git-scm.com/docs/git-status&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 出力を短くする&lt;/span>
-git status -s&lt;span style="color:#000;font-weight:bold">|&lt;/span>--short
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 出力を短くする&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git status -s&lt;span style="color:#000;font-weight:bold">|&lt;/span>--short
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tommy_aka_jps/items/af536a7c20747f99aa42">git status -s でちょっと幸せになれる - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="submodule">submodule&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-submodule">https://git-scm.com/docs/git-submodule&lt;/a>&lt;/p>
 &lt;p>なんだかんだで割りと使っている。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#8f5902;font-style:italic"># submodule追加&lt;/span>
-git submodule add &amp;lt;git-url&amp;gt; &amp;lt;local-path&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 全submodule更新&lt;/span>
-git submodule foreach git pull origin master
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>sumobuleの削除 =&amp;gt; &lt;a href="https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete">https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># submodule追加&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git submodule add &amp;lt;git-url&amp;gt; &amp;lt;local-path&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 全submodule更新&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git submodule foreach git pull origin master
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>sumobuleの削除 =&amp;gt; &lt;a href="https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete">https://github.com/progrhyme/git-wraps/blob/master/bin/git-submodule-delete&lt;/a>&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://qiita.com/sotarok/items/0d525e568a6088f6f6bb" title="Git submodule の基礎 - Qiita">Git submodule の基礎 - Qiita&lt;/a>&lt;/li>
@@ -401,17 +422,20 @@ git submodule foreach git pull origin master
 &lt;p>&lt;a href="https://git-scm.com/docs/git-symbolic-ref">https://git-scm.com/docs/git-symbolic-ref&lt;/a>&lt;/p>
 &lt;p>symbolic refの読み取り、変更、削除コマンド。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git symbolic-ref HEAD
-refs/heads/master
-$ git symbolic-ref --short HEAD
-master
-&lt;span style="color:#8f5902;font-style:italic"># デフォルトブランチの取得&lt;/span>
-$ git symbolic-ref --short refs/remotes/origin/HEAD
-origin/master
-$ git checkout v1.0 &lt;span style="color:#8f5902;font-style:italic"># switch to tag = &amp;#39;detached HEAD&amp;#39;&lt;/span>
-$ git symbolic-ref HEAD
-fatal: ref HEAD is not a symbolic ref
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ git symbolic-ref HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>refs/heads/master
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git symbolic-ref --short HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>master
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトブランチの取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git symbolic-ref --short refs/remotes/origin/HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>origin/master
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git checkout v1.0 &lt;span style="color:#8f5902;font-style:italic"># switch to tag = &amp;#39;detached HEAD&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git symbolic-ref HEAD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>fatal: ref HEAD is not a symbolic ref
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -428,24 +452,28 @@ fatal: ref HEAD is not a symbolic ref
 &lt;h2 id="tag">tag&lt;/h2>
 &lt;p>&lt;a href="https://git-scm.com/docs/git-tag">https://git-scm.com/docs/git-tag&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
-git tag &amp;lt;タグ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 注釈付き&lt;/span>
-git tag -a &amp;lt;タグ名&amp;gt; -m &amp;lt;メッセージ&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
-git show &amp;lt;タグ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
-git tag
-&lt;span style="color:#8f5902;font-style:italic">## 指定されたオブジェクトのタグのみ表示&lt;/span>
-git tag --points-at &amp;lt;object&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
-git tag -d &amp;lt;タグ名&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># リモートに反映&lt;/span>
-git push &amp;lt;リモート&amp;gt; &amp;lt;タグ名&amp;gt;
-git push --tags
-&lt;span style="color:#8f5902;font-style:italic"># 削除反映&lt;/span>
-git push &amp;lt;リモート&amp;gt; :&amp;lt;タグ名&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag &amp;lt;タグ名&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 注釈付き&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag -a &amp;lt;タグ名&amp;gt; -m &amp;lt;メッセージ&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git show &amp;lt;タグ名&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 指定されたオブジェクトのタグのみ表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag --points-at &amp;lt;object&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag -d &amp;lt;タグ名&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リモートに反映&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push &amp;lt;リモート&amp;gt; &amp;lt;タグ名&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push --tags
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 削除反映&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push &amp;lt;リモート&amp;gt; :&amp;lt;タグ名&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/chihiro/items/cba40015b1aa2c73b78a">【Git】tag関連コマンド - Qiita&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

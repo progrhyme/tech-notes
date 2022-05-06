@@ -34,15 +34,19 @@
 &lt;/ul>
 &lt;h2 id="quickstart">Quickstart&lt;/h2>
 &lt;p>使えるMakefileの例&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">default&lt;/span> &lt;span style="color:#000">build&lt;/span> &lt;span style="color:#000">clean&lt;/span>
-&lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">build&lt;/span>
-&lt;span style="color:#000">clean&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-rm -rf dist/
-&lt;span style="color:#000">timestamp&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-date +%s &amp;gt; timestamp
-&lt;span style="color:#000">build&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">timestamp&lt;/span> &lt;span style="color:#000">another&lt;/span>-&lt;span style="color:#000">file&lt;/span>
-some_build_command
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">default&lt;/span> &lt;span style="color:#000">build&lt;/span> &lt;span style="color:#000">clean&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">default&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">build&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">clean&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rm -rf dist/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">timestamp&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> date +%s &amp;gt; timestamp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">build&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">timestamp&lt;/span> &lt;span style="color:#000">another&lt;/span>-&lt;span style="color:#000">file&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> some_build_command
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
 &lt;ul>
 &lt;li>ターゲットの依存ターゲットは複数記すことができる。&lt;/li>
 &lt;/ul>
@@ -54,9 +58,9 @@ some_build_command
 &lt;h3 id="変数">変数&lt;/h3>
 &lt;p>変数定義のやり方について。&lt;/p>
 &lt;p>&amp;ldquo;=&amp;rdquo; と &amp;ldquo;:=&amp;rdquo; は違う。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">src&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> foo.c
-&lt;span style="color:#000">ymd&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shell date +%Y%m%d&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">src&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> foo.c
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">ymd&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shell date +%Y%m%d&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://quruli.ivory.ne.jp/document/make_3.79.1/make-jp_5.html" title="GNU make: 6. 変数の使用法">GNU make: 6. 変数の使用法&lt;/a>&lt;/li>
 &lt;/ul>
@@ -73,28 +77,30 @@ some_build_command
 &lt;h3 id="phonyターゲット">.PHONYターゲット&lt;/h3>
 &lt;p>&lt;a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html&lt;/a>&lt;/p>
 &lt;p>ファイルを生成しないやつ&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">clean&lt;/span>
-&lt;span style="color:#000">clean&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-rm *.o tmp
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>複数の.PHONYターゲットをまとめて記述することもできる&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">all&lt;/span> &lt;span style="color:#000">clean&lt;/span> &lt;span style="color:#000">deps&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="条件分岐">条件分岐&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">clean&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">clean&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rm *.o tmp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>複数の.PHONYターゲットをまとめて記述することもできる&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">all&lt;/span> &lt;span style="color:#000">clean&lt;/span> &lt;span style="color:#000">deps&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="条件分岐">条件分岐&lt;/h3>
 &lt;p>&lt;a href="https://www.gnu.org/software/make/manual/make.html#Conditionals">7 Conditional Parts of Makefiles&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">libs_for_gcc&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> -lgnu
-&lt;span style="color:#000">normal_libs&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
-&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#a40000">ifeq&lt;/span> &lt;span style="color:#a40000">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">,gcc)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">libs_for_gcc&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#a40000">else&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">normal_libs&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#a40000">endif&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="-のエスケープ">&lt;code>$&lt;/code> のエスケープ&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">libs_for_gcc&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> -lgnu
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">normal_libs&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">foo&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">ifeq&lt;/span> &lt;span style="color:#a40000">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#a40000">,gcc)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">libs_for_gcc&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">CC&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#a40000">-o&lt;/span> &lt;span style="color:#a40000">foo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">objects&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">normal_libs&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">endif&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="-のエスケープ">&lt;code>$&lt;/code> のエスケープ&lt;/h3>
 &lt;p>シェルの文脈で &lt;code>$&lt;/code> を使いたいときは &lt;code>$$&lt;/code> と記すことで実現できる。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-&lt;span style="color:#000">now&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$$&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>date&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$$&lt;/span>now
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">now&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$$&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>date&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$$&lt;/span>now
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://tmsanrinsha.net/post/2018/01/gnu-make/">GNU make - SanRin舎&lt;/a>&lt;/li>
 &lt;/ul>
@@ -109,18 +115,22 @@ rm *.o tmp
 &lt;/li>
 &lt;/ul>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># デフォルトのタスク（＝最上部で定義されたタスク）を実行&lt;/span>
-make
-&lt;span style="color:#8f5902;font-style:italic"># タスク名を指定して実行。複数指定可&lt;/span>
-make task1 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>task2 ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Makefileを指定する&lt;/span>
-make -f&lt;span style="color:#000;font-weight:bold">|&lt;/span>--file &amp;lt;Makefile&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># dry-run&lt;/span>
-make -n&lt;span style="color:#000;font-weight:bold">|&lt;/span>--dry-run
-&lt;span style="color:#8f5902;font-style:italic"># 変数の設定&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Makefile内で定義されていれば、オーバーライドする&lt;/span>
-make &lt;span style="color:#000">CFLAGS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>-g
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>その他のオプション:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># デフォルトのタスク（＝最上部で定義されたタスク）を実行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># タスク名を指定して実行。複数指定可&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make task1 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>task2 ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Makefileを指定する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make -f&lt;span style="color:#000;font-weight:bold">|&lt;/span>--file &amp;lt;Makefile&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># dry-run&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make -n&lt;span style="color:#000;font-weight:bold">|&lt;/span>--dry-run
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 変数の設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Makefile内で定義されていれば、オーバーライドする&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make &lt;span style="color:#000">CFLAGS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>-g
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>その他のオプション:&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -161,13 +171,16 @@ make &lt;span style="color:#000">CFLAGS&lt;/span>&lt;span style="color:#ce5c00;f
 &lt;/table>
 &lt;h2 id="tips">Tips&lt;/h2>
 &lt;h3 id="必要なディレクトリを作ってタスク実行">必要なディレクトリを作ってタスク実行&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">BUILD_DIR&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> path/to/build
-&lt;span style="color:#000">$(BUILD_DIR)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">all&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">BUILD_DIR&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> some_commands
-&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">all&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="環境変数の取扱い">環境変数の取扱い&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">BUILD_DIR&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> path/to/build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$(BUILD_DIR)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">all&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>&lt;span style="color:#000">BUILD_DIR&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> some_commands
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">.PHONY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">all&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="環境変数の取扱い">環境変数の取扱い&lt;/h3>
 &lt;p>環境変数はMakeの変数として参照できる。例: &lt;code>$(CFLAGS)&lt;/code>&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
@@ -183,25 +196,25 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;/ul>
 &lt;h2 id="cookbooks">Cookbooks&lt;/h2>
 &lt;h3 id="カレントディレクトリを表示する幾つかの方法">カレントディレクトリを表示する幾つかの方法&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="color:#000">pwd&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
-&lt;span style="color:#204a87">pwd&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shell &lt;span style="color:#204a87">pwd&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>PWD&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$$&lt;/span>PWD
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>CURDIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ make
-&lt;span style="color:#204a87">pwd&lt;/span>
-/home/progrhyme/tmp/make
-&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
-/home/progrhyme/tmp/make
-&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
-/home/progrhyme/tmp/make
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$PWD&lt;/span>
-/home/progrhyme/tmp/make
-&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
-/home/progrhyme/tmp/make
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Makefile" data-lang="Makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">pwd&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">pwd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>shell &lt;span style="color:#204a87">pwd&lt;/span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>PWD&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$$&lt;/span>PWD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>CURDIR&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>実行例:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>$ make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">pwd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$PWD&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> /home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/progrhyme/tmp/make
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="http://itchyny.hatenablog.com/entry/20120213/1329135107">Makefileで遊ぼう 〜 階乗, フィボナッチ数, Brainfuck処理系まで - プログラムモグモグ&lt;/a>
 &lt;ul>
@@ -242,12 +255,12 @@ mkdir -p &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>BUILD_DIR&l
 &lt;p>&lt;a href="https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/">https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/&lt;/a>&lt;/p>
 &lt;h5 id="withenv">&lt;code>withEnv&lt;/code>&lt;/h5>
 &lt;p>環境変数をセットしたブロックを作る。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-groovy" data-lang="groovy">&lt;span style="color:#000">node&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">withEnv&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;MYTOOL_HOME=/usr/local/mytool&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">])&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">sh&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;$MYTOOL_HOME/bin/start&amp;#39;&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>withEnv(['PATH+WHATEVER=/something'])&lt;/code> のようにすることで、 &lt;code>/something&lt;/code> を &lt;code>$PATH&lt;/code> エントリの前に加えることができる。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-groovy" data-lang="groovy">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">node&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">withEnv&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;MYTOOL_HOME=/usr/local/mytool&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">])&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">sh&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;$MYTOOL_HOME/bin/start&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>withEnv(['PATH+WHATEVER=/something'])&lt;/code> のようにすることで、 &lt;code>/something&lt;/code> を &lt;code>$PATH&lt;/code> エントリの前に加えることができる。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/44378221/export-command-in-jenkins-pipeline/44380495#44380495">path - Export command in Jenkins pipeline - Stack Overflow&lt;/a>&lt;/li>
@@ -427,8 +440,8 @@ UI上はタブで表示される。&lt;/p>
 &lt;/ul>
 &lt;h4 id="service-account">Service Account&lt;/h4>
 &lt;p>削除&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Bash" data-lang="Bash">curl -X DELETE &lt;span style="color:#000">$FRONT50&lt;/span>/serviceAccounts/&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>サービスアカウントID&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://github.com/spinnaker/front50/blob/a25e184f6afd4dd63a8c8fdb63fe109b378f9991/front50-web/src/main/groovy/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.groovy#L69">https://github.com/spinnaker/front50/blob/a25e184f6afd4dd63a8c8fdb63fe109b378f9991/front50-web/src/main/groovy/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.groovy#L69&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Bash" data-lang="Bash">&lt;span style="display:flex;">&lt;span>curl -X DELETE &lt;span style="color:#000">$FRONT50&lt;/span>/serviceAccounts/&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>サービスアカウントID&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考: &lt;a href="https://github.com/spinnaker/front50/blob/a25e184f6afd4dd63a8c8fdb63fe109b378f9991/front50-web/src/main/groovy/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.groovy#L69">https://github.com/spinnaker/front50/blob/a25e184f6afd4dd63a8c8fdb63fe109b378f9991/front50-web/src/main/groovy/com/netflix/spinnaker/front50/controllers/ServiceAccountsController.groovy#L69&lt;/a>&lt;/p>
 &lt;h3 id="ciツール連携">CIツール連携&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.spinnaker.io/setup/ci/">https://www.spinnaker.io/setup/ci/&lt;/a>&lt;/li>
@@ -446,9 +459,9 @@ UI上はタブで表示される。&lt;/p>
 &lt;/ul>
 &lt;h3 id="ログレベルの変更">ログレベルの変更&lt;/h3>
 &lt;p>&lt;code>~/.hal/default/service/settings/${component}.yml&lt;/code> に以下の内容を記述:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="color:#204a87;font-weight:bold">env&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">JAVA_OPTS&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-Dlogging.level.com.netflix.${コンポーネント名}=DEBUG&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-YAML" data-lang="YAML">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">env&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">JAVA_OPTS&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-Dlogging.level.com.netflix.${コンポーネント名}=DEBUG&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/spinnaker/spinnaker/issues/3388">Fiat Service Account causes NPE if the Service Account is not a user in LDAP · Issue #3388 · spinnaker/spinnaker&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://community.spinnaker.io/t/solved-how-to-change-spinnakers-services-logging-level/458">[SOLVED] How to change spinnaker&amp;rsquo;s services logging level? - Operations - Spinnaker&lt;/a>&lt;/li>

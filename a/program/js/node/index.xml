@@ -6,22 +6,25 @@
 &lt;/ul>
 &lt;h2 id="cli">CLI&lt;/h2>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># help&lt;/span>
-npm &lt;span style="color:#204a87">help&lt;/span>
-npm &lt;span style="color:#204a87">help&lt;/span> &amp;lt;command&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
-npm -v
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="npm-install">npm-install&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># help&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm &lt;span style="color:#204a87">help&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm &lt;span style="color:#204a87">help&lt;/span> &amp;lt;command&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># バージョン表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="npm-install">npm-install&lt;/h3>
 &lt;p>&lt;a href="https://docs.npmjs.com/cli-commands/install.html">https://docs.npmjs.com/cli-commands/install.html&lt;/a>&lt;/p>
 &lt;p>パッケージをインストールする。&lt;/p>
 &lt;p>エイリアス: &lt;code>i, add&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 書式&lt;/span>
-npm install パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-npm install &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;name&amp;gt;
-npm install &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;name&amp;gt;@&amp;lt;version&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># package.json に従ってインストール&lt;/span>
-npm install
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 書式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm install パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm install &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm install &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;name&amp;gt;@&amp;lt;version&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># package.json に従ってインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Option&lt;/th>
@@ -43,10 +46,10 @@ npm install
 &lt;p>&lt;a href="https://docs.npmjs.com/cli-commands/ls.html">https://docs.npmjs.com/cli-commands/ls.html&lt;/a>&lt;/p>
 &lt;p>インストールされたパッケージを一覧表示。&lt;/p>
 &lt;p>エイリアス: &lt;code>list, la, ll&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm ls &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;pkg&amp;gt; ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="npm-uninstall">npm-uninstall&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>npm ls &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span>&amp;lt;@scope&amp;gt;/&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&amp;lt;pkg&amp;gt; ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="npm-uninstall">npm-uninstall&lt;/h3>
 &lt;p>&lt;a href="https://docs.npmjs.com/cli-commands/uninstall.html">https://docs.npmjs.com/cli-commands/uninstall.html&lt;/a>&lt;/p>
 &lt;p>インストールされたパッケージを削除する。&lt;/p>
 &lt;p>エイリアス: &lt;code>remove, rm, un, unlink&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm uninstall パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>npm uninstall パッケージ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

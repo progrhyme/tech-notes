@@ -141,42 +141,43 @@
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="ループ">ループ&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">continue&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 後続の処理をスキップして次の周回へ&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
-:
-&lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
-:
-&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## イテレータでループ&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>get_some_list&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
-:
-&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 無限ループ&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">while&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> true&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">continue&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 後続の処理をスキップして次の周回へ&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## イテレータでループ&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> i in &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>get_some_list&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> :
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://xtech.nikkei.com/it/article/COLUMN/20060228/231135/">【 次の繰り返しに移る「continue」 】 | 日経クロステック（xTECH）&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="関数">関数&lt;/h3>
 &lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_05">Shell Command Language#2.9.5 Function Definition Command&lt;/a>&lt;/p>
 &lt;p>Syntax:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">fname&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> compound-command &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>io-redirect ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>fname&lt;span style="color:#ce5c00;font-weight:bold">()&lt;/span> compound-command &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>io-redirect ...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>function&lt;/code> キーワードはBash等による拡張のようだ&lt;/li>
 &lt;/ul>
 &lt;h3 id="case構文">case構文&lt;/h3>
 &lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_09_04_05">Shell Command Language#Case Conditional Construct&lt;/a>&lt;/p>
 &lt;p>構文:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> 値 in
-パターン1 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理1 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-パターン2 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理2 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-パターン3 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理3 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-…
-パターンn &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理n &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">esac&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">case&lt;/span> 値 in
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> パターン1 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理1 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> パターン2 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理2 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> パターン3 &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理3 &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> …
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> パターンn &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> 処理n &lt;span style="color:#000;font-weight:bold">;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">esac&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
 &lt;ul>
 &lt;li>シェルの&lt;a href="#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%83%9E%E3%83%83%E3%83%81">パターンマッチ&lt;/a>を使うこともできる&lt;/li>
 &lt;/ul>
@@ -213,9 +214,9 @@
 &lt;li>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">word&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -z &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">var&lt;/span>&lt;span style="color:#000;font-weight:bold">+x&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is unset&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is set to &amp;#39;&lt;/span>&lt;span style="color:#000">$var&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">parameter&lt;/span>&lt;span style="color:#204a87;font-weight:bold">:-&lt;/span>&lt;span style="color:#000">word&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -z &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">var&lt;/span>&lt;span style="color:#000;font-weight:bold">+x&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is unset&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;var is set to &amp;#39;&lt;/span>&lt;span style="color:#000">$var&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash">shell - How to check if a variable is set in Bash? - Stack Overflow&lt;/a>&lt;/li>
 &lt;/ul>
@@ -233,12 +234,13 @@
 &lt;p>関数かdot scriptを終了する&lt;/p>
 &lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_24&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 0以外だと異常終了扱い&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 引数省略時は最後のコマンドのexit statusになる&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">return&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 0以外だと異常終了扱い&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 引数省略時は最後のコマンドのexit statusになる&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">return&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/blueskyarea/items/805c0aa4b1cbba11818a">シェルスクリプト return コマンド - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/progrhyme/experiments/tree/master/bash/source-scripts">https://github.com/progrhyme/experiments/tree/master/bash/source-scripts&lt;/a>&lt;/li>
@@ -246,11 +248,11 @@
 &lt;h3 id="unset">unset&lt;/h3>
 &lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># シェル変数または環境変数を削除&lt;/span>
-&lt;span style="color:#204a87">unset&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FOO
-&lt;span style="color:#8f5902;font-style:italic"># 関数名を削除&lt;/span>
-&lt;span style="color:#204a87">unset&lt;/span> -f my_func
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># シェル変数または環境変数を削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">unset&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FOO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 関数名を削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">unset&lt;/span> -f my_func
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1905/24/news015.html">【 unset 】コマンド――変数や関数を削除する：Linux基本コマンドTips（307） - ＠IT&lt;/a>&lt;/li>
 &lt;/ul>
@@ -260,11 +262,12 @@
 何が必須で、何がそうでないかについては、&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap01.html#tag_01_07_01">1.7.1 Codes&lt;/a>にコードが定義されている。&lt;/p>
 &lt;h3 id="test">test&lt;/h3>
 &lt;p>&lt;a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html#tag_20_128">https://pubs.opengroup.org/onlinepubs/9699919799/utilities/test.html#tag_20_128&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
-&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>expression&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>expression&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>expressionを評価して、成功なら0, 失敗なら非0で終了する。&lt;br>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>expression&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>expression&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>expressionを評価して、成功なら0, 失敗なら非0で終了する。&lt;br>
 もっぱら論理式的に使われる。&lt;/p></description></item><item><title>A: Bash</title><link>https://progrhy.me/tech-notes/a/cli/shell/bash/</link><pubDate>Tue, 28 Apr 2020 09:14:42 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/bash/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>入門コンテンツ:&lt;/p>
@@ -303,23 +306,26 @@
 &lt;/ul>
 &lt;h2 id="bashコマンド">bashコマンド&lt;/h2>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">bash -n script.sh &lt;span style="color:#8f5902;font-style:italic"># シンタックスチェック&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>bash -n script.sh &lt;span style="color:#8f5902;font-style:italic"># シンタックスチェック&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/dharry/items/f593d96c1b0269182922">シェルスクリプトのlint - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="syntax">Syntax&lt;/h2>
 &lt;h3 id="配列">配列&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 配列の生成&lt;/span>
-&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 空配列&lt;/span>
-&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 配列の要素数&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${#&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">[@]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 末尾に要素追加&lt;/span>
-&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;x&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 先頭に追加&lt;/span>
-&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;x&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">[@]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 配列の生成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=()&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># 空配列&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 配列の要素数&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">${#&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">[@]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 末尾に要素追加&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">+=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;x&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 先頭に追加&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;x&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">array&lt;/span>&lt;span style="color:#000;font-weight:bold">[@]&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/b4b4r07/items/e56a8e3471fb45df2f59">bash 配列まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
@@ -336,19 +342,20 @@
 &lt;h3 id="ヒアドキュメント">ヒアドキュメント&lt;/h3>
 &lt;p>※POSIX標準ではないか。少なくともkshでは動かなさそう。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt; EOS &amp;gt; cat.out
-&lt;/span>&lt;span style="color:#4e9a06">foo
-&lt;/span>&lt;span style="color:#4e9a06"> bar
-&lt;/span>&lt;span style="color:#4e9a06"> baz
-&lt;/span>&lt;span style="color:#4e9a06">EOS&lt;/span>
-&lt;span style="color:#000">BODY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt; EOS
-&lt;/span>&lt;span style="color:#4e9a06">Dear Ken,
-&lt;/span>&lt;span style="color:#4e9a06">
-&lt;/span>&lt;span style="color:#4e9a06">I&amp;#39;m so happy to write this message.
-&lt;/span>&lt;span style="color:#4e9a06">I&amp;#39;ll be back soon!
-&lt;/span>&lt;span style="color:#4e9a06">EOS&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ヒアドキュメントは文字列リテラルではなく、標準入力らしい。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt; EOS &amp;gt; cat.out
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">foo
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> bar
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06"> baz
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">EOS&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">BODY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat &lt;span style="color:#4e9a06">&amp;lt;&amp;lt; EOS
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">Dear Ken,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">I&amp;#39;m so happy to write this message.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">I&amp;#39;ll be back soon!
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">EOS&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ヒアドキュメントは文字列リテラルではなく、標準入力らしい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/take4s5i/items/e207cee4fb04385a9952" title="bashのヒアドキュメントを活用する - Qiita">bashのヒアドキュメントを活用する - Qiita&lt;/a>&lt;/li>
@@ -356,14 +363,15 @@
 &lt;h3 id="正規表現">正規表現&lt;/h3>
 &lt;p>POSIXか、EREなのだと思う。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> match
-end
-&lt;span style="color:#8f5902;font-style:italic">## マッチしないことの検査&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> ! &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> not match
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> match
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## マッチしないことの検査&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[[&lt;/span> ! &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$str&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>~ ^ba*r$ &lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> not match
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/bash/cookbook/#%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE%E3%81%A7%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E5%8C%96%E3%81%A8%E5%BE%8C%E6%96%B9%E5%8F%82%E7%85%A7">Cookbooks#正規表現でグループ化と後方参照&lt;/a>&lt;/li>
 &lt;/ul>
@@ -377,26 +385,26 @@ end
 &lt;p>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#ANSI_002dC-Quoting">https://tiswww.case.edu/php/chet/bash/bashref.html#ANSI_002dC-Quoting&lt;/a>&lt;/p>
 &lt;p>&lt;code>$'string'&lt;/code> 形式のもの。ユニコードとかエスケープシーケンスで使える。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\e[031mThis text will be colored Red.\e[0m&amp;#39;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\U25c0&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="built-ins">Built-ins&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\e[031mThis text will be colored Red.\e[0m&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">$&amp;#39;\U25c0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="built-ins">Built-ins&lt;/h2>
 &lt;h3 id="help">help&lt;/h3>
 &lt;p>ビルトインコマンドの説明を表示する。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># helpコマンド自身のヘルプを表示&lt;/span>
-&lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#204a87">help&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 擬似man pageモード&lt;/span>
-&lt;span style="color:#204a87">help&lt;/span> -m &lt;span style="color:#204a87">unset&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># helpコマンド自身のヘルプを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">help&lt;/span> &lt;span style="color:#204a87">help&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 擬似man pageモード&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">help&lt;/span> -m &lt;span style="color:#204a87">unset&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.atmarkit.co.jp/ait/articles/1703/03/news025.html">【 help 】コマンド――Bashのビルトインコマンドの使い方を表示する：Linux基本コマンドTips（91） - ＠IT&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="history">history&lt;/h3>
 &lt;p>&lt;a href="https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-History-Builtins">https://tiswww.case.edu/php/chet/bash/bashref.html#Bash-History-Builtins&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 10件表示&lt;/span>
-&lt;span style="color:#204a87">history&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 10件表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">history&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
 &lt;ul>
 &lt;li>シェル変数 &lt;code>HISTTIMEFORMAT&lt;/code> をstrftime書式で設定しておくとタイムスタンプを記録してくれる。
 また、表示時にその書式でタイムスタンプを表示してくれる&lt;/li>
@@ -420,8 +428,8 @@ end
 &lt;h3 id="プロンプトps1の変更">プロンプト(PS1)の変更&lt;/h3>
 &lt;p>&lt;code>PS1&lt;/code> 変数を設定する。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">PS1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;\[\e[1;34m\][\u@\h \W]\\&lt;/span>$&lt;span style="color:#4e9a06"> \[\e[m\]&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">PS1&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;\[\e[1;34m\][\u@\h \W]\\&lt;/span>$&lt;span style="color:#4e9a06"> \[\e[m\]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>特殊文字&lt;/th>
@@ -496,55 +504,58 @@ fish is a smart and user-friendly command line shell for Linux, macOS, and the r
 &lt;li>&lt;strong>Local&lt;/strong> &amp;hellip; 特定のブロックに関連付けられ、ブロックを抜けると消える。ブロックは &lt;code>for&lt;/code>, &lt;code>while&lt;/code>, &lt;code>if&lt;/code>, &lt;code>function&lt;/code>, &lt;code>begin&lt;/code> や &lt;code>switch&lt;/code> で作られ、 &lt;code>end&lt;/code> で閉じる&lt;/li>
 &lt;/ul>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Universal. -U, --universal で定義&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -U fish_user_paths . &lt;span style="color:#000">$fish_user_paths&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Global. -g, --global で定義&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -g PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
-begin
-&lt;span style="color:#8f5902;font-style:italic"># Local. -l, --local で定義&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -l pirate &lt;span style="color:#4e9a06">&amp;#39;There be treasure in them thar hills&amp;#39;&lt;/span>
-end
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$pirate&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># pirateはlocalなので何も出力されない&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commands">Commands&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Universal. -U, --universal で定義&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -U fish_user_paths . &lt;span style="color:#000">$fish_user_paths&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Global. -g, --global で定義&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -g PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>begin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic"># Local. -l, --local で定義&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">set&lt;/span> -l pirate &lt;span style="color:#4e9a06">&amp;#39;There be treasure in them thar hills&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$pirate&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># pirateはlocalなので何も出力されない&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commands">Commands&lt;/h2>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/commands.html">https://fishshell.com/docs/current/commands.html&lt;/a>&lt;/p>
 &lt;h3 id="contains">contains&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/contains.html">https://fishshell.com/docs/current/cmds/contains.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">contains &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> KEY &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VALUES...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワードがリストに含まれるか調べる。&lt;br>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>contains &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> KEY &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VALUES...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワードがリストに含まれるか調べる。&lt;br>
 オプション &lt;code>-i, --index&lt;/code> を付けると、ワードのインデックス値を返す。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># PATHにまだ含まれていなければ追加&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> not contains &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="eval">eval&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># PATHにまだ含まれていなければ追加&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> not contains &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">set&lt;/span> PATH &lt;span style="color:#000">$HOME&lt;/span>/bin &lt;span style="color:#000">$PATH&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="eval">eval&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/eval.html">https://fishshell.com/docs/current/cmds/eval.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>COMMANDS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>テキストをコマンドとして評価する。&lt;br>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>COMMANDS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>テキストをコマンドとして評価する。&lt;br>
 コマンドが標準入力を使わないのなら &lt;code>source&lt;/code> を使ったほうがいいかも。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">set&lt;/span> cmd ls &lt;span style="color:#4e9a06">\|&lt;/span> cut -c 1-12
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#000">$cmd&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="function">function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> cmd ls &lt;span style="color:#4e9a06">\|&lt;/span> cut -c 1-12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#000">$cmd&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="function">function&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/function.html">https://fishshell.com/docs/current/cmds/function.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> NAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> BODY&lt;span style="color:#000;font-weight:bold">;&lt;/span> end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を作る。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> NAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> BODY&lt;span style="color:#000;font-weight:bold">;&lt;/span> end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を作る。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> ll
-ls -l &lt;span style="color:#000">$argv&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Spec:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">function&lt;/span> ll
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ls -l &lt;span style="color:#000">$argv&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Spec:&lt;/p>
 &lt;ul>
 &lt;li>引数は &lt;code>$argv&lt;/code> でリストとして渡される&lt;/li>
 &lt;/ul>
 &lt;h3 id="functions">functions&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/functions.html">https://fishshell.com/docs/current/cmds/functions.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -a &lt;span style="color:#000;font-weight:bold">|&lt;/span> --all &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -n &lt;span style="color:#000;font-weight:bold">|&lt;/span> --names &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -D &lt;span style="color:#000;font-weight:bold">|&lt;/span> --details &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -v &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTION
-functions -c OLDNAME NEWNAME
-functions -d DESCRIPTION FUNCTION
-functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> -q &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTIONS...
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を表示したり消したりする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -a &lt;span style="color:#000;font-weight:bold">|&lt;/span> --all &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -n &lt;span style="color:#000;font-weight:bold">|&lt;/span> --names &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -D &lt;span style="color:#000;font-weight:bold">|&lt;/span> --details &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -v &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTION
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>functions -c OLDNAME NEWNAME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>functions -d DESCRIPTION FUNCTION
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> -q &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> FUNCTIONS...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を表示したり消したりする。&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -564,37 +575,39 @@ functions &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> -e &lt;spa
 &lt;/tbody>
 &lt;/table>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">functions -n
-&lt;span style="color:#8f5902;font-style:italic"># Displays a list of currently-defined functions&lt;/span>
-functions -c foo bar
-&lt;span style="color:#8f5902;font-style:italic"># Copies the &amp;#39;foo&amp;#39; function to a new function called &amp;#39;bar&amp;#39;&lt;/span>
-functions -e bar
-&lt;span style="color:#8f5902;font-style:italic"># Erases the function ``bar``&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="if">if&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>functions -n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Displays a list of currently-defined functions&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>functions -c foo bar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Copies the &amp;#39;foo&amp;#39; function to a new function called &amp;#39;bar&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>functions -e bar
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Erases the function ``bar``&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="if">if&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/if.html">https://fishshell.com/docs/current/cmds/if.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION2&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE2...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_FALSE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>条件分岐構文として使える。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> CONDITION2&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_TRUE2...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span> COMMANDS_FALSE...&lt;span style="color:#000;font-weight:bold">;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>条件分岐構文として使える。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f foo.txt
-&lt;span style="color:#204a87">echo&lt;/span> foo.txt exists
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f bar.txt
-&lt;span style="color:#204a87">echo&lt;/span> bar.txt exists
-&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> foo.txt and bar.txt &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> not exist
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="set">set&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f foo.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> foo.txt exists
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -f bar.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> bar.txt exists
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> foo.txt and bar.txt &lt;span style="color:#204a87;font-weight:bold">do&lt;/span> not exist
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="set">set&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/set.html">https://fishshell.com/docs/current/cmds/set.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME VALUES...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>... VALUES...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -q &lt;span style="color:#000;font-weight:bold">|&lt;/span> --query &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAMES...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
-&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -S &lt;span style="color:#000;font-weight:bold">|&lt;/span> --show &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>シェル変数の表示や操作を行う。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME VALUES...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>... VALUES...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -q &lt;span style="color:#000;font-weight:bold">|&lt;/span> --query &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAMES...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -e &lt;span style="color:#000;font-weight:bold">|&lt;/span> --erase &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>SCOPE_OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>INDICES&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span> -S &lt;span style="color:#000;font-weight:bold">|&lt;/span> --show &lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>VARIABLE_NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>シェル変数の表示や操作を行う。&lt;/p>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97">変数のスコープ&lt;/a>&lt;/li>
@@ -622,55 +635,68 @@ end
 &lt;/tbody>
 &lt;/table>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Prints all global, exported variables.&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -xg
-&lt;span style="color:#8f5902;font-style:italic"># Sets the value of the variable $foo to be &amp;#39;hi&amp;#39;.&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> foo hi
-&lt;span style="color:#8f5902;font-style:italic"># $fooを配列と見なして&amp;#34;there&amp;#34;をappendする&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -a foo there
-&lt;span style="color:#8f5902;font-style:italic"># Does the same thing as the previous two commands the way it would be done pre-fish 3.0.&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> foo hi
-&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#000">$foo&lt;/span> there
-&lt;span style="color:#8f5902;font-style:italic"># 先頭に要素を追加&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#4e9a06">&amp;#34;Hello, &amp;#34;&lt;/span> &lt;span style="color:#000">$foo&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Removes the variable $smurf&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -e smurf
-&lt;span style="color:#8f5902;font-style:italic"># Changes the fourth element of the $PATH list to ~/bin&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>4&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ~/bin
-&lt;span style="color:#8f5902;font-style:italic"># PATH変数の3つ目を削除&lt;/span>
-&lt;span style="color:#204a87">set&lt;/span> -e PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="source">source&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Prints all global, exported variables.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -xg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Sets the value of the variable $foo to be &amp;#39;hi&amp;#39;.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> foo hi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># $fooを配列と見なして&amp;#34;there&amp;#34;をappendする&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -a foo there
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Does the same thing as the previous two commands the way it would be done pre-fish 3.0.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> foo hi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#000">$foo&lt;/span> there
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 先頭に要素を追加&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> foo &lt;span style="color:#4e9a06">&amp;#34;Hello, &amp;#34;&lt;/span> &lt;span style="color:#000">$foo&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Removes the variable $smurf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -e smurf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Changes the fourth element of the $PATH list to ~/bin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>4&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> ~/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># PATH変数の3つ目を削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">set&lt;/span> -e PATH&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="source">source&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/source.html">https://fishshell.com/docs/current/cmds/source.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
-&lt;span style="color:#204a87">source&lt;/span> FILENAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ARGUMENTS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
-somecommand &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">source&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルや標準入力から受け取ったコマンド群を現在のシェルのコンテキストで評価・実行する。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">source&lt;/span> FILENAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ARGUMENTS...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>somecommand &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">source&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイルや標準入力から受け取ったコマンド群を現在のシェルのコンテキストで評価・実行する。&lt;/p>
 &lt;h3 id="test">test&lt;/h3>
 &lt;p>&lt;a href="https://fishshell.com/docs/current/cmds/test.html">https://fishshell.com/docs/current/cmds/test.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
-&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/posix/#test">POSIX shellのtest&lt;/a>ユーティリティのように機能する。&lt;br>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>EXPRESSION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/posix/#test">POSIX shellのtest&lt;/a>ユーティリティのように機能する。&lt;br>
 互換性のために2番めの構文も利用可能だが、fishでは &lt;code>test ...&lt;/code> 形式が好まれるとのこと。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -d /tmp
-cp /etc/motd /tmp/motd
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$MANPATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$MANPATH&lt;/span>
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> ! &lt;span style="color:#204a87">test&lt;/span> -r secret.txt
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Can&amp;#39;t read secret.txt&amp;#34;&lt;/span> &amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#4e9a06">\(&lt;/span> -f /foo -o -f /bar &lt;span style="color:#4e9a06">\)&lt;/span> -a &lt;span style="color:#4e9a06">\(&lt;/span> -f /baz -o -f /bat &lt;span style="color:#4e9a06">\)&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> Success
-end
-&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000">$status&lt;/span> -ne &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Previous command failed&amp;#34;&lt;/span>
-end
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -d /tmp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cp /etc/motd /tmp/motd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> -n &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$MANPATH&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$MANPATH&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> ! &lt;span style="color:#204a87">test&lt;/span> -r secret.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Can&amp;#39;t read secret.txt&amp;#34;&lt;/span> &amp;gt;&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#4e9a06">\(&lt;/span> -f /foo -o -f /bar &lt;span style="color:#4e9a06">\)&lt;/span> -a &lt;span style="color:#4e9a06">\(&lt;/span> -f /baz -o -f /bat &lt;span style="color:#4e9a06">\)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> Success
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#204a87">test&lt;/span> &lt;span style="color:#000">$status&lt;/span> -ne &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Previous command failed&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="パッケージ管理">パッケージ管理&lt;/h2>
 &lt;p>関連項目:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/cli/shell/pkg-man/">シェル &amp;gt; パッケージ管理&lt;/a>&lt;/li>
@@ -679,9 +705,9 @@ end
 &lt;p>&lt;a href="https://github.com/jorgebucaran/fisher">https://github.com/jorgebucaran/fisher&lt;/a>&lt;/p>
 &lt;p>人気のパッケージ管理ツール。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># oh-my-fishのテーマをfisherでインストール&lt;/span>
-fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># oh-my-fishのテーマをfisherでインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
@@ -699,17 +725,17 @@ fisher add oh-my-fish/theme-&amp;lt;テーマ名&amp;gt;
 &lt;h2 id="syntax">Syntax&lt;/h2>
 &lt;h3 id="配列">配列&lt;/h3>
 &lt;p>Bashと違って、配列の添字が &lt;code>1&lt;/code> から始まることに注意が必要。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>x y z&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; x&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; y&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=(&lt;/span>x y z&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; x&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; y&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/mollifier/items/f897b3fddd2d10369333">zsh の配列操作の基本から応用まで - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-zsh" data-lang="zsh">&lt;span style="color:#8f5902;font-style:italic"># history -i でコマンドの実行時間表示&lt;/span>
-setopt extended_history
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-zsh" data-lang="zsh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># history -i でコマンドの実行時間表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setopt extended_history
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://orumin.blogspot.com/2017/10/unix-os.html">Unix 系 OS でコマンド実行間にタイムスタンプを付ける&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://tegetegekibaru.blogspot.com/2012/08/zsh_2.html">zsh 設定 - プロンプト -&lt;/a>&lt;/li>
@@ -718,18 +744,18 @@ setopt extended_history
 &lt;p>&lt;a href="http://zsh.sourceforge.net/Doc/Release/Options.html">http://zsh.sourceforge.net/Doc/Release/Options.html&lt;/a>&lt;/p>
 &lt;p>&lt;code>setopt&lt;/code>, &lt;code>unsetopt&lt;/code> はPOSIXの &lt;code>set +/-o&lt;/code> の代わりにzshoptionsの設定に用いることができる。 &lt;code>set +/-o&lt;/code> も使えるみたい。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">setopt shwordsplit &lt;span style="color:#8f5902;font-style:italic"># 他のシェルと文字列変数の分割方法を揃える&lt;/span>
-setopt ksharrays &lt;span style="color:#8f5902;font-style:italic"># 配列の添字を0から始める&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>setopt shwordsplit &lt;span style="color:#8f5902;font-style:italic"># 他のシェルと文字列変数の分割方法を揃える&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setopt ksharrays &lt;span style="color:#8f5902;font-style:italic"># 配列の添字を0から始める&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://linux.die.net/man/1/zshoptions">zshoptions(1): zsh options - Linux man page&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/ko1nksm/items/8d28d4f7cb2c325c00fa#-zsh---z-shell">スクリプト言語としてみた各POSIXシェルの特徴と互換性上の注意点まとめ - Qiita&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="emulate">emulate&lt;/h4>
 &lt;p>他のシェルと互換性のあるモード。色んなオプションがセットされる。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">emulate -R sh &lt;span style="color:#8f5902;font-style:italic"># POSIX shに近いモード&lt;/span>
-emulate -R ksh &lt;span style="color:#8f5902;font-style:italic"># ksh (bash) に近いモード&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>emulate -R sh &lt;span style="color:#8f5902;font-style:italic"># POSIX shに近いモード&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>emulate -R ksh &lt;span style="color:#8f5902;font-style:italic"># ksh (bash) に近いモード&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://fumiyas.github.io/2013/12/03/zsh-scripting.sh-advent-calendar.html">zsh でシェルスクリプトを書くときの留意点 - 拡張 POSIX シェルスクリプト Advent Calendar 2013 - ダメ出し Blog&lt;/a>&lt;/li>
 &lt;/ul>
@@ -738,13 +764,13 @@ emulate -R ksh &lt;span style="color:#8f5902;font-style:italic"># ksh (bash) に
 &lt;blockquote>
 &lt;p>Bashとは違って、Zshは組み込まれている &lt;code>help&lt;/code> コマンドを有効にしていません。Zshでhelpを使うには、以下をzshrcに追加してください:&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">autoload -U run-help
-autoload run-help-git
-autoload run-help-svn
-autoload run-help-svk
-&lt;span style="color:#204a87">unalias&lt;/span> run-help
-&lt;span style="color:#204a87">alias&lt;/span> &lt;span style="color:#000">help&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>run-help
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="プロンプト">プロンプト&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>autoload -U run-help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>autoload run-help-git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>autoload run-help-svn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>autoload run-help-svk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">unalias&lt;/span> run-help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">alias&lt;/span> &lt;span style="color:#000">help&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>run-help
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="プロンプト">プロンプト&lt;/h3>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/yamagen0915/items/77fb78d9c73369c784da">zshプロンプトのカスタマイズ - Qiita&lt;/a>&lt;/li>
@@ -843,13 +869,15 @@ autoload run-help-svk
 &lt;/table>
 &lt;h4 id="色">色&lt;/h4>
 &lt;p>こんな感じで色を付けられれる。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ①依存なし&lt;/span>
-&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%F{cyan} $n %f&amp;#39;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># ②colorsを使う&lt;/span>
-autoload -Uz colors
-colors
-&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%{${fg[cyan]}%} $n %{${reset_color}%}&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>色の文字か番号で色を指定できる。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ①依存なし&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%F{cyan} $n %f&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ②colorsを使う&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>autoload -Uz colors
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>colors
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;%{${fg[cyan]}%} $n %{${reset_color}%}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>色の文字か番号で色を指定できる。&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -898,15 +926,16 @@ colors
 &lt;/ul>
 &lt;h4 id="色-256色対応">色: 256色対応&lt;/h4>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Zshパラメータ利用&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># - %F{文字色番号}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># - %K{背景色番号}&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># - %f ... 文字色リセット&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># - %k ... 背景色リセット&lt;/span>
-&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%K{082}%F{001}[%n@%m]%f%k&amp;#34;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># エスケープシーケンス利用&lt;/span>
-&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">$&amp;#39;%{\e[30;48;5;082m%}%{\e[38;5;001m%}[%n@%m]%{\e[0m%}&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Zshパラメータ利用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># - %F{文字色番号}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># - %K{背景色番号}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># - %f ... 文字色リセット&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># - %k ... 背景色リセット&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;%K{082}%F{001}[%n@%m]%f%k&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># エスケープシーケンス利用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">PROMPT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">$&amp;#39;%{\e[30;48;5;082m%}%{\e[38;5;001m%}[%n@%m]%{\e[0m%}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>上2つはどちらも同じ効果を表す&lt;/li>
 &lt;li>エスケープシーケンスについては See &lt;a href="https://progrhy.me/tech-notes/a/cli/shell/#ansi%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9">シェル#ANSIエスケープシーケンス&lt;/a>&lt;/li>
 &lt;/ul>
@@ -944,11 +973,11 @@ colors
 &lt;p>Zshのコマンドライン編集機能。&lt;/p>
 &lt;p>たぶん、peco等でキーボードショートカットを作るときに使う人が多いのではないかな。&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 編集を終了し、入力されたコマンドを実行する&lt;/span>
-zle accept-line
-&lt;span style="color:#8f5902;font-style:italic"># 画面をクリアする&lt;/span>
-zle clear-screen
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 編集を終了し、入力されたコマンドを実行する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zle accept-line
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 画面をクリアする&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zle clear-screen
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/b4b4r07/items/8db0257d2e6f6b19ecb9">コマンドライン編集機能 Zsh Line Editor を使いこなす - Qiita&lt;/a>&lt;/li>
 &lt;/ul>

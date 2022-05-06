@@ -268,14 +268,15 @@ BSD系のUnixを元に作られているらしい。&lt;/p>
 &lt;/ul>
 &lt;h2 id="cli">CLI&lt;/h2>
 &lt;p>macOS特有のCLI.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># ファイルを開く&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">## 標準関連付けで開く&lt;/span>
-open path/to/file
-&lt;span style="color:#8f5902;font-style:italic">## アプリ指定&lt;/span>
-open -a アプリ名 path/to/file
-&lt;span style="color:#8f5902;font-style:italic"># クリップボードにコピー&lt;/span>
-cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> pbcopy
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ファイルを開く&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 標準関連付けで開く&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open path/to/file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## アプリ指定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open -a アプリ名 path/to/file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># クリップボードにコピー&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat file.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> pbcopy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="jis-キーボードでの--の入力方法">JIS キーボードでの &lt;code>\&lt;/code> の入力方法&lt;/h3>
 &lt;p>&lt;code>option + ¥&lt;/code> で &lt;code>\&lt;/code> が入力できる。&lt;br>
 後述の方法も参照。&lt;/p>

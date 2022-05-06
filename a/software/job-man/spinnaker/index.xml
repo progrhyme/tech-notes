@@ -8,19 +8,19 @@ daemon + CLI.&lt;/p>
 &lt;/ul>
 &lt;h2 id="how-to">How-to&lt;/h2>
 &lt;h3 id="spinnakerのバージョン更新">Spinnakerのバージョン更新&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 利用可能なバージョン一覧&lt;/span>
-hal version list
-&lt;span style="color:#8f5902;font-style:italic"># 現在のバージョン表示&lt;/span>
-hal config version
-&lt;span style="color:#8f5902;font-style:italic"># バージョン変更&lt;/span>
-hal config version edit --version &lt;span style="color:#000">$NEW_VERSION&lt;/span>
-hal deploy apply
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="複数のspinnaker環境を管理する">複数のSpinnaker環境を管理する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 利用可能なバージョン一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hal version list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 現在のバージョン表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hal config version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># バージョン変更&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hal config version edit --version &lt;span style="color:#000">$NEW_VERSION&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hal deploy apply
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="複数のspinnaker環境を管理する">複数のSpinnaker環境を管理する&lt;/h3>
 &lt;p>Halyardでは &lt;code>Deployment&lt;/code> という単位でconfigを分けることができる。「Deployment」という語はふつうのデプロイという意味やK8s用語としても使われるので、用語としてよくないと思う。 &lt;code>Environment&lt;/code> とかにしてほしかった気がする（Environmentも何かとかぶりそうだが）。&lt;/p>
 &lt;p>See &lt;a href="https://www.spinnaker.io/reference/halyard/#deployments">https://www.spinnaker.io/reference/halyard/#deployments&lt;/a>&lt;/p>
 &lt;p>新しいDeploymentを作るには下のコマンドを叩く:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hal config --set-current-deployment &lt;span style="color:#000">$DEPLOYMENT&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>指定した &lt;code>$DEPLOYMENT&lt;/code> がなければ新規作成される。&lt;br>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>hal config --set-current-deployment &lt;span style="color:#000">$DEPLOYMENT&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>指定した &lt;code>$DEPLOYMENT&lt;/code> がなければ新規作成される。&lt;br>
 ちなみに、デフォルトの &lt;code>$DEPLOYMENT&lt;/code> は &lt;code>default&lt;/code> である。&lt;/p>
 &lt;p>このコマンドによって新しく作ったDeploymentはまっさらな状態なので、一通りセットアップしなければならない。&lt;br>
 （日記はここで終わっている。）&lt;/p></description></item><item><title>A: Pipelines</title><link>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/pipeline/</link><pubDate>Tue, 05 May 2020 00:28:05 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/job-man/spinnaker/pipeline/</guid><description>

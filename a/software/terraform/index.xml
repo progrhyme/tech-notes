@@ -92,35 +92,36 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/expressions.html#splat-expressions">https://www.terraform.io/docs/configuration/expressions.html#splat-expressions&lt;/a>&lt;/p>
 &lt;p>&lt;code>[*]&lt;/code> によるリストの展開&lt;/p>
 &lt;p>Examples&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># 1
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">*&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">id&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">## for式による↑と等価な構文
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">id&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># 2
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">*&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interfaces&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">## for式による↑と等価な構文
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interfaces&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dynamic-blocks">Dynamic blocks&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">*&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">id&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## for式による↑と等価な構文
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">id&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#a40000">*&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interfaces&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## for式による↑と等価な構文
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">list&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">o&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">interfaces&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">].&lt;/span>&lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dynamic-blocks">Dynamic blocks&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/expressions.html#dynamic-blocks">https://www.terraform.io/docs/configuration/expressions.html#dynamic-blocks&lt;/a>&lt;/p>
 &lt;p>resource内のブロックの繰り返し記述をDRYに書けるようになった。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_elastic_beanstalk_environment&amp;#34; &amp;#34;tfenvtest&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tf-test-name&amp;#34;&lt;/span>
-&lt;span style="color:#000"> application&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${aws_elastic_beanstalk_application.tftest.name}&amp;#34;&lt;/span>
-&lt;span style="color:#000"> solution_stack_name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;64bit Amazon Linux 2018.03 v2.11.4 running Go 1.12.6&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">dynamic&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;setting&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> for_each&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">settings&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">content&lt;/span> {
-&lt;span style="color:#000"> namespace&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;namespace&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000"> value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;value&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-}
-}
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※あまり使いすぎない方がいいと書いてある。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_elastic_beanstalk_environment&amp;#34; &amp;#34;tfenvtest&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tf-test-name&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> application&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${aws_elastic_beanstalk_application.tftest.name}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> solution_stack_name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;64bit Amazon Linux 2018.03 v2.11.4 running Go 1.12.6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">dynamic&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;setting&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> for_each&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">settings&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">content&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> namespace&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;namespace&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">setting&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;value&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※あまり使いすぎない方がいいと書いてある。&lt;/p>
 &lt;h2 id="functions-v012">Functions (v0.12〜)&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions.html">https://www.terraform.io/docs/configuration/functions.html&lt;/a>&lt;/p>
 &lt;p>v0.11以前は &lt;code>Interpolation Syntax&lt;/code> だったもの。&lt;/p>
@@ -129,37 +130,37 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions/concat.html">https://www.terraform.io/docs/configuration/functions/concat.html&lt;/a>&lt;/p>
 &lt;p>listの結合&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">concat&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;, &amp;#34;&amp;#34;], [&amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-&lt;span style="color:#000;font-weight:bold">[&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#4e9a06">&amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="encoding">Encoding&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">concat&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;, &amp;#34;&amp;#34;], [&amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;a&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="encoding">Encoding&lt;/h3>
 &lt;h4 id="jsondecode">jsondecode&lt;/h4>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions/jsondecode.html">https://www.terraform.io/docs/configuration/functions/jsondecode.html&lt;/a>&lt;/p>
 &lt;p>JSONをデコードしてobject(map), tuple(list), stringなどを作る。&lt;br>
 逆の操作をする関数は &lt;code>jsonencode&lt;/code>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">jsondecode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{\&amp;#34;hello\&amp;#34;: \&amp;#34;world\&amp;#34;}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-{
-&lt;span style="color:#000"> &amp;#34;hello&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;world&amp;#34;&lt;/span>
-}
-&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">jsondecode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;true&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="string">String&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">jsondecode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;{\&amp;#34;hello\&amp;#34;: \&amp;#34;world\&amp;#34;}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> &amp;#34;hello&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;world&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">jsondecode&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;true&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="string">String&lt;/h3>
 &lt;h4 id="format">format&lt;/h4>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/functions/format.html">https://www.terraform.io/docs/configuration/functions/format.html&lt;/a>&lt;/p>
 &lt;p>printfのような書式指定出力機能を提供する。&lt;/p>
 &lt;p>構文:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">values&lt;/span>&lt;span style="color:#000;font-weight:bold">...)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, %s!&amp;#34;, &amp;#34;Ander&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">Hello&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">Ander&lt;/span>&lt;span style="color:#a40000">!&lt;/span>
-&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;There are %d lights&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">There&lt;/span> &lt;span style="color:#204a87;font-weight:bold">are&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#204a87;font-weight:bold">lights&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="メタパラメータ">メタパラメータ&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">spec&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">values&lt;/span>&lt;span style="color:#000;font-weight:bold">...)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello, %s!&amp;#34;, &amp;#34;Ander&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">Hello&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">Ander&lt;/span>&lt;span style="color:#a40000">!&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;There are %d lights&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">There&lt;/span> &lt;span style="color:#204a87;font-weight:bold">are&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">4&lt;/span> &lt;span style="color:#204a87;font-weight:bold">lights&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="メタパラメータ">メタパラメータ&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/resources.html#meta-parameters">https://www.terraform.io/docs/configuration/resources.html#meta-parameters&lt;/a>&lt;/p>
 &lt;p>全てのresourceで使えるパラメータ。&lt;/p>
 &lt;ul>
@@ -185,15 +186,16 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_autoscaling_group&amp;#34; &amp;#34;my_cluster&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> min_size&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#000"> max_size&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
-&lt;span style="color:#000"> desired_capacity&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">lifecycle&lt;/span> {
-&lt;span style="color:#000"> ignore_changes&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;desired_capacity&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-}
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-hcl" data-lang="hcl">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_autoscaling_group&amp;#34; &amp;#34;my_cluster&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> min_size&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> max_size&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> desired_capacity&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">lifecycle&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> ignore_changes&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;desired_capacity&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/minamijoyo/items/1f57c62bed781ab8f4d7#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B" title="Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita">Terraform職人入門: 日々の運用で学んだ知見を淡々とまとめる - Qiita#リソースの差分を無視する&lt;/a>&lt;/li>
 &lt;/ul>
@@ -201,12 +203,12 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;p>&lt;a href="https://www.terraform.io/docs/state/workspaces.html">https://www.terraform.io/docs/state/workspaces.html&lt;/a>&lt;/p>
 &lt;p>&lt;code>.tf&lt;/code> ファイル内で &lt;code>${terraform.workspace}&lt;/code> でworkspace名を参照できる。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34; &amp;#34;example&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> count&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;${terraform.workspace&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34; ? 5 : 1}&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ... other arguments
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34; &amp;#34;example&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> count&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000"> &amp;#34;${terraform.workspace&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34; ? 5 : 1}&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> # ... other arguments
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://future-architect.github.io/articles/20190819/">はじめてのTerraform 0.12 ～実践編～ | Future Tech Blog - フューチャーアーキテクト&lt;/a>&lt;/li>
 &lt;/ul>
@@ -214,13 +216,14 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;p>&lt;a href="https://www.terraform.io/docs/configuration/terraform.html">https://www.terraform.io/docs/configuration/terraform.html&lt;/a>&lt;/p>
 &lt;p>Terraformの設定。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
-&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;s3&amp;#34;&lt;/span> {
-&lt;span style="color:#a40000">:&lt;/span>
-}
-&lt;span style="color:#000"> required_version &amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0.12.0&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="backends">Backends&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">backend&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;s3&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a40000">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> required_version &amp;gt;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0.12.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="backends">Backends&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/">https://www.terraform.io/docs/backends/&lt;/a>&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.terraform.io/docs/backends/types/s3.html">S3&lt;/a>&lt;/li>
@@ -271,18 +274,19 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;h3 id="resourceを二重ループで作成する">resourceを二重ループで作成する&lt;/h3>
 &lt;p>for構文はネストできるので、for構文で所望のパラメータを持ったリストを生成し、それを &lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> で使う。&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">locals&lt;/span> {
-&lt;span style="color:#000"> params&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">flatten&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">project&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project_ids&lt;/span> &lt;span style="color:#a40000">:&lt;/span>
-&lt;span style="color:#000;font-weight:bold">[&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">keys&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span> &lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-}
-&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo_resource&amp;#34; &amp;#34;my_foo&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> for_each&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">toset&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">local&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">params&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">each&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;span style="color:#000"> key&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">each&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>NGなやり方（v0.13以前）:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">locals&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> params&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">flatten&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">project&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project_ids&lt;/span> &lt;span style="color:#a40000">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">[&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#204a87;font-weight:bold">key&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87;font-weight:bold">var&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">keys&lt;/span> &lt;span style="color:#a40000">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">project&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">key&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span> &lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo_resource&amp;#34; &amp;#34;my_foo&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> for_each&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">toset&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">local&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">params&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> project&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">each&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> key&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;,&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">each&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#204a87;font-weight:bold">value&lt;/span>&lt;span style="color:#000;font-weight:bold">)[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NGなやり方（v0.13以前）:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> 単体ではできない&lt;/li>
 &lt;li>moduleの中で &lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> を使い、moduleを &lt;code>for_each&lt;/code> や &lt;code>count&lt;/code> で定義する &amp;lt;- サポートされていない&lt;/li>
@@ -313,29 +317,30 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;h2 id="output">output&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/commands/output.html">https://www.terraform.io/docs/commands/output.html&lt;/a>&lt;/p>
 &lt;p>stateファイルから値を出力する。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform output &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="plan">plan&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>terraform output &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>NAME&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="plan">plan&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/commands/plan.html">https://www.terraform.io/docs/commands/plan.html&lt;/a>&lt;/p>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># 対象を限定する&lt;/span>
-terraform plan -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type1.identifier1 -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type2.identifier2
-&lt;span style="color:#8f5902;font-style:italic"># planファイルを書き出す&lt;/span>
-terraform plan -out&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/tfplan
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="state">state&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 対象を限定する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform plan -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type1.identifier1 -target&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>resource_type2.identifier2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># planファイルを書き出す&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform plan -out&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>path/to/tfplan
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="state">state&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/commands/state/">https://www.terraform.io/docs/commands/state/&lt;/a>&lt;/p>
 &lt;p>stateの管理・編集を行うコマンド。&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform state list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>filtering-arg&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># terraform管理下のリソース一覧&lt;/span>
-terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモートのstateファイルをダウンロードして標準出力に表示&lt;/span>
-terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
-terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
-terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="workspace">workspace&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>terraform state list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>filtering-arg&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># terraform管理下のリソース一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform state pull &lt;span style="color:#8f5902;font-style:italic"># リモートのstateファイルをダウンロードして標準出力に表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform state push &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTION&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> PATH &lt;span style="color:#8f5902;font-style:italic"># ローカルのstateファイルをリモートにアップロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform state mv SOURCE DESTINATION &lt;span style="color:#8f5902;font-style:italic"># リソースの名称変更。module化も可能&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform state rm リソース &lt;span style="color:#8f5902;font-style:italic"># リソースをterraform管理から除く = tfstateファイルから削除&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="workspace">workspace&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/cli/commands/workspace/">https://www.terraform.io/docs/cli/commands/workspace/&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraform workspace new &lt;span style="color:#000">$env&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># workspace作成&lt;/span>
-terraform workspace list &lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
-terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/span> &lt;span style="color:#000">$env&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># workspace切替え&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>terraform workspace new &lt;span style="color:#000">$env&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># workspace作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform workspace list &lt;span style="color:#8f5902;font-style:italic"># 一覧表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/span> &lt;span style="color:#000">$env&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># workspace切替え&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Backends</title><link>https://progrhy.me/tech-notes/a/software/terraform/backend/</link><pubDate>Sun, 26 Apr 2020 23:05:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/backend/</guid><description>
 &lt;blockquote>
 &lt;p>A &amp;ldquo;backend&amp;rdquo; in Terraform determines how state is loaded and how an operation such as &lt;code>apply&lt;/code> is executed. This abstraction enables non-local file state storage, remote execution, etc.&lt;/p>
 &lt;/blockquote>
@@ -348,13 +353,13 @@ terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/s
 &lt;h2 id="gcs">gcs&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/backends/types/gcs.html">https://www.terraform.io/docs/backends/types/gcs.html&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
-&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;gcs&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> bucket&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tf-state-prod&amp;#34;&lt;/span>
-&lt;span style="color:#000"> prefix&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;terraform/state&amp;#34;&lt;/span>
-}
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">backend&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;gcs&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> bucket&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;tf-state-prod&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> prefix&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;terraform/state&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>認証用の &lt;code>credentials&lt;/code> または &lt;code>access_token&lt;/code> が必要。&lt;/li>
 &lt;/ul>
 &lt;h3 id="config-variables">config variables&lt;/h3>
@@ -366,8 +371,8 @@ terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/s
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gcloud auth application-default login
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud auth application-default login
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/provider/google/#configuration">Providers &amp;gt; Google&lt;/a>&lt;/li>
 &lt;/ul>
@@ -385,15 +390,15 @@ terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/s
 &lt;h3 id="http-data-source">http Data Source&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/http/data_source.html">https://www.terraform.io/docs/providers/http/data_source.html&lt;/a>&lt;/p>
 &lt;p>SYNOPSIS:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http&amp;#34; &amp;#34;example&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://checkpoint-api.hashicorp.com/v1/check/terraform&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # Optional request headers
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000"> request_headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
-&lt;span style="color:#000"> &amp;#34;Accept&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;application/json&amp;#34;&lt;/span>
-}
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>curlで取ってくるようなデータはこれを使えばいい。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http&amp;#34; &amp;#34;example&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://checkpoint-api.hashicorp.com/v1/check/terraform&amp;#34;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> # Optional request headers
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000"> request_headers&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> &amp;#34;Accept&amp;#34;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;application/json&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>curlで取ってくるようなデータはこれを使えばいい。&lt;/p>
 &lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/tshohe/items/81e46e516ef4559dd32d">TerraformでJSONを扱う方法 - Qiita&lt;/a>&lt;/li>
@@ -414,23 +419,23 @@ terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/s
 &lt;p>ローカルのファイルをData Sourceとして読んだり、Resourceとして作成・管理したり。&lt;/p>
 &lt;h3 id="data-source">Data Source&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/local/d/file.html">https://www.terraform.io/docs/providers/local/d/file.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;local_file&amp;#34; &amp;#34;foo&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${path.module}/foo.bar&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Attributes Exported:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;local_file&amp;#34; &amp;#34;foo&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${path.module}/foo.bar&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Attributes Exported:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>content&lt;/code>&lt;/li>
 &lt;li>&lt;code>content_base64&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="resource">Resource&lt;/h3>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/local/r/file.html">https://www.terraform.io/docs/providers/local/r/file.html&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;local_file&amp;#34; &amp;#34;foo&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo!&amp;#34;&lt;/span>
-&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${path.module}/foo.bar&amp;#34;&lt;/span>
-&lt;span style="color:#000"> file_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0644&amp;#34;&lt;/span>
-&lt;span style="color:#000"> directory_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0755&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Arguments:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;local_file&amp;#34; &amp;#34;foo&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> content&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;foo!&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> filename&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${path.module}/foo.bar&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> file_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0644&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> directory_permission&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;0755&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Arguments:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>filename&lt;/code> 以外はOptional&lt;/li>
 &lt;li>&lt;code>file_permission&lt;/code>, &lt;code>directory_permission&lt;/code> のデフォルトは &lt;code>&amp;quot;0777&amp;quot;&lt;/code>&lt;/li>
@@ -447,21 +452,22 @@ terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/s
 &lt;h2 id="template">Template&lt;/h2>
 &lt;p>&lt;a href="https://www.terraform.io/docs/providers/template/">https://www.terraform.io/docs/providers/template/&lt;/a>&lt;/p>
 &lt;p>Example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="color:#8f5902;font-style:italic"># Template for initial configuration bash script
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;template_file&amp;#34; &amp;#34;init&amp;#34;&lt;/span> {
-&lt;span style="color:#000"> template&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;init.tpl&amp;#34;)}&amp;#34;&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">vars&lt;/span> {
-&lt;span style="color:#000"> consul_address&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${aws_instance.consul.private_ip}&amp;#34;&lt;/span>
-}
-}&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Create a web server
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34; &amp;#34;web&amp;#34;&lt;/span> {&lt;span style="color:#8f5902;font-style:italic">
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ...
-&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
-&lt;span style="color:#000"> user_data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.template_file.init.rendered}&amp;#34;&lt;/span>
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-providers">Other Providers&lt;/h2></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/terraform/editor/</link><pubDate>Sun, 10 May 2020 08:41:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/editor/</guid><description>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Template for initial configuration bash script
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;template_file&amp;#34; &amp;#34;init&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> template&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${file(&amp;#34;init.tpl&amp;#34;)}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">vars&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> consul_address&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${aws_instance.consul.private_ip}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Create a web server
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;aws_instance&amp;#34; &amp;#34;web&amp;#34;&lt;/span> {&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"> # ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> user_data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.template_file.init.rendered}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-providers">Other Providers&lt;/h2></description></item><item><title>A: エディタ</title><link>https://progrhy.me/tech-notes/a/software/terraform/editor/</link><pubDate>Sun, 10 May 2020 08:41:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/editor/</guid><description>
 &lt;p>各種エディタやIDEでTerraformを書くための設定など。&lt;/p>
 &lt;h2 id="intellij-idea">IntelliJ IDEA&lt;/h2>
 &lt;p>See also &lt;a href="https://progrhy.me/tech-notes/a/software/editor/idea/">IntelliJ IDEA&lt;/a>&lt;/p>
@@ -500,11 +506,11 @@ terraform workspace &lt;span style="color:#204a87;font-weight:bold">select&lt;/s
 &lt;p>GCPが出してるけど、AWS, Azureなど他のクラウドのほかKubernetes, Datadog, GitHubなどTerraformの多くのプロバイダに対応している。&lt;/p>
 &lt;h2 id="install">Install&lt;/h2>
 &lt;p>Homebrew:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install terraformer
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew install terraformer
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※Terraformプロバイダをプラグインとして &lt;code>~/.terraform.d/plugins/{darwin,linux}_amd64/&lt;/code> に配置する必要がある。&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 &lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item></channel></rss>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>terraformer import google --projects&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>prj1,prj2 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> --regions&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>asia-northeast1,asia-northeast2 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> --resources&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>networks,subnetworks,gcs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./generated/&lt;/code> 以下にリソースの定義ファイルとtfstateファイルが生成される。&lt;/p></description></item></channel></rss>
