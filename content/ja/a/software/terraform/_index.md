@@ -147,6 +147,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_cpu" {
 - https://www.terraform.io/docs/configuration/resources.html#using-variables-with-count
 - [terraformでautoscalingしているサーバのcloudwatch alarmを自動設定する \- Qiita](https://qiita.com/kanagi/items/095037ba3f72de3f9572)
 - [Terraform でループして複数のリソースを作成する - Qiita](https://qiita.com/ringo/items/875f08ec550f0826f0dc "Terraform でループして複数のリソースを作成する - Qiita")
+- [Terraform Count and For_Each Meta-Argument: Overview](https://spacelift.io/blog/terraform-count-for-each)
 
 ### 変数やoutputでmapを使うと記述量が減って便利
 
