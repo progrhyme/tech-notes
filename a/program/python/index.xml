@@ -10,7 +10,22 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="モジュール検索パス">モジュール検索パス&lt;/h2>
+&lt;h2 id="import">import&lt;/h2>
+&lt;p>リファレンス:&lt;/p>
+&lt;ul>
+&lt;li>インポートシステム &lt;a href="https://docs.python.org/ja/3/reference/import.html">https://docs.python.org/ja/3/reference/import.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="import文">import文&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/reference/simple_stmts.html#import">https://docs.python.org/ja/3/reference/simple_stmts.html#import&lt;/a>&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Python" data-lang="Python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">b&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">foo&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">c&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">bar&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">baz&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">quz&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://note.nkmk.me/python-import-usage/">Python, importの使い方（from, as, PEP8の推奨スタイル, 注意点など） | note.nkmk.me&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="モジュール検索パス">モジュール検索パス&lt;/h3>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path">https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/sys.html#sys.path">sys.path&lt;/a> のリストから探す。sys.path は以下で初期化される:&lt;/p>
 &lt;ul>
