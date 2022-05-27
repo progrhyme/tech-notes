@@ -15,8 +15,29 @@ weight: 20
 - https://docs.python.org/ja/3/
   - 言語仕様: https://docs.python.org/ja/3/reference/
 
+## import
 
-## モジュール検索パス
+リファレンス:
+- インポートシステム https://docs.python.org/ja/3/reference/import.html
+
+### import文
+
+https://docs.python.org/ja/3/reference/simple_stmts.html#import
+
+例:
+
+```Python
+import a
+from b import foo
+from c import bar as baz, quz
+```
+
+参考:
+
+- [Python, importの使い方（from, as, PEP8の推奨スタイル, 注意点など） | note.nkmk.me](https://note.nkmk.me/python-import-usage/)
+
+
+### モジュール検索パス
 
 https://docs.python.org/ja/3/tutorial/modules.html#the-module-search-path
 
