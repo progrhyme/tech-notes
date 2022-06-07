@@ -130,6 +130,13 @@ x = "OK" if n == 10 else "NG"
 
 - [三項演算子(Python) - Qiita](https://qiita.com/howmuch515/items/bf6d21f603d9736fb4a5)
 
+### `*`, `**` 展開
+
+- リストやタプルには `*`、dictには `**` を付けることで展開して、関数の引数にすることができる。
+
+参考:
+- [Pythonで関数の引数にリスト、タプル、辞書を展開して渡す | note.nkmk.me](https://note.nkmk.me/python-argument-expand/)
+
 ## 制御構文
 ### 条件分岐
 
@@ -276,3 +283,35 @@ list(somedict.keys()) #=> dictのキーをリスト化
 参考:
 
 - [How to return dictionary keys as a list in Python? \- Stack Overflow](https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python)
+
+## トピック
+### アンダースコア(`_`)
+
+`_` の使い方:
+
+1. 返り値を無視する
+1. 関数や変数の役割を変える
+1. 数字を読みやすくする
+
+Examples:
+
+```Python
+a, _, c = (1, 2, 3)
+# 先頭に１つの「_」で規約としてプライベート化する
+# 「weak internal use」と呼ばれる
+_foo = 'foo'
+def _bar():
+    return 'bar'
+
+class Sample:
+    # 普通のメソッドとして呼べなくなる
+    # 疑似private関数
+    def __foo():
+        return 'foo'
+
+n = 1_000_000 # 1000000 と同じ
+```
+
+参考:
+
+- [Pythonのアンダースコア( _ )を使いこなそう！. Pythonを上手そうに見させる手品の一つ「アンダースコア」の4種類の使い方を説… | by Neil Wu | LSC PSD | Medium](https://medium.com/lsc-psd/pythonic%E8%89%B2%E3%80%85-python%E3%81%AE%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9%E3%82%B3%E3%82%A2-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%9D%E3%81%86-3c132842eeef)

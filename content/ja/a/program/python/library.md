@@ -8,6 +8,54 @@ date: 2020-06-20T20:27:53+09:00
 
 ※基本、Python3前提。
 
+## dataclasses
+
+https://docs.python.org/ja/3/library/dataclasses.html
+
+データクラス
+
+`__init__()` や `__repr__()` のような[特殊メソッド](https://docs.python.org/ja/3/glossary.html#term-special-method)を生成し、ユーザー定義のクラスに自動的に追加するデコレータや関数を提供する。
+
+Example:
+
+```Python
+from dataclasses import dataclass
+
+@dataclass
+class InventoryItem:
+    """Class for keeping track of an item in inventory."""
+    name: str
+    unit_price: float
+    quantity_on_hand: int = 0
+
+    def total_cost(self) -> float:
+        return self.unit_price * self.quantity_on_hand
+```
+
+この場合、下のような `__init__()` が追加される:
+
+```Python
+def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
+    self.name = name
+    self.unit_price = unit_price
+    self.quantity_on_hand = quantity_on_hand
+```
+
+### @dataclasses.dataclass
+
+```Python
+@dataclasses.dataclass(*, init=True, repr=True, eq=True, order=False,
+unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False)
+```
+
+引数解説（一部）
+
+ 引数 | デフォルト | 意味（`True`のとき）
+------|-----------|-----
+ `init` | `True` | `__init__()` メソッド生成
+ `repr` | `True` | `__repr__()` メソッド生成
+ `frozen` | `False` | フィールドへの代入は例外を発生させる。インスタンスは読み取り専用を模倣する
+
 ## datetime
 
 https://docs.python.org/ja/3/library/datetime.html
