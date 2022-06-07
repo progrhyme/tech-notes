@@ -293,6 +293,26 @@
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/naomichi-y/items/d933867127f27524686a">ECS運用のノウハウ - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: EKS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/eks/</link><pubDate>Tue, 07 Jun 2022 16:43:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/eks/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>Amazon Elastic Kubernetes Service&lt;/p>
+&lt;h2 id="公式ドキュメント">公式ドキュメント&lt;/h2>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/index.html">https://docs.aws.amazon.com/ja_jp/eks/index.html&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/what-is-eks.html">ユーザーズガイド&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/latest/APIReference/Welcome.html">APIリファレンス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;h3 id="コンテナランタイム">コンテナランタイム&lt;/h3>
+&lt;ul>
+&lt;li>ランタイムとしてcontainerd, Dockerがサポートされている&lt;/li>
+&lt;li>EKS 1.21のデフォルトはDockerとなっている&lt;/li>
+&lt;li>EKS 1.20以降ではDockerは非推奨となっている&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/amazon-eks-1-21-released/">Amazon EKS が Kubernetes 1.21 のサポートを開始 | Amazon Web Services ブログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tech.drecom.co.jp/eks-deprecates-docker/">EKSでdocker非推奨問題に対応しました - Tech Inside Drecom&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: RDS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/rds/</link><pubDate>Wed, 16 Sep 2020 13:09:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/rds/</guid><description>
 &lt;h2 id="仕様">仕様&lt;/h2>
 &lt;h3 id="パラメータ">パラメータ&lt;/h3>

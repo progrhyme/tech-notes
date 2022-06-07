@@ -3782,6 +3782,57 @@ intの独自型を定義するのがイディオムになっている。&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ARGV&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>1&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>：piyo
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 標準ライブラリ</title><link>https://progrhy.me/tech-notes/a/program/python/library/</link><pubDate>Sat, 20 Jun 2020 20:27:53 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/python/library/</guid><description>
 &lt;p>※基本、Python3前提。&lt;/p>
+&lt;h2 id="dataclasses">dataclasses&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/dataclasses.html">https://docs.python.org/ja/3/library/dataclasses.html&lt;/a>&lt;/p>
+&lt;p>データクラス&lt;/p>
+&lt;p>&lt;code>__init__()&lt;/code> や &lt;code>__repr__()&lt;/code> のような&lt;a href="https://docs.python.org/ja/3/glossary.html#term-special-method">特殊メソッド&lt;/a>を生成し、ユーザー定義のクラスに自動的に追加するデコレータや関数を提供する。&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Python" data-lang="Python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">dataclasses&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">dataclass&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5c35cc;font-weight:bold">@dataclass&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">InventoryItem&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;Class for keeping track of an item in inventory.&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87">str&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">unit_price&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87">float&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">quantity_on_hand&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87">int&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">total_cost&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span> &lt;span style="color:#204a87">float&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">unit_price&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">quantity_on_hand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>この場合、下のような &lt;code>__init__()&lt;/code> が追加される:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Python" data-lang="Python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">unit_price&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87">float&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">quantity_on_hand&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87">int&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">unit_price&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">unit_price&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">quantity_on_hand&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">quantity_on_hand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dataclassesdataclass">@dataclasses.dataclass&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Python" data-lang="Python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5c35cc;font-weight:bold">@dataclasses&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">dataclass&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">init&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">repr&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">eq&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">order&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">False&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">unsafe_hash&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">False&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">frozen&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">False&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">match_args&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">kw_only&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">False&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">slots&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">False&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>引数解説（一部）&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>引数&lt;/th>
+&lt;th>デフォルト&lt;/th>
+&lt;th>意味（&lt;code>True&lt;/code>のとき）&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>init&lt;/code>&lt;/td>
+&lt;td>&lt;code>True&lt;/code>&lt;/td>
+&lt;td>&lt;code>__init__()&lt;/code> メソッド生成&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>repr&lt;/code>&lt;/td>
+&lt;td>&lt;code>True&lt;/code>&lt;/td>
+&lt;td>&lt;code>__repr__()&lt;/code> メソッド生成&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>frozen&lt;/code>&lt;/td>
+&lt;td>&lt;code>False&lt;/code>&lt;/td>
+&lt;td>フィールドへの代入は例外を発生させる。インスタンスは読み取り専用を模倣する&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="datetime">datetime&lt;/h2>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/datetime.html">https://docs.python.org/ja/3/library/datetime.html&lt;/a>&lt;/p>
 &lt;p>日付、時刻モジュール。&lt;/p>
@@ -5183,59 +5234,24 @@ aptは最先端のようだが、すべてaptで賄えるというわけでは�
 &lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/pull/73787">Deprecate &amp;ndash;export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/tkusumi/items/a824e040475fc47d311a">Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec">Dump Kubernetes cluster resources as YAML&lt;/a> &amp;hellip; シェルスクリプトで頑張っている事例&lt;/li>
-&lt;/ul></description></item><item><title>A: Cloud Load Balancing</title><link>https://progrhy.me/tech-notes/a/google/gcp/lb/</link><pubDate>Mon, 27 Apr 2020 10:48:40 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/lb/</guid><description>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/">https://cloud.google.com/load-balancing/docs/&lt;/a>&lt;/p>
-&lt;h2 id="概要">概要&lt;/h2>
+&lt;/ul></description></item><item><title>A: EKS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/eks/</link><pubDate>Tue, 07 Jun 2022 16:43:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/eks/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>Amazon Elastic Kubernetes Service&lt;/p>
+&lt;h2 id="公式ドキュメント">公式ドキュメント&lt;/h2>
+&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/index.html">https://docs.aws.amazon.com/ja_jp/eks/index.html&lt;/a>&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/https/?hl=ja">HTTP(S) 負荷分散のコンセプト | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloud.google.com/load-balancing/docs/backend-service?hl=ja">バックエンド サービスについて | 負荷分散 | Google Cloud&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/what-is-eks.html">ユーザーズガイド&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/latest/APIReference/Welcome.html">APIリファレンス&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="spec">Spec&lt;/h2>
+&lt;h2 id="仕様">仕様&lt;/h2>
+&lt;h3 id="コンテナランタイム">コンテナランタイム&lt;/h3>
 &lt;ul>
-&lt;li>IP anycast対応&lt;/li>
-&lt;li>アーキテクチャ:
+&lt;li>ランタイムとしてcontainerd, Dockerがサポートされている&lt;/li>
+&lt;li>EKS 1.21のデフォルトはDockerとなっている&lt;/li>
+&lt;li>EKS 1.20以降ではDockerは非推奨となっている&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a> &amp;hellip; IP anycast, GFE&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="ssl証明書">SSL証明書&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>マネージド証明書
-&lt;ul>
-&lt;li>Let&amp;rsquo;s Encrypt&lt;/li>
-&lt;li>DV&lt;/li>
-&lt;li>自動更新&lt;/li>
-&lt;li>ワイルドカードドメインは不可&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="接続ドレイン">接続ドレイン&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/enabling-connection-draining?hl=ja">コネクション ドレインの有効化 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>コネクションドレインとも表記される。（公式ドキュメント統一してくれ）&lt;/p>
-&lt;blockquote>
-&lt;p>コネクション ドレインとは、VM がインスタンス グループから除外されたときに、既存の進行中リクエストに完了までの時間が確実に与えられるようにするプロセスです。&lt;/p>
-&lt;p>コネクション ドレインを有効にするには、バックエンド サービスでコネクション ドレイン タイムアウトを設定します。タイムアウト時間は 1～3,600 秒に設定してください。&lt;/p>
-&lt;/blockquote>
-&lt;p>デフォルトONでいいんじゃないかと思うのだが、2020-04-27現在は、上記のように設定が必要。&lt;/p>
-&lt;p>次のLBのバックエンドサービスで使える:&lt;/p>
-&lt;ul>
-&lt;li>HTTP(S) ロードバランサ&lt;/li>
-&lt;li>TCP プロキシ ロードバランサ&lt;/li>
-&lt;li>SSL プロキシ ロードバランサ&lt;/li>
-&lt;li>内部 HTTP(S) ロードバランサ&lt;/li>
-&lt;li>内部 TCP / UDP ロードバランサ&lt;/li>
-&lt;/ul>
-&lt;h2 id="外部https負荷分散">外部HTTP(S)負荷分散&lt;/h2>
-&lt;h3 id="バックエンドバケット">バックエンドバケット&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/adding-backend-buckets-to-load-balancers?hl=ja">ロードバランサへの Cloud Storage バケットの追加 | 負荷分散 | Google Cloud&lt;/a>&lt;/p>
-&lt;p>Cloud Storageバケットをバックエンドに追加し、パスで振り分けることができる。&lt;/p>
-&lt;h2 id="logging">Logging&lt;/h2>
-&lt;p>&lt;a href="https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring?hl=ja">HTTP(S) 負荷分散のロギングとモニタリング | Google Cloud&lt;/a>&lt;/p>
-&lt;h2 id="topics">Topics&lt;/h2>
-&lt;h3 id="gclbとcdnによる動的サイト高速化">GCLBとCDNによる動的サイト高速化&lt;/h3>
-&lt;p>&lt;a href="https://cloud.google.com/solutions/about-capacity-optimization-with-global-lb?hl=ja">グローバル負荷分散によるアプリケーションの処理能力の改善 | アーキテクチャ | Google Cloud&lt;/a>にあるように、GCLBを前段に置いたサービスでは、GFEによるネットワーク経路最適化やTLS終端の恩恵を得られる。&lt;br>
-従って、APIの&lt;a href="https://docs.microsoft.com/ja-jp/azure/cdn/cdn-dynamic-site-acceleration">動的サイト高速化&lt;/a>をねらいとしてCDNを入れる意味は薄い。&lt;br>
-特に、全くキャッシュをしない場合、CDNを入れても入れなくてもほとんど変わらない、とGoogle Cloudの中の人が言っていた。（無意味ではないけど、ネットワークのゆらぎぐらいの差らしい）&lt;/p></description></item></channel></rss>
+&lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/amazon-eks-1-21-released/">Amazon EKS が Kubernetes 1.21 のサポートを開始 | Amazon Web Services ブログ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tech.drecom.co.jp/eks-deprecates-docker/">EKSでdocker非推奨問題に対応しました - Tech Inside Drecom&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
