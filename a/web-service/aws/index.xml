@@ -304,16 +304,24 @@
 &lt;/ul>
 &lt;h2 id="仕様">仕様&lt;/h2>
 &lt;h3 id="コンテナランタイム">コンテナランタイム&lt;/h3>
+&lt;p>2022-06-08現在の情報。&lt;/p>
 &lt;ul>
 &lt;li>ランタイムとしてcontainerd, Dockerがサポートされている&lt;/li>
 &lt;li>EKS 1.21のデフォルトはDockerとなっている&lt;/li>
 &lt;li>EKS 1.20以降ではDockerは非推奨となっている&lt;/li>
+&lt;li>EKS 1.23でDockershimは削除される予定&lt;/li>
 &lt;/ul>
 &lt;p>参考:&lt;/p>
 &lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-kubernetes-1-22/">Amazon EKS now supports Kubernetes 1.22 | Containers&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/amazon-eks-1-21-released/">Amazon EKS が Kubernetes 1.21 のサポートを開始 | Amazon Web Services ブログ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://tech.drecom.co.jp/eks-deprecates-docker/">EKSでdocker非推奨問題に対応しました - Tech Inside Drecom&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: RDS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/rds/</link><pubDate>Wed, 16 Sep 2020 13:09:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/rds/</guid><description>
+&lt;li>&lt;a href="https://eksctl.io/usage/container-runtime/">Define Container Runtime - eksctl&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ツール">ツール&lt;/h2>
+&lt;h3 id="eksctl">eksctl&lt;/h3>
+&lt;p>&lt;a href="https://eksctl.io/">https://eksctl.io/&lt;/a>&lt;/p>
+&lt;p>公式CLI。&lt;/p></description></item><item><title>A: RDS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/rds/</link><pubDate>Wed, 16 Sep 2020 13:09:11 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/rds/</guid><description>
 &lt;h2 id="仕様">仕様&lt;/h2>
 &lt;h3 id="パラメータ">パラメータ&lt;/h3>
 &lt;ul>
