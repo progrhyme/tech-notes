@@ -2868,6 +2868,22 @@ ConfigMapやSecretをVolumeとして、または環境変数を通してPodに�
 &lt;ul>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/">Configure a Pod to Use a ConfigMap - Kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/">Configuring Redis using a ConfigMap | Kubernetes&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Container Analysis</title><link>https://progrhy.me/tech-notes/a/google/gcp/container-analysis/</link><pubDate>Fri, 17 Jun 2022 10:42:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/container-analysis/</guid><description>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/container-analysis/docs">Container Analysis documentation | Google Cloud&lt;/a>&lt;/p>
+&lt;p>主にコンテナの脆弱性スキャン。&lt;/p>
+&lt;h2 id="os-scanning">OS Scanning&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/container-analysis/docs/container-scanning-overview">Container scanning | Container Analysis documentation | Google Cloud&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>非対応のイメージがある。scratchなど&lt;/li>
+&lt;/ul>
+&lt;h2 id="言語パッケージの脆弱性検査">言語パッケージの脆弱性検査&lt;/h2>
+&lt;p>2022-06-17現在、GoとJavaに対応しているようだ。&lt;/p>
+&lt;h3 id="go">Go&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/container-analysis/docs/go-overview">https://cloud.google.com/container-analysis/docs/go-overview&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/container-analysis/docs/go-scanning">https://cloud.google.com/container-analysis/docs/go-scanning&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: encoding</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/encoding/</link><pubDate>Wed, 01 Jul 2020 23:13:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/encoding/</guid><description>
 &lt;h2 id="encoding">encoding&lt;/h2>
 &lt;p>&lt;a href="https://golang.org/pkg/encoding/">https://golang.org/pkg/encoding/&lt;/a>&lt;/p>
@@ -5234,32 +5250,4 @@ aptは最先端のようだが、すべてaptで賄えるというわけでは�
 &lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/pull/73787">Deprecate &amp;ndash;export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/tkusumi/items/a824e040475fc47d311a">Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec">Dump Kubernetes cluster resources as YAML&lt;/a> &amp;hellip; シェルスクリプトで頑張っている事例&lt;/li>
-&lt;/ul></description></item><item><title>A: EKS</title><link>https://progrhy.me/tech-notes/a/web-service/aws/eks/</link><pubDate>Tue, 07 Jun 2022 16:43:46 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/web-service/aws/eks/</guid><description>
-&lt;h2 id="about">About&lt;/h2>
-&lt;p>Amazon Elastic Kubernetes Service&lt;/p>
-&lt;h2 id="公式ドキュメント">公式ドキュメント&lt;/h2>
-&lt;p>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/index.html">https://docs.aws.amazon.com/ja_jp/eks/index.html&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/what-is-eks.html">ユーザーズガイド&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.aws.amazon.com/ja_jp/eks/latest/APIReference/Welcome.html">APIリファレンス&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="仕様">仕様&lt;/h2>
-&lt;h3 id="コンテナランタイム">コンテナランタイム&lt;/h3>
-&lt;p>2022-06-08現在の情報。&lt;/p>
-&lt;ul>
-&lt;li>ランタイムとしてcontainerd, Dockerがサポートされている&lt;/li>
-&lt;li>EKS 1.21のデフォルトはDockerとなっている&lt;/li>
-&lt;li>EKS 1.20以降ではDockerは非推奨となっている&lt;/li>
-&lt;li>EKS 1.23でDockershimは削除される予定&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-kubernetes-1-22/">Amazon EKS now supports Kubernetes 1.22 | Containers&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://aws.amazon.com/jp/blogs/news/amazon-eks-1-21-released/">Amazon EKS が Kubernetes 1.21 のサポートを開始 | Amazon Web Services ブログ&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://tech.drecom.co.jp/eks-deprecates-docker/">EKSでdocker非推奨問題に対応しました - Tech Inside Drecom&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://eksctl.io/usage/container-runtime/">Define Container Runtime - eksctl&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ツール">ツール&lt;/h2>
-&lt;h3 id="eksctl">eksctl&lt;/h3>
-&lt;p>&lt;a href="https://eksctl.io/">https://eksctl.io/&lt;/a>&lt;/p>
-&lt;p>公式CLI。&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

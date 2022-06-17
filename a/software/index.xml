@@ -115,6 +115,15 @@
 &lt;li>&lt;a href="https://github.com/docker-library/openjdk/">https://github.com/docker-library/openjdk/&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>Javaのリリースサイクルが短くなったこともあり、メンテされているバージョンが多くて所望のイメージを探すのにちょっと苦労する。&lt;/p>
+&lt;h4 id="scratch">scratch&lt;/h4>
+&lt;p>最小限のイメージ。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hub.docker.com/_/scratch">https://hub.docker.com/_/scratch&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://dev.classmethod.jp/articles/exploration-to-docker-scratch/">Dockerのscratchイメージを探検する | DevelopersIO&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="child-pages">Child Pages&lt;/h2></description></item><item><title>A: Elasticsearch</title><link>https://progrhy.me/tech-notes/a/software/elasticsearch/</link><pubDate>Fri, 10 Jul 2020 23:39:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/elasticsearch/</guid><description>
 &lt;h2 id="architecture">Architecture&lt;/h2>
 &lt;p>ノードの種類:&lt;/p>

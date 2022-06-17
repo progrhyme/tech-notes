@@ -278,6 +278,22 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/Hyperion13fleet/items/02901432f733a226a0f8">[BigQuery] 一部のカラムだけクエリしたくない場合はexcept関数があるよ - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: Container Analysis</title><link>https://progrhy.me/tech-notes/a/google/gcp/container-analysis/</link><pubDate>Fri, 17 Jun 2022 10:42:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/container-analysis/</guid><description>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/container-analysis/docs">Container Analysis documentation | Google Cloud&lt;/a>&lt;/p>
+&lt;p>主にコンテナの脆弱性スキャン。&lt;/p>
+&lt;h2 id="os-scanning">OS Scanning&lt;/h2>
+&lt;p>&lt;a href="https://cloud.google.com/container-analysis/docs/container-scanning-overview">Container scanning | Container Analysis documentation | Google Cloud&lt;/a>&lt;/p>
+&lt;p>NOTE:&lt;/p>
+&lt;ul>
+&lt;li>非対応のイメージがある。scratchなど&lt;/li>
+&lt;/ul>
+&lt;h2 id="言語パッケージの脆弱性検査">言語パッケージの脆弱性検査&lt;/h2>
+&lt;p>2022-06-17現在、GoとJavaに対応しているようだ。&lt;/p>
+&lt;h3 id="go">Go&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.google.com/container-analysis/docs/go-overview">https://cloud.google.com/container-analysis/docs/go-overview&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/container-analysis/docs/go-scanning">https://cloud.google.com/container-analysis/docs/go-scanning&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Cloud Functions</title><link>https://progrhy.me/tech-notes/a/google/gcp/function/</link><pubDate>Mon, 04 May 2020 09:26:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/google/gcp/function/</guid><description>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://cloud.google.com/functions/docs?hl=ja">https://cloud.google.com/functions/docs?hl=ja&lt;/a>&lt;/p>
