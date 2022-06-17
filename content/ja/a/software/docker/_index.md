@@ -101,4 +101,14 @@ Dockerイメージのレジストリサービス。
 
 Javaのリリースサイクルが短くなったこともあり、メンテされているバージョンが多くて所望のイメージを探すのにちょっと苦労する。
 
+#### scratch
+
+最小限のイメージ。
+
+- https://hub.docker.com/_/scratch
+
+参考:
+
+- [Dockerのscratchイメージを探検する | DevelopersIO](https://dev.classmethod.jp/articles/exploration-to-docker-scratch/)
+
 ## Child Pages
