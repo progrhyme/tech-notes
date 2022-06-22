@@ -4320,7 +4320,99 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ファイルシステム&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">hello_utils&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">path&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hello_utils&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: fmt</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</link><pubDate>Wed, 10 Jun 2020 01:55:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: Dockerfile</title><link>https://progrhy.me/tech-notes/a/software/docker/dockerfile/</link><pubDate>Wed, 29 Apr 2020 12:47:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/docker/dockerfile/</guid><description>
+&lt;ul>
+&lt;li>公式リファレンス: &lt;a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/&lt;/a>&lt;/li>
+&lt;li>邦訳: &lt;a href="http://docs.docker.jp/engine/reference/builder.html" title="Dockerfile リファレンス — Docker-docs-ja ドキュメント">Dockerfile リファレンス — Docker-docs-ja ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ベストプラクティス">ベストプラクティス&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/&lt;/a>
+&lt;ul>
+&lt;li>邦訳: &lt;a href="http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html">http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.slideshare.net/ssuser1f3c12/introduce-that-best-practices-for-writing-dockerfiles">Introduce that Best practices for writing Dockerfiles&lt;/a> &amp;hellip; 2018年12月Japan Container Daysでのモリハヤさんの発表&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/pottava/items/452bf80e334bc1fee69a" title="効率的に安全な Dockerfile を作るには - Qiita">効率的に安全な Dockerfile を作るには - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="addとcopy">ADDとCOPY&lt;/h3>
+&lt;p>&lt;a href="http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html#add-copy">http://docs.docker.jp/engine/userguide/eng-image/dockerfile_best-practice.html#add-copy&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>COPY&lt;/code> で間に合うときは &lt;code>COPY&lt;/code> を使うべき&lt;/li>
+&lt;li>&lt;code>ADD&lt;/code> は圧縮ファイルの展開などの機能もある&lt;/li>
+&lt;/ul>
+&lt;h2 id="dockerignore">.dockerignore&lt;/h2>
+&lt;p>&lt;a href="https://docs.docker.jp/engine/reference/builder.html#dockerignore">https://docs.docker.jp/engine/reference/builder.html#dockerignore&lt;/a>&lt;/p>
+&lt;p>ADDやCOPYによってDockerイメージに含めたくないファイルを記しておく。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/munisystem/items/b0f08b28e8cc26132212">.dockerignore アンチパターン - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="syntax">Syntax&lt;/h2>
+&lt;h3 id="環境変数の利用">環境変数の利用&lt;/h3>
+&lt;p>&lt;a href="http://docs.docker.jp/engine/reference/builder.html#environment-replacement">http://docs.docker.jp/engine/reference/builder.html#environment-replacement&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>全てではないが、一部の命令で環境変数の利用がサポートされている。&lt;/li>
+&lt;li>&lt;code>ENV&lt;/code> 命令で環境変数をセットすることもできる。&lt;/li>
+&lt;li>コンテナ実行時に環境変数をセットする際は &lt;code>docker run&lt;/code> に &lt;code>-e KEY=${VALUE}&lt;/code> の形で渡す。
+&lt;ul>
+&lt;li>これらを &lt;code>CMD&lt;/code> や &lt;code>ENTRYPOINT&lt;/code> で解釈する際は、exec形式(= &lt;code>[&amp;quot;実行コマンド&amp;quot;, &amp;quot;引数&amp;quot;...]&lt;/code>の形式)では展開されないため、シェル形式(= &lt;code>実行コマンド 引数...&lt;/code>)で記す必要がある。&lt;/li>
+&lt;li>または、ラッパースクリプトを指定するという手もアリだろう。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="instructions">Instructions&lt;/h3>
+&lt;h4 id="cmd">CMD&lt;/h4>
+&lt;p>コンテナのデフォルトの実行コマンド、またはその引数を指定する。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec実行形式&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># ENTRYPOINTのデフォルト引数&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &amp;lt;コマンド...&amp;gt; &lt;span style="color:#8f5902;font-style:italic"># シェル形式&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>２番目は &lt;code>ENTRYPOINT&lt;/code> を指定した時、その引数となる。
+&lt;ul>
+&lt;li>&lt;code>docker run &amp;lt;コンテナ&amp;gt; 引数...&lt;/code> として上書きできる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1, 3番目の形式は &lt;code>ENTRYPOINT&lt;/code> と一緒には指定できない（はず…）
+&lt;ul>
+&lt;li>シェル形式の場合、 &lt;code>/bin/sh -c&lt;/code> で起動されるようだ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="entrypoint">ENTRYPOINT&lt;/h4>
+&lt;p>コンテナのデフォルトの実行コマンドを指定する。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;実行ファイル&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;ARG2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#a40000">...&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># exec形式&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> 実行ファイル ARG1 ARG2 ... &lt;span style="color:#8f5902;font-style:italic"># シェル形式&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>上書きするには &lt;code>--entrypoint &amp;lt;コマンド...&amp;gt;&lt;/code> とする。&lt;/li>
+&lt;li>シェル形式の場合、 &lt;code>/bin/sh -c&lt;/code> で起動されるようだ&lt;/li>
+&lt;li>&lt;code>CMD&lt;/code> でデフォルト引数を与えると、 &lt;code>ENTRYPOINT&lt;/code> として指定した「コマンド + 引数」の後に &lt;code>CMD&lt;/code> として与えた引数がくっつく。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">FROM&lt;/span>&lt;span style="color:#4e9a06"> ubuntu&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">ENTRYPOINT&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;top&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;-b&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">CMD&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-c&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このコンテナを &lt;code>docker run&lt;/code> で動かすと、 &lt;code>top -b -c&lt;/code> が実行される。&lt;/p>
+&lt;p>&lt;code>CMD&lt;/code> の方はコマンドラインで普通に上書きされる。&lt;br>
+上のDockerfileを &lt;code>ubuntu-top&lt;/code> としてビルドして例を示す:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>docker run --rm -it ubuntu-top &lt;span style="color:#8f5902;font-style:italic"># top -b -c が実行される&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run --rm -it ubuntu-top -n &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#8f5902;font-style:italic"># top -b -n 1 が実行される&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pocketstudio.net/2020/01/31/cmd-and-entrypoint/">ENTRYPOINTは「必ず実行」、CMDは「（デフォルトの）引数」 | ポケテク&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="volume">VOLUME&lt;/h4>
+&lt;p>&lt;code>docker run&lt;/code> の &lt;code>-v&lt;/code> オプションに相当。&lt;br>
+ホストのディレクトリをコンテナにマウントする。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/namutaka/items/f6a574f75f0997a1bb1d">DockerのVolume機能について実験してみたことをまとめます - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;h3 id="cmdとentrypointがどう作用するか">CMDとENTRYPOINTがどう作用するか&lt;/h3>
+&lt;p>&lt;a href="http://docs.docker.jp/engine/reference/builder.html#cmd-entrypoint">http://docs.docker.jp/engine/reference/builder.html#cmd-entrypoint&lt;/a>&lt;/p></description></item><item><title>A: fmt</title><link>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</link><pubDate>Wed, 10 Jun 2020 01:55:32 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/go/std-pkg/fmt/</guid><description>
 &lt;h2 id="about">About&lt;/h2>
 &lt;p>書式付きの入出力機能を提供するパッケージ。&lt;/p>
 &lt;p>Examples:&lt;/p>
@@ -4525,6 +4617,268 @@ outputがnilのときは &lt;code>os.Stderr&lt;/code> が使われる。&lt;/p><
 &lt;h3 id="vpc接続">VPC接続&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://cloud.google.com/functions/docs/connecting-vpc?hl=ja">VPC ネットワークへの接続 | Cloud Functions のドキュメント | Google Cloud&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: dockerコマンド</title><link>https://progrhy.me/tech-notes/a/software/docker/cmd/</link><pubDate>Wed, 29 Apr 2020 12:07:33 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/docker/cmd/</guid><description>
+&lt;p>リファレンス: &lt;a href="https://docs.docker.com/engine/reference/commandline/cli/">https://docs.docker.com/engine/reference/commandline/cli/&lt;/a>&lt;/p>
+&lt;h2 id="v1703でのコマンド体系再編について">v17.0.3でのコマンド体系再編について&lt;/h2>
+&lt;p>2017年1月にリリースされたv1.13（v17.0.3）でコマンド体系が再編された。&lt;br>
+古いコマンドも2020年4月現在では、まだ使えるものが多そうだが、注意が必要。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/zembutsu/items/6e1ad18f0d548ce6c266" title="docker container / image コマンド新旧比較 - Qiita">docker container / image コマンド新旧比較 - Qiita&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="チートシート">チートシート&lt;/h2>
+&lt;h3 id="version-helpの確認">version, helpの確認&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Help&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker &amp;lt;COMMAND&amp;gt; --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># client/server version 表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="https://docs.docker.com/engine/reference/commandline/version/">https://docs.docker.com/engine/reference/commandline/version/&lt;/a>&lt;/p>
+&lt;h3 id="コンテナの起動実行">コンテナの起動（実行）&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コマンド実行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>% docker run ubuntu /bin/echo &lt;span style="color:#4e9a06">&amp;#34;Hello, world&amp;#34;&lt;/span> &lt;span style="color:#8f5902;font-style:italic">#=&amp;gt; Hello, world&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># bash を起動し、インタラクティブモードになる&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>% docker run -it ubuntu /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>root@b171dd1d7831:/#
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># バックグラウンドで hello world を1秒おきに出力し続ける&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>% docker run -d ubuntu /bin/sh -c &lt;span style="color:#4e9a06">&amp;#34;while true; do echo hello world; sleep 1; done&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>c6e58ecccfdb5640938443911f85fa301338e0063afe1a13ab0ffc7c93aa7f5f &lt;span style="color:#8f5902;font-style:italic"># container id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Web サーバをホストのエフェメラルポートで動かす&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -dP training/webapp python app.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Web サーバをホストの 80番ポートで動かす&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d -p 80:5000 training/webapp python app.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Web サーバを &amp;#34;web&amp;#34; という名前で動かす&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -dP --name web training/webapp python app.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Postgres サーバを &amp;#34;db&amp;#34; を、独自ネットワーク上で起動&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d --net my-network --name db training/postgres
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Web サーバに /webapp というボリュームを作って起動&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -dP --name web -v /webapp training/webapp python app.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># + ホストのマウントパス指定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -dP --name web -v /var/lib/docker/volumes/data-webapp:/opt/webapp training/webapp python app.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># + ホストの共有領域のデータボリュームをディレクトリ名で指定(パスは上と同じになる)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -dP --name web -v data-webapp:/opt/webapp training/webapp python app.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See also &lt;a href="#run">run&lt;/a>&lt;/p>
+&lt;h3 id="コンテナ操作run-以外">コンテナ操作(run 以外)&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナを作成するが起動しない。オプションは run に似ている&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker create &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;IMAGE&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>COMMAND&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 停止&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker stop &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 再起動&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker start &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 強制停止&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker &lt;span style="color:#204a87">kill&lt;/span> &lt;span style="color:#000">$ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナ上でインタラクティブシェル(bash)実行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker &lt;span style="color:#204a87">exec&lt;/span> -it db bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 作成した停止済みのコンテナを削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker rm &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 停止しているコンテナの全削除。動作中のものはエラーになる&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker rm &lt;span style="color:#4e9a06">`&lt;/span>docker ps -a -q&lt;span style="color:#4e9a06">`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="コンテナの情報を見る">コンテナの情報を見る&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 動作中のコンテナ表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker ps
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 停止しているものも含めて表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker ps -a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 停止していようがいまいが一番最近動かしたやつを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker ps -l
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># top&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker top &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナにマッピングされたホストのポートを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker port &lt;span style="color:#000">$NAME_OR_ID&lt;/span> &amp;lt;PORT&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ログ表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker logs &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ログを tail -f する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker logs -f &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナの情報を JSON で dump&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker inspect &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># + クエリで情報を絞り込む例 x 2:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker inspect --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;{{json .NetworkSettings.Networks}}&amp;#39;&lt;/span> &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker inspect --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&amp;#39;&lt;/span> &lt;span style="color:#000">$NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="コンテナのイメージ操作">コンテナのイメージ操作&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 変更を施したコンテナからイメージを作成する&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker commit -m &lt;span style="color:#4e9a06">&amp;#34;変更についてのコメント&amp;#34;&lt;/span> -a &lt;span style="color:#4e9a06">&amp;#34;名前 &amp;lt;メアド&amp;gt;&amp;#34;&lt;/span> &lt;span style="color:#000">$NAME_OR_ID&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>&amp;lt;リポジトリ&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>:タグ&lt;span style="color:#ce5c00;font-weight:bold">]]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Dockerfile からイメージ作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker build -t リポジトリ:タグ path/to/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Dockerfile&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># イメージにタグを付ける&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker tag &lt;span style="color:#000">$IMAGE_ID&lt;/span> リポジトリ:タグ
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># リポジトリにあるイメージを検索&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker search &amp;lt;キーワード&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># イメージをリポジトリから取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker pull &amp;lt;イメージ&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># イメージをリポジトリに push&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker push リポジトリ
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ローカルにあるイメージ一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker images
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># イメージ削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker rmi &lt;span style="color:#000">$ID&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="データボリューム操作">データボリューム操作&lt;/h3>
+&lt;p>See &lt;a href="#volume">volume&lt;/a>&lt;/p>
+&lt;h3 id="ネットワーク操作">ネットワーク操作&lt;/h3>
+&lt;p>See &lt;a href="#network">network&lt;/a>&lt;/p>
+&lt;h3 id="不要なイメージボリューム等の掃除">不要なイメージ・ボリューム等の掃除&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 停止したコンテナを削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker container prune
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 不要ボリュームを削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker volume prune
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 古いイメージなどを削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image prune
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ネットワークの掃除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network prune
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># まとめて掃除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker system prune
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/ksato9700/items/b0075dc54dfffc64b999">Dockerのあれこれを断捨離する - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.memotansu.jp/docker/840/">docker volume pruneコマンドの使い方（実例付）CE対応 | めもたんす&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="リファレンス">リファレンス&lt;/h2>
+&lt;h3 id="container">container&lt;/h3>
+&lt;p>コンテナ操作。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナ一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker container ls &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナ停止&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker container stop CONTAINER_ID_OR_NAME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナ削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker container rm CONTAINER_ID_OR_NAME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 停止したコンテナを全て削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker container prune
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナ上でインタラクティブシェル(bash)実行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker container &lt;span style="color:#204a87">exec&lt;/span> -it CONTAINER_ID_OR_NAME bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cp">cp&lt;/h3>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/cp/">https://docs.docker.com/engine/reference/commandline/cp/&lt;/a>&lt;/p>
+&lt;p>ホスト - コンテナ間でファイル/ディレクトリのコピー&lt;/p>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>docker cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> CONTAINER:SRC_PATH DEST_PATH&lt;span style="color:#000;font-weight:bold">|&lt;/span>-
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker cp &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> SRC_PATH&lt;span style="color:#000;font-weight:bold">|&lt;/span>- CONTAINER:DEST_PATH
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="image">image&lt;/h3>
+&lt;p>イメージ操作。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image list &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-a&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Dockerfile からイメージ作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image build -t リポジトリ:タグ &amp;lt;Dockerfileがあるディレクトリ&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># イメージ削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image rm IMAGE_ID
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="network">network&lt;/h3>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/network/">https://docs.docker.com/engine/reference/commandline/network/&lt;/a>&lt;/p>
+&lt;p>ネットワークの管理&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ネットワーク一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 特定ネットワークの情報表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network inspect &lt;span style="color:#000">$NW_NAME&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナをネットワークから切断&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network disconnect &lt;span style="color:#000">$NW_NAME&lt;/span> &lt;span style="color:#000">$CONTAINER_NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテナをネットワークに接続&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network connect &lt;span style="color:#000">$NW_NAME&lt;/span> &lt;span style="color:#000">$CONTAINER_NAME_OR_ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 独自ネットワークを作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network create -d &lt;span style="color:#000">$DRIVER&lt;/span> &lt;span style="color:#000">$NW_NAME&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="run">run&lt;/h3>
+&lt;p>run はコンテナ起動コマンド。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">オプション&lt;/th>
+&lt;th style="text-align:left">意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">-d, &amp;ndash;detach&lt;/td>
+&lt;td style="text-align:left">バックグラウンドでコンテナを動かす&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">-e, &amp;ndash;env&lt;/td>
+&lt;td style="text-align:left">環境変数を1つずつ指定&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&amp;ndash;env-file &lt;file>&lt;/td>
+&lt;td style="text-align:left">ファイルを指定して、環境変数を設定&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">-i, &amp;ndash;interactive&lt;/td>
+&lt;td style="text-align:left">STDIN を開く&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&amp;ndash;name NAME&lt;/td>
+&lt;td style="text-align:left">コンテナに名前をつける&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&amp;ndash;net NW&lt;/td>
+&lt;td style="text-align:left">ネットワーク NW に配置する。未指定だとデフォルトのネットワークになる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">-P, &amp;ndash;publish-all&lt;/td>
+&lt;td style="text-align:left">コンテナが外部に開くポートをすべてランダムにホストのエフェメラルポートに割当てる&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">-p, &amp;ndash;publish=[]&lt;/td>
+&lt;td style="text-align:left">ポートを指定してポートを公開する&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&amp;ndash;privileged&lt;/td>
+&lt;td style="text-align:left">特権を付与&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&amp;ndash;restart=&amp;lt;string&amp;gt;&lt;/td>
+&lt;td style="text-align:left">コンテナが既に存在するときの再起動ポリシー。デフォルトは &lt;code>no&lt;/code>. 他に &lt;code>always&lt;/code> が指定可能&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&amp;ndash;rm&lt;/td>
+&lt;td style="text-align:left">コンテナ停止時に削除&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">-t, &amp;ndash;tty&lt;/td>
+&lt;td style="text-align:left">TTY 割当て&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">-v, &amp;ndash;volume=[]&lt;/td>
+&lt;td style="text-align:left">データボリュームのマウント&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="volume">volume&lt;/h3>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/volume/">https://docs.docker.com/engine/reference/commandline/volume/&lt;/a>&lt;/p>
+&lt;p>データボリュームの管理&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># ボリューム作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker volume create &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>OPTIONS&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># flocker driver を使い my-named-volume という名前で 20GB のボリュームを作成&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker volume create -d flocker --name my-named-volume -o &lt;span style="color:#000">size&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>20GB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 一覧&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker volume ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># dangling volume をリスト&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker volume ls -f &lt;span style="color:#000">dangling&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 削除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker volume rm &lt;span style="color:#000">$VOLUME_NAME&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>非公式リファレンス系:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://qiita.com/bungoume/items/b8911fd243d9c084bd63">Dockerチートシート - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://qiita.com/voluntas/items/68c1fd04dd3d507d4083">docker コマンド チートシート - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/hotta/69b476ae6662c5ff67f0">Dockerコマンドラインリファレンス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>その他:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://blog.n-z.jp/blog/2013-12-24-docker-rm.html">Dockerで不要になったコンテナやイメージを削除する - @znz blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.tsugihagi.net/entry/2014/10/05/083120">(ヽ´ω&lt;code>) &amp;lt; DockerのOperation not permittedとの戦争 - (ヽ´ω&lt;/code>) &amp;lt; *****&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Crates</title><link>https://progrhy.me/tech-notes/a/program/rust/crate/</link><pubDate>Sat, 30 May 2020 22:17:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/program/rust/crate/</guid><description>
 &lt;h2 id="crates">Crates&lt;/h2>
 &lt;p>クレートはRustプログラムのパッケージを表す。&lt;br>
@@ -4895,359 +5249,4 @@ structを定義することでコマンドライン引数を解析する。&lt;/
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#000">assert_eq!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">format!&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;The origin is: {}&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000">origin&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;The origin is: (0, 0)&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fmt-required-method">fmt (Required Method)&lt;/h3>
 &lt;p>&lt;code>fn fmt(&amp;amp;self, f: &amp;amp;mut Formatter) -&amp;gt; Result&amp;lt;(), Error&amp;gt;&lt;/code>&lt;/p>
-&lt;p>値を与えられたフォーマッタでフォーマットする。&lt;/p></description></item><item><title>A: dpkg</title><link>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</link><pubDate>Mon, 04 May 2020 17:18:57 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/pkg-man/dpkg/</guid><description>
-&lt;p>ハイレベルのインタフェースとして &lt;strong>apt&lt;/strong>, &lt;strong>apt-get&lt;/strong>, &lt;strong>aptitude&lt;/strong> がある。&lt;br>
-昔からあるのがaptitudeで、最近あまり使われてない気がするが、2017年11月18日現在、これにしかない機能もあるそうだ。&lt;br>
-aptは最先端のようだが、すべてaptで賄えるというわけではまだなさそう。&lt;/p>
-&lt;p>dpkg &amp;lt;=&amp;gt; aptの関係は、RHEL系におけるrpm &amp;lt;=&amp;gt; yumの関係と似ている。&lt;/p>
-&lt;p>つまり、dpkgは低レベルのインタフェースであり、aptは内部的にdpkgを使っている。&lt;br>
-…というようなことが &lt;a href="http://www.tkd55.net/?p=816">Debian系のファイル管理コマンドもまとめてみた | tkd55&lt;/a> に書いてあった。&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://sites.google.com/site/progrhymetechwiki/home/memo/2016/20160604#TOC-apt-">https://sites.google.com/site/progrhymetechwiki/home/memo/2016/20160604#TOC-apt-&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ドキュメント">ドキュメント&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://debian-handbook.info/browse/ja-JP/stable/">Debian 管理者ハンドブック&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="https://debian-handbook.info/browse/ja-JP/stable/sect.apt-get.html">6.2. aptitude、apt-get、apt コマンド&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="https://linux.die.net/man/1/dpkg">dpkg(1): package manager for Debian - Linux man page&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://ja.manpages.org/apt/8">man apt (8): コマンドラインインターフェイス&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://linux.die.net/man/8/apt-get">apt-get(8) - Linux man page&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://linux.die.net/man/8/aptitude">aptitude(8) - Linux man page&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="コマンド">コマンド&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># パッケージリストの更新&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># パッケージの更新&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 更新可能なパッケージの一覧&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt list --upgradable
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 最低限可能なアップグレードを行う&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt upgrade
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get upgrade
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aptitude safe-upgrade
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># パッケージの検索&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt search &lt;span style="color:#000">$QUERY&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-cache search &lt;span style="color:#000">$QUERY&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># パッケージの削除&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt remove &lt;span style="color:#000">$PACKAGE&lt;/span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get remove &lt;span style="color:#000">$PACKAGE&lt;/span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 不要なパッケージを削除 ... 依存関係でインストールされたが、使われなくなったもの&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt autoremove
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージの一覧&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dpkg -l
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># パッケージがインストールされているか調べる&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dpkg -l &lt;span style="color:#000">$PACKAGE&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dpkg-query -l &lt;span style="color:#000">$PACKAGE&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># インストールされたパッケージに含まれるファイルリストを表示&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dpkg-query -L &lt;span style="color:#000">$PACKAGE&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="インストール">インストール&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>apt install &lt;span style="color:#000">$PACKAGE&lt;/span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install &lt;span style="color:#000">$PACKAGE&lt;/span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># バージョン指定&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">PACKAGE&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">VERSION&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># .debパッケージファイルをインストール&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dpkg -i foo.deb
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/isaoshimizu/items/e9c7fdc8efad66422cae">apt-getでversionを指定してインストールする方法 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="参考">参考&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="http://www.tkd55.net/?p=816">Debian系のファイル管理コマンドもまとめてみた | tkd55&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://d.hatena.ne.jp/bluerepliroid/20071205/1197288679">aptとdpkg - intrinsic feeling&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/SUZUKI_Masaya/items/1fd9489e631c78e5b007">aptコマンドチートシート - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://news.mynavi.jp/article/20100420-a053/">rpm、deb、depot、msiパッケージの展開と一覧表示コマンドまとめ | マイナビニュース&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: kubectl</title><link>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</link><pubDate>Fri, 01 May 2020 12:15:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/k8s/kubectl/</guid><description>
-&lt;p>Kubernetesクラスタを制御するCLI.&lt;/p>
-&lt;h2 id="documentation">Documentation&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/overview/">https://kubernetes.io/docs/reference/kubectl/overview/&lt;/a>&lt;/li>
-&lt;li>リファレンス: &lt;a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl Cheat Sheet - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://kubectl.docs.kubernetes.io/">https://kubectl.docs.kubernetes.io/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-23/">Kubernetes道場 23日目 - kubectlを網羅する - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="周辺ツール">周辺ツール&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://krew.sigs.k8s.io/">Krew&lt;/a> &amp;hellip; kubectl plugin manager&lt;/li>
-&lt;li>&lt;a href="https://github.com/ahmetb/kubectx">kubectx&lt;/a> &amp;hellip; context, namespaceの切替を簡単にしてくれる&lt;/li>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/k8s/kustomize/">kustomize&lt;/a> &amp;hellip; Kubernetesのマニフェスト管理ツール。kubectl 1.14からkubectlに取り込まれた&lt;/li>
-&lt;li>&lt;a href="https://github.com/lbolla/kube-secret-editor">lbolla/kube-secret-editor&lt;/a> &amp;hellip; secretをデコードした状態で編集することを可能にし、編集後にエンコードして保存してくれる&lt;/li>
-&lt;/ul>
-&lt;h2 id="設定">設定&lt;/h2>
-&lt;h3 id="kubeconfig">kubeconfig&lt;/h3>
-&lt;p>環境設定ファイルkubeconfigを参照する順番:&lt;/p>
-&lt;blockquote>
-&lt;ol>
-&lt;li>&lt;code>--kubeconfig&lt;/code> フラグで指定されたパス&lt;/li>
-&lt;li>&lt;code>$KUBECONFIG&lt;/code> 環境変数に指定されたパス一覧&lt;/li>
-&lt;li>&lt;code>~/.kube/config&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;/blockquote>
-&lt;p>See &lt;a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files - Kubernetes&lt;/a>&lt;/p>
-&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>$KUBECONFIG&lt;/code> は &lt;code>:&lt;/code> 区切りで複数ファイル設定可能で、その場合、複数ファイルがマージされた内容を扱うことができる&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/shoichiimamura/items/91208a9b30e701d1e7f2">kubectlの接続設定ファイル（kubeconfig）の概要 - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ユースケース">ユースケース&lt;/h2>
-&lt;h3 id="環境設定---config--context">環境設定 - config &amp;amp; context&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## kubeconfig 表示&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config view
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 現在のcontextだけを表示&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config view --minify
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## context&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 一覧表示&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config get-contexts
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#### ヘッダ無しで名前だけ表示&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config get-contexts --no-headers -o&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>name
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 現在のcontext&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config current-context
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 切替え&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config use-context &amp;lt;context-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### rename&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config rename-context &amp;lt;old-name&amp;gt; &amp;lt;new-name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl?hl=ja">kubectl 用のクラスタ アクセスの構成 | Kubernetes Engine のドキュメント | Google Cloud&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="namespaceの操作設定">Namespaceの操作・設定&lt;/h3>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># コンテキストのデフォルトnamespaceを設定する&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config set-context &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>kubectl config current-context&lt;span style="color:#204a87;font-weight:bold">)&lt;/span> --namespace&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NAMESPACE
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/nirasan/items/9dcc7e45cf20fb72bf8a">kubectl で Namespace を切り替える - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="実行公開">実行・公開&lt;/h3>
-&lt;ul>
-&lt;li>run &amp;hellip; コンテナイメージを実行する。deploymentまたはjobが作られる。&lt;/li>
-&lt;li>expose &amp;hellip; リソースをクラスタ外にServiceとして公開する。&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## run&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run nginx --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## expose&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 例&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl expose deployment &amp;lt;deployment-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> --target-port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8000&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run &amp;lt;deployment-name&amp;gt; --image&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;image-name&amp;gt; --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;port&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl expose deployment &amp;lt;deployment-name&amp;gt; --type&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NodePort
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="app-management">App Management&lt;/h3>
-&lt;ul>
-&lt;li>autoscale&lt;/li>
-&lt;li>scale &amp;hellip; 次のリソースのサイズを設定する:
-&lt;ul>
-&lt;li>Deployment, ReplicaSet, Replication Controller, StatefulSet&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## scale&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### ReplicaSet &amp;#39;foo&amp;#39; を3に&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> rs/foo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> -f foo.yml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### 今のサイズが2だったら3にする&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale --current-replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --replicas&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> deployment/mysql
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="リソース管理">リソース管理&lt;/h3>
-&lt;h4 id="作成更新">作成・更新&lt;/h4>
-&lt;ul>
-&lt;li>create/apply/replace &amp;hellip; JSON or YAMLのリソース定義ファイルを適用して、リソースを作成/更新する。&lt;/li>
-&lt;li>patch &amp;hellip; YAML/JSONのマージを用いて、リソース定義を差分更新する&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># create&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl create -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## ファイルから Secret を作成&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl create secret generic my-secret --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./secret/secret.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## ファイルから ConfigMap を作成&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl create configmap my-config --from-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>./config/config.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># apply&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply -f https://k8s.io/docs/tasks/run-application/deployment.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply -f ./pod.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># replace&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl replace -f &amp;lt;Path or URL of config file&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># patch&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl patch &amp;lt;Resource Type&amp;gt; &amp;lt;Name&amp;gt; --patch &amp;lt;YAML Content&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 例&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl patch deployment patch-demo --patch &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>cat patch-file.yaml&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/">Update API Objects in Place Using kubectl patch - Kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://tellme.tokyo/post/2018/08/07/kubernetes-configmaps-secrets/">Kubernetes 上で Credentials を扱う | tellme.tokyo&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cstoku.dev/posts/2018/k8sdojo-23/">Kubernetes道場 23日目 - kubectlを網羅する - Toku&amp;rsquo;s Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://codeday.me/jp/qa/20190406/566540.html">kubectl applyとkubectl replaceの違いは何ですか - コードログ&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="pod操作">Pod操作&lt;/h4>
-&lt;ul>
-&lt;li>exec &amp;hellip; コマンドをコンテナ内で実行する&lt;/li>
-&lt;li>cp &amp;hellip; ファイルをクライアント環境とPod間でやりとり&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## exec&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl &lt;span style="color:#204a87">exec&lt;/span> &amp;lt;pod&amp;gt; -- &amp;lt;command&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>args...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### podにbashでログイン&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl &lt;span style="color:#204a87">exec&lt;/span> -it &amp;lt;pod&amp;gt; -- /bin/bash -l
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## cp&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl cp path/to/localfile &amp;lt;pod&amp;gt;:/path/to/remotefile
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl cp &amp;lt;pod&amp;gt;:/path/to/remotefile /path/to/localfile
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/suzukihi724/items/515654f54538a2103ee0">kubernetes: コンテナイメージにログインする - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="node操作">Node操作&lt;/h4>
-&lt;ul>
-&lt;li>cordon &amp;hellip; ノードへのスケジュールを停止&lt;/li>
-&lt;li>drain &amp;hellip; ノードからPodを削除&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## cordon&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl cordon &amp;lt;node-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## drain&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl drain &amp;lt;node-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">### DaemonSetで管理されてPodを停止するとき&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl drain &amp;lt;node-name&amp;gt; --ignore-daemonsets
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://blog.applibot.co.jp/2016/12/27/kubernetes-zero-downtime/">kubernetesの無停止運用を意識した検証 – てっくぼっと！&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/toshihirock/items/d22fee20b1a561b9efea">Kubernetes の drain について検証した時のメモ - Qiita&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="表示">表示&lt;/h4>
-&lt;ul>
-&lt;li>get &amp;hellip; 単一・複数リソースの情報を表示する。&lt;/li>
-&lt;li>describe &amp;hellip; 単一リソース or グループの情報を表示&lt;/li>
-&lt;li>diff &amp;hellip; リソースファイルとクラスタの状態を差分表示&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># get&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ments&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get po&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ds&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-o json&lt;span style="color:#000;font-weight:bold">|&lt;/span>yaml&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## フィルタの例&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## ヘッダ無し + 出力フィールド指定&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get namespaces --no-headers --output &lt;span style="color:#4e9a06">&amp;#34;custom-columns=NAME:.metadata.name&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># describe&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl describe pods &lt;span style="color:#8f5902;font-style:italic"># all pods&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl describe pod &amp;lt;pod-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl describe deploy&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>ment&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &amp;lt;deployment-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># diff&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl diff -f foo.yml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## kustomizeバージョン&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl diff -k .
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="削除">削除&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## delete&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete deployment &amp;lt;deployment-name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="サブコマンド">サブコマンド&lt;/h2>
-&lt;h3 id="apply">apply&lt;/h3>
-&lt;p>基本的な利用イメージは&lt;a href="#%E4%BD%9C%E6%88%90%E6%9B%B4%E6%96%B0">ユースケース &amp;gt; リソース管理 &amp;gt; 作成更新&lt;/a>を見よ。&lt;/p>
-&lt;p>オプション:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>オプション&lt;/th>
-&lt;th>デフォルト&lt;/th>
-&lt;th>機能&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>--prune&lt;/code>&lt;/td>
-&lt;td>&lt;code>false&lt;/code>&lt;/td>
-&lt;td>α in 2020-0505. &lt;br />指定されてないリソースを削除する。ただし、&lt;br /> &lt;code>--save-config&lt;/code> オプション付きで作られたものは除く。&lt;br /> &lt;code>-l&lt;/code> フィルタか &lt;code>--all&lt;/code> オプションと同時に使うべし&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>--prune-whitelist&lt;/code>&lt;/td>
-&lt;td>&lt;code>[]&lt;/code>&lt;/td>
-&lt;td>&lt;code>--prune&lt;/code> で使うデフォルトのホワイトリストを上書きする&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># app=nginxラベルのリソースにマニフェストを適用し、マニフェスト外のリソースを削除する&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply --prune -f manifest.yaml -l &lt;span style="color:#000">app&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># マニフェストに書かれていないConfigMapを全て削除&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply --prune -f manifest.yaml --all --prune-whitelist&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>core/v1/ConfigMap
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="logs">logs&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 基本構文&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs &amp;lt;Pod名&amp;gt; &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## 10行 tail -f&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs &amp;lt;Pod名&amp;gt; --tail&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span> -f
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="port-forward">port-forward&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Syntax&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl port-forward TYPE/NAME &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>LOCAL_PORT:&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>REMOTE_PORT &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>...&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>LOCAL_PORT_N:&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>REMOTE_PORT_N&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Examples&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## サービスの80番ポートをローカルの8080番ポートにforward&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl port-forward service/myservice 8080:80
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## Deploymentの5000, 6000番ポートをローカルの5000, 6000番ポートにforward&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl port-forward deployment/mydeployment &lt;span style="color:#0000cf;font-weight:bold">5000&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">6000&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">## Pod指定&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl port-forward pod/mypod &lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="proxy">proxy&lt;/h3>
-&lt;p>API Proxyサーバを起動する&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl proxy --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl http://localhost:8080/api/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/">https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/&lt;/a>&lt;/p>
-&lt;h2 id="how-to">How-to&lt;/h2>
-&lt;h3 id="evictedなpodを一括削除するワンライナー">EvictedなPodを一括削除するワンライナー&lt;/h3>
-&lt;p>EvictionしたPodは手動削除しないといけないっぽい。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl get pods &lt;span style="color:#000;font-weight:bold">|&lt;/span> awk &lt;span style="color:#4e9a06">&amp;#39;{if ($3 ~ /Evicted/) system (&amp;#34;kubectl delete pods &amp;#34; $1)}&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>PodのEvictionについてはSee &lt;a href="https://progrhy.me/tech-notes/a/software/k8s/concept/#pod-eviction">Concept#pod-eviction&lt;/a>&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://qiita.com/keizokeizo3/items/84a3ece88cd86fde9f75">k8sでEvictedされたpodを一括削除する - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/46419163/what-will-happen-to-evicted-pods-in-kubernetes">What will happen to evicted pods in kubernetes? - Stack Overflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="全てのマニフェストを取得したい">全てのマニフェストを取得したい&lt;/h3>
-&lt;p>これでよさそう:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl get all --export -o yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>NOTE:&lt;/p>
-&lt;ul>
-&lt;li>※v1.14で &lt;code>--export&lt;/code> オプションはdeprecateされているが、2020-05-07, 代替手段は見つけられていない。&lt;/li>
-&lt;li>上だとPodもexport対象になるので、使い勝手悪いかも？&lt;/li>
-&lt;/ul>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/24873">Is there a way to generate yml files that will produce the existing cluster? · Issue #24873 · kubernetes/kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/pull/73787">Deprecate &amp;ndash;export flag from get command by soltysh · Pull Request #73787 · kubernetes/kubernetes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://qiita.com/tkusumi/items/a824e040475fc47d311a">Kubernetes 1.14: Urgent Upgrade Notes, Deprecations, Removed and deprecated metrics, API Changes - Qiita&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://gist.github.com/negz/c3ee465b48306593f16c523a22015bec">Dump Kubernetes cluster resources as YAML&lt;/a> &amp;hellip; シェルスクリプトで頑張っている事例&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;p>値を与えられたフォーマッタでフォーマットする。&lt;/p></description></item></channel></rss>
