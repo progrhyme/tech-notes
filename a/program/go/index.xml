@@ -1879,6 +1879,16 @@ GNUスタイルのロングオプションが作れる。&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://christina04.hatenablog.com/entry/2017/07/16/094140">delveでGolangのデバッグ - Carpe Diem&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="ビルド">ビルド&lt;/h2>
+&lt;h3 id="ko">ko&lt;/h3>
+&lt;p>&lt;a href="https://github.com/google/ko">https://github.com/google/ko&lt;/a>&lt;/p>
+&lt;p>Docker非依存のコンテナイメージ作成ツール。&lt;/p>
+&lt;p>ベースイメージとしてdistrolessが使われる。&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://ymotongpoo.hatenablog.com/entry/2021/12/22/090000">Go製アプリケーションのコンテナ化にはkoを推したい - YAMAGUCHI::weblog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/blog/ja/products/containers-kubernetes/ship-your-go-applications-faster-cloud-run-ko">ko を使用して Go アプリケーションを Cloud Run に迅速にデプロイ | Google Cloud Blog&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="タスクランナー">タスクランナー&lt;/h2>
 &lt;h3 id="gnu-make">GNU make&lt;/h3>
 &lt;p>Go言語による開発で割とよく使われるようだ。&lt;/p>

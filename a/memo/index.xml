@@ -1,4 +1,49 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2021-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20210622/</link><pubDate>Tue, 22 Jun 2021 10:56:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210622/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2022-06-24</title><link>https://progrhy.me/tech-notes/a/memo/20220624/</link><pubDate>Fri, 24 Jun 2022 11:47:45 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20220624/</guid><description>
+&lt;h2 id="624">6/24&lt;/h2>
+&lt;h3 id="ubuntuでapt-update時にgpgエラー">Ubuntuでapt update時にGPGエラー&lt;/h3>
+&lt;p>GCPのパッケージでエラー。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ sudo apt update
+:
+Err:6 http://packages.cloud.google.com/apt google-cloud-monitoring-bionic-all InRelease
+The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C2836F4BEB
+Err:4 https://packages.cloud.google.com/apt kubernetes-xenial InRelease
+The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C2836F4BEB
+Fetched 252 kB in 1s (209 kB/s)
+Reading package lists... Done
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://packages.cloud.google.com/apt google-cloud-monitoring-bionic-all InRelease: The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C283 * Super-Reading package lists... Done
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://packages.cloud.google.com/apt google-cloud-monitoring-bionic-all InRelease: The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C2836F4BEB
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://packages.cloud.google.com/apt kubernetes-xenial InRelease: The following signatures couldn&amp;#39;t be
+verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C2836F4BEB
+W: Failed to fetch http://packages.cloud.google.com/apt/dists/google-cloud-monitoring-bionic-all/InRelease The following
+signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C2836F4BEB
+W: Failed to fetch https://apt.kubernetes.io/dists/kubernetes-xenial/InRelease The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY FEEA9169307EA071 NO_PUBKEY 8B57C5C2836F4BEB
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="https://qiita.com/abetomo/items/682c51092b659b197e63">Google Cloud PackagesのGPGでエラー。2018/04/02 - Qiita&lt;/a> を参考にGPGキーを更新（追加）。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+% Total % Received % Xferd Average Speed Time Time Time Current
+Dload Upload Total Spent Left Speed
+100 2537 100 2537 0 0 13423 0 --:--:-- --:--:-- --:--:-- 13423
+OK
+&lt;/code>&lt;/pre>&lt;p>これで上手く行った。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ apt-key list
+/etc/apt/trusted.gpg
+--------------------
+pub rsa2048 2018-04-01 [SCE] [expired: 2021-03-31]
+54A6 47F9 048D 5688 D7DA 2ABE 6A03 0B21 BA07 F4FB
+uid [ expired] Google Cloud Packages Automatic Signing Key &amp;lt;gc-team@google.com&amp;gt;
+pub rsa2048 2020-12-04 [SC] [expires: 2022-12-04]
+59FE 0256 8272 69DC 8157 8F92 8B57 C5C2 836F 4BEB
+uid [ unknown] gLinux Rapture Automatic Signing Key (//depot/google3/production/borg/cloud-rapture/keys/cloud-rapture-pubkeys/cloud-rapture-signing-key-2020-12-03-16_08_05.pub) &amp;lt;glinux-team@google.com&amp;gt;
+sub rsa2048 2020-12-04 [E]
+pub rsa2048 2021-03-01 [SC] [expires: 2023-03-02]
+7F92 E05B 3109 3BEF 5A3C 2D38 FEEA 9169 307E A071
+uid [ unknown] Rapture Automatic Signing Key (cloud-rapture-signing-key-2021-03-01-08_01_09.pub)
+sub rsa2048 2021-03-01 [E]
+:
+&lt;/code>&lt;/pre>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/HS310164/items/15ebb375726ff4db4eb2">apt updateでGPG エラーが出たら - Qiita&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: 2021-06-22</title><link>https://progrhy.me/tech-notes/a/memo/20210622/</link><pubDate>Tue, 22 Jun 2021 10:56:27 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20210622/</guid><description>
 &lt;h2 id="622">6/22&lt;/h2>
 &lt;h3 id="cloud-runをgaeみたいに複数バージョンのアプリの実行環境として使えるか">Cloud RunをGAEみたいに複数バージョンのアプリの実行環境として使えるか？&lt;/h3>
 &lt;p>できそう。&lt;/p>
@@ -98,74 +143,4 @@
 &lt;ul>
 &lt;li>&lt;a href="https://blog.mothule.com/tools/ssh/tools-ssh-keygen-basic">SSH公開鍵認証で必要なssh-keygenの使い方を理解する - もちゅろぐ&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://qiita.com/kamijin_fanta/items/323c14facdf87d723b01">SSHでいつもやる設定 (ControlMaster / Bash補完) - Qiita&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>A: 2020-12-02</title><link>https://progrhy.me/tech-notes/a/memo/20201202/</link><pubDate>Wed, 02 Dec 2020 13:31:30 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201202/</guid><description>
-&lt;h2 id="122">12/2&lt;/h2>
-&lt;h3 id="binqにargocdを追加">binqにargocdを追加&lt;/h3>
-&lt;p>すっかり使い方が記憶の彼方だったが、過去ログとかGitHub Pages上の他の設定を見たらなんとかなった。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>binq new &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://github.com/argoproj/argo-cd/releases/download/v{{.Version}}/argocd-{{.OS}}-{{.Arch}}{{.BinExt}}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> -v 1.7.10 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> --rename &lt;span style="color:#4e9a06">&amp;#34;argocd-{{.OS}}-{{.Arch}}:argocd,argocd-{{.OS}}-{{.Arch}}.exe:argocd.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binq register index/index.json tmp/argocd.json -p github.com/argoproj/argo-cd/index.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binq verify github.com/argoproj/argo-cd/index.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>binq verify github.com/argoproj/argo-cd/index.json --os linux
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020-10-02</title><link>https://progrhy.me/tech-notes/a/memo/20201002/</link><pubDate>Fri, 02 Oct 2020 16:43:01 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20201002/</guid><description>
-&lt;h2 id="102">10/2&lt;/h2>
-&lt;h3 id="terraform-v013へのアップグレード">terraform v0.13へのアップグレード&lt;/h3>
-&lt;p>最近、何度かv0.12からアップグレードする機会があった。&lt;br>
-というか、tfenv等でバージョン固定してなかったために、不意にバージョンが上がってしまった。&lt;/p>
-&lt;p>まずここを読んでから作業すべし:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.terraform.io/upgrade-guides/0-13.html">https://www.terraform.io/upgrade-guides/0-13.html&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>本来あるべき手順:&lt;/p>
-&lt;ol>
-&lt;li>アップグレード前にterraform planで差分がないことを確認&lt;/li>
-&lt;li>v0.13へアップグレード&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>適宜HCLを修正する。 &lt;code>required_providers&lt;/code> の追記については後述&lt;/li>
-&lt;/ul>
-&lt;ol>
-&lt;li>アップグレード後にterraformを実行して問題ないことを確認&lt;/li>
-&lt;/ol>
-&lt;p>事前に差分を確認せずにアップグレードして、その後にterraform plan/applyすると、こういうエラーが出ることがある（あった）:&lt;/p>
-&lt;pre tabindex="0">&lt;code>Refreshing Terraform state in-memory prior to plan...
-The refreshed state will be used to calculate this plan, but will not be
-persisted to local or remote state storage.
-Error: Provider configuration not present
-To work with google_xxx.yyy its
-original provider configuration at provider[&amp;#34;registry.terraform.io/-/google&amp;#34;]
-is required, but it has been removed. This occurs when a provider
-configuration is removed while objects created by that provider still exist in
-the state. Re-add the provider configuration to destroy
-google_xxx.yyy, after which you can remove the provider configuration again.
-&lt;/code>&lt;/pre>&lt;p>ここで &lt;code>google_xxx.yyy&lt;/code> には色んなリソースが入ってくる。&lt;br>
-こういうエラーがずらっと並んでいたのを見た。&lt;/p>
-&lt;p>このエラーについては上のアップグレードガイドにも書いてあるが、tfstateにあるリソースがなくなっているケースが多いようだ。&lt;br>
-ありがちなのは、コンソールやCLIでリソースを消して、terraform側に反映してないとか、そういうケース。&lt;/p>
-&lt;p>対応としては、消していいものであれば、 &lt;code>terraform state rm google_xxx.yyy&lt;/code> でOK.&lt;/p>
-&lt;p>参考:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://progrhy.me/tech-notes/a/software/terraform/#v013">Terraform#v0.13&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h4 id="terraformrequired_providersエントリの追加">terraform.required_providersエントリの追加&lt;/h4>
-&lt;p>必須ではないかもしれないが、利用するプロバイダをterraformブロックの中に記述するようになった。&lt;/p>
-&lt;p>例:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HCL" data-lang="HCL">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">terraform&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> required_version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 0.13.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">required_providers&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> google&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> source&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 3.41&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> google-beta&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> source&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;hashicorp/google-beta&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000"> version&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;~&amp;gt; 3.41&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item><item><title>A: 2018 archive</title><link>https://progrhy.me/tech-notes/a/memo/2018/</link><pubDate>Mon, 01 Jan 2018 16:05:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2018/</guid><description/></item></channel></rss>
+&lt;/ul></description></item><item><title>A: 2020 archive</title><link>https://progrhy.me/tech-notes/a/memo/2020/</link><pubDate>Wed, 01 Jan 2020 15:38:43 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2020/</guid><description/></item><item><title>A: 2018 archive</title><link>https://progrhy.me/tech-notes/a/memo/2018/</link><pubDate>Mon, 01 Jan 2018 16:05:34 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/2018/</guid><description/></item></channel></rss>
