@@ -488,9 +488,9 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;/ul>
 &lt;h3 id="extensions">Extensions&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=mauve.terraform">Terraform - Visual Studio Marketplace&lt;/a>
+&lt;li>&lt;a href="https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform">HashiCorp Terraform - Visual Studio Marketplace&lt;/a>
 &lt;ul>
-&lt;li>2020年5月、公式になった&lt;/li>
+&lt;li>2020年5月、公式になった。当時は「mauve.terraform」だったが、2022年6月現在は「HashiCorp.terraform」となっている。&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -500,6 +500,7 @@ variableで定義した変数を参照したり、演算結果を使ったり出
 &lt;/ul>
 &lt;h3 id="設定-1">設定&lt;/h3>
 &lt;ul>
+&lt;li>&lt;code>terraform-ls&lt;/code> &amp;hellip; terraformの実行ファイルのパスを指定する。自動フォーマットなどで必要&lt;/li>
 &lt;li>自動フォーマット（ &lt;code>editor.formatOnSave&lt;/code> ）をONにしておく -&amp;gt; &lt;code>terraform fmt&lt;/code> が掛かるようになる&lt;/li>
 &lt;/ul></description></item><item><title>A: terraformer</title><link>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</link><pubDate>Fri, 08 May 2020 10:26:09 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/terraform/terraformer/</guid><description>
 &lt;p>既存のクラウドインフラなどからTerraformの設定ファイルを生成してくれるもの。&lt;/p>

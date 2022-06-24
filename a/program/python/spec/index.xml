@@ -128,4 +128,14 @@ hashableな値を任意のオブジェクトに対応付ける。&lt;/p>
 &lt;p>&lt;a href="https://docs.python.org/ja/3/library/stdtypes.html#bytes.replace">https://docs.python.org/ja/3/library/stdtypes.html#bytes.replace&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Python" data-lang="Python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">bytes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">replace&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">old&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">count&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">bytearray&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">replace&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">old&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">new&lt;/span>&lt;span style="color:#000;font-weight:bold">[,&lt;/span> &lt;span style="color:#000">count&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>oldをnewにすべて置換する。countがある場合、先頭からcount個数分だけ置換する。&lt;/p></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>oldをnewにすべて置換する。countがある場合、先頭からcount個数分だけ置換する。&lt;/p>
+&lt;h2 id="型ヒント">型ヒント&lt;/h2>
+&lt;p>&lt;a href="https://docs.python.org/ja/3/library/typing.html">https://docs.python.org/ja/3/library/typing.html&lt;/a>&lt;/p>
+&lt;p>Python 3.5から使えるようになったようだ。&lt;br>
+実行時には影響を与えないそうだ。&lt;/p>
+&lt;p>参考: &lt;a href="https://dev.classmethod.jp/articles/python-union-vs-typevar/">Pythonの型ヒント、UnionとTypeVarの違いを理解する | DevelopersIO&lt;/a>&lt;/p>
+&lt;h3 id="union">Union&lt;/h3>
+&lt;p>いずれかの型にマッチすればOKとする型ヒント。&lt;/p>
+&lt;p>&lt;code>Union[X,Y]&lt;/code> ならば、 &lt;code>X&lt;/code> または &lt;code>Y&lt;/code> の型にマッチすればOK。&lt;/p>
+&lt;p>Python 3.7からは &lt;code>X | Y&lt;/code> と書けるようになった。&lt;br>
+See &lt;a href="https://docs.python.org/ja/3/library/stdtypes.html#types-union">https://docs.python.org/ja/3/library/stdtypes.html#types-union&lt;/a>&lt;/p></description></item></channel></rss>
