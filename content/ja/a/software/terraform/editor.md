@@ -30,8 +30,8 @@ See also [Visual Studio Code]({{< ref "/a/software/editor/vscode.md" >}})
 
 ### Extensions
 
-- [Terraform - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=mauve.terraform)
-  - 2020年5月、公式になった
+- [HashiCorp Terraform - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform)
+  - 2020年5月、公式になった。当時は「mauve.terraform」だったが、2022年6月現在は「HashiCorp.terraform」となっている。
 
 参考:
 
@@ -39,4 +39,5 @@ See also [Visual Studio Code]({{< ref "/a/software/editor/vscode.md" >}})
 
 ### 設定
 
+- `terraform-ls` ... terraformの実行ファイルのパスを指定する。自動フォーマットなどで必要
 - 自動フォーマット（ `editor.formatOnSave` ）をONにしておく -> `terraform fmt` が掛かるようになる

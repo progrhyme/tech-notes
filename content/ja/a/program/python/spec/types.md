@@ -159,3 +159,21 @@ bytearray.replace(old, new[, count])
 ```
 
 oldをnewにすべて置換する。countがある場合、先頭からcount個数分だけ置換する。
+
+## 型ヒント
+
+https://docs.python.org/ja/3/library/typing.html
+
+Python 3.5から使えるようになったようだ。  
+実行時には影響を与えないそうだ。
+
+参考: [Pythonの型ヒント、UnionとTypeVarの違いを理解する | DevelopersIO](https://dev.classmethod.jp/articles/python-union-vs-typevar/)
+
+### Union
+
+いずれかの型にマッチすればOKとする型ヒント。
+
+`Union[X,Y]` ならば、 `X` または `Y` の型にマッチすればOK。
+
+Python 3.7からは `X | Y` と書けるようになった。  
+See https://docs.python.org/ja/3/library/stdtypes.html#types-union
