@@ -45,6 +45,20 @@ https://github.com/go-delve/delve が有名。
 
 - [delveでGolangのデバッグ - Carpe Diem](https://christina04.hatenablog.com/entry/2017/07/16/094140)
 
+## ビルド
+### ko
+
+https://github.com/google/ko
+
+Docker非依存のコンテナイメージ作成ツール。
+
+ベースイメージとしてdistrolessが使われる。
+
+参考:
+
+- [Go製アプリケーションのコンテナ化にはkoを推したい - YAMAGUCHI::weblog](https://ymotongpoo.hatenablog.com/entry/2021/12/22/090000)
+- [ko を使用して Go アプリケーションを Cloud Run に迅速にデプロイ | Google Cloud Blog](https://cloud.google.com/blog/ja/products/containers-kubernetes/ship-your-go-applications-faster-cloud-run-ko)
+
 ## タスクランナー
 ### GNU make
 
