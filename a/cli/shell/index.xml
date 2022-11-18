@@ -711,6 +711,46 @@ fish is a smart and user-friendly command line shell for Linux, macOS, and the r
 &lt;ul>
 &lt;li>&lt;a href="https://qiita.com/nutsinshell/items/5f111184b50f7081c92f">初心者がShellを知りFish〜Fisherを導入するまで - Qiita&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://hi120ki.github.io/blog/posts/20190123/">fisher v3 で変わったこと | Hi120kiのメモ&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A: PowerShell</title><link>https://progrhy.me/tech-notes/a/cli/shell/powershell/</link><pubDate>Fri, 18 Nov 2022 10:22:58 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/powershell/</guid><description>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>&lt;a href="https://learn.microsoft.com/ja-jp/powershell/scripting/overview">PowerShell とは - PowerShell | Microsoft Learn&lt;/a> より&lt;/p>
+&lt;blockquote>
+&lt;p>PowerShell は、コマンドライン シェル、スクリプト言語、および構成管理フレームワークで構成されるクロスプラットフォームのタスク自動化ソリューションです。 PowerShell は Windows、Linux、および macOS 上で実行されます。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="documentation">Documentation&lt;/h2>
+&lt;p>&lt;a href="https://learn.microsoft.com/ja-jp/powershell/">https://learn.microsoft.com/ja-jp/powershell/&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="csv-tsvの読み込み">CSV, TSVの読み込み&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-PowerShell" data-lang="PowerShell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">Import-Csv&lt;/span> &lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#a40000">¥&lt;/span>&lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">csv&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># TSV読み込み&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">Import-Csv&lt;/span> &lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#a40000">¥&lt;/span>&lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">tsv&lt;/span> &lt;span style="color:#000">-Delimiter&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">`t&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Shift-JISのコンテンツを読み込み&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">Import-Csv&lt;/span> &lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#a40000">¥&lt;/span>&lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">csv&lt;/span> &lt;span style="color:#000">-Encoding&lt;/span> &lt;span style="color:#204a87;font-weight:bold">Default&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://qiita.com/sukakako/items/4a17db13730934766abb">PowerShellでタブ区切りのcsvファイルを読み込む - Qiita&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.tensorflowz.com/WindowsUpdate/doc/Windows/import-csv-mojibake.html">【Windows】Powershell の import-csv コマンドレットで文字化けする場合の対処&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="csvデータのソート">CSVデータのソート&lt;/h3>
+&lt;p>&lt;code>Sort-Object (sort)&lt;/code> を使う。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-PowerShell" data-lang="PowerShell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">Import-Csv&lt;/span> &lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#a40000">¥&lt;/span>&lt;span style="color:#000">test&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">csv&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 昇順ソート&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">Sort-Object&lt;/span> &lt;span style="color:#000">-Property&lt;/span> &lt;span style="color:#000">Name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 複数プロパティで降順ソート&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">Sort-Object&lt;/span> &lt;span style="color:#000">-Property&lt;/span> &lt;span style="color:#000">Name&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">Role&lt;/span> &lt;span style="color:#000">-Descending&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># IDを数値としてソート&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">$csv&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#204a87">sort &lt;/span>&lt;span style="color:#000;font-weight:bold">@{&lt;/span>&lt;span style="color:#000">Expression&lt;/span>&lt;span style="color:#000;font-weight:bold">={&lt;/span>&lt;span style="color:#000">[int]&lt;/span>&lt;span style="color:#000">$_&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ID&lt;/span>&lt;span style="color:#000;font-weight:bold">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tips:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Sort-Object&lt;/code> =&amp;gt; &lt;code>sort&lt;/code> と記述可&lt;/li>
+&lt;li>&lt;code>-Property&lt;/code> 省略可&lt;/li>
+&lt;li>&lt;code>-Descending&lt;/code> =&amp;gt; &lt;code>-desc&lt;/code> と記述可&lt;/li>
+&lt;/ul>
+&lt;p>参考:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://plog.shinmaiblog.com/powershell-csv-sort/">PowerShellでcsvファイルの値を昇順、降順に並べて出力する | 新米Plog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.vwnet.jp/windows/PowerShell/2017032901/Sort-Object_Tips.htm">PowerShell の Sort-Object Tips&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>A: Zsh</title><link>https://progrhy.me/tech-notes/a/cli/shell/zsh/</link><pubDate>Tue, 28 Apr 2020 00:14:04 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/cli/shell/zsh/</guid><description>
 &lt;p>&lt;a href="http://www.zsh.org/">http://www.zsh.org/&lt;/a>&lt;/p>
 &lt;h2 id="documentation">Documentation&lt;/h2>
