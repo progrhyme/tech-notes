@@ -2840,6 +2840,12 @@ Googleが、機械学習の教育、研究用に使われることを目的に�
 &lt;/ul>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>&lt;a href="https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja">Colaboratory へようこそ - Colaboratory&lt;/a>&lt;/p>
+&lt;h2 id="how-to">How-to&lt;/h2>
+&lt;h3 id="googleドライブをマウント">Googleドライブをマウント&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Python" data-lang="Python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">google.colab&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">drive&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">drive&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">mount&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/content/drive&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>※実行すると、Googleアカウントでの認証が求められる&lt;/p>
+&lt;p>参考: &lt;a href="https://blog.kikagaku.co.jp/google-colab-drive-mount">【Google Colaboratory】Google ドライブにマウントし、ファイルへアクセスする方法 | キカガクの技術ブログ&lt;/a>&lt;/p>
 &lt;h2 id="関連項目">関連項目&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://progrhy.me/tech-notes/a/google/gcp/bq/#colaboratory%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%86">GCP &amp;gt; BigQuery#Colaboratoryから使う&lt;/a>&lt;/li>
