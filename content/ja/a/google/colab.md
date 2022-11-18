@@ -21,6 +21,18 @@ weight: 50
 
 [Colaboratory へようこそ - Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)
 
+## How-to
+### Googleドライブをマウント
+
+```Python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+※実行すると、Googleアカウントでの認証が求められる
+
+参考: [【Google Colaboratory】Google ドライブにマウントし、ファイルへアクセスする方法 | キカガクの技術ブログ](https://blog.kikagaku.co.jp/google-colab-drive-mount)
+
 ## 関連項目
 
 - [GCP > BigQuery#Colaboratoryから使う]({{<ref "gcp/bq.md">}}#colaboratoryから使う)
