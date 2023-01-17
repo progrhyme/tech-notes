@@ -98,7 +98,7 @@ kubectl api-resources --verbs=list --namespaced -o name \
 ### CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題
 
 2018年には起こっていた問題。  
-2020-04-14現在の状況は不明。
+2023-01-17現在の状況は不明。
 
 TL;DR:
 
@@ -113,7 +113,9 @@ TL;DR:
 
 関連リソース:
 
-- [CFS quotas can lead to unnecessary throttling · Issue #67577 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/67577) ... 2020-04-14現在、まだOpen
+- https://github.com/kubernetes/kubernetes
+  - [CFS quotas can lead to unnecessary throttling · Issue #67577 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/67577) ... 2020-11-01にクローズされたが、スレッドが伸びすぎたから閉じたという理由で、必ずしも解決したわけではなさそう（？）
+  - [CPU Throttling on Linux kernel 5.4.0-1029-aws · Issue #97445 · kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/97445) ... 2023-01-17現在、オープン
 - [Optimizing Kubernetes Resource Requests/Limits for Cost-Efficiency an…](https://www.slideshare.net/try_except_/optimizing-kubernetes-resource-requestslimits-for-costefficiency-and-latency-highload) pp.24-43
 - [Control CPU Management Policies on the Node - Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/)
 - [Kubernetesのresource requests, limits - Carpe Diem](https://christina04.hatenablog.com/entry/kubernetes-resource-limits)
