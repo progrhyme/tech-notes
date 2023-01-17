@@ -1578,7 +1578,8 @@ Externalなテーマもあるらしいけど、今は興味なし。&lt;br>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prompt_end
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで下のような感じになった。&lt;/p>
-&lt;figure>&lt;img src="ohmyzsh_capture.png"
+&lt;figure>
+&lt;img src="ohmyzsh_capture.png"
 alt="terminal screenshot with oh-my-zsh"/>
 &lt;/figure>
 &lt;h4 id="zsh-autosuggestionsをインストールして設定">zsh-autosuggestionsをインストールして設定&lt;/h4>
@@ -1588,7 +1589,8 @@ alt="terminal screenshot with oh-my-zsh"/>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>残念ながら今の環境は256色に対応してないみたいで、次のように設定した:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;fg=green,bold&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>下のような感じでサジェストが出る。&lt;/p>
-&lt;figure>&lt;img src="zsh_autosuggestions.png"
+&lt;figure>
+&lt;img src="zsh_autosuggestions.png"
 alt="screenshot of zsh-autosuggestions"/>
 &lt;/figure>
 &lt;p>&lt;code>Ctrl+e&lt;/code> or &lt;code>Ctrl+f&lt;/code> でサジェスト候補を選択できる。&lt;/p>

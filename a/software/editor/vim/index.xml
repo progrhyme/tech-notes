@@ -31,9 +31,9 @@
 &lt;li>&lt;a href="https://nanasi.jp/articles/howto/editing/et-inserttab.html">:set expandtab（:set et）設定の時に、タブ文字を挿入する — 名無しのvim使い&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="改行文字の置換挿入削除">改行文字の置換（挿入/削除）&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="display:flex;">&lt;span>; &lt;span style="color:#000">改行を削除&lt;/span>&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Vim" data-lang="Vim">&lt;span style="display:flex;">&lt;span>; 改行を削除&lt;span style="color:#a40000">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">/\n/&lt;/span>/&lt;span style="color:#000">g&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>; &lt;span style="color:#000">改行を挿入&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>; 改行を挿入&lt;span style="color:#a40000">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">s&lt;/span>&lt;span style="color:#4e9a06">//&lt;/span>\&lt;span style="color:#000">r&lt;/span>/&lt;span style="color:#000">g&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>See &lt;a href="https://qiita.com/kiduki/items/df724a7a7ae50e70c08c">vimの置換で改行を(挿入|削除)する - Qiita&lt;/a>&lt;/p></description></item><item><title>A: vimrc</title><link>https://progrhy.me/tech-notes/a/software/editor/vim/vimrc/</link><pubDate>Tue, 05 May 2020 14:34:07 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/software/editor/vim/vimrc/</guid><description>
 &lt;p>Vimの設定ファイルであるvimrcについて。&lt;/p>
