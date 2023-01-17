@@ -1,4 +1,17 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2022-06-24</title><link>https://progrhy.me/tech-notes/a/memo/20220624/</link><pubDate>Fri, 24 Jun 2022 11:47:45 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20220624/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>progrhyme's Tech Notes – Memorandum</title><link>https://progrhy.me/tech-notes/a/memo/</link><description>Recent content in Memorandum on progrhyme's Tech Notes</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 25 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://progrhy.me/tech-notes/a/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>A: 2023-01-17</title><link>https://progrhy.me/tech-notes/a/memo/20230117/</link><pubDate>Tue, 17 Jan 2023 12:02:37 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20230117/</guid><description>
+&lt;h2 id="117">1/17&lt;/h2>
+&lt;h3 id="hugo-docsy-themeの更新">Hugo docsy themeの更新&lt;/h3>
+&lt;p>このリポジトリのdocsy themeを久しぶりに更新。&lt;/p>
+&lt;p>&lt;a href="https://github.com/google/docsy-example">https://github.com/google/docsy-example&lt;/a> に倣って、 &lt;a href="https://github.com/google/docsy/tree/1d126ab1bbf186fa0ea52a6d6a3f58229b2b7942">https://github.com/google/docsy/tree/1d126ab1bbf186fa0ea52a6d6a3f58229b2b7942&lt;/a> に更新。&lt;/p>
+&lt;p>docsyをmainブランチのHEADに更新したら、submoduleがなくなっていて、上手く動かなかった。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> themes/docsy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git fetch
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git checkout 1d126ab1bbf186fa0ea52a6d6a3f58229b2b7942
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ../..
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git add themes/docsy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -m &lt;span style="color:#4e9a06">&amp;#34;Update docsy&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A: 2022-06-24</title><link>https://progrhy.me/tech-notes/a/memo/20220624/</link><pubDate>Fri, 24 Jun 2022 11:47:45 +0900</pubDate><guid>https://progrhy.me/tech-notes/a/memo/20220624/</guid><description>
 &lt;h2 id="624">6/24&lt;/h2>
 &lt;h3 id="ubuntuでapt-update時にgpgエラー">Ubuntuでapt update時にGPGエラー&lt;/h3>
 &lt;p>GCPのパッケージでエラー。&lt;/p>
