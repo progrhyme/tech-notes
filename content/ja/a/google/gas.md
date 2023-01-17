@@ -3,7 +3,7 @@ title: "Google Apps Script"
 linkTitle: "Apps Script"
 description: https://developers.google.com/apps-script/
 date: 2020-05-09T21:08:42+09:00
-weight: 10
+weight: 20
 ---
 
 ## Getting Started
