@@ -522,7 +522,7 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;h2 id="topics">Topics&lt;/h2>
 &lt;h3 id="cfs-quotaが有効のときcpu-limits設定によってコンテナがストールする問題">CFS quotaが有効のときCPU limits設定によってコンテナがストールする問題&lt;/h3>
 &lt;p>2018年には起こっていた問題。&lt;br>
-2020-04-14現在の状況は不明。&lt;/p>
+2023-01-17現在の状況は不明。&lt;/p>
 &lt;p>TL;DR:&lt;/p>
 &lt;ul>
 &lt;li>KubeletでCPU CFS quota有効だと問題
@@ -539,7 +539,12 @@ Fargateのエフェメラルストレージは20GB程度しかないようなの
 &lt;/ul>
 &lt;p>関連リソース:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/67577">CFS quotas can lead to unnecessary throttling · Issue #67577 · kubernetes/kubernetes&lt;/a> &amp;hellip; 2020-04-14現在、まだOpen&lt;/li>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes">https://github.com/kubernetes/kubernetes&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/67577">CFS quotas can lead to unnecessary throttling · Issue #67577 · kubernetes/kubernetes&lt;/a> &amp;hellip; 2020-11-01にクローズされたが、スレッドが伸びすぎたから閉じたという理由で、必ずしも解決したわけではなさそう（？）&lt;/li>
+&lt;li>&lt;a href="https://github.com/kubernetes/kubernetes/issues/97445">CPU Throttling on Linux kernel 5.4.0-1029-aws · Issue #97445 · kubernetes/kubernetes&lt;/a> &amp;hellip; 2023-01-17現在、オープン&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;li>&lt;a href="https://www.slideshare.net/try_except_/optimizing-kubernetes-resource-requestslimits-for-costefficiency-and-latency-highload">Optimizing Kubernetes Resource Requests/Limits for Cost-Efficiency an…&lt;/a> pp.24-43&lt;/li>
 &lt;li>&lt;a href="https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/">Control CPU Management Policies on the Node - Kubernetes&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://christina04.hatenablog.com/entry/kubernetes-resource-limits">Kubernetesのresource requests, limits - Carpe Diem&lt;/a>&lt;/li>
