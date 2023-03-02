@@ -201,6 +201,37 @@ a, b = test()
 
 - [Pythonの関数で複数の戻り値を返す方法 | note.nkmk.me](https://note.nkmk.me/python-function-return-multiple-values/)
 
+### decorator (デコレータ)
+
+https://docs.python.org/ja/3/reference/compound_stmts.html#function-definitions
+
+ある関数に対して、前処理や後処理などを追加したりできるシンタックスシュガー。
+
+例:
+
+```Python
+@f1(arg)
+@f2
+def func(): pass
+```
+
+`@f1` や `@f2` がデコレータであり、 `func()` に対してネストして適用される。
+
+上のコードはだいたい次と等価:
+
+```Python
+def func(): pass
+func = f1(arg)(f2(func))
+```
+
+参考:
+
+- [Pythonのデコレータについて - Qiita](https://qiita.com/mtb_beta/items/d257519b018b8cd0cc2e)
+
+関連項目
+
+- [memo/20230303/#排他制御のデコレータ]({{< ref "/a/memo/20230303.md" >}}#pythonで排他制御を実現するデコレータ)
+
 ## クラス
 
 https://docs.python.org/ja/3/tutorial/classes.html
