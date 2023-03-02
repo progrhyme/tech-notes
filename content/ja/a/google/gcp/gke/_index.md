@@ -128,6 +128,83 @@ TL;DR:
 参考:
 - [【GKE】kubernetesのsecretリソースにアクセスできるユーザーを制限したい](https://zenn.dev/nekoshita/articles/30809412399f70)
 
+## 認証認可
+### Workload Identity
+
+[Workload Identity | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity?hl=ja)
+
+- GCP Service AccountとK8s Service Accountの紐付け設定をすることができる
+- GKE Metadata Serverを有効にしている必要があるようだ
+
+メリット:
+
+- GCP Service Account Keyが不要になる
+
+### RBAC
+
+[ロールベースのアクセス制御を使用してクラスタでアクションを認可する | Google Kubernetes Engine（GKE） | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control?hl=ja)
+
+[KubernetesのRBAC](https://kubernetes.io/ja/docs/reference/access-authn-authz/rbac/)によって、以下のSubjectに権限を与えることができる
+
+* IAMユーザー
+* GCPサービスアカウント
+* Kubernetesサービスアカウント
+* 確認済みドメインのGoogleグループ
+
+例:
+
+```YAML
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pod-reader-binding
+  namespace: accounting
+subjects:
+# Google Cloud user account
+- kind: User
+  name: janedoe@example.com
+# Kubernetes service account
+- kind: ServiceAccount
+  name: johndoe
+# IAM service account
+- kind: User
+  name: test-account@test-project.iam.gserviceaccount.com
+# Google Group
+- kind: Group
+  name: accounting-group@example.com
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+```
+
+#### GCPサービスアカウントについて
+
+[ドキュメントの「制限事項」](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control?hl=ja#limitations)にあるように、VMインスタンスでGCPサービスアカウントを使って、RBACによる認可を行うためには、以下いずれかの対応が必要
+
+- VMインスタンスに `userinfo-email` authスコープを付与する
+- GCPサービスアカウントのメールアドレスではなく、ユニークIDを使用する
+
+ユニークIDは次のコマンドで取得できる。
+
+```sh
+gcloud iam service-accounts describe SERVICE_ACCOUNT_EMAIL
+```
+
+出力例:
+
+```
+displayName: Some Domain IAM service account
+email: my-iam-account@somedomain.com
+etag: BwWWja0YfJA
+name: projects/project-name/serviceAccounts/my-iam-account@somedomain.com
+oauth2ClientId: '123456789012345678901'
+projectId: project-name
+uniqueId: '123456789012345678901'
+```
+
+ユニークIDは `uniqueId` の値である。
+
 ### 最小権限のGoogleサービスアカウント
 
 https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa

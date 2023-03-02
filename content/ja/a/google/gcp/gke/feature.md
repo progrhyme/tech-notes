@@ -128,17 +128,6 @@ apiVersion: cloud.google.com/v1beta1
         drainingTimeoutSec: 60
 ```
 
-## Workload Identity
-
-[Workload Identity | Kubernetes Engine ドキュメント | Google Cloud](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity?hl=ja)
-
-- GCP Service AccountとK8s Service Accountの紐付け設定をすることができる
-- GKE Metadata Serverを有効にしている必要があるようだ
-
-メリット:
-
-- GCP Service Account Keyが不要になる
-
 ## Config Connector
 
 [Config Connector の概要 | Config Connector のドキュメント | Google Cloud](https://cloud.google.com/config-connector/docs/overview?hl=ja)
