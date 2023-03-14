@@ -232,6 +232,11 @@ spec:
 - [GKE クラスタの観察 | Stackdriver Monitoring | Google Cloud](https://cloud.google.com/monitoring/kubernetes-engine/observing?hl=ja)
 - [GKEでPodとNodeをAutoscaling する - Qiita](https://qiita.com/k-hal/items/5f060fdbafa3d29b3499#hpa)
 
+#### カスタムメトリクスによるオートスケール
+
+参考:
+- [Datadog メトリクスまたはカスタムクエリを使用して Kubernetes のワークロードをオートスケーリングする | Datadog](https://www.datadoghq.com/ja/blog/autoscale-kubernetes-datadog/)
+
 ### Cluster Autoscaler
 
 https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler

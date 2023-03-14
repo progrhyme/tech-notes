@@ -32,6 +32,13 @@ https://docs.aws.amazon.com/ja_jp/eks/index.html
 - [EKSでdocker非推奨問題に対応しました - Tech Inside Drecom](https://tech.drecom.co.jp/eks-deprecates-docker/)
 - [Define Container Runtime - eksctl](https://eksctl.io/usage/container-runtime/)
 
+## How-to
+### HPAのスケール条件に外部メトリクスを使う
+
+参考:
+- [Scaling Kubernetes deployments with Amazon CloudWatch metrics | AWS Compute Blog](https://aws.amazon.com/jp/blogs/compute/scaling-kubernetes-deployments-with-amazon-cloudwatch-metrics/) ... CloudWatchメトリクスを使う場合のAWS公式ガイド
+- [EKSにおけるAutoScalingパターン | じゃあ、したためておきます](https://esakat.github.io/esakat-blog/posts/eks-advent-calender-2020/#%E5%A4%96%E9%83%A8%E3%83%A1%E3%83%88%E3%83%AA%E3%82%AF%E3%82%B9%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0hpacloudwatchclusterautoscaler)
+
 ## ツール
 ### eksctl
 
