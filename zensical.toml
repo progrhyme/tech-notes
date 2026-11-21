@@ -232,6 +232,7 @@ nav = [
       ] },
       { "パッケージ管理" = [
         "software/pkg-man/index.md",
+        { "anyenv" = "software/pkg-man/anyenv.md" },
         { "dpkg" = "software/pkg-man/dpkg.md" },
         { "Homebrew" = "software/pkg-man/brew.md" },
         { "Snap" = "software/pkg-man/snap.md" },
@@ -249,6 +250,7 @@ nav = [
         ] },
         { "mdBook" = "software/static-site-generator/mdbook.md" },
         { "MkDocs" = "software/static-site-generator/mkdocs.md" },
+        { "VitePress" = "software/static-site-generator/vitepress.md" },
         { "Zensical" = "software/static-site-generator/zensical.md" },
       ] },
     ] },
