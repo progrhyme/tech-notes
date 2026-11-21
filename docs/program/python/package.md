@@ -61,6 +61,40 @@ Tips:
 
 - [pytestのmarkを使って一部のテストをデフォルトで実行しない方法 - Qiita](https://qiita.com/yattom/items/dbee14d45a8fb936e2d0)
 
+## Python-Markdown
+
+Documentation: https://python-markdown.github.io/
+
+PythonのMarkdownパーサ。MkDocs や [Zensical](../../software/static-site-generator/zensical.md) が使っている。
+Extensions: https://python-markdown.github.io/extensions/
+
+CommonMark(Hugo の goldmark や GitHub など)とは解釈が違うところがあり、そちら向けに書いた Markdown をそのまま使うと、リストが崩れる。
+リストまわりの主な制約:
+
+- リストの入れ子は、4スペース単位で字下げする。
+    - 2スペースや、親項目の内容に揃えた3スペース(`1. ` の下に3スペース)では、入れ子にならない。
+    - 項目の内側に書くコードブロックや段落も、同じ4スペース単位で字下げする。
+- 段落の直後にリストを書くときは、空行を1行挟む。空行がないと、リストとして認識されない。
+
+```markdown
+参考:
+- 項目       ← 空行がないので、リストにならない
+```
+
+- 同じ階層で、箇条書き(`-`)と番号付き(`1.`)を続けて書くと、間に空行を挟んでも1つのリストに連結される。分けたいときは、HTMLコメントを挟む。
+
+```markdown
+1. 番号付き
+
+<!-- -->
+
+- 箇条書き
+```
+
+検証には、変換前を CommonMark、変換後を Python-Markdown でレンダリングして、`ul`/`ol`/`li` の構造を比較すると良い。
+
+参考: [2026-11-21 のメモ](../../memo/2026/20261121.md)
+
 ## requests
 
 Documentation:

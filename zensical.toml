@@ -249,6 +249,7 @@ nav = [
         ] },
         { "mdBook" = "software/static-site-generator/mdbook.md" },
         { "MkDocs" = "software/static-site-generator/mkdocs.md" },
+        { "Zensical" = "software/static-site-generator/zensical.md" },
       ] },
     ] },
     { "プログラム言語" = [
