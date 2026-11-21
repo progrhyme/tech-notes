@@ -58,6 +58,16 @@ def test_check_warns_on_long_summary_and_strict_fails(run_cli, site_copy):
     assert run_cli("--root", site_copy, "check", "--max-len", "100").returncode == 0
 
 
+def test_check_warns_on_table_count_mismatch(run_cli, site_copy):
+    index = site_copy / "agent" / "index" / "index.md"
+    with index.open("a", encoding="utf-8") as f:
+        f.write("\n| `docs/os/` | [os.md](os.md) | 99 | OS |\n")
+    result = run_cli("--root", site_copy, "check")
+    assert result.returncode == 0
+    assert "warning: 表のページ数が実数と違う: docs/os/" in result.stdout
+    assert run_cli("--root", site_copy, "check", "--strict").returncode == 1
+
+
 def test_check_fails_without_docs_dir(run_cli, tmp_path):
     result = run_cli("--root", tmp_path, "check")
     assert result.returncode == 1

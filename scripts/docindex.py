@@ -23,7 +23,15 @@ from dataclasses import asdict
 from pathlib import Path
 
 from docindex_lib.catalog import DOCS_DIR, TargetError, all_pages, select_pages
-from docindex_lib.checking import INDEX_DIR, MAX_SUMMARY_LEN, collect_entries, find_problems
+from docindex_lib.checking import (
+    INDEX_DIR,
+    MAX_ENTRIES_PER_FILE,
+    MAX_SUMMARY_LEN,
+    collect_entries,
+    find_problems,
+    oversized_files,
+    table_count_mismatches,
+)
 from docindex_lib.formatting import format_draft, format_material
 from docindex_lib.nav import sort_by_nav
 from docindex_lib.pages import read_page
@@ -60,6 +68,8 @@ def cmd_check(args: argparse.Namespace) -> int:
     pages = set(all_pages(root / DOCS_DIR))
     entries = collect_entries(root / INDEX_DIR)
     errors, warnings = find_problems(pages, entries, args.max_len)
+    warnings += oversized_files(entries, MAX_ENTRIES_PER_FILE)
+    warnings += table_count_mismatches(root / INDEX_DIR, pages)
 
     for message in warnings:
         print(f"warning: {message}")

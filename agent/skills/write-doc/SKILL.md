@@ -23,10 +23,11 @@ compatibility: tech-notes リポジトリ専用。agent/rules/、agent/index/、
 3. 記事を書く。ルールに従う。1ページが長くなったときは、分割を検討する(`content-structure.md` の「ページの分割」)。
 4. `nav` を更新する。何を更新するかは、`content-structure.md` の表に従う。
 5. インデックスの項目を更新する。何を更新するかは、同じ表に従う。書き方は [インデックスの項目の書き方](references/index-entry.md)。
+   - ページを追加・削除したときは、`agent/index/index.md` の表(分割済みなら、親の `<dir>/index.md` の表)のページ数を、実数に直す。
+   - 更新したインデックスのファイルの項目が上限を超えたときは、[分割するとき](references/index-entry.md#分割するとき)に従って分割する。
 6. 検査する。
-   - `uv run python scripts/docindex.py check`: 変更したページと、更新したインデックスのファイルに関するエラーがない。
+   - `uv run python scripts/docindex.py check`: 変更したページと、更新したインデックスのファイルに関するエラーがない。警告(「項目が多い」「表のページ数が実数と違う」を含む)もない。
    - `uv run zensical build --clean`: ビルドが通る。
-   - 注: インデックスが未着手のディレクトリがあるうちは、`check` が、そのディレクトリの「項目がない」を出す。インデックスの作成が終わるまでは、無視してよい。
 7. 報告する。変更したファイル、新しく作ったページ、`nav` とインデックスの更新を伝える。コミットは、メッセージを示して承認を得てから行う(`AGENTS.md` の「5. 変更の進め方と承認」)。
 
 ## インデックスの項目だけを書くとき
@@ -35,5 +36,5 @@ compatibility: tech-notes リポジトリ専用。agent/rules/、agent/index/、
 
 1. `uv run python scripts/docindex.py draft <ディレクトリ>` で、`nav` の順に、材料を出す。
 2. [インデックスの項目の書き方](references/index-entry.md)に従って、`agent/index/<dir>.md` に書く。
-3. `check` を実行し、[インデックスの項目の書き方](references/index-entry.md)の「書いたあと」に従って確認する(「項目がない」の扱いは、上の手順6の注を参照)。
+3. `check` を実行し、[インデックスの項目の書き方](references/index-entry.md)の「書いたあと」に従って確認する。
 4. ユーザーにレビューを求める。

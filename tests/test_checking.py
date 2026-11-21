@@ -9,7 +9,9 @@ from docindex_lib.checking import (
     find_problems,
     is_expected_file,
     missing_entries,
+    oversized_files,
     stale_entries,
+    table_count_mismatches,
 )
 
 
@@ -157,3 +159,36 @@ def test_summary_at_the_limit_is_accepted():
 def test_max_len_is_configurable():
     _, warnings = find_problems({"a.md"}, {"a.md": [Entry("index.md", 1, "あ" * 11)]}, 10)
     assert len(warnings) == 1
+
+
+def test_oversized_files_reports_only_files_over_the_limit():
+    entries = {
+        f"cli/{n}.md": [Entry("cli.md", n, "概要")] for n in range(3)
+    } | {"os/a.md": [Entry("os.md", 1, "概要")]}
+    (message,) = oversized_files(entries, 2)
+    assert message.startswith("項目が多い(3件。目安は2件まで): cli.md")
+    assert oversized_files(entries, 3) == []
+
+
+def test_table_count_mismatches(tmp_path):
+    (tmp_path / "index.md").write_text(
+        "| `docs/cli/` | [cli.md](cli.md) | 4 | CLI |\n"
+        "| `docs/os/` | [os.md](os.md) | 5 | OS |\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "cli").mkdir()
+    (tmp_path / "cli" / "index.md").write_text(
+        "| `docs/cli/shell/` | [shell.md](shell.md) | 1 | シェル |\n", encoding="utf-8"
+    )
+    (tmp_path / "cli" / "ok.md").write_text(
+        "| `docs/cli/` | [cli.md](cli.md) | 4 | CLI |\n", encoding="utf-8"
+    )  # 実数と一致する行は報告されない
+    pages = {"cli/a.md", "cli/b.md", "cli/shell/c.md", "cli/shell/d.md", "os/a.md"}
+    assert table_count_mismatches(tmp_path, pages) == [
+        "表のページ数が実数と違う: docs/cli/shell/  (表: 1、実数: 2。cli/index.md:1)",
+        "表のページ数が実数と違う: docs/os/  (表: 5、実数: 1。index.md:2)",
+    ]
+
+
+def test_table_count_mismatches_without_index_dir(tmp_path):
+    assert table_count_mismatches(tmp_path / "nosuch", {"a.md"}) == []

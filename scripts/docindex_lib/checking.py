@@ -3,15 +3,19 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 from pathlib import Path
 from typing import NamedTuple
 
 INDEX_DIR = Path("agent") / "index"
 TOP_INDEX_FILE = "index.md"  # docs/ 直下のページを載せるインデックスのファイル
 MAX_SUMMARY_LEN = 60
+MAX_ENTRIES_PER_FILE = 80  # 1つのインデックスのファイルの項目数の目安
 
 # インデックスの項目: `パス` — 概要(行頭の「- 」は許容する)
 ENTRY_RE = re.compile(r"^(?:[-*]\s+)?`([^`]+\.md)`\s+—\s*(.*)$")
+# ディレクトリの一覧表の行: | `docs/<dir>/` | [ファイル](パス) | ページ数 | 主題 |
+TABLE_ROW_RE = re.compile(r"^\|\s*`docs/(?P<dir>[^`]+)/`\s*\|[^|]*\|\s*(?P<count>\d+)\s*\|")
 
 
 class Entry(NamedTuple):
@@ -111,3 +115,38 @@ def find_problems(
             errors += entry_errors
             warnings += entry_warnings
     return errors, warnings
+
+
+def oversized_files(entries: dict[str, list[Entry]], limit: int) -> list[str]:
+    """項目数が limit を超えたインデックスのファイルについて、分割を促すメッセージを返す。"""
+    counts = Counter(entry.file for found in entries.values() for entry in found)
+    return [
+        f"項目が多い({count}件。目安は{limit}件まで): {file}  (index-entry.md の「分割するとき」に従って分割する)"
+        for file, count in sorted(counts.items())
+        if count > limit
+    ]
+
+
+def table_count_mismatches(index_dir: Path, pages: set[str]) -> list[str]:
+    """インデックス内のディレクトリ一覧表のページ数が、docs/ の実数と合っているかを調べる。
+
+    実数は、pages(docs/ のページ。memo/ などの対象外は含まない)のうち、そのディレクトリ配下のもの。
+    """
+    messages = []
+    if not index_dir.is_dir():
+        return messages
+    for file in sorted(index_dir.rglob("*.md")):
+        rel_file = file.relative_to(index_dir).as_posix()
+        for number, line in enumerate(file.read_text(encoding="utf-8").splitlines(), 1):
+            match = TABLE_ROW_RE.match(line)
+            if not match:
+                continue
+            prefix = match["dir"] + "/"
+            written = int(match["count"])
+            actual = sum(1 for page in pages if page.startswith(prefix))
+            if actual != written:
+                messages.append(
+                    f"表のページ数が実数と違う: docs/{prefix}  "
+                    f"(表: {written}、実数: {actual}。{rel_file}:{number})"
+                )
+    return messages
