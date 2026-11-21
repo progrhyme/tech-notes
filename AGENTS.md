@@ -15,7 +15,9 @@ AIエージェント向けのガイドライン。
 ```text
 docs/             記事(Markdown)。ディレクトリがそのままサイトの階層になる
 zensical.toml     サイトの設定。nav に全ページを明記する
-pyproject.toml    Python の依存(uv)
+scripts/          補助スクリプト(Python、標準ライブラリのみ)
+tests/            scripts/ のテスト(pytest)。tests/fixtures/ に、テスト用の小さなサイトがある
+pyproject.toml    Python の依存(uv)と、pytest の設定
 uv.lock           ロックファイル
 .github/workflows/docs.yml   デプロイ
 ```
@@ -26,9 +28,11 @@ uv.lock           ロックファイル
 uv sync                        # 依存を入れる
 uv run zensical serve          # プレビュー(http://localhost:8000/)
 uv run zensical build --clean  # site/ にビルド(コミットしない)
+uv run pytest                  # scripts/ のテスト
 ```
 
 - 記事や設定を変更したら、`uv run zensical build --clean` でビルドが通ることを確認する。
+- `scripts/` を変更したら、`uv run pytest` が通ることを確認する。
 
 ## 4. コンテンツのルール
 

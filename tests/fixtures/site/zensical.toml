@@ -1,0 +1,28 @@
+[project]
+site_name = "Fixture Site"
+
+# nav の順は、パスの辞書順とは違う。software/extra.md は nav にない。
+nav = [
+  { "Home" = [
+    "index.md",
+    { "Software" = [
+      "software/index.md",
+      { "Git" = "software/git.md" },
+      { "Kubernetes" = [
+        "software/k8s/index.md",
+        { "Pod" = "software/k8s/pod.md" },
+      ] },
+    ] },
+    { "CLI" = [
+      "cli/index.md",
+      { "jq" = "cli/jq.md" },
+      { "bash" = "cli/shell/bash.md" },
+    ] },
+    { "文字" = "char.md" },
+    { "OS" = "os/index.md" },
+    { "Memorandum" = [
+      "memo/index.md",
+      { "2026-01-01" = "memo/2026/20260101.md" },
+    ] },
+  ] },
+]
