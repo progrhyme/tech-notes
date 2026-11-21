@@ -5,6 +5,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import sys
@@ -72,3 +73,63 @@ def run_cli() -> Callable[..., subprocess.CompletedProcess[str]]:
         )
 
     return run
+
+
+@pytest.fixture(autouse=True)
+def isolated_git_env(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    """開発者の Git の設定や環境変数に、テストの結果が左右されないようにする。"""
+    for name in ("GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "CI"):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("HOME", str(tmp_path))
+    monkeypatch.setenv("GIT_CONFIG_GLOBAL", os.devnull)
+    monkeypatch.setenv("GIT_CONFIG_SYSTEM", os.devnull)
+    # tmp_path より上のディレクトリにあるリポジトリを、拾わないようにする。
+    monkeypatch.setenv("GIT_CEILING_DIRECTORIES", str(tmp_path.parent))
+
+
+class GitRepo:
+    """テスト用の Git リポジトリ。コミットの日時を指定できる。"""
+
+    def __init__(self, path: Path) -> None:
+        self.path = path
+
+    def git(self, *args: str, date: str | None = None) -> str:
+        """リポジトリで git を実行する。date は、`2026-04-01` または `2026-04-01T00:30:00+09:00`。"""
+        env = dict(os.environ)
+        if date:
+            timestamp = date if "T" in date else f"{date}T12:00:00+09:00"
+            env["GIT_AUTHOR_DATE"] = env["GIT_COMMITTER_DATE"] = timestamp
+        result = subprocess.run(
+            ["git", "-C", str(self.path), *args],
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            env=env,
+        )
+        return result.stdout
+
+    def write(self, rel: str, text: str) -> Path:
+        """リポジトリの中に、ファイルを書く(必要なディレクトリも作る)。"""
+        path = self.path / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def commit(self, message: str, date: str) -> None:
+        """すべての変更をコミットする。date は、`git()` と同じ書式。"""
+        self.git("add", "-A")
+        self.git("commit", "-q", "-m", message, date=date)
+
+
+@pytest.fixture
+def git_repo(tmp_path: Path) -> GitRepo:
+    """空の Git リポジトリ(ユーザー設定済み、署名なし)。"""
+    path = tmp_path / "repo"
+    path.mkdir()
+    repo = GitRepo(path)
+    repo.git("init", "-q", "-b", "main")
+    repo.git("config", "user.name", "Test")
+    repo.git("config", "user.email", "test@example.com")
+    repo.git("config", "commit.gpgsign", "false")
+    return repo
