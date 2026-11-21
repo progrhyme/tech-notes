@@ -20,6 +20,26 @@ description: 'https://nodejs.org
 
 - [nodebrew](https://github.com/hokaccha/nodebrew)
 - nvm
+- [nodenv](https://github.com/nodenv/nodenv)
+
+### nodenv
+
+[rbenv](https://github.com/rbenv/rbenv) 系のバージョン管理ツール。プロジェクトのディレクトリに `.node-version` を置くと、そのバージョンの Node.js が使われる。
+
+- Source: https://github.com/nodenv/nodenv
+- [anyenv](../../../software/pkg-man/anyenv.md) で導入・管理できる。
+
+```sh
+anyenv install nodenv           # nodenv の導入
+nodenv install --list           # 導入できる Node.js のバージョン
+nodenv install 24.22.3          # Node.js の導入
+echo 24.22.3 > .node-version    # このディレクトリ以下で使うバージョンを固定する
+```
+
+- バージョンの導入は、プラグインの [node-build](https://github.com/nodenv/node-build) が担う。anyenv 経由で nodenv を入れると、一緒に入る。
+- 導入した直後は、`exec $SHELL -l` などでシェルを再起動する。
+- `nodenv global <version>` を設定しないと、`.node-version` のないディレクトリでは Node.js が使えない(`system` の Node.js を使う)。
+- 参考: [2020-04-28 のメモ](../../../memo/2020/20200428.md#macでanyenv経由のnodenv経由でnodejsを入れてみた)
 
 ## Modules
 ### util
