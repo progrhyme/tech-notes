@@ -7,7 +7,7 @@ AIエージェント向けのガイドライン。
 - IT 技術に関する個人的なメモを公開するサイト「progrhyme's Tech Notes」のソース。
 - 公開先: https://progrhy.me/tech-notes/ (GitHub Pages)
 - ビルド: [Zensical](https://zensical.org/)。Python の依存は uv で管理する。
-- デプロイ: `main` への push で GitHub Actions(`.github/workflows/docs.yml`)が実行する。ビルドの前に、`scripts/inject_revision_dates.py` が、記事のフロントマターに作成日と最終更新日を挿入する(CI のチェックアウトだけに入り、コミットされない。ローカルでは実行しない)。
+- デプロイ: `main` への push で GitHub Actions(`.github/workflows/deploy.yml`)が実行する。ビルドの前に、`scripts/inject_revision_dates.py` が、記事のフロントマターに作成日と最終更新日を挿入する(CI のチェックアウトだけに入り、コミットされない。ローカルでは実行しない)。
 - 旧 Hugo 版は `archive/hugo-doxy` ブランチに保存している。このブランチは変更しない。
 
 ## 2. 構成
@@ -27,7 +27,8 @@ scripts/          補助スクリプト(Python、標準ライブラリのみ)
 tests/            scripts/ のテスト(pytest)。tests/fixtures/ に、テスト用の小さなサイトがある
 pyproject.toml    Python の依存(uv)と、pytest の設定
 uv.lock           ロックファイル
-.github/workflows/docs.yml   デプロイ
+.github/workflows/deploy.yml   デプロイ
+.github/workflows/ci.yml       scripts/、tests/、pyproject.toml、uv.lock の変更を、pytest で検査する
 ```
 
 ## 3. コマンド
