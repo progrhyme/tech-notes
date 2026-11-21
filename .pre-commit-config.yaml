@@ -1,0 +1,10 @@
+# 導入: `uv run pre-commit install`(クローンごとに1回)
+repos:
+  - repo: local
+    hooks:
+      - id: docindex-check
+        name: docindex check(記事とインデックスの整合)
+        entry: uv run python scripts/docindex.py check --strict
+        language: system
+        pass_filenames: false
+        files: ^(docs/|agent/index/|zensical\.toml$|scripts/docindex)

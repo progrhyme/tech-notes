@@ -28,7 +28,8 @@ tests/            scripts/ のテスト(pytest)。tests/fixtures/ に、テス�
 pyproject.toml    Python の依存(uv)と、pytest の設定
 uv.lock           ロックファイル
 .github/workflows/deploy.yml   デプロイ
-.github/workflows/ci.yml       scripts/、tests/、pyproject.toml、uv.lock の変更を、pytest で検査する
+.github/workflows/ci.yml       scripts/、tests/、依存の定義の変更を pytest で、docs/、agent/index/、zensical.toml の変更を docindex.py check で検査する
+.pre-commit-config.yaml        コミット前に docindex.py check --strict を実行する(`uv run pre-commit install` で有効化)
 ```
 
 ## 3. コマンド
@@ -42,6 +43,7 @@ uv run pytest                  # scripts/ のテスト
 
 - 記事や設定を変更したら、`uv run zensical build --clean` でビルドが通ることを確認する。
 - `scripts/` を変更したら、`uv run pytest` が通ることを確認する。
+- 記事、インデックス、`zensical.toml` を変更したら、`uv run python scripts/docindex.py check --strict` が通ることを確認する(pre-commit と CI が同じ検査を行う)。コミットがフックで失敗したら、メッセージに従って直し、`--no-verify` で回避しない。
 
 ## 4. コンテンツのルール
 
