@@ -17,6 +17,7 @@ uv run zensical build --clean   # site/ にビルド
 
 - `docs/`: 記事(Markdown)
 - `zensical.toml`: サイトの設定。`nav` に全ページを明記する
-- `.github/workflows/docs.yml`: デプロイ
+- `.github/workflows/deploy.yml`: デプロイ
+- `.github/workflows/ci.yml`: `scripts/`、`tests/`、`pyproject.toml`、`uv.lock` の変更を、pytest で検査する
 
 旧 Hugo 版は `archive/hugo-doxy` ブランチに残している。

@@ -7,7 +7,7 @@ AIエージェント向けのガイドライン。
 - IT 技術に関する個人的なメモを公開するサイト「progrhyme's Tech Notes」のソース。
 - 公開先: https://progrhy.me/tech-notes/ (GitHub Pages)
 - ビルド: [Zensical](https://zensical.org/)。Python の依存は uv で管理する。
-- デプロイ: `main` への push で GitHub Actions(`.github/workflows/docs.yml`)が実行する。
+- デプロイ: `main` への push で GitHub Actions(`.github/workflows/deploy.yml`)が実行する。ビルドの前に、`scripts/inject_revision_dates.py` が、記事のフロントマターに作成日と最終更新日を挿入する(CI のチェックアウトだけに入り、コミットされない。ローカルでは実行しない)。
 - 旧 Hugo 版は `archive/hugo-doxy` ブランチに保存している。このブランチは変更しない。
 
 ## 2. 構成
@@ -15,9 +15,20 @@ AIエージェント向けのガイドライン。
 ```text
 docs/             記事(Markdown)。ディレクトリがそのままサイトの階層になる
 zensical.toml     サイトの設定。nav に全ページを明記する
-pyproject.toml    Python の依存(uv)
+agent/            エージェント向けの共通コンテンツ(サイトには出ない)
+  index/            記事の概要のインデックス
+  rules/            共通ルール
+  skills/           共通スキル(実体)
+.agents/skills/   agent/skills/ の各スキルへのシンボリックリンク
+.agents/rules/    agent/rules/ のルールを参照するルールファイル(フロントマターは .agents/ の書式)
+.claude/skills/   .agents/skills/ と同じ(Claude Code 用)
+.claude/rules/    .agents/rules/ と同じ(フロントマターは Claude Code の書式)
+scripts/          補助スクリプト(Python、標準ライブラリのみ)
+tests/            scripts/ のテスト(pytest)。tests/fixtures/ に、テスト用の小さなサイトがある
+pyproject.toml    Python の依存(uv)と、pytest の設定
 uv.lock           ロックファイル
-.github/workflows/docs.yml   デプロイ
+.github/workflows/deploy.yml   デプロイ
+.github/workflows/ci.yml       scripts/、tests/、pyproject.toml、uv.lock の変更を、pytest で検査する
 ```
 
 ## 3. コマンド
@@ -26,22 +37,20 @@ uv.lock           ロックファイル
 uv sync                        # 依存を入れる
 uv run zensical serve          # プレビュー(http://localhost:8000/)
 uv run zensical build --clean  # site/ にビルド(コミットしない)
+uv run pytest                  # scripts/ のテスト
 ```
 
 - 記事や設定を変更したら、`uv run zensical build --clean` でビルドが通ることを確認する。
+- `scripts/` を変更したら、`uv run pytest` が通ることを確認する。
 
 ## 4. コンテンツのルール
 
-- 記事は日本語で書く。コマンド、コード、ファイルパス、技術用語は英語のままにする。
-- 記事を追加・削除・移動したら、`zensical.toml` の `nav` を更新する。`nav` には全ページを明記する。
-- 記事間のリンクは、`.md` への相対パスで書く(例: `[systemd](../software/systemd/index.md)`)。
-- 日付のメモは、各年のフォルダの下に直接作る(例: `docs/memo/2026/20260101.md`)。年のフォルダがなければ、`index.md` も作り、`nav` に追加する。
-- 注意書きは admonition(例: `!!! note`)で書く。
-- Markdown のライブラリ(Python-Markdown)の制約に従う。
-  - リストの入れ子は、4スペース単位で字下げする(2スペースでは入れ子にならない)。
-  - 段落の直後にリストを書くときは、空行を1行挟む。
-  - 同じ階層で、箇条書き(`-`)と番号付き(`1.`)を続けて書かない。
-- 外部の文章を引用する場合は、出典を明記する。
+記事を書く・直すときは、次のルールに従う。実体は `agent/rules/` にある。
+
+- [記事の書き方](agent/rules/content-writing.md)
+- [記事の構成の変更](agent/rules/content-structure.md): ページの追加・削除・移動・大きな変更のとき。`nav` とインデックスの更新
+
+記事の追加・更新は、スキル `write-doc`([SKILL.md](agent/skills/write-doc/SKILL.md))の手順で行う。
 
 ## 5. 変更の進め方と承認
 
