@@ -3,6 +3,9 @@
 `software/index.md` — ソフトウェア製品の入口。GUI の HTTP クライアント(Postman など)
 `software/argo/index.md` — Argo Project の概要。Workflow、CD、Rollouts、Events
 `software/argo/cd.md` — Argo CD の機能、デモ、仕様
+`software/coding-ai/index.md` — コーディングエージェントの機能。ルールとスキル、複数ツールでの共通化
+`software/coding-ai/antigravity.md` — Antigravity のルール(trigger、globs)とスキルの置き場所
+`software/coding-ai/claude.md` — Claude Code の CLAUDE.md と AGENTS.md、ルール(paths)、スキル
 `software/docker/index.md` — Docker の使い方、ナレッジ、Registry、Docker Hub
 `software/docker/dockerfile.md` — Dockerfile のベストプラクティス、.dockerignore、構文
 `software/docker/cmd.md` — docker コマンド。v17 のコマンド体系再編、チートシート

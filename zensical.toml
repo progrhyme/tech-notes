@@ -135,6 +135,11 @@ nav = [
         "software/argo/index.md",
         { "Argo CD" = "software/argo/cd.md" },
       ] },
+      { "Coding AI" = [
+        "software/coding-ai/index.md",
+        { "Antigravity" = "software/coding-ai/antigravity.md" },
+        { "Claude Code" = "software/coding-ai/claude.md" },
+      ] },
       { "Docker" = [
         "software/docker/index.md",
         { "Dockerfile" = "software/docker/dockerfile.md" },
