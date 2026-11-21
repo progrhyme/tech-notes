@@ -11,7 +11,418 @@ site_name = "progrhyme's Tech Notes"
 # edit_uri = "edit/main/docs/"
 
 nav = [
-  { "Home" = "index.md" },
+  { "Home" = [
+    "index.md",
+    { "Memorandum" = [
+      "memo/index.md",
+      { "2023-03-03" = "memo/20230303.md" },
+      { "2023-01-17" = "memo/20230117.md" },
+      { "2022-06-24" = "memo/20220624.md" },
+      { "2021-06-22" = "memo/20210622.md" },
+      { "2021-06-08" = "memo/20210608.md" },
+      { "2021-03-26" = "memo/20210326.md" },
+      { "2021-02-09" = "memo/20210209.md" },
+      { "2021-01-19" = "memo/20210119.md" },
+      { "2020-12-09" = "memo/20201209.md" },
+      { "2020 archive" = [
+        "memo/2020/index.md",
+        { "2020-12-02" = "memo/2020/20201202.md" },
+        { "2020-10-02" = "memo/2020/20201002.md" },
+        { "2020-09-18" = "memo/2020/20200918.md" },
+        { "2020-08-28" = "memo/2020/20200828.md" },
+        { "2020-07-30" = "memo/2020/20200730.md" },
+        { "2020-07-18" = "memo/2020/20200718.md" },
+        { "2020-07-12" = "memo/2020/20200712.md" },
+        { "2020-06-26" = "memo/2020/20200626.md" },
+        { "2020-06-24" = "memo/2020/20200624.md" },
+        { "2020-06-22" = "memo/2020/20200622.md" },
+        { "2020-06-20" = "memo/2020/20200620.md" },
+        { "2020-06-17" = "memo/2020/20200617.md" },
+        { "2020-06-15" = "memo/2020/20200615.md" },
+        { "2020-06-13" = "memo/2020/20200613.md" },
+        { "2020-06-12" = "memo/2020/20200612.md" },
+        { "2020-06-10" = "memo/2020/20200610.md" },
+        { "2020-06-08" = "memo/2020/20200608.md" },
+        { "2020-06-05" = "memo/2020/20200605.md" },
+        { "2020-05-31" = "memo/2020/20200531.md" },
+        { "2020-05-30" = "memo/2020/20200530.md" },
+        { "2020-05-24" = "memo/2020/20200524.md" },
+        { "2020-05-23" = "memo/2020/20200523.md" },
+        { "2020-05-22" = "memo/2020/20200522.md" },
+        { "2020-05-19" = "memo/2020/20200519.md" },
+        { "2020-05-18" = "memo/2020/20200518.md" },
+        { "2020-05-17" = "memo/2020/20200517.md" },
+        { "2020-05-16" = "memo/2020/20200516.md" },
+        { "2020-05-15" = "memo/2020/20200515.md" },
+        { "2020-05-14" = "memo/2020/20200514.md" },
+        { "2020-05-13" = "memo/2020/20200513.md" },
+        { "2020-05-12" = "memo/2020/20200512.md" },
+        { "2020-05-11" = "memo/2020/20200511.md" },
+        { "2020-05-10" = "memo/2020/20200510.md" },
+        { "2020-05-09" = "memo/2020/20200509.md" },
+        { "2020-05-08" = "memo/2020/20200508.md" },
+        { "2020-05-06" = "memo/2020/20200506.md" },
+        { "2020-05-05" = "memo/2020/20200505.md" },
+        { "2020-05-04" = "memo/2020/20200504.md" },
+        { "2020-05-03" = "memo/2020/20200503.md" },
+        { "2020-05-02" = "memo/2020/20200502.md" },
+        { "2020-05-01" = "memo/2020/20200501.md" },
+        { "2020-04-30" = "memo/2020/20200430.md" },
+        { "2020-04-29" = "memo/2020/20200429.md" },
+        { "2020-04-28" = "memo/2020/20200428.md" },
+        { "2020-04-27" = "memo/2020/20200427.md" },
+        { "2020-04-25" = "memo/2020/20200425.md" },
+        { "2020-03-18" = "memo/2020/20200318.md" },
+      ] },
+      { "2018 archive" = [
+        "memo/2018/index.md",
+        { "2018-09-22" = "memo/2018/20180922.md" },
+      ] },
+    ] }
+  ]},
+  { "Knowledge" = [
+    { "Google" = [
+      "google/index.md",
+      { "API" = "google/api.md" },
+      { "Apps Script" = "google/gas.md" },
+      { "Colaboratory" = "google/colab.md" },
+      { "GCP" = [
+        "google/gcp/index.md",
+        { "CLI" = [
+          "google/gcp/cli/index.md",
+          { "bq" = "google/gcp/cli/bq.md" },
+          { "cbt" = "google/gcp/cli/cbt.md" },
+          { "gcloud" = "google/gcp/cli/gcloud.md" },
+          { "gsutil" = "google/gcp/cli/gsutil.md" },
+        ] },
+        { "Artifact Registry" = "google/gcp/gar.md" },
+        { "Build" = "google/gcp/build.md" },
+        { "BigQuery" = "google/gcp/bq.md" },
+        { "Container Analysis" = "google/gcp/container-analysis.md" },
+        { "Functions" = "google/gcp/function.md" },
+        { "IAM" = "google/gcp/iam.md" },
+        { "GCLB" = "google/gcp/lb.md" },
+        { "GCE" = "google/gcp/gce.md" },
+        { "GCR" = "google/gcp/gcr.md" },
+        { "GCS" = "google/gcp/gcs.md" },
+        { "GKE" = [
+          "google/gcp/gke/index.md",
+          { "機能" = "google/gcp/gke/feature.md" },
+        ] },
+        { "Logging" = "google/gcp/log.md" },
+        { "Monitoring" = "google/gcp/monitoring.md" },
+        { "SQL" = "google/gcp/sql.md" },
+      ] },
+      { "Groups" = "google/group.md" },
+      { "Sheets" = "google/sheet.md" },
+    ] },
+    { "Software" = [
+      "software/index.md",
+      { "Argo Project" = [
+        "software/argo/index.md",
+        { "Argo CD" = "software/argo/cd.md" },
+      ] },
+      { "Docker" = [
+        "software/docker/index.md",
+        { "Dockerfile" = "software/docker/dockerfile.md" },
+        { "dockerコマンド" = "software/docker/cmd.md" },
+        { "Image" = "software/docker/image.md" },
+      ] },
+      { "Elasticsearch" = [
+        "software/elasticsearch/index.md",
+      ] },
+      { "Embulk" = [
+        "software/embulk/index.md",
+        { "Plugins" = "software/embulk/plugin.md" },
+      ] },
+      { "Git" = [
+        "software/git/index.md",
+        { "gitコマンド" = "software/git/cli.md" },
+      ] },
+      { "Infra as Code" = "software/infra-as-code.md" },
+      { "Kubernetes" = [
+        "software/k8s/index.md",
+        { "Concept" = "software/k8s/concept.md" },
+        { "エコシステム" = "software/k8s/ecosystem.md" },
+        { "ConfigMap" = "software/k8s/configmap.md" },
+        { "Container" = "software/k8s/container.md" },
+        { "CronJob" = "software/k8s/cronjob.md" },
+        { "Deployment" = "software/k8s/deployment.md" },
+        { "kubectl" = "software/k8s/kubectl.md" },
+        { "kustomize" = "software/k8s/kustomize.md" },
+        { "Namespace" = "software/k8s/namespace.md" },
+        { "Pod" = "software/k8s/pod.md" },
+        { "Secret" = "software/k8s/secret.md" },
+        { "Service" = "software/k8s/service.md" },
+      ] },
+      { "MySQL" = [
+        "software/mysql/index.md",
+        { "SQL" = "software/mysql/sql.md" },
+        { "クライアント" = "software/mysql/client.md" },
+      ] },
+      { "systemd" = [
+        "software/systemd/index.md",
+        { "journalctl" = "software/systemd/journalctl.md" },
+      ] },
+      { "Terraform" = [
+        "software/terraform/index.md",
+        { "Configuration" = [
+          "software/terraform/config/index.md",
+          { "v0.11" = "software/terraform/config/v0.11.md" },
+        ] },
+        { "CLI" = "software/terraform/cli.md" },
+        { "Backends" = "software/terraform/backend.md" },
+        { "Providers" = [
+          "software/terraform/provider/index.md",
+          { "AWS" = "software/terraform/provider/aws.md" },
+          { "Google" = "software/terraform/provider/google.md" },
+        ] },
+        { "エディタ" = "software/terraform/editor.md" },
+        { "terraformer" = "software/terraform/terraformer.md" },
+      ] },
+      { "エディタ" = [
+        "software/editor/index.md",
+        { "IntelliJ IDEA" = "software/editor/idea.md" },
+        { "Vim" = [
+          "software/editor/vim/index.md",
+          { "エディタ" = "software/editor/vim/edit.md" },
+          { "vimrc" = "software/editor/vim/vimrc.md" },
+          { "Plugins" = "software/editor/vim/plugin.md" },
+        ] },
+        { "VS Code" = "software/editor/vscode.md" },
+      ] },
+      { "ジョブ管理" = [
+        "software/job-man/index.md",
+        { "cron" = "software/job-man/cron.md" },
+        { "GNU make" = "software/job-man/make.md" },
+        { "Jenkins" = [
+          "software/job-man/jenkins/index.md",
+          { "Jenkins X" = "software/job-man/jenkins/jx.md" },
+        ] },
+        { "Spinnaker" = [
+          "software/job-man/spinnaker/index.md",
+          { "Halyard" = [
+            "software/job-man/spinnaker/halyard/index.md",
+            { "hal" = "software/job-man/spinnaker/halyard/hal.md" },
+          ] },
+          { "Pipelines" = "software/job-man/spinnaker/pipeline.md" },
+        ] },
+      ] },
+      { "ターミナル" = [
+        "software/terminal/index.md",
+        { "iTerm2" = "software/terminal/iterm2.md" },
+        { "tmux" = "software/terminal/tmux.md" },
+      ] },
+      { "テスト" = [
+        "software/test/index.md",
+        { "Locust" = "software/test/locust.md" },
+      ] },
+      { "パッケージ管理" = [
+        "software/pkg-man/index.md",
+        { "dpkg" = "software/pkg-man/dpkg.md" },
+        { "Homebrew" = "software/pkg-man/brew.md" },
+        { "Snap" = "software/pkg-man/snap.md" },
+      ] },
+      { "静的サイトジェネレーター" = [
+        "software/static-site-generator/index.md",
+        { "GitBook" = "software/static-site-generator/gitbook.md" },
+        { "Hugo" = [
+          "software/static-site-generator/hugo/index.md",
+          { "Themes" = [
+            "software/static-site-generator/hugo/theme/index.md",
+            { "Docsy" = "software/static-site-generator/hugo/theme/docsy.md" },
+            { "LEARN" = "software/static-site-generator/hugo/theme/learn.md" },
+          ] },
+        ] },
+        { "mdBook" = "software/static-site-generator/mdbook.md" },
+        { "MkDocs" = "software/static-site-generator/mkdocs.md" },
+      ] },
+    ] },
+    { "プログラム言語" = [
+      "program/index.md",
+      { "Golang" = [
+        "program/go/index.md",
+        { "インストール" = "program/go/install.md" },
+        { "go CLI" = "program/go/cli.md" },
+        { "言語仕様" = [
+          "program/go/spec/index.md",
+          { "データ型" = "program/go/spec/type.md" },
+        ] },
+        { "道場" = [
+          "program/go/dojo/index.md",
+          { "コーディング" = "program/go/dojo/code.md" },
+          { "データ型" = "program/go/dojo/type.md" },
+          { "入出力" = "program/go/dojo/io.md" },
+        ] },
+        { "pkg (stdlib)" = [
+          "program/go/std-pkg/index.md",
+          { "encoding" = "program/go/std-pkg/encoding.md" },
+          { "errors" = "program/go/std-pkg/errors.md" },
+          { "flag" = "program/go/std-pkg/flag.md" },
+          { "fmt" = "program/go/std-pkg/fmt.md" },
+          { "io" = "program/go/std-pkg/io.md" },
+          { "net" = "program/go/std-pkg/net.md" },
+          { "os" = "program/go/std-pkg/os.md" },
+          { "path" = "program/go/std-pkg/path.md" },
+          { "regexp" = "program/go/std-pkg/regexp.md" },
+          { "strings" = "program/go/std-pkg/strings.md" },
+          { "testing" = "program/go/std-pkg/testing.md" },
+          { "text" = "program/go/std-pkg/text.md" },
+        ] },
+        { "テスト" = "program/go/test.md" },
+        { "tools" = "program/go/tools.md" },
+        { "pkg (3rd)" = [
+          "program/go/3rd-pkg/index.md",
+          { "バージョン" = "program/go/3rd-pkg/version.md" },
+          { "ロギング" = "program/go/3rd-pkg/log.md" },
+        ] },
+        { "エコシステム" = [
+          "program/go/ecosystem/index.md",
+          { "GoReleaser" = "program/go/ecosystem/goreleaser.md" },
+        ] },
+        { "Goならわかるシステム…" = "program/go/gosyspro.md" },
+      ] },
+      { "JavaScript" = [
+        "program/js/index.md",
+        { "Node.js" = [
+          "program/js/node/index.md",
+          { "npm" = "program/js/node/npm.md" },
+        ] },
+      ] },
+      { "Perl" = "program/perl.md" },
+      { "Python" = [
+        "program/python/index.md",
+        { "言語仕様" = [
+          "program/python/spec/index.md",
+          { "データ型" = "program/python/spec/types.md" },
+        ] },
+        { "道場" = "program/python/dojo.md" },
+        { "パッケージ管理" = "program/python/pkg-man.md" },
+        { "std-lib" = "program/python/library.md" },
+        { "3rd pkgs" = "program/python/package.md" },
+      ] },
+      { "Ruby" = [
+        "program/ruby/index.md",
+        { "言語仕様" = "program/ruby/spec.md" },
+        { "組込ライブラリ" = "program/ruby/builtin.md" },
+        { "道場" = "program/ruby/dojo.md" },
+      ] },
+      { "Rust" = [
+        "program/rust/index.md",
+        { "Cargo" = "program/rust/cargo.md" },
+        { "Crates" = "program/rust/crate.md" },
+        { "std" = [
+          "program/rust/std/index.md",
+          { "fmt" = "program/rust/std/fmt.md" },
+          { "io" = "program/rust/std/io.md" },
+        ] },
+        { "言語仕様" = "program/rust/spec.md" },
+      ] },
+    ] },
+    { "CLI" = [
+      "cli/index.md",
+      { "AWK" = [
+        "cli/awk/index.md",
+        { "言語仕様" = "cli/awk/spec.md" },
+      ] },
+      { "curl" = "cli/curl.md" },
+      { "dotfiles" = "cli/dotfiles.md" },
+      { "hub" = "cli/hub.md" },
+      { "jq" = "cli/jq.md" },
+      { "UNIX系コマンド" = [
+        "cli/unix-cmd/index.md",
+        { "diff" = "cli/unix-cmd/diff.md" },
+        { "テキスト処理" = "cli/unix-cmd/text.md" },
+        { "ファイル操作" = "cli/unix-cmd/file.md" },
+        { "プロセス管理" = "cli/unix-cmd/proc.md" },
+        { "ユーザ管理" = "cli/unix-cmd/user.md" },
+      ] },
+      { "シェル" = [
+        "cli/shell/index.md",
+        { "POSIX" = "cli/shell/posix.md" },
+        { "Bash" = [
+          "cli/shell/bash/index.md",
+          { "Cookbooks" = "cli/shell/bash/cookbook.md" },
+        ] },
+        { "fish" = "cli/shell/fish.md" },
+        { "PowerShell" = "cli/shell/powershell.md" },
+        { "Zsh" = [
+          "cli/shell/zsh/index.md",
+          { "Oh My Zsh" = "cli/shell/zsh/ohmyzsh.md" },
+        ] },
+        { "スクリプト" = [
+          "cli/shell/script/index.md",
+          { "Cookbooks" = "cli/shell/script/cookbook.md" },
+        ] },
+        { "パッケージ管理" = "cli/shell/pkg-man.md" },
+      ] },
+      { "ネットワーク系" = "cli/network.md" },
+    ] },
+    { "Webサービス" = [
+      "web-service/index.md",
+      { "AWS" = [
+        "web-service/aws/index.md",
+        { "CLI" = "web-service/aws/cli.md" },
+        { "ECS" = [
+          "web-service/aws/ecs/index.md",
+        ] },
+        { "EKS" = "web-service/aws/eks.md" },
+        { "RDS" = "web-service/aws/rds.md" },
+      ] },
+      { "Bitbucket" = [
+        "web-service/bitbucket/index.md",
+        { "Pipelines" = "web-service/bitbucket/pipeline.md" },
+      ] },
+      { "Datadog" = "web-service/datadog.md" },
+      { "GitHub" = [
+        "web-service/github/index.md",
+        { "Actions（製品）" = [
+          "web-service/github/action/index.md",
+          { "Actions（タスク）" = "web-service/github/action/action.md" },
+        ] },
+      ] },
+      { "JIRA" = "web-service/jira.md" },
+      { "Netlify" = "web-service/netlify.md" },
+      { "Slack" = "web-service/slack.md" },
+    ] },
+    { "OS" = [
+      "os/index.md",
+      { "Linux" = [
+        "os/linux/index.md",
+        { "Ubuntu" = "os/linux/ubuntu.md" },
+      ] },
+      { "macOS" = [
+        "os/mac/index.md",
+        { "Versions" = "os/mac/ver.md" },
+      ] },
+      { "UNIX" = "os/unix.md" },
+    ] },
+    { "ネットワーク" = [
+      "network/index.md",
+      { "DNS" = "network/dns.md" },
+    ] },
+    { "RPC" = "rpc.md" },
+    { "ドキュメント" = [
+      "document/index.md",
+      { "man page" = "document/man.md" },
+      { "Markdown" = "document/markdown.md" },
+    ] },
+    { "SQL" = "sql.md" },
+    { "セキュリティ" = [
+      "security/index.md",
+      { "符号化" = "security/encode.md" },
+    ] },
+    { "ライセンス" = "license.md" },
+    { "Data Format" = [
+      "data-format/index.md",
+    ] },
+    { "ファームウェア" = [
+      "firmware/index.md",
+      { "BIOS" = "firmware/bios.md" },
+      { "UEFI" = "firmware/uefi.md" },
+    ] },
+    { "文字" = "char.md" }
+  ] },
 ]
 
 # extra_css = ["stylesheets/extra.css"]
@@ -41,8 +452,8 @@ features = [
   # "navigation.instant.progress",
   "navigation.path",
   # "navigation.prune",
-  "navigation.sections",
-  # "navigation.tabs",
+  #"navigation.sections",
+  "navigation.tabs",
   # "navigation.tabs.sticky",
   "navigation.top",
   "navigation.tracking",
@@ -53,8 +464,8 @@ features = [
 
 # logo = "assets/logo.png"
 
-# [project.theme.icon]
-# logo = "lucide/smile"
+[project.theme.icon]
+logo = "lucide/square-pen"
 
 # [project.theme.font]
 # text = "Inter"
@@ -93,6 +504,7 @@ def_list = {}
 footnotes = {}
 md_in_html = {}
 toc.permalink = true
+toc.slugify = { object = "pymdownx.slugs.slugify", kwds = { case = "lower" } }
 pymdownx.arithmatex.generic = true
 pymdownx.betterem = {}
 pymdownx.caret = {}
