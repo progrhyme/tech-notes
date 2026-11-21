@@ -35,6 +35,7 @@ uv run zensical build --clean  # site/ にビルド(コミットしない)
 - 記事は日本語で書く。コマンド、コード、ファイルパス、技術用語は英語のままにする。
 - 記事を追加・削除・移動したら、`zensical.toml` の `nav` を更新する。`nav` には全ページを明記する。
 - 記事間のリンクは、`.md` への相対パスで書く(例: `[systemd](../software/systemd/index.md)`)。
+- 日付のメモは、各年のフォルダの下に直接作る(例: `docs/memo/2026/20260101.md`)。年のフォルダがなければ、`index.md` も作り、`nav` に追加する。
 - 注意書きは admonition(例: `!!! note`)で書く。
 - Markdown のライブラリ(Python-Markdown)の制約に従う。
   - リストの入れ子は、4スペース単位で字下げする(2スペースでは入れ子にならない)。
