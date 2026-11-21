@@ -68,7 +68,7 @@ Tips:
 
 
 - [エイリアスIP範囲](https://cloud.google.com/vpc/docs/alias-ip?hl=ja)が有効なVPCネイティブクラスタである必要がある
-    - See [VPCネイティブクラスタを作成する](#vpcネイティブクラスタを作成する)
+    - See [VPCネイティブクラスタを作成する](#vpcネイティブクラスタ)
 
 ### Horizontal Pod Autoscaler
 

@@ -116,7 +116,7 @@ Rustでコードを書く上で知っておくべき基礎的なトピックやH
 
 関連項目:
 
-- [言語仕様 > 演算子 > ?](spec.md#heading)
+- [言語仕様 > 演算子 > ?](spec.md#op-question)
 - [std::result](std/index.md#result-module)
 - [Crates > failure](crate.md#failure)
 

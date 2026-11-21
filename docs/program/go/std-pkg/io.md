@@ -173,7 +173,7 @@ func TempDir(dir, pattern string) (name string, err error)
 ```
 
 - dirの下位にテンポラリっぽい名前のディレクトリを作る。
-- dirが空文字だったら、デフォルトのテンポラリファイルのディレクトリが使われる（See [os.TempDir](os.md#tempdir)）
+- dirが空文字だったら、デフォルトのテンポラリファイルのディレクトリが使われる（See [os.TempDir](os.md#func-tempdir)）
 - 作ったディレクトリは自分で消さないと消えない
 - patternは `*` を含む文字列を与えることができ、最後に現れた `*` がランダムに置換される。
 

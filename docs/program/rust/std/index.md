@@ -12,7 +12,7 @@ Rustの標準ライブラリ。
 
 https://doc.rust-lang.org/std/primitive.str.html
 
-See also [Module std::str](#str-1)
+See also [Module std::str](#str-module)
 
 "string slice" とも呼ばれる。
 
@@ -76,7 +76,7 @@ format!("{:04}", 42);             // => "0042" with leading zeros
 
 `format!` と同じ書式指定が可能。See [std::fmt](fmt.md)
 
-バッファリングされる可能性があるので、明示的に[io::stdout().flush()](#flush-required-method)を実行する必要があるかもしれない。
+バッファリングされる可能性があるので、明示的にio::stdout().flush()を実行する必要があるかもしれない。
 
 エラー出力には[eprint!](#eprint)を使うこと。
 
@@ -310,7 +310,7 @@ hello2.push_str("orld!");
 [Trait std::string::ToString](https://doc.rust-lang.org/std/string/trait.ToString.html)
 
 値を `String` に変換するためのトレイト。  
-`ToString` は直接実装すべきではない。[Display](#display-trait)を実装することで、 `ToString` の実装が得られる。
+`ToString` は直接実装すべきではない。Displayを実装することで、 `ToString` の実装が得られる。
 
 #### to_string (Require Method)
 

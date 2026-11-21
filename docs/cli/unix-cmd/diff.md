@@ -20,7 +20,7 @@ diff <(command1) <(command2)
 
 ## 関連ツール
 
-- git diff ... See [git#diff](../../software/git/index.md#diff)
+- git diff ... See [git#diff](../../software/git/index.md#git-diffをpatch適用する)
 
 ### colordiff
 

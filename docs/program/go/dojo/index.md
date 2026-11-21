@@ -144,7 +144,7 @@ if link, err := os.Readlink(path); link != "" {
 
 関連項目:
 
-- [エコシステム#ビルド・公開](../ecosystem/index.md#ビルド公開)
+- [エコシステム#ビルド・公開](../ecosystem/index.md#ビルド)
 
 ## モジュール作成
 

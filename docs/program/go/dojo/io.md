@@ -10,8 +10,8 @@ date: '2020-07-05T12:48:06+09:00'
 
 - [pkg (stdlib) > bufio](../std-pkg/index.md#bufio)
 - [pkg (stdlib) > fmt](../std-pkg/fmt.md)
-- [pkg (stdlib) > io](../std-pkg/index.md#io)
-- [pkg (stdlib) > io/ioutil](../std-pkg/index.md#ioioutil)
+- [pkg (stdlib) > io](../std-pkg/index.md)
+- [pkg (stdlib) > io/ioutil](../std-pkg/index.md)
 
 特に、ファイル入出力に関するもの:
 

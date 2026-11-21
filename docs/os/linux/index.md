@@ -39,7 +39,7 @@ date: '2020-05-21T21:32:53+09:00'
 
 See Also:
 
-- [UNIX系コマンド#kill(1)](../../cli/unix-cmd/index.md#kill1)
+- [UNIX系コマンド#kill(1)](../../cli/unix-cmd/index.md)
 
 参考:
 
@@ -103,7 +103,7 @@ See Also:
 
 関連項目:
 
-- [UNIX系コマンド#umask](../../cli/unix-cmd/index.md#umask)
+- [UNIX系コマンド#umask](../../cli/unix-cmd/index.md)
 
 参考:
 

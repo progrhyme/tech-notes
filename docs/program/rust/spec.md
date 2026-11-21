@@ -22,7 +22,7 @@ let mut bar = 5; // mutable
 - [Variables and Mutability - The Rust Programming Language](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#variables-and-mutability)
 
 ## 演算子
-### ?
+### ? { #op-question }
 
 - [The ? operator for easier error handling - The Edition Guide](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html)
 
@@ -65,7 +65,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 ## 型
 
-- String provided by [Struct std::string::String](std/index.md#string-1)
+- String provided by [Struct std::string::String](std/index.md#string-struct)
 
 ### Associated Function
 

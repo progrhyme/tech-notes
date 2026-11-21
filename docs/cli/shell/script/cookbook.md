@@ -64,7 +64,7 @@ do_something | while IFS= read -r line; do echo "$(date) $line"; done
 
 ## 数字を3桁ずつカンマ区切りで出力
 
-See [UNIX系コマンド#printf(1)](../../unix-cmd/index.md#printf1)
+See [UNIX系コマンド#printf(1)](../../unix-cmd/index.md)
 
 ## オプション解析
 

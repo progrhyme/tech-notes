@@ -66,7 +66,7 @@ type User struct {
 
 関連項目:
 
-- [言語仕様#構造体-タグ](../spec/index.md#タグ)
+- [言語仕様#構造体-タグ](../spec/index.md)
 
 参考:
 
