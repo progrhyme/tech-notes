@@ -73,6 +73,21 @@ nav = [
 - セクション(ディレクトリ)のラベルは、ディレクトリ名から作られる(`cli/` は `Cli`、`aws/` は `Aws`)。`index.md` のフロントマターに `title: AWS` と書いても、セクションのラベルは `Aws` のままになる(ページ自体のタイトルは変わる)。
 - 並び順やラベルを細かく制御したいときは、`nav` を明記する。
 
+### docs_dir
+
+Markdown を探すディレクトリ。`zensical.toml` からの相対パスで、既定は `docs`。
+
+```toml
+[project]
+docs_dir = "docs"
+```
+
+- 単一のパスだけを指定できる。複数のディレクトリを指定する方法は、見つからなかった。
+- プロジェクトのルート(`.`)は指定できない。公式は、一時的な制限としていて、`docs/` などのサブディレクトリに移すよう案内している。
+- `docs_dir` の外のファイルは、監視の対象外になる。公式は、対応をバックログとしている。
+- `docs/` 以外のディレクトリも含めて閲覧したいときは、`docs_dir` の下にシンボリックリンクやコピーを集める方法になる。シンボリックリンクが正しく扱われるかは、確認していない。
+- 除外は `exclude_docs`(`.gitignore` 構文、`docs_dir` からの相対)で指定する。
+
 ### 日本語の見出しのアンカー
 
 既定のスラッグ化では、日本語が落とされて、見出しへのリンク(`#見出し`)が壊れる。[pymdownx.slugs](https://facelessuser.github.io/pymdown-extensions/extras/slugs/) を指定して、日本語を残す。
@@ -128,4 +143,5 @@ steps:
 ## 参考
 
 - https://zensical.org/docs/get-started/
+- https://zensical.org/docs/setup/basics/ ... `docs_dir` などの基本設定
 - [2026-11-21 のメモ](../../memo/2026/20261121.md) ... Hugo + Docsy からの移行の記録
