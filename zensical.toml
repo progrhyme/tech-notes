@@ -441,6 +441,11 @@ nav = [
 # extra_css = ["stylesheets/extra.css"]
 # extra_javascript = ["javascripts/extra.js"]
 
+# 外部リンクを別タブで開く(privacy プラグインのリンク属性の機能のみ使う)
+[project.plugins.privacy]
+assets = false  # 外部アセットのダウンロードはしない
+links_attr_map = { target = "_blank" }
+
 [project.theme]
 # variant = "classic"
 # custom_dir = "overrides"
