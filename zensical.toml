@@ -213,6 +213,7 @@ nav = [
         "software/job-man/index.md",
         { "cron" = "software/job-man/cron.md" },
         { "GNU make" = "software/job-man/make.md" },
+        { "just" = "software/job-man/just.md" },
         { "Jenkins" = [
           "software/job-man/jenkins/index.md",
           { "Jenkins X" = "software/job-man/jenkins/jx.md" },
