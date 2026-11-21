@@ -79,4 +79,4 @@
 `software/static-site-generator/mdbook.md` — mdBook の CLI とクイックスタート
 `software/static-site-generator/mkdocs.md` — MkDocs の使い方、テーマ、mkdocs-material
 `software/static-site-generator/vitepress.md` — VitePress の設定、サイドバーの自動生成、動作のメモ
-`software/static-site-generator/zensical.md` — Zensical の設定、GitHub Pages へのデプロイ、動作のメモ
+`software/static-site-generator/zensical.md` — Zensical の設定、デプロイ、作成日・最終更新日の表示、動作のメモ

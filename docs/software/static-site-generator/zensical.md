@@ -131,6 +131,40 @@ steps:
 - リポジトリの Settings > Pages で、公開元を「GitHub Actions」にする。
 - ワークフローに `permissions`(`contents: read`、`pages: write`、`id-token: write`)と `environment: github-pages` が要る(雛形にある)。
 
+## 作成日・最終更新日の表示
+
+MkDocs 時代の [git-revision-date-localized](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin) プラグインのように、Git の履歴から日付を取って表示する機能は、2026-11-21 時点(Zensical 0.1.3)では、動作を確認できなかった。Zensical へ移行した他のサイトでも、このプラグインを外した例がある[^unsupported]。
+一方、テーマは、ページのフロントマターに書かれた日付を、ページの末尾に表示する。キーの名前は、Material for MkDocs のテンプレートと同じ[^theme]。
+
+| フロントマターのキー | 表示 |
+| :--- | :--- |
+| `revision_date`(なければ `git_revision_date_localized`) | 最終更新日 |
+| `git_creation_date_localized` | 作成日 |
+
+- 値は、整形せずに、そのまま表示される。書式は、書く側で決める(例: `2026-11-21`)。
+- キーを書いたページにだけ、表示される。
+
+### Git の履歴から日付を挿入する
+
+ビルドの前に、Git の履歴から日付を取って、フロントマターに書き込むスクリプトを実行すれば、同じ表示ができる。tech-notes では、`scripts/inject_revision_dates.py` で行っている[^script]。要点は、次のとおり。
+
+- 作成日は、そのファイルに触れたコミットの author date のうち、最も古いもの。最終更新日は、最も新しいもの。リネームは追跡する(`git log --follow`)。
+- CI で、ビルドの前に実行する。ローカルで実行すると、ソースのファイルが書き換わり、コミットで日付が変わってしまう。CI のチェックアウトにだけ書き込み、コミットしない。
+- チェックアウトは、履歴の全体を取る(`fetch-depth: 0`)。浅いクローンでは、日付が正しく取れない。
+- 値は、引用符で囲んで、文字列にする(`revision_date: '2026-11-21'`)。YAML で日付型に変換されないようにするため。
+- `git log -- <パス>` のパスは、既定では glob として解釈される。`a*.md` や `b[1].md` のようなファイル名では、別のファイルの日付が混ざる。`git --literal-pathspecs` を付けて、文字列としてそのまま扱う。
+
+```yaml
+steps:
+  - uses: actions/checkout@v7
+    with:
+      fetch-depth: 0
+  - uses: astral-sh/setup-uv@v7
+  - run: uv sync --locked
+  - run: uv run python scripts/inject_revision_dates.py  # 日付をフロントマターに挿入する
+  - run: uv run zensical build --clean
+```
+
 ## 動作のメモ
 
 - ページ名は、本文の最初の `#` 見出しから決まる。Hugo のように、フロントマターの `title` が自動で見出しにはならない。
@@ -145,3 +179,7 @@ steps:
 - https://zensical.org/docs/get-started/
 - https://zensical.org/docs/setup/basics/ ... `docs_dir` などの基本設定
 - [2026-11-21 のメモ](../../memo/2026/20261121.md) ... Hugo + Docsy からの移行の記録
+
+[^unsupported]: [Mason Recipes のサイトの PR](https://github.com/masonrecipes/masonrecipes.github.io/pull/36)と、[Argonne の user-guides の PR](https://github.com/argonne-lcf/user-guides/pull/1354)の記述による。
+[^theme]: Zensical 0.1.3 に同梱のテーマ(`zensical_ui`)の `templates/partials/source-file.html` を確認した。最終更新日は `page.meta.git_revision_date_localized`、なければ `page.meta.revision_date`、作成日は `page.meta.git_creation_date_localized` を表示する。
+[^script]: [scripts/inject_revision_dates.py - progrhyme/tech-notes](https://github.com/progrhyme/tech-notes/blob/main/scripts/inject_revision_dates.py)
