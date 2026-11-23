@@ -17,7 +17,7 @@
 | `docs/os/` | [os.md](os.md) | 6 | OS(Linux、macOS、UNIX) |
 | `docs/program/` | [program.md](program.md) | 53 | プログラミング言語(Go、JavaScript、Perl、Python、Ruby、Rust) |
 | `docs/security/` | [security.md](security.md) | 2 | セキュリティ、データの符号化 |
-| `docs/software/` | [software/index.md](software/index.md) | 81 | ソフトウェア製品(Docker、Git、Kubernetes、Terraform、エディタなど) |
+| `docs/software/` | [software/index.md](software/index.md) | 82 | ソフトウェア製品(Docker、Git、Kubernetes、Terraform、エディタなど) |
 | `docs/web-service/` | [web-service.md](web-service.md) | 15 | Web サービス(AWS、GitHub、Datadog、Slack など) |
 
 `docs/` 直下のページは、このファイルの下に載せている。

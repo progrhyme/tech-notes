@@ -26,4 +26,5 @@
 ## docs/software/ 直下のページ
 
 `software/index.md` — ソフトウェア製品の入口。GUI の HTTP クライアント(Postman など)
+`software/backlog-md.md` — Backlog.md。Markdown でタスクを管理するツール。CLI、子タスク、Web UI、制限事項
 `software/infra-as-code.md` — Infrastructure as Code のソフトウェア。Pulumi、Go CDK、Terraform
