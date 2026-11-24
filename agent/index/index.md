@@ -8,7 +8,7 @@
 
 | ディレクトリ | インデックス | ページ数 | 主題 |
 | :--- | :--- | ---: | :--- |
-| `docs/cli/` | [cli.md](cli.md) | 25 | コマンドラインツール、シェル、UNIX 系コマンド |
+| `docs/cli/` | [cli.md](cli.md) | 26 | コマンドラインツール、シェル、UNIX 系コマンド |
 | `docs/data-format/` | [data-format.md](data-format.md) | 1 | データ形式(JSON、Protocol Buffers など) |
 | `docs/document/` | [document.md](document.md) | 3 | ドキュメントとドキュメンテーションツール(man、Markdown) |
 | `docs/firmware/` | [firmware.md](firmware.md) | 3 | ファームウェア(BIOS、UEFI) |

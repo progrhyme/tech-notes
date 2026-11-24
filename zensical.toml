@@ -370,6 +370,7 @@ nav = [
         ] },
         { "fish" = "cli/shell/fish.md" },
         { "PowerShell" = "cli/shell/powershell.md" },
+        { "Starship" = "cli/shell/starship.md" },
         { "Zsh" = [
           "cli/shell/zsh/index.md",
           { "Oh My Zsh" = "cli/shell/zsh/ohmyzsh.md" },

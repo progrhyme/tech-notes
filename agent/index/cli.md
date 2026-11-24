@@ -19,6 +19,7 @@
 `cli/shell/bash/cookbook.md` — Bash のスニペット集。文字列操作、数値、ループ、正規表現、論理演算 など
 `cli/shell/fish.md` — fish shell の仕様、コマンド、パッケージ管理
 `cli/shell/powershell.md` — PowerShell の使い方
+`cli/shell/starship.md` — Starship の使い方、設定、agnoster 風のプロンプト。Zsh の RPROMPT の上書きなど、注意点
 `cli/shell/zsh/index.md` — Zsh のソースコード、構文、設定、機能、ツール
 `cli/shell/zsh/ohmyzsh.md` — Oh My Zsh の使い方と、カスタムプラグイン
 `cli/shell/script/index.md` — シェルスクリプトの入口。テストと、ドキュメンテーションコメント
