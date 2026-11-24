@@ -21,7 +21,7 @@
 `cli/shell/powershell.md` — PowerShell の使い方
 `cli/shell/starship.md` — Starship の使い方、設定、agnoster 風のプロンプト。Zsh の RPROMPT の上書きなど、注意点
 `cli/shell/zsh/index.md` — Zsh のソースコード、構文、設定、機能、ツール
-`cli/shell/zsh/ohmyzsh.md` — Oh My Zsh の使い方と、カスタムプラグイン
+`cli/shell/zsh/ohmyzsh.md` — Oh My Zsh の使い方、カスタムプラグイン、agnoster テーマ、外すと失われる設定
 `cli/shell/script/index.md` — シェルスクリプトの入口。テストと、ドキュメンテーションコメント
 `cli/shell/script/cookbook.md` — シェルスクリプトのスニペット集。入力、OS判別、オプション解析、排他制御 など
 `cli/shell/pkg-man.md` — シェルのパッケージ管理ツール。汎用、Bash、Zsh、fish
